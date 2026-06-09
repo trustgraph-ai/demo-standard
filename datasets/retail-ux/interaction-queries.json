@@ -1,0 +1,86 @@
+[
+  {
+    "id": "all-journeys",
+    "title": "All journeys with actor, outcome, and session count",
+    "description": "Returns all journeys with their actor, purpose, outcome, and the number of sessions in each.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?actorId ?purpose ?outcome ?startDate ?endDate (COUNT(?session) AS ?sessionCount)\nWHERE {\n  ?journey a ix:Journey ;\n           ix:journeyActor ?actor ;\n           ix:journeyPurpose ?purpose ;\n           ix:journeyOutcome ?outcome ;\n           ix:journeyStartDate ?startDate ;\n           ix:hasSession ?session .\n  ?actor ix:actorId ?actorId .\n  OPTIONAL { ?journey ix:journeyEndDate ?endDate }\n}\nGROUP BY ?actorId ?purpose ?outcome ?startDate ?endDate\nORDER BY ?startDate"
+  },
+  {
+    "id": "journey-event-sequence",
+    "title": "Full event sequence for a journey",
+    "description": "Returns the time-ordered sequence of events in a specific journey with event types and timestamps.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?seqIndex ?eventType ?timestamp ?dwellTime\nWHERE {\n  ?journey a ix:Journey ;\n           ix:journeyPurpose ?purpose ;\n           ix:hasSession ?session .\n  ?event ix:inSession ?session ;\n         ix:sequenceIndex ?seqIndex ;\n         ix:timestamp ?timestamp ;\n         a ?eventType .\n  ?eventType rdfs:subClassOf ix:InteractionEvent .\n  OPTIONAL { ?event ix:dwellTimeSeconds ?dwellTime }\n  FILTER(?purpose = \"1440p gaming PC build\")\n}\nORDER BY ?timestamp ?seqIndex"
+  },
+  {
+    "id": "objections-by-category",
+    "title": "All objections grouped by category with resolution status",
+    "description": "Returns all objection events with their category, whether they were resolved, and how.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?categoryLabel ?statedReason ?resolved ?resolvedBy ?journeyPurpose\nWHERE {\n  ?event a ix:Objection ;\n         ix:hasObjectionType ?category ;\n         ix:objectionResolved ?resolved ;\n         ix:inSession ?session .\n  ?category rdfs:label ?categoryLabel .\n  ?session ix:belongsToJourney ?journey .\n  ?journey ix:journeyPurpose ?journeyPurpose .\n  OPTIONAL { ?event ix:statedReason ?statedReason }\n  OPTIONAL { ?event ix:resolvedBy ?resolvedBy }\n}\nORDER BY ?categoryLabel"
+  },
+  {
+    "id": "decision-points",
+    "title": "All decision points with options considered and selected",
+    "description": "Returns decision point events showing what was considered, chosen, and rejected.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rt: <http://trustgraph.ai/ontology/retail#>\n\nSELECT ?journeyPurpose ?selectedName ?rejectedName ?reasoning\nWHERE {\n  ?event a ix:DecisionPoint ;\n         ix:selectedOption ?selected ;\n         ix:rejectedOption ?rejected ;\n         ix:inSession ?session .\n  ?selected rdfs:label ?selectedName .\n  ?rejected rdfs:label ?rejectedName .\n  ?session ix:belongsToJourney ?journey .\n  ?journey ix:journeyPurpose ?journeyPurpose .\n  OPTIONAL { ?event ix:decisionReasoning ?reasoning }\n}\nORDER BY ?journeyPurpose"
+  },
+  {
+    "id": "budget-signals",
+    "title": "Budget signals across journeys",
+    "description": "Returns all budget signals with stated amounts, constraint types, and journey context.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?journeyPurpose ?statedBudget ?constraintType ?signalStrength\nWHERE {\n  ?event a ix:BudgetSignal ;\n         ix:inSession ?session .\n  ?session ix:belongsToJourney ?journey .\n  ?journey ix:journeyPurpose ?journeyPurpose .\n  OPTIONAL { ?event ix:statedBudget ?statedBudget }\n  OPTIONAL { ?event ix:budgetConstraintType ?constraintType }\n  OPTIONAL { ?event ix:signalStrength ?signalStrength }\n}\nORDER BY ?journeyPurpose"
+  },
+  {
+    "id": "recommendation-effectiveness",
+    "title": "Recommendation acceptance rate",
+    "description": "Returns all recommendations with whether they were accepted, the product recommended, and the reason given.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?journeyPurpose ?productName ?accepted ?reason\nWHERE {\n  ?event a ix:RecommendationReceived ;\n         ix:recommendedProduct ?product ;\n         ix:recommendationAccepted ?accepted ;\n         ix:inSession ?session .\n  ?product rdfs:label ?productName .\n  ?session ix:belongsToJourney ?journey .\n  ?journey ix:journeyPurpose ?journeyPurpose .\n  OPTIONAL { ?event ix:recommendationReason ?reason }\n}\nORDER BY ?journeyPurpose"
+  },
+  {
+    "id": "priority-signals",
+    "title": "User priority signals with dimensions and strength",
+    "description": "Returns all priority signals showing what dimensions users care about most.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?journeyPurpose ?dimension ?strength\nWHERE {\n  ?event a ix:PrioritySignal ;\n         ix:priorityDimension ?dimension ;\n         ix:inSession ?session .\n  ?session ix:belongsToJourney ?journey .\n  ?journey ix:journeyPurpose ?journeyPurpose .\n  OPTIONAL { ?event ix:signalStrength ?strength }\n}\nORDER BY ?journeyPurpose ?dimension"
+  },
+  {
+    "id": "conversion-funnel",
+    "title": "Conversion funnel event counts by type",
+    "description": "Counts events of each interaction type across all journeys to show the funnel shape.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?eventType (COUNT(?event) AS ?count)\nWHERE {\n  ?event a ?eventType .\n  ?eventType rdfs:subClassOf ix:InteractionEvent .\n}\nGROUP BY ?eventType\nORDER BY DESC(?count)"
+  },
+  {
+    "id": "objection-resolution-rate",
+    "title": "Objection resolution rate by category",
+    "description": "Shows how often each objection type gets resolved vs stays unresolved.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?categoryLabel (COUNT(?event) AS ?total)\n       (SUM(IF(?resolved, 1, 0)) AS ?resolvedCount)\n       (SUM(IF(!?resolved, 1, 0)) AS ?unresolvedCount)\nWHERE {\n  ?event a ix:Objection ;\n         ix:hasObjectionType ?category ;\n         ix:objectionResolved ?resolved .\n  ?category rdfs:label ?categoryLabel .\n}\nGROUP BY ?categoryLabel\nORDER BY ?categoryLabel"
+  },
+  {
+    "id": "journey-total-spend",
+    "title": "Total spend per journey with product breakdown",
+    "description": "Returns the products purchased and total spend for each completed journey.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?journeyPurpose ?totalSpend ?productName\nWHERE {\n  ?event a ix:CheckoutCompleted ;\n         ix:totalSpend ?totalSpend ;\n         ix:purchasedProduct ?product ;\n         ix:inSession ?session .\n  ?product rdfs:label ?productName .\n  ?session ix:belongsToJourney ?journey .\n  ?journey ix:journeyPurpose ?journeyPurpose .\n}\nORDER BY ?journeyPurpose ?productName"
+  },
+  {
+    "id": "trigger-types",
+    "title": "Journey trigger events and types",
+    "description": "Returns what triggered each journey — problem, occasion, deal, curiosity, or recommendation.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?journeyPurpose ?triggerType ?triggerDescription\nWHERE {\n  ?event a ix:TriggerEvent ;\n         ix:triggerType ?triggerType ;\n         ix:inSession ?session .\n  ?session ix:belongsToJourney ?journey .\n  ?journey ix:journeyPurpose ?journeyPurpose .\n  OPTIONAL { ?event ix:triggerDescription ?triggerDescription }\n}\nORDER BY ?journeyPurpose"
+  },
+  {
+    "id": "mixin-events",
+    "title": "Events with both interaction and signal types (mixin pattern)",
+    "description": "Finds events that carry both an interaction type and a signal type, demonstrating the mixin pattern.",
+    "language": "sparql",
+    "query": "PREFIX ix: <http://trustgraph.ai/ontology/interaction#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?event ?interactionType ?signalType\nWHERE {\n  ?event a ?interactionType ;\n         a ?signalType .\n  ?interactionType rdfs:subClassOf ix:InteractionEvent .\n  ?signalType rdfs:subClassOf ix:SignalEvent .\n}\nORDER BY ?event"
+  }
+]
