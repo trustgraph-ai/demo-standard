@@ -1,0 +1,32 @@
+{
+  "name": "Stars",
+  "description": "HYG star database: catalog IDs, position, distance, magnitude, spectral type, luminosity, constellation, and variable star data",
+  "fields": [
+    {"name": "id", "type": "integer", "primary_key": true, "required": true, "description": "Database primary key"},
+    {"name": "hip", "type": "integer", "primary_key": false, "required": false, "description": "Hipparcos catalog ID"},
+    {"name": "hd", "type": "integer", "primary_key": false, "required": false, "description": "Henry Draper catalog ID"},
+    {"name": "hr", "type": "integer", "primary_key": false, "required": false, "description": "Harvard Revised / Yale Bright Star catalog ID"},
+    {"name": "gl", "type": "string", "primary_key": false, "required": false, "description": "Gliese Catalog of Nearby Stars ID"},
+    {"name": "proper", "type": "string", "primary_key": false, "required": false, "description": "Common name (e.g. Sirius, Barnard's Star)"},
+    {"name": "ra", "type": "float", "primary_key": false, "required": true, "description": "Right ascension, epoch/equinox 2000.0"},
+    {"name": "dec", "type": "float", "primary_key": false, "required": true, "description": "Declination, epoch/equinox 2000.0"},
+    {"name": "dist", "type": "float", "primary_key": false, "required": true, "description": "Distance in parsecs (>= 100000 indicates missing/dubious parallax)"},
+    {"name": "pmra", "type": "float", "primary_key": false, "required": false, "description": "Proper motion in RA, milliarcseconds/year"},
+    {"name": "pmdec", "type": "float", "primary_key": false, "required": false, "description": "Proper motion in declination, milliarcseconds/year"},
+    {"name": "rv", "type": "float", "primary_key": false, "required": false, "description": "Radial velocity in km/sec"},
+    {"name": "mag", "type": "float", "primary_key": false, "required": true, "description": "Apparent visual magnitude"},
+    {"name": "spect", "type": "string", "primary_key": false, "required": false, "description": "Spectral type"},
+    {"name": "ci", "type": "float", "primary_key": false, "required": false, "description": "Color index (blue mag - visual mag)"},
+    {"name": "bayer", "type": "string", "primary_key": false, "required": false, "description": "Bayer designation"},
+    {"name": "flam", "type": "string", "primary_key": false, "required": false, "description": "Flamsteed number"},
+    {"name": "con", "type": "string", "primary_key": false, "required": false, "description": "Standard constellation abbreviation"},
+    {"name": "comp", "type": "integer", "primary_key": false, "required": false, "description": "Companion star ID in multiple star system"},
+    {"name": "comp_primary", "type": "integer", "primary_key": false, "required": false, "description": "Primary star ID for this component"},
+    {"name": "base", "type": "string", "primary_key": false, "required": false, "description": "Catalog ID or name for multi-star system"},
+    {"name": "lum", "type": "float", "primary_key": false, "required": false, "description": "Luminosity as multiple of Solar luminosity"},
+    {"name": "var", "type": "string", "primary_key": false, "required": false, "description": "Variable star designation"},
+    {"name": "var_min", "type": "float", "primary_key": false, "required": false, "description": "Variable star minimum magnitude (V scale)"},
+    {"name": "var_max", "type": "float", "primary_key": false, "required": false, "description": "Variable star maximum magnitude (V scale)"}
+  ],
+  "indexes": ["proper", "spect", "con"]
+}

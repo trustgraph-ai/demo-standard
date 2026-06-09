@@ -1,0 +1,16 @@
+[
+  {
+    "id": "most-visited-body",
+    "title": "Most visited celestial body",
+    "description": "Determine which celestial body has been visited by the most missions.",
+    "language": "agent",
+    "query": "Which celestial body has been visited by the most missions?"
+  },
+  {
+    "id": "fastest-flyby",
+    "title": "Fastest flyby velocity",
+    "description": "Find the fastest spacecraft velocity recorded during a flyby and which mission achieved it.",
+    "language": "agent",
+    "query": "What was the fastest spacecraft velocity recorded during a flyby, and which mission achieved it?"
+  }
+]

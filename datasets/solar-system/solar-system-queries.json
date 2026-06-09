@@ -1,0 +1,65 @@
+[
+  {
+    "id": "list-missions",
+    "title": "List all missions with agency and status",
+    "description": "Returns mission name, agency, status, and launch date ordered by launch date.",
+    "language": "sparql",
+    "query": "PREFIX ss: <http://trustgraph.ai/ontology/solar-system#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?name ?agency ?statusLabel ?launchDate\nWHERE {\n  ?mission a ?type ;\n           ss:name ?name ;\n           ss:agency ?agency ;\n           ss:status ?status ;\n           ss:launch-date ?launchDate .\n  ?type rdfs:subClassOf ss:Mission .\n  ?status rdfs:label ?statusLabel .\n}\nORDER BY ?launchDate"
+  },
+  {
+    "id": "list-celestial-bodies",
+    "title": "List all celestial bodies by type",
+    "description": "Returns celestial body name, type, distance from Sun, and radius ordered by distance.",
+    "language": "sparql",
+    "query": "PREFIX ss: <http://trustgraph.ai/ontology/solar-system#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?name ?typeLabel ?distanceAU ?radiusKm\nWHERE {\n  ?body a ?type ;\n        ss:name ?name ;\n        ss:avg-distance-from-sun-au ?distanceAU ;\n        ss:radius-km ?radiusKm .\n  ?type rdfs:subClassOf ss:CelestialBody ;\n        rdfs:label ?typeLabel .\n}\nORDER BY ?distanceAU"
+  },
+  {
+    "id": "mission-events",
+    "title": "Events for a specific mission (e.g. Voyager 1)",
+    "description": "Returns all events for a named mission with date, type, description, nearest body, distance, and velocity.",
+    "language": "sparql",
+    "query": "PREFIX ss: <http://trustgraph.ai/ontology/solar-system#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?date ?eventType ?description ?nearestBody ?distanceKm ?velocityKmS\nWHERE {\n  ?mission ss:name \"Voyager 1\" ;\n           ss:has-event ?event .\n  ?event a ?type ;\n         ss:date ?date ;\n         ss:description ?description ;\n         ss:distance-from-body-km ?distanceKm ;\n         ss:velocity-km-s ?velocityKmS .\n  ?type rdfs:label ?eventType .\n  OPTIONAL {\n    ?event ss:nearest-body ?body .\n    ?body ss:name ?nearestBody .\n  }\n}\nORDER BY ?date"
+  },
+  {
+    "id": "all-flybys",
+    "title": "All flyby events with mission name and target body",
+    "description": "Returns all flyby events across missions with date, description, target body, and distance.",
+    "language": "sparql",
+    "query": "PREFIX ss: <http://trustgraph.ai/ontology/solar-system#>\n\nSELECT ?missionName ?date ?description ?bodyName ?distanceKm\nWHERE {\n  ?mission ss:name ?missionName ;\n           ss:has-event ?event .\n  ?event a ss:FlybyEvent ;\n         ss:date ?date ;\n         ss:description ?description ;\n         ss:distance-from-body-km ?distanceKm ;\n         ss:nearest-body ?body .\n  ?body ss:name ?bodyName .\n}\nORDER BY ?date"
+  },
+  {
+    "id": "missions-by-target",
+    "title": "Missions targeting a specific body (e.g. Mars)",
+    "description": "Returns missions targeting a named celestial body with agency and launch date.",
+    "language": "sparql",
+    "query": "PREFIX ss: <http://trustgraph.ai/ontology/solar-system#>\n\nSELECT ?missionName ?agency ?launchDate\nWHERE {\n  ?body ss:name \"Mars\" .\n  ?mission ss:target-body ?body ;\n           ss:name ?missionName ;\n           ss:agency ?agency ;\n           ss:launch-date ?launchDate .\n}\nORDER BY ?launchDate"
+  },
+  {
+    "id": "count-by-agency",
+    "title": "Count missions by agency",
+    "description": "Returns the number of missions per agency, ordered by count descending.",
+    "language": "sparql",
+    "query": "PREFIX ss: <http://trustgraph.ai/ontology/solar-system#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?agency (COUNT(?mission) AS ?count)\nWHERE {\n  ?mission a ?type ;\n           ss:agency ?agency .\n  ?type rdfs:subClassOf ss:Mission .\n}\nGROUP BY ?agency\nORDER BY DESC(?count)"
+  },
+  {
+    "id": "count-events-by-body",
+    "title": "Count events by target body",
+    "description": "Returns the number of events per celestial body, ordered by count descending.",
+    "language": "sparql",
+    "query": "PREFIX ss: <http://trustgraph.ai/ontology/solar-system#>\n\nSELECT ?bodyName (COUNT(?event) AS ?count)\nWHERE {\n  ?event ss:nearest-body ?body .\n  ?body ss:name ?bodyName .\n}\nGROUP BY ?bodyName\nORDER BY DESC(?count)"
+  },
+  {
+    "id": "mission-timeline",
+    "title": "Mission timeline — all events across all missions sorted by date",
+    "description": "Returns a chronological timeline of all mission events with distance from Sun.",
+    "language": "sparql",
+    "query": "PREFIX ss: <http://trustgraph.ai/ontology/solar-system#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?date ?missionName ?eventType ?description ?distanceAU\nWHERE {\n  ?mission ss:name ?missionName ;\n           ss:has-event ?event .\n  ?event a ?type ;\n         ss:date ?date ;\n         ss:description ?description ;\n         ss:position ?pos .\n  ?type rdfs:label ?eventType .\n  ?pos ss:distance-au ?distanceAU .\n}\nORDER BY ?date"
+  },
+  {
+    "id": "furthest-from-sun",
+    "title": "Furthest events from the Sun",
+    "description": "Returns mission events ordered by distance from the Sun, furthest first.",
+    "language": "sparql",
+    "query": "PREFIX ss: <http://trustgraph.ai/ontology/solar-system#>\n\nSELECT ?missionName ?date ?description ?distanceAU\nWHERE {\n  ?mission ss:name ?missionName ;\n           ss:has-event ?event .\n  ?event ss:date ?date ;\n         ss:description ?description ;\n         ss:position ?pos .\n  ?pos ss:distance-au ?distanceAU .\n}\nORDER BY DESC(?distanceAU)"
+  }
+]

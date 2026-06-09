@@ -1,0 +1,13 @@
+{
+  "id": "stars-query",
+  "name": "stars-query",
+  "type": "structured-query",
+  "description": "This tool queries a database table that holds information about stars . The question should be a natural language question.\n\nstar database containing catalog IDs, position, distance, magnitude, spectral type, luminosity, constellation, and variable star data.\n\nField Name,Type,Key / Required,Description\nid,Integer,Primary Key Required,Database primary key\nhip,Integer,Optional,Hipparcos catalog ID\nhd,Integer,Optional,Henry Draper catalog ID\nhr,Integer,Optional,Harvard Revised / Yale Bright Star catalog ID\ngl,String,Optional,Gliese Catalog of Nearby Stars ID\nproper,String,Optional,\"Common name (e.g., Sirius, Barnard's Star)\"\nra,Float,Required,\"Right ascension, epoch/equinox 2000.0\"\ndec,Float,Required,\"Declination, epoch/equinox 2000.0\"\ndist,Float,Required,Distance in parsecs (≥100000 indicates missing/dubious parallax)\npmra,Float,Optional,\"Proper motion in RA, milliarcseconds/year\"\npmdec,Float,Optional,\"Proper motion in declination, milliarcseconds/year\"\nrv,Float,Optional,Radial velocity in km/sec\nmag,Float,Required,Apparent visual magnitude\nspect,String,Optional,Spectral type\nci,Float,Optional,Color index (blue mag - visual mag)\nbayer,String,Optional,Bayer designation\nflam,String,Optional,Flamsteed number\ncon,String,Optional,Standard constellation abbreviation\ncomp,Integer,Optional,Companion star ID in multiple star system\ncomp_primary,Integer,Optional,Primary star ID for this component\nbase,String,Optional,Catalog ID or name for multi-star system\nlum,Float,Optional,Luminosity as multiple of Solar luminosity\nvar,String,Optional,Variable star designation\nvar_min,Float,Optional,Variable star minimum magnitude (V scale)\nvar_max,Float,Optional,Variable star maximum magnitude (V scale)\n",
+  "arguments": [
+    {
+      "description": "A simple natural language question.",
+      "name": "question",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,2765 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ss: <http://trustgraph.ai/ontology/solar-system#> .
+@prefix ssd: <http://trustgraph.ai/data/solar-system#> .
+
+ssd:sun a ss:Star ;
+    rdfs:label "Sun" ;
+    ss:name "Sun" ;
+    ss:description "The star at the center of our solar system" ;
+    ss:avg-distance-from-sun-au "0.0"^^xsd:double ;
+    ss:radius-km "695700"^^xsd:double .
+
+ssd:mercury a ss:Planet ;
+    rdfs:label "Mercury" ;
+    ss:name "Mercury" ;
+    ss:description "Smallest planet, closest to the Sun" ;
+    ss:avg-distance-from-sun-au "0.39"^^xsd:double ;
+    ss:radius-km "2439.7"^^xsd:double ;
+    ss:orbital-period-years "0.24"^^xsd:double .
+
+ssd:venus a ss:Planet ;
+    rdfs:label "Venus" ;
+    ss:name "Venus" ;
+    ss:description "Second planet, similar size to Earth" ;
+    ss:avg-distance-from-sun-au "0.72"^^xsd:double ;
+    ss:radius-km "6051.8"^^xsd:double ;
+    ss:orbital-period-years "0.62"^^xsd:double .
+
+ssd:earth a ss:Planet ;
+    rdfs:label "Earth" ;
+    ss:name "Earth" ;
+    ss:description "Third planet, home of all known life" ;
+    ss:avg-distance-from-sun-au "1.0"^^xsd:double ;
+    ss:radius-km "6371.0"^^xsd:double ;
+    ss:orbital-period-years "1.0"^^xsd:double .
+
+ssd:mars a ss:Planet ;
+    rdfs:label "Mars" ;
+    ss:name "Mars" ;
+    ss:description "Fourth planet, the Red Planet" ;
+    ss:avg-distance-from-sun-au "1.52"^^xsd:double ;
+    ss:radius-km "3389.5"^^xsd:double ;
+    ss:orbital-period-years "1.88"^^xsd:double .
+
+ssd:jupiter a ss:Planet ;
+    rdfs:label "Jupiter" ;
+    ss:name "Jupiter" ;
+    ss:description "Largest planet, gas giant" ;
+    ss:avg-distance-from-sun-au "5.2"^^xsd:double ;
+    ss:radius-km "69911"^^xsd:double ;
+    ss:orbital-period-years "11.86"^^xsd:double .
+
+ssd:saturn a ss:Planet ;
+    rdfs:label "Saturn" ;
+    ss:name "Saturn" ;
+    ss:description "Sixth planet, famous for its ring system" ;
+    ss:avg-distance-from-sun-au "9.54"^^xsd:double ;
+    ss:radius-km "58232"^^xsd:double ;
+    ss:orbital-period-years "29.46"^^xsd:double .
+
+ssd:uranus a ss:Planet ;
+    rdfs:label "Uranus" ;
+    ss:name "Uranus" ;
+    ss:description "Seventh planet, ice giant tilted on its side" ;
+    ss:avg-distance-from-sun-au "19.19"^^xsd:double ;
+    ss:radius-km "25362"^^xsd:double ;
+    ss:orbital-period-years "84.01"^^xsd:double .
+
+ssd:neptune a ss:Planet ;
+    rdfs:label "Neptune" ;
+    ss:name "Neptune" ;
+    ss:description "Eighth planet, most distant known planet" ;
+    ss:avg-distance-from-sun-au "30.07"^^xsd:double ;
+    ss:radius-km "24622"^^xsd:double ;
+    ss:orbital-period-years "164.8"^^xsd:double .
+
+ssd:pluto a ss:DwarfPlanet ;
+    rdfs:label "Pluto" ;
+    ss:name "Pluto" ;
+    ss:description "Dwarf planet in the Kuiper Belt" ;
+    ss:avg-distance-from-sun-au "39.48"^^xsd:double ;
+    ss:radius-km "1188.3"^^xsd:double ;
+    ss:orbital-period-years "248.0"^^xsd:double .
+
+ssd:ceres a ss:DwarfPlanet ;
+    rdfs:label "Ceres" ;
+    ss:name "Ceres" ;
+    ss:description "Largest object in the asteroid belt" ;
+    ss:avg-distance-from-sun-au "2.77"^^xsd:double ;
+    ss:radius-km "473"^^xsd:double ;
+    ss:orbital-period-years "4.6"^^xsd:double .
+
+ssd:vesta a ss:Asteroid ;
+    rdfs:label "Vesta" ;
+    ss:name "Vesta" ;
+    ss:description "Second-largest asteroid in the main belt" ;
+    ss:avg-distance-from-sun-au "2.36"^^xsd:double ;
+    ss:radius-km "262.7"^^xsd:double ;
+    ss:orbital-period-years "3.63"^^xsd:double .
+
+ssd:titan a ss:Moon ;
+    rdfs:label "Titan" ;
+    ss:name "Titan" ;
+    ss:description "Saturn's largest moon, has a thick atmosphere" ;
+    ss:avg-distance-from-sun-au "9.54"^^xsd:double ;
+    ss:radius-km "2574.7"^^xsd:double ;
+    ss:parent-body ssd:saturn .
+
+ssd:67p-churyumov-gerasimenko a ss:Comet ;
+    rdfs:label "67P/Churyumov-Gerasimenko" ;
+    ss:name "67P/Churyumov-Gerasimenko" ;
+    ss:description "Jupiter-family comet visited by Rosetta" ;
+    ss:avg-distance-from-sun-au "3.46"^^xsd:double ;
+    ss:radius-km "2.0"^^xsd:double ;
+    ss:orbital-period-years "6.44"^^xsd:double .
+
+ssd:io a ss:Moon ;
+    rdfs:label "Io" ;
+    ss:name "Io" ;
+    ss:description "Jupiter's volcanically active moon" ;
+    ss:avg-distance-from-sun-au "5.2"^^xsd:double ;
+    ss:radius-km "1821.6"^^xsd:double ;
+    ss:parent-body ssd:jupiter .
+
+ssd:europa a ss:Moon ;
+    rdfs:label "Europa" ;
+    ss:name "Europa" ;
+    ss:description "Jupiter's icy moon with subsurface ocean" ;
+    ss:avg-distance-from-sun-au "5.2"^^xsd:double ;
+    ss:radius-km "1560.8"^^xsd:double ;
+    ss:parent-body ssd:jupiter .
+
+ssd:enceladus a ss:Moon ;
+    rdfs:label "Enceladus" ;
+    ss:name "Enceladus" ;
+    ss:description "Saturn's moon with water geysers" ;
+    ss:avg-distance-from-sun-au "9.54"^^xsd:double ;
+    ss:radius-km "252.1"^^xsd:double ;
+    ss:parent-body ssd:saturn .
+
+ssd:triton a ss:Moon ;
+    rdfs:label "Triton" ;
+    ss:name "Triton" ;
+    ss:description "Neptune's largest moon, likely a captured Kuiper Belt object" ;
+    ss:avg-distance-from-sun-au "30.07"^^xsd:double ;
+    ss:radius-km "1353.4"^^xsd:double ;
+    ss:parent-body ssd:neptune .
+
+ssd:mission-voyager-1 a ss:Flyby ;
+    rdfs:label "Voyager 1" ;
+    ss:name "Voyager 1" ;
+    ss:description "First human-made object to reach interstellar space. Performed flybys of Jupiter and Saturn before heading out of the solar system." ;
+    ss:agency "NASA" ;
+    ss:launch-date "1977-09-05"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:jupiter ;
+    ss:target-body ssd:saturn ;
+    ss:has-event ssd:event-1 ;
+    ss:has-event ssd:event-2 ;
+    ss:has-event ssd:event-3 ;
+    ss:has-event ssd:event-4 ;
+    ss:has-event ssd:event-5 ;
+    ss:has-event ssd:event-6 .
+
+ssd:event-1 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Titan IIIE/Centaur" ;
+    ss:description "Launched from Cape Canaveral aboard Titan IIIE/Centaur" ;
+    ss:date "1977-09-05"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-1 .
+
+ssd:position-1 a ss:Position ;
+    rdfs:label "1.0 AU, 342° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "342"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-2 a ss:FlybyEvent ;
+    rdfs:label "Jupiter flyby — closest approach at 349,000 km. Discovered volcanic activity on " ;
+    ss:description "Jupiter flyby — closest approach at 349,000 km. Discovered volcanic activity on Io." ;
+    ss:date "1979-03-05"^^xsd:date ;
+    ss:distance-from-body-km "349000"^^xsd:double ;
+    ss:velocity-km-s "35.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-2 .
+
+ssd:position-2 a ss:Position ;
+    rdfs:label "5.2 AU, 180° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "180"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:event-3 a ss:FlybyEvent ;
+    rdfs:label "Saturn flyby — closest approach at 124,000 km. Detailed study of rings and atmos" ;
+    ss:description "Saturn flyby — closest approach at 124,000 km. Detailed study of rings and atmosphere. Close flyby of Titan." ;
+    ss:date "1980-11-12"^^xsd:date ;
+    ss:distance-from-body-km "124000"^^xsd:double ;
+    ss:velocity-km-s "23.0"^^xsd:double ;
+    ss:nearest-body ssd:saturn ;
+    ss:position ssd:position-3 .
+
+ssd:position-3 a ss:Position ;
+    rdfs:label "9.54 AU, 195° lon, 2.5° lat" ;
+    ss:distance-au "9.54"^^xsd:double ;
+    ss:ecliptic-longitude-deg "195"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.5"^^xsd:double .
+
+ssd:event-4 a ss:Milestone ;
+    rdfs:label "Took the famous 'Pale Blue Dot' photograph of Earth from 6 billion km away" ;
+    ss:description "Took the famous 'Pale Blue Dot' photograph of Earth from 6 billion km away" ;
+    ss:date "1990-02-14"^^xsd:date ;
+    ss:distance-from-body-km "6000000000"^^xsd:double ;
+    ss:velocity-km-s "17.1"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-4 .
+
+ssd:position-4 a ss:Position ;
+    rdfs:label "40.1 AU, 260° lon, 35° lat" ;
+    ss:distance-au "40.1"^^xsd:double ;
+    ss:ecliptic-longitude-deg "260"^^xsd:double ;
+    ss:ecliptic-latitude-deg "35"^^xsd:double .
+
+ssd:event-5 a ss:Milestone ;
+    rdfs:label "Crossed the heliopause, entering interstellar space — first human-made object to" ;
+    ss:description "Crossed the heliopause, entering interstellar space — first human-made object to do so" ;
+    ss:date "2012-08-25"^^xsd:date ;
+    ss:distance-from-body-km "18700000000"^^xsd:double ;
+    ss:velocity-km-s "17.0"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-5 .
+
+ssd:position-5 a ss:Position ;
+    rdfs:label "121.7 AU, 255° lon, 35° lat" ;
+    ss:distance-au "121.7"^^xsd:double ;
+    ss:ecliptic-longitude-deg "255"^^xsd:double ;
+    ss:ecliptic-latitude-deg "35"^^xsd:double .
+
+ssd:event-6 a ss:StatusUpdate ;
+    rdfs:label "Still transmitting data from interstellar space, over 160 AU from the Sun" ;
+    ss:description "Still transmitting data from interstellar space, over 160 AU from the Sun" ;
+    ss:date "2025-01-01"^^xsd:date ;
+    ss:distance-from-body-km "24300000000"^^xsd:double ;
+    ss:velocity-km-s "17.0"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-6 .
+
+ssd:position-6 a ss:Position ;
+    rdfs:label "162.5 AU, 256° lon, 35° lat" ;
+    ss:distance-au "162.5"^^xsd:double ;
+    ss:ecliptic-longitude-deg "256"^^xsd:double ;
+    ss:ecliptic-latitude-deg "35"^^xsd:double .
+
+ssd:mission-voyager-2 a ss:Flyby ;
+    rdfs:label "Voyager 2" ;
+    ss:name "Voyager 2" ;
+    ss:description "Only spacecraft to visit all four outer planets. Still operational in interstellar space." ;
+    ss:agency "NASA" ;
+    ss:launch-date "1977-08-20"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:jupiter ;
+    ss:target-body ssd:saturn ;
+    ss:target-body ssd:uranus ;
+    ss:target-body ssd:neptune ;
+    ss:has-event ssd:event-7 ;
+    ss:has-event ssd:event-8 ;
+    ss:has-event ssd:event-9 ;
+    ss:has-event ssd:event-10 ;
+    ss:has-event ssd:event-11 ;
+    ss:has-event ssd:event-12 ;
+    ss:has-event ssd:event-13 .
+
+ssd:event-7 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Titan IIIE/Centaur, 16 days before Voyager 1" ;
+    ss:description "Launched from Cape Canaveral aboard Titan IIIE/Centaur, 16 days before Voyager 1" ;
+    ss:date "1977-08-20"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-7 .
+
+ssd:position-7 a ss:Position ;
+    rdfs:label "1.0 AU, 327° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "327"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-8 a ss:FlybyEvent ;
+    rdfs:label "Jupiter flyby at 722,000 km. Studied the Great Red Spot and Jovian moons." ;
+    ss:description "Jupiter flyby at 722,000 km. Studied the Great Red Spot and Jovian moons." ;
+    ss:date "1979-07-09"^^xsd:date ;
+    ss:distance-from-body-km "722000"^^xsd:double ;
+    ss:velocity-km-s "30.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-8 .
+
+ssd:position-8 a ss:Position ;
+    rdfs:label "5.2 AU, 195° lon, 1.0° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "195"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.0"^^xsd:double .
+
+ssd:event-9 a ss:FlybyEvent ;
+    rdfs:label "Saturn flyby at 101,000 km. Studied rings and atmosphere in detail." ;
+    ss:description "Saturn flyby at 101,000 km. Studied rings and atmosphere in detail." ;
+    ss:date "1981-08-26"^^xsd:date ;
+    ss:distance-from-body-km "101000"^^xsd:double ;
+    ss:velocity-km-s "24.0"^^xsd:double ;
+    ss:nearest-body ssd:saturn ;
+    ss:position ssd:position-9 .
+
+ssd:position-9 a ss:Position ;
+    rdfs:label "9.54 AU, 205° lon, 0.8° lat" ;
+    ss:distance-au "9.54"^^xsd:double ;
+    ss:ecliptic-longitude-deg "205"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0.8"^^xsd:double .
+
+ssd:event-10 a ss:FlybyEvent ;
+    rdfs:label "Uranus flyby at 81,500 km — first and only spacecraft to visit Uranus. Discovere" ;
+    ss:description "Uranus flyby at 81,500 km — first and only spacecraft to visit Uranus. Discovered 10 new moons." ;
+    ss:date "1986-01-24"^^xsd:date ;
+    ss:distance-from-body-km "81500"^^xsd:double ;
+    ss:velocity-km-s "22.0"^^xsd:double ;
+    ss:nearest-body ssd:uranus ;
+    ss:position ssd:position-10 .
+
+ssd:position-10 a ss:Position ;
+    rdfs:label "19.19 AU, 254° lon, -0.3° lat" ;
+    ss:distance-au "19.19"^^xsd:double ;
+    ss:ecliptic-longitude-deg "254"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-0.3"^^xsd:double .
+
+ssd:event-11 a ss:FlybyEvent ;
+    rdfs:label "Neptune flyby at 4,951 km — closest approach of entire mission. First and only s" ;
+    ss:description "Neptune flyby at 4,951 km — closest approach of entire mission. First and only spacecraft to visit Neptune. Discovered geysers on Triton." ;
+    ss:date "1989-08-25"^^xsd:date ;
+    ss:distance-from-body-km "4951"^^xsd:double ;
+    ss:velocity-km-s "27.0"^^xsd:double ;
+    ss:nearest-body ssd:neptune ;
+    ss:position ssd:position-11 .
+
+ssd:position-11 a ss:Position ;
+    rdfs:label "30.07 AU, 280° lon, -1.5° lat" ;
+    ss:distance-au "30.07"^^xsd:double ;
+    ss:ecliptic-longitude-deg "280"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.5"^^xsd:double .
+
+ssd:event-12 a ss:Milestone ;
+    rdfs:label "Crossed the heliopause into interstellar space — second human-made object to do " ;
+    ss:description "Crossed the heliopause into interstellar space — second human-made object to do so" ;
+    ss:date "2018-11-05"^^xsd:date ;
+    ss:distance-from-body-km "17800000000"^^xsd:double ;
+    ss:velocity-km-s "15.4"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-12 .
+
+ssd:position-12 a ss:Position ;
+    rdfs:label "119.0 AU, 296° lon, -34° lat" ;
+    ss:distance-au "119.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "296"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-34"^^xsd:double .
+
+ssd:event-13 a ss:StatusUpdate ;
+    rdfs:label "Still transmitting from interstellar space, over 135 AU from the Sun" ;
+    ss:description "Still transmitting from interstellar space, over 135 AU from the Sun" ;
+    ss:date "2025-01-01"^^xsd:date ;
+    ss:distance-from-body-km "20400000000"^^xsd:double ;
+    ss:velocity-km-s "15.4"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-13 .
+
+ssd:position-13 a ss:Position ;
+    rdfs:label "136.4 AU, 296° lon, -34° lat" ;
+    ss:distance-au "136.4"^^xsd:double ;
+    ss:ecliptic-longitude-deg "296"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-34"^^xsd:double .
+
+ssd:mission-pioneer-10 a ss:Flyby ;
+    rdfs:label "Pioneer 10" ;
+    ss:name "Pioneer 10" ;
+    ss:description "First spacecraft to traverse the asteroid belt and fly by Jupiter. Carries a gold plaque with a message for extraterrestrial life." ;
+    ss:agency "NASA" ;
+    ss:launch-date "1972-03-03"^^xsd:date ;
+    ss:status ss:Inactive ;
+    ss:end-date "2003-01-23"^^xsd:date ;
+    ss:target-body ssd:jupiter ;
+    ss:has-event ssd:event-14 ;
+    ss:has-event ssd:event-15 ;
+    ss:has-event ssd:event-16 ;
+    ss:has-event ssd:event-17 ;
+    ss:has-event ssd:event-18 .
+
+ssd:event-14 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Atlas-Centaur" ;
+    ss:description "Launched from Cape Canaveral aboard Atlas-Centaur" ;
+    ss:date "1972-03-03"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "14.4"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-14 .
+
+ssd:position-14 a ss:Position ;
+    rdfs:label "1.0 AU, 162° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "162"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-15 a ss:Milestone ;
+    rdfs:label "First spacecraft to enter the asteroid belt" ;
+    ss:description "First spacecraft to enter the asteroid belt" ;
+    ss:date "1972-07-15"^^xsd:date ;
+    ss:distance-from-body-km "200000000"^^xsd:double ;
+    ss:velocity-km-s "20.0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-15 .
+
+ssd:position-15 a ss:Position ;
+    rdfs:label "2.2 AU, 175° lon, 0.5° lat" ;
+    ss:distance-au "2.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "175"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0.5"^^xsd:double .
+
+ssd:event-16 a ss:FlybyEvent ;
+    rdfs:label "First Jupiter flyby by any spacecraft, closest approach at 130,000 km. Returned " ;
+    ss:description "First Jupiter flyby by any spacecraft, closest approach at 130,000 km. Returned first close-up images of Jupiter." ;
+    ss:date "1973-12-04"^^xsd:date ;
+    ss:distance-from-body-km "130000"^^xsd:double ;
+    ss:velocity-km-s "37.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-16 .
+
+ssd:position-16 a ss:Position ;
+    rdfs:label "5.2 AU, 318° lon, 1.1° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "318"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.1"^^xsd:double .
+
+ssd:event-17 a ss:Milestone ;
+    rdfs:label "Crossed Neptune's orbit — first human-made object beyond all known planets at th" ;
+    ss:description "Crossed Neptune's orbit — first human-made object beyond all known planets at the time" ;
+    ss:date "1983-06-13"^^xsd:date ;
+    ss:distance-from-body-km "4500000000"^^xsd:double ;
+    ss:velocity-km-s "12.5"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-17 .
+
+ssd:position-17 a ss:Position ;
+    rdfs:label "30.0 AU, 85° lon, 3° lat" ;
+    ss:distance-au "30.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "85"^^xsd:double ;
+    ss:ecliptic-latitude-deg "3"^^xsd:double .
+
+ssd:event-18 a ss:EndOfMission ;
+    rdfs:label "Last weak signal received. RTG power insufficient for further communication at 8" ;
+    ss:description "Last weak signal received. RTG power insufficient for further communication at 82 AU." ;
+    ss:date "2003-01-23"^^xsd:date ;
+    ss:distance-from-body-km "12300000000"^^xsd:double ;
+    ss:velocity-km-s "12.1"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-18 .
+
+ssd:position-18 a ss:Position ;
+    rdfs:label "82.0 AU, 85° lon, 3° lat" ;
+    ss:distance-au "82.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "85"^^xsd:double ;
+    ss:ecliptic-latitude-deg "3"^^xsd:double .
+
+ssd:mission-pioneer-11 a ss:Flyby ;
+    rdfs:label "Pioneer 11" ;
+    ss:name "Pioneer 11" ;
+    ss:description "First spacecraft to fly by Saturn. Also carried a gold plaque message." ;
+    ss:agency "NASA" ;
+    ss:launch-date "1973-04-06"^^xsd:date ;
+    ss:status ss:Inactive ;
+    ss:end-date "1995-11-24"^^xsd:date ;
+    ss:target-body ssd:jupiter ;
+    ss:target-body ssd:saturn ;
+    ss:has-event ssd:event-19 ;
+    ss:has-event ssd:event-20 ;
+    ss:has-event ssd:event-21 ;
+    ss:has-event ssd:event-22 .
+
+ssd:event-19 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Atlas-Centaur" ;
+    ss:description "Launched from Cape Canaveral aboard Atlas-Centaur" ;
+    ss:date "1973-04-06"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "14.4"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-19 .
+
+ssd:position-19 a ss:Position ;
+    rdfs:label "1.0 AU, 195° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "195"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-20 a ss:FlybyEvent ;
+    rdfs:label "Jupiter flyby at 43,000 km — much closer than Pioneer 10. First polar images of " ;
+    ss:description "Jupiter flyby at 43,000 km — much closer than Pioneer 10. First polar images of Jupiter." ;
+    ss:date "1974-12-03"^^xsd:date ;
+    ss:distance-from-body-km "43000"^^xsd:double ;
+    ss:velocity-km-s "40.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-20 .
+
+ssd:position-20 a ss:Position ;
+    rdfs:label "5.2 AU, 340° lon, 1.0° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "340"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.0"^^xsd:double .
+
+ssd:event-21 a ss:FlybyEvent ;
+    rdfs:label "First Saturn flyby by any spacecraft at 21,000 km. Discovered Saturn's F ring." ;
+    ss:description "First Saturn flyby by any spacecraft at 21,000 km. Discovered Saturn's F ring." ;
+    ss:date "1979-09-01"^^xsd:date ;
+    ss:distance-from-body-km "21000"^^xsd:double ;
+    ss:velocity-km-s "31.0"^^xsd:double ;
+    ss:nearest-body ssd:saturn ;
+    ss:position ssd:position-21 .
+
+ssd:position-21 a ss:Position ;
+    rdfs:label "9.54 AU, 155° lon, 2.3° lat" ;
+    ss:distance-au "9.54"^^xsd:double ;
+    ss:ecliptic-longitude-deg "155"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.3"^^xsd:double .
+
+ssd:event-22 a ss:EndOfMission ;
+    rdfs:label "Last contact. RTG power too low for communications at 44 AU." ;
+    ss:description "Last contact. RTG power too low for communications at 44 AU." ;
+    ss:date "1995-11-24"^^xsd:date ;
+    ss:distance-from-body-km "6600000000"^^xsd:double ;
+    ss:velocity-km-s "11.4"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-22 .
+
+ssd:position-22 a ss:Position ;
+    rdfs:label "44.0 AU, 280° lon, 17° lat" ;
+    ss:distance-au "44.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "280"^^xsd:double ;
+    ss:ecliptic-latitude-deg "17"^^xsd:double .
+
+ssd:mission-new-horizons a ss:Flyby ;
+    rdfs:label "New Horizons" ;
+    ss:name "New Horizons" ;
+    ss:description "First spacecraft to fly by Pluto and a Kuiper Belt object (Arrokoth). Fastest spacecraft ever launched from Earth." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2006-01-19"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:jupiter ;
+    ss:target-body ssd:pluto ;
+    ss:has-event ssd:event-23 ;
+    ss:has-event ssd:event-24 ;
+    ss:has-event ssd:event-25 ;
+    ss:has-event ssd:event-26 ;
+    ss:has-event ssd:event-27 .
+
+ssd:event-23 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Atlas V. Left Earth faster than any previous" ;
+    ss:description "Launched from Cape Canaveral aboard Atlas V. Left Earth faster than any previous spacecraft at 16.26 km/s." ;
+    ss:date "2006-01-19"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "16.26"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-23 .
+
+ssd:position-23 a ss:Position ;
+    rdfs:label "1.0 AU, 298° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "298"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-24 a ss:FlybyEvent ;
+    rdfs:label "Jupiter gravity assist flyby at 2.3 million km. Speed increased by 4 km/s. Studi" ;
+    ss:description "Jupiter gravity assist flyby at 2.3 million km. Speed increased by 4 km/s. Studied Jupiter's atmosphere and moons." ;
+    ss:date "2007-02-28"^^xsd:date ;
+    ss:distance-from-body-km "2300000"^^xsd:double ;
+    ss:velocity-km-s "23.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-24 .
+
+ssd:position-24 a ss:Position ;
+    rdfs:label "5.2 AU, 255° lon, 0.5° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "255"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0.5"^^xsd:double .
+
+ssd:event-25 a ss:FlybyEvent ;
+    rdfs:label "Pluto flyby at 12,500 km — first close-up study of the Pluto system. Revealed he" ;
+    ss:description "Pluto flyby at 12,500 km — first close-up study of the Pluto system. Revealed heart-shaped nitrogen ice plain (Sputnik Planitia)." ;
+    ss:date "2015-07-14"^^xsd:date ;
+    ss:distance-from-body-km "12500"^^xsd:double ;
+    ss:velocity-km-s "14.5"^^xsd:double ;
+    ss:nearest-body ssd:pluto ;
+    ss:position ssd:position-25 .
+
+ssd:position-25 a ss:Position ;
+    rdfs:label "32.91 AU, 282° lon, 2° lat" ;
+    ss:distance-au "32.91"^^xsd:double ;
+    ss:ecliptic-longitude-deg "282"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2"^^xsd:double .
+
+ssd:event-26 a ss:FlybyEvent ;
+    rdfs:label "Flyby of Kuiper Belt object 486958 Arrokoth (formerly Ultima Thule) at 3,500 km " ;
+    ss:description "Flyby of Kuiper Belt object 486958 Arrokoth (formerly Ultima Thule) at 3,500 km — most distant flyby ever." ;
+    ss:date "2019-01-01"^^xsd:date ;
+    ss:distance-from-body-km "3500"^^xsd:double ;
+    ss:velocity-km-s "14.2"^^xsd:double ;
+    ss:position ssd:position-26 .
+
+ssd:position-26 a ss:Position ;
+    rdfs:label "43.4 AU, 285° lon, 2.5° lat" ;
+    ss:distance-au "43.4"^^xsd:double ;
+    ss:ecliptic-longitude-deg "285"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.5"^^xsd:double .
+
+ssd:event-27 a ss:StatusUpdate ;
+    rdfs:label "Continuing Kuiper Belt extended mission, studying distant KBOs and heliosphere" ;
+    ss:description "Continuing Kuiper Belt extended mission, studying distant KBOs and heliosphere" ;
+    ss:date "2025-01-01"^^xsd:date ;
+    ss:distance-from-body-km "8800000000"^^xsd:double ;
+    ss:velocity-km-s "14.0"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-27 .
+
+ssd:position-27 a ss:Position ;
+    rdfs:label "58.8 AU, 290° lon, 3° lat" ;
+    ss:distance-au "58.8"^^xsd:double ;
+    ss:ecliptic-longitude-deg "290"^^xsd:double ;
+    ss:ecliptic-latitude-deg "3"^^xsd:double .
+
+ssd:mission-cassini-huygens a ss:OrbiterAndLander ;
+    rdfs:label "Cassini-Huygens" ;
+    ss:name "Cassini-Huygens" ;
+    ss:description "Orbited Saturn for 13 years. Deployed Huygens probe to land on Titan — first landing in the outer solar system." ;
+    ss:agency "NASA/ESA/ASI" ;
+    ss:launch-date "1997-10-15"^^xsd:date ;
+    ss:status ss:Completed ;
+    ss:end-date "2017-09-15"^^xsd:date ;
+    ss:target-body ssd:venus ;
+    ss:target-body ssd:jupiter ;
+    ss:target-body ssd:saturn ;
+    ss:target-body ssd:titan ;
+    ss:target-body ssd:enceladus ;
+    ss:has-event ssd:event-28 ;
+    ss:has-event ssd:event-29 ;
+    ss:has-event ssd:event-30 ;
+    ss:has-event ssd:event-31 ;
+    ss:has-event ssd:event-32 ;
+    ss:has-event ssd:event-33 ;
+    ss:has-event ssd:event-34 ;
+    ss:has-event ssd:event-35 ;
+    ss:has-event ssd:event-36 ;
+    ss:has-event ssd:event-37 .
+
+ssd:event-28 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Titan IVB/Centaur" ;
+    ss:description "Launched from Cape Canaveral aboard Titan IVB/Centaur" ;
+    ss:date "1997-10-15"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-28 .
+
+ssd:position-28 a ss:Position ;
+    rdfs:label "1.0 AU, 22° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "22"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-29 a ss:FlybyEvent ;
+    rdfs:label "First Venus gravity assist at 284 km" ;
+    ss:description "First Venus gravity assist at 284 km" ;
+    ss:date "1998-04-26"^^xsd:date ;
+    ss:distance-from-body-km "284"^^xsd:double ;
+    ss:velocity-km-s "38.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-29 .
+
+ssd:position-29 a ss:Position ;
+    rdfs:label "0.72 AU, 50° lon, -0.5° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "50"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-0.5"^^xsd:double .
+
+ssd:event-30 a ss:FlybyEvent ;
+    rdfs:label "Second Venus gravity assist at 600 km" ;
+    ss:description "Second Venus gravity assist at 600 km" ;
+    ss:date "1999-06-24"^^xsd:date ;
+    ss:distance-from-body-km "600"^^xsd:double ;
+    ss:velocity-km-s "39.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-30 .
+
+ssd:position-30 a ss:Position ;
+    rdfs:label "0.72 AU, 230° lon, 0.2° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "230"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0.2"^^xsd:double .
+
+ssd:event-31 a ss:FlybyEvent ;
+    rdfs:label "Earth gravity assist at 1,171 km" ;
+    ss:description "Earth gravity assist at 1,171 km" ;
+    ss:date "1999-08-18"^^xsd:date ;
+    ss:distance-from-body-km "1171"^^xsd:double ;
+    ss:velocity-km-s "35.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-31 .
+
+ssd:position-31 a ss:Position ;
+    rdfs:label "1.0 AU, 325° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "325"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-32 a ss:FlybyEvent ;
+    rdfs:label "Jupiter gravity assist at 10 million km. Joint observations with Galileo spacecr" ;
+    ss:description "Jupiter gravity assist at 10 million km. Joint observations with Galileo spacecraft." ;
+    ss:date "2000-12-30"^^xsd:date ;
+    ss:distance-from-body-km "10000000"^^xsd:double ;
+    ss:velocity-km-s "30.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-32 .
+
+ssd:position-32 a ss:Position ;
+    rdfs:label "5.2 AU, 55° lon, 0.8° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "55"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0.8"^^xsd:double .
+
+ssd:event-33 a ss:OrbitInsertion ;
+    rdfs:label "Saturn orbit insertion — began 13-year orbital mission around Saturn" ;
+    ss:description "Saturn orbit insertion — began 13-year orbital mission around Saturn" ;
+    ss:date "2004-07-01"^^xsd:date ;
+    ss:distance-from-body-km "20000"^^xsd:double ;
+    ss:velocity-km-s "28.0"^^xsd:double ;
+    ss:nearest-body ssd:saturn ;
+    ss:position ssd:position-33 .
+
+ssd:position-33 a ss:Position ;
+    rdfs:label "9.04 AU, 105° lon, 2.4° lat" ;
+    ss:distance-au "9.04"^^xsd:double ;
+    ss:ecliptic-longitude-deg "105"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.4"^^xsd:double .
+
+ssd:event-34 a ss:ProbeDeployment ;
+    rdfs:label "Huygens probe separated from Cassini, targeting Titan" ;
+    ss:description "Huygens probe separated from Cassini, targeting Titan" ;
+    ss:date "2004-12-25"^^xsd:date ;
+    ss:distance-from-body-km "1200000"^^xsd:double ;
+    ss:velocity-km-s "6.0"^^xsd:double ;
+    ss:nearest-body ssd:saturn ;
+    ss:position ssd:position-34 .
+
+ssd:position-34 a ss:Position ;
+    rdfs:label "9.06 AU, 108° lon, 2.4° lat" ;
+    ss:distance-au "9.06"^^xsd:double ;
+    ss:ecliptic-longitude-deg "108"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.4"^^xsd:double .
+
+ssd:event-35 a ss:Landing ;
+    rdfs:label "Huygens probe landed on Titan — first landing in the outer solar system. Returne" ;
+    ss:description "Huygens probe landed on Titan — first landing in the outer solar system. Returned images of methane rivers and hydrocarbon lakes." ;
+    ss:date "2005-01-14"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:titan ;
+    ss:position ssd:position-35 .
+
+ssd:position-35 a ss:Position ;
+    rdfs:label "9.06 AU, 109° lon, 2.4° lat" ;
+    ss:distance-au "9.06"^^xsd:double ;
+    ss:ecliptic-longitude-deg "109"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.4"^^xsd:double .
+
+ssd:event-36 a ss:Discovery ;
+    rdfs:label "Discovered water ice geysers erupting from Enceladus' south pole, suggesting sub" ;
+    ss:description "Discovered water ice geysers erupting from Enceladus' south pole, suggesting subsurface ocean" ;
+    ss:date "2005-07-14"^^xsd:date ;
+    ss:distance-from-body-km "175"^^xsd:double ;
+    ss:velocity-km-s "8.0"^^xsd:double ;
+    ss:nearest-body ssd:enceladus ;
+    ss:position ssd:position-36 .
+
+ssd:position-36 a ss:Position ;
+    rdfs:label "9.08 AU, 112° lon, 2.4° lat" ;
+    ss:distance-au "9.08"^^xsd:double ;
+    ss:ecliptic-longitude-deg "112"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.4"^^xsd:double .
+
+ssd:event-37 a ss:EndOfMission ;
+    rdfs:label "Grand Finale — intentional plunge into Saturn's atmosphere to protect potentiall" ;
+    ss:description "Grand Finale — intentional plunge into Saturn's atmosphere to protect potentially habitable moons from contamination" ;
+    ss:date "2017-09-15"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "34.0"^^xsd:double ;
+    ss:nearest-body ssd:saturn ;
+    ss:position ssd:position-37 .
+
+ssd:position-37 a ss:Position ;
+    rdfs:label "9.98 AU, 265° lon, 2.4° lat" ;
+    ss:distance-au "9.98"^^xsd:double ;
+    ss:ecliptic-longitude-deg "265"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.4"^^xsd:double .
+
+ssd:mission-galileo a ss:OrbiterAndProbe ;
+    rdfs:label "Galileo" ;
+    ss:name "Galileo" ;
+    ss:description "First spacecraft to orbit Jupiter. Deployed an atmospheric probe into Jupiter and discovered evidence of subsurface oceans on Europa." ;
+    ss:agency "NASA" ;
+    ss:launch-date "1989-10-18"^^xsd:date ;
+    ss:status ss:Completed ;
+    ss:end-date "2003-09-21"^^xsd:date ;
+    ss:target-body ssd:venus ;
+    ss:target-body ssd:earth ;
+    ss:target-body ssd:jupiter ;
+    ss:target-body ssd:io ;
+    ss:target-body ssd:europa ;
+    ss:has-event ssd:event-38 ;
+    ss:has-event ssd:event-39 ;
+    ss:has-event ssd:event-40 ;
+    ss:has-event ssd:event-41 ;
+    ss:has-event ssd:event-42 ;
+    ss:has-event ssd:event-43 ;
+    ss:has-event ssd:event-44 ;
+    ss:has-event ssd:event-45 ;
+    ss:has-event ssd:event-46 .
+
+ssd:event-38 a ss:Launch ;
+    rdfs:label "Deployed from Space Shuttle Atlantis (STS-34)" ;
+    ss:description "Deployed from Space Shuttle Atlantis (STS-34)" ;
+    ss:date "1989-10-18"^^xsd:date ;
+    ss:distance-from-body-km "300"^^xsd:double ;
+    ss:velocity-km-s "8.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-38 .
+
+ssd:position-38 a ss:Position ;
+    rdfs:label "1.0 AU, 25° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "25"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-39 a ss:FlybyEvent ;
+    rdfs:label "Venus gravity assist at 16,106 km" ;
+    ss:description "Venus gravity assist at 16,106 km" ;
+    ss:date "1990-02-10"^^xsd:date ;
+    ss:distance-from-body-km "16106"^^xsd:double ;
+    ss:velocity-km-s "34.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-39 .
+
+ssd:position-39 a ss:Position ;
+    rdfs:label "0.72 AU, 155° lon, -0.3° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "155"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-0.3"^^xsd:double .
+
+ssd:event-40 a ss:FlybyEvent ;
+    rdfs:label "First Earth gravity assist at 960 km" ;
+    ss:description "First Earth gravity assist at 960 km" ;
+    ss:date "1990-12-08"^^xsd:date ;
+    ss:distance-from-body-km "960"^^xsd:double ;
+    ss:velocity-km-s "34.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-40 .
+
+ssd:position-40 a ss:Position ;
+    rdfs:label "1.0 AU, 76° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "76"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-41 a ss:FlybyEvent ;
+    rdfs:label "First close flyby of an asteroid — 951 Gaspra at 1,601 km" ;
+    ss:description "First close flyby of an asteroid — 951 Gaspra at 1,601 km" ;
+    ss:date "1991-10-29"^^xsd:date ;
+    ss:distance-from-body-km "1601"^^xsd:double ;
+    ss:velocity-km-s "18.0"^^xsd:double ;
+    ss:position ssd:position-41 .
+
+ssd:position-41 a ss:Position ;
+    rdfs:label "2.2 AU, 130° lon, 1° lat" ;
+    ss:distance-au "2.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "130"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1"^^xsd:double .
+
+ssd:event-42 a ss:FlybyEvent ;
+    rdfs:label "Second Earth gravity assist at 303 km" ;
+    ss:description "Second Earth gravity assist at 303 km" ;
+    ss:date "1992-12-08"^^xsd:date ;
+    ss:distance-from-body-km "303"^^xsd:double ;
+    ss:velocity-km-s "36.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-42 .
+
+ssd:position-42 a ss:Position ;
+    rdfs:label "1.0 AU, 76° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "76"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-43 a ss:ProbeDeployment ;
+    rdfs:label "Released atmospheric probe toward Jupiter, 5 months before arrival" ;
+    ss:description "Released atmospheric probe toward Jupiter, 5 months before arrival" ;
+    ss:date "1995-07-13"^^xsd:date ;
+    ss:distance-from-body-km "80000000"^^xsd:double ;
+    ss:velocity-km-s "22.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-43 .
+
+ssd:position-43 a ss:Position ;
+    rdfs:label "4.8 AU, 240° lon, 1.2° lat" ;
+    ss:distance-au "4.8"^^xsd:double ;
+    ss:ecliptic-longitude-deg "240"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.2"^^xsd:double .
+
+ssd:event-44 a ss:OrbitInsertion ;
+    rdfs:label "Entered Jupiter orbit. Atmospheric probe descended 150 km into Jupiter's atmosph" ;
+    ss:description "Entered Jupiter orbit. Atmospheric probe descended 150 km into Jupiter's atmosphere, transmitting for 58 minutes." ;
+    ss:date "1995-12-07"^^xsd:date ;
+    ss:distance-from-body-km "215000"^^xsd:double ;
+    ss:velocity-km-s "48.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-44 .
+
+ssd:position-44 a ss:Position ;
+    rdfs:label "5.2 AU, 245° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "245"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:event-45 a ss:Discovery ;
+    rdfs:label "Evidence of a liquid water ocean beneath Europa's icy crust, based on magnetic f" ;
+    ss:description "Evidence of a liquid water ocean beneath Europa's icy crust, based on magnetic field and surface geology data" ;
+    ss:date "1997-02-20"^^xsd:date ;
+    ss:distance-from-body-km "586"^^xsd:double ;
+    ss:velocity-km-s "14.0"^^xsd:double ;
+    ss:nearest-body ssd:europa ;
+    ss:position ssd:position-45 .
+
+ssd:position-45 a ss:Position ;
+    rdfs:label "5.2 AU, 260° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "260"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:event-46 a ss:EndOfMission ;
+    rdfs:label "Intentional plunge into Jupiter's atmosphere to protect Europa from contaminatio" ;
+    ss:description "Intentional plunge into Jupiter's atmosphere to protect Europa from contamination" ;
+    ss:date "2003-09-21"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "50.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-46 .
+
+ssd:position-46 a ss:Position ;
+    rdfs:label "5.2 AU, 155° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "155"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:mission-juno a ss:Orbiter ;
+    rdfs:label "Juno" ;
+    ss:name "Juno" ;
+    ss:description "Studying Jupiter's composition, gravity field, magnetic field, and polar magnetosphere from a polar orbit." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2011-08-05"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:jupiter ;
+    ss:has-event ssd:event-47 ;
+    ss:has-event ssd:event-48 ;
+    ss:has-event ssd:event-49 ;
+    ss:has-event ssd:event-50 ;
+    ss:has-event ssd:event-51 ;
+    ss:has-event ssd:event-52 .
+
+ssd:event-47 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Atlas V 551" ;
+    ss:description "Launched from Cape Canaveral aboard Atlas V 551" ;
+    ss:date "2011-08-05"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-47 .
+
+ssd:position-47 a ss:Position ;
+    rdfs:label "1.0 AU, 312° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "312"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-48 a ss:FlybyEvent ;
+    rdfs:label "Earth gravity assist flyby at 559 km. Gained 7.3 km/s." ;
+    ss:description "Earth gravity assist flyby at 559 km. Gained 7.3 km/s." ;
+    ss:date "2013-10-09"^^xsd:date ;
+    ss:distance-from-body-km "559"^^xsd:double ;
+    ss:velocity-km-s "33.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-48 .
+
+ssd:position-48 a ss:Position ;
+    rdfs:label "1.0 AU, 16° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "16"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-49 a ss:OrbitInsertion ;
+    rdfs:label "Entered polar orbit around Jupiter after a 35-minute engine burn" ;
+    ss:description "Entered polar orbit around Jupiter after a 35-minute engine burn" ;
+    ss:date "2016-07-05"^^xsd:date ;
+    ss:distance-from-body-km "4200"^^xsd:double ;
+    ss:velocity-km-s "54.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-49 .
+
+ssd:position-49 a ss:Position ;
+    rdfs:label "5.2 AU, 170° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "170"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:event-50 a ss:Discovery ;
+    rdfs:label "Revealed that Jupiter's core is not compact but 'fuzzy' — heavy elements mixed t" ;
+    ss:description "Revealed that Jupiter's core is not compact but 'fuzzy' — heavy elements mixed throughout interior" ;
+    ss:date "2017-05-25"^^xsd:date ;
+    ss:distance-from-body-km "4200"^^xsd:double ;
+    ss:velocity-km-s "54.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-50 .
+
+ssd:position-50 a ss:Position ;
+    rdfs:label "5.2 AU, 210° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "210"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:event-51 a ss:FlybyEvent ;
+    rdfs:label "Close flyby of Europa at 352 km, capturing highest-resolution images in decades" ;
+    ss:description "Close flyby of Europa at 352 km, capturing highest-resolution images in decades" ;
+    ss:date "2022-09-29"^^xsd:date ;
+    ss:distance-from-body-km "352"^^xsd:double ;
+    ss:velocity-km-s "24.0"^^xsd:double ;
+    ss:nearest-body ssd:europa ;
+    ss:position ssd:position-51 .
+
+ssd:position-51 a ss:Position ;
+    rdfs:label "5.2 AU, 355° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "355"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:event-52 a ss:FlybyEvent ;
+    rdfs:label "Close flyby of Io at 1,500 km, studying its volcanic activity" ;
+    ss:description "Close flyby of Io at 1,500 km, studying its volcanic activity" ;
+    ss:date "2023-12-30"^^xsd:date ;
+    ss:distance-from-body-km "1500"^^xsd:double ;
+    ss:velocity-km-s "17.0"^^xsd:double ;
+    ss:nearest-body ssd:io ;
+    ss:position ssd:position-52 .
+
+ssd:position-52 a ss:Position ;
+    rdfs:label "5.2 AU, 30° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "30"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:mission-messenger a ss:Orbiter ;
+    rdfs:label "MESSENGER" ;
+    ss:name "MESSENGER" ;
+    ss:description "First spacecraft to orbit Mercury. Mapped the entire planet and discovered water ice in permanently shadowed craters." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2004-08-03"^^xsd:date ;
+    ss:status ss:Completed ;
+    ss:end-date "2015-04-30"^^xsd:date ;
+    ss:target-body ssd:mercury ;
+    ss:target-body ssd:venus ;
+    ss:target-body ssd:earth ;
+    ss:has-event ssd:event-53 ;
+    ss:has-event ssd:event-54 ;
+    ss:has-event ssd:event-55 ;
+    ss:has-event ssd:event-56 ;
+    ss:has-event ssd:event-57 ;
+    ss:has-event ssd:event-58 ;
+    ss:has-event ssd:event-59 ;
+    ss:has-event ssd:event-60 .
+
+ssd:event-53 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Delta II" ;
+    ss:description "Launched from Cape Canaveral aboard Delta II" ;
+    ss:date "2004-08-03"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-53 .
+
+ssd:position-53 a ss:Position ;
+    rdfs:label "1.0 AU, 310° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "310"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-54 a ss:FlybyEvent ;
+    rdfs:label "Earth gravity assist at 2,348 km" ;
+    ss:description "Earth gravity assist at 2,348 km" ;
+    ss:date "2005-08-02"^^xsd:date ;
+    ss:distance-from-body-km "2348"^^xsd:double ;
+    ss:velocity-km-s "30.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-54 .
+
+ssd:position-54 a ss:Position ;
+    rdfs:label "1.0 AU, 309° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "309"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-55 a ss:FlybyEvent ;
+    rdfs:label "First Venus gravity assist at 2,992 km" ;
+    ss:description "First Venus gravity assist at 2,992 km" ;
+    ss:date "2006-10-24"^^xsd:date ;
+    ss:distance-from-body-km "2992"^^xsd:double ;
+    ss:velocity-km-s "36.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-55 .
+
+ssd:position-55 a ss:Position ;
+    rdfs:label "0.72 AU, 30° lon, -0.2° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "30"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-0.2"^^xsd:double .
+
+ssd:event-56 a ss:FlybyEvent ;
+    rdfs:label "Second Venus gravity assist at 338 km" ;
+    ss:description "Second Venus gravity assist at 338 km" ;
+    ss:date "2007-06-05"^^xsd:date ;
+    ss:distance-from-body-km "338"^^xsd:double ;
+    ss:velocity-km-s "38.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-56 .
+
+ssd:position-56 a ss:Position ;
+    rdfs:label "0.72 AU, 255° lon, 0.1° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "255"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0.1"^^xsd:double .
+
+ssd:event-57 a ss:FlybyEvent ;
+    rdfs:label "First Mercury flyby at 200 km — first spacecraft to visit Mercury since Mariner " ;
+    ss:description "First Mercury flyby at 200 km — first spacecraft to visit Mercury since Mariner 10 in 1975" ;
+    ss:date "2008-01-14"^^xsd:date ;
+    ss:distance-from-body-km "200"^^xsd:double ;
+    ss:velocity-km-s "58.0"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-57 .
+
+ssd:position-57 a ss:Position ;
+    rdfs:label "0.39 AU, 120° lon, 3° lat" ;
+    ss:distance-au "0.39"^^xsd:double ;
+    ss:ecliptic-longitude-deg "120"^^xsd:double ;
+    ss:ecliptic-latitude-deg "3"^^xsd:double .
+
+ssd:event-58 a ss:OrbitInsertion ;
+    rdfs:label "Entered orbit around Mercury — first spacecraft to orbit the innermost planet" ;
+    ss:description "Entered orbit around Mercury — first spacecraft to orbit the innermost planet" ;
+    ss:date "2011-03-18"^^xsd:date ;
+    ss:distance-from-body-km "200"^^xsd:double ;
+    ss:velocity-km-s "48.0"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-58 .
+
+ssd:position-58 a ss:Position ;
+    rdfs:label "0.39 AU, 180° lon, 5° lat" ;
+    ss:distance-au "0.39"^^xsd:double ;
+    ss:ecliptic-longitude-deg "180"^^xsd:double ;
+    ss:ecliptic-latitude-deg "5"^^xsd:double .
+
+ssd:event-59 a ss:Discovery ;
+    rdfs:label "Confirmed water ice deposits in permanently shadowed craters near Mercury's nort" ;
+    ss:description "Confirmed water ice deposits in permanently shadowed craters near Mercury's north pole" ;
+    ss:date "2012-11-29"^^xsd:date ;
+    ss:distance-from-body-km "200"^^xsd:double ;
+    ss:velocity-km-s "4.0"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-59 .
+
+ssd:position-59 a ss:Position ;
+    rdfs:label "0.39 AU, 70° lon, 4° lat" ;
+    ss:distance-au "0.39"^^xsd:double ;
+    ss:ecliptic-longitude-deg "70"^^xsd:double ;
+    ss:ecliptic-latitude-deg "4"^^xsd:double .
+
+ssd:event-60 a ss:EndOfMission ;
+    rdfs:label "Impacted Mercury's surface after running out of propellant. Created a new crater" ;
+    ss:description "Impacted Mercury's surface after running out of propellant. Created a new crater estimated at 16 m wide." ;
+    ss:date "2015-04-30"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "3.9"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-60 .
+
+ssd:position-60 a ss:Position ;
+    rdfs:label "0.39 AU, 40° lon, 6° lat" ;
+    ss:distance-au "0.39"^^xsd:double ;
+    ss:ecliptic-longitude-deg "40"^^xsd:double ;
+    ss:ecliptic-latitude-deg "6"^^xsd:double .
+
+ssd:mission-dawn a ss:Orbiter ;
+    rdfs:label "Dawn" ;
+    ss:name "Dawn" ;
+    ss:description "First spacecraft to orbit two extraterrestrial bodies, using ion propulsion. Studied the two largest objects in the asteroid belt." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2007-09-27"^^xsd:date ;
+    ss:status ss:Completed ;
+    ss:end-date "2018-11-01"^^xsd:date ;
+    ss:target-body ssd:vesta ;
+    ss:target-body ssd:ceres ;
+    ss:has-event ssd:event-61 ;
+    ss:has-event ssd:event-62 ;
+    ss:has-event ssd:event-63 ;
+    ss:has-event ssd:event-64 ;
+    ss:has-event ssd:event-65 ;
+    ss:has-event ssd:event-66 ;
+    ss:has-event ssd:event-67 .
+
+ssd:event-61 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Delta II Heavy" ;
+    ss:description "Launched from Cape Canaveral aboard Delta II Heavy" ;
+    ss:date "2007-09-27"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.5"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-61 .
+
+ssd:position-61 a ss:Position ;
+    rdfs:label "1.0 AU, 3° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "3"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-62 a ss:FlybyEvent ;
+    rdfs:label "Mars gravity assist at 549 km" ;
+    ss:description "Mars gravity assist at 549 km" ;
+    ss:date "2009-02-17"^^xsd:date ;
+    ss:distance-from-body-km "549"^^xsd:double ;
+    ss:velocity-km-s "24.0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-62 .
+
+ssd:position-62 a ss:Position ;
+    rdfs:label "1.52 AU, 120° lon, 0.5° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "120"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0.5"^^xsd:double .
+
+ssd:event-63 a ss:OrbitInsertion ;
+    rdfs:label "Entered orbit around Vesta — first spacecraft to orbit a main-belt asteroid" ;
+    ss:description "Entered orbit around Vesta — first spacecraft to orbit a main-belt asteroid" ;
+    ss:date "2011-07-16"^^xsd:date ;
+    ss:distance-from-body-km "16000"^^xsd:double ;
+    ss:velocity-km-s "0.3"^^xsd:double ;
+    ss:nearest-body ssd:vesta ;
+    ss:position ssd:position-63 .
+
+ssd:position-63 a ss:Position ;
+    rdfs:label "2.26 AU, 310° lon, 7° lat" ;
+    ss:distance-au "2.26"^^xsd:double ;
+    ss:ecliptic-longitude-deg "310"^^xsd:double ;
+    ss:ecliptic-latitude-deg "7"^^xsd:double .
+
+ssd:event-64 a ss:Departure ;
+    rdfs:label "Left Vesta orbit for Ceres using ion propulsion" ;
+    ss:description "Left Vesta orbit for Ceres using ion propulsion" ;
+    ss:date "2012-09-05"^^xsd:date ;
+    ss:distance-from-body-km "16000"^^xsd:double ;
+    ss:velocity-km-s "0.4"^^xsd:double ;
+    ss:nearest-body ssd:vesta ;
+    ss:position ssd:position-64 .
+
+ssd:position-64 a ss:Position ;
+    rdfs:label "2.57 AU, 350° lon, 6° lat" ;
+    ss:distance-au "2.57"^^xsd:double ;
+    ss:ecliptic-longitude-deg "350"^^xsd:double ;
+    ss:ecliptic-latitude-deg "6"^^xsd:double .
+
+ssd:event-65 a ss:OrbitInsertion ;
+    rdfs:label "Entered orbit around Ceres — first spacecraft to orbit a dwarf planet, and first" ;
+    ss:description "Entered orbit around Ceres — first spacecraft to orbit a dwarf planet, and first to orbit two extraterrestrial bodies" ;
+    ss:date "2015-03-06"^^xsd:date ;
+    ss:distance-from-body-km "61000"^^xsd:double ;
+    ss:velocity-km-s "0.1"^^xsd:double ;
+    ss:nearest-body ssd:ceres ;
+    ss:position ssd:position-65 .
+
+ssd:position-65 a ss:Position ;
+    rdfs:label "2.87 AU, 160° lon, 10° lat" ;
+    ss:distance-au "2.87"^^xsd:double ;
+    ss:ecliptic-longitude-deg "160"^^xsd:double ;
+    ss:ecliptic-latitude-deg "10"^^xsd:double .
+
+ssd:event-66 a ss:Discovery ;
+    rdfs:label "Bright spots on Ceres identified as salt deposits (sodium carbonate), suggesting" ;
+    ss:description "Bright spots on Ceres identified as salt deposits (sodium carbonate), suggesting subsurface brine" ;
+    ss:date "2015-12-09"^^xsd:date ;
+    ss:distance-from-body-km "385"^^xsd:double ;
+    ss:velocity-km-s "0.5"^^xsd:double ;
+    ss:nearest-body ssd:ceres ;
+    ss:position ssd:position-66 .
+
+ssd:position-66 a ss:Position ;
+    rdfs:label "2.87 AU, 165° lon, 10° lat" ;
+    ss:distance-au "2.87"^^xsd:double ;
+    ss:ecliptic-longitude-deg "165"^^xsd:double ;
+    ss:ecliptic-latitude-deg "10"^^xsd:double .
+
+ssd:event-67 a ss:EndOfMission ;
+    rdfs:label "Ran out of hydrazine fuel. Remains in stable orbit around Ceres, expected to sta" ;
+    ss:description "Ran out of hydrazine fuel. Remains in stable orbit around Ceres, expected to stay for decades." ;
+    ss:date "2018-11-01"^^xsd:date ;
+    ss:distance-from-body-km "35"^^xsd:double ;
+    ss:velocity-km-s "0.4"^^xsd:double ;
+    ss:nearest-body ssd:ceres ;
+    ss:position ssd:position-67 .
+
+ssd:position-67 a ss:Position ;
+    rdfs:label "2.56 AU, 290° lon, 10° lat" ;
+    ss:distance-au "2.56"^^xsd:double ;
+    ss:ecliptic-longitude-deg "290"^^xsd:double ;
+    ss:ecliptic-latitude-deg "10"^^xsd:double .
+
+ssd:mission-rosetta a ss:OrbiterAndLander ;
+    rdfs:label "Rosetta" ;
+    ss:name "Rosetta" ;
+    ss:description "First spacecraft to orbit a comet and deploy a lander on its surface. Studied comet 67P over two years." ;
+    ss:agency "ESA" ;
+    ss:launch-date "2004-03-02"^^xsd:date ;
+    ss:status ss:Completed ;
+    ss:end-date "2016-09-30"^^xsd:date ;
+    ss:target-body ssd:mars ;
+    ss:target-body ssd:67p-churyumov-gerasimenko ;
+    ss:has-event ssd:event-68 ;
+    ss:has-event ssd:event-69 ;
+    ss:has-event ssd:event-70 ;
+    ss:has-event ssd:event-71 ;
+    ss:has-event ssd:event-72 ;
+    ss:has-event ssd:event-73 ;
+    ss:has-event ssd:event-74 ;
+    ss:has-event ssd:event-75 .
+
+ssd:event-68 a ss:Launch ;
+    rdfs:label "Launched from Kourou, French Guiana aboard Ariane 5" ;
+    ss:description "Launched from Kourou, French Guiana aboard Ariane 5" ;
+    ss:date "2004-03-02"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "10.9"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-68 .
+
+ssd:position-68 a ss:Position ;
+    rdfs:label "1.0 AU, 161° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "161"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-69 a ss:FlybyEvent ;
+    rdfs:label "First Earth gravity assist at 1,955 km" ;
+    ss:description "First Earth gravity assist at 1,955 km" ;
+    ss:date "2005-03-04"^^xsd:date ;
+    ss:distance-from-body-km "1955"^^xsd:double ;
+    ss:velocity-km-s "34.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-69 .
+
+ssd:position-69 a ss:Position ;
+    rdfs:label "1.0 AU, 163° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "163"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-70 a ss:FlybyEvent ;
+    rdfs:label "Mars gravity assist at 250 km" ;
+    ss:description "Mars gravity assist at 250 km" ;
+    ss:date "2007-02-25"^^xsd:date ;
+    ss:distance-from-body-km "250"^^xsd:double ;
+    ss:velocity-km-s "30.0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-70 .
+
+ssd:position-70 a ss:Position ;
+    rdfs:label "1.52 AU, 335° lon, 1° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "335"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1"^^xsd:double .
+
+ssd:event-71 a ss:FlybyEvent ;
+    rdfs:label "Flyby of asteroid 21 Lutetia at 3,162 km — largest asteroid visited at the time" ;
+    ss:description "Flyby of asteroid 21 Lutetia at 3,162 km — largest asteroid visited at the time" ;
+    ss:date "2010-07-10"^^xsd:date ;
+    ss:distance-from-body-km "3162"^^xsd:double ;
+    ss:velocity-km-s "15.0"^^xsd:double ;
+    ss:position ssd:position-71 .
+
+ssd:position-71 a ss:Position ;
+    rdfs:label "2.72 AU, 290° lon, 2° lat" ;
+    ss:distance-au "2.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "290"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2"^^xsd:double .
+
+ssd:event-72 a ss:Milestone ;
+    rdfs:label "Woke up from 31 months of deep-space hibernation for final approach to comet" ;
+    ss:description "Woke up from 31 months of deep-space hibernation for final approach to comet" ;
+    ss:date "2014-01-20"^^xsd:date ;
+    ss:distance-from-body-km "9000000"^^xsd:double ;
+    ss:velocity-km-s "18.0"^^xsd:double ;
+    ss:nearest-body ssd:67p-churyumov-gerasimenko ;
+    ss:position ssd:position-72 .
+
+ssd:position-72 a ss:Position ;
+    rdfs:label "4.49 AU, 135° lon, 3° lat" ;
+    ss:distance-au "4.49"^^xsd:double ;
+    ss:ecliptic-longitude-deg "135"^^xsd:double ;
+    ss:ecliptic-latitude-deg "3"^^xsd:double .
+
+ssd:event-73 a ss:OrbitInsertion ;
+    rdfs:label "Entered orbit around comet 67P — first spacecraft to orbit a comet" ;
+    ss:description "Entered orbit around comet 67P — first spacecraft to orbit a comet" ;
+    ss:date "2014-08-06"^^xsd:date ;
+    ss:distance-from-body-km "100"^^xsd:double ;
+    ss:velocity-km-s "1.0"^^xsd:double ;
+    ss:nearest-body ssd:67p-churyumov-gerasimenko ;
+    ss:position ssd:position-73 .
+
+ssd:position-73 a ss:Position ;
+    rdfs:label "3.6 AU, 150° lon, 5° lat" ;
+    ss:distance-au "3.6"^^xsd:double ;
+    ss:ecliptic-longitude-deg "150"^^xsd:double ;
+    ss:ecliptic-latitude-deg "5"^^xsd:double .
+
+ssd:event-74 a ss:Landing ;
+    rdfs:label "Philae lander touched down on comet 67P — first controlled landing on a comet. B" ;
+    ss:description "Philae lander touched down on comet 67P — first controlled landing on a comet. Bounced twice before settling." ;
+    ss:date "2014-11-12"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:67p-churyumov-gerasimenko ;
+    ss:position ssd:position-74 .
+
+ssd:position-74 a ss:Position ;
+    rdfs:label "3.0 AU, 155° lon, 5° lat" ;
+    ss:distance-au "3.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "155"^^xsd:double ;
+    ss:ecliptic-latitude-deg "5"^^xsd:double .
+
+ssd:event-75 a ss:EndOfMission ;
+    rdfs:label "Controlled impact onto comet 67P surface, collecting close-up data during descen" ;
+    ss:description "Controlled impact onto comet 67P surface, collecting close-up data during descent" ;
+    ss:date "2016-09-30"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0.9"^^xsd:double ;
+    ss:nearest-body ssd:67p-churyumov-gerasimenko ;
+    ss:position ssd:position-75 .
+
+ssd:position-75 a ss:Position ;
+    rdfs:label "3.83 AU, 85° lon, 4° lat" ;
+    ss:distance-au "3.83"^^xsd:double ;
+    ss:ecliptic-longitude-deg "85"^^xsd:double ;
+    ss:ecliptic-latitude-deg "4"^^xsd:double .
+
+ssd:mission-parker-solar-probe a ss:Orbiter ;
+    rdfs:label "Parker Solar Probe" ;
+    ss:name "Parker Solar Probe" ;
+    ss:description "Closest-ever spacecraft to the Sun. Uses Venus gravity assists to progressively shrink its orbit and study the solar corona." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2018-08-12"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:sun ;
+    ss:target-body ssd:venus ;
+    ss:has-event ssd:event-76 ;
+    ss:has-event ssd:event-77 ;
+    ss:has-event ssd:event-78 ;
+    ss:has-event ssd:event-79 ;
+    ss:has-event ssd:event-80 .
+
+ssd:event-76 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Delta IV Heavy" ;
+    ss:description "Launched from Cape Canaveral aboard Delta IV Heavy" ;
+    ss:date "2018-08-12"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "12.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-76 .
+
+ssd:position-76 a ss:Position ;
+    rdfs:label "1.0 AU, 319° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "319"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-77 a ss:FlybyEvent ;
+    rdfs:label "First Venus gravity assist at 2,415 km" ;
+    ss:description "First Venus gravity assist at 2,415 km" ;
+    ss:date "2018-10-03"^^xsd:date ;
+    ss:distance-from-body-km "2415"^^xsd:double ;
+    ss:velocity-km-s "38.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-77 .
+
+ssd:position-77 a ss:Position ;
+    rdfs:label "0.72 AU, 10° lon, -0.3° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "10"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-0.3"^^xsd:double .
+
+ssd:event-78 a ss:Perihelion ;
+    rdfs:label "First perihelion at 0.166 AU (24.8 million km) — broke record for closest approa" ;
+    ss:description "First perihelion at 0.166 AU (24.8 million km) — broke record for closest approach to the Sun" ;
+    ss:date "2018-11-06"^^xsd:date ;
+    ss:distance-from-body-km "24800000"^^xsd:double ;
+    ss:velocity-km-s "95.0"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-78 .
+
+ssd:position-78 a ss:Position ;
+    rdfs:label "0.166 AU, 45° lon, 3° lat" ;
+    ss:distance-au "0.166"^^xsd:double ;
+    ss:ecliptic-longitude-deg "45"^^xsd:double ;
+    ss:ecliptic-latitude-deg "3"^^xsd:double .
+
+ssd:event-79 a ss:Milestone ;
+    rdfs:label "Flew through the solar corona for the first time — first spacecraft to 'touch th" ;
+    ss:description "Flew through the solar corona for the first time — first spacecraft to 'touch the Sun'" ;
+    ss:date "2021-04-28"^^xsd:date ;
+    ss:distance-from-body-km "18600000"^^xsd:double ;
+    ss:velocity-km-s "130.0"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-79 .
+
+ssd:position-79 a ss:Position ;
+    rdfs:label "0.074 AU, 220° lon, 3° lat" ;
+    ss:distance-au "0.074"^^xsd:double ;
+    ss:ecliptic-longitude-deg "220"^^xsd:double ;
+    ss:ecliptic-latitude-deg "3"^^xsd:double .
+
+ssd:event-80 a ss:Perihelion ;
+    rdfs:label "Closest perihelion at 0.0459 AU (6.86 million km), reaching 692,000 km/h — faste" ;
+    ss:description "Closest perihelion at 0.0459 AU (6.86 million km), reaching 692,000 km/h — fastest human-made object ever" ;
+    ss:date "2024-12-24"^^xsd:date ;
+    ss:distance-from-body-km "6860000"^^xsd:double ;
+    ss:velocity-km-s "192.0"^^xsd:double ;
+    ss:nearest-body ssd:sun ;
+    ss:position ssd:position-80 .
+
+ssd:position-80 a ss:Position ;
+    rdfs:label "0.0459 AU, 100° lon, 3.4° lat" ;
+    ss:distance-au "0.0459"^^xsd:double ;
+    ss:ecliptic-longitude-deg "100"^^xsd:double ;
+    ss:ecliptic-latitude-deg "3.4"^^xsd:double .
+
+ssd:mission-mars-science-laboratory-curiosity a ss:Rover ;
+    rdfs:label "Mars Science Laboratory (Curiosity)" ;
+    ss:name "Mars Science Laboratory (Curiosity)" ;
+    ss:description "Car-sized Mars rover investigating climate and geology of Gale Crater, assessing whether Mars ever had conditions favorable for microbial life." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2011-11-26"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:mars ;
+    ss:has-event ssd:event-81 ;
+    ss:has-event ssd:event-82 ;
+    ss:has-event ssd:event-83 ;
+    ss:has-event ssd:event-84 ;
+    ss:has-event ssd:event-85 .
+
+ssd:event-81 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Atlas V 541" ;
+    ss:description "Launched from Cape Canaveral aboard Atlas V 541" ;
+    ss:date "2011-11-26"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-81 .
+
+ssd:position-81 a ss:Position ;
+    rdfs:label "1.0 AU, 63° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "63"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-82 a ss:Landing ;
+    rdfs:label "Landed in Gale Crater using revolutionary sky crane system. '7 minutes of terror" ;
+    ss:description "Landed in Gale Crater using revolutionary sky crane system. '7 minutes of terror' entry sequence." ;
+    ss:date "2012-08-06"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-82 .
+
+ssd:position-82 a ss:Position ;
+    rdfs:label "1.52 AU, 315° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "315"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-83 a ss:Discovery ;
+    rdfs:label "Found evidence that ancient Mars could have supported microbial life — clay mine" ;
+    ss:description "Found evidence that ancient Mars could have supported microbial life — clay minerals indicating a habitable freshwater lake" ;
+    ss:date "2013-03-12"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-83 .
+
+ssd:position-83 a ss:Position ;
+    rdfs:label "1.52 AU, 345° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "345"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-84 a ss:Discovery ;
+    rdfs:label "Detected methane spikes in Mars atmosphere — potential sign of geological or bio" ;
+    ss:description "Detected methane spikes in Mars atmosphere — potential sign of geological or biological processes" ;
+    ss:date "2014-12-16"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-84 .
+
+ssd:position-84 a ss:Position ;
+    rdfs:label "1.52 AU, 55° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "55"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-85 a ss:Discovery ;
+    rdfs:label "Found organic molecules in 3-billion-year-old mudstone — building blocks of life" ;
+    ss:description "Found organic molecules in 3-billion-year-old mudstone — building blocks of life preserved in ancient rock" ;
+    ss:date "2018-06-07"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-85 .
+
+ssd:position-85 a ss:Position ;
+    rdfs:label "1.52 AU, 260° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "260"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:mission-mars-2020-perseverance-ingenuity a ss:RoverAndHelicopter ;
+    rdfs:label "Mars 2020 (Perseverance & Ingenuity)" ;
+    ss:name "Mars 2020 (Perseverance & Ingenuity)" ;
+    ss:description "Perseverance rover seeking signs of ancient life in Jezero Crater. Ingenuity helicopter demonstrated first powered flight on another planet." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2020-07-30"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:mars ;
+    ss:has-event ssd:event-86 ;
+    ss:has-event ssd:event-87 ;
+    ss:has-event ssd:event-88 ;
+    ss:has-event ssd:event-89 ;
+    ss:has-event ssd:event-90 .
+
+ssd:event-86 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Atlas V 541" ;
+    ss:description "Launched from Cape Canaveral aboard Atlas V 541" ;
+    ss:date "2020-07-30"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-86 .
+
+ssd:position-86 a ss:Position ;
+    rdfs:label "1.0 AU, 307° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "307"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-87 a ss:Landing ;
+    rdfs:label "Landed in Jezero Crater using sky crane. Jezero is an ancient lake bed with a ri" ;
+    ss:description "Landed in Jezero Crater using sky crane. Jezero is an ancient lake bed with a river delta — ideal for biosignature hunting." ;
+    ss:date "2021-02-18"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-87 .
+
+ssd:position-87 a ss:Position ;
+    rdfs:label "1.52 AU, 150° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "150"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-88 a ss:Milestone ;
+    rdfs:label "Ingenuity helicopter achieved first powered, controlled flight on another planet" ;
+    ss:description "Ingenuity helicopter achieved first powered, controlled flight on another planet — 39-second hop to 3 meters altitude" ;
+    ss:date "2021-04-19"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-88 .
+
+ssd:position-88 a ss:Position ;
+    rdfs:label "1.52 AU, 160° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "160"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-89 a ss:Discovery ;
+    rdfs:label "Confirmed Jezero Crater was indeed an ancient lake — found sedimentary rocks wit" ;
+    ss:description "Confirmed Jezero Crater was indeed an ancient lake — found sedimentary rocks with organic compounds in the delta" ;
+    ss:date "2022-04-19"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-89 .
+
+ssd:position-89 a ss:Position ;
+    rdfs:label "1.52 AU, 210° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "210"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-90 a ss:Milestone ;
+    rdfs:label "Ingenuity completed 72nd and final flight. Blade damage ended flight operations " ;
+    ss:description "Ingenuity completed 72nd and final flight. Blade damage ended flight operations after 128 minutes of total flight time." ;
+    ss:date "2024-01-25"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-90 .
+
+ssd:position-90 a ss:Position ;
+    rdfs:label "1.52 AU, 95° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "95"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:mission-mariner-10 a ss:Flyby ;
+    rdfs:label "Mariner 10" ;
+    ss:name "Mariner 10" ;
+    ss:description "First spacecraft to use a gravity assist, first to visit Mercury, and first to visit two planets in one mission." ;
+    ss:agency "NASA" ;
+    ss:launch-date "1973-11-03"^^xsd:date ;
+    ss:status ss:Completed ;
+    ss:end-date "1975-03-24"^^xsd:date ;
+    ss:target-body ssd:venus ;
+    ss:target-body ssd:mercury ;
+    ss:has-event ssd:event-91 ;
+    ss:has-event ssd:event-92 ;
+    ss:has-event ssd:event-93 ;
+    ss:has-event ssd:event-94 ;
+    ss:has-event ssd:event-95 ;
+    ss:has-event ssd:event-96 .
+
+ssd:event-91 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Atlas-Centaur" ;
+    ss:description "Launched from Cape Canaveral aboard Atlas-Centaur" ;
+    ss:date "1973-11-03"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-91 .
+
+ssd:position-91 a ss:Position ;
+    rdfs:label "1.0 AU, 40° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "40"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-92 a ss:FlybyEvent ;
+    rdfs:label "Venus flyby at 5,768 km — first use of gravity assist in spaceflight. Returned U" ;
+    ss:description "Venus flyby at 5,768 km — first use of gravity assist in spaceflight. Returned UV images of Venus atmosphere." ;
+    ss:date "1974-02-05"^^xsd:date ;
+    ss:distance-from-body-km "5768"^^xsd:double ;
+    ss:velocity-km-s "37.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-92 .
+
+ssd:position-92 a ss:Position ;
+    rdfs:label "0.72 AU, 135° lon, -0.4° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "135"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-0.4"^^xsd:double .
+
+ssd:event-93 a ss:FlybyEvent ;
+    rdfs:label "First Mercury flyby at 703 km — first spacecraft to visit Mercury. Revealed a cr" ;
+    ss:description "First Mercury flyby at 703 km — first spacecraft to visit Mercury. Revealed a cratered, Moon-like surface with a magnetic field." ;
+    ss:date "1974-03-29"^^xsd:date ;
+    ss:distance-from-body-km "703"^^xsd:double ;
+    ss:velocity-km-s "55.0"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-93 .
+
+ssd:position-93 a ss:Position ;
+    rdfs:label "0.46 AU, 170° lon, 5° lat" ;
+    ss:distance-au "0.46"^^xsd:double ;
+    ss:ecliptic-longitude-deg "170"^^xsd:double ;
+    ss:ecliptic-latitude-deg "5"^^xsd:double .
+
+ssd:event-94 a ss:FlybyEvent ;
+    rdfs:label "Second Mercury flyby at 48,069 km" ;
+    ss:description "Second Mercury flyby at 48,069 km" ;
+    ss:date "1974-09-21"^^xsd:date ;
+    ss:distance-from-body-km "48069"^^xsd:double ;
+    ss:velocity-km-s "58.0"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-94 .
+
+ssd:position-94 a ss:Position ;
+    rdfs:label "0.36 AU, 350° lon, 6° lat" ;
+    ss:distance-au "0.36"^^xsd:double ;
+    ss:ecliptic-longitude-deg "350"^^xsd:double ;
+    ss:ecliptic-latitude-deg "6"^^xsd:double .
+
+ssd:event-95 a ss:FlybyEvent ;
+    rdfs:label "Third Mercury flyby at 327 km — closest approach. Mapped about 45% of Mercury's " ;
+    ss:description "Third Mercury flyby at 327 km — closest approach. Mapped about 45% of Mercury's surface total across three flybys." ;
+    ss:date "1975-03-16"^^xsd:date ;
+    ss:distance-from-body-km "327"^^xsd:double ;
+    ss:velocity-km-s "56.0"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-95 .
+
+ssd:position-95 a ss:Position ;
+    rdfs:label "0.4 AU, 170° lon, 4° lat" ;
+    ss:distance-au "0.4"^^xsd:double ;
+    ss:ecliptic-longitude-deg "170"^^xsd:double ;
+    ss:ecliptic-latitude-deg "4"^^xsd:double .
+
+ssd:event-96 a ss:EndOfMission ;
+    rdfs:label "Ran out of attitude control gas. Presumed still orbiting the Sun." ;
+    ss:description "Ran out of attitude control gas. Presumed still orbiting the Sun." ;
+    ss:date "1975-03-24"^^xsd:date ;
+    ss:distance-from-body-km "1000000"^^xsd:double ;
+    ss:velocity-km-s "53.0"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-96 .
+
+ssd:position-96 a ss:Position ;
+    rdfs:label "0.42 AU, 175° lon, 4° lat" ;
+    ss:distance-au "0.42"^^xsd:double ;
+    ss:ecliptic-longitude-deg "175"^^xsd:double ;
+    ss:ecliptic-latitude-deg "4"^^xsd:double .
+
+ssd:mission-mars-pathfinder-sojourner a ss:LanderAndRover ;
+    rdfs:label "Mars Pathfinder (Sojourner)" ;
+    ss:name "Mars Pathfinder (Sojourner)" ;
+    ss:description "First successful Mars rover. Sojourner was the size of a microwave oven — proved mobile robots could explore Mars." ;
+    ss:agency "NASA" ;
+    ss:launch-date "1996-12-04"^^xsd:date ;
+    ss:status ss:Completed ;
+    ss:end-date "1997-09-27"^^xsd:date ;
+    ss:target-body ssd:mars ;
+    ss:has-event ssd:event-97 ;
+    ss:has-event ssd:event-98 ;
+    ss:has-event ssd:event-99 .
+
+ssd:event-97 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Delta II" ;
+    ss:description "Launched from Cape Canaveral aboard Delta II" ;
+    ss:date "1996-12-04"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-97 .
+
+ssd:position-97 a ss:Position ;
+    rdfs:label "1.0 AU, 72° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "72"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-98 a ss:Landing ;
+    rdfs:label "Landed in Ares Vallis using airbag bouncing system. Sojourner rover deployed — f" ;
+    ss:description "Landed in Ares Vallis using airbag bouncing system. Sojourner rover deployed — first wheeled vehicle on Mars." ;
+    ss:date "1997-07-04"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-98 .
+
+ssd:position-98 a ss:Position ;
+    rdfs:label "1.52 AU, 282° lon, -1.5° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "282"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.5"^^xsd:double .
+
+ssd:event-99 a ss:EndOfMission ;
+    rdfs:label "Last communication from lander. Far exceeded planned 30-day mission, operating f" ;
+    ss:description "Last communication from lander. Far exceeded planned 30-day mission, operating for nearly 3 months." ;
+    ss:date "1997-09-27"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-99 .
+
+ssd:position-99 a ss:Position ;
+    rdfs:label "1.52 AU, 350° lon, -1.5° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "350"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.5"^^xsd:double .
+
+ssd:mission-mars-exploration-rover-a-spirit a ss:Rover ;
+    rdfs:label "Mars Exploration Rover A (Spirit)" ;
+    ss:name "Mars Exploration Rover A (Spirit)" ;
+    ss:description "Explored Gusev Crater for over 6 years, far exceeding its 90-day planned mission. Found evidence of ancient hydrothermal activity." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2003-06-10"^^xsd:date ;
+    ss:status ss:Completed ;
+    ss:end-date "2011-05-25"^^xsd:date ;
+    ss:target-body ssd:mars ;
+    ss:has-event ssd:event-100 ;
+    ss:has-event ssd:event-101 ;
+    ss:has-event ssd:event-102 ;
+    ss:has-event ssd:event-103 .
+
+ssd:event-100 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Delta II" ;
+    ss:description "Launched from Cape Canaveral aboard Delta II" ;
+    ss:date "2003-06-10"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-100 .
+
+ssd:position-100 a ss:Position ;
+    rdfs:label "1.0 AU, 259° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "259"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-101 a ss:Landing ;
+    rdfs:label "Landed in Gusev Crater using airbag system" ;
+    ss:description "Landed in Gusev Crater using airbag system" ;
+    ss:date "2004-01-04"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-101 .
+
+ssd:position-101 a ss:Position ;
+    rdfs:label "1.52 AU, 102° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "102"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-102 a ss:Discovery ;
+    rdfs:label "Found silica-rich soil near Home Plate — strong evidence of ancient hot springs " ;
+    ss:description "Found silica-rich soil near Home Plate — strong evidence of ancient hot springs or steam vents" ;
+    ss:date "2007-05-21"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-102 .
+
+ssd:position-102 a ss:Position ;
+    rdfs:label "1.52 AU, 235° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "235"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-103 a ss:EndOfMission ;
+    rdfs:label "NASA declared mission complete. Spirit became stuck in soft soil in 2009, last c" ;
+    ss:description "NASA declared mission complete. Spirit became stuck in soft soil in 2009, last communication March 2010. Drove 7.73 km total." ;
+    ss:date "2011-05-25"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-103 .
+
+ssd:position-103 a ss:Position ;
+    rdfs:label "1.52 AU, 60° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "60"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:mission-mars-exploration-rover-b-opportunity a ss:Rover ;
+    rdfs:label "Mars Exploration Rover B (Opportunity)" ;
+    ss:name "Mars Exploration Rover B (Opportunity)" ;
+    ss:description "Explored Mars for nearly 15 years, driving a marathon distance. Found definitive evidence that Mars once had liquid water." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2003-07-08"^^xsd:date ;
+    ss:status ss:Completed ;
+    ss:end-date "2019-02-13"^^xsd:date ;
+    ss:target-body ssd:mars ;
+    ss:has-event ssd:event-104 ;
+    ss:has-event ssd:event-105 ;
+    ss:has-event ssd:event-106 ;
+    ss:has-event ssd:event-107 ;
+    ss:has-event ssd:event-108 .
+
+ssd:event-104 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Delta II" ;
+    ss:description "Launched from Cape Canaveral aboard Delta II" ;
+    ss:date "2003-07-08"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-104 .
+
+ssd:position-104 a ss:Position ;
+    rdfs:label "1.0 AU, 285° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "285"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-105 a ss:Landing ;
+    rdfs:label "Landed in Eagle Crater, Meridiani Planum. Immediately found exposed bedrock — ge" ;
+    ss:description "Landed in Eagle Crater, Meridiani Planum. Immediately found exposed bedrock — geological jackpot." ;
+    ss:date "2004-01-25"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-105 .
+
+ssd:position-105 a ss:Position ;
+    rdfs:label "1.52 AU, 120° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "120"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-106 a ss:Discovery ;
+    rdfs:label "Found 'blueberries' (hematite spherules) and cross-bedded sandstone — definitive" ;
+    ss:description "Found 'blueberries' (hematite spherules) and cross-bedded sandstone — definitive proof that liquid water once flowed on Mars" ;
+    ss:date "2004-03-02"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-106 .
+
+ssd:position-106 a ss:Position ;
+    rdfs:label "1.52 AU, 130° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "130"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-107 a ss:Milestone ;
+    rdfs:label "Completed a marathon distance on Mars — 42.195 km driven, first marathon on anot" ;
+    ss:description "Completed a marathon distance on Mars — 42.195 km driven, first marathon on another planet" ;
+    ss:date "2015-03-24"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-107 .
+
+ssd:position-107 a ss:Position ;
+    rdfs:label "1.52 AU, 185° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "185"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:event-108 a ss:EndOfMission ;
+    rdfs:label "NASA declared mission complete after global dust storm blocked sunlight to solar" ;
+    ss:description "NASA declared mission complete after global dust storm blocked sunlight to solar panels. Last contact June 2018. Drove 45.16 km over nearly 15 years." ;
+    ss:date "2019-02-13"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-108 .
+
+ssd:position-108 a ss:Position ;
+    rdfs:label "1.52 AU, 340° lon, -1.8° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "340"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.8"^^xsd:double .
+
+ssd:mission-hayabusa2 a ss:SampleReturn ;
+    rdfs:label "Hayabusa2" ;
+    ss:name "Hayabusa2" ;
+    ss:description "Japanese asteroid sample return mission. Successfully collected samples from asteroid Ryugu and returned them to Earth." ;
+    ss:agency "JAXA" ;
+    ss:launch-date "2014-12-03"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:has-event ssd:event-109 ;
+    ss:has-event ssd:event-110 ;
+    ss:has-event ssd:event-111 ;
+    ss:has-event ssd:event-112 ;
+    ss:has-event ssd:event-113 ;
+    ss:has-event ssd:event-114 .
+
+ssd:event-109 a ss:Launch ;
+    rdfs:label "Launched from Tanegashima Space Center aboard H-IIA" ;
+    ss:description "Launched from Tanegashima Space Center aboard H-IIA" ;
+    ss:date "2014-12-03"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-109 .
+
+ssd:position-109 a ss:Position ;
+    rdfs:label "1.0 AU, 71° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "71"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-110 a ss:FlybyEvent ;
+    rdfs:label "Earth gravity assist at 3,090 km" ;
+    ss:description "Earth gravity assist at 3,090 km" ;
+    ss:date "2015-12-03"^^xsd:date ;
+    ss:distance-from-body-km "3090"^^xsd:double ;
+    ss:velocity-km-s "33.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-110 .
+
+ssd:position-110 a ss:Position ;
+    rdfs:label "1.0 AU, 71° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "71"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-111 a ss:OrbitInsertion ;
+    rdfs:label "Arrived at asteroid Ryugu — a 900m-wide diamond-shaped near-Earth asteroid" ;
+    ss:description "Arrived at asteroid Ryugu — a 900m-wide diamond-shaped near-Earth asteroid" ;
+    ss:date "2018-06-27"^^xsd:date ;
+    ss:distance-from-body-km "20"^^xsd:double ;
+    ss:velocity-km-s "0.1"^^xsd:double ;
+    ss:position ssd:position-111 .
+
+ssd:position-111 a ss:Position ;
+    rdfs:label "1.06 AU, 275° lon, -3° lat" ;
+    ss:distance-au "1.06"^^xsd:double ;
+    ss:ecliptic-longitude-deg "275"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-3"^^xsd:double .
+
+ssd:event-112 a ss:Landing ;
+    rdfs:label "First touchdown and sample collection from Ryugu surface" ;
+    ss:description "First touchdown and sample collection from Ryugu surface" ;
+    ss:date "2019-02-22"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:position ssd:position-112 .
+
+ssd:position-112 a ss:Position ;
+    rdfs:label "1.3 AU, 188° lon, -5° lat" ;
+    ss:distance-au "1.3"^^xsd:double ;
+    ss:ecliptic-longitude-deg "188"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-5"^^xsd:double .
+
+ssd:event-113 a ss:Milestone ;
+    rdfs:label "Fired impactor to create artificial crater on Ryugu, then collected subsurface s" ;
+    ss:description "Fired impactor to create artificial crater on Ryugu, then collected subsurface samples in second touchdown" ;
+    ss:date "2019-04-05"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:position ssd:position-113 .
+
+ssd:position-113 a ss:Position ;
+    rdfs:label "1.19 AU, 200° lon, -4° lat" ;
+    ss:distance-au "1.19"^^xsd:double ;
+    ss:ecliptic-longitude-deg "200"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-4"^^xsd:double .
+
+ssd:event-114 a ss:Milestone ;
+    rdfs:label "Sample return capsule landed in Woomera, Australia with 5.4 grams of asteroid ma" ;
+    ss:description "Sample return capsule landed in Woomera, Australia with 5.4 grams of asteroid material — most pristine extraterrestrial samples ever collected" ;
+    ss:date "2020-12-06"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "12.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-114 .
+
+ssd:position-114 a ss:Position ;
+    rdfs:label "1.0 AU, 74° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "74"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:mission-osiris-rex a ss:SampleReturn ;
+    rdfs:label "OSIRIS-REx" ;
+    ss:name "OSIRIS-REx" ;
+    ss:description "Collected samples from asteroid Bennu and returned them to Earth. Now on extended mission (OSIRIS-APEX) to visit asteroid Apophis." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2016-09-08"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:has-event ssd:event-115 ;
+    ss:has-event ssd:event-116 ;
+    ss:has-event ssd:event-117 ;
+    ss:has-event ssd:event-118 ;
+    ss:has-event ssd:event-119 .
+
+ssd:event-115 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Atlas V 411" ;
+    ss:description "Launched from Cape Canaveral aboard Atlas V 411" ;
+    ss:date "2016-09-08"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-115 .
+
+ssd:position-115 a ss:Position ;
+    rdfs:label "1.0 AU, 346° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "346"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-116 a ss:FlybyEvent ;
+    rdfs:label "Earth gravity assist at 17,237 km" ;
+    ss:description "Earth gravity assist at 17,237 km" ;
+    ss:date "2017-09-22"^^xsd:date ;
+    ss:distance-from-body-km "17237"^^xsd:double ;
+    ss:velocity-km-s "32.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-116 .
+
+ssd:position-116 a ss:Position ;
+    rdfs:label "1.0 AU, 359° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "359"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-117 a ss:OrbitInsertion ;
+    rdfs:label "Arrived at asteroid Bennu — a 500m-wide near-Earth asteroid. Became closest orbi" ;
+    ss:description "Arrived at asteroid Bennu — a 500m-wide near-Earth asteroid. Became closest orbit of a small body ever." ;
+    ss:date "2018-12-03"^^xsd:date ;
+    ss:distance-from-body-km "1.75"^^xsd:double ;
+    ss:velocity-km-s "0.04"^^xsd:double ;
+    ss:position ssd:position-117 .
+
+ssd:position-117 a ss:Position ;
+    rdfs:label "1.07 AU, 70° lon, 6° lat" ;
+    ss:distance-au "1.07"^^xsd:double ;
+    ss:ecliptic-longitude-deg "70"^^xsd:double ;
+    ss:ecliptic-latitude-deg "6"^^xsd:double .
+
+ssd:event-118 a ss:Landing ;
+    rdfs:label "TAG (Touch-And-Go) sample collection from Nightingale crater — collected approxi" ;
+    ss:description "TAG (Touch-And-Go) sample collection from Nightingale crater — collected approximately 121.6 grams of material" ;
+    ss:date "2020-10-20"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:position ssd:position-118 .
+
+ssd:position-118 a ss:Position ;
+    rdfs:label "1.12 AU, 25° lon, 6° lat" ;
+    ss:distance-au "1.12"^^xsd:double ;
+    ss:ecliptic-longitude-deg "25"^^xsd:double ;
+    ss:ecliptic-latitude-deg "6"^^xsd:double .
+
+ssd:event-119 a ss:Milestone ;
+    rdfs:label "Sample return capsule landed in Utah desert with 121.6 grams of Bennu material —" ;
+    ss:description "Sample return capsule landed in Utah desert with 121.6 grams of Bennu material — largest asteroid sample ever returned" ;
+    ss:date "2023-09-24"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "12.4"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-119 .
+
+ssd:position-119 a ss:Position ;
+    rdfs:label "1.0 AU, 1° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "1"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:mission-bepicolombo a ss:Orbiter ;
+    rdfs:label "BepiColombo" ;
+    ss:name "BepiColombo" ;
+    ss:description "Joint European-Japanese mission to Mercury. Uses complex gravity assist trajectory with Earth, Venus, and Mercury flybys." ;
+    ss:agency "ESA/JAXA" ;
+    ss:launch-date "2018-10-20"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:mercury ;
+    ss:target-body ssd:venus ;
+    ss:target-body ssd:earth ;
+    ss:has-event ssd:event-120 ;
+    ss:has-event ssd:event-121 ;
+    ss:has-event ssd:event-122 ;
+    ss:has-event ssd:event-123 ;
+    ss:has-event ssd:event-124 ;
+    ss:has-event ssd:event-125 ;
+    ss:has-event ssd:event-126 .
+
+ssd:event-120 a ss:Launch ;
+    rdfs:label "Launched from Kourou aboard Ariane 5" ;
+    ss:description "Launched from Kourou aboard Ariane 5" ;
+    ss:date "2018-10-20"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "10.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-120 .
+
+ssd:position-120 a ss:Position ;
+    rdfs:label "1.0 AU, 27° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "27"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-121 a ss:FlybyEvent ;
+    rdfs:label "Earth gravity assist at 12,677 km" ;
+    ss:description "Earth gravity assist at 12,677 km" ;
+    ss:date "2020-04-10"^^xsd:date ;
+    ss:distance-from-body-km "12677"^^xsd:double ;
+    ss:velocity-km-s "34.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-121 .
+
+ssd:position-121 a ss:Position ;
+    rdfs:label "1.0 AU, 200° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "200"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-122 a ss:FlybyEvent ;
+    rdfs:label "First Venus flyby at 10,720 km" ;
+    ss:description "First Venus flyby at 10,720 km" ;
+    ss:date "2020-10-15"^^xsd:date ;
+    ss:distance-from-body-km "10720"^^xsd:double ;
+    ss:velocity-km-s "36.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-122 .
+
+ssd:position-122 a ss:Position ;
+    rdfs:label "0.72 AU, 22° lon, -0.2° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "22"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-0.2"^^xsd:double .
+
+ssd:event-123 a ss:FlybyEvent ;
+    rdfs:label "Second Venus flyby at 552 km" ;
+    ss:description "Second Venus flyby at 552 km" ;
+    ss:date "2021-08-10"^^xsd:date ;
+    ss:distance-from-body-km "552"^^xsd:double ;
+    ss:velocity-km-s "38.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-123 .
+
+ssd:position-123 a ss:Position ;
+    rdfs:label "0.72 AU, 315° lon, 0.1° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "315"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0.1"^^xsd:double .
+
+ssd:event-124 a ss:FlybyEvent ;
+    rdfs:label "First Mercury flyby at 199 km" ;
+    ss:description "First Mercury flyby at 199 km" ;
+    ss:date "2021-10-01"^^xsd:date ;
+    ss:distance-from-body-km "199"^^xsd:double ;
+    ss:velocity-km-s "55.0"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-124 .
+
+ssd:position-124 a ss:Position ;
+    rdfs:label "0.35 AU, 8° lon, 4° lat" ;
+    ss:distance-au "0.35"^^xsd:double ;
+    ss:ecliptic-longitude-deg "8"^^xsd:double ;
+    ss:ecliptic-latitude-deg "4"^^xsd:double .
+
+ssd:event-125 a ss:FlybyEvent ;
+    rdfs:label "Fourth Mercury flyby at 165 km" ;
+    ss:description "Fourth Mercury flyby at 165 km" ;
+    ss:date "2024-09-05"^^xsd:date ;
+    ss:distance-from-body-km "165"^^xsd:double ;
+    ss:velocity-km-s "52.0"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-125 .
+
+ssd:position-125 a ss:Position ;
+    rdfs:label "0.38 AU, 342° lon, 5° lat" ;
+    ss:distance-au "0.38"^^xsd:double ;
+    ss:ecliptic-longitude-deg "342"^^xsd:double ;
+    ss:ecliptic-latitude-deg "5"^^xsd:double .
+
+ssd:event-126 a ss:OrbitInsertion ;
+    rdfs:label "Planned Mercury orbit insertion — will separate into two orbiters (MPO and Mio) " ;
+    ss:description "Planned Mercury orbit insertion — will separate into two orbiters (MPO and Mio) for comprehensive Mercury study" ;
+    ss:date "2026-11-01"^^xsd:date ;
+    ss:distance-from-body-km "480"^^xsd:double ;
+    ss:velocity-km-s "3.5"^^xsd:double ;
+    ss:nearest-body ssd:mercury ;
+    ss:position ssd:position-126 .
+
+ssd:position-126 a ss:Position ;
+    rdfs:label "0.39 AU, 45° lon, 5° lat" ;
+    ss:distance-au "0.39"^^xsd:double ;
+    ss:ecliptic-longitude-deg "45"^^xsd:double ;
+    ss:ecliptic-latitude-deg "5"^^xsd:double .
+
+ssd:mission-europa-clipper a ss:Orbiter ;
+    rdfs:label "Europa Clipper" ;
+    ss:name "Europa Clipper" ;
+    ss:description "Largest spacecraft NASA has ever built for a planetary mission. Will perform detailed reconnaissance of Jupiter's moon Europa to investigate its habitability." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2024-10-14"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:mars ;
+    ss:target-body ssd:jupiter ;
+    ss:target-body ssd:europa ;
+    ss:has-event ssd:event-127 ;
+    ss:has-event ssd:event-128 ;
+    ss:has-event ssd:event-129 ;
+    ss:has-event ssd:event-130 ;
+    ss:has-event ssd:event-131 .
+
+ssd:event-127 a ss:Launch ;
+    rdfs:label "Launched from Kennedy Space Center aboard SpaceX Falcon Heavy" ;
+    ss:description "Launched from Kennedy Space Center aboard SpaceX Falcon Heavy" ;
+    ss:date "2024-10-14"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-127 .
+
+ssd:position-127 a ss:Position ;
+    rdfs:label "1.0 AU, 21° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "21"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-128 a ss:FlybyEvent ;
+    rdfs:label "Mars gravity assist flyby" ;
+    ss:description "Mars gravity assist flyby" ;
+    ss:date "2025-03-01"^^xsd:date ;
+    ss:distance-from-body-km "500"^^xsd:double ;
+    ss:velocity-km-s "28.0"^^xsd:double ;
+    ss:nearest-body ssd:mars ;
+    ss:position ssd:position-128 .
+
+ssd:position-128 a ss:Position ;
+    rdfs:label "1.52 AU, 100° lon, -1.5° lat" ;
+    ss:distance-au "1.52"^^xsd:double ;
+    ss:ecliptic-longitude-deg "100"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-1.5"^^xsd:double .
+
+ssd:event-129 a ss:FlybyEvent ;
+    rdfs:label "Earth gravity assist flyby" ;
+    ss:description "Earth gravity assist flyby" ;
+    ss:date "2026-12-01"^^xsd:date ;
+    ss:distance-from-body-km "3000"^^xsd:double ;
+    ss:velocity-km-s "35.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-129 .
+
+ssd:position-129 a ss:Position ;
+    rdfs:label "1.0 AU, 69° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "69"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-130 a ss:OrbitInsertion ;
+    rdfs:label "Planned Jupiter orbit insertion — will begin series of close flybys of Europa" ;
+    ss:description "Planned Jupiter orbit insertion — will begin series of close flybys of Europa" ;
+    ss:date "2030-04-11"^^xsd:date ;
+    ss:distance-from-body-km "500000"^^xsd:double ;
+    ss:velocity-km-s "30.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-130 .
+
+ssd:position-130 a ss:Position ;
+    rdfs:label "5.2 AU, 100° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "100"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:event-131 a ss:FlybyEvent ;
+    rdfs:label "Planned: Will perform 49 close flybys of Europa over 4 years, studying ice shell" ;
+    ss:description "Planned: Will perform 49 close flybys of Europa over 4 years, studying ice shell, ocean, composition, and geology" ;
+    ss:date "2031-01-01"^^xsd:date ;
+    ss:distance-from-body-km "25"^^xsd:double ;
+    ss:velocity-km-s "15.0"^^xsd:double ;
+    ss:nearest-body ssd:europa ;
+    ss:position ssd:position-131 .
+
+ssd:position-131 a ss:Position ;
+    rdfs:label "5.2 AU, 110° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "110"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:mission-lucy a ss:Flyby ;
+    rdfs:label "Lucy" ;
+    ss:name "Lucy" ;
+    ss:description "First mission to study Jupiter's Trojan asteroids — ancient remnants of the outer solar system trapped in Jupiter's orbit." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2021-10-16"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:jupiter ;
+    ss:has-event ssd:event-132 ;
+    ss:has-event ssd:event-133 ;
+    ss:has-event ssd:event-134 ;
+    ss:has-event ssd:event-135 ;
+    ss:has-event ssd:event-136 ;
+    ss:has-event ssd:event-137 ;
+    ss:has-event ssd:event-138 .
+
+ssd:event-132 a ss:Launch ;
+    rdfs:label "Launched from Cape Canaveral aboard Atlas V 401" ;
+    ss:description "Launched from Cape Canaveral aboard Atlas V 401" ;
+    ss:date "2021-10-16"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-132 .
+
+ssd:position-132 a ss:Position ;
+    rdfs:label "1.0 AU, 22° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "22"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-133 a ss:FlybyEvent ;
+    rdfs:label "First Earth gravity assist" ;
+    ss:description "First Earth gravity assist" ;
+    ss:date "2022-10-16"^^xsd:date ;
+    ss:distance-from-body-km "350"^^xsd:double ;
+    ss:velocity-km-s "34.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-133 .
+
+ssd:position-133 a ss:Position ;
+    rdfs:label "1.0 AU, 22° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "22"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-134 a ss:FlybyEvent ;
+    rdfs:label "Flyby of asteroid Dinkinesh — surprise discovery that it has a contact binary mo" ;
+    ss:description "Flyby of asteroid Dinkinesh — surprise discovery that it has a contact binary moonlet (Selam)" ;
+    ss:date "2023-11-01"^^xsd:date ;
+    ss:distance-from-body-km "430"^^xsd:double ;
+    ss:velocity-km-s "16.0"^^xsd:double ;
+    ss:position ssd:position-134 .
+
+ssd:position-134 a ss:Position ;
+    rdfs:label "1.8 AU, 55° lon, 2° lat" ;
+    ss:distance-au "1.8"^^xsd:double ;
+    ss:ecliptic-longitude-deg "55"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2"^^xsd:double .
+
+ssd:event-135 a ss:FlybyEvent ;
+    rdfs:label "Second Earth gravity assist" ;
+    ss:description "Second Earth gravity assist" ;
+    ss:date "2024-12-13"^^xsd:date ;
+    ss:distance-from-body-km "230"^^xsd:double ;
+    ss:velocity-km-s "36.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-135 .
+
+ssd:position-135 a ss:Position ;
+    rdfs:label "1.0 AU, 81° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "81"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-136 a ss:FlybyEvent ;
+    rdfs:label "Flyby of asteroid 52246 Donaldjohanson at 922 km" ;
+    ss:description "Flyby of asteroid 52246 Donaldjohanson at 922 km" ;
+    ss:date "2025-04-20"^^xsd:date ;
+    ss:distance-from-body-km "922"^^xsd:double ;
+    ss:velocity-km-s "14.5"^^xsd:double ;
+    ss:position ssd:position-136 .
+
+ssd:position-136 a ss:Position ;
+    rdfs:label "2.16 AU, 110° lon, 1° lat" ;
+    ss:distance-au "2.16"^^xsd:double ;
+    ss:ecliptic-longitude-deg "110"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1"^^xsd:double .
+
+ssd:event-137 a ss:FlybyEvent ;
+    rdfs:label "Planned flyby of Trojan asteroid Eurybates and its satellite Queta — first Troja" ;
+    ss:description "Planned flyby of Trojan asteroid Eurybates and its satellite Queta — first Trojan encounter" ;
+    ss:date "2027-08-12"^^xsd:date ;
+    ss:distance-from-body-km "1000"^^xsd:double ;
+    ss:velocity-km-s "8.0"^^xsd:double ;
+    ss:position ssd:position-137 .
+
+ssd:position-137 a ss:Position ;
+    rdfs:label "5.0 AU, 42° lon, 8° lat" ;
+    ss:distance-au "5.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "42"^^xsd:double ;
+    ss:ecliptic-latitude-deg "8"^^xsd:double .
+
+ssd:event-138 a ss:FlybyEvent ;
+    rdfs:label "Planned flyby of Trojan binary Patroclus-Menoetius in L5 swarm — mission finale" ;
+    ss:description "Planned flyby of Trojan binary Patroclus-Menoetius in L5 swarm — mission finale" ;
+    ss:date "2033-03-03"^^xsd:date ;
+    ss:distance-from-body-km "1000"^^xsd:double ;
+    ss:velocity-km-s "7.0"^^xsd:double ;
+    ss:position ssd:position-138 .
+
+ssd:position-138 a ss:Position ;
+    rdfs:label "5.3 AU, 200° lon, -5° lat" ;
+    ss:distance-au "5.3"^^xsd:double ;
+    ss:ecliptic-longitude-deg "200"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-5"^^xsd:double .
+
+ssd:mission-juice a ss:Orbiter ;
+    rdfs:label "JUICE" ;
+    ss:name "JUICE" ;
+    ss:description "Jupiter Icy Moons Explorer — ESA's first mission to Jupiter. Will study Ganymede, Europa, and Callisto, then orbit Ganymede." ;
+    ss:agency "ESA" ;
+    ss:launch-date "2023-04-14"^^xsd:date ;
+    ss:status ss:Active ;
+    ss:target-body ssd:venus ;
+    ss:target-body ssd:earth ;
+    ss:target-body ssd:jupiter ;
+    ss:target-body ssd:europa ;
+    ss:has-event ssd:event-139 ;
+    ss:has-event ssd:event-140 ;
+    ss:has-event ssd:event-141 ;
+    ss:has-event ssd:event-142 ;
+    ss:has-event ssd:event-143 ;
+    ss:has-event ssd:event-144 ;
+    ss:has-event ssd:event-145 .
+
+ssd:event-139 a ss:Launch ;
+    rdfs:label "Launched from Kourou aboard Ariane 5 — final major science mission for Ariane 5" ;
+    ss:description "Launched from Kourou aboard Ariane 5 — final major science mission for Ariane 5" ;
+    ss:date "2023-04-14"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "10.5"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-139 .
+
+ssd:position-139 a ss:Position ;
+    rdfs:label "1.0 AU, 204° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "204"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-140 a ss:FlybyEvent ;
+    rdfs:label "Lunar-Earth gravity assist — first-ever spacecraft to use combined Moon-Earth fl" ;
+    ss:description "Lunar-Earth gravity assist — first-ever spacecraft to use combined Moon-Earth flyby" ;
+    ss:date "2024-08-20"^^xsd:date ;
+    ss:distance-from-body-km "6840"^^xsd:double ;
+    ss:velocity-km-s "33.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-140 .
+
+ssd:position-140 a ss:Position ;
+    rdfs:label "1.0 AU, 328° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "328"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-141 a ss:FlybyEvent ;
+    rdfs:label "Venus gravity assist at 3,375 km" ;
+    ss:description "Venus gravity assist at 3,375 km" ;
+    ss:date "2025-08-31"^^xsd:date ;
+    ss:distance-from-body-km "3375"^^xsd:double ;
+    ss:velocity-km-s "37.0"^^xsd:double ;
+    ss:nearest-body ssd:venus ;
+    ss:position ssd:position-141 .
+
+ssd:position-141 a ss:Position ;
+    rdfs:label "0.72 AU, 160° lon, -0.3° lat" ;
+    ss:distance-au "0.72"^^xsd:double ;
+    ss:ecliptic-longitude-deg "160"^^xsd:double ;
+    ss:ecliptic-latitude-deg "-0.3"^^xsd:double .
+
+ssd:event-142 a ss:FlybyEvent ;
+    rdfs:label "Second Earth gravity assist" ;
+    ss:description "Second Earth gravity assist" ;
+    ss:date "2026-09-01"^^xsd:date ;
+    ss:distance-from-body-km "4500"^^xsd:double ;
+    ss:velocity-km-s "35.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-142 .
+
+ssd:position-142 a ss:Position ;
+    rdfs:label "1.0 AU, 339° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "339"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-143 a ss:FlybyEvent ;
+    rdfs:label "Third Earth gravity assist" ;
+    ss:description "Third Earth gravity assist" ;
+    ss:date "2029-01-01"^^xsd:date ;
+    ss:distance-from-body-km "5500"^^xsd:double ;
+    ss:velocity-km-s "36.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-143 .
+
+ssd:position-143 a ss:Position ;
+    rdfs:label "1.0 AU, 100° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "100"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-144 a ss:OrbitInsertion ;
+    rdfs:label "Planned Jupiter orbit insertion — will begin tour of Galilean moons" ;
+    ss:description "Planned Jupiter orbit insertion — will begin tour of Galilean moons" ;
+    ss:date "2031-07-01"^^xsd:date ;
+    ss:distance-from-body-km "400000"^^xsd:double ;
+    ss:velocity-km-s "30.0"^^xsd:double ;
+    ss:nearest-body ssd:jupiter ;
+    ss:position ssd:position-144 .
+
+ssd:position-144 a ss:Position ;
+    rdfs:label "5.2 AU, 150° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "150"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:event-145 a ss:OrbitInsertion ;
+    rdfs:label "Planned Ganymede orbit insertion — first spacecraft to orbit a moon of another p" ;
+    ss:description "Planned Ganymede orbit insertion — first spacecraft to orbit a moon of another planet" ;
+    ss:date "2034-12-01"^^xsd:date ;
+    ss:distance-from-body-km "500"^^xsd:double ;
+    ss:velocity-km-s "3.0"^^xsd:double ;
+    ss:position ssd:position-145 .
+
+ssd:position-145 a ss:Position ;
+    rdfs:label "5.2 AU, 190° lon, 1.3° lat" ;
+    ss:distance-au "5.2"^^xsd:double ;
+    ss:ecliptic-longitude-deg "190"^^xsd:double ;
+    ss:ecliptic-latitude-deg "1.3"^^xsd:double .
+
+ssd:mission-dragonfly a ss:RotorcraftLander ;
+    rdfs:label "Dragonfly" ;
+    ss:name "Dragonfly" ;
+    ss:description "Nuclear-powered rotorcraft that will fly through Titan's thick atmosphere. Will search for prebiotic chemistry and signs of life." ;
+    ss:agency "NASA" ;
+    ss:launch-date "2028-07-01"^^xsd:date ;
+    ss:status ss:InDevelopment ;
+    ss:target-body ssd:saturn ;
+    ss:target-body ssd:titan ;
+    ss:has-event ssd:event-146 ;
+    ss:has-event ssd:event-147 ;
+    ss:has-event ssd:event-148 .
+
+ssd:event-146 a ss:Launch ;
+    rdfs:label "Planned launch aboard launch vehicle TBD" ;
+    ss:description "Planned launch aboard launch vehicle TBD" ;
+    ss:date "2028-07-01"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "11.0"^^xsd:double ;
+    ss:nearest-body ssd:earth ;
+    ss:position ssd:position-146 .
+
+ssd:position-146 a ss:Position ;
+    rdfs:label "1.0 AU, 280° lon, 0° lat" ;
+    ss:distance-au "1.0"^^xsd:double ;
+    ss:ecliptic-longitude-deg "280"^^xsd:double ;
+    ss:ecliptic-latitude-deg "0"^^xsd:double .
+
+ssd:event-147 a ss:Landing ;
+    rdfs:label "Planned landing on Titan's equatorial dunes region of Shangri-La, near Selk impa" ;
+    ss:description "Planned landing on Titan's equatorial dunes region of Shangri-La, near Selk impact crater" ;
+    ss:date "2034-01-01"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0"^^xsd:double ;
+    ss:nearest-body ssd:titan ;
+    ss:position ssd:position-147 .
+
+ssd:position-147 a ss:Position ;
+    rdfs:label "9.54 AU, 335° lon, 2.4° lat" ;
+    ss:distance-au "9.54"^^xsd:double ;
+    ss:ecliptic-longitude-deg "335"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.4"^^xsd:double .
+
+ssd:event-148 a ss:Milestone ;
+    rdfs:label "Planned: First powered flight on Titan — will hop between sites studying prebiot" ;
+    ss:description "Planned: First powered flight on Titan — will hop between sites studying prebiotic chemistry. Each flight up to 8 km." ;
+    ss:date "2034-06-01"^^xsd:date ;
+    ss:distance-from-body-km "0"^^xsd:double ;
+    ss:velocity-km-s "0.01"^^xsd:double ;
+    ss:nearest-body ssd:titan ;
+    ss:position ssd:position-148 .
+
+ssd:position-148 a ss:Position ;
+    rdfs:label "9.54 AU, 340° lon, 2.4° lat" ;
+    ss:distance-au "9.54"^^xsd:double ;
+    ss:ecliptic-longitude-deg "340"^^xsd:double ;
+    ss:ecliptic-latitude-deg "2.4"^^xsd:double .
+

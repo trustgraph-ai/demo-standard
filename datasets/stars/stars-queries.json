@@ -1,0 +1,72 @@
+[
+  {
+    "id": "named-stars",
+    "title": "Stars with common names",
+    "description": "Returns all stars that have a proper (common) name.",
+    "language": "graphql",
+    "query": "query { stars(where: { proper: { not: \"\" } }, limit: 100) { proper con spect mag dist lum } }"
+  },
+  {
+    "id": "stars-in-constellation",
+    "title": "Stars in a constellation (e.g. Ori)",
+    "description": "Returns stars in a given constellation with key properties.",
+    "language": "graphql",
+    "query": "query { stars(where: { con: { eq: \"Ori\" } }, limit: 50) { proper spect mag dist lum bayer flam } }"
+  },
+  {
+    "id": "star-by-name",
+    "title": "Look up a star by name (e.g. Sirius)",
+    "description": "Returns full details for a named star.",
+    "language": "graphql",
+    "query": "query { stars(where: { proper: { eq: \"Sirius\" } }, limit: 1) { proper con spect mag dist lum ra dec ci bayer flam } }"
+  },
+  {
+    "id": "stars-by-spectral-type",
+    "title": "Stars by spectral type (e.g. G2V-type)",
+    "description": "Returns stars matching a spectral type prefix.",
+    "language": "graphql",
+    "query": "query { stars(where: { spect: { eq: \"G2V\" } }, limit: 50) { proper spect mag dist lum con } }"
+  },
+  {
+    "id": "nearby-stars",
+    "title": "Nearest stars to Sol",
+    "description": "Returns stars within 5 parsecs.",
+    "language": "graphql",
+    "query": "query { stars(where: { dist: { lt: 5.0 } }, limit: 50) { proper spect mag dist lum con gl } }"
+  },
+  {
+    "id": "bright-stars",
+    "title": "Brightest stars by apparent magnitude",
+    "description": "Returns stars brighter than magnitude 1.0.",
+    "language": "graphql",
+    "query": "query { stars(where: { mag: { lt: 1.0 } }, limit: 50) { proper spect mag dist lum con bayer } }"
+  },
+  {
+    "id": "luminous-stars",
+    "title": "Most luminous stars",
+    "description": "Returns stars with luminosity greater than 10000 Solar luminosities.",
+    "language": "graphql",
+    "query": "query { stars(where: { lum: { gt: 10000.0 } }, limit: 50) { proper spect mag dist lum con } }"
+  },
+  {
+    "id": "variable-stars",
+    "title": "Variable stars",
+    "description": "Returns stars with a variable star designation.",
+    "language": "graphql",
+    "query": "query { stars(where: { var: { not: \"\" } }, limit: 50) { proper var var_min var_max spect mag con } }"
+  },
+  {
+    "id": "multiple-star-systems",
+    "title": "Stars in multiple star systems",
+    "description": "Returns stars that are part of a multi-star system.",
+    "language": "graphql",
+    "query": "query { stars(where: { base: { not: \"\" } }, limit: 50) { proper base comp comp_primary spect mag con } }"
+  },
+  {
+    "id": "star-by-hipparcos",
+    "title": "Look up a star by Hipparcos ID (e.g. 32349 = Sirius)",
+    "description": "Returns a star by its Hipparcos catalog number.",
+    "language": "graphql",
+    "query": "query { stars(where: { hip: { eq: 32349 } }, limit: 1) { proper hip hd hr spect mag dist lum con } }"
+  }
+]
