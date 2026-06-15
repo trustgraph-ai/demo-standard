@@ -1,0 +1,685 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rt: <http://trustgraph.ai/ontology/retail#> .
+@prefix ix: <http://trustgraph.ai/ontology/interaction#> .
+
+# =============================================================================
+# Ontology declaration
+# =============================================================================
+
+<http://trustgraph.ai/ontology/interaction> a owl:Ontology ;
+    rdfs:label "Retail Interaction and Journey Ontology" ;
+    rdfs:comment "An ontology for capturing user journeys through an AI-driven retail assistant, and the behavioural signals that emerge from those journeys. Models the full interaction funnel — from session start through search, product engagement, decision-making, and purchase or abandonment — while annotating events with the cognitive and emotional signals they reveal. Uses a mixin pattern where any interaction event can simultaneously carry signal types (objection, priority, decision point) via OWL multiple typing. Designed to be used alongside the retail product ontology (rt:) which models what is being sold; this ontology models how people decide whether to buy it." .
+
+# =============================================================================
+# Core structural classes
+# =============================================================================
+
+ix:Actor a owl:Class ;
+    rdfs:label "Actor" ;
+    rdfs:comment "A user interacting with the retail assistant. An actor may be anonymous or identified depending on context. Actors are linked to sessions and journeys, allowing cross-session analysis of returning users. Actor records should not contain personally identifiable information — use opaque identifiers and behavioural segments." .
+
+ix:Journey a owl:Class ;
+    rdfs:label "Journey" ;
+    rdfs:comment "A coherent decision arc spanning one or more sessions. A user might research a PC build in one session, return a day later to continue, and complete the purchase in a third session. The journey groups these related sessions into a single analytical unit. A journey has an overall outcome (purchase, abandonment, ongoing) and a purpose that may evolve over time." .
+
+ix:Session a owl:Class ;
+    rdfs:label "Session" ;
+    rdfs:comment "A single continuous interaction between a user and the retail assistant. A session starts when the user begins engaging and ends when they leave or the conversation concludes. Sessions contain a time-ordered sequence of interaction events. A session belongs to exactly one journey and one actor." .
+
+# =============================================================================
+# Interaction event classes (what happened)
+# =============================================================================
+
+ix:InteractionEvent a owl:Class ;
+    rdfs:label "Interaction Event" ;
+    rdfs:comment "An observable action or occurrence during a user's interaction with the retail assistant. Interaction events form a time-ordered sequence within a session, representing the steps in the user's journey through the funnel. Each event has a timestamp, a sequence position, and links to the products, categories, or configurations involved. Interaction events describe what happened; signal events describe what it reveals." .
+
+ix:SessionStarted a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Session Started" ;
+    rdfs:comment "The user begins interacting with the retail assistant. May carry an initial intent if the user states one immediately (e.g. 'I want to build a gaming PC') or may be intentless if the user is browsing without a specific goal. The first event in every session." .
+
+ix:Search a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Search" ;
+    rdfs:comment "The user searches for or describes what they are looking for. In a conversational AI interface this is typically a natural language request rather than a keyword search. Captures the query text and the assistant's interpreted intent. The gap between what the user said and what the assistant understood is itself analytically interesting." .
+
+ix:ResultsViewed a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Results Viewed" ;
+    rdfs:comment "The assistant presents a set of products or options to the user. Captures which products were shown and in what order. The difference between what was shown and what was subsequently engaged with reveals which products caught the user's attention and which were ignored. Position bias (users engaging more with items shown first) can be measured." .
+
+ix:ProductViewed a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Product Viewed" ;
+    rdfs:comment "The user examines a specific product in detail. Captures which product was viewed, how long the user spent on it (dwell time), and what aspects they engaged with (specifications, reviews, price, images). Dwell time on a product is a weak interest signal; dwell time on specific attributes (e.g. reading the VRAM spec) is a stronger priority signal." .
+
+ix:ComparisonViewed a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Comparison Viewed" ;
+    rdfs:comment "The user views two or more products side by side. Captures the product set being compared and which comparison axes were visible or discussed. Comparison events naturally precede decision points — the user is evaluating trade-offs between specific alternatives." .
+
+ix:RecommendationReceived a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Recommendation Received" ;
+    rdfs:comment "The assistant proactively suggests a product or set of products to the user. Captures what was recommended, the stated reasoning behind the recommendation, and which conversation flow triggered it (build suggestion, gift idea, upgrade path, accessory cross-sell). Whether the recommendation was accepted, questioned, or rejected is a key effectiveness signal." .
+
+ix:QuestionAsked a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Question Asked" ;
+    rdfs:comment "The user asks a question during the conversation. Captures the question text, what it relates to (a product, a specification, a compatibility concern, a general topic), and where in the journey it occurred. Questions reveal uncertainty, priorities, and decision criteria. The type of question (factual, evaluative, reassurance-seeking) indicates the user's cognitive state." .
+
+ix:AnswerReceived a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Answer Received" ;
+    rdfs:comment "The assistant provides an answer to a user's question. Captures the answer content and whether the user's subsequent behaviour suggests the answer was satisfying (they proceeded, said thanks, moved on) or unsatisfying (they asked again, rephrased, changed direction, or abandoned). Answer effectiveness is measured by what happens next, not by the answer itself." .
+
+ix:AddedToCart a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Added to Cart" ;
+    rdfs:comment "The user adds a product to their shopping cart, PC build, or collection. A commitment signal, though tentative — items can be removed later. In conversational flows, this may be explicit ('add that to my build') or implicit (accepting a recommendation without objection). Captures which product was added and from which context." .
+
+ix:RemovedFromCart a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Removed from Cart" ;
+    rdfs:comment "The user removes a product from their cart, build, or collection. Often co-occurs with an Objection signal — the user is rejecting something and may state why. Captures which product was removed. The pattern of adds and removes within a session reveals decision stability or indecision." .
+
+ix:ComponentSwapped a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Component Swapped" ;
+    rdfs:comment "The user replaces one product with another in a build or collection. Richer than a separate remove-then-add because it captures a direct preference: the user evaluated both and chose one over the other. Captures what was removed, what replaced it, and any stated reasoning for the swap." .
+
+ix:BuildValidated a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Build Validated" ;
+    rdfs:comment "A PC build or product configuration is checked for compatibility. Captures whether the validation passed or failed, which compatibility constraints were violated (linking to rt:CompatibilityConstraint instances), and what the user did in response — fixed the issue, ignored the warning, or abandoned the build. Validation failures that lead to swaps are decision points." .
+
+ix:CollectionReviewed a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Collection Reviewed" ;
+    rdfs:comment "A kit or collection is reviewed for completeness against its activity requirements. Captures which categories were filled, which were missing, and whether the user addressed the gaps or accepted an incomplete collection. The user's response to missing categories reveals their priorities and risk tolerance." .
+
+ix:CheckoutStarted a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Checkout Started" ;
+    rdfs:comment "The user begins the purchase flow. A strong intent signal — the user has moved past browsing and deliberation into active buying. Captures the cart contents at the moment checkout begins. Late abandonments after checkout start are particularly valuable signals." .
+
+ix:CheckoutCompleted a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Checkout Completed" ;
+    rdfs:comment "The purchase is finalised. Captures what was bought, the total spend, and the journey that led to the purchase. The terminal success event in a buying journey. Comparing what was initially considered to what was finally bought reveals how the journey shaped the outcome." .
+
+ix:SessionEnded a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Session Ended" ;
+    rdfs:comment "The session concludes. May be a natural ending (purchase complete, user says goodbye) or an abandonment (user stops responding, navigates away). The distinction between a satisfied departure and an unsatisfied abandonment is critical and may require inference from preceding events." .
+
+# =============================================================================
+# Signal event classes (what it reveals)
+# =============================================================================
+
+ix:SignalEvent a owl:Class ;
+    rdfs:label "Signal Event" ;
+    rdfs:comment "A behavioural or cognitive signal extracted from a user's interaction. Signal events describe the meaning of what happened — why the user made a choice, what they care about, how confident they are, what concerned them. Signal events can be mixed into interaction events via OWL multiple typing (a single event instance typed as both InteractionEvent and SignalEvent), or can stand alone when the signal emerges from a pattern across multiple interaction events." .
+
+ix:DecisionPoint a owl:Class ;
+    rdfs:subClassOf ix:SignalEvent ;
+    rdfs:label "Decision Point" ;
+    rdfs:comment "A moment where the user chose between alternatives. The core analytical event in the interaction ontology. Captures which options were considered, which was selected, which were rejected, and any reasoning the user stated or the assistant inferred. Decision points reveal preferences in context — not just what the user likes in the abstract, but what they chose when faced with specific trade-offs at a specific price and moment in their journey." .
+
+ix:Objection a owl:Class ;
+    rdfs:subClassOf ix:SignalEvent ;
+    rdfs:label "Objection" ;
+    rdfs:comment "The user expressed a concern, hesitation, or rejection about a product, recommendation, or aspect of the experience. Objections are categorised by type (price, trust, compatibility, complexity, timing, need, risk) and tracked for resolution status. An objection that gets resolved (by explanation, alternative, or reassurance) is a positive signal — the user's concern was addressed and they continued. An unresolved objection predicts abandonment or substitution." .
+
+ix:PrioritySignal a owl:Class ;
+    rdfs:subClassOf ix:SignalEvent ;
+    rdfs:label "Priority Signal" ;
+    rdfs:comment "The user revealed what matters to them, either explicitly ('I care most about noise levels') or implicitly (asking about VRAM on every GPU they view, suggesting memory capacity is a primary concern). Priority signals have a dimension (what the user cares about) and a strength (how clearly and consistently they signalled it). Priority signals inform how the assistant should rank and present options." .
+
+ix:ConfidenceSignal a owl:Class ;
+    rdfs:subClassOf ix:SignalEvent ;
+    rdfs:label "Confidence Signal" ;
+    rdfs:comment "The user signalled their confidence level in the current decision or overall process. High confidence manifests as decisive language ('yes, add that', 'perfect'). Low confidence manifests as hedging ('I'm not sure', 'what do you think?', 'is that good enough?'). Confidence signals help the assistant calibrate its response — a decisive user needs efficiency, not reassurance; an uncertain user needs explanation, not more options." .
+
+ix:TriggerEvent a owl:Class ;
+    rdfs:subClassOf ix:SignalEvent ;
+    rdfs:label "Trigger Event" ;
+    rdfs:comment "What brought the user to the retail assistant in the first place. The initiating motivation behind the journey. Common triggers: a problem ('my PC is slow'), an occasion ('birthday next week'), a deal ('saw this on sale'), curiosity ('just looking'), or an external recommendation ('my friend said to check this out'). The trigger colours the entire journey — a problem-driven user has urgency; a curiosity-driven user does not." .
+
+ix:AbandonmentSignal a owl:Class ;
+    rdfs:subClassOf ix:SignalEvent ;
+    rdfs:label "Abandonment Signal" ;
+    rdfs:comment "Indicators that the user is disengaging from the interaction or losing interest in completing the purchase. Manifests as long pauses, topic changes, declining suggestions, vague deflections ('I'll think about it'), or reduced engagement depth. Abandonment signals are predictive — identifying them early gives the assistant an opportunity to re-engage or address the underlying concern before the user leaves." .
+
+ix:SatisfactionSignal a owl:Class ;
+    rdfs:subClassOf ix:SignalEvent ;
+    rdfs:label "Satisfaction Signal" ;
+    rdfs:comment "Positive indicators that the user is pleased with a recommendation, answer, or aspect of the experience. Manifests as explicit approval ('that's perfect', 'exactly what I needed'), accepting a recommendation without further questions, or enthusiastic engagement. Satisfaction signals indicate what the assistant did right — which explanations, recommendations, and interaction patterns produce positive outcomes." .
+
+ix:BudgetSignal a owl:Class ;
+    rdfs:subClassOf ix:SignalEvent ;
+    rdfs:label "Budget Signal" ;
+    rdfs:comment "The user revealed budget sensitivity or constraints. May be explicit ('my budget is $1500') or implicit (consistently choosing cheaper options, reacting negatively to prices, asking 'is there anything cheaper?'). Captures the budget level and whether it is a hard constraint (they cannot exceed it) or a preference (they would rather not exceed it but could be persuaded for the right product)." .
+
+ix:InfluenceSignal a owl:Class ;
+    rdfs:subClassOf ix:SignalEvent ;
+    rdfs:label "Influence Signal" ;
+    rdfs:comment "The user referenced an external influence on their decision. Sources include: reviews they read, a friend's recommendation, a YouTube video or article, brand reputation, or their own past experience with a brand or product. Influence signals reveal what sources the user trusts and what information shaped their expectations before the conversation began." .
+
+# =============================================================================
+# Objection category class and individuals
+# =============================================================================
+
+ix:ObjectionCategory a owl:Class ;
+    rdfs:label "Objection Category" ;
+    rdfs:comment "A classification of the type of concern underlying a user's objection. Objection categories help identify patterns — if 40% of GPU objections are price-related, that is a different problem than if 40% are compatibility-related. Categories are not mutually exclusive; a single objection may combine price and risk concerns." .
+
+ix:PriceObjection a ix:ObjectionCategory ;
+    rdfs:label "Price Objection" ;
+    rdfs:comment "The user objects on the basis of cost. Manifests as 'too expensive', 'over my budget', 'is there a cheaper option?', or choosing lower-priced alternatives without being prompted. The most common objection type in retail. May be a hard budget constraint or a value perception issue (the user doesn't believe the product is worth the price)." .
+
+ix:TrustObjection a ix:ObjectionCategory ;
+    rdfs:label "Trust Objection" ;
+    rdfs:comment "The user objects on the basis of trust in the brand, product, or recommendation. Manifests as 'I don't trust that brand', 'the reviews worry me', 'is this actually good?', or scepticism about the assistant's recommendation. Often resolved by social proof (reviews, popularity) or by offering a more established brand." .
+
+ix:CompatibilityObjection a ix:ObjectionCategory ;
+    rdfs:label "Compatibility Objection" ;
+    rdfs:comment "The user objects on the basis of compatibility concerns. Manifests as 'will it fit?', 'is it compatible with my system?', 'what if the parts don't work together?'. Common in the PC build and upgrade flows. Often resolved by the assistant demonstrating compatibility through the constraint validation system." .
+
+ix:ComplexityObjection a ix:ObjectionCategory ;
+    rdfs:label "Complexity Objection" ;
+    rdfs:comment "The user objects on the basis of perceived complexity or difficulty. Manifests as 'that's too complicated', 'I'm not technical enough', 'can someone do this for me?'. Reveals the user's self-assessed skill level and comfort with the product category. Often resolved by simplifying the explanation or suggesting pre-built alternatives." .
+
+ix:TimingObjection a ix:ObjectionCategory ;
+    rdfs:label "Timing Objection" ;
+    rdfs:comment "The user objects on the basis of timing. Manifests as 'I'll wait for Black Friday', 'not ready to buy yet', 'I need to think about it', 'are new models coming out soon?'. May indicate genuine timing constraints or may be a polite deflection masking a different underlying concern." .
+
+ix:NeedObjection a ix:ObjectionCategory ;
+    rdfs:label "Need Objection" ;
+    rdfs:comment "The user objects on the basis that they don't need the product or feature. Manifests as 'I don't think I need that', 'seems like overkill', 'is the cheaper one good enough?'. Reveals the user's perception of their own requirements. May indicate accurate self-assessment or may indicate the user underestimates their needs." .
+
+ix:RiskObjection a ix:ObjectionCategory ;
+    rdfs:label "Risk Objection" ;
+    rdfs:comment "The user objects on the basis of perceived risk in the purchase. Manifests as 'what if it doesn't work?', 'can I return it?', 'what's the warranty?'. The user is concerned about the downside scenario. Often resolved by return policies, warranty information, or reassurance about product reliability." .
+
+# =============================================================================
+# Actor properties
+# =============================================================================
+
+ix:actorId a owl:DatatypeProperty ;
+    rdfs:domain ix:Actor ;
+    rdfs:range xsd:string ;
+    rdfs:label "actor ID" ;
+    rdfs:comment "An opaque identifier for the user. Must not contain personally identifiable information." .
+
+ix:actorSegment a owl:DatatypeProperty ;
+    rdfs:domain ix:Actor ;
+    rdfs:range xsd:string ;
+    rdfs:label "actor segment" ;
+    rdfs:comment "A behavioural or demographic segment the user belongs to, if known. Used for aggregate analysis across user groups." .
+
+ix:returningUser a owl:DatatypeProperty ;
+    rdfs:domain ix:Actor ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "returning user" ;
+    rdfs:comment "Whether this user has interacted with the assistant before. Returning users may have established preferences and prior journey context." .
+
+ix:previousJourneyCount a owl:DatatypeProperty ;
+    rdfs:domain ix:Actor ;
+    rdfs:range xsd:integer ;
+    rdfs:label "previous journey count" ;
+    rdfs:comment "The number of prior journeys this user has completed. Users with more prior journeys tend to be more decisive and require less explanation." .
+
+# =============================================================================
+# Journey properties
+# =============================================================================
+
+ix:journeyPurpose a owl:DatatypeProperty ;
+    rdfs:domain ix:Journey ;
+    rdfs:range xsd:string ;
+    rdfs:label "journey purpose" ;
+    rdfs:comment "The overall purpose of the journey as understood from the user's interactions. May evolve — a user who starts researching GPUs may end up doing a full build." .
+
+ix:journeyOutcome a owl:DatatypeProperty ;
+    rdfs:domain ix:Journey ;
+    rdfs:range xsd:string ;
+    rdfs:label "journey outcome" ;
+    rdfs:comment "The final outcome of the journey. Values: 'purchase' (completed a buy), 'abandonment' (disengaged without buying), 'research' (gathered information, may return), 'ongoing' (journey not yet complete)." .
+
+ix:journeyStartDate a owl:DatatypeProperty ;
+    rdfs:domain ix:Journey ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "journey start date" ;
+    rdfs:comment "The timestamp of the first session in this journey." .
+
+ix:journeyEndDate a owl:DatatypeProperty ;
+    rdfs:domain ix:Journey ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "journey end date" ;
+    rdfs:comment "The timestamp of the last session in this journey, if the journey has concluded." .
+
+ix:hasSession a owl:ObjectProperty ;
+    rdfs:domain ix:Journey ;
+    rdfs:range ix:Session ;
+    rdfs:label "has session" ;
+    rdfs:comment "Links a journey to one of its constituent sessions." .
+
+ix:journeyActor a owl:ObjectProperty ;
+    rdfs:domain ix:Journey ;
+    rdfs:range ix:Actor ;
+    rdfs:label "journey actor" ;
+    rdfs:comment "Links a journey to the user who undertook it." .
+
+# =============================================================================
+# Session properties
+# =============================================================================
+
+ix:belongsToJourney a owl:ObjectProperty ;
+    rdfs:domain ix:Session ;
+    rdfs:range ix:Journey ;
+    rdfs:label "belongs to journey" ;
+    rdfs:comment "Links a session to the journey it is part of." .
+
+ix:sessionActor a owl:ObjectProperty ;
+    rdfs:domain ix:Session ;
+    rdfs:range ix:Actor ;
+    rdfs:label "session actor" ;
+    rdfs:comment "Links a session to the user who participated in it." .
+
+ix:sessionStartTime a owl:DatatypeProperty ;
+    rdfs:domain ix:Session ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "session start time" ;
+    rdfs:comment "The timestamp when the session began." .
+
+ix:sessionEndTime a owl:DatatypeProperty ;
+    rdfs:domain ix:Session ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "session end time" ;
+    rdfs:comment "The timestamp when the session ended." .
+
+ix:initialIntent a owl:DatatypeProperty ;
+    rdfs:domain ix:Session ;
+    rdfs:range xsd:string ;
+    rdfs:label "initial intent" ;
+    rdfs:comment "The user's stated or inferred intent at the start of the session, if any. Some sessions begin with a clear goal ('I want to build a gaming PC'); others begin without one (browsing, returning to continue)." .
+
+ix:sessionOutcome a owl:DatatypeProperty ;
+    rdfs:domain ix:Session ;
+    rdfs:range xsd:string ;
+    rdfs:label "session outcome" ;
+    rdfs:comment "The outcome of this particular session. Values: 'purchase' (completed a buy), 'abandonment' (disengaged), 'research' (gathered information), 'return-visit' (will continue in a future session)." .
+
+ix:channel a owl:DatatypeProperty ;
+    rdfs:domain ix:Session ;
+    rdfs:range xsd:string ;
+    rdfs:label "channel" ;
+    rdfs:comment "The channel through which the interaction occurred. Values: 'web', 'mobile', 'in-store-kiosk', 'voice-assistant'. The channel may affect interaction patterns — mobile users tend to be briefer; kiosk users may be less technically confident." .
+
+# =============================================================================
+# Event sequencing properties
+# =============================================================================
+
+ix:inSession a owl:ObjectProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range ix:Session ;
+    rdfs:label "in session" ;
+    rdfs:comment "Links an interaction event to the session in which it occurred." .
+
+ix:timestamp a owl:DatatypeProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "timestamp" ;
+    rdfs:comment "The date and time when this event occurred." .
+
+ix:sequenceIndex a owl:DatatypeProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range xsd:integer ;
+    rdfs:label "sequence index" ;
+    rdfs:comment "The position of this event in the session's event sequence. Starts at 1 for the first event. Used to order events when timestamps have insufficient resolution." .
+
+ix:previousEvent a owl:ObjectProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range ix:InteractionEvent ;
+    rdfs:label "previous event" ;
+    rdfs:comment "Links an event to the immediately preceding event in the same session. Forms a linked list for easy sequential traversal of the journey." .
+
+ix:nextEvent a owl:ObjectProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range ix:InteractionEvent ;
+    rdfs:label "next event" ;
+    rdfs:comment "Links an event to the immediately following event in the same session. The inverse of previousEvent." .
+
+ix:dwellTimeSeconds a owl:DatatypeProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range xsd:integer ;
+    rdfs:label "dwell time (seconds)" ;
+    rdfs:comment "The elapsed time in seconds between this event and the next event in the session. Indicates how long the user spent on this step before moving on. Long dwell times may indicate deliberation, distraction, or engagement depending on context." .
+
+# =============================================================================
+# Event content properties — products and categories
+# =============================================================================
+
+ix:involvedProduct a owl:ObjectProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range rt:Product ;
+    rdfs:label "involved product" ;
+    rdfs:comment "Links an event to a product that was involved in the interaction. A general-purpose link used when the event type does not have a more specific product property." .
+
+ix:involvedCategory a owl:ObjectProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range rt:ProductCategory ;
+    rdfs:label "involved category" ;
+    rdfs:comment "Links an event to a product category relevant to the interaction." .
+
+ix:involvedConfiguration a owl:ObjectProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range rt:Configuration ;
+    rdfs:label "involved configuration" ;
+    rdfs:comment "Links an event to the build or collection that was being assembled or modified during the interaction." .
+
+# =============================================================================
+# Event content properties — search and results
+# =============================================================================
+
+ix:queryText a owl:DatatypeProperty ;
+    rdfs:domain ix:Search ;
+    rdfs:range xsd:string ;
+    rdfs:label "query text" ;
+    rdfs:comment "The user's search query or natural language request, as they stated it." .
+
+ix:interpretedIntent a owl:DatatypeProperty ;
+    rdfs:domain ix:Search ;
+    rdfs:range xsd:string ;
+    rdfs:label "interpreted intent" ;
+    rdfs:comment "The assistant's interpretation of the user's query. May differ from the literal query text — the gap between stated query and interpreted intent is analytically interesting." .
+
+ix:shownProduct a owl:ObjectProperty ;
+    rdfs:domain ix:ResultsViewed ;
+    rdfs:range rt:Product ;
+    rdfs:label "shown product" ;
+    rdfs:comment "A product that was presented to the user in the result set. Multi-valued — a result set typically contains multiple products." .
+
+ix:resultCount a owl:DatatypeProperty ;
+    rdfs:domain ix:ResultsViewed ;
+    rdfs:range xsd:integer ;
+    rdfs:label "result count" ;
+    rdfs:comment "The total number of products presented in the result set." .
+
+ix:engagedResultPosition a owl:DatatypeProperty ;
+    rdfs:domain ix:ResultsViewed ;
+    rdfs:range xsd:integer ;
+    rdfs:label "engaged result position" ;
+    rdfs:comment "The position in the result set of the product that the user subsequently engaged with (viewed in detail, added to cart). Allows measurement of position bias — are users disproportionately engaging with the first result shown?" .
+
+# =============================================================================
+# Event content properties — recommendations
+# =============================================================================
+
+ix:recommendedProduct a owl:ObjectProperty ;
+    rdfs:domain ix:RecommendationReceived ;
+    rdfs:range rt:Product ;
+    rdfs:label "recommended product" ;
+    rdfs:comment "A product that was proactively recommended by the assistant." .
+
+ix:recommendationReason a owl:DatatypeProperty ;
+    rdfs:domain ix:RecommendationReceived ;
+    rdfs:range xsd:string ;
+    rdfs:label "recommendation reason" ;
+    rdfs:comment "The reasoning the assistant gave for the recommendation, as presented to the user." .
+
+ix:recommendationAccepted a owl:DatatypeProperty ;
+    rdfs:domain ix:RecommendationReceived ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "recommendation accepted" ;
+    rdfs:comment "Whether the user accepted the recommendation (added the product, followed the suggestion) or rejected it (ignored, questioned, or explicitly declined)." .
+
+# =============================================================================
+# Event content properties — questions and answers
+# =============================================================================
+
+ix:questionText a owl:DatatypeProperty ;
+    rdfs:domain ix:QuestionAsked ;
+    rdfs:range xsd:string ;
+    rdfs:label "question text" ;
+    rdfs:comment "The user's question as they asked it." .
+
+ix:questionTopic a owl:DatatypeProperty ;
+    rdfs:domain ix:QuestionAsked ;
+    rdfs:range xsd:string ;
+    rdfs:label "question topic" ;
+    rdfs:comment "The topic or subject area of the question. Values include specific product names, specification types (e.g. 'VRAM', 'socket compatibility'), general topics (e.g. 'return policy', 'warranty'), or comparison topics (e.g. 'RTX 4070 vs RX 7800 XT')." .
+
+ix:answerText a owl:DatatypeProperty ;
+    rdfs:domain ix:AnswerReceived ;
+    rdfs:range xsd:string ;
+    rdfs:label "answer text" ;
+    rdfs:comment "The assistant's answer as delivered to the user." .
+
+ix:answerSatisfying a owl:DatatypeProperty ;
+    rdfs:domain ix:AnswerReceived ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "answer satisfying" ;
+    rdfs:comment "Whether the user's subsequent behaviour suggests the answer was satisfying. Inferred from what happened next — proceeding forward suggests satisfaction; re-asking, rephrasing, or changing direction suggests dissatisfaction." .
+
+# =============================================================================
+# Event content properties — cart and build actions
+# =============================================================================
+
+ix:addedProduct a owl:ObjectProperty ;
+    rdfs:domain ix:AddedToCart ;
+    rdfs:range rt:Product ;
+    rdfs:label "added product" ;
+    rdfs:comment "The product that was added to the cart, build, or collection." .
+
+ix:removedProduct a owl:ObjectProperty ;
+    rdfs:domain ix:RemovedFromCart ;
+    rdfs:range rt:Product ;
+    rdfs:label "removed product" ;
+    rdfs:comment "The product that was removed from the cart, build, or collection." .
+
+ix:swappedOut a owl:ObjectProperty ;
+    rdfs:domain ix:ComponentSwapped ;
+    rdfs:range rt:Product ;
+    rdfs:label "swapped out" ;
+    rdfs:comment "The product that was removed in a swap operation — the option the user moved away from." .
+
+ix:swappedIn a owl:ObjectProperty ;
+    rdfs:domain ix:ComponentSwapped ;
+    rdfs:range rt:Product ;
+    rdfs:label "swapped in" ;
+    rdfs:comment "The product that was added in a swap operation — the option the user moved toward." .
+
+ix:swapReason a owl:DatatypeProperty ;
+    rdfs:domain ix:ComponentSwapped ;
+    rdfs:range xsd:string ;
+    rdfs:label "swap reason" ;
+    rdfs:comment "The user's stated or inferred reason for swapping one component for another." .
+
+# =============================================================================
+# Event content properties — validation
+# =============================================================================
+
+ix:validationPassed a owl:DatatypeProperty ;
+    rdfs:domain ix:BuildValidated ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "validation passed" ;
+    rdfs:comment "Whether the build or configuration passed all compatibility constraints." .
+
+ix:constraintViolated a owl:ObjectProperty ;
+    rdfs:domain ix:BuildValidated ;
+    rdfs:range rt:CompatibilityConstraint ;
+    rdfs:label "constraint violated" ;
+    rdfs:comment "A compatibility constraint from the retail ontology that was violated during validation. Multi-valued if multiple constraints failed." .
+
+ix:userResponse a owl:DatatypeProperty ;
+    rdfs:domain ix:BuildValidated ;
+    rdfs:range xsd:string ;
+    rdfs:label "user response to validation" ;
+    rdfs:comment "What the user did after seeing the validation result. Values: 'fixed' (swapped a component to resolve the issue), 'ignored-warning' (proceeded despite a soft constraint warning), 'abandoned-build' (gave up on the configuration), 'asked-question' (sought more information before deciding)." .
+
+# =============================================================================
+# Event content properties — checkout
+# =============================================================================
+
+ix:purchasedProduct a owl:ObjectProperty ;
+    rdfs:domain ix:CheckoutCompleted ;
+    rdfs:range rt:Product ;
+    rdfs:label "purchased product" ;
+    rdfs:comment "A product included in the completed purchase. Multi-valued — a checkout typically includes multiple products." .
+
+ix:totalSpend a owl:DatatypeProperty ;
+    rdfs:domain ix:CheckoutCompleted ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "total spend" ;
+    rdfs:comment "The total amount spent in the completed purchase." .
+
+# =============================================================================
+# Signal properties — decision points
+# =============================================================================
+
+ix:optionConsidered a owl:ObjectProperty ;
+    rdfs:domain ix:DecisionPoint ;
+    rdfs:range rt:Product ;
+    rdfs:label "option considered" ;
+    rdfs:comment "A product that was part of the user's consideration set at this decision point. Multi-valued." .
+
+ix:selectedOption a owl:ObjectProperty ;
+    rdfs:domain ix:DecisionPoint ;
+    rdfs:range rt:Product ;
+    rdfs:label "selected option" ;
+    rdfs:comment "The product the user chose at this decision point." .
+
+ix:rejectedOption a owl:ObjectProperty ;
+    rdfs:domain ix:DecisionPoint ;
+    rdfs:range rt:Product ;
+    rdfs:label "rejected option" ;
+    rdfs:comment "A product the user did not choose at this decision point. Multi-valued." .
+
+ix:decisionReasoning a owl:DatatypeProperty ;
+    rdfs:domain ix:DecisionPoint ;
+    rdfs:range xsd:string ;
+    rdfs:label "decision reasoning" ;
+    rdfs:comment "The user's stated or inferred reasoning for the decision. Captures why they chose what they chose and why they rejected what they rejected." .
+
+# =============================================================================
+# Signal properties — objections
+# =============================================================================
+
+ix:hasObjectionType a owl:ObjectProperty ;
+    rdfs:domain ix:Objection ;
+    rdfs:range ix:ObjectionCategory ;
+    rdfs:label "has objection type" ;
+    rdfs:comment "Links an objection to its category. An objection may have multiple types when the concern spans categories (e.g. both price and risk)." .
+
+ix:statedReason a owl:DatatypeProperty ;
+    rdfs:domain ix:Objection ;
+    rdfs:range xsd:string ;
+    rdfs:label "stated reason" ;
+    rdfs:comment "The user's own words expressing the objection, if they stated a reason." .
+
+ix:objectionResolved a owl:DatatypeProperty ;
+    rdfs:domain ix:Objection ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "objection resolved" ;
+    rdfs:comment "Whether the objection was resolved during the interaction. A resolved objection is one where the user's concern was addressed and they proceeded. An unresolved objection persists and typically leads to abandonment or substitution." .
+
+ix:resolvedBy a owl:DatatypeProperty ;
+    rdfs:domain ix:Objection ;
+    rdfs:range xsd:string ;
+    rdfs:label "resolved by" ;
+    rdfs:comment "How the objection was resolved, if it was. Values: 'price-match' (a cheaper alternative was found), 'explanation' (the assistant explained away the concern), 'alternative-offered' (a different product addressed the concern), 'reassurance' (social proof or guarantee addressed the concern), 'unresolved' (the objection was not resolved)." .
+
+# =============================================================================
+# Signal properties — priority signals
+# =============================================================================
+
+ix:priorityDimension a owl:DatatypeProperty ;
+    rdfs:domain ix:PrioritySignal ;
+    rdfs:range xsd:string ;
+    rdfs:label "priority dimension" ;
+    rdfs:comment "The dimension or attribute the user signalled as important to them. Examples: 'price', 'performance', 'noise-levels', 'brand', 'aesthetics', 'future-proofing', 'ease-of-use', 'VRAM', 'weight', 'durability'." .
+
+ix:signalStrength a owl:DatatypeProperty ;
+    rdfs:domain ix:SignalEvent ;
+    rdfs:range xsd:string ;
+    rdfs:label "signal strength" ;
+    rdfs:comment "How clearly and consistently the signal was expressed. Values: 'weak' (mentioned once in passing), 'moderate' (mentioned multiple times or with some emphasis), 'strong' (a clear, repeated, or emphatic statement of priority or concern)." .
+
+ix:revealedPriority a owl:DatatypeProperty ;
+    rdfs:domain ix:InteractionEvent ;
+    rdfs:range xsd:string ;
+    rdfs:label "revealed priority" ;
+    rdfs:comment "A shortcut property for annotating any interaction event with a priority it revealed, without creating a separate PrioritySignal individual. Used when the signal is clear but lightweight — e.g. a single question about VRAM suggests a memory capacity priority." .
+
+# =============================================================================
+# Signal properties — confidence signals
+# =============================================================================
+
+ix:confidenceLevel a owl:DatatypeProperty ;
+    rdfs:domain ix:ConfidenceSignal ;
+    rdfs:range xsd:string ;
+    rdfs:label "confidence level" ;
+    rdfs:comment "The user's apparent confidence level. Values: 'high' (decisive, no hesitation), 'moderate' (engaged but with some questions), 'low' (uncertain, hedging, seeking reassurance), 'seeking-reassurance' (specifically asking the assistant to validate their choice)." .
+
+# =============================================================================
+# Signal properties — trigger events
+# =============================================================================
+
+ix:triggerType a owl:DatatypeProperty ;
+    rdfs:domain ix:TriggerEvent ;
+    rdfs:range xsd:string ;
+    rdfs:label "trigger type" ;
+    rdfs:comment "The category of trigger that initiated the journey. Values: 'problem' (something is broken or underperforming), 'occasion' (birthday, holiday, milestone), 'deal' (saw a sale or promotion), 'curiosity' (browsing, exploring), 'recommendation' (friend, review, or article sent them here)." .
+
+ix:triggerDescription a owl:DatatypeProperty ;
+    rdfs:domain ix:TriggerEvent ;
+    rdfs:range xsd:string ;
+    rdfs:label "trigger description" ;
+    rdfs:comment "A free-text description of the specific trigger, in the user's own words if available." .
+
+# =============================================================================
+# Signal properties — budget signals
+# =============================================================================
+
+ix:statedBudget a owl:DatatypeProperty ;
+    rdfs:domain ix:BudgetSignal ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "stated budget" ;
+    rdfs:comment "The explicit budget amount the user stated, if any." .
+
+ix:budgetConstraintType a owl:DatatypeProperty ;
+    rdfs:domain ix:BudgetSignal ;
+    rdfs:range xsd:string ;
+    rdfs:label "budget constraint type" ;
+    rdfs:comment "Whether the budget is a hard constraint or a preference. Values: 'hard-limit' (the user cannot exceed this amount), 'preference' (the user would rather not exceed it but could be persuaded), 'flexible' (the user mentioned a range but is open to adjustment)." .
+
+# =============================================================================
+# Signal properties — influence signals
+# =============================================================================
+
+ix:influenceSource a owl:DatatypeProperty ;
+    rdfs:domain ix:InfluenceSignal ;
+    rdfs:range xsd:string ;
+    rdfs:label "influence source" ;
+    rdfs:comment "The specific source that influenced the user's decision. May be a named reviewer, publication, friend, subreddit, YouTube channel, or other identifiable source." .
+
+ix:influenceType a owl:DatatypeProperty ;
+    rdfs:domain ix:InfluenceSignal ;
+    rdfs:range xsd:string ;
+    rdfs:label "influence type" ;
+    rdfs:comment "The category of external influence. Values: 'review' (read a product review), 'friend' (personal recommendation), 'video' (YouTube or similar), 'brand-reputation' (general brand perception), 'past-experience' (their own prior experience with the brand or product)." .
+
+# =============================================================================
+# Signal cross-reference properties
+# =============================================================================
+
+ix:derivedFrom a owl:ObjectProperty ;
+    rdfs:domain ix:SignalEvent ;
+    rdfs:range ix:InteractionEvent ;
+    rdfs:label "derived from" ;
+    rdfs:comment "Links a signal event to the interaction event or events from which it was derived. Used when a signal emerges from a pattern across multiple events rather than a single moment — for example, a priority signal inferred from the user asking about the same attribute across three different product views." .
