@@ -1,0 +1,413 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix rt: <http://trustgraph.ai/ontology/retail#> .
+@prefix p: <http://trustgraph.ai/data/retail/product/> .
+@prefix b: <http://trustgraph.ai/data/retail/brand/> .
+
+# =============================================================================
+# Brands
+# =============================================================================
+
+b:AMD a schema:Brand ;
+    rdfs:label "AMD" ;
+    rdfs:comment "Advanced Micro Devices, manufacturer of CPUs, GPUs, and chipsets." .
+
+b:Intel a schema:Brand ;
+    rdfs:label "Intel" ;
+    rdfs:comment "Intel Corporation, manufacturer of CPUs, chipsets, and other semiconductor products." .
+
+b:NVIDIA a schema:Brand ;
+    rdfs:label "NVIDIA" ;
+    rdfs:comment "NVIDIA Corporation, manufacturer of GPUs and AI computing hardware." .
+
+b:ASUS a schema:Brand ;
+    rdfs:label "ASUS" ;
+    rdfs:comment "ASUSTeK Computer, manufacturer of motherboards, graphics cards, and other PC components." .
+
+b:MSI a schema:Brand ;
+    rdfs:label "MSI" ;
+    rdfs:comment "Micro-Star International, manufacturer of motherboards, graphics cards, and gaming hardware." .
+
+b:Corsair a schema:Brand ;
+    rdfs:label "Corsair" ;
+    rdfs:comment "Corsair Components, manufacturer of memory, power supplies, cases, and peripherals." .
+
+b:GSkill a schema:Brand ;
+    rdfs:label "G.Skill" ;
+    rdfs:comment "G.Skill International, manufacturer of high-performance memory modules." .
+
+b:Samsung a schema:Brand ;
+    rdfs:label "Samsung" ;
+    rdfs:comment "Samsung Electronics, manufacturer of SSDs, memory, displays, and consumer electronics." .
+
+b:WesternDigital a schema:Brand ;
+    rdfs:label "Western Digital" ;
+    rdfs:comment "Western Digital Corporation, manufacturer of hard drives and solid state drives." .
+
+b:EVGA a schema:Brand ;
+    rdfs:label "EVGA" ;
+    rdfs:comment "EVGA Corporation, manufacturer of graphics cards and power supplies." .
+
+b:FractalDesign a schema:Brand ;
+    rdfs:label "Fractal Design" ;
+    rdfs:comment "Fractal Design, Swedish manufacturer of PC cases, cooling, and power supplies." .
+
+b:NZXT a schema:Brand ;
+    rdfs:label "NZXT" ;
+    rdfs:comment "NZXT, manufacturer of PC cases, cooling, and peripherals." .
+
+# =============================================================================
+# CPUs
+# =============================================================================
+
+p:amd-ryzen-7-7800x3d a rt:CPU ;
+    rdfs:label "AMD Ryzen 7 7800X3D" ;
+    rdfs:comment "High-performance gaming CPU with 3D V-Cache technology. 8 cores, 16 threads, exceptional gaming performance. The 3D V-Cache provides a massive L3 cache of 96MB, giving this processor a significant advantage in gaming workloads compared to conventional designs." ;
+    rt:productId "amd-ryzen-7-7800x3d" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 449.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 2847 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "high-performance" ;
+    rt:tag "amd" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 8 ;
+    rt:threadCount 16 ;
+    rt:baseClock 4200 ;
+    rt:boostClock 5000 ;
+    rt:tdp 120 ;
+    rt:performanceScore 95 ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:intel-i5-13600k .
+
+p:intel-i5-13600k a rt:CPU ;
+    rdfs:label "Intel Core i5-13600K" ;
+    rdfs:comment "Excellent mid-range gaming and productivity CPU. 14 cores (6 performance plus 8 efficiency), 20 threads, offering great value for both gaming and multi-threaded workloads. The hybrid architecture balances single-thread gaming performance with strong multi-thread productivity." ;
+    rt:productId "intel-i5-13600k" ;
+    schema:brand b:Intel ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 319.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1923 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "productivity" ;
+    rt:tag "intel" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 14 ;
+    rt:threadCount 20 ;
+    rt:baseClock 3500 ;
+    rt:boostClock 5100 ;
+    rt:tdp 125 ;
+    rt:performanceScore 85 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:amd-ryzen-7-7800x3d .
+
+# =============================================================================
+# GPUs
+# =============================================================================
+
+p:nvidia-rtx-4070 a rt:GPU ;
+    rdfs:label "NVIDIA GeForce RTX 4070" ;
+    rdfs:comment "1440p gaming powerhouse with DLSS 3 and hardware ray tracing. 12GB GDDR6X video memory provides excellent performance at 1440p resolution. The Ada Lovelace architecture delivers outstanding efficiency, keeping power draw at just 200W while competing with previous-generation flagship cards." ;
+    rt:productId "nvidia-rtx-4070" ;
+    schema:brand b:NVIDIA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 599.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1456 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "ray-tracing" ;
+    rt:tag "dlss" ;
+    rt:tag "1440p" ;
+    rt:giftSuitability "low" ;
+    rt:vram 12 ;
+    rt:tdp 200 ;
+    rt:minPSUWattage 650 ;
+    rt:gpuLength 267 ;
+    rt:performanceScore 90 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:amd-rx-7800-xt .
+
+p:amd-rx-7800-xt a rt:GPU ;
+    rdfs:label "AMD Radeon RX 7800 XT" ;
+    rdfs:comment "Excellent 1440p gaming GPU with 16GB GDDR6 VRAM. Offers great value and strong rasterisation performance. The 16GB of VRAM provides more headroom than competing cards for high-resolution textures and future game requirements, though it draws more power at 263W TDP." ;
+    rt:productId "amd-rx-7800-xt" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 499.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 892 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "ray-tracing" ;
+    rt:tag "1440p" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:vram 16 ;
+    rt:tdp 263 ;
+    rt:minPSUWattage 700 ;
+    rt:gpuLength 287 ;
+    rt:performanceScore 88 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:nvidia-rtx-4070 .
+
+# =============================================================================
+# Motherboards
+# =============================================================================
+
+p:asus-b650-tuf a rt:Motherboard ;
+    rdfs:label "ASUS TUF Gaming B650-PLUS" ;
+    rdfs:comment "Reliable AM5 motherboard with robust VRM design and comprehensive feature set. Supports DDR5 memory up to 6400 MHz, PCIe 5.0 for storage, and WiFi 6E connectivity. The TUF Gaming series is known for durability and military-grade component testing." ;
+    rt:productId "asus-b650-tuf" ;
+    schema:brand b:ASUS ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 219.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 743 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "amd" ;
+    rt:tag "ddr5" ;
+    rt:tag "gaming" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:hasFormFactor rt:ATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 6400 ;
+    rt:nvmeSlots 2 ;
+    rt:sataPorts 4 ;
+    rt:alternativeTo p:msi-b760-tomahawk .
+
+p:msi-b760-tomahawk a rt:Motherboard ;
+    rdfs:label "MSI MAG B760 Tomahawk" ;
+    rdfs:comment "Feature-rich Intel motherboard with excellent VRM for stable power delivery. Supports DDR5 memory up to 7200 MHz, PCIe 5.0, and includes three M.2 slots for ample NVMe storage. Six SATA ports provide additional expansion for conventional drives." ;
+    rt:productId "msi-b760-tomahawk" ;
+    schema:brand b:MSI ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 199.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 621 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "intel" ;
+    rt:tag "ddr5" ;
+    rt:tag "gaming" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:hasFormFactor rt:ATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 7200 ;
+    rt:nvmeSlots 3 ;
+    rt:sataPorts 6 ;
+    rt:alternativeTo p:asus-b650-tuf .
+
+# =============================================================================
+# RAM
+# =============================================================================
+
+p:corsair-ddr5-32gb a rt:RAM ;
+    rdfs:label "Corsair Vengeance DDR5 32GB (2x16GB)" ;
+    rdfs:comment "High-performance DDR5 RAM kit running at 6000 MHz with CL30 latency. Two 16GB modules in dual-channel configuration provide the bandwidth needed for modern gaming and productivity workloads. The 6000 MHz speed hits the sweet spot for AMD Ryzen 7000 series processors." ;
+    rt:productId "corsair-ddr5-32gb" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 139.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:tag "gaming" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 6000 ;
+    rt:ramCapacity 32 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:gskill-ddr5-32gb .
+
+p:gskill-ddr5-32gb a rt:RAM ;
+    rdfs:label "G.Skill Trident Z5 RGB 32GB (2x16GB)" ;
+    rdfs:comment "Premium DDR5 memory with stunning RGB lighting. Running at 6400 MHz with CL32 latency, these modules are optimised for both AMD and Intel platforms. The higher speed benefits Intel platforms particularly, where the memory controller supports speeds above 6000 MHz natively." ;
+    rt:productId "gskill-ddr5-32gb" ;
+    schema:brand b:GSkill ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 159.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 876 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:tag "gaming" ;
+    rt:tag "rgb" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 6400 ;
+    rt:ramCapacity 32 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:corsair-ddr5-32gb .
+
+# =============================================================================
+# Storage
+# =============================================================================
+
+p:samsung-980-pro-1tb a rt:Storage ;
+    rdfs:label "Samsung 980 PRO 1TB NVMe SSD" ;
+    rdfs:comment "Blazing fast PCIe 4.0 NVMe SSD with sequential read speeds up to 7000 MB/s and write speeds up to 5000 MB/s. The Samsung V-NAND and Elpis controller deliver consistent performance with excellent endurance. An ideal boot drive and primary game storage." ;
+    rt:productId "samsung-980-pro-1tb" ;
+    schema:brand b:Samsung ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 99.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 3421 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "fast" ;
+    rt:tag "gaming" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 1000 ;
+    rt:readSpeed 7000 ;
+    rt:writeSpeed 5000 ;
+    rt:alternativeTo p:wd-black-sn850x-2tb .
+
+p:wd-black-sn850x-2tb a rt:Storage ;
+    rdfs:label "WD Black SN850X 2TB NVMe SSD" ;
+    rdfs:comment "High-capacity gaming SSD with sequential read speeds up to 7300 MB/s and write speeds up to 6600 MB/s. Includes a heatsink to maintain sustained performance under heavy workloads. The 2TB capacity provides ample space for a large game library without needing a secondary drive." ;
+    rt:productId "wd-black-sn850x-2tb" ;
+    schema:brand b:WesternDigital ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 179.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1567 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "fast" ;
+    rt:tag "gaming" ;
+    rt:tag "heatsink" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 2000 ;
+    rt:readSpeed 7300 ;
+    rt:writeSpeed 6600 ;
+    rt:alternativeTo p:samsung-980-pro-1tb .
+
+# =============================================================================
+# PSUs
+# =============================================================================
+
+p:corsair-rm850x a rt:PSU ;
+    rdfs:label "Corsair RM850x 850W 80+ Gold" ;
+    rdfs:comment "Fully modular power supply delivering 850 watts with 80 Plus Gold efficiency. Zero RPM fan mode keeps the PSU silent under low-to-moderate loads. The 10-year warranty reflects Corsair's confidence in the Japanese capacitors and robust design. Provides ample headroom for high-end GPU and CPU combinations." ;
+    rt:productId "corsair-rm850x" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 134.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 2103 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "efficient" ;
+    rt:tag "reliable" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 850 ;
+    rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:alternativeTo p:evga-750-g6 .
+
+p:evga-750-g6 a rt:PSU ;
+    rdfs:label "EVGA SuperNOVA 750 G6 80+ Gold" ;
+    rdfs:comment "Compact fully modular power supply delivering 750 watts with 80 Plus Gold efficiency. The G6 series features a shorter depth for easier installation in smaller cases, while still providing excellent cable management and a 10-year warranty. A great value option for mid-range builds." ;
+    rt:productId "evga-750-g6" ;
+    schema:brand b:EVGA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 109.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1345 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "efficient" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 750 ;
+    rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:alternativeTo p:corsair-rm850x .
+
+# =============================================================================
+# Cases
+# =============================================================================
+
+p:fractal-torrent a rt:Case ;
+    rdfs:label "Fractal Design Torrent ATX" ;
+    rdfs:comment "Exceptional open-front airflow case with a unique angular design. Ships with two 180mm fans that move massive air volume at low noise levels. Supports GPUs up to 461mm in length and CPU coolers up to 188mm in height. The interior layout prioritises airflow over drive bays, making it ideal for high-performance builds that generate significant heat." ;
+    rt:productId "fractal-torrent" ;
+    schema:brand b:FractalDesign ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 199.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 892 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "airflow" ;
+    rt:tag "mid-tower" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 461 ;
+    rt:maxCoolerHeight 188 ;
+    rt:alternativeTo p:nzxt-h510-flow .
+
+p:nzxt-h510-flow a rt:Case ;
+    rdfs:label "NZXT H510 Flow ATX" ;
+    rdfs:comment "Clean, modern case with a perforated front panel for improved airflow over the original H510. Features tempered glass side panel, integrated cable management bar, and a minimalist aesthetic. Supports GPUs up to 381mm in length and CPU coolers up to 165mm in height. A popular choice for clean-looking builds on a budget." ;
+    rt:productId "nzxt-h510-flow" ;
+    schema:brand b:NZXT ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 89.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 1567 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "modern" ;
+    rt:tag "mid-tower" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 381 ;
+    rt:maxCoolerHeight 165 ;
+    rt:alternativeTo p:fractal-torrent .

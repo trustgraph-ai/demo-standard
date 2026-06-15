@@ -1,0 +1,261 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix rt: <http://trustgraph.ai/ontology/retail#> .
+@prefix p: <http://trustgraph.ai/data/retail/product/> .
+@prefix b: <http://trustgraph.ai/data/retail/brand/> .
+
+# =============================================================================
+# Brands
+# =============================================================================
+
+b:Coleman a schema:Brand ;
+    rdfs:label "Coleman" ;
+    rdfs:comment "Coleman Company, American manufacturer of outdoor recreation products including tents, stoves, coolers, and lanterns." .
+
+b:TetonSports a schema:Brand ;
+    rdfs:label "Teton Sports" ;
+    rdfs:comment "Teton Sports, manufacturer of affordable sleeping bags, backpacks, and camping gear." .
+
+b:Intex a schema:Brand ;
+    rdfs:label "Intex" ;
+    rdfs:comment "Intex Recreation, manufacturer of inflatable products including air mattresses, pools, and camping equipment." .
+
+b:GSIOutdoors a schema:Brand ;
+    rdfs:label "GSI Outdoors" ;
+    rdfs:comment "GSI Outdoors, manufacturer of camping cookware, tableware, and kitchen accessories." .
+
+b:BlackDiamond a schema:Brand ;
+    rdfs:label "Black Diamond" ;
+    rdfs:comment "Black Diamond Equipment, manufacturer of headlamps, climbing gear, and outdoor lighting." .
+
+b:AdventureMedicalKits a schema:Brand ;
+    rdfs:label "Adventure Medical Kits" ;
+    rdfs:comment "Adventure Medical Kits, manufacturer of first aid kits designed for outdoor activities and wilderness travel." .
+
+b:BearVault a schema:Brand ;
+    rdfs:label "BearVault" ;
+    rdfs:comment "BearVault, manufacturer of bear-resistant food storage containers certified for use in national parks." .
+
+b:ALPSMountaineering a schema:Brand ;
+    rdfs:label "ALPS Mountaineering" ;
+    rdfs:comment "ALPS Mountaineering, manufacturer of camp furniture, tents, and outdoor accessories." .
+
+b:PackTowl a schema:Brand ;
+    rdfs:label "PackTowl" ;
+    rdfs:comment "PackTowl, a Cascade Designs brand specialising in quick-dry travel and camping towels." .
+
+# =============================================================================
+# Sleep system
+# =============================================================================
+
+p:coleman-sundome-3p a rt:GearItem ;
+    rdfs:label "Coleman Sundome 3-Person Tent" ;
+    rdfs:comment "Easy-setup dome tent for 3 people with Coleman's WeatherTec system featuring welded floors and inverted seams to keep rain out. Sets up in approximately 10 minutes. The 63 square foot floor area provides comfortable sleeping space for three adults. Weighs 16.5 lbs, making it well suited for car camping where weight is not a primary concern." ;
+    rt:productId "coleman-sundome-3p" ;
+    schema:brand b:Coleman ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:SleepSystemCategory ;
+    rt:price 119.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 2847 ;
+    rt:inStock true ;
+    rt:tag "tent" ;
+    rt:tag "camping" ;
+    rt:tag "car-camping" ;
+    rt:tag "beginner-friendly" ;
+    rt:giftSuitability "medium" .
+
+p:teton-trailhead-sleeping-bag a rt:GearItem ;
+    rdfs:label "Teton Sports TrailHead Sleeping Bag" ;
+    rdfs:comment "Mummy-style sleeping bag rated to 20 degrees Fahrenheit (-7 degrees Celsius) with synthetic fill insulation. Comes with a compression sack for compact storage. The 84-inch length accommodates users up to 6 feet 2 inches tall. At 5 lbs, it balances warmth and portability for three-season use. An excellent budget option that punches above its price." ;
+    rt:productId "teton-trailhead-sleeping-bag" ;
+    schema:brand b:TetonSports ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:SleepSystemCategory ;
+    rt:price 44.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 1543 ;
+    rt:inStock true ;
+    rt:tag "sleeping-bag" ;
+    rt:tag "camping" ;
+    rt:tag "3-season" ;
+    rt:giftSuitability "medium" .
+
+p:intex-camping-mattress a rt:GearItem ;
+    rdfs:label "Intex Camping Air Mattress" ;
+    rdfs:comment "Twin-size durable air mattress with a waterproof flocked top surface that prevents sleeping bags from sliding. Features a built-in electric pump for easy inflation and deflation. The 9-inch thickness provides comfortable cushioning from uneven ground. Weighs 8 lbs, making it practical for car camping but too heavy for backpacking." ;
+    rt:productId "intex-camping-mattress" ;
+    schema:brand b:Intex ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:SleepSystemCategory ;
+    rt:price 24.99 ;
+    rt:rating 4.3 ;
+    rt:reviewCount 892 ;
+    rt:inStock true ;
+    rt:tag "sleeping-pad" ;
+    rt:tag "camping" ;
+    rt:tag "comfort" ;
+    rt:giftSuitability "medium" .
+
+# =============================================================================
+# Cooking and food
+# =============================================================================
+
+p:coleman-classic-stove a rt:GearItem ;
+    rdfs:label "Coleman Classic Propane Stove" ;
+    rdfs:comment "Reliable two-burner camping stove producing 20,000 BTU total, running on standard 16-ounce propane canisters. Wind guards on both sides protect the flame in breezy conditions. Each burner has independent heat control for simultaneous cooking at different temperatures. Provides approximately 4 hours of runtime on high with a single propane canister." ;
+    rt:productId "coleman-classic-stove" ;
+    schema:brand b:Coleman ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:CookingCategory ;
+    rt:price 58.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 3201 ;
+    rt:inStock true ;
+    rt:tag "stove" ;
+    rt:tag "camping" ;
+    rt:tag "cooking" ;
+    rt:giftSuitability "medium" .
+
+p:coleman-propane-4pack a rt:Consumable ;
+    rdfs:label "Coleman Propane Fuel 4-Pack" ;
+    rdfs:comment "Four 16-ounce propane cylinders with standard CGA 600 connection, compatible with Coleman stoves, lanterns, and other propane-powered camping equipment. Each canister provides approximately 4 hours of runtime on a two-burner stove at high heat. A 4-pack covers a typical weekend camping trip with cooking and lighting needs." ;
+    rt:productId "coleman-propane-4pack" ;
+    schema:brand b:Coleman ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:CookingCategory ;
+    rt:price 18.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "fuel" ;
+    rt:tag "camping" ;
+    rt:tag "propane" ;
+    rt:giftSuitability "low" ;
+    rt:isConsumableFor p:coleman-classic-stove .
+
+p:gsi-cook-set a rt:GearItem ;
+    rdfs:label "GSI Outdoors Camping Cook Set" ;
+    rdfs:comment "Complete aluminium cook set for 3 to 4 people, including two nesting pots, four plates, four cups, and a set of utensils. The entire kit nests compactly into the larger pot for efficient packing. At 3.2 lbs total weight, it provides everything a small group needs for camp cooking without requiring individual cookware." ;
+    rt:productId "gsi-cook-set" ;
+    schema:brand b:GSIOutdoors ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:CookingCategory ;
+    rt:price 34.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 876 ;
+    rt:inStock true ;
+    rt:tag "cookware" ;
+    rt:tag "camping" ;
+    rt:tag "kitchen" ;
+    rt:giftSuitability "medium" ;
+    rt:worksWellWith p:coleman-classic-stove .
+
+p:coleman-16qt-cooler a rt:GearItem ;
+    rdfs:label "Coleman 16-Quart Cooler" ;
+    rdfs:comment "Compact hard-sided cooler with 16-quart capacity, holding up to 22 cans. Keeps ice for up to 24 hours in outdoor temperatures. The hinged lid and bail handle make it easy to carry and access contents. At 3.4 lbs empty, it is the right size for a weekend trip without being burdensome to transport from car to campsite." ;
+    rt:productId "coleman-16qt-cooler" ;
+    schema:brand b:Coleman ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:CookingCategory ;
+    rt:price 24.99 ;
+    rt:rating 4.4 ;
+    rt:reviewCount 1567 ;
+    rt:inStock true ;
+    rt:tag "cooler" ;
+    rt:tag "camping" ;
+    rt:tag "food-storage" ;
+    rt:giftSuitability "medium" .
+
+# =============================================================================
+# Lighting and safety
+# =============================================================================
+
+p:black-diamond-headlamp-3pack a rt:GearItem ;
+    rdfs:label "Black Diamond Headlamp 3-Pack" ;
+    rdfs:comment "Pack of three compact LED headlamps, each producing 200 lumens on the high setting. Features a red night-vision mode that preserves dark adaptation and avoids disturbing others in camp. IPX4 waterproof rating handles rain and splashes. Each headlamp runs on three AAA batteries (included) with up to 50 hours of runtime on the low setting." ;
+    rt:productId "black-diamond-headlamp-3pack" ;
+    schema:brand b:BlackDiamond ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:LightingAndSafetyCategory ;
+    rt:price 59.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 2103 ;
+    rt:inStock true ;
+    rt:tag "headlamp" ;
+    rt:tag "camping" ;
+    rt:tag "lighting" ;
+    rt:tag "safety" ;
+    rt:giftSuitability "high" .
+
+p:first-aid-kit-camping a rt:GearItem ;
+    rdfs:label "First Aid Kit - Outdoor Edition" ;
+    rdfs:comment "Comprehensive 100-piece first aid kit designed for outdoor activities. Includes adhesive bandages, gauze, antiseptic wipes, pain relief medication, blister treatment, tweezers, scissors, and an emergency whistle. Packaged in a waterproof bag weighing just 0.75 lbs. Covers the most common injuries and ailments encountered during camping, hiking, and outdoor recreation." ;
+    rt:productId "first-aid-kit-camping" ;
+    schema:brand b:AdventureMedicalKits ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:LightingAndSafetyCategory ;
+    rt:price 24.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 743 ;
+    rt:inStock true ;
+    rt:tag "first-aid" ;
+    rt:tag "camping" ;
+    rt:tag "safety" ;
+    rt:tag "medical" ;
+    rt:giftSuitability "medium" .
+
+p:bear-canister-rental a rt:GearItem ;
+    rdfs:label "Bear Canister Rental Voucher" ;
+    rdfs:comment "Seven-day rental voucher for a USDA-certified bear-proof food storage container. Required by regulation in many national parks and wilderness areas including Yosemite, Sequoia, and parts of the Sierra Nevada. Holds approximately 7 days of food for a group of three. The canister is picked up and returned at a local outfitter near the trailhead." ;
+    rt:productId "bear-canister-rental" ;
+    schema:brand b:BearVault ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:LightingAndSafetyCategory ;
+    rt:price 10.00 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 321 ;
+    rt:inStock true ;
+    rt:tag "bear-canister" ;
+    rt:tag "camping" ;
+    rt:tag "safety" ;
+    rt:tag "food-storage" ;
+    rt:giftSuitability "low" .
+
+# =============================================================================
+# Camp comfort
+# =============================================================================
+
+p:camp-chairs-3pack a rt:GearItem ;
+    rdfs:label "Folding Camp Chairs 3-Pack" ;
+    rdfs:comment "Set of three portable folding camping chairs, each with a 300-pound weight capacity, built-in cup holder, and padded armrests. Each chair weighs 6 lbs and folds flat with an integrated carry strap for easy transport from the car to the campsite. Provides comfortable seating around the campfire without sitting on the ground." ;
+    rt:productId "camp-chairs-3pack" ;
+    schema:brand b:ALPSMountaineering ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:CampComfortCategory ;
+    rt:price 74.99 ;
+    rt:rating 4.4 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "chairs" ;
+    rt:tag "camping" ;
+    rt:tag "comfort" ;
+    rt:tag "furniture" ;
+    rt:giftSuitability "medium" .
+
+p:microfiber-towel a rt:GearItem ;
+    rdfs:label "Quick-Dry Microfiber Towel" ;
+    rdfs:comment "Fast-drying microfiber camping towel measuring 30 by 50 inches. Absorbs five times its weight in water and dries in approximately 30 minutes in open air. Weighs just 5 ounces and packs down to the size of a water bottle. An essential hygiene item for camping trips where access to laundry facilities is limited." ;
+    rt:productId "microfiber-towel" ;
+    schema:brand b:PackTowl ;
+    rt:hasCategory rt:OutdoorGear ;
+    rt:hasSubcategory rt:CampComfortCategory ;
+    rt:price 9.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 567 ;
+    rt:inStock true ;
+    rt:tag "towel" ;
+    rt:tag "camping" ;
+    rt:tag "hygiene" ;
+    rt:giftSuitability "medium" .

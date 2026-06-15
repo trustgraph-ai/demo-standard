@@ -1,0 +1,151 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix rt: <http://trustgraph.ai/ontology/retail#> .
+@prefix p: <http://trustgraph.ai/data/retail/product/> .
+@prefix b: <http://trustgraph.ai/data/retail/brand/> .
+
+# =============================================================================
+# Brands
+# =============================================================================
+
+b:Elgato a schema:Brand ;
+    rdfs:label "Elgato" ;
+    rdfs:comment "Elgato, a Corsair brand specialising in content creation and streaming tools." .
+
+b:HyperX a schema:Brand ;
+    rdfs:label "HyperX" ;
+    rdfs:comment "HyperX, a gaming peripherals brand known for headsets, keyboards, and mice." .
+
+b:ProMount a schema:Brand ;
+    rdfs:label "ProMount" ;
+    rdfs:comment "ProMount, manufacturer of action camera mounts and accessories." .
+
+b:Blue a schema:Brand ;
+    rdfs:label "Blue" ;
+    rdfs:comment "Blue Microphones, a Logitech brand known for USB condenser microphones for streaming and podcasting." .
+
+b:Logitech a schema:Brand ;
+    rdfs:label "Logitech" ;
+    rdfs:comment "Logitech International, manufacturer of webcams, mice, keyboards, and other computer peripherals." .
+
+# =============================================================================
+# Elgato Stream Deck Mini
+# =============================================================================
+
+p:elgato-stream-deck-mini a rt:Accessory ;
+    rdfs:label "Elgato Stream Deck Mini" ;
+    rdfs:comment "Compact stream deck with 6 customizable LCD keys. Perfect for streamers, content creators, and gamers who want quick access to commands, macros, and shortcuts. Each key displays a dynamic icon and can be configured to launch applications, switch scenes, post to social media, or trigger complex multi-step actions." ;
+    rt:productId "elgato-stream-deck-mini" ;
+    schema:brand b:Elgato ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:StreamingCategory ;
+    rt:price 79.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 3421 ;
+    rt:inStock true ;
+    rt:stockCount 23 ;
+    rt:tag "gaming" ;
+    rt:tag "streaming" ;
+    rt:tag "productivity" ;
+    rt:tag "content-creation" ;
+    rt:tag "tech-gift" ;
+    rt:giftSuitability "high" ;
+    rt:worksWellWith p:blue-yeti-mic ;
+    rt:worksWellWith p:logitech-c920 .
+
+# =============================================================================
+# HyperX Cloud II Gaming Headset
+# =============================================================================
+
+p:hyperx-cloud-ii a rt:Accessory ;
+    rdfs:label "HyperX Cloud II Gaming Headset" ;
+    rdfs:comment "Comfortable gaming headset with 7.1 virtual surround sound, memory foam ear cushions, and detachable noise-cancelling microphone. The 53mm drivers deliver rich audio across the frequency range from 15 Hz to 25 kHz. Works on PC, Mac, PS4, Xbox, and mobile devices via the included USB sound card or 3.5mm jack." ;
+    rt:productId "hyperx-cloud-ii" ;
+    schema:brand b:HyperX ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:AudioCategory ;
+    rt:price 89.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 12834 ;
+    rt:inStock true ;
+    rt:stockCount 47 ;
+    rt:tag "gaming" ;
+    rt:tag "audio" ;
+    rt:tag "headset" ;
+    rt:tag "pc-gaming" ;
+    rt:tag "tech-gift" ;
+    rt:giftSuitability "high" .
+
+# =============================================================================
+# GoPro Chest Mount Bundle
+# =============================================================================
+
+p:gopro-chest-mount-bundle a rt:Accessory ;
+    rdfs:label "GoPro-Compatible Chest Mount + 64GB SD Card Bundle" ;
+    rdfs:comment "Hands-free chest mount harness for action cameras, bundled with a high-speed 64GB microSD card (Class 10, U3). The adjustable elastic nylon harness fits chests from 36 to 60 inches. Compatible with GoPro Hero 3 through 12, DJI Osmo Action, and Insta360 cameras. Perfect for skateboarding, biking, skiing, and first-person-view footage." ;
+    rt:productId "gopro-chest-mount-bundle" ;
+    schema:brand b:ProMount ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:VideoCategory ;
+    rt:price 64.99 ;
+    rt:rating 4.4 ;
+    rt:reviewCount 1245 ;
+    rt:inStock true ;
+    rt:stockCount 31 ;
+    rt:tag "action-camera" ;
+    rt:tag "skateboarding" ;
+    rt:tag "sports" ;
+    rt:tag "accessories" ;
+    rt:tag "tech-gift" ;
+    rt:giftSuitability "high" .
+
+# =============================================================================
+# Blue Yeti USB Microphone
+# =============================================================================
+
+p:blue-yeti-mic a rt:Accessory ;
+    rdfs:label "Blue Yeti USB Microphone" ;
+    rdfs:comment "Professional USB condenser microphone for streaming, podcasting, gaming, and YouTube. Features four selectable polar patterns (cardioid, omnidirectional, bidirectional, and stereo) to suit different recording scenarios. Records at 48 kHz / 16-bit with zero-latency headphone monitoring via the built-in 3.5mm jack. The industry standard USB microphone for content creators." ;
+    rt:productId "blue-yeti-mic" ;
+    schema:brand b:Blue ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:AudioCategory ;
+    rt:price 129.99 ;
+    rt:originalPrice 149.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 8764 ;
+    rt:inStock true ;
+    rt:stockCount 18 ;
+    rt:tag "streaming" ;
+    rt:tag "audio" ;
+    rt:tag "microphone" ;
+    rt:tag "content-creation" ;
+    rt:tag "podcasting" ;
+    rt:giftSuitability "high" ;
+    rt:worksWellWith p:elgato-stream-deck-mini ;
+    rt:worksWellWith p:logitech-c920 .
+
+# =============================================================================
+# Logitech C920 HD Pro Webcam
+# =============================================================================
+
+p:logitech-c920 a rt:Accessory ;
+    rdfs:label "Logitech C920 HD Pro Webcam" ;
+    rdfs:comment "Full HD 1080p webcam at 30fps with stereo audio and autofocus. The 78-degree field of view frames a single person well without excessive background. The universal clip mount fits laptops and monitors. An industry standard for streaming, video calls, and content creation, with wide software compatibility and reliable autofocus performance." ;
+    rt:productId "logitech-c920" ;
+    schema:brand b:Logitech ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:VideoCategory ;
+    rt:price 69.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 15234 ;
+    rt:inStock true ;
+    rt:stockCount 52 ;
+    rt:tag "streaming" ;
+    rt:tag "webcam" ;
+    rt:tag "video-calls" ;
+    rt:tag "content-creation" ;
+    rt:giftSuitability "high" ;
+    rt:worksWellWith p:blue-yeti-mic ;
+    rt:worksWellWith p:elgato-stream-deck-mini .
