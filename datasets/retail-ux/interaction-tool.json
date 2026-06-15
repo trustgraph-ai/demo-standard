@@ -1,0 +1,14 @@
+{
+  "id": "interaction-query",
+  "name": "interaction-query",
+  "type": "knowledge-query",
+  "description": "This tool queries a knowledge base that holds information about user interaction journeys with an AI-driven retail assistant. The knowledge base tracks user journeys from session start through search, product engagement, decision-making, and purchase or abandonment. Events carry behavioural signals revealing why users buy or don't buy — including decision points, objections (price, trust, compatibility, complexity, timing, need, risk), priority signals, confidence levels, budget constraints, trigger events, and abandonment indicators. The question should be a natural language question.",
+  "collection": "default",
+  "arguments": [
+    {
+      "description": "A simple natural language question.",
+      "name": "question",
+      "type": "string"
+    }
+  ]
+}

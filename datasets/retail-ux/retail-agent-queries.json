@@ -1,0 +1,72 @@
+[
+  {
+    "id": "budget-gaming-pc",
+    "title": "Build a gaming PC under a budget",
+    "description": "Test the agent's ability to navigate compatibility constraints and price filtering to assemble a working PC build.",
+    "language": "agent",
+    "query": "I want to build a gaming PC for around $1500. Can you suggest compatible components?"
+  },
+  {
+    "id": "gpu-for-1440p",
+    "title": "Best GPU for 1440p gaming",
+    "description": "Test the agent's ability to filter GPUs by performance tier and compare specifications.",
+    "language": "agent",
+    "query": "Which GPU in stock would be best for 1440p gaming, and what's the price difference between my options?"
+  },
+  {
+    "id": "motherboard-compatibility",
+    "title": "Find compatible motherboard for a CPU",
+    "description": "Test graph traversal through shared socket nodes to find compatible components.",
+    "language": "agent",
+    "query": "I have an AMD Ryzen 7 7800X3D. Which motherboards are compatible, and what RAM would work with each one?"
+  },
+  {
+    "id": "case-gpu-fit",
+    "title": "Will a GPU fit in a specific case",
+    "description": "Test the agent's ability to check physical compatibility constraints between a GPU and case.",
+    "language": "agent",
+    "query": "Will the NVIDIA RTX 4070 Ti Super fit in the Fractal Design North case?"
+  },
+  {
+    "id": "psu-sizing",
+    "title": "PSU recommendation for a CPU and GPU combination",
+    "description": "Test the agent's ability to calculate combined TDP and recommend an adequately sized PSU.",
+    "language": "agent",
+    "query": "What size PSU do I need for a Ryzen 7 7800X3D and an RTX 4070 Ti Super?"
+  },
+  {
+    "id": "gift-under-50",
+    "title": "Gift recommendation under a price point",
+    "description": "Test gift suitability filtering combined with price constraints.",
+    "language": "agent",
+    "query": "I need a gift for a tech-savvy teenager, budget is $50. What do you recommend?"
+  },
+  {
+    "id": "camping-essentials",
+    "title": "Camping trip essentials list",
+    "description": "Test the agent's ability to use activity templates and category requirements to assemble a kit.",
+    "language": "agent",
+    "query": "I'm planning a camping trip. What gear do you have and what would you recommend as essentials?"
+  },
+  {
+    "id": "bottleneck-check",
+    "title": "CPU-GPU bottleneck analysis",
+    "description": "Test the agent's ability to use performance scores to identify potential bottlenecks.",
+    "language": "agent",
+    "query": "Would pairing an Intel Core i5-13600K with an RTX 4070 Ti Super cause any bottleneck issues?"
+  },
+  {
+    "id": "sale-items",
+    "title": "Products currently on sale",
+    "description": "Test the agent's ability to find discounted products by comparing current and original prices.",
+    "language": "agent",
+    "query": "Are there any products on sale right now? I'm looking for deals."
+  },
+  {
+    "id": "upgrade-path",
+    "title": "Upgrade recommendations for an existing PC",
+    "description": "Test the agent's ability to reason about upgrade constraints and compatibility with existing components.",
+    "language": "agent",
+    "query": "I have a PC with an Intel 12th gen CPU on an LGA 1700 motherboard with DDR4 RAM. What upgrades would give me the biggest performance boost?"
+  }
+]

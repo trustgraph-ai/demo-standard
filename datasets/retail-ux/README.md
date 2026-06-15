@@ -41,6 +41,24 @@ not).
 | `ontology-design.md` | Retail ontology design rationale covering class hierarchy, property design, constraint model, and how each flow traverses the graph. |
 | `interaction-ontology-design.md` | Interaction ontology design rationale covering the mixin pattern, event and signal class hierarchies, property design, and example journey event sequences. |
 
+### Query templates
+
+| File | Queries | Description |
+|------|---------|-------------|
+| `retail-queries.json` | 14 | SPARQL queries for the retail product ontology — product listing, category filtering, compatibility checks (socket, RAM, GPU clearance, PSU wattage), bottleneck detection, sales, gift filtering, product relationships, full build combinations, constraint catalog. |
+| `interaction-queries.json` | 12 | SPARQL queries for the interaction ontology — journey listing, event sequences, objection analysis, decision points, budget signals, recommendation effectiveness, priority signals, conversion funnel, objection resolution rates, spend breakdown, trigger types, mixin pattern demonstration. |
+| `retail-agent-queries.json` | 10 | Natural language agent test queries for retail — budget PC build, GPU selection, motherboard compatibility, case fit, PSU sizing, gift recommendation, camping essentials, bottleneck check, sale items, upgrade path. |
+| `retail-graph-rag-queries.json` | 6 | Graph-RAG queries for retail — compatibility model explanation, GPU comparison, catalog overview, constraint system, outdoor gear summary, product relationships. |
+| `interaction-agent-queries.json` | 6 | Natural language agent test queries for interaction — journey trace, objection patterns, abandoned vs completed, recommendation impact, budget influence, upgrade journey signals. |
+| `interaction-graph-rag-queries.json` | 6 | Graph-RAG queries for interaction — journey model explanation, mixin pattern, objection categories, journey summaries, signal types, cross-ontology linking. |
+
+### Tool definitions
+
+| File | Description |
+|------|-------------|
+| `retail-tool.json` | Tool definition for querying the retail product knowledge base — products, specifications, compatibility, pricing, and kit assembly. |
+| `interaction-tool.json` | Tool definition for querying the interaction journey knowledge base — user journeys, decision events, objections, behavioural signals, and conversion analysis. |
+
 ## Namespaces
 
 ### Retail ontology
