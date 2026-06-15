@@ -178,34 +178,6 @@ ix:ObjectionCategory a owl:Class ;
     rdfs:label "Objection Category" ;
     rdfs:comment "A classification of the type of concern underlying a user's objection. Objection categories help identify patterns — if 40% of GPU objections are price-related, that is a different problem than if 40% are compatibility-related. Categories are not mutually exclusive; a single objection may combine price and risk concerns." .
 
-ix:PriceObjection a ix:ObjectionCategory ;
-    rdfs:label "Price Objection" ;
-    rdfs:comment "The user objects on the basis of cost. Manifests as 'too expensive', 'over my budget', 'is there a cheaper option?', or choosing lower-priced alternatives without being prompted. The most common objection type in retail. May be a hard budget constraint or a value perception issue (the user doesn't believe the product is worth the price)." .
-
-ix:TrustObjection a ix:ObjectionCategory ;
-    rdfs:label "Trust Objection" ;
-    rdfs:comment "The user objects on the basis of trust in the brand, product, or recommendation. Manifests as 'I don't trust that brand', 'the reviews worry me', 'is this actually good?', or scepticism about the assistant's recommendation. Often resolved by social proof (reviews, popularity) or by offering a more established brand." .
-
-ix:CompatibilityObjection a ix:ObjectionCategory ;
-    rdfs:label "Compatibility Objection" ;
-    rdfs:comment "The user objects on the basis of compatibility concerns. Manifests as 'will it fit?', 'is it compatible with my system?', 'what if the parts don't work together?'. Common in the PC build and upgrade flows. Often resolved by the assistant demonstrating compatibility through the constraint validation system." .
-
-ix:ComplexityObjection a ix:ObjectionCategory ;
-    rdfs:label "Complexity Objection" ;
-    rdfs:comment "The user objects on the basis of perceived complexity or difficulty. Manifests as 'that's too complicated', 'I'm not technical enough', 'can someone do this for me?'. Reveals the user's self-assessed skill level and comfort with the product category. Often resolved by simplifying the explanation or suggesting pre-built alternatives." .
-
-ix:TimingObjection a ix:ObjectionCategory ;
-    rdfs:label "Timing Objection" ;
-    rdfs:comment "The user objects on the basis of timing. Manifests as 'I'll wait for Black Friday', 'not ready to buy yet', 'I need to think about it', 'are new models coming out soon?'. May indicate genuine timing constraints or may be a polite deflection masking a different underlying concern." .
-
-ix:NeedObjection a ix:ObjectionCategory ;
-    rdfs:label "Need Objection" ;
-    rdfs:comment "The user objects on the basis that they don't need the product or feature. Manifests as 'I don't think I need that', 'seems like overkill', 'is the cheaper one good enough?'. Reveals the user's perception of their own requirements. May indicate accurate self-assessment or may indicate the user underestimates their needs." .
-
-ix:RiskObjection a ix:ObjectionCategory ;
-    rdfs:label "Risk Objection" ;
-    rdfs:comment "The user objects on the basis of perceived risk in the purchase. Manifests as 'what if it doesn't work?', 'can I return it?', 'what's the warranty?'. The user is concerned about the downside scenario. Often resolved by return policies, warranty information, or reassurance about product reliability." .
-
 # =============================================================================
 # Actor properties
 # =============================================================================
