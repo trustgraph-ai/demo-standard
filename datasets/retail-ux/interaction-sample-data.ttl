@@ -1,0 +1,952 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rt: <http://trustgraph.ai/ontology/retail#> .
+@prefix ix: <http://trustgraph.ai/ontology/interaction#> .
+@prefix p: <http://trustgraph.ai/data/retail/product/> .
+@prefix actor: <http://trustgraph.ai/data/interaction/actor/> .
+@prefix j: <http://trustgraph.ai/data/interaction/journey/> .
+@prefix sess: <http://trustgraph.ai/data/interaction/session/> .
+@prefix ev: <http://trustgraph.ai/data/interaction/event/> .
+@prefix sig: <http://trustgraph.ai/data/interaction/signal/> .
+
+# =============================================================================
+# =============================================================================
+#
+# JOURNEY 1: BUILD FROM SCRATCH
+#
+# User wants to build a 1440p gaming PC with a $1500 budget. Chooses the
+# RTX 4070 over the RX 7800 XT after comparing both. Accepts the
+# assistant's full build recommendation. Completes purchase.
+#
+# =============================================================================
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Actor
+# -----------------------------------------------------------------------------
+
+actor:user-001 a ix:Actor ;
+    rdfs:label "User 001" ;
+    rdfs:comment "First-time PC builder, mid-20s, gaming-focused. Arrived with a clear goal and budget." ;
+    ix:actorId "user-001" ;
+    ix:actorSegment "first-time-builder" ;
+    ix:returningUser false ;
+    ix:previousJourneyCount 0 .
+
+# -----------------------------------------------------------------------------
+# Journey and session
+# -----------------------------------------------------------------------------
+
+j:build-gaming-pc a ix:Journey ;
+    rdfs:label "1440p Gaming PC Build Journey" ;
+    rdfs:comment "Single-session journey from intent to purchase. User built a complete 1440p gaming PC within budget." ;
+    ix:journeyActor actor:user-001 ;
+    ix:journeyPurpose "Build a 1440p gaming PC" ;
+    ix:journeyOutcome "purchase" ;
+    ix:journeyStartDate "2026-06-10T19:12:00Z"^^xsd:dateTime ;
+    ix:journeyEndDate "2026-06-10T19:47:00Z"^^xsd:dateTime ;
+    ix:hasSession sess:build-session-1 .
+
+sess:build-session-1 a ix:Session ;
+    rdfs:label "Build Session 1" ;
+    rdfs:comment "Complete PC build session from initial request through checkout." ;
+    ix:belongsToJourney j:build-gaming-pc ;
+    ix:sessionActor actor:user-001 ;
+    ix:sessionStartTime "2026-06-10T19:12:00Z"^^xsd:dateTime ;
+    ix:sessionEndTime "2026-06-10T19:47:00Z"^^xsd:dateTime ;
+    ix:initialIntent "Build a gaming PC for 1440p" ;
+    ix:sessionOutcome "purchase" ;
+    ix:channel "web" .
+
+# -----------------------------------------------------------------------------
+# Event 1: Session starts with trigger and budget signal
+# -----------------------------------------------------------------------------
+
+ev:build-001 a ix:SessionStarted, ix:TriggerEvent, ix:BudgetSignal ;
+    rdfs:label "Build journey begins" ;
+    rdfs:comment "User opens with a clear goal and budget: wants to build a 1440p gaming PC for around $1500." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:12:00Z"^^xsd:dateTime ;
+    ix:sequenceIndex 1 ;
+    ix:nextEvent ev:build-002 ;
+    ix:triggerType "curiosity" ;
+    ix:triggerDescription "I've been wanting to build my own gaming PC for a while, ready to pull the trigger" ;
+    ix:statedBudget 1500.00 ;
+    ix:budgetConstraintType "preference" ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 2: Search — user describes what they want
+# -----------------------------------------------------------------------------
+
+ev:build-002 a ix:Search ;
+    rdfs:label "Search for 1440p gaming build" ;
+    rdfs:comment "User describes their goal in natural language. The assistant interprets this as a gaming PC build targeting 1440p." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:12:30Z"^^xsd:dateTime ;
+    ix:sequenceIndex 2 ;
+    ix:previousEvent ev:build-001 ;
+    ix:nextEvent ev:build-003 ;
+    ix:dwellTimeSeconds 15 ;
+    ix:queryText "I want to build a gaming PC that can handle 1440p high settings, budget around $1500" ;
+    ix:interpretedIntent "pc-build:1440p-gaming:budget-1500" .
+
+# -----------------------------------------------------------------------------
+# Event 3: Recommendation — assistant suggests GPU anchor
+# -----------------------------------------------------------------------------
+
+ev:build-003 a ix:RecommendationReceived ;
+    rdfs:label "GPU anchor recommendation" ;
+    rdfs:comment "Assistant recommends two GPU options as the starting anchor for the build, explaining why the GPU determines the rest of the configuration." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:13:00Z"^^xsd:dateTime ;
+    ix:sequenceIndex 3 ;
+    ix:previousEvent ev:build-002 ;
+    ix:nextEvent ev:build-004 ;
+    ix:dwellTimeSeconds 45 ;
+    ix:recommendedProduct p:nvidia-rtx-4070 ;
+    ix:recommendedProduct p:amd-rx-7800-xt ;
+    ix:recommendationReason "For 1440p gaming, the GPU is your most important component. These two are the best options in your budget range." ;
+    ix:recommendationAccepted true .
+
+# -----------------------------------------------------------------------------
+# Event 4: Product viewed — RTX 4070
+# -----------------------------------------------------------------------------
+
+ev:build-004 a ix:ProductViewed ;
+    rdfs:label "Viewed RTX 4070" ;
+    rdfs:comment "User examines the RTX 4070 details, spending time on the VRAM spec and power draw." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:13:45Z"^^xsd:dateTime ;
+    ix:sequenceIndex 4 ;
+    ix:previousEvent ev:build-003 ;
+    ix:nextEvent ev:build-005 ;
+    ix:dwellTimeSeconds 60 ;
+    ix:involvedProduct p:nvidia-rtx-4070 .
+
+# -----------------------------------------------------------------------------
+# Event 5: Product viewed — RX 7800 XT
+# -----------------------------------------------------------------------------
+
+ev:build-005 a ix:ProductViewed, ix:PrioritySignal ;
+    rdfs:label "Viewed RX 7800 XT" ;
+    rdfs:comment "User examines the RX 7800 XT and immediately notices the 16GB VRAM vs 12GB on the 4070. Asks whether that matters." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:14:45Z"^^xsd:dateTime ;
+    ix:sequenceIndex 5 ;
+    ix:previousEvent ev:build-004 ;
+    ix:nextEvent ev:build-006 ;
+    ix:dwellTimeSeconds 40 ;
+    ix:involvedProduct p:amd-rx-7800-xt ;
+    ix:priorityDimension "VRAM" ;
+    ix:signalStrength "moderate" ;
+    ix:revealedPriority "future-proofing" .
+
+# -----------------------------------------------------------------------------
+# Event 6: Question — VRAM comparison
+# -----------------------------------------------------------------------------
+
+ev:build-006 a ix:QuestionAsked ;
+    rdfs:label "Question about VRAM difference" ;
+    rdfs:comment "User asks whether the VRAM difference between the two GPUs matters for 1440p gaming." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:15:25Z"^^xsd:dateTime ;
+    ix:sequenceIndex 6 ;
+    ix:previousEvent ev:build-005 ;
+    ix:nextEvent ev:build-007 ;
+    ix:dwellTimeSeconds 10 ;
+    ix:questionText "The 7800 XT has 16GB vs 12GB on the 4070 — does that actually matter for 1440p?" ;
+    ix:questionTopic "VRAM comparison" ;
+    ix:involvedProduct p:nvidia-rtx-4070 ;
+    ix:involvedProduct p:amd-rx-7800-xt .
+
+# -----------------------------------------------------------------------------
+# Event 7: Answer — VRAM explanation
+# -----------------------------------------------------------------------------
+
+ev:build-007 a ix:AnswerReceived, ix:SatisfactionSignal ;
+    rdfs:label "VRAM explanation received" ;
+    rdfs:comment "Assistant explains the trade-off. User appears satisfied with the answer and moves toward a decision." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:15:35Z"^^xsd:dateTime ;
+    ix:sequenceIndex 7 ;
+    ix:previousEvent ev:build-006 ;
+    ix:nextEvent ev:build-008 ;
+    ix:dwellTimeSeconds 30 ;
+    ix:answerText "For 1440p today, 12GB is plenty. The extra VRAM on the 7800 XT may help in 2-3 years as games get more demanding. But the 4070 has DLSS 3 and better ray tracing, which give it an edge in supported games right now. It also uses 63W less power, so you can get away with a smaller PSU." ;
+    ix:answerSatisfying true ;
+    ix:signalStrength "moderate" .
+
+# -----------------------------------------------------------------------------
+# Event 8: Comparison viewed — side by side
+# -----------------------------------------------------------------------------
+
+ev:build-008 a ix:ComparisonViewed, ix:DecisionPoint ;
+    rdfs:label "GPU comparison and decision" ;
+    rdfs:comment "User compares the two GPUs side by side and chooses the RTX 4070. States that DLSS and lower power draw won them over, despite the VRAM difference." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:16:05Z"^^xsd:dateTime ;
+    ix:sequenceIndex 8 ;
+    ix:previousEvent ev:build-007 ;
+    ix:nextEvent ev:build-009 ;
+    ix:dwellTimeSeconds 45 ;
+    ix:involvedProduct p:nvidia-rtx-4070 ;
+    ix:involvedProduct p:amd-rx-7800-xt ;
+    ix:optionConsidered p:nvidia-rtx-4070 ;
+    ix:optionConsidered p:amd-rx-7800-xt ;
+    ix:selectedOption p:nvidia-rtx-4070 ;
+    ix:rejectedOption p:amd-rx-7800-xt ;
+    ix:decisionReasoning "DLSS 3 and lower power draw won me over. 12GB should be fine for now." ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 9: Added to cart — RTX 4070
+# -----------------------------------------------------------------------------
+
+ev:build-009 a ix:AddedToCart ;
+    rdfs:label "Added RTX 4070 to build" ;
+    rdfs:comment "User adds the selected GPU to their PC build configuration." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:16:50Z"^^xsd:dateTime ;
+    ix:sequenceIndex 9 ;
+    ix:previousEvent ev:build-008 ;
+    ix:nextEvent ev:build-010 ;
+    ix:dwellTimeSeconds 5 ;
+    ix:addedProduct p:nvidia-rtx-4070 .
+
+# -----------------------------------------------------------------------------
+# Event 10: Recommendation — rest of the build
+# -----------------------------------------------------------------------------
+
+ev:build-010 a ix:RecommendationReceived ;
+    rdfs:label "Full build recommendation" ;
+    rdfs:comment "Assistant recommends a complete compatible build around the RTX 4070: Ryzen 7 7800X3D, ASUS B650 motherboard, Corsair DDR5 RAM, Samsung 980 PRO SSD, Corsair RM850x PSU, and Fractal Design Torrent case." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:16:55Z"^^xsd:dateTime ;
+    ix:sequenceIndex 10 ;
+    ix:previousEvent ev:build-009 ;
+    ix:nextEvent ev:build-011 ;
+    ix:dwellTimeSeconds 90 ;
+    ix:recommendedProduct p:amd-ryzen-7-7800x3d ;
+    ix:recommendedProduct p:asus-b650-tuf ;
+    ix:recommendedProduct p:corsair-ddr5-32gb ;
+    ix:recommendedProduct p:samsung-980-pro-1tb ;
+    ix:recommendedProduct p:corsair-rm850x ;
+    ix:recommendedProduct p:fractal-torrent ;
+    ix:recommendationReason "Here is a complete build matched to your GPU. The 7800X3D is the best gaming CPU for this tier. All components are confirmed compatible — AM5 socket throughout, DDR5, ATX form factor, and the 850W PSU gives you plenty of headroom." ;
+    ix:recommendationAccepted true .
+
+# -----------------------------------------------------------------------------
+# Event 11: Question — bottleneck check
+# -----------------------------------------------------------------------------
+
+ev:build-011 a ix:QuestionAsked, ix:ConfidenceSignal ;
+    rdfs:label "Bottleneck question" ;
+    rdfs:comment "User asks whether the CPU will bottleneck the GPU. This is a confidence-seeking question — the user wants reassurance rather than new information." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:18:25Z"^^xsd:dateTime ;
+    ix:sequenceIndex 11 ;
+    ix:previousEvent ev:build-010 ;
+    ix:nextEvent ev:build-012 ;
+    ix:dwellTimeSeconds 8 ;
+    ix:questionText "Will the 7800X3D bottleneck the 4070 at all?" ;
+    ix:questionTopic "CPU-GPU bottleneck" ;
+    ix:involvedProduct p:amd-ryzen-7-7800x3d ;
+    ix:involvedProduct p:nvidia-rtx-4070 ;
+    ix:confidenceLevel "moderate" ;
+    ix:signalStrength "moderate" .
+
+# -----------------------------------------------------------------------------
+# Event 12: Answer — no bottleneck
+# -----------------------------------------------------------------------------
+
+ev:build-012 a ix:AnswerReceived, ix:SatisfactionSignal ;
+    rdfs:label "Bottleneck answer" ;
+    rdfs:comment "Assistant confirms no bottleneck. User is satisfied and proceeds." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:18:33Z"^^xsd:dateTime ;
+    ix:sequenceIndex 12 ;
+    ix:previousEvent ev:build-011 ;
+    ix:nextEvent ev:build-013 ;
+    ix:dwellTimeSeconds 20 ;
+    ix:answerText "No — the 7800X3D is actually one of the strongest gaming CPUs available. Its 3D V-Cache gives it an edge in gaming that even more expensive CPUs struggle to match. It will not hold back the 4070 at any resolution." ;
+    ix:answerSatisfying true ;
+    ix:signalStrength "moderate" .
+
+# -----------------------------------------------------------------------------
+# Event 13: Added to cart — remaining components
+# -----------------------------------------------------------------------------
+
+ev:build-013 a ix:AddedToCart, ix:ConfidenceSignal ;
+    rdfs:label "Added full build to cart" ;
+    rdfs:comment "User adds all remaining components in one go, indicating high confidence in the recommendation." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:18:53Z"^^xsd:dateTime ;
+    ix:sequenceIndex 13 ;
+    ix:previousEvent ev:build-012 ;
+    ix:nextEvent ev:build-014 ;
+    ix:dwellTimeSeconds 10 ;
+    ix:addedProduct p:amd-ryzen-7-7800x3d ;
+    ix:addedProduct p:asus-b650-tuf ;
+    ix:addedProduct p:corsair-ddr5-32gb ;
+    ix:addedProduct p:samsung-980-pro-1tb ;
+    ix:addedProduct p:corsair-rm850x ;
+    ix:addedProduct p:fractal-torrent ;
+    ix:confidenceLevel "high" ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 14: Build validated
+# -----------------------------------------------------------------------------
+
+ev:build-014 a ix:BuildValidated ;
+    rdfs:label "Build validation passed" ;
+    rdfs:comment "Compatibility check confirms all components work together. No hard or soft constraint violations." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:19:03Z"^^xsd:dateTime ;
+    ix:sequenceIndex 14 ;
+    ix:previousEvent ev:build-013 ;
+    ix:nextEvent ev:build-015 ;
+    ix:dwellTimeSeconds 15 ;
+    ix:validationPassed true .
+
+# -----------------------------------------------------------------------------
+# Event 15: Checkout started
+# -----------------------------------------------------------------------------
+
+ev:build-015 a ix:CheckoutStarted ;
+    rdfs:label "Checkout started" ;
+    rdfs:comment "User proceeds to checkout with the full build." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:19:18Z"^^xsd:dateTime ;
+    ix:sequenceIndex 15 ;
+    ix:previousEvent ev:build-014 ;
+    ix:nextEvent ev:build-016 ;
+    ix:dwellTimeSeconds 120 .
+
+# -----------------------------------------------------------------------------
+# Event 16: Checkout completed
+# -----------------------------------------------------------------------------
+
+ev:build-016 a ix:CheckoutCompleted, ix:SatisfactionSignal ;
+    rdfs:label "Purchase completed" ;
+    rdfs:comment "User completes the purchase. Total spend is $1643.93 — slightly over the stated $1500 preference budget, indicating the budget was indeed a preference not a hard limit." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:21:18Z"^^xsd:dateTime ;
+    ix:sequenceIndex 16 ;
+    ix:previousEvent ev:build-015 ;
+    ix:nextEvent ev:build-017 ;
+    ix:dwellTimeSeconds 5 ;
+    ix:purchasedProduct p:nvidia-rtx-4070 ;
+    ix:purchasedProduct p:amd-ryzen-7-7800x3d ;
+    ix:purchasedProduct p:asus-b650-tuf ;
+    ix:purchasedProduct p:corsair-ddr5-32gb ;
+    ix:purchasedProduct p:samsung-980-pro-1tb ;
+    ix:purchasedProduct p:corsair-rm850x ;
+    ix:purchasedProduct p:fractal-torrent ;
+    ix:totalSpend 1643.93 ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 17: Session ended
+# -----------------------------------------------------------------------------
+
+ev:build-017 a ix:SessionEnded ;
+    rdfs:label "Build session ended" ;
+    rdfs:comment "User thanks the assistant and ends the session." ;
+    ix:inSession sess:build-session-1 ;
+    ix:timestamp "2026-06-10T19:21:23Z"^^xsd:dateTime ;
+    ix:sequenceIndex 17 ;
+    ix:previousEvent ev:build-016 .
+
+# =============================================================================
+# =============================================================================
+#
+# JOURNEY 2: UPGRADE EXISTING PC
+#
+# User has a slow PC (i5-10400, GTX 1660, 16GB DDR4). Wants better gaming
+# performance. Discovers an upgrade cliff — the motherboard constrains
+# the upgrade path. Changes course after a compatibility objection and
+# settles for a GPU-only upgrade that fits the existing system.
+#
+# =============================================================================
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Actor
+# -----------------------------------------------------------------------------
+
+actor:user-002 a ix:Actor ;
+    rdfs:label "User 002" ;
+    rdfs:comment "Existing PC owner, not deeply technical, frustrated with gaming performance. Price-sensitive." ;
+    ix:actorId "user-002" ;
+    ix:actorSegment "upgrader" ;
+    ix:returningUser false ;
+    ix:previousJourneyCount 0 .
+
+# -----------------------------------------------------------------------------
+# Journey and session
+# -----------------------------------------------------------------------------
+
+j:upgrade-slow-pc a ix:Journey ;
+    rdfs:label "PC Upgrade Journey" ;
+    rdfs:comment "Single-session journey where user discovers the constraints of their existing platform, hits an upgrade cliff, and settles for a targeted GPU upgrade." ;
+    ix:journeyActor actor:user-002 ;
+    ix:journeyPurpose "Upgrade existing PC for better gaming performance" ;
+    ix:journeyOutcome "purchase" ;
+    ix:journeyStartDate "2026-06-11T20:30:00Z"^^xsd:dateTime ;
+    ix:journeyEndDate "2026-06-11T21:05:00Z"^^xsd:dateTime ;
+    ix:hasSession sess:upgrade-session-1 .
+
+sess:upgrade-session-1 a ix:Session ;
+    rdfs:label "Upgrade Session 1" ;
+    rdfs:comment "Upgrade consultation that navigates an upgrade cliff and results in a targeted purchase." ;
+    ix:belongsToJourney j:upgrade-slow-pc ;
+    ix:sessionActor actor:user-002 ;
+    ix:sessionStartTime "2026-06-11T20:30:00Z"^^xsd:dateTime ;
+    ix:sessionEndTime "2026-06-11T21:05:00Z"^^xsd:dateTime ;
+    ix:initialIntent "My PC is slow, want to upgrade for gaming" ;
+    ix:sessionOutcome "purchase" ;
+    ix:channel "web" .
+
+# -----------------------------------------------------------------------------
+# Event 1: Session starts with problem trigger
+# -----------------------------------------------------------------------------
+
+ev:upgrade-001 a ix:SessionStarted, ix:TriggerEvent ;
+    rdfs:label "Upgrade journey begins" ;
+    rdfs:comment "User arrives with a problem: their PC is not performing well enough for the games they want to play." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:30:00Z"^^xsd:dateTime ;
+    ix:sequenceIndex 1 ;
+    ix:nextEvent ev:upgrade-002 ;
+    ix:triggerType "problem" ;
+    ix:triggerDescription "My PC can barely run newer games, everything stutters at 1080p medium" ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 2: Question — user describes current system
+# -----------------------------------------------------------------------------
+
+ev:upgrade-002 a ix:QuestionAsked ;
+    rdfs:label "Describes current system" ;
+    rdfs:comment "User describes their existing components when prompted. The specs indicate an LGA1200 platform with DDR4." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:30:45Z"^^xsd:dateTime ;
+    ix:sequenceIndex 2 ;
+    ix:previousEvent ev:upgrade-001 ;
+    ix:nextEvent ev:upgrade-003 ;
+    ix:dwellTimeSeconds 30 ;
+    ix:questionText "I have an Intel i5-10400, GTX 1660 Super, 16GB DDR4, and a 500W PSU. It's a pre-built I got a couple years ago" ;
+    ix:questionTopic "current system specs" .
+
+# -----------------------------------------------------------------------------
+# Event 3: Answer — bottleneck diagnosis
+# -----------------------------------------------------------------------------
+
+ev:upgrade-003 a ix:AnswerReceived ;
+    rdfs:label "Bottleneck diagnosis" ;
+    rdfs:comment "Assistant diagnoses the GPU as the primary bottleneck for gaming performance. Suggests upgrading the GPU first." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:31:15Z"^^xsd:dateTime ;
+    ix:sequenceIndex 3 ;
+    ix:previousEvent ev:upgrade-002 ;
+    ix:nextEvent ev:upgrade-004 ;
+    ix:dwellTimeSeconds 20 ;
+    ix:answerText "Your main bottleneck for gaming is the GTX 1660 Super — it is a capable card but struggles with modern titles. The i5-10400 is still decent for gaming. A GPU upgrade would give you the biggest improvement." ;
+    ix:answerSatisfying true .
+
+# -----------------------------------------------------------------------------
+# Event 4: Recommendation — RTX 4070
+# -----------------------------------------------------------------------------
+
+ev:upgrade-004 a ix:RecommendationReceived ;
+    rdfs:label "RTX 4070 upgrade recommendation" ;
+    rdfs:comment "Assistant recommends the RTX 4070 as the ideal upgrade for 1440p gaming." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:31:35Z"^^xsd:dateTime ;
+    ix:sequenceIndex 4 ;
+    ix:previousEvent ev:upgrade-003 ;
+    ix:nextEvent ev:upgrade-005 ;
+    ix:dwellTimeSeconds 30 ;
+    ix:recommendedProduct p:nvidia-rtx-4070 ;
+    ix:recommendationReason "The RTX 4070 would transform your gaming experience — solid 1440p performance with DLSS 3." ;
+    ix:recommendationAccepted true .
+
+# -----------------------------------------------------------------------------
+# Event 5: Added to cart — RTX 4070
+# -----------------------------------------------------------------------------
+
+ev:upgrade-005 a ix:AddedToCart ;
+    rdfs:label "Added RTX 4070 to cart" ;
+    rdfs:comment "User tentatively adds the RTX 4070." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:32:05Z"^^xsd:dateTime ;
+    ix:sequenceIndex 5 ;
+    ix:previousEvent ev:upgrade-004 ;
+    ix:nextEvent ev:upgrade-006 ;
+    ix:dwellTimeSeconds 5 ;
+    ix:addedProduct p:nvidia-rtx-4070 .
+
+# -----------------------------------------------------------------------------
+# Event 6: Question — PSU compatibility (compatibility objection)
+# -----------------------------------------------------------------------------
+
+ev:upgrade-006 a ix:QuestionAsked, ix:Objection ;
+    rdfs:label "PSU compatibility question" ;
+    rdfs:comment "User asks whether their 500W PSU can handle the RTX 4070. This is both a genuine question and a compatibility objection — the user is worried about fit." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:32:10Z"^^xsd:dateTime ;
+    ix:sequenceIndex 6 ;
+    ix:previousEvent ev:upgrade-005 ;
+    ix:nextEvent ev:upgrade-007 ;
+    ix:dwellTimeSeconds 10 ;
+    ix:questionText "Wait, will my 500W PSU handle this? The 4070 recommends 650W" ;
+    ix:questionTopic "PSU compatibility" ;
+    ix:involvedProduct p:nvidia-rtx-4070 ;
+    ix:hasObjectionType ix:CompatibilityObjection ;
+    ix:statedReason "PSU might not be powerful enough" ;
+    ix:objectionResolved true ;
+    ix:resolvedBy "explanation" ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 7: Answer — needs PSU upgrade too
+# -----------------------------------------------------------------------------
+
+ev:upgrade-007 a ix:AnswerReceived ;
+    rdfs:label "PSU upgrade needed" ;
+    rdfs:comment "Assistant confirms the 500W PSU is not sufficient and recommends a PSU upgrade alongside the GPU." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:32:20Z"^^xsd:dateTime ;
+    ix:sequenceIndex 7 ;
+    ix:previousEvent ev:upgrade-006 ;
+    ix:nextEvent ev:upgrade-008 ;
+    ix:dwellTimeSeconds 25 ;
+    ix:answerText "You are right to flag that. Your 500W PSU is below the recommended minimum for the RTX 4070. You would need to upgrade to at least a 650W unit — I would recommend the Corsair RM850x for comfortable headroom and future flexibility." ;
+    ix:answerSatisfying true .
+
+# -----------------------------------------------------------------------------
+# Event 8: Product viewed — Corsair RM850x
+# -----------------------------------------------------------------------------
+
+ev:upgrade-008 a ix:ProductViewed, ix:BudgetSignal ;
+    rdfs:label "Viewed PSU upgrade option" ;
+    rdfs:comment "User views the recommended PSU. The growing cost of the upgrade is becoming a concern." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:32:45Z"^^xsd:dateTime ;
+    ix:sequenceIndex 8 ;
+    ix:previousEvent ev:upgrade-007 ;
+    ix:nextEvent ev:upgrade-009 ;
+    ix:dwellTimeSeconds 20 ;
+    ix:involvedProduct p:corsair-rm850x ;
+    ix:revealedPriority "total upgrade cost" ;
+    ix:signalStrength "moderate" .
+
+# -----------------------------------------------------------------------------
+# Event 9: Question — motherboard compatibility (upgrade cliff)
+# -----------------------------------------------------------------------------
+
+ev:upgrade-009 a ix:QuestionAsked ;
+    rdfs:label "Motherboard question" ;
+    rdfs:comment "User asks whether their motherboard will be a problem too, sensing the scope of the upgrade growing." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:33:05Z"^^xsd:dateTime ;
+    ix:sequenceIndex 9 ;
+    ix:previousEvent ev:upgrade-008 ;
+    ix:nextEvent ev:upgrade-010 ;
+    ix:dwellTimeSeconds 8 ;
+    ix:questionText "What about my motherboard? Is that going to be a problem too?" ;
+    ix:questionTopic "motherboard compatibility" .
+
+# -----------------------------------------------------------------------------
+# Event 10: Answer — upgrade cliff warning
+# -----------------------------------------------------------------------------
+
+ev:upgrade-010 a ix:AnswerReceived, ix:AbandonmentSignal ;
+    rdfs:label "Upgrade cliff explained" ;
+    rdfs:comment "Assistant explains that the motherboard is fine for a GPU swap, but if the user wanted to upgrade the CPU later they would hit an upgrade cliff — the LGA1200 socket limits them to 10th/11th gen Intel CPUs. The user's engagement noticeably drops." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:33:13Z"^^xsd:dateTime ;
+    ix:sequenceIndex 10 ;
+    ix:previousEvent ev:upgrade-009 ;
+    ix:nextEvent ev:upgrade-011 ;
+    ix:dwellTimeSeconds 40 ;
+    ix:answerText "Your motherboard is LGA1200, which is fine for a GPU and PSU swap. But I should be transparent: if you want to upgrade the CPU in future, you would need a new motherboard too (your socket only supports 10th and 11th gen Intel). That would also mean new DDR5 RAM. At that point you are essentially building a new core platform for $700-900 on top of the GPU." ;
+    ix:answerSatisfying true ;
+    ix:signalStrength "moderate" .
+
+# -----------------------------------------------------------------------------
+# Event 11: Objection — complexity and cost cascade
+# -----------------------------------------------------------------------------
+
+ev:upgrade-011 a ix:RemovedFromCart, ix:Objection, ix:DecisionPoint ;
+    rdfs:label "Removes RTX 4070, scope objection" ;
+    rdfs:comment "The growing scope overwhelms the user. They remove the RTX 4070 and pivot to asking for something simpler — a GPU that works with their existing PSU. This is simultaneously a cart removal, a complexity/price objection, and a decision point (they decided not to go down the high-end upgrade path)." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:33:53Z"^^xsd:dateTime ;
+    ix:sequenceIndex 11 ;
+    ix:previousEvent ev:upgrade-010 ;
+    ix:nextEvent ev:upgrade-012 ;
+    ix:dwellTimeSeconds 15 ;
+    ix:removedProduct p:nvidia-rtx-4070 ;
+    ix:hasObjectionType ix:ComplexityObjection ;
+    ix:hasObjectionType ix:PriceObjection ;
+    ix:statedReason "This is getting way more complicated and expensive than I expected. I just want to upgrade the GPU, nothing else. Is there something good that works with my 500W PSU?" ;
+    ix:objectionResolved true ;
+    ix:resolvedBy "alternative-offered" ;
+    ix:optionConsidered p:nvidia-rtx-4070 ;
+    ix:rejectedOption p:nvidia-rtx-4070 ;
+    ix:decisionReasoning "Upgrade scope too large — wants a drop-in GPU replacement only" ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 12: Search — constrained GPU search
+# -----------------------------------------------------------------------------
+
+ev:upgrade-012 a ix:Search ;
+    rdfs:label "Search for PSU-compatible GPU" ;
+    rdfs:comment "Assistant searches for GPUs that work within the existing 500W PSU constraint." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:34:08Z"^^xsd:dateTime ;
+    ix:sequenceIndex 12 ;
+    ix:previousEvent ev:upgrade-011 ;
+    ix:nextEvent ev:upgrade-013 ;
+    ix:dwellTimeSeconds 15 ;
+    ix:queryText "GPU upgrade that works with 500W PSU and LGA1200 system" ;
+    ix:interpretedIntent "gpu-upgrade:power-constrained:500w" .
+
+# -----------------------------------------------------------------------------
+# Event 13: Recommendation — lower-power GPU
+# Note: This references a product that would exist in a fuller catalog.
+# For this sample data we reference the RX 7800 XT as the closest match,
+# though in reality the assistant would recommend a lower-tier card like
+# an RTX 4060 or RX 7600. The interaction pattern is what matters here.
+# -----------------------------------------------------------------------------
+
+ev:upgrade-013 a ix:RecommendationReceived, ix:SatisfactionSignal ;
+    rdfs:label "Power-efficient GPU recommendation" ;
+    rdfs:comment "Assistant recommends a GPU that fits within the 500W PSU constraint. User is relieved that a simpler path exists." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:34:23Z"^^xsd:dateTime ;
+    ix:sequenceIndex 13 ;
+    ix:previousEvent ev:upgrade-012 ;
+    ix:nextEvent ev:upgrade-014 ;
+    ix:dwellTimeSeconds 30 ;
+    ix:recommendedProduct p:amd-rx-7800-xt ;
+    ix:recommendationReason "The RX 7800 XT draws 263W — with your i5-10400 at 65W and other components, you are right at the edge of 500W. It would be a massive upgrade from the 1660 Super and requires no other changes to your system." ;
+    ix:recommendationAccepted true ;
+    ix:signalStrength "moderate" .
+
+# -----------------------------------------------------------------------------
+# Event 14: Added to cart — alternative GPU
+# -----------------------------------------------------------------------------
+
+ev:upgrade-014 a ix:AddedToCart, ix:ConfidenceSignal ;
+    rdfs:label "Added alternative GPU to cart" ;
+    rdfs:comment "User adds the recommended GPU. Confidence is moderate — they are satisfied with the simpler path but slightly disappointed they could not go higher-end." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:34:53Z"^^xsd:dateTime ;
+    ix:sequenceIndex 14 ;
+    ix:previousEvent ev:upgrade-013 ;
+    ix:nextEvent ev:upgrade-015 ;
+    ix:dwellTimeSeconds 8 ;
+    ix:addedProduct p:amd-rx-7800-xt ;
+    ix:confidenceLevel "moderate" ;
+    ix:signalStrength "moderate" .
+
+# -----------------------------------------------------------------------------
+# Event 15: Checkout started
+# -----------------------------------------------------------------------------
+
+ev:upgrade-015 a ix:CheckoutStarted ;
+    rdfs:label "Upgrade checkout started" ;
+    rdfs:comment "User proceeds to purchase the single GPU upgrade." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:35:01Z"^^xsd:dateTime ;
+    ix:sequenceIndex 15 ;
+    ix:previousEvent ev:upgrade-014 ;
+    ix:nextEvent ev:upgrade-016 ;
+    ix:dwellTimeSeconds 90 .
+
+# -----------------------------------------------------------------------------
+# Event 16: Checkout completed
+# -----------------------------------------------------------------------------
+
+ev:upgrade-016 a ix:CheckoutCompleted ;
+    rdfs:label "Upgrade purchase completed" ;
+    rdfs:comment "User purchases just the GPU. Total spend is significantly less than the original RTX 4070 + PSU path would have been." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:36:31Z"^^xsd:dateTime ;
+    ix:sequenceIndex 16 ;
+    ix:previousEvent ev:upgrade-015 ;
+    ix:nextEvent ev:upgrade-017 ;
+    ix:dwellTimeSeconds 5 ;
+    ix:purchasedProduct p:amd-rx-7800-xt ;
+    ix:totalSpend 499.99 .
+
+# -----------------------------------------------------------------------------
+# Event 17: Session ended
+# -----------------------------------------------------------------------------
+
+ev:upgrade-017 a ix:SessionEnded ;
+    rdfs:label "Upgrade session ended" ;
+    rdfs:comment "User ends the session. The journey resulted in a purchase but a smaller one than the assistant initially recommended." ;
+    ix:inSession sess:upgrade-session-1 ;
+    ix:timestamp "2026-06-11T20:36:36Z"^^xsd:dateTime ;
+    ix:sequenceIndex 17 ;
+    ix:previousEvent ev:upgrade-016 .
+
+# =============================================================================
+# Cross-journey signal: upgrade cliff pattern
+#
+# This signal spans multiple events in journey 2 and captures the overall
+# pattern: user hit an upgrade cliff, the scope overwhelmed them, and
+# they downscaled their purchase.
+# =============================================================================
+
+sig:upgrade-cliff-pattern a ix:AbandonmentSignal, ix:PrioritySignal ;
+    rdfs:label "Upgrade cliff downscale pattern" ;
+    rdfs:comment "The user's initial upgrade ambition was curtailed when they discovered the cascading cost of a platform change. The complexity and cost objections caused them to downscale from a high-end GPU + PSU upgrade to a mid-range GPU-only swap. This pattern — initial enthusiasm followed by scope shock leading to a reduced purchase — is a common upgrade journey outcome." ;
+    ix:derivedFrom ev:upgrade-006 ;
+    ix:derivedFrom ev:upgrade-010 ;
+    ix:derivedFrom ev:upgrade-011 ;
+    ix:priorityDimension "simplicity" ;
+    ix:signalStrength "strong" .
+
+# =============================================================================
+# =============================================================================
+#
+# JOURNEY 3: GIFT RECOMMENDATION
+#
+# User needs a gift for a teenage nephew who is into gaming. Budget is
+# under $100. Quick, decisive journey with a confidence check resolved
+# by reassurance. Completes purchase.
+#
+# =============================================================================
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Actor
+# -----------------------------------------------------------------------------
+
+actor:user-003 a ix:Actor ;
+    rdfs:label "User 003" ;
+    rdfs:comment "Gift buyer, not a gamer themselves, moderate tech literacy. Wants a safe, appreciated gift." ;
+    ix:actorId "user-003" ;
+    ix:actorSegment "gift-buyer" ;
+    ix:returningUser false ;
+    ix:previousJourneyCount 0 .
+
+# -----------------------------------------------------------------------------
+# Journey and session
+# -----------------------------------------------------------------------------
+
+j:gift-for-nephew a ix:Journey ;
+    rdfs:label "Gift for Nephew Journey" ;
+    rdfs:comment "Short single-session journey. User finds a gift quickly with minimal deliberation." ;
+    ix:journeyActor actor:user-003 ;
+    ix:journeyPurpose "Birthday gift for teenage nephew who games" ;
+    ix:journeyOutcome "purchase" ;
+    ix:journeyStartDate "2026-06-12T12:05:00Z"^^xsd:dateTime ;
+    ix:journeyEndDate "2026-06-12T12:14:00Z"^^xsd:dateTime ;
+    ix:hasSession sess:gift-session-1 .
+
+sess:gift-session-1 a ix:Session ;
+    rdfs:label "Gift Session 1" ;
+    rdfs:comment "Quick gift-finding session from request to purchase." ;
+    ix:belongsToJourney j:gift-for-nephew ;
+    ix:sessionActor actor:user-003 ;
+    ix:sessionStartTime "2026-06-12T12:05:00Z"^^xsd:dateTime ;
+    ix:sessionEndTime "2026-06-12T12:14:00Z"^^xsd:dateTime ;
+    ix:initialIntent "Gift for nephew, into gaming, under $100" ;
+    ix:sessionOutcome "purchase" ;
+    ix:channel "mobile" .
+
+# -----------------------------------------------------------------------------
+# Event 1: Session starts with occasion trigger and budget
+# -----------------------------------------------------------------------------
+
+ev:gift-001 a ix:SessionStarted, ix:TriggerEvent, ix:BudgetSignal ;
+    rdfs:label "Gift journey begins" ;
+    rdfs:comment "User arrives with a clear occasion, recipient profile, and budget constraint." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:05:00Z"^^xsd:dateTime ;
+    ix:sequenceIndex 1 ;
+    ix:nextEvent ev:gift-002 ;
+    ix:triggerType "occasion" ;
+    ix:triggerDescription "My nephew is turning 16 next week, he is really into gaming" ;
+    ix:statedBudget 100.00 ;
+    ix:budgetConstraintType "hard-limit" ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 2: Search — gift for gamer
+# -----------------------------------------------------------------------------
+
+ev:gift-002 a ix:Search ;
+    rdfs:label "Search for gaming gift" ;
+    rdfs:comment "User asks for gift ideas. The assistant needs to navigate the interest-to-category mapping without knowing the nephew's specific setup." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:05:15Z"^^xsd:dateTime ;
+    ix:sequenceIndex 2 ;
+    ix:previousEvent ev:gift-001 ;
+    ix:nextEvent ev:gift-003 ;
+    ix:dwellTimeSeconds 10 ;
+    ix:queryText "What would be a good gift for a 16-year-old who games? Under $100, no idea what he already has" ;
+    ix:interpretedIntent "gift:gaming:budget-100:unknown-setup" .
+
+# -----------------------------------------------------------------------------
+# Event 3: Results — three gift options across categories
+# -----------------------------------------------------------------------------
+
+ev:gift-003 a ix:ResultsViewed ;
+    rdfs:label "Gift options presented" ;
+    rdfs:comment "Assistant presents three gift-suitable options across different categories, all under $100 and self-contained (no compatibility requirements)." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:05:25Z"^^xsd:dateTime ;
+    ix:sequenceIndex 3 ;
+    ix:previousEvent ev:gift-002 ;
+    ix:nextEvent ev:gift-004 ;
+    ix:dwellTimeSeconds 30 ;
+    ix:shownProduct p:elgato-stream-deck-mini ;
+    ix:shownProduct p:hyperx-cloud-ii ;
+    ix:shownProduct p:gopro-chest-mount-bundle ;
+    ix:resultCount 3 .
+
+# -----------------------------------------------------------------------------
+# Event 4: Product viewed — Stream Deck
+# -----------------------------------------------------------------------------
+
+ev:gift-004 a ix:ProductViewed ;
+    rdfs:label "Viewed Stream Deck Mini" ;
+    rdfs:comment "User focuses on the Stream Deck Mini. The 'customizable LCD keys' description catches their attention." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:05:55Z"^^xsd:dateTime ;
+    ix:sequenceIndex 4 ;
+    ix:previousEvent ev:gift-003 ;
+    ix:nextEvent ev:gift-005 ;
+    ix:dwellTimeSeconds 25 ;
+    ix:involvedProduct p:elgato-stream-deck-mini .
+
+# -----------------------------------------------------------------------------
+# Event 5: Product viewed — HyperX Cloud II
+# -----------------------------------------------------------------------------
+
+ev:gift-005 a ix:ProductViewed ;
+    rdfs:label "Viewed HyperX Cloud II" ;
+    rdfs:comment "User briefly looks at the headset but spends less time on it." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:06:20Z"^^xsd:dateTime ;
+    ix:sequenceIndex 5 ;
+    ix:previousEvent ev:gift-004 ;
+    ix:nextEvent ev:gift-006 ;
+    ix:dwellTimeSeconds 15 ;
+    ix:involvedProduct p:hyperx-cloud-ii .
+
+# -----------------------------------------------------------------------------
+# Event 6: Question — does the Stream Deck need anything else?
+# -----------------------------------------------------------------------------
+
+ev:gift-006 a ix:QuestionAsked, ix:ConfidenceSignal, ix:Objection ;
+    rdfs:label "Compatibility question about Stream Deck" ;
+    rdfs:comment "User asks whether the Stream Deck requires other equipment. This is a risk/compatibility objection dressed as a question — the user is worried about giving a gift that does not work on its own. Also a confidence signal: they are leaning toward the Stream Deck but need reassurance." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:06:35Z"^^xsd:dateTime ;
+    ix:sequenceIndex 6 ;
+    ix:previousEvent ev:gift-005 ;
+    ix:nextEvent ev:gift-007 ;
+    ix:dwellTimeSeconds 8 ;
+    ix:questionText "Does the Stream Deck need anything else to work, or is it just plug and play?" ;
+    ix:questionTopic "Stream Deck requirements" ;
+    ix:involvedProduct p:elgato-stream-deck-mini ;
+    ix:confidenceLevel "seeking-reassurance" ;
+    ix:hasObjectionType ix:RiskObjection ;
+    ix:statedReason "Worried it might need other equipment to be useful" ;
+    ix:objectionResolved true ;
+    ix:resolvedBy "reassurance" ;
+    ix:signalStrength "moderate" .
+
+# -----------------------------------------------------------------------------
+# Event 7: Answer — self-contained, plug and play
+# -----------------------------------------------------------------------------
+
+ev:gift-007 a ix:AnswerReceived, ix:SatisfactionSignal ;
+    rdfs:label "Stream Deck reassurance" ;
+    rdfs:comment "Assistant confirms the Stream Deck is self-contained. User is reassured and ready to buy." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:06:43Z"^^xsd:dateTime ;
+    ix:sequenceIndex 7 ;
+    ix:previousEvent ev:gift-006 ;
+    ix:nextEvent ev:gift-008 ;
+    ix:dwellTimeSeconds 10 ;
+    ix:answerText "Completely plug and play — it connects via USB-C and works with any PC or Mac. He downloads the free Elgato software and can customise every key himself. No other equipment needed, and half the fun is setting up the keys for his favourite games and apps." ;
+    ix:answerSatisfying true ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 8: Decision point — Stream Deck selected
+# -----------------------------------------------------------------------------
+
+ev:gift-008 a ix:AddedToCart, ix:DecisionPoint, ix:ConfidenceSignal ;
+    rdfs:label "Stream Deck selected as gift" ;
+    rdfs:comment "User decisively adds the Stream Deck. The reassurance resolved their concern and they are now confident. The headset and chest mount were considered but never seriously contended once the Stream Deck caught their eye." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:06:53Z"^^xsd:dateTime ;
+    ix:sequenceIndex 8 ;
+    ix:previousEvent ev:gift-007 ;
+    ix:nextEvent ev:gift-009 ;
+    ix:dwellTimeSeconds 5 ;
+    ix:addedProduct p:elgato-stream-deck-mini ;
+    ix:optionConsidered p:elgato-stream-deck-mini ;
+    ix:optionConsidered p:hyperx-cloud-ii ;
+    ix:optionConsidered p:gopro-chest-mount-bundle ;
+    ix:selectedOption p:elgato-stream-deck-mini ;
+    ix:rejectedOption p:hyperx-cloud-ii ;
+    ix:rejectedOption p:gopro-chest-mount-bundle ;
+    ix:decisionReasoning "Cool factor — customizable keys that he can set up himself. More unique than a headset." ;
+    ix:confidenceLevel "high" ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 9: Checkout started
+# -----------------------------------------------------------------------------
+
+ev:gift-009 a ix:CheckoutStarted ;
+    rdfs:label "Gift checkout started" ;
+    rdfs:comment "User proceeds directly to checkout." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:06:58Z"^^xsd:dateTime ;
+    ix:sequenceIndex 9 ;
+    ix:previousEvent ev:gift-008 ;
+    ix:nextEvent ev:gift-010 ;
+    ix:dwellTimeSeconds 60 .
+
+# -----------------------------------------------------------------------------
+# Event 10: Checkout completed
+# -----------------------------------------------------------------------------
+
+ev:gift-010 a ix:CheckoutCompleted, ix:SatisfactionSignal ;
+    rdfs:label "Gift purchased" ;
+    rdfs:comment "Purchase completed. The user spent $79.99, well within the $100 hard budget limit. Total session time under 9 minutes — a fast, confident gift purchase." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:07:58Z"^^xsd:dateTime ;
+    ix:sequenceIndex 10 ;
+    ix:previousEvent ev:gift-009 ;
+    ix:nextEvent ev:gift-011 ;
+    ix:dwellTimeSeconds 3 ;
+    ix:purchasedProduct p:elgato-stream-deck-mini ;
+    ix:totalSpend 79.99 ;
+    ix:signalStrength "strong" .
+
+# -----------------------------------------------------------------------------
+# Event 11: Session ended
+# -----------------------------------------------------------------------------
+
+ev:gift-011 a ix:SessionEnded ;
+    rdfs:label "Gift session ended" ;
+    rdfs:comment "User thanks the assistant and ends the session." ;
+    ix:inSession sess:gift-session-1 ;
+    ix:timestamp "2026-06-12T12:08:01Z"^^xsd:dateTime ;
+    ix:sequenceIndex 11 ;
+    ix:previousEvent ev:gift-010 .
