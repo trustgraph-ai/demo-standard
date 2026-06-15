@@ -1,0 +1,671 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix rt: <http://trustgraph.ai/ontology/retail#> .
+
+# =============================================================================
+# Ontology declaration
+# =============================================================================
+
+<http://trustgraph.ai/ontology/retail> a owl:Ontology ;
+    rdfs:label "Retail Product and Configuration Ontology" ;
+    rdfs:comment "An ontology for modelling retail products, their technical specifications, compatibility constraints, and configuration workflows. Extends Schema.org Product with typed specification nodes, hard and soft compatibility predicates, configuration state tracking, and activity-driven product selection templates. Designed to support AI-driven retail assistants that help customers build compatible systems, upgrade existing equipment, assemble kits, find gifts, and compare products." .
+
+# =============================================================================
+# Top-level classes
+# =============================================================================
+
+# ---------------------
+# Product hierarchy
+# ---------------------
+
+rt:Product a owl:Class ;
+    rdfs:subClassOf schema:Product ;
+    rdfs:label "Product" ;
+    rdfs:comment "A retail product available for purchase. Extends schema:Product with structured specification links, compatibility properties, and performance classification. Every item in the catalog is an instance of Product or one of its subclasses." .
+
+rt:Component a owl:Class ;
+    rdfs:subClassOf rt:Product ;
+    rdfs:label "Component" ;
+    rdfs:comment "A product that fills a named slot in a configuration. Components participate in compatibility constraint checking — they have typed specification links (socket, form factor, interface) that must align with other components in the same build. Examples: CPUs, GPUs, motherboards, RAM modules." .
+
+rt:Accessory a owl:Class ;
+    rdfs:subClassOf rt:Product ;
+    rdfs:label "Accessory" ;
+    rdfs:comment "A product that complements another product but is not required for a configuration to be complete. Accessories enhance the experience but do not participate in hard compatibility constraints. Examples: headsets, webcams, stream decks, mic arms." .
+
+rt:Consumable a owl:Class ;
+    rdfs:subClassOf rt:Product ;
+    rdfs:label "Consumable" ;
+    rdfs:comment "A product that is used up during normal use and must be replenished. Consumables are linked to the products that consume them. Examples: propane fuel canisters, batteries, ink cartridges, filter replacements." .
+
+rt:GearItem a owl:Class ;
+    rdfs:subClassOf rt:Product ;
+    rdfs:label "Gear Item" ;
+    rdfs:comment "A standalone product selected for a kit or collection based on activity requirements rather than technical compatibility. Gear items participate in collection completeness checking but not in component constraint satisfaction. Examples: tents, sleeping bags, coolers, camp chairs." .
+
+# ---------------------
+# Component subclasses
+# ---------------------
+
+rt:CPU a owl:Class ;
+    rdfs:subClassOf rt:Component ;
+    rdfs:label "CPU" ;
+    rdfs:comment "A central processing unit. The CPU's socket type constrains which motherboards are compatible. Its core count, clock speed, and architecture determine compute performance. Its thermal design power (TDP) contributes to the total system power draw that the PSU must support." .
+
+rt:GPU a owl:Class ;
+    rdfs:subClassOf rt:Component ;
+    rdfs:label "GPU" ;
+    rdfs:comment "A graphics processing unit. The GPU is typically the primary determinant of gaming and rendering performance. Its physical length must fit within the case, its power draw constrains PSU selection, and its VRAM capacity affects suitability for high-resolution workloads. Often the anchor component when building a gaming PC." .
+
+rt:Motherboard a owl:Class ;
+    rdfs:subClassOf rt:Component ;
+    rdfs:label "Motherboard" ;
+    rdfs:comment "The main circuit board that connects all other components. The motherboard's CPU socket determines which processors are compatible, its RAM type and slot count constrain memory options, its storage interfaces determine which drives can be installed, and its form factor must fit the chosen case. In upgrade scenarios, the motherboard is often the fixed constraint that limits what can be changed." .
+
+rt:RAM a owl:Class ;
+    rdfs:subClassOf rt:Component ;
+    rdfs:label "RAM" ;
+    rdfs:comment "Random access memory modules. RAM must match the motherboard's supported memory type (e.g. DDR4 vs DDR5). The number of modules must not exceed the motherboard's slot count. RAM speed may exceed the motherboard's rated maximum, in which case it will downclock — a soft constraint that produces a warning rather than an incompatibility." .
+
+rt:Storage a owl:Class ;
+    rdfs:subClassOf rt:Component ;
+    rdfs:label "Storage" ;
+    rdfs:comment "A persistent storage device such as an SSD or HDD. Storage must use an interface supported by the motherboard (NVMe or SATA). Multiple storage devices can be installed up to the motherboard's available interface slots. Storage capacity and read/write speed affect system responsiveness and load times." .
+
+rt:PSU a owl:Class ;
+    rdfs:subClassOf rt:Component ;
+    rdfs:label "PSU" ;
+    rdfs:comment "A power supply unit. The PSU's wattage must equal or exceed the total power draw of all components in the system. Good practice is to maintain at least 20% headroom above the total draw. Some GPUs specify a minimum recommended PSU wattage. PSU efficiency rating (80+ Bronze, Gold, Platinum) affects power consumption and heat output." .
+
+rt:Case a owl:Class ;
+    rdfs:subClassOf rt:Component ;
+    rdfs:label "Case" ;
+    rdfs:comment "The physical enclosure that houses all other components. The case must support the motherboard's form factor and provide sufficient GPU clearance length. Case size also affects airflow, cooling options, and the number of drive bays available." .
+
+rt:Cooling a owl:Class ;
+    rdfs:subClassOf rt:Component ;
+    rdfs:label "Cooling" ;
+    rdfs:comment "A CPU cooling solution such as an air cooler or liquid AIO. The cooler must be compatible with the CPU's socket type. Its physical height must fit within the case. Cooling capacity should match or exceed the CPU's thermal design power." .
+
+# ---------------------
+# Specification classes
+# ---------------------
+
+rt:Specification a owl:Class ;
+    rdfs:label "Specification" ;
+    rdfs:comment "Abstract base class for all typed specification values. Specifications are named entities in the graph, not free-text strings. Multiple products that share the same specification link to the same Specification individual, making compatibility a graph traversal rather than a string comparison." .
+
+rt:SocketType a owl:Class ;
+    rdfs:subClassOf rt:Specification ;
+    rdfs:label "Socket Type" ;
+    rdfs:comment "A CPU socket standard that defines the physical and electrical interface between a CPU and a motherboard. CPUs, motherboards, and CPU coolers all reference a socket type. Components must share the same socket type to be physically compatible. Examples: AM5, LGA1700, AM4, LGA1200." .
+
+rt:RAMType a owl:Class ;
+    rdfs:subClassOf rt:Specification ;
+    rdfs:label "RAM Type" ;
+    rdfs:comment "A memory generation standard that defines the physical and electrical interface for RAM modules. The motherboard's RAM type determines which RAM modules can be installed. DDR generations are not cross-compatible — a DDR5 module cannot be installed in a DDR4 slot. Examples: DDR4, DDR5." .
+
+rt:FormFactor a owl:Class ;
+    rdfs:subClassOf rt:Specification ;
+    rdfs:label "Form Factor" ;
+    rdfs:comment "A standardised physical size and mounting specification for motherboards and cases. The motherboard's form factor must be supported by the chosen case. Larger cases typically support multiple form factors (an ATX case usually accepts mATX and ITX boards). Examples: ATX, Micro-ATX (mATX), Mini-ITX (ITX), E-ATX." .
+
+rt:StorageInterface a owl:Class ;
+    rdfs:subClassOf rt:Specification ;
+    rdfs:label "Storage Interface" ;
+    rdfs:comment "A data transfer interface standard for storage devices. The motherboard must provide a compatible interface slot for each storage device. NVMe drives use M.2 slots and offer higher throughput; SATA drives use SATA ports and are widely compatible but slower. Examples: NVMe, SATA." .
+
+rt:PerformanceTier a owl:Class ;
+    rdfs:subClassOf rt:Specification ;
+    rdfs:label "Performance Tier" ;
+    rdfs:comment "An abstract performance classification that maps components to workload suitability. Performance tiers allow the assistant to match component capability to user requirements (e.g. 1080p gaming, 1440p gaming, 4K gaming, professional workstation) without comparing raw benchmark numbers. Also used for bottleneck detection — a large gap between CPU and GPU tiers indicates an imbalanced build." .
+
+rt:EfficiencyRating a owl:Class ;
+    rdfs:subClassOf rt:Specification ;
+    rdfs:label "Efficiency Rating" ;
+    rdfs:comment "A power supply efficiency certification level. Higher ratings indicate less energy wasted as heat. Examples: 80+ Bronze, 80+ Gold, 80+ Platinum." .
+
+# ---------------------
+# Configuration classes
+# ---------------------
+
+rt:Configuration a owl:Class ;
+    rdfs:label "Configuration" ;
+    rdfs:comment "A partially or fully defined product configuration assembled by a user with AI assistance. A configuration tracks which slots have been filled, what the total cost is, and whether all compatibility constraints are satisfied. Configurations evolve over the course of a conversation as the user adds, removes, and swaps components." .
+
+rt:PCBuild a owl:Class ;
+    rdfs:subClassOf rt:Configuration ;
+    rdfs:label "PC Build" ;
+    rdfs:comment "A personal computer configuration consisting of component slots (CPU, GPU, motherboard, RAM, storage, PSU, case, cooling). A PC build is complete when all required slots are filled and all compatibility constraints pass. The build tracks total power draw, remaining budget, and overall performance tier." .
+
+rt:Collection a owl:Class ;
+    rdfs:subClassOf rt:Configuration ;
+    rdfs:label "Collection" ;
+    rdfs:comment "A kit or collection of products assembled for a specific activity. Unlike a PC build, collections are organised by category (sleep, cooking, safety) rather than by technical slots. Completeness is measured against the activity's required categories, and quantities must match scenario parameters like group size." .
+
+rt:Slot a owl:Class ;
+    rdfs:label "Slot" ;
+    rdfs:comment "A named position in a configuration that can be filled by a product. For PC builds, slots correspond to component types (cpu, gpu, motherboard, etc.). For collections, slots correspond to activity categories (sleep system, cooking, lighting, etc.). A slot may be empty (unfilled) or occupied by a specific product." .
+
+# ---------------------
+# Activity and scenario classes
+# ---------------------
+
+rt:Activity a owl:Class ;
+    rdfs:label "Activity" ;
+    rdfs:comment "A use case or activity that drives product selection. An activity defines which product categories are needed and at what priority level. The assistant uses activities as templates to guide users through building a complete configuration. Activities capture the 'why' behind a purchase — not just what to buy, but what the user is trying to accomplish." .
+
+rt:CategoryRequirement a owl:Class ;
+    rdfs:label "Category Requirement" ;
+    rdfs:comment "A product category that an activity requires to be fulfilled. Each requirement has a priority level (essential, recommended, or optional) that guides budget allocation and presentation order. For example, a camping trip has an essential requirement for shelter and a recommended requirement for camp furniture." .
+
+# ---------------------
+# Product category class
+# ---------------------
+
+rt:ProductCategory a owl:Class ;
+    rdfs:label "Product Category" ;
+    rdfs:comment "A classification for grouping related products. Categories form a hierarchy — a product may belong to a broad category (electronics) and a more specific subcategory (gaming peripherals). Categories are used for browsing, filtering, gift discovery, and activity-based kit assembly." .
+
+# ---------------------
+# Constraint classes
+# ---------------------
+
+rt:CompatibilityConstraint a owl:Class ;
+    rdfs:label "Compatibility Constraint" ;
+    rdfs:comment "A rule that defines a compatibility requirement between two or more components in a configuration. Constraints can be hard (must be satisfied for the build to function) or soft (advisory warnings about suboptimal pairings). Each constraint specifies which component types it applies to and what condition must hold." .
+
+rt:HardConstraint a owl:Class ;
+    rdfs:subClassOf rt:CompatibilityConstraint ;
+    rdfs:label "Hard Constraint" ;
+    rdfs:comment "A compatibility constraint that must be satisfied. Violating a hard constraint means the build will not function — for example, a CPU physically cannot be installed in a motherboard with the wrong socket. Hard constraint violations block the build from being considered complete." .
+
+rt:SoftConstraint a owl:Class ;
+    rdfs:subClassOf rt:CompatibilityConstraint ;
+    rdfs:label "Soft Constraint" ;
+    rdfs:comment "A compatibility constraint that produces a warning rather than blocking the build. Soft constraints flag suboptimal pairings — for example, RAM that will downclock to match the motherboard's maximum speed, or a CPU and GPU with mismatched performance tiers that create a bottleneck. The build will function, but the user should be aware of the trade-off." .
+
+# =============================================================================
+# Product datatype properties
+# =============================================================================
+
+rt:productId a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "product ID" ;
+    rdfs:comment "A unique identifier for the product within the catalog." .
+
+rt:price a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "price" ;
+    rdfs:comment "The current selling price of the product in the local currency." .
+
+rt:originalPrice a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "original price" ;
+    rdfs:comment "The original price before any discount or sale. When present and different from price, indicates the product is currently on sale." .
+
+rt:rating a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "rating" ;
+    rdfs:comment "The aggregate customer rating on a scale of 0.0 to 5.0." .
+
+rt:reviewCount a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:integer ;
+    rdfs:label "review count" ;
+    rdfs:comment "The total number of customer reviews submitted for this product." .
+
+rt:inStock a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "in stock" ;
+    rdfs:comment "Whether the product is currently available for purchase." .
+
+rt:stockCount a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:integer ;
+    rdfs:label "stock count" ;
+    rdfs:comment "The number of units currently available in inventory." .
+
+rt:tag a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "tag" ;
+    rdfs:comment "A descriptive tag for product discovery and filtering. Products may have multiple tags spanning interests (gaming, streaming), use cases (content-creation, office), and attributes (wireless, RGB). Tags enable the interest-to-product mapping used in gift recommendation flows." .
+
+rt:giftSuitability a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "gift suitability" ;
+    rdfs:comment "An assessment of how suitable this product is as a gift. Values: 'high' for universally appreciated, self-contained items; 'medium' for items that require some knowledge of the recipient's setup; 'low' for items that require exact system compatibility. Used in the gift recommendation flow to prefer safe, delightful gifts over technically superior but risky ones." .
+
+# =============================================================================
+# Component specification datatype properties
+# =============================================================================
+
+rt:coreCount a owl:DatatypeProperty ;
+    rdfs:domain rt:CPU ;
+    rdfs:range xsd:integer ;
+    rdfs:label "core count" ;
+    rdfs:comment "The number of physical CPU cores. More cores improve multi-threaded workloads like video editing, streaming, and compilation." .
+
+rt:threadCount a owl:DatatypeProperty ;
+    rdfs:domain rt:CPU ;
+    rdfs:range xsd:integer ;
+    rdfs:label "thread count" ;
+    rdfs:comment "The number of simultaneous execution threads. Typically equal to or double the core count when simultaneous multi-threading (SMT/HyperThreading) is supported." .
+
+rt:baseClock a owl:DatatypeProperty ;
+    rdfs:domain rt:CPU ;
+    rdfs:range xsd:integer ;
+    rdfs:label "base clock speed (MHz)" ;
+    rdfs:comment "The guaranteed minimum operating frequency of the CPU in megahertz." .
+
+rt:boostClock a owl:DatatypeProperty ;
+    rdfs:domain rt:CPU ;
+    rdfs:range xsd:integer ;
+    rdfs:label "boost clock speed (MHz)" ;
+    rdfs:comment "The maximum single-core turbo frequency of the CPU in megahertz, achieved under favorable thermal and power conditions." .
+
+rt:tdp a owl:DatatypeProperty ;
+    rdfs:domain rt:Component ;
+    rdfs:range xsd:integer ;
+    rdfs:label "thermal design power (W)" ;
+    rdfs:comment "The thermal design power in watts, representing the maximum sustained heat output that the cooling solution must dissipate. For CPUs and GPUs, this also approximates the power draw contribution to total system consumption." .
+
+rt:vram a owl:DatatypeProperty ;
+    rdfs:domain rt:GPU ;
+    rdfs:range xsd:integer ;
+    rdfs:label "VRAM (GB)" ;
+    rdfs:comment "The amount of dedicated video memory in gigabytes. More VRAM enables higher resolution textures and is critical for 4K gaming, AI workloads, and professional 3D rendering." .
+
+rt:gpuLength a owl:DatatypeProperty ;
+    rdfs:domain rt:GPU ;
+    rdfs:range xsd:integer ;
+    rdfs:label "GPU card length (mm)" ;
+    rdfs:comment "The physical length of the graphics card in millimetres. Must not exceed the case's maximum GPU clearance to ensure the card physically fits." .
+
+rt:minPSUWattage a owl:DatatypeProperty ;
+    rdfs:domain rt:GPU ;
+    rdfs:range xsd:integer ;
+    rdfs:label "minimum recommended PSU wattage (W)" ;
+    rdfs:comment "The GPU manufacturer's minimum recommended power supply wattage for a system using this graphics card. A soft constraint — systems below this may experience instability under load." .
+
+rt:psuWattage a owl:DatatypeProperty ;
+    rdfs:domain rt:PSU ;
+    rdfs:range xsd:integer ;
+    rdfs:label "PSU wattage (W)" ;
+    rdfs:comment "The maximum sustained power output of the PSU in watts. Must exceed the total power draw of all components, ideally with at least 20% headroom." .
+
+rt:maxGPULength a owl:DatatypeProperty ;
+    rdfs:domain rt:Case ;
+    rdfs:range xsd:integer ;
+    rdfs:label "maximum GPU clearance (mm)" ;
+    rdfs:comment "The maximum graphics card length in millimetres that the case can accommodate." .
+
+rt:maxCoolerHeight a owl:DatatypeProperty ;
+    rdfs:domain rt:Case ;
+    rdfs:range xsd:integer ;
+    rdfs:label "maximum cooler height (mm)" ;
+    rdfs:comment "The maximum CPU cooler height in millimetres that the case can accommodate." .
+
+rt:maxRAMSlots a owl:DatatypeProperty ;
+    rdfs:domain rt:Motherboard ;
+    rdfs:range xsd:integer ;
+    rdfs:label "RAM slot count" ;
+    rdfs:comment "The number of physical RAM module slots on the motherboard." .
+
+rt:maxRAMSpeed a owl:DatatypeProperty ;
+    rdfs:domain rt:Motherboard ;
+    rdfs:range xsd:integer ;
+    rdfs:label "maximum rated RAM speed (MHz)" ;
+    rdfs:comment "The highest RAM speed officially supported by the motherboard in megahertz. RAM modules running above this speed will downclock to this value." .
+
+rt:nvmeSlots a owl:DatatypeProperty ;
+    rdfs:domain rt:Motherboard ;
+    rdfs:range xsd:integer ;
+    rdfs:label "NVMe M.2 slot count" ;
+    rdfs:comment "The number of M.2 NVMe SSD slots available on the motherboard." .
+
+rt:sataPorts a owl:DatatypeProperty ;
+    rdfs:domain rt:Motherboard ;
+    rdfs:range xsd:integer ;
+    rdfs:label "SATA port count" ;
+    rdfs:comment "The number of SATA data ports available on the motherboard for SATA SSDs and hard drives." .
+
+rt:ramSpeed a owl:DatatypeProperty ;
+    rdfs:domain rt:RAM ;
+    rdfs:range xsd:integer ;
+    rdfs:label "RAM speed (MHz)" ;
+    rdfs:comment "The rated operating frequency of the RAM modules in megahertz." .
+
+rt:ramCapacity a owl:DatatypeProperty ;
+    rdfs:domain rt:RAM ;
+    rdfs:range xsd:integer ;
+    rdfs:label "RAM capacity (GB)" ;
+    rdfs:comment "The total memory capacity of the RAM kit in gigabytes." .
+
+rt:ramModules a owl:DatatypeProperty ;
+    rdfs:domain rt:RAM ;
+    rdfs:range xsd:integer ;
+    rdfs:label "module count" ;
+    rdfs:comment "The number of individual RAM sticks in the kit. Must not exceed the motherboard's available RAM slots." .
+
+rt:storageCapacity a owl:DatatypeProperty ;
+    rdfs:domain rt:Storage ;
+    rdfs:range xsd:integer ;
+    rdfs:label "storage capacity (GB)" ;
+    rdfs:comment "The total storage capacity in gigabytes." .
+
+rt:readSpeed a owl:DatatypeProperty ;
+    rdfs:domain rt:Storage ;
+    rdfs:range xsd:integer ;
+    rdfs:label "sequential read speed (MB/s)" ;
+    rdfs:comment "The maximum sequential read speed in megabytes per second." .
+
+rt:writeSpeed a owl:DatatypeProperty ;
+    rdfs:domain rt:Storage ;
+    rdfs:range xsd:integer ;
+    rdfs:label "sequential write speed (MB/s)" ;
+    rdfs:comment "The maximum sequential write speed in megabytes per second." .
+
+rt:coolingCapacity a owl:DatatypeProperty ;
+    rdfs:domain rt:Cooling ;
+    rdfs:range xsd:integer ;
+    rdfs:label "cooling capacity (W)" ;
+    rdfs:comment "The maximum thermal dissipation capacity in watts. Should meet or exceed the CPU's TDP for reliable cooling." .
+
+rt:coolerHeight a owl:DatatypeProperty ;
+    rdfs:domain rt:Cooling ;
+    rdfs:range xsd:integer ;
+    rdfs:label "cooler height (mm)" ;
+    rdfs:comment "The physical height of the cooler in millimetres. Must not exceed the case's maximum cooler clearance." .
+
+rt:performanceScore a owl:DatatypeProperty ;
+    rdfs:domain rt:Component ;
+    rdfs:range xsd:integer ;
+    rdfs:label "performance score" ;
+    rdfs:comment "A normalised numeric performance score used for bottleneck detection. When the difference between a CPU's score and a GPU's score exceeds a threshold, the build has a bottleneck — the weaker component limits the stronger one. Scores are comparable only within the same component type dimension." .
+
+# =============================================================================
+# Component specification object properties
+# =============================================================================
+
+rt:hasSocket a owl:ObjectProperty ;
+    rdfs:domain rt:Component ;
+    rdfs:range rt:SocketType ;
+    rdfs:label "has socket type" ;
+    rdfs:comment "Links a CPU, motherboard, or cooler to its socket type. Components sharing the same socket type individual are physically compatible on this axis." .
+
+rt:hasRAMType a owl:ObjectProperty ;
+    rdfs:domain rt:Component ;
+    rdfs:range rt:RAMType ;
+    rdfs:label "has RAM type" ;
+    rdfs:comment "Links a motherboard or RAM kit to its memory generation. A motherboard and RAM module must reference the same RAMType individual to be compatible." .
+
+rt:hasFormFactor a owl:ObjectProperty ;
+    rdfs:domain rt:Component ;
+    rdfs:range rt:FormFactor ;
+    rdfs:label "has form factor" ;
+    rdfs:comment "Links a motherboard to its physical form factor. Used to check whether the motherboard fits the selected case." .
+
+rt:supportsFormFactor a owl:ObjectProperty ;
+    rdfs:domain rt:Case ;
+    rdfs:range rt:FormFactor ;
+    rdfs:label "supports form factor" ;
+    rdfs:comment "Links a case to each motherboard form factor it can accommodate. A case typically supports its native form factor and all smaller ones (e.g. an ATX case supports ATX, Micro-ATX, and Mini-ITX)." .
+
+rt:hasStorageInterface a owl:ObjectProperty ;
+    rdfs:domain rt:Storage ;
+    rdfs:range rt:StorageInterface ;
+    rdfs:label "has storage interface" ;
+    rdfs:comment "Links a storage device to its data interface type. The motherboard must have an available slot or port matching this interface." .
+
+rt:supportsStorageInterface a owl:ObjectProperty ;
+    rdfs:domain rt:Motherboard ;
+    rdfs:range rt:StorageInterface ;
+    rdfs:label "supports storage interface" ;
+    rdfs:comment "Links a motherboard to each storage interface type it provides. Most modern motherboards support both NVMe and SATA." .
+
+rt:hasPerformanceTier a owl:ObjectProperty ;
+    rdfs:domain rt:Component ;
+    rdfs:range rt:PerformanceTier ;
+    rdfs:label "has performance tier" ;
+    rdfs:comment "Classifies a component into an abstract performance tier. Used to match component capability to user workload requirements and to detect imbalanced builds." .
+
+rt:hasEfficiencyRating a owl:ObjectProperty ;
+    rdfs:domain rt:PSU ;
+    rdfs:range rt:EfficiencyRating ;
+    rdfs:label "has efficiency rating" ;
+    rdfs:comment "Links a PSU to its 80 Plus efficiency certification level." .
+
+# =============================================================================
+# Product relationship object properties
+# =============================================================================
+
+rt:worksWellWith a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range rt:Product ;
+    rdfs:label "works well with" ;
+    rdfs:comment "A soft recommendation that two products complement each other well. This is an editorial judgment, not a hard compatibility constraint — the products are not required together, but the combination is known to be a good pairing. Examples: a specific microphone with a compatible boom arm, or a headset with a particular audio interface." .
+
+rt:similarTo a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range rt:Product ;
+    rdfs:label "similar to" ;
+    rdfs:comment "Indicates that two products serve a similar purpose and are reasonable alternatives to each other. Used in comparison flows to identify which products are worth comparing side by side." .
+
+rt:alternativeTo a owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range rt:Product ;
+    rdfs:label "alternative to" ;
+    rdfs:comment "Indicates that one product can substitute for another in a configuration or purchase decision. Stronger than similarTo — alternatives are direct competitors at a similar price point and capability level." .
+
+rt:isAccessoryFor a owl:ObjectProperty ;
+    rdfs:domain rt:Accessory ;
+    rdfs:range rt:Product ;
+    rdfs:label "is accessory for" ;
+    rdfs:comment "Links an accessory product to the primary product it enhances. The accessory is not required but adds value. Used in cross-sell recommendations and gift bundling." .
+
+rt:isConsumableFor a owl:ObjectProperty ;
+    rdfs:domain rt:Consumable ;
+    rdfs:range rt:Product ;
+    rdfs:label "is consumable for" ;
+    rdfs:comment "Links a consumable product to the product that consumes it. Indicates a replenishment relationship — the user will need to buy more of this consumable over time. Examples: propane canisters for a camp stove, ink for a printer." .
+
+rt:upgradeFrom a owl:ObjectProperty ;
+    rdfs:domain rt:Component ;
+    rdfs:range rt:Component ;
+    rdfs:label "upgrade from" ;
+    rdfs:comment "Indicates that this component is a meaningful upgrade from the referenced component. Used in upgrade recommendation flows to suggest targeted improvements. The upgrade relationship implies the two components share the same slot type and are compatible with similar platforms." .
+
+# =============================================================================
+# Product category object properties
+# =============================================================================
+
+rt:hasCategory a owl:ObjectProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range rt:ProductCategory ;
+    rdfs:label "has category" ;
+    rdfs:comment "Links a product to its primary category in the product taxonomy." .
+
+rt:hasSubcategory a owl:ObjectProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range rt:ProductCategory ;
+    rdfs:label "has subcategory" ;
+    rdfs:comment "Links a product to a more specific subcategory within its primary category." .
+
+rt:parentCategory a owl:ObjectProperty ;
+    rdfs:domain rt:ProductCategory ;
+    rdfs:range rt:ProductCategory ;
+    rdfs:label "parent category" ;
+    rdfs:comment "Links a subcategory to its parent category, forming a hierarchical taxonomy." .
+
+# =============================================================================
+# Configuration properties
+# =============================================================================
+
+rt:hasSlot a owl:ObjectProperty ;
+    rdfs:domain rt:Configuration ;
+    rdfs:range rt:Slot ;
+    rdfs:label "has slot" ;
+    rdfs:comment "Links a configuration to one of its component or category slots." .
+
+rt:slotType a owl:DatatypeProperty ;
+    rdfs:domain rt:Slot ;
+    rdfs:range xsd:string ;
+    rdfs:label "slot type" ;
+    rdfs:comment "The type of component or category this slot accepts. For PC builds: 'cpu', 'gpu', 'motherboard', 'ram', 'storage', 'psu', 'case', 'cooling'. For collections: category names like 'sleep', 'cooking', 'safety', 'lighting'." .
+
+rt:slotRequired a owl:DatatypeProperty ;
+    rdfs:domain rt:Slot ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "slot is required" ;
+    rdfs:comment "Whether this slot must be filled for the configuration to be considered complete. CPU and GPU slots are required for a PC build; a cooling slot may be optional if the CPU includes a stock cooler." .
+
+rt:slotMultiple a owl:DatatypeProperty ;
+    rdfs:domain rt:Slot ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "slot accepts multiple items" ;
+    rdfs:comment "Whether this slot can hold multiple products. RAM and storage slots in a PC build accept multiple items; the CPU slot does not. Collection category slots typically accept multiple items." .
+
+rt:filledBy a owl:ObjectProperty ;
+    rdfs:domain rt:Slot ;
+    rdfs:range rt:Product ;
+    rdfs:label "filled by" ;
+    rdfs:comment "Links a slot to the product currently occupying it. An empty slot has no filledBy relationship." .
+
+rt:filledQuantity a owl:DatatypeProperty ;
+    rdfs:domain rt:Slot ;
+    rdfs:range xsd:integer ;
+    rdfs:label "filled quantity" ;
+    rdfs:comment "The quantity of the product in this slot, for slots that track quantity (e.g. 3 sleeping bags in a collection's sleep category)." .
+
+rt:forActivity a owl:ObjectProperty ;
+    rdfs:domain rt:Configuration ;
+    rdfs:range rt:Activity ;
+    rdfs:label "for activity" ;
+    rdfs:comment "Links a configuration to the activity it is being assembled for. The activity's category requirements define what slots the configuration needs." .
+
+rt:budget a owl:DatatypeProperty ;
+    rdfs:domain rt:Configuration ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "budget" ;
+    rdfs:comment "The user's stated budget for the entire configuration in the local currency." .
+
+rt:configurationName a owl:DatatypeProperty ;
+    rdfs:domain rt:Configuration ;
+    rdfs:range xsd:string ;
+    rdfs:label "configuration name" ;
+    rdfs:comment "A user-facing name for the configuration, e.g. '1440p Gaming Build' or 'Yosemite Camping Kit'." .
+
+rt:purpose a owl:DatatypeProperty ;
+    rdfs:domain rt:Configuration ;
+    rdfs:range xsd:string ;
+    rdfs:label "purpose" ;
+    rdfs:comment "A free-text description of the configuration's intended purpose, capturing the user's stated goal." .
+
+# =============================================================================
+# Activity and scenario properties
+# =============================================================================
+
+rt:requiresCategory a owl:ObjectProperty ;
+    rdfs:domain rt:Activity ;
+    rdfs:range rt:CategoryRequirement ;
+    rdfs:label "requires category" ;
+    rdfs:comment "Links an activity to a category of product it requires. The activity uses these requirements as a checklist to determine whether a configuration is complete." .
+
+rt:requirementCategory a owl:ObjectProperty ;
+    rdfs:domain rt:CategoryRequirement ;
+    rdfs:range rt:ProductCategory ;
+    rdfs:label "requirement category" ;
+    rdfs:comment "Links a category requirement to the product category that fulfils it." .
+
+rt:requirementPriority a owl:DatatypeProperty ;
+    rdfs:domain rt:CategoryRequirement ;
+    rdfs:range xsd:string ;
+    rdfs:label "requirement priority" ;
+    rdfs:comment "The priority level of this category requirement. Values: 'essential' (must be filled for a safe and functional outcome), 'recommended' (significantly improves the experience), 'optional' (nice to have but not necessary). Used to guide budget allocation — essentials are funded first." .
+
+rt:minimumQuantityPerPerson a owl:DatatypeProperty ;
+    rdfs:domain rt:CategoryRequirement ;
+    rdfs:range xsd:integer ;
+    rdfs:label "minimum quantity per person" ;
+    rdfs:comment "The minimum number of items needed per person in the group. For example, each person on a camping trip needs their own sleeping bag (1 per person) but the group shares one tent (0 here, use minimumQuantityPerGroup instead)." .
+
+rt:minimumQuantityPerGroup a owl:DatatypeProperty ;
+    rdfs:domain rt:CategoryRequirement ;
+    rdfs:range xsd:integer ;
+    rdfs:label "minimum quantity per group" ;
+    rdfs:comment "The minimum number of items needed per group regardless of size. For example, one first aid kit per group, one camp stove per group." .
+
+rt:scenarioSeason a owl:DatatypeProperty ;
+    rdfs:domain rt:Activity ;
+    rdfs:range xsd:string ;
+    rdfs:label "scenario season" ;
+    rdfs:comment "The season or time of year relevant to this activity instance. Affects product selection — a winter camping trip needs different sleeping bags than a summer one." .
+
+rt:scenarioGroupSize a owl:DatatypeProperty ;
+    rdfs:domain rt:Activity ;
+    rdfs:range xsd:integer ;
+    rdfs:label "scenario group size" ;
+    rdfs:comment "The number of people participating in the activity. Used to calculate quantities for per-person items." .
+
+rt:scenarioLocation a owl:DatatypeProperty ;
+    rdfs:domain rt:Activity ;
+    rdfs:range xsd:string ;
+    rdfs:label "scenario location" ;
+    rdfs:comment "The location relevant to the activity. May affect product requirements — for example, Yosemite requires bear canisters; backcountry trips require navigation tools." .
+
+rt:scenarioDuration a owl:DatatypeProperty ;
+    rdfs:domain rt:Activity ;
+    rdfs:range xsd:integer ;
+    rdfs:label "scenario duration (days)" ;
+    rdfs:comment "The duration of the activity in days. Affects consumable quantities (fuel, food) and may influence gear choices." .
+
+rt:scenarioType a owl:DatatypeProperty ;
+    rdfs:domain rt:Activity ;
+    rdfs:range xsd:string ;
+    rdfs:label "scenario type" ;
+    rdfs:comment "A qualifier for the activity variant. For camping: 'car-camping', 'backpacking', 'glamping'. For PC builds: '1080p-gaming', '1440p-gaming', '4k-gaming', 'workstation', 'streaming'. Drives the initial product tier selection." .
+
+# =============================================================================
+# Constraint properties
+# =============================================================================
+
+rt:constraintDescription a owl:DatatypeProperty ;
+    rdfs:domain rt:CompatibilityConstraint ;
+    rdfs:range xsd:string ;
+    rdfs:label "constraint description" ;
+    rdfs:comment "A human-readable description of what this constraint checks and why it matters. The AI uses this to explain compatibility issues to the user." .
+
+rt:appliesToSlotType a owl:DatatypeProperty ;
+    rdfs:domain rt:CompatibilityConstraint ;
+    rdfs:range xsd:string ;
+    rdfs:label "applies to slot type" ;
+    rdfs:comment "The component slot type(s) this constraint applies to. Used to determine which constraints to evaluate when a component is added to or changed in a configuration." .
+
+rt:constraintRule a owl:DatatypeProperty ;
+    rdfs:domain rt:CompatibilityConstraint ;
+    rdfs:range xsd:string ;
+    rdfs:label "constraint rule" ;
+    rdfs:comment "A machine-readable expression of the constraint condition. Format: a comparison expression referencing component properties, e.g. 'CPU.hasSocket = Motherboard.hasSocket' or 'sum(Component.tdp) <= PSU.psuWattage'." .
+
+rt:warningMessage a owl:DatatypeProperty ;
+    rdfs:domain rt:SoftConstraint ;
+    rdfs:range xsd:string ;
+    rdfs:label "warning message" ;
+    rdfs:comment "A user-facing warning message to display when this soft constraint is violated. Should explain the trade-off clearly, e.g. 'Your RAM will run at the motherboard maximum of 5600 MHz instead of its rated 6400 MHz.'" .
+
+rt:errorMessage a owl:DatatypeProperty ;
+    rdfs:domain rt:HardConstraint ;
+    rdfs:range xsd:string ;
+    rdfs:label "error message" ;
+    rdfs:comment "A user-facing error message to display when this hard constraint is violated. Should clearly state what is incompatible and why, e.g. 'This CPU requires an AM5 socket motherboard, but the selected motherboard uses LGA1700.'" .
