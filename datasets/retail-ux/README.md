@@ -1,45 +1,71 @@
 # Retail UX Dataset
 
-Dataset for an AI-driven retail shopping assistant. Provides an OWL ontology,
-reference vocabulary, and product catalog covering PC components, electronics,
-and outdoor gear. Designed to support conversational flows where an AI helps
-customers build compatible systems, upgrade existing equipment, assemble
-activity kits, find gifts, and compare products.
+Dataset for an AI-driven retail shopping assistant. Comprises two
+complementary ontologies:
+
+1. **Retail product ontology** — models products, specifications,
+   compatibility constraints, and configuration workflows.
+2. **Interaction ontology** — models user journeys, decision events, and
+   the behavioural signals that reveal why users buy, hesitate, or abandon.
+
+The retail ontology is the terrain (what's being sold and how things fit
+together). The interaction ontology is the map of how people move through
+it (what they did, what they revealed, and what caused them to convert or
+not).
 
 ## Files
 
-### Ontology
+### Ontologies (load into ontology endpoint)
 
 | File | Description |
 |------|-------------|
-| `retail-ontology.ttl` | Pure OWL ontology — classes and properties only. Load into the ontology endpoint separately from instance data. |
+| `retail-ontology.ttl` | Retail product ontology — classes and properties for products, specifications, compatibility constraints, configurations, activities, and categories. Pure OWL, no instances. |
+| `interaction-ontology.ttl` | Interaction and journey ontology — classes and properties for actors, sessions, journeys, interaction events, and signal events. Uses a mixin pattern where any interaction event can simultaneously carry signal types via OWL multiple typing. Pure OWL, no instances. |
 
-### Instance data
+### Instance data (load into data endpoint)
 
 | File | Description |
 |------|-------------|
-| `retail-vocabulary.ttl` | Reference data: specification values (socket types, RAM types, form factors, storage interfaces, performance tiers, efficiency ratings), product categories, activity templates, and compatibility constraints (hard and soft). |
+| `retail-vocabulary.ttl` | Retail reference data: specification values (socket types, RAM types, form factors, storage interfaces, performance tiers, efficiency ratings), product categories, activity templates, and compatibility constraints (hard and soft). |
 | `retail-products-pc.ttl` | 14 PC components (2 CPUs, 2 GPUs, 2 motherboards, 2 RAM kits, 2 SSDs, 2 PSUs, 2 cases) plus brand entities. |
 | `retail-products-electronics.ttl` | 5 electronics accessories (stream deck, headset, chest mount, microphone, webcam) plus brand entities. |
 | `retail-products-camping.ttl` | 12 outdoor gear items (3 sleep, 4 cooking/food, 3 lighting/safety, 2 comfort) plus brand entities. Includes one consumable (propane fuel). |
+| `interaction-vocabulary.ttl` | Interaction reference data: 7 objection category individuals (price, trust, compatibility, complexity, timing, need, risk). |
+| `interaction-sample-data.ttl` | 3 sample user journeys with 45 events demonstrating the full event and signal model. |
 
 ### Design documents
 
 | File | Description |
 |------|-------------|
 | `flows.md` | Conversation flow specifications for the five supported user journeys: build from scratch, upgrade existing, gift recommendation, kit assembly, and compare-and-decide. |
-| `ontology-design.md` | Ontology design rationale covering class hierarchy, property design, constraint model, and how each flow traverses the graph. |
+| `ontology-design.md` | Retail ontology design rationale covering class hierarchy, property design, constraint model, and how each flow traverses the graph. |
+| `interaction-ontology-design.md` | Interaction ontology design rationale covering the mixin pattern, event and signal class hierarchies, property design, and example journey event sequences. |
 
 ## Namespaces
 
+### Retail ontology
+
 | Prefix | URI | Purpose |
 |--------|-----|---------|
-| `rt:` | `http://trustgraph.ai/ontology/retail#` | Ontology classes, properties, and vocabulary individuals |
+| `rt:` | `http://trustgraph.ai/ontology/retail#` | Retail classes, properties, and vocabulary individuals |
 | `p:` | `http://trustgraph.ai/data/retail/product/` | Product instances |
 | `b:` | `http://trustgraph.ai/data/retail/brand/` | Brand instances |
 | `schema:` | `https://schema.org/` | Schema.org base vocabulary |
 
+### Interaction ontology
+
+| Prefix | URI | Purpose |
+|--------|-----|---------|
+| `ix:` | `http://trustgraph.ai/ontology/interaction#` | Interaction classes, properties, and vocabulary individuals |
+| `actor:` | `http://trustgraph.ai/data/interaction/actor/` | User/actor instances |
+| `j:` | `http://trustgraph.ai/data/interaction/journey/` | Journey instances |
+| `sess:` | `http://trustgraph.ai/data/interaction/session/` | Session instances |
+| `ev:` | `http://trustgraph.ai/data/interaction/event/` | Event instances |
+| `sig:` | `http://trustgraph.ai/data/interaction/signal/` | Standalone signal instances |
+
 ## Key design decisions
+
+### Retail ontology
 
 **Specifications are first-class graph nodes.** A CPU socket type like `rt:AM5`
 is a named entity that both CPUs and motherboards link to. Compatibility
@@ -61,6 +87,32 @@ and `rt:CampingTrip` define which product categories are required and at what
 priority, providing the AI with a completeness checklist for any given
 scenario.
 
+### Interaction ontology
+
+**Two orthogonal dimensions on every event.** Interaction events describe
+*what happened* (searched, viewed, added to cart). Signal events describe
+*what it reveals* (objection, priority, decision). A single event can carry
+types from both hierarchies via OWL multiple typing — the mixin pattern.
+
+**The journey is the spine.** A time-ordered sequence of interaction events
+within a session provides the structural backbone. Signals are annotations
+on that spine, not a parallel structure.
+
+**Not every event carries signal.** A routine product view is just a
+`ProductViewed`. A product view where the user focuses on VRAM is also a
+`PrioritySignal`. The ontology does not force analytical meaning onto
+mundane events.
+
+**Objection categories predict outcomes.** Seven objection types (price,
+trust, compatibility, complexity, timing, need, risk) classify why users
+hesitate or reject. Tracking resolution status reveals which objections
+the assistant can overcome and which lead to abandonment.
+
+**The two ontologies link but do not merge.** The interaction ontology
+references retail types (`rt:Product`, `rt:ProductCategory`,
+`rt:Configuration`, `rt:CompatibilityConstraint`) but does not subclass or
+modify them. Queries can traverse both graphs.
+
 ## Product summary
 
 | Category | Count | Types |
@@ -69,6 +121,14 @@ scenario.
 | Electronics | 5 | Streaming tools, audio, video |
 | Outdoor gear | 12 | Sleep system, cooking, lighting/safety, comfort |
 | **Total** | **31** | |
+
+## Sample journey summary
+
+| Journey | Actor | Events | Outcome | Key signals |
+|---------|-------|--------|---------|-------------|
+| 1440p Gaming PC Build | user-001 (first-time builder) | 17 | Purchase ($1,644) | Budget preference, VRAM priority, GPU decision point, high confidence batch add |
+| PC Upgrade | user-002 (upgrader) | 17 + 1 signal | Purchase ($500) | Problem trigger, compatibility objection, upgrade cliff, complexity/price objection, downscaled purchase |
+| Gift for Nephew | user-003 (gift buyer) | 11 | Purchase ($80) | Occasion trigger, hard budget, risk objection resolved by reassurance, fast confident decision |
 
 ## Triple counts
 
@@ -79,4 +139,7 @@ scenario.
 | `retail-products-pc.ttl` | 349 |
 | `retail-products-electronics.ttl` | 111 |
 | `retail-products-camping.ttl` | 214 |
-| **Total** | **1,396** |
+| `interaction-ontology.ttl` | 456 |
+| `interaction-vocabulary.ttl` | 21 |
+| `interaction-sample-data.ttl` | 660 |
+| **Total** | **2,533** |
