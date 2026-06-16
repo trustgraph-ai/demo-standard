@@ -135,10 +135,10 @@ modify them. Queries can traverse both graphs.
 
 | Category | Count | Types |
 |----------|-------|-------|
-| PC components | 14 | CPU, GPU, Motherboard, RAM, Storage, PSU, Case |
+| PC components | 16 | CPU, GPU, Motherboard, RAM, Storage, PSU, Case, Cooling |
 | Electronics | 5 | Streaming tools, audio, video |
 | Outdoor gear | 12 | Sleep system, cooking, lighting/safety, comfort |
-| **Total** | **31** | |
+| **Total** | **33** | |
 
 ## Sample journey summary
 
@@ -154,10 +154,10 @@ modify them. Queries can traverse both graphs.
 |------|---------|
 | `retail-ontology.ttl` | 494 |
 | `retail-vocabulary.ttl` | 390 |
-| `retail-products-pc.ttl` | 349 |
+| `retail-products-pc.ttl` | 394 |
 | `retail-products-electronics.ttl` | 111 |
 | `retail-products-camping.ttl` | 214 |
 | `interaction-ontology.ttl` | 456 |
 | `interaction-vocabulary.ttl` | 21 |
 | `interaction-sample-data.ttl` | 660 |
-| **Total** | **2,695** |
+| **Total** | **2,740** |
