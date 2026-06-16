@@ -152,12 +152,12 @@ modify them. Queries can traverse both graphs.
 
 | File | Triples |
 |------|---------|
-| `retail-ontology.ttl` | 494 |
-| `retail-vocabulary.ttl` | 390 |
+| `retail-ontology.ttl` | 499 |
+| `retail-vocabulary.ttl` | 414 |
 | `retail-products-pc.ttl` | 394 |
-| `retail-products-electronics.ttl` | 111 |
+| `retail-products-electronics.ttl` | 321 |
 | `retail-products-camping.ttl` | 214 |
 | `interaction-ontology.ttl` | 456 |
 | `interaction-vocabulary.ttl` | 21 |
 | `interaction-sample-data.ttl` | 660 |
-| **Total** | **2,740** |
+| **Total** | **2,979** |
