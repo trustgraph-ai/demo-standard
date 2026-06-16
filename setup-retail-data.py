@@ -18,7 +18,7 @@ import os
 import sys
 
 import requests
-from trustgraph.api import Api, ConfigValue, Triple
+from trustgraph.api import Api, ConfigKey, ConfigValue, Triple
 import rdflib
 
 
@@ -57,6 +57,12 @@ QUERY_FILES = [
 TOOL_FILES = {
     "retail-query": "retail-tool.json",
     "interaction-query": "interaction-tool.json",
+}
+
+PROMPT_FILES = {
+    "retail-assistant": "retail-assistant-prompt.json",
+    "checkout-assistant": "checkout-assistant-prompt.json",
+    "generic-assistant": "generic-assistant-prompt.json",
 }
 
 
@@ -210,6 +216,29 @@ def upload_tools(api):
     print(f"  {len(TOOL_FILES)} tools uploaded.")
 
 
+def upload_prompts(api):
+    print("Uploading prompt templates...")
+    for prompt_id, filename in PROMPT_FILES.items():
+        path = os.path.join(RETAIL_UX_DIR, filename)
+        with open(path) as f:
+            value = f.read()
+        put_config(api, "prompt", f"template.{prompt_id}", value)
+
+    # Append our prompt IDs to the existing template-index
+    try:
+        results = api.config().get([ConfigKey(type="prompt", key="template-index")])
+        current_index = json.loads(results[0].value) if results else []
+    except Exception:
+        current_index = []
+
+    for prompt_id in PROMPT_FILES:
+        if prompt_id not in current_index:
+            current_index.append(prompt_id)
+
+    put_config(api, "prompt", "template-index", json.dumps(current_index))
+    print(f"  {len(PROMPT_FILES)} prompts uploaded, template-index: {current_index}")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -257,6 +286,7 @@ def main():
 
     upload_queries(api)
     upload_tools(api)
+    upload_prompts(api)
 
     print("\nSetup complete.")
 
