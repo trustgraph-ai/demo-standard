@@ -27,7 +27,7 @@ not).
 | File | Description |
 |------|-------------|
 | `retail-vocabulary.ttl` | Retail reference data: specification values (socket types, RAM types, form factors, storage interfaces, performance tiers, efficiency ratings), product categories, activity templates, and compatibility constraints (hard and soft). |
-| `retail-products-pc.ttl` | 14 PC components (2 CPUs, 2 GPUs, 2 motherboards, 2 RAM kits, 2 SSDs, 2 PSUs, 2 cases) plus brand entities. |
+| `retail-products-pc.ttl` | 16 PC components (2 CPUs, 2 GPUs, 2 motherboards, 2 RAM kits, 2 SSDs, 2 PSUs, 2 cases, 2 CPU coolers) plus brand entities. |
 | `retail-products-electronics.ttl` | 5 electronics accessories (stream deck, headset, chest mount, microphone, webcam) plus brand entities. |
 | `retail-products-camping.ttl` | 12 outdoor gear items (3 sleep, 4 cooking/food, 3 lighting/safety, 2 comfort) plus brand entities. Includes one consumable (propane fuel). |
 | `interaction-vocabulary.ttl` | Interaction reference data: 7 objection category individuals (price, trust, compatibility, complexity, timing, need, risk). |

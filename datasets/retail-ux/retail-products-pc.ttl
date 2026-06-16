@@ -57,6 +57,10 @@ b:NZXT a schema:Brand ;
     rdfs:label "NZXT" ;
     rdfs:comment "NZXT, manufacturer of PC cases, cooling, and peripherals." .
 
+b:Noctua a schema:Brand ;
+    rdfs:label "Noctua" ;
+    rdfs:comment "Noctua, Austrian manufacturer of premium air coolers and fans known for exceptional noise-to-performance ratio." .
+
 # =============================================================================
 # CPUs
 # =============================================================================
@@ -411,3 +415,51 @@ p:nzxt-h510-flow a rt:Case ;
     rt:maxGPULength 381 ;
     rt:maxCoolerHeight 165 ;
     rt:alternativeTo p:fractal-torrent .
+
+# =============================================================================
+# CPU Coolers
+# =============================================================================
+
+p:noctua-nh-d15 a rt:Cooling ;
+    rdfs:label "Noctua NH-D15" ;
+    rdfs:comment "Flagship dual-tower air cooler renowned for matching AIO liquid cooler performance while remaining virtually silent. The dual NF-A15 140mm fans and six heatpipe design handle up to 250W TDP. At 165mm tall it fits most mid-tower cases but will be tight in compact builds. Compatible with both AM5 and LGA 1700 sockets via the included mounting kits." ;
+    rt:productId "noctua-nh-d15" ;
+    schema:brand b:Noctua ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 109.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 4312 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "air-cooler" ;
+    rt:tag "silent" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 250 ;
+    rt:coolerHeight 165 ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:corsair-h100i .
+
+p:corsair-h100i a rt:Cooling ;
+    rdfs:label "Corsair iCUE H100i Elite 240mm AIO" ;
+    rdfs:comment "240mm all-in-one liquid cooler with magnetic dome pump head and two SP120 RGB Elite fans. Delivers excellent cooling for high-TDP processors while keeping noise levels low. The 240mm radiator handles up to 200W sustained load comfortably. At 55mm radiator thickness plus 25mm fan height it requires less vertical clearance than tall air coolers, making it a good fit for compact cases with top-mount radiator support. Compatible with AM5 and LGA 1700 sockets." ;
+    rt:productId "corsair-h100i" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 139.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 2876 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "aio" ;
+    rt:tag "liquid-cooling" ;
+    rt:tag "rgb" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 200 ;
+    rt:coolerHeight 55 ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:noctua-nh-d15 .
