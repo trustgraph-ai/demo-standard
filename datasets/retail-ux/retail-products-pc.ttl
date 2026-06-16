@@ -140,6 +140,7 @@ p:nvidia-rtx-4070 a rt:GPU ;
     rt:minPSUWattage 650 ;
     rt:gpuLength 267 ;
     rt:performanceScore 90 ;
+    rt:noiseLevel 32.0 ;
     rt:hasPerformanceTier rt:HighTier ;
     rt:alternativeTo p:amd-rx-7800-xt .
 
@@ -164,6 +165,7 @@ p:amd-rx-7800-xt a rt:GPU ;
     rt:minPSUWattage 700 ;
     rt:gpuLength 287 ;
     rt:performanceScore 88 ;
+    rt:noiseLevel 35.0 ;
     rt:hasPerformanceTier rt:HighTier ;
     rt:alternativeTo p:nvidia-rtx-4070 .
 
@@ -196,6 +198,7 @@ p:asus-b650-tuf a rt:Motherboard ;
     rt:maxRAMSpeed 6400 ;
     rt:nvmeSlots 2 ;
     rt:sataPorts 4 ;
+    rt:colorScheme "black" ;
     rt:alternativeTo p:msi-b760-tomahawk .
 
 p:msi-b760-tomahawk a rt:Motherboard ;
@@ -223,6 +226,7 @@ p:msi-b760-tomahawk a rt:Motherboard ;
     rt:maxRAMSpeed 7200 ;
     rt:nvmeSlots 3 ;
     rt:sataPorts 6 ;
+    rt:colorScheme "black" ;
     rt:alternativeTo p:asus-b650-tuf .
 
 # =============================================================================
@@ -344,6 +348,8 @@ p:corsair-rm850x a rt:PSU ;
     rt:giftSuitability "low" ;
     rt:psuWattage 850 ;
     rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 22.0 ;
     rt:alternativeTo p:evga-750-g6 .
 
 p:evga-750-g6 a rt:PSU ;
@@ -364,6 +370,8 @@ p:evga-750-g6 a rt:PSU ;
     rt:giftSuitability "low" ;
     rt:psuWattage 750 ;
     rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 24.0 ;
     rt:alternativeTo p:corsair-rm850x .
 
 # =============================================================================
@@ -391,6 +399,8 @@ p:fractal-torrent a rt:Case ;
     rt:supportsFormFactor rt:MiniITX ;
     rt:maxGPULength 461 ;
     rt:maxCoolerHeight 188 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "gunmetal" ;
     rt:alternativeTo p:nzxt-h510-flow .
 
 p:nzxt-h510-flow a rt:Case ;
@@ -414,6 +424,8 @@ p:nzxt-h510-flow a rt:Case ;
     rt:supportsFormFactor rt:MiniITX ;
     rt:maxGPULength 381 ;
     rt:maxCoolerHeight 165 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "black" ;
     rt:alternativeTo p:fractal-torrent .
 
 # =============================================================================
@@ -438,6 +450,9 @@ p:noctua-nh-d15 a rt:Cooling ;
     rt:giftSuitability "low" ;
     rt:coolingCapacity 250 ;
     rt:coolerHeight 165 ;
+    rt:coolerType "air-tower" ;
+    rt:noiseLevel 19.0 ;
+    rt:colorScheme "beige" ;
     rt:hasSocket rt:AM5 ;
     rt:hasSocket rt:LGA1700 ;
     rt:alternativeTo p:corsair-h100i .
@@ -460,6 +475,2719 @@ p:corsair-h100i a rt:Cooling ;
     rt:giftSuitability "low" ;
     rt:coolingCapacity 200 ;
     rt:coolerHeight 55 ;
+    rt:coolerType "aio-240" ;
+    rt:noiseLevel 28.0 ;
+    rt:colorScheme "black" ;
     rt:hasSocket rt:AM5 ;
     rt:hasSocket rt:LGA1700 ;
     rt:alternativeTo p:noctua-nh-d15 .
+
+# =============================================================================
+# Additional CPUs (16)
+# =============================================================================
+
+# Additional CPUs
+
+p:amd-ryzen-5-5600 a rt:CPU ;
+    rdfs:label "AMD Ryzen 5 5600" ;
+    rdfs:comment "Excellent value 6-core AM4 processor. The non-X variant runs cooler and cheaper while delivering nearly identical gaming performance to the 5600X. A smart choice for budget builds on the mature AM4 platform where motherboard and DDR4 RAM costs are lower." ;
+    rt:productId "amd-ryzen-5-5600" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 129.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 5432 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "budget" ;
+    rt:tag "amd" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 6 ;
+    rt:threadCount 12 ;
+    rt:baseClock 3500 ;
+    rt:boostClock 4400 ;
+    rt:tdp 65 ;
+    rt:performanceScore 62 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:intel-i5-12400f .
+
+p:amd-ryzen-5-5600x a rt:CPU ;
+    rdfs:label "AMD Ryzen 5 5600X" ;
+    rdfs:comment "The CPU that redefined mid-range gaming when it launched. 6 cores, 12 threads with strong single-thread performance. Slightly higher clocks than the 5600 non-X, with the included Wraith Stealth cooler. Still a capable gaming chip on the affordable AM4 platform." ;
+    rt:productId "amd-ryzen-5-5600x" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 159.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 8921 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "amd" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 6 ;
+    rt:threadCount 12 ;
+    rt:baseClock 3700 ;
+    rt:boostClock 4600 ;
+    rt:tdp 65 ;
+    rt:performanceScore 65 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:intel-i5-12400f .
+
+p:amd-ryzen-7-5800x a rt:CPU ;
+    rdfs:label "AMD Ryzen 7 5800X" ;
+    rdfs:comment "8-core AM4 workhorse for gaming and productivity. Strong multi-threaded performance for content creation and streaming while gaming. Runs warmer than the 5600X under sustained loads so a decent cooler is recommended." ;
+    rt:productId "amd-ryzen-7-5800x" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 219.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 6234 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "productivity" ;
+    rt:tag "amd" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 8 ;
+    rt:threadCount 16 ;
+    rt:baseClock 3800 ;
+    rt:boostClock 4700 ;
+    rt:tdp 105 ;
+    rt:performanceScore 72 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:intel-i7-12700k .
+
+p:amd-ryzen-5-7600x a rt:CPU ;
+    rdfs:label "AMD Ryzen 5 7600X" ;
+    rdfs:comment "Entry point to the AM5 platform with 6 cores and 12 threads. Excellent gaming performance per dollar on the latest DDR5 platform. Higher power draw than the previous-gen 5600X but meaningfully faster across all workloads." ;
+    rt:productId "amd-ryzen-5-7600x" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 229.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "amd" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 6 ;
+    rt:threadCount 12 ;
+    rt:baseClock 4700 ;
+    rt:boostClock 5300 ;
+    rt:tdp 105 ;
+    rt:performanceScore 78 ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:intel-i5-13600k .
+
+p:amd-ryzen-7-7700x a rt:CPU ;
+    rdfs:label "AMD Ryzen 7 7700X" ;
+    rdfs:comment "8-core AM5 processor balancing gaming and productivity. Higher clocks than the 7600X with two additional cores for better multi-threaded workloads. A solid mid-high choice that avoids the premium of the 7800X3D while still delivering strong performance." ;
+    rt:productId "amd-ryzen-7-7700x" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 349.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 2134 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "productivity" ;
+    rt:tag "amd" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 8 ;
+    rt:threadCount 16 ;
+    rt:baseClock 4500 ;
+    rt:boostClock 5400 ;
+    rt:tdp 105 ;
+    rt:performanceScore 83 ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:intel-i7-13700k .
+
+p:amd-ryzen-9-7900x a rt:CPU ;
+    rdfs:label "AMD Ryzen 9 7900X" ;
+    rdfs:comment "12-core powerhouse for demanding productivity and gaming. Excellent multi-threaded throughput for video editing, 3D rendering, and compilation while maintaining strong gaming performance. The sweet spot for users who need both workstation and gaming capability." ;
+    rt:productId "amd-ryzen-9-7900x" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 449.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1876 ;
+    rt:inStock true ;
+    rt:tag "productivity" ;
+    rt:tag "high-performance" ;
+    rt:tag "amd" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 12 ;
+    rt:threadCount 24 ;
+    rt:baseClock 4700 ;
+    rt:boostClock 5600 ;
+    rt:tdp 170 ;
+    rt:performanceScore 92 ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasPerformanceTier rt:EnthusiastTier ;
+    rt:alternativeTo p:intel-i9-13900k .
+
+p:amd-ryzen-9-7950x a rt:CPU ;
+    rdfs:label "AMD Ryzen 9 7950X" ;
+    rdfs:comment "Flagship 16-core AM5 processor with blistering multi-threaded performance. Dominates rendering, compilation, and scientific workloads. Also an excellent gaming chip thanks to high boost clocks. Draws significant power under all-core loads so robust cooling is essential." ;
+    rt:productId "amd-ryzen-9-7950x" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 579.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1543 ;
+    rt:inStock true ;
+    rt:tag "productivity" ;
+    rt:tag "high-performance" ;
+    rt:tag "amd" ;
+    rt:tag "flagship" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 16 ;
+    rt:threadCount 32 ;
+    rt:baseClock 4500 ;
+    rt:boostClock 5700 ;
+    rt:tdp 170 ;
+    rt:performanceScore 98 ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasPerformanceTier rt:EnthusiastTier ;
+    rt:alternativeTo p:intel-i9-14900k .
+
+p:amd-ryzen-5-9600x a rt:CPU ;
+    rdfs:label "AMD Ryzen 5 9600X" ;
+    rdfs:comment "Zen 5 architecture brings meaningful IPC gains over the 7600X. 6 cores and 12 threads with improved power efficiency — lower TDP while delivering higher per-clock performance. The best value entry point for a new AM5 build." ;
+    rt:productId "amd-ryzen-5-9600x" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 279.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "efficient" ;
+    rt:tag "amd" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 6 ;
+    rt:threadCount 12 ;
+    rt:baseClock 3900 ;
+    rt:boostClock 5400 ;
+    rt:tdp 65 ;
+    rt:performanceScore 82 ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:intel-i5-14600k .
+
+p:intel-i3-12100f a rt:CPU ;
+    rdfs:label "Intel Core i3-12100F" ;
+    rdfs:comment "Budget quad-core that punches well above its price. The F suffix means no integrated graphics so a discrete GPU is required, but the savings make it the cheapest viable gaming CPU. Four performance cores with HyperThreading handle modern games surprisingly well at lower resolutions." ;
+    rt:productId "intel-i3-12100f" ;
+    schema:brand b:Intel ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 104.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "budget" ;
+    rt:tag "gaming" ;
+    rt:tag "intel" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 4 ;
+    rt:threadCount 8 ;
+    rt:baseClock 3300 ;
+    rt:boostClock 4300 ;
+    rt:tdp 58 ;
+    rt:performanceScore 48 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasPerformanceTier rt:EntryTier ;
+    rt:alternativeTo p:amd-ryzen-5-5600 .
+
+p:intel-i5-12400f a rt:CPU ;
+    rdfs:label "Intel Core i5-12400F" ;
+    rdfs:comment "Outstanding value mid-range CPU with 6 performance cores and 12 threads. No integrated graphics (F variant) keeps the price down. Excellent for 1080p and 1440p gaming when paired with a capable GPU. Low 65W TDP means the stock cooler is adequate for most users." ;
+    rt:productId "intel-i5-12400f" ;
+    schema:brand b:Intel ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 149.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 7654 ;
+    rt:inStock true ;
+    rt:tag "budget" ;
+    rt:tag "gaming" ;
+    rt:tag "intel" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 6 ;
+    rt:threadCount 12 ;
+    rt:baseClock 2500 ;
+    rt:boostClock 4400 ;
+    rt:tdp 65 ;
+    rt:performanceScore 60 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:amd-ryzen-5-5600 .
+
+p:intel-i7-12700k a rt:CPU ;
+    rdfs:label "Intel Core i7-12700K" ;
+    rdfs:comment "12th-gen hybrid architecture with 12 cores (8 performance plus 4 efficiency) and 20 threads. Strong multi-threaded performance at a competitive price point on the mature LGA 1700 platform. A good choice for users who want high-end performance without paying for the latest generation." ;
+    rt:productId "intel-i7-12700k" ;
+    schema:brand b:Intel ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 259.99 ;
+    rt:originalPrice 299.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 5432 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "productivity" ;
+    rt:tag "intel" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 12 ;
+    rt:threadCount 20 ;
+    rt:baseClock 3600 ;
+    rt:boostClock 5000 ;
+    rt:tdp 125 ;
+    rt:performanceScore 78 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:amd-ryzen-7-5800x .
+
+p:intel-i5-14600k a rt:CPU ;
+    rdfs:label "Intel Core i5-14600K" ;
+    rdfs:comment "Latest-gen mid-range offering with 14 cores (6 performance plus 8 efficiency) and 20 threads. Incremental improvement over the 13600K with slightly higher boost clocks. The unlocked multiplier allows overclocking for enthusiasts who want to push performance further." ;
+    rt:productId "intel-i5-14600k" ;
+    schema:brand b:Intel ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 329.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "productivity" ;
+    rt:tag "intel" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 14 ;
+    rt:threadCount 20 ;
+    rt:baseClock 3500 ;
+    rt:boostClock 5300 ;
+    rt:tdp 125 ;
+    rt:performanceScore 87 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:amd-ryzen-5-9600x .
+
+p:intel-i7-13700k a rt:CPU ;
+    rdfs:label "Intel Core i7-13700K" ;
+    rdfs:comment "16-core hybrid CPU (8 performance plus 8 efficiency) with 24 threads. Excellent balance of gaming and productivity — handles streaming, video editing, and gaming simultaneously without breaking a sweat. Higher power draw than AMD equivalents but competitive on raw performance." ;
+    rt:productId "intel-i7-13700k" ;
+    schema:brand b:Intel ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 389.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "productivity" ;
+    rt:tag "intel" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 16 ;
+    rt:threadCount 24 ;
+    rt:baseClock 3400 ;
+    rt:boostClock 5400 ;
+    rt:tdp 125 ;
+    rt:performanceScore 88 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:amd-ryzen-7-7700x .
+
+p:intel-i7-14700k a rt:CPU ;
+    rdfs:label "Intel Core i7-14700K" ;
+    rdfs:comment "20-core hybrid architecture (8 performance plus 12 efficiency) with 28 threads — four more efficiency cores than the 13700K. The additional cores benefit heavily threaded productivity workloads while gaming performance sees a modest improvement from higher boost clocks." ;
+    rt:productId "intel-i7-14700k" ;
+    schema:brand b:Intel ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 419.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1987 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "productivity" ;
+    rt:tag "intel" ;
+    rt:tag "high-performance" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 20 ;
+    rt:threadCount 28 ;
+    rt:baseClock 3400 ;
+    rt:boostClock 5600 ;
+    rt:tdp 125 ;
+    rt:performanceScore 91 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:amd-ryzen-7-7800x3d .
+
+p:intel-i9-13900k a rt:CPU ;
+    rdfs:label "Intel Core i9-13900K" ;
+    rdfs:comment "24-core flagship (8 performance plus 16 efficiency) with 32 threads. Dominates multi-threaded benchmarks and competes with AMD's best in gaming. Power hungry under all-core loads — can draw over 250W — so robust cooling and a quality motherboard are essential. The previous-gen flagship at a reduced price makes it a value play for workstation users." ;
+    rt:productId "intel-i9-13900k" ;
+    schema:brand b:Intel ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 499.99 ;
+    rt:originalPrice 589.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 2876 ;
+    rt:inStock true ;
+    rt:tag "productivity" ;
+    rt:tag "high-performance" ;
+    rt:tag "intel" ;
+    rt:tag "flagship" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 24 ;
+    rt:threadCount 32 ;
+    rt:baseClock 3000 ;
+    rt:boostClock 5800 ;
+    rt:tdp 125 ;
+    rt:performanceScore 95 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasPerformanceTier rt:EnthusiastTier ;
+    rt:alternativeTo p:amd-ryzen-9-7900x .
+
+p:intel-i9-14900k a rt:CPU ;
+    rdfs:label "Intel Core i9-14900K" ;
+    rdfs:comment "The fastest Intel consumer CPU with 24 cores (8 performance plus 16 efficiency) and 32 threads. Higher boost clocks than the 13900K push single-thread performance further. Extreme power draw under sustained loads demands premium cooling. For users who want the absolute maximum performance Intel offers on the LGA 1700 platform." ;
+    rt:productId "intel-i9-14900k" ;
+    schema:brand b:Intel ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:ProcessorCategory ;
+    rt:price 589.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 1654 ;
+    rt:inStock false ;
+    rt:tag "productivity" ;
+    rt:tag "high-performance" ;
+    rt:tag "intel" ;
+    rt:tag "flagship" ;
+    rt:giftSuitability "low" ;
+    rt:coreCount 24 ;
+    rt:threadCount 32 ;
+    rt:baseClock 3200 ;
+    rt:boostClock 6000 ;
+    rt:tdp 125 ;
+    rt:performanceScore 97 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasPerformanceTier rt:EnthusiastTier ;
+    rt:alternativeTo p:amd-ryzen-9-7950x .
+
+# =============================================================================
+# Additional GPUs (15)
+# =============================================================================
+
+# Additional GPUs
+
+p:nvidia-rtx-3060 a rt:GPU ;
+    rdfs:label "NVIDIA GeForce RTX 3060 12GB" ;
+    rdfs:comment "Previous-gen mid-range GPU still capable of solid 1080p gaming with ray tracing and DLSS 2. The 12GB VRAM is generous for its tier, providing longevity for higher-resolution textures. An excellent budget entry point for ray tracing and AI-accelerated features." ;
+    rt:productId "nvidia-rtx-3060" ;
+    schema:brand b:NVIDIA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 269.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 8976 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1080p" ;
+    rt:tag "ray-tracing" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:vram 12 ;
+    rt:tdp 170 ;
+    rt:minPSUWattage 550 ;
+    rt:gpuLength 242 ;
+    rt:performanceScore 55 ;
+    rt:noiseLevel 33.0 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:amd-rx-6650-xt .
+
+p:nvidia-rtx-4060 a rt:GPU ;
+    rdfs:label "NVIDIA GeForce RTX 4060" ;
+    rdfs:comment "Efficient 1080p champion with DLSS 3 frame generation. Draws only 115W while delivering excellent performance at 1080p and playable framerates at 1440p. The 8GB VRAM is adequate for current titles but may limit longevity at higher resolutions. Outstanding performance per watt." ;
+    rt:productId "nvidia-rtx-4060" ;
+    schema:brand b:NVIDIA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 299.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1080p" ;
+    rt:tag "efficient" ;
+    rt:tag "dlss" ;
+    rt:giftSuitability "low" ;
+    rt:vram 8 ;
+    rt:tdp 115 ;
+    rt:minPSUWattage 550 ;
+    rt:gpuLength 240 ;
+    rt:performanceScore 62 ;
+    rt:noiseLevel 30.0 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:amd-rx-7600 .
+
+p:nvidia-rtx-4060-ti-8gb a rt:GPU ;
+    rdfs:label "NVIDIA GeForce RTX 4060 Ti 8GB" ;
+    rdfs:comment "Strong 1080p and capable 1440p GPU. Meaningful step up from the RTX 4060 in rasterisation performance while maintaining excellent efficiency at 160W TDP. DLSS 3 frame generation works exceptionally well in supported titles. The 8GB VRAM remains a point of discussion for 1440p longevity." ;
+    rt:productId "nvidia-rtx-4060-ti-8gb" ;
+    schema:brand b:NVIDIA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 399.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1080p" ;
+    rt:tag "1440p" ;
+    rt:tag "dlss" ;
+    rt:giftSuitability "low" ;
+    rt:vram 8 ;
+    rt:tdp 160 ;
+    rt:minPSUWattage 550 ;
+    rt:gpuLength 262 ;
+    rt:performanceScore 72 ;
+    rt:noiseLevel 32.0 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:amd-rx-7700-xt .
+
+p:nvidia-rtx-4060-ti-16gb a rt:GPU ;
+    rdfs:label "NVIDIA GeForce RTX 4060 Ti 16GB" ;
+    rdfs:comment "The 16GB variant addresses the original's VRAM concern. Identical GPU performance to the 8GB model but with double the video memory for future-proofing at 1440p. The price premium is debatable — worth it for users who keep GPUs for 4+ years." ;
+    rt:productId "nvidia-rtx-4060-ti-16gb" ;
+    schema:brand b:NVIDIA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 459.99 ;
+    rt:rating 4.4 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1440p" ;
+    rt:tag "dlss" ;
+    rt:tag "future-proof" ;
+    rt:giftSuitability "low" ;
+    rt:vram 16 ;
+    rt:tdp 165 ;
+    rt:minPSUWattage 550 ;
+    rt:gpuLength 262 ;
+    rt:performanceScore 73 ;
+    rt:noiseLevel 32.0 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:amd-rx-7800-xt .
+
+p:nvidia-rtx-4070-super a rt:GPU ;
+    rdfs:label "NVIDIA GeForce RTX 4070 Super" ;
+    rdfs:comment "The refresh that the RTX 4070 should have been. More CUDA cores and higher memory bandwidth deliver a noticeable performance uplift at the same 220W TDP. Excellent 1440p card that can handle 4K in less demanding titles with DLSS. A strong recommendation for most gamers." ;
+    rt:productId "nvidia-rtx-4070-super" ;
+    schema:brand b:NVIDIA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 599.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1440p" ;
+    rt:tag "ray-tracing" ;
+    rt:tag "dlss" ;
+    rt:giftSuitability "low" ;
+    rt:vram 12 ;
+    rt:tdp 220 ;
+    rt:minPSUWattage 650 ;
+    rt:gpuLength 267 ;
+    rt:performanceScore 92 ;
+    rt:noiseLevel 33.0 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:amd-rx-7900-gre .
+
+p:nvidia-rtx-4070-ti-super a rt:GPU ;
+    rdfs:label "NVIDIA GeForce RTX 4070 Ti Super" ;
+    rdfs:comment "Premium 1440p and capable 4K GPU with 16GB GDDR6X. Significant step up in shader count and memory bandwidth over the base 4070 Ti. Ray tracing performance is exceptional thanks to third-gen RT cores. The 285W TDP is manageable with a quality 700W PSU." ;
+    rt:productId "nvidia-rtx-4070-ti-super" ;
+    schema:brand b:NVIDIA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 799.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1876 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1440p" ;
+    rt:tag "4k" ;
+    rt:tag "ray-tracing" ;
+    rt:tag "dlss" ;
+    rt:giftSuitability "low" ;
+    rt:vram 16 ;
+    rt:tdp 285 ;
+    rt:minPSUWattage 700 ;
+    rt:gpuLength 302 ;
+    rt:performanceScore 95 ;
+    rt:noiseLevel 35.0 ;
+    rt:hasPerformanceTier rt:EnthusiastTier ;
+    rt:alternativeTo p:amd-rx-7900-xt .
+
+p:nvidia-rtx-4080-super a rt:GPU ;
+    rdfs:label "NVIDIA GeForce RTX 4080 Super" ;
+    rdfs:comment "Near-flagship performance at a more palatable price than the 4090. Excellent 4K gaming GPU with 16GB GDDR6X and monstrous ray tracing capability. DLSS 3 frame generation makes even demanding ray-traced titles smooth at 4K. For users who want the best experience short of the 4090's price." ;
+    rt:productId "nvidia-rtx-4080-super" ;
+    schema:brand b:NVIDIA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 999.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1543 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "4k" ;
+    rt:tag "ray-tracing" ;
+    rt:tag "dlss" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:vram 16 ;
+    rt:tdp 320 ;
+    rt:minPSUWattage 750 ;
+    rt:gpuLength 310 ;
+    rt:performanceScore 97 ;
+    rt:noiseLevel 37.0 ;
+    rt:hasPerformanceTier rt:EnthusiastTier ;
+    rt:alternativeTo p:amd-rx-7900-xtx .
+
+p:nvidia-rtx-4090 a rt:GPU ;
+    rdfs:label "NVIDIA GeForce RTX 4090" ;
+    rdfs:comment "The undisputed king of consumer GPUs. 24GB GDDR6X, Ada Lovelace architecture at full bore. Handles anything at 4K maximum settings with room to spare. The massive 450W TDP and 348mm physical length require a substantial case and PSU. For enthusiasts who accept no compromises." ;
+    rt:productId "nvidia-rtx-4090" ;
+    schema:brand b:NVIDIA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 1599.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 2345 ;
+    rt:inStock false ;
+    rt:tag "gaming" ;
+    rt:tag "4k" ;
+    rt:tag "ray-tracing" ;
+    rt:tag "dlss" ;
+    rt:tag "flagship" ;
+    rt:giftSuitability "low" ;
+    rt:vram 24 ;
+    rt:tdp 450 ;
+    rt:minPSUWattage 850 ;
+    rt:gpuLength 348 ;
+    rt:performanceScore 100 ;
+    rt:noiseLevel 42.0 ;
+    rt:hasPerformanceTier rt:EnthusiastTier ;
+    rt:alternativeTo p:amd-rx-7900-xtx .
+
+p:amd-rx-6650-xt a rt:GPU ;
+    rdfs:label "AMD Radeon RX 6650 XT" ;
+    rdfs:comment "Budget 1080p GPU with 8GB GDDR6. Previous-gen RDNA 2 architecture at bargain prices. Solid rasterisation performance for 1080p high settings in most titles. Ray tracing is functional but not a strength — best suited for users who prioritise traditional rendering performance per dollar." ;
+    rt:productId "amd-rx-6650-xt" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 189.99 ;
+    rt:originalPrice 229.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1080p" ;
+    rt:tag "budget" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:vram 8 ;
+    rt:tdp 180 ;
+    rt:minPSUWattage 500 ;
+    rt:gpuLength 243 ;
+    rt:performanceScore 45 ;
+    rt:noiseLevel 32.0 ;
+    rt:hasPerformanceTier rt:EntryTier ;
+    rt:alternativeTo p:nvidia-rtx-3060 .
+
+p:amd-rx-7600 a rt:GPU ;
+    rdfs:label "AMD Radeon RX 7600" ;
+    rdfs:comment "RDNA 3 entry point delivering strong 1080p performance at low power. 8GB GDDR6 on a 128-bit bus handles current games well at 1080p high settings. The 165W TDP keeps heat and noise manageable. Best value GPU for 1080p gaming if ray tracing is not a priority." ;
+    rt:productId "amd-rx-7600" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 249.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1080p" ;
+    rt:tag "efficient" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:vram 8 ;
+    rt:tdp 165 ;
+    rt:minPSUWattage 550 ;
+    rt:gpuLength 237 ;
+    rt:performanceScore 58 ;
+    rt:noiseLevel 31.0 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:nvidia-rtx-4060 .
+
+p:amd-rx-7600-xt a rt:GPU ;
+    rdfs:label "AMD Radeon RX 7600 XT" ;
+    rdfs:comment "16GB variant of the RX 7600 that doubles the VRAM on a wider 128-bit bus. The extra memory addresses the original's longevity concern for 1440p gaming. Slightly higher clocks provide a modest performance bump alongside the VRAM upgrade." ;
+    rt:productId "amd-rx-7600-xt" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 329.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 876 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1080p" ;
+    rt:tag "1440p" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:vram 16 ;
+    rt:tdp 150 ;
+    rt:minPSUWattage 550 ;
+    rt:gpuLength 243 ;
+    rt:performanceScore 63 ;
+    rt:noiseLevel 30.0 ;
+    rt:hasPerformanceTier rt:MidTier ;
+    rt:alternativeTo p:nvidia-rtx-4060-ti-8gb .
+
+p:amd-rx-7700-xt a rt:GPU ;
+    rdfs:label "AMD Radeon RX 7700 XT" ;
+    rdfs:comment "12GB GDDR6 on a 192-bit bus provides a good balance for 1440p gaming. Sits between the RX 7600 XT and 7800 XT in performance and price. Strong rasterisation at 1440p and competent ray tracing. A solid mid-range choice for AMD fans." ;
+    rt:productId "amd-rx-7700-xt" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 419.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 1543 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1440p" ;
+    rt:tag "ray-tracing" ;
+    rt:giftSuitability "low" ;
+    rt:vram 12 ;
+    rt:tdp 245 ;
+    rt:minPSUWattage 650 ;
+    rt:gpuLength 267 ;
+    rt:performanceScore 78 ;
+    rt:noiseLevel 34.0 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:nvidia-rtx-4060-ti-16gb .
+
+p:amd-rx-7900-gre a rt:GPU ;
+    rdfs:label "AMD Radeon RX 7900 GRE" ;
+    rdfs:comment "Golden Rabbit Edition — a cut-down 7900 XT at a significantly lower price. 16GB GDDR6 on a 256-bit bus delivers strong 1440p and capable 4K performance. Excellent value for users who want near-high-end AMD performance without the premium price. Originally a China-exclusive that went global due to demand." ;
+    rt:productId "amd-rx-7900-gre" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 549.99 ;
+    rt:originalPrice 599.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "1440p" ;
+    rt:tag "4k" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:vram 16 ;
+    rt:tdp 260 ;
+    rt:minPSUWattage 650 ;
+    rt:gpuLength 276 ;
+    rt:performanceScore 85 ;
+    rt:noiseLevel 34.0 ;
+    rt:hasPerformanceTier rt:HighTier ;
+    rt:alternativeTo p:nvidia-rtx-4070-super .
+
+p:amd-rx-7900-xt a rt:GPU ;
+    rdfs:label "AMD Radeon RX 7900 XT" ;
+    rdfs:comment "20GB GDDR6 powerhouse for 4K gaming. The full RDNA 3 architecture at 300W delivers excellent rasterisation and competent ray tracing. The generous 20GB VRAM is future-proof for high-resolution texture packs and content creation workloads alongside gaming." ;
+    rt:productId "amd-rx-7900-xt" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 749.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1876 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "4k" ;
+    rt:tag "ray-tracing" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:vram 20 ;
+    rt:tdp 300 ;
+    rt:minPSUWattage 750 ;
+    rt:gpuLength 289 ;
+    rt:performanceScore 93 ;
+    rt:noiseLevel 36.0 ;
+    rt:hasPerformanceTier rt:EnthusiastTier ;
+    rt:alternativeTo p:nvidia-rtx-4070-ti-super .
+
+p:amd-rx-7900-xtx a rt:GPU ;
+    rdfs:label "AMD Radeon RX 7900 XTX" ;
+    rdfs:comment "AMD's flagship with 24GB GDDR6 — the most VRAM of any consumer GPU alongside the RTX 4090. Exceptional 4K performance and enough memory for professional content creation. Rasterisation competes with the RTX 4080 Super at a lower price, though ray tracing trails NVIDIA. The best value at the high end." ;
+    rt:productId "amd-rx-7900-xtx" ;
+    schema:brand b:AMD ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:GraphicsCardCategory ;
+    rt:price 899.99 ;
+    rt:originalPrice 999.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 2134 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "4k" ;
+    rt:tag "ray-tracing" ;
+    rt:tag "flagship" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:vram 24 ;
+    rt:tdp 355 ;
+    rt:minPSUWattage 800 ;
+    rt:gpuLength 297 ;
+    rt:performanceScore 96 ;
+    rt:noiseLevel 38.0 ;
+    rt:hasPerformanceTier rt:EnthusiastTier ;
+    rt:alternativeTo p:nvidia-rtx-4080-super .
+
+# =============================================================================
+# Additional Motherboards (14) + Brands
+# =============================================================================
+
+# Additional brands
+
+b:Gigabyte a schema:Brand ;
+    rdfs:label "Gigabyte" ;
+    rdfs:comment "Gigabyte Technology, manufacturer of motherboards, graphics cards, and PC components." .
+
+b:ASRock a schema:Brand ;
+    rdfs:label "ASRock" ;
+    rdfs:comment "ASRock, manufacturer of motherboards known for value and unique niche products." .
+
+# Additional Motherboards
+
+p:asrock-b450m-pro a rt:Motherboard ;
+    rdfs:label "ASRock B450M Pro4" ;
+    rdfs:comment "Budget Micro-ATX AM4 board with solid VRM for its price. Supports DDR4 up to 3200 MHz and has one M.2 NVMe slot. A no-frills choice for affordable Ryzen 5000 builds where cost is the primary concern." ;
+    rt:productId "asrock-b450m-pro" ;
+    schema:brand b:ASRock ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 79.99 ;
+    rt:rating 4.4 ;
+    rt:reviewCount 6789 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "amd" ;
+    rt:tag "budget" ;
+    rt:tag "ddr4" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:hasFormFactor rt:MicroATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 3200 ;
+    rt:nvmeSlots 1 ;
+    rt:sataPorts 4 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:gigabyte-b450-ds3h .
+
+p:gigabyte-b450-ds3h a rt:Motherboard ;
+    rdfs:label "Gigabyte B450M DS3H V2" ;
+    rdfs:comment "Entry-level Micro-ATX AM4 motherboard at a rock-bottom price. Two DDR4 slots support up to 64GB at 3600 MHz. One NVMe M.2 slot and four SATA ports cover basic storage. Gets the job done for a simple Ryzen build without extras." ;
+    rt:productId "gigabyte-b450-ds3h" ;
+    schema:brand b:Gigabyte ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 69.99 ;
+    rt:rating 4.3 ;
+    rt:reviewCount 5432 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "amd" ;
+    rt:tag "budget" ;
+    rt:tag "ddr4" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:hasFormFactor rt:MicroATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 2 ;
+    rt:maxRAMSpeed 3600 ;
+    rt:nvmeSlots 1 ;
+    rt:sataPorts 4 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:asrock-b450m-pro .
+
+p:msi-b550-mortar a rt:Motherboard ;
+    rdfs:label "MSI MAG B550M Mortar" ;
+    rdfs:comment "Feature-rich Micro-ATX AM4 board punching above its weight. Excellent VRM handles even the Ryzen 9 5900X. DDR4 support up to 4400 MHz with two M.2 slots and USB-C front panel header. A top-tier mATX choice for compact AM4 builds." ;
+    rt:productId "msi-b550-mortar" ;
+    schema:brand b:MSI ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 139.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 4321 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "amd" ;
+    rt:tag "ddr4" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:hasFormFactor rt:MicroATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 4400 ;
+    rt:nvmeSlots 2 ;
+    rt:sataPorts 6 ;
+    rt:colorScheme "gunmetal" ;
+    rt:alternativeTo p:asus-b550-rog-strix .
+
+p:asus-b550-rog-strix a rt:Motherboard ;
+    rdfs:label "ASUS ROG Strix B550-F Gaming" ;
+    rdfs:comment "Premium ATX AM4 board with robust power delivery, WiFi 6, and 2.5 Gigabit Ethernet. AI noise-cancelling microphone technology and Aura Sync RGB. The ROG Strix build quality and aesthetics at a B550 price point." ;
+    rt:productId "asus-b550-rog-strix" ;
+    schema:brand b:ASUS ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 179.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 3876 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "amd" ;
+    rt:tag "ddr4" ;
+    rt:tag "gaming" ;
+    rt:tag "wifi" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:hasFormFactor rt:ATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 4600 ;
+    rt:nvmeSlots 2 ;
+    rt:sataPorts 6 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:msi-b550-mortar .
+
+p:gigabyte-b650m-aorus-elite a rt:Motherboard ;
+    rdfs:label "Gigabyte B650M AORUS Elite AX" ;
+    rdfs:comment "Compact Micro-ATX AM5 board with DDR5 support, WiFi 6E, and Bluetooth 5.2. The 12+2+1 digital VRM handles all Ryzen 7000 CPUs comfortably. Two M.2 slots with heatsinks and USB4 readiness on the rear IO. An excellent value entry to AM5 in a smaller form factor." ;
+    rt:productId "gigabyte-b650m-aorus-elite" ;
+    schema:brand b:Gigabyte ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 179.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "amd" ;
+    rt:tag "ddr5" ;
+    rt:tag "wifi" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:hasFormFactor rt:MicroATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 2 ;
+    rt:maxRAMSpeed 7600 ;
+    rt:nvmeSlots 2 ;
+    rt:sataPorts 4 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:asrock-b650-livemixer .
+
+p:asrock-b650-livemixer a rt:Motherboard ;
+    rdfs:label "ASRock B650 LiveMixer" ;
+    rdfs:comment "ATX AM5 motherboard with a distinctive white and silver design for themed builds. DDR5 up to 7200 MHz, three M.2 slots, and Blazing M.2 heatsink. The white PCB and heatsink shroud make it one of the few AM5 boards that suits an all-white build aesthetic." ;
+    rt:productId "asrock-b650-livemixer" ;
+    schema:brand b:ASRock ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 199.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 876 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "amd" ;
+    rt:tag "ddr5" ;
+    rt:tag "white-build" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:hasFormFactor rt:ATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 7200 ;
+    rt:nvmeSlots 3 ;
+    rt:sataPorts 4 ;
+    rt:colorScheme "white" ;
+    rt:alternativeTo p:asus-b650-tuf .
+
+p:asus-x670e-hero a rt:Motherboard ;
+    rdfs:label "ASUS ROG Crosshair X670E Hero" ;
+    rdfs:comment "Flagship AM5 motherboard with 18+2 power stages, PCIe 5.0 for both GPU and M.2, WiFi 6E, 10 Gigabit Ethernet, and USB4. Built for overclocking the highest-end Ryzen 9 processors. Excessive for most users but provides the absolute best AM5 platform for enthusiasts." ;
+    rt:productId "asus-x670e-hero" ;
+    schema:brand b:ASUS ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 499.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 876 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "amd" ;
+    rt:tag "ddr5" ;
+    rt:tag "flagship" ;
+    rt:tag "overclocking" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:hasFormFactor rt:ATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 7800 ;
+    rt:nvmeSlots 4 ;
+    rt:sataPorts 6 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:msi-z790-edge .
+
+p:gigabyte-b660m-ds3h a rt:Motherboard ;
+    rdfs:label "Gigabyte B660M DS3H DDR4" ;
+    rdfs:comment "Budget Micro-ATX LGA 1700 board retaining DDR4 support for cost-conscious 12th and 13th gen Intel builds. Basic feature set with one M.2 slot and four SATA ports. Keeps total platform cost low when paired with existing DDR4 RAM." ;
+    rt:productId "gigabyte-b660m-ds3h" ;
+    schema:brand b:Gigabyte ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 89.99 ;
+    rt:rating 4.4 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "intel" ;
+    rt:tag "budget" ;
+    rt:tag "ddr4" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:hasFormFactor rt:MicroATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 2 ;
+    rt:maxRAMSpeed 3200 ;
+    rt:nvmeSlots 1 ;
+    rt:sataPorts 4 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:asrock-b660m-hdv .
+
+p:asrock-b660m-hdv a rt:Motherboard ;
+    rdfs:label "ASRock B660M-HDV" ;
+    rdfs:comment "Bare-minimum LGA 1700 Micro-ATX board for the tightest budgets. DDR4 support, one M.2 slot, and HDMI/DisplayPort outputs for integrated graphics. No WiFi, basic audio — pure function over form." ;
+    rt:productId "asrock-b660m-hdv" ;
+    schema:brand b:ASRock ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 79.99 ;
+    rt:rating 4.2 ;
+    rt:reviewCount 2134 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "intel" ;
+    rt:tag "budget" ;
+    rt:tag "ddr4" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:hasFormFactor rt:MicroATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 2 ;
+    rt:maxRAMSpeed 3200 ;
+    rt:nvmeSlots 1 ;
+    rt:sataPorts 4 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:gigabyte-b660m-ds3h .
+
+p:asus-z790-tuf a rt:Motherboard ;
+    rdfs:label "ASUS TUF Gaming Z790-PLUS WiFi" ;
+    rdfs:comment "Mid-range Z790 with DDR5 support, WiFi 6E, and Thunderbolt 4. The Z-series chipset unlocks overclocking for K-series Intel CPUs. Four M.2 slots and robust VRM handle even the i9-14900K. A sensible step up from B760 for users who want overclocking headroom." ;
+    rt:productId "asus-z790-tuf" ;
+    schema:brand b:ASUS ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 279.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1876 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "intel" ;
+    rt:tag "ddr5" ;
+    rt:tag "gaming" ;
+    rt:tag "overclocking" ;
+    rt:tag "wifi" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:hasFormFactor rt:ATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 7800 ;
+    rt:nvmeSlots 4 ;
+    rt:sataPorts 4 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:msi-z790-edge .
+
+p:msi-z790-edge a rt:Motherboard ;
+    rdfs:label "MSI MEG Z790 ACE" ;
+    rdfs:comment "Premium Z790 board with 22+1+1 power phases, PCIe 5.0 GPU and M.2 slots, WiFi 6E, and 10G LAN. Designed for extreme overclocking with the highest-end Intel CPUs. The E-ATX form factor provides extra space for premium components but requires a case that supports EATX mounting." ;
+    rt:productId "msi-z790-edge" ;
+    schema:brand b:MSI ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 449.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 654 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "intel" ;
+    rt:tag "ddr5" ;
+    rt:tag "flagship" ;
+    rt:tag "overclocking" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:hasFormFactor rt:EATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 7800 ;
+    rt:nvmeSlots 5 ;
+    rt:sataPorts 6 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:asus-x670e-hero .
+
+p:asrock-b760i-itx a rt:Motherboard ;
+    rdfs:label "ASRock B760I Lightning WiFi" ;
+    rdfs:comment "Mini-ITX LGA 1700 board for small form factor Intel builds. Despite the tiny footprint, it packs DDR5 support up to 7000 MHz, one M.2 NVMe slot with heatsink, WiFi 6E, and a surprisingly capable 8-phase VRM. Two RAM slots and limited expansion are the trade-offs for the compact size." ;
+    rt:productId "asrock-b760i-itx" ;
+    schema:brand b:ASRock ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 169.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 567 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "intel" ;
+    rt:tag "ddr5" ;
+    rt:tag "mini-itx" ;
+    rt:tag "sff" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:hasFormFactor rt:MiniITX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 2 ;
+    rt:maxRAMSpeed 7000 ;
+    rt:nvmeSlots 1 ;
+    rt:sataPorts 2 ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:gigabyte-b650m-aorus-elite .
+
+p:gigabyte-b760-aorus-elite a rt:Motherboard ;
+    rdfs:label "Gigabyte B760 AORUS Elite AX DDR5" ;
+    rdfs:comment "Mid-range ATX LGA 1700 board with DDR5, WiFi 6E, and three M.2 slots. Good VRM for non-overclocking Intel builds. The B760 chipset saves money compared to Z790 — only worth upgrading if you need CPU overclocking or extra PCIe lanes." ;
+    rt:productId "gigabyte-b760-aorus-elite" ;
+    schema:brand b:Gigabyte ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MotherboardCategory ;
+    rt:price 189.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 1543 ;
+    rt:inStock true ;
+    rt:tag "motherboard" ;
+    rt:tag "intel" ;
+    rt:tag "ddr5" ;
+    rt:tag "wifi" ;
+    rt:giftSuitability "low" ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:hasFormFactor rt:ATX ;
+    rt:supportsStorageInterface rt:NVMe ;
+    rt:supportsStorageInterface rt:SATA ;
+    rt:maxRAMSlots 4 ;
+    rt:maxRAMSpeed 7600 ;
+    rt:nvmeSlots 3 ;
+    rt:sataPorts 4 ;
+    rt:colorScheme "silver" ;
+    rt:alternativeTo p:msi-b760-tomahawk .
+
+# =============================================================================
+# Additional RAM (14) + Brands
+# =============================================================================
+
+# Additional brands
+
+b:Kingston a schema:Brand ;
+    rdfs:label "Kingston" ;
+    rdfs:comment "Kingston Technology, manufacturer of memory, storage, and technology solutions." .
+
+b:Crucial a schema:Brand ;
+    rdfs:label "Crucial" ;
+    rdfs:comment "Crucial, Micron's consumer brand for memory and storage products." .
+
+b:TeamGroup a schema:Brand ;
+    rdfs:label "TeamGroup" ;
+    rdfs:comment "Team Group, manufacturer of memory modules, SSDs, and gaming peripherals." .
+
+# Additional RAM
+
+p:crucial-ddr4-16gb a rt:RAM ;
+    rdfs:label "Crucial Ballistix 16GB (2x8GB) DDR4-3200" ;
+    rdfs:comment "Reliable budget DDR4 kit at the baseline speed most AM4 and LGA 1700 motherboards support natively. CL16 latency and Micron E-die provide decent overclocking potential for tinkerers. The most affordable path to 16GB dual-channel." ;
+    rt:productId "crucial-ddr4-16gb" ;
+    schema:brand b:Crucial ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 32.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 12345 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr4" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:ramSpeed 3200 ;
+    rt:ramCapacity 16 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:kingston-fury-ddr4-16gb .
+
+p:kingston-fury-ddr4-16gb a rt:RAM ;
+    rdfs:label "Kingston FURY Beast 16GB (2x8GB) DDR4-3200" ;
+    rdfs:comment "Low-profile DDR4 kit that fits under any CPU cooler. XMP 2.0 certified at 3200 MHz CL16. Plug-and-play compatibility with Intel and AMD platforms. The compact heatspreader design avoids clearance issues with large air coolers." ;
+    rt:productId "kingston-fury-ddr4-16gb" ;
+    schema:brand b:Kingston ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 34.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 8765 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr4" ;
+    rt:tag "budget" ;
+    rt:tag "low-profile" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:ramSpeed 3200 ;
+    rt:ramCapacity 16 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:crucial-ddr4-16gb .
+
+p:gskill-ripjaws-ddr4-32gb a rt:RAM ;
+    rdfs:label "G.Skill Ripjaws V 32GB (2x16GB) DDR4-3600" ;
+    rdfs:comment "The go-to DDR4 kit for AM4 builds. 3600 MHz hits the sweet spot for Ryzen's Infinity Fabric at a 1:1 ratio. CL18 latency is competitive at this speed. No RGB keeps the price down — pure performance focus." ;
+    rt:productId "gskill-ripjaws-ddr4-32gb" ;
+    schema:brand b:GSkill ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 54.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 15678 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr4" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:ramSpeed 3600 ;
+    rt:ramCapacity 32 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:corsair-vengeance-ddr4-32gb .
+
+p:corsair-vengeance-ddr4-32gb a rt:RAM ;
+    rdfs:label "Corsair Vengeance LPX 32GB (2x16GB) DDR4-3600" ;
+    rdfs:comment "Low-profile DDR4 kit with excellent compatibility across platforms. CL18 at 3600 MHz. The LPX heatspreader is one of the lowest-profile designs available, guaranteeing clearance with even the largest tower coolers. A reliable, no-surprises choice." ;
+    rt:productId "corsair-vengeance-ddr4-32gb" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 59.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 18234 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr4" ;
+    rt:tag "low-profile" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR4 ;
+    rt:ramSpeed 3600 ;
+    rt:ramCapacity 32 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:gskill-ripjaws-ddr4-32gb .
+
+p:teamgroup-vulcan-ddr5-16gb a rt:RAM ;
+    rdfs:label "TeamGroup T-Force Vulcan 16GB (2x8GB) DDR5-5200" ;
+    rdfs:comment "Entry-level DDR5 kit for budget AM5 and LGA 1700 builds. 5200 MHz meets the DDR5 baseline specification. CL40 latency is standard at this speed. Gets you onto the DDR5 platform at minimum cost." ;
+    rt:productId "teamgroup-vulcan-ddr5-16gb" ;
+    schema:brand b:TeamGroup ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 42.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 5200 ;
+    rt:ramCapacity 16 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:crucial-ddr5-16gb .
+
+p:crucial-ddr5-16gb a rt:RAM ;
+    rdfs:label "Crucial 16GB (2x8GB) DDR5-4800" ;
+    rdfs:comment "Bare-minimum DDR5 kit at JEDEC specification speeds. No XMP profile — runs at the DDR5 baseline. The cheapest way to get DDR5 for a new AM5 or LGA 1700 build. Adequate for gaming where GPU matters more than memory speed." ;
+    rt:productId "crucial-ddr5-16gb" ;
+    schema:brand b:Crucial ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 38.99 ;
+    rt:rating 4.4 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 4800 ;
+    rt:ramCapacity 16 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:teamgroup-vulcan-ddr5-16gb .
+
+p:kingston-fury-ddr5-32gb a rt:RAM ;
+    rdfs:label "Kingston FURY Beast 32GB (2x16GB) DDR5-5600" ;
+    rdfs:comment "Mid-range DDR5 kit with Intel XMP 3.0 and AMD EXPO support. 5600 MHz CL36 provides a good balance of speed and compatibility. Low-profile heatspreader in black or white colour options. Solid all-rounder for mainstream DDR5 builds." ;
+    rt:productId "kingston-fury-ddr5-32gb" ;
+    schema:brand b:Kingston ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 99.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 5600 ;
+    rt:ramCapacity 32 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:corsair-ddr5-32gb .
+
+p:teamgroup-delta-ddr5-32gb a rt:RAM ;
+    rdfs:label "TeamGroup T-Force Delta RGB 32GB (2x16GB) DDR5-6000" ;
+    rdfs:comment "RGB DDR5 kit at the AMD sweet spot of 6000 MHz. CL30 latency is competitive with more expensive kits. The Delta RGB design features a wide light bar for maximum visual impact. EXPO and XMP 3.0 certified." ;
+    rt:productId "teamgroup-delta-ddr5-32gb" ;
+    schema:brand b:TeamGroup ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 119.99 ;
+    rt:originalPrice 139.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 1876 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:tag "rgb" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 6000 ;
+    rt:ramCapacity 32 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:corsair-ddr5-32gb .
+
+p:crucial-ddr5-32gb-6000 a rt:RAM ;
+    rdfs:label "Crucial Pro 32GB (2x16GB) DDR5-6000" ;
+    rdfs:comment "Performance DDR5 from Micron's own consumer brand, using Micron's latest DRAM. EXPO and XMP certified at 6000 MHz CL36. Clean black heatspreader without RGB keeps the look professional. Made with Micron's own chips for guaranteed compatibility." ;
+    rt:productId "crucial-ddr5-32gb-6000" ;
+    schema:brand b:Crucial ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 109.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 6000 ;
+    rt:ramCapacity 32 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:kingston-fury-ddr5-32gb .
+
+p:gskill-trident-ddr5-32gb-7200 a rt:RAM ;
+    rdfs:label "G.Skill Trident Z5 RGB 32GB (2x16GB) DDR5-7200" ;
+    rdfs:comment "Premium high-speed DDR5 pushing the limits of consumer memory. 7200 MHz CL34 requires a motherboard with strong memory topology — check QVL compatibility. Stunning RGB with crystal-like light bar. For enthusiasts chasing benchmark scores and maximum bandwidth." ;
+    rt:productId "gskill-trident-ddr5-32gb-7200" ;
+    schema:brand b:GSkill ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 189.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 876 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:tag "rgb" ;
+    rt:tag "premium" ;
+    rt:tag "overclocking" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 7200 ;
+    rt:ramCapacity 32 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:gskill-ddr5-32gb .
+
+p:corsair-ddr5-64gb a rt:RAM ;
+    rdfs:label "Corsair Vengeance 64GB (2x32GB) DDR5-5600" ;
+    rdfs:comment "High-capacity DDR5 kit for workstation and content creation builds. 64GB at 5600 MHz CL40 provides ample memory for video editing, 3D rendering, and running multiple VMs simultaneously. Also benefits some modern games that use over 32GB when combined with browser and streaming software." ;
+    rt:productId "corsair-ddr5-64gb" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 199.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:tag "workstation" ;
+    rt:tag "high-capacity" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 5600 ;
+    rt:ramCapacity 64 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:gskill-ddr5-64gb .
+
+p:gskill-ddr5-64gb a rt:RAM ;
+    rdfs:label "G.Skill Trident Z5 64GB (2x32GB) DDR5-6000" ;
+    rdfs:comment "Premium 64GB DDR5 kit at the AMD sweet spot of 6000 MHz. CL30 latency is impressively tight for 32GB modules. The Trident Z5 RGB design adds visual appeal to a workstation build. For professionals who need both capacity and speed." ;
+    rt:productId "gskill-ddr5-64gb" ;
+    schema:brand b:GSkill ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:MemoryCategory ;
+    rt:price 269.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 567 ;
+    rt:inStock false ;
+    rt:tag "memory" ;
+    rt:tag "ddr5" ;
+    rt:tag "workstation" ;
+    rt:tag "high-capacity" ;
+    rt:tag "rgb" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:hasRAMType rt:DDR5 ;
+    rt:ramSpeed 6000 ;
+    rt:ramCapacity 64 ;
+    rt:ramModules 2 ;
+    rt:alternativeTo p:corsair-ddr5-64gb .
+
+# =============================================================================
+# Additional Storage, PSUs, Cases, Cooling + Brands
+# =============================================================================
+
+# Additional brands
+
+b:Seagate a schema:Brand ;
+    rdfs:label "Seagate" ;
+    rdfs:comment "Seagate Technology, manufacturer of hard drives and SSDs." .
+
+b:Seasonic a schema:Brand ;
+    rdfs:label "Seasonic" ;
+    rdfs:comment "Seasonic Electronics, manufacturer of premium power supplies known for reliability and efficiency." .
+
+b:BeQuiet a schema:Brand ;
+    rdfs:label "be quiet!" ;
+    rdfs:comment "be quiet!, German manufacturer of power supplies, cases, and cooling solutions focused on silent operation." .
+
+b:Thermaltake a schema:Brand ;
+    rdfs:label "Thermaltake" ;
+    rdfs:comment "Thermaltake Technology, manufacturer of power supplies, cases, cooling, and peripherals." .
+
+b:LianLi a schema:Brand ;
+    rdfs:label "Lian Li" ;
+    rdfs:comment "Lian Li, manufacturer of aluminium PC cases and accessories known for premium build quality." .
+
+b:Phanteks a schema:Brand ;
+    rdfs:label "Phanteks" ;
+    rdfs:comment "Phanteks, manufacturer of PC cases, cooling, and accessories." .
+
+b:Arctic a schema:Brand ;
+    rdfs:label "Arctic" ;
+    rdfs:comment "Arctic, manufacturer of affordable cooling solutions and thermal products." .
+
+b:CoolerMaster a schema:Brand ;
+    rdfs:label "Cooler Master" ;
+    rdfs:comment "Cooler Master Technology, manufacturer of cooling, cases, and power supplies." .
+
+b:DeepCool a schema:Brand ;
+    rdfs:label "DeepCool" ;
+    rdfs:comment "DeepCool, manufacturer of CPU coolers, cases, and power supplies." .
+
+# =============================================================================
+# Additional Storage
+# =============================================================================
+
+p:crucial-p3-500gb a rt:Storage ;
+    rdfs:label "Crucial P3 500GB NVMe SSD" ;
+    rdfs:comment "Budget NVMe Gen3 SSD suitable as a boot drive or secondary game drive. Sequential reads up to 3500 MB/s are a massive upgrade over SATA while keeping the price low. Good for older systems with only Gen3 M.2 slots." ;
+    rt:productId "crucial-p3-500gb" ;
+    schema:brand b:Crucial ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 34.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 5678 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 500 ;
+    rt:readSpeed 3500 ;
+    rt:writeSpeed 1900 ;
+    rt:alternativeTo p:kingston-nv2-500gb .
+
+p:kingston-nv2-500gb a rt:Storage ;
+    rdfs:label "Kingston NV2 500GB NVMe SSD" ;
+    rdfs:comment "Affordable NVMe Gen4 entry point. Despite the budget price, delivers Gen4 sequential reads up to 3500 MB/s. The DRAMless design keeps costs down with minimal impact on everyday performance. A good choice for adding quick storage to any modern system." ;
+    rt:productId "kingston-nv2-500gb" ;
+    schema:brand b:Kingston ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 29.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 500 ;
+    rt:readSpeed 3500 ;
+    rt:writeSpeed 2100 ;
+    rt:alternativeTo p:crucial-p3-500gb .
+
+p:samsung-870-evo-1tb a rt:Storage ;
+    rdfs:label "Samsung 870 EVO 1TB SATA SSD" ;
+    rdfs:comment "The best SATA SSD available. Sequential reads at 560 MB/s hit the SATA III ceiling. Samsung's V-NAND and MKX controller deliver exceptional endurance and consistent performance. Ideal for systems without an M.2 slot or as additional SATA storage." ;
+    rt:productId "samsung-870-evo-1tb" ;
+    schema:brand b:Samsung ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 69.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 23456 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "sata" ;
+    rt:tag "reliable" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:SATA ;
+    rt:storageCapacity 1000 ;
+    rt:readSpeed 560 ;
+    rt:writeSpeed 530 ;
+    rt:alternativeTo p:crucial-mx500-1tb .
+
+p:crucial-mx500-1tb a rt:Storage ;
+    rdfs:label "Crucial MX500 1TB SATA SSD" ;
+    rdfs:comment "Reliable SATA SSD with hardware AES-256 encryption and power-loss immunity. Reads at 560 MB/s. A long-standing recommendation for SATA storage needs — proven reliability over years of availability. Slightly cheaper than the Samsung 870 EVO with comparable real-world performance." ;
+    rt:productId "crucial-mx500-1tb" ;
+    schema:brand b:Crucial ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 59.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 19876 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "sata" ;
+    rt:tag "reliable" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:SATA ;
+    rt:storageCapacity 1000 ;
+    rt:readSpeed 560 ;
+    rt:writeSpeed 510 ;
+    rt:alternativeTo p:samsung-870-evo-1tb .
+
+p:crucial-p5-plus-1tb a rt:Storage ;
+    rdfs:label "Crucial P5 Plus 1TB NVMe Gen4 SSD" ;
+    rdfs:comment "Solid mid-range Gen4 NVMe drive. Sequential reads up to 6600 MB/s with Micron's own NAND and controller. Good endurance rating and competitive pricing make it a sensible choice when the Samsung premium is hard to justify." ;
+    rt:productId "crucial-p5-plus-1tb" ;
+    schema:brand b:Crucial ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 79.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "fast" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 1000 ;
+    rt:readSpeed 6600 ;
+    rt:writeSpeed 5000 ;
+    rt:alternativeTo p:samsung-980-pro-1tb .
+
+p:kingston-fury-renegade-1tb a rt:Storage ;
+    rdfs:label "Kingston FURY Renegade 1TB NVMe Gen4 SSD" ;
+    rdfs:comment "High-performance Gen4 NVMe with reads up to 7300 MB/s — matching the WD Black SN850X. Features a graphene aluminium heatspreader for sustained performance under heavy workloads. Ideal for gamers and content creators who need top-tier speed." ;
+    rt:productId "kingston-fury-renegade-1tb" ;
+    schema:brand b:Kingston ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 89.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "fast" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 1000 ;
+    rt:readSpeed 7300 ;
+    rt:writeSpeed 6000 ;
+    rt:alternativeTo p:samsung-980-pro-1tb .
+
+p:samsung-990-pro-2tb a rt:Storage ;
+    rdfs:label "Samsung 990 PRO 2TB NVMe Gen4 SSD" ;
+    rdfs:comment "Samsung's fastest Gen4 drive. Sequential reads at 7450 MB/s and writes at 6900 MB/s with Samsung's own controller and V-NAND. The 2TB capacity provides ample room for a large game library plus OS and applications. Optional heatsink model available." ;
+    rt:productId "samsung-990-pro-2tb" ;
+    schema:brand b:Samsung ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 169.99 ;
+    rt:originalPrice 199.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "fast" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 2000 ;
+    rt:readSpeed 7450 ;
+    rt:writeSpeed 6900 ;
+    rt:alternativeTo p:wd-black-sn850x-2tb .
+
+p:crucial-t700-2tb a rt:Storage ;
+    rdfs:label "Crucial T700 2TB NVMe Gen5 SSD" ;
+    rdfs:comment "One of the first Gen5 NVMe drives. Sequential reads up to 12400 MB/s and writes at 11800 MB/s — nearly double Gen4 speeds. Requires a PCIe 5.0 M.2 slot and benefits from active cooling. For users building on the latest platforms who want maximum storage bandwidth." ;
+    rt:productId "crucial-t700-2tb" ;
+    schema:brand b:Crucial ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 249.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 876 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "gen5" ;
+    rt:tag "cutting-edge" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 2000 ;
+    rt:readSpeed 12400 ;
+    rt:writeSpeed 11800 ;
+    rt:alternativeTo p:samsung-990-pro-2tb .
+
+p:seagate-firecuda-530-4tb a rt:Storage ;
+    rdfs:label "Seagate FireCuda 530 4TB NVMe Gen4 SSD" ;
+    rdfs:comment "Massive 4TB NVMe for users who need to store their entire game library on a single fast drive. Reads at 7300 MB/s with a 5100 TBW endurance rating. DirectStorage compatible for next-gen game asset streaming. The price premium for 4TB NVMe is real, but so is the convenience." ;
+    rt:productId "seagate-firecuda-530-4tb" ;
+    schema:brand b:Seagate ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 299.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "high-capacity" ;
+    rt:tag "fast" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 4000 ;
+    rt:readSpeed 7300 ;
+    rt:writeSpeed 6900 ;
+    rt:alternativeTo p:samsung-990-pro-2tb .
+
+p:samsung-870-evo-250gb a rt:Storage ;
+    rdfs:label "Samsung 870 EVO 250GB SATA SSD" ;
+    rdfs:comment "Compact and cheap SATA SSD for a boot drive or light storage. Same excellent Samsung controller and V-NAND as the larger capacities. Perfect for upgrading an old system from a hard drive on a minimal budget." ;
+    rt:productId "samsung-870-evo-250gb" ;
+    schema:brand b:Samsung ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 27.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 12345 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "sata" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:SATA ;
+    rt:storageCapacity 250 ;
+    rt:readSpeed 560 ;
+    rt:writeSpeed 530 ;
+    rt:alternativeTo p:crucial-p3-500gb .
+
+p:wd-blue-sn580-1tb a rt:Storage ;
+    rdfs:label "WD Blue SN580 1TB NVMe Gen4 SSD" ;
+    rdfs:comment "WD's mainstream Gen4 drive at an attractive price. Reads up to 4150 MB/s — not chart-topping, but more than fast enough for gaming and general use. DRAMless design with HMB keeps costs down. A quiet recommendation for users who don't need top-tier sequential speeds." ;
+    rt:productId "wd-blue-sn580-1tb" ;
+    schema:brand b:WesternDigital ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 59.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 5678 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 1000 ;
+    rt:readSpeed 4150 ;
+    rt:writeSpeed 4150 ;
+    rt:alternativeTo p:crucial-p5-plus-1tb .
+
+p:kingston-a400-480gb a rt:Storage ;
+    rdfs:label "Kingston A400 480GB SATA SSD" ;
+    rdfs:comment "Ultra-budget SATA SSD for basic storage needs. Reads at 500 MB/s. No DRAM cache means sustained write performance can drop, but for a boot drive or light game storage the price is hard to beat. Often the cheapest SSD available per gigabyte." ;
+    rt:productId "kingston-a400-480gb" ;
+    schema:brand b:Kingston ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 24.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 34567 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "sata" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:SATA ;
+    rt:storageCapacity 480 ;
+    rt:readSpeed 500 ;
+    rt:writeSpeed 450 ;
+    rt:alternativeTo p:samsung-870-evo-250gb .
+
+p:wd-black-sn850x-1tb a rt:Storage ;
+    rdfs:label "WD Black SN850X 1TB NVMe Gen4 SSD" ;
+    rdfs:comment "The 1TB sibling of the 2TB model. Same top-tier Gen4 performance at 7300 MB/s reads. Game Mode 2.0 predictive loading reduces game boot and level load times. Includes a heatsink for sustained performance during long gaming sessions." ;
+    rt:productId "wd-black-sn850x-1tb" ;
+    schema:brand b:WesternDigital ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:StorageCategory ;
+    rt:price 89.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "ssd" ;
+    rt:tag "nvme" ;
+    rt:tag "fast" ;
+    rt:tag "gaming" ;
+    rt:giftSuitability "low" ;
+    rt:hasStorageInterface rt:NVMe ;
+    rt:storageCapacity 1000 ;
+    rt:readSpeed 7300 ;
+    rt:writeSpeed 6300 ;
+    rt:alternativeTo p:samsung-980-pro-1tb .
+
+# =============================================================================
+# Additional PSUs
+# =============================================================================
+
+p:evga-450-br a rt:PSU ;
+    rdfs:label "EVGA 450 BR 80+ Bronze" ;
+    rdfs:comment "Entry-level 450W power supply for basic builds. Bronze efficiency and non-modular cabling keep the cost to a minimum. Suitable for builds with a low-power GPU or integrated graphics. Not ideal for cable management but gets budget builds running." ;
+    rt:productId "evga-450-br" ;
+    schema:brand b:EVGA ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 39.99 ;
+    rt:rating 4.4 ;
+    rt:reviewCount 5678 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 450 ;
+    rt:hasEfficiencyRating rt:Bronze80Plus ;
+    rt:psuModular "non-modular" ;
+    rt:noiseLevel 32.0 ;
+    rt:alternativeTo p:thermaltake-smart-500 .
+
+p:thermaltake-smart-500 a rt:PSU ;
+    rdfs:label "Thermaltake Smart 500W 80+ Bronze" ;
+    rdfs:comment "Basic 500W Bronze PSU with a 120mm fan. Non-modular cabling keeps the price low. The extra 50W over a 450W unit provides a small buffer for modest GPU upgrades. A stepping stone for builds that may grow." ;
+    rt:productId "thermaltake-smart-500" ;
+    schema:brand b:Thermaltake ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 44.99 ;
+    rt:rating 4.3 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 500 ;
+    rt:hasEfficiencyRating rt:Bronze80Plus ;
+    rt:psuModular "non-modular" ;
+    rt:noiseLevel 34.0 ;
+    rt:alternativeTo p:evga-450-br .
+
+p:corsair-cv550 a rt:PSU ;
+    rdfs:label "Corsair CV550 550W 80+ Bronze" ;
+    rdfs:comment "Semi-modular 550W Bronze PSU at a competitive price. The semi-modular design allows unused peripheral cables to be removed while the essential ATX and CPU cables remain attached. A good choice for mid-range builds with modest GPU power requirements." ;
+    rt:productId "corsair-cv550" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 54.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "semi-modular" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 550 ;
+    rt:hasEfficiencyRating rt:Bronze80Plus ;
+    rt:psuModular "semi" ;
+    rt:noiseLevel 30.0 ;
+    rt:alternativeTo p:seasonic-focus-gx-550 .
+
+p:seasonic-focus-gx-550 a rt:PSU ;
+    rdfs:label "Seasonic Focus GX-550 80+ Gold" ;
+    rdfs:comment "Premium 550W Gold unit from the brand many other PSU makers use as their OEM. Fully modular, extremely quiet fan profile, and a 10-year warranty. Seasonic's reputation for reliability is well-earned — this is the PSU reviewers consistently recommend at this wattage." ;
+    rt:productId "seasonic-focus-gx-550" ;
+    schema:brand b:Seasonic ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 79.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 2876 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "reliable" ;
+    rt:tag "quiet" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 550 ;
+    rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 22.0 ;
+    rt:alternativeTo p:corsair-cv550 .
+
+p:bequiet-pure-power-650 a rt:PSU ;
+    rdfs:label "be quiet! Pure Power 12 M 650W 80+ Gold" ;
+    rdfs:comment "Whisper-quiet 650W Gold PSU with be quiet!'s signature silent operation. Fully modular with flat ribbon cables for easy routing. The 120mm Silent Wings fan operates at near-inaudible levels under typical loads. ATX 3.0 and PCIe 5.0 ready with the 12VHPWR connector for next-gen GPUs." ;
+    rt:productId "bequiet-pure-power-650" ;
+    schema:brand b:BeQuiet ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 89.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1876 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "quiet" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 650 ;
+    rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 19.0 ;
+    rt:alternativeTo p:seasonic-focus-gx-650 .
+
+p:seasonic-focus-gx-650 a rt:PSU ;
+    rdfs:label "Seasonic Focus GX-650 80+ Gold" ;
+    rdfs:comment "650W fully modular Gold PSU. The same proven platform as the 550W model with additional headroom. Hybrid fan mode turns the fan off entirely under low loads for silent operation. A safe, well-reviewed choice for builds with mid-range GPUs." ;
+    rt:productId "seasonic-focus-gx-650" ;
+    schema:brand b:Seasonic ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 94.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "reliable" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 650 ;
+    rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 21.0 ;
+    rt:alternativeTo p:bequiet-pure-power-650 .
+
+p:corsair-rm750e a rt:PSU ;
+    rdfs:label "Corsair RM750e 750W 80+ Gold" ;
+    rdfs:comment "ATX 3.0 compliant 750W Gold PSU with the 12VHPWR connector built in. Fully modular with a zero-RPM fan mode for silent operation under light loads. The RM series is Corsair's mainstream reliability workhorse — millions sold with very low failure rates." ;
+    rt:productId "corsair-rm750e" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 99.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "reliable" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 750 ;
+    rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 23.0 ;
+    rt:alternativeTo p:evga-750-g6 .
+
+p:thermaltake-toughpower-850 a rt:PSU ;
+    rdfs:label "Thermaltake Toughpower GF3 850W 80+ Gold" ;
+    rdfs:comment "850W Gold unit with ATX 3.0 compliance and native 12VHPWR connector. Fully modular with a hydraulic bearing 140mm fan for quiet operation. Smart zero-fan mode at low loads. A competitive alternative to Corsair and Seasonic at this wattage." ;
+    rt:productId "thermaltake-toughpower-850" ;
+    schema:brand b:Thermaltake ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 129.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 850 ;
+    rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 26.0 ;
+    rt:alternativeTo p:corsair-rm850x .
+
+p:bequiet-dark-power-850 a rt:PSU ;
+    rdfs:label "be quiet! Dark Power 13 850W 80+ Platinum" ;
+    rdfs:comment "Premium 850W Platinum PSU with best-in-class efficiency and near-silent operation. The frameless Silent Wings fan and advanced topology deliver exceptional efficiency at all loads. ATX 3.0 with 12VHPWR. For users who demand both maximum efficiency and minimum noise." ;
+    rt:productId "bequiet-dark-power-850" ;
+    schema:brand b:BeQuiet ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 179.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 876 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "quiet" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 850 ;
+    rt:hasEfficiencyRating rt:Platinum80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 16.0 ;
+    rt:alternativeTo p:seasonic-prime-tx-850 .
+
+p:seasonic-prime-tx-850 a rt:PSU ;
+    rdfs:label "Seasonic PRIME TX-850 80+ Titanium" ;
+    rdfs:comment "Ultra-premium 850W Titanium-rated PSU with Seasonic's highest efficiency certification. Hybrid fan control with completely fanless operation under 40% load. A 12-year warranty reflects the build quality. For enthusiasts who want the absolute best power delivery regardless of cost." ;
+    rt:productId "seasonic-prime-tx-850" ;
+    schema:brand b:Seasonic ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 219.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 567 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "quiet" ;
+    rt:tag "premium" ;
+    rt:tag "flagship" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 850 ;
+    rt:hasEfficiencyRating rt:Platinum80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 15.0 ;
+    rt:alternativeTo p:bequiet-dark-power-850 .
+
+p:corsair-hx1000 a rt:PSU ;
+    rdfs:label "Corsair HX1000 1000W 80+ Platinum" ;
+    rdfs:comment "High-wattage Platinum PSU for builds with power-hungry flagships like the RTX 4090. Fully modular with zero-RPM fan mode. 1000W provides ample headroom for any current single-GPU build plus overclocking. Corsair's 10-year warranty applies." ;
+    rt:productId "corsair-hx1000" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 189.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1543 ;
+    rt:inStock true ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "high-wattage" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 1000 ;
+    rt:hasEfficiencyRating rt:Platinum80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 24.0 ;
+    rt:alternativeTo p:seasonic-prime-tx-850 .
+
+p:thermaltake-toughpower-1200 a rt:PSU ;
+    rdfs:label "Thermaltake Toughpower GF3 1200W 80+ Gold" ;
+    rdfs:comment "1200W for extreme builds or dual-GPU configurations. Gold efficiency keeps power costs reasonable at high loads. ATX 3.0 with dual 12VHPWR connectors for future-proofing. Overkill for most builds, but provides maximum headroom for users who never want to think about PSU wattage again." ;
+    rt:productId "thermaltake-toughpower-1200" ;
+    schema:brand b:Thermaltake ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:PowerSupplyCategory ;
+    rt:price 199.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 654 ;
+    rt:inStock false ;
+    rt:tag "psu" ;
+    rt:tag "modular" ;
+    rt:tag "high-wattage" ;
+    rt:giftSuitability "low" ;
+    rt:psuWattage 1200 ;
+    rt:hasEfficiencyRating rt:Gold80Plus ;
+    rt:psuModular "full" ;
+    rt:noiseLevel 30.0 ;
+    rt:alternativeTo p:corsair-hx1000 .
+
+# =============================================================================
+# Additional Cases
+# =============================================================================
+
+p:thermaltake-versa-h17 a rt:Case ;
+    rdfs:label "Thermaltake Versa H17" ;
+    rdfs:comment "Budget Micro-ATX case with a mesh front panel for airflow. Supports GPUs up to 350mm. The no-frills design keeps costs to a minimum — no tempered glass, basic cable management, but it gets the job done for a budget build. One pre-installed 120mm rear fan." ;
+    rt:productId "thermaltake-versa-h17" ;
+    schema:brand b:Thermaltake ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 49.99 ;
+    rt:rating 4.3 ;
+    rt:reviewCount 5678 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "budget" ;
+    rt:tag "micro-atx" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 350 ;
+    rt:maxCoolerHeight 155 ;
+    rt:caseSize "mini-tower" ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:deepcool-matrexx-40 .
+
+p:deepcool-matrexx-40 a rt:Case ;
+    rdfs:label "DeepCool MATREXX 40" ;
+    rdfs:comment "Compact Micro-ATX case with tempered glass side panel and mesh front at a budget price point. Supports GPUs up to 320mm. Pre-installed 120mm rear fan. Surprisingly good build quality and aesthetics for the price — a popular choice for entry-level gaming builds." ;
+    rt:productId "deepcool-matrexx-40" ;
+    schema:brand b:DeepCool ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 54.99 ;
+    rt:rating 4.4 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "budget" ;
+    rt:tag "micro-atx" ;
+    rt:tag "tempered-glass" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 320 ;
+    rt:maxCoolerHeight 165 ;
+    rt:caseSize "mini-tower" ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:thermaltake-versa-h17 .
+
+p:phanteks-p300a a rt:Case ;
+    rdfs:label "Phanteks Eclipse P300A" ;
+    rdfs:comment "Mesh front panel ATX case at an attractive price. Supports GPUs up to 355mm and ATX motherboards. The mesh design provides excellent airflow, and the clean interior layout makes building easy. Tempered glass side panel for showing off components. Two pre-installed fans." ;
+    rt:productId "phanteks-p300a" ;
+    schema:brand b:Phanteks ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 69.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "airflow" ;
+    rt:tag "value" ;
+    rt:tag "mid-tower" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 355 ;
+    rt:maxCoolerHeight 160 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:nzxt-h510-flow .
+
+p:corsair-4000d-airflow a rt:Case ;
+    rdfs:label "Corsair 4000D Airflow" ;
+    rdfs:comment "One of the most recommended mid-tower cases. High-airflow mesh front panel, excellent cable management with a spacious rear compartment, and a clean tempered glass side panel. Ships with two 120mm fans. Supports GPUs up to 360mm and 360mm top-mount radiators. Available in black and white." ;
+    rt:productId "corsair-4000d-airflow" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 94.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 8765 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "airflow" ;
+    rt:tag "mid-tower" ;
+    rt:tag "popular" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 360 ;
+    rt:maxCoolerHeight 170 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:phanteks-p400a .
+
+p:corsair-4000d-white a rt:Case ;
+    rdfs:label "Corsair 4000D Airflow White" ;
+    rdfs:comment "The white variant of Corsair's bestselling mid-tower. Same excellent airflow, cable management, and radiator support. The all-white interior and exterior enable clean white-themed builds. Ships with two white 120mm fans." ;
+    rt:productId "corsair-4000d-white" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 99.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 5432 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "airflow" ;
+    rt:tag "mid-tower" ;
+    rt:tag "white-build" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 360 ;
+    rt:maxCoolerHeight 170 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "white" ;
+    rt:alternativeTo p:corsair-4000d-airflow .
+
+p:phanteks-p400a a rt:Case ;
+    rdfs:label "Phanteks Eclipse P400A Digital" ;
+    rdfs:comment "Feature-rich mid-tower with three pre-installed D-RGB 120mm fans for out-of-box airflow and lighting. Mesh front panel and integrated RGB controller. Supports GPUs up to 420mm and 360mm front-mount radiators. One of the best value propositions in ATX cases." ;
+    rt:productId "phanteks-p400a" ;
+    schema:brand b:Phanteks ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 109.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 6789 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "airflow" ;
+    rt:tag "mid-tower" ;
+    rt:tag "rgb" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 420 ;
+    rt:maxCoolerHeight 160 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:corsair-4000d-airflow .
+
+p:lianli-lancool-216 a rt:Case ;
+    rdfs:label "Lian Li LANCOOL 216" ;
+    rdfs:comment "Airflow-optimised mid-tower with two pre-installed 160mm fans in the front for massive air movement. Mesh panels on front, top, and side for unrestricted intake and exhaust. Supports GPUs up to 392mm and CPU coolers up to 180mm. The build quality and fit/finish justify the premium over budget cases." ;
+    rt:productId "lianli-lancool-216" ;
+    schema:brand b:LianLi ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 119.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "airflow" ;
+    rt:tag "mid-tower" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 392 ;
+    rt:maxCoolerHeight 180 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:fractal-torrent .
+
+p:bequiet-pure-base-500dx a rt:Case ;
+    rdfs:label "be quiet! Pure Base 500DX" ;
+    rdfs:comment "Noise-focused mid-tower that balances silence and airflow. Sound-dampened side panels with a mesh front option. Three pre-installed Pure Wings 2 fans and ARGB LED strips. Supports GPUs up to 369mm. For users who want a quiet system without sacrificing too much thermal performance." ;
+    rt:productId "bequiet-pure-base-500dx" ;
+    schema:brand b:BeQuiet ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 109.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 2876 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "quiet" ;
+    rt:tag "mid-tower" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 369 ;
+    rt:maxCoolerHeight 190 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:fractal-torrent .
+
+p:lianli-o11-dynamic a rt:Case ;
+    rdfs:label "Lian Li O11 Dynamic EVO" ;
+    rdfs:comment "The iconic dual-chamber design that launched a thousand builds. Tempered glass on front and side with an aluminium construction. Exceptional radiator support — up to 360mm on side, top, and bottom. The separate rear chamber hides cables and the PSU. Supports GPUs up to 460mm. The go-to case for custom water cooling loops." ;
+    rt:productId "lianli-o11-dynamic" ;
+    schema:brand b:LianLi ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 159.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 7654 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "mid-tower" ;
+    rt:tag "premium" ;
+    rt:tag "watercooling" ;
+    rt:tag "showcase" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:supportsFormFactor rt:EATX ;
+    rt:maxGPULength 460 ;
+    rt:maxCoolerHeight 167 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "white" ;
+    rt:alternativeTo p:fractal-torrent .
+
+p:nzxt-h210i a rt:Case ;
+    rdfs:label "NZXT H210i Mini-ITX" ;
+    rdfs:comment "Sleek Mini-ITX case with an integrated smart device for fan and RGB control. Supports GPUs up to 325mm and a single 240mm radiator. The compact footprint fits on a desk beside a monitor. Tempered glass side panel and excellent build quality. Cable management is tight but well-designed for the form factor." ;
+    rt:productId "nzxt-h210i" ;
+    schema:brand b:NZXT ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 109.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "mini-itx" ;
+    rt:tag "sff" ;
+    rt:tag "compact" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 325 ;
+    rt:maxCoolerHeight 165 ;
+    rt:caseSize "sff" ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:coolermaster-nr200p .
+
+p:coolermaster-nr200p a rt:Case ;
+    rdfs:label "Cooler Master NR200P" ;
+    rdfs:comment "Versatile Mini-ITX SFF case that supports full-size GPUs up to 330mm and tower coolers up to 155mm. Comes with both a tempered glass and a mesh side panel for user choice between aesthetics and airflow. Top-mount 240mm radiator support. The most flexible SFF case for builders who want small without severe compromises." ;
+    rt:productId "coolermaster-nr200p" ;
+    schema:brand b:CoolerMaster ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 99.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "mini-itx" ;
+    rt:tag "sff" ;
+    rt:tag "versatile" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 330 ;
+    rt:maxCoolerHeight 155 ;
+    rt:caseSize "sff" ;
+    rt:colorScheme "white" ;
+    rt:alternativeTo p:nzxt-h210i .
+
+p:fractal-north a rt:Case ;
+    rdfs:label "Fractal Design North" ;
+    rdfs:comment "Striking mid-tower with a walnut front panel and mesh top for a warm, furniture-like aesthetic. Supports GPUs up to 355mm and 240mm top-mount radiators. Two pre-installed 140mm fans. Designed for people who want their PC to look like it belongs in a living room rather than a server rack." ;
+    rt:productId "fractal-north" ;
+    schema:brand b:FractalDesign ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 139.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "mid-tower" ;
+    rt:tag "aesthetic" ;
+    rt:tag "wood" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:maxGPULength 355 ;
+    rt:maxCoolerHeight 170 ;
+    rt:caseSize "mid-tower" ;
+    rt:colorScheme "black" ;
+    rt:alternativeTo p:bequiet-pure-base-500dx .
+
+p:phanteks-enthoo-719 a rt:Case ;
+    rdfs:label "Phanteks Enthoo 719" ;
+    rdfs:comment "Full-tower with massive internal space supporting EATX motherboards and GPUs up to 503mm. Dual-system capable — can house a separate Mini-ITX system in the same chassis. Eleven fan mounts and support for multiple 360mm radiators. For enthusiasts who need maximum expandability and custom water cooling capacity." ;
+    rt:productId "phanteks-enthoo-719" ;
+    schema:brand b:Phanteks ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CaseCategory ;
+    rt:price 189.99 ;
+    rt:originalPrice 219.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "case" ;
+    rt:tag "full-tower" ;
+    rt:tag "eatx" ;
+    rt:tag "watercooling" ;
+    rt:giftSuitability "low" ;
+    rt:supportsFormFactor rt:ATX ;
+    rt:supportsFormFactor rt:MicroATX ;
+    rt:supportsFormFactor rt:MiniITX ;
+    rt:supportsFormFactor rt:EATX ;
+    rt:maxGPULength 503 ;
+    rt:maxCoolerHeight 190 ;
+    rt:caseSize "full-tower" ;
+    rt:colorScheme "gunmetal" ;
+    rt:alternativeTo p:lianli-o11-dynamic .
+
+# =============================================================================
+# Additional Cooling
+# =============================================================================
+
+p:deepcool-ak400 a rt:Cooling ;
+    rdfs:label "DeepCool AK400" ;
+    rdfs:comment "Exceptional budget tower cooler that handles up to 220W TDP. Four heatpipes and a single 120mm fan deliver performance well beyond the price. 155mm height fits most mid-tower cases. An easy recommendation for anyone upgrading from a stock cooler." ;
+    rt:productId "deepcool-ak400" ;
+    schema:brand b:DeepCool ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 24.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 6789 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "air-cooler" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 220 ;
+    rt:coolerHeight 155 ;
+    rt:coolerType "air-tower" ;
+    rt:noiseLevel 28.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:arctic-freezer-34 .
+
+p:arctic-freezer-34 a rt:Cooling ;
+    rdfs:label "Arctic Freezer 34 eSports DUO" ;
+    rdfs:comment "Dual-fan tower cooler at a budget price. Two BioniX P-series 120mm fans in push-pull configuration handle up to 210W. The offset heatpipe design avoids RAM clearance issues. Available in multiple colour combinations for build matching." ;
+    rt:productId "arctic-freezer-34" ;
+    schema:brand b:Arctic ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 34.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 5432 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "air-cooler" ;
+    rt:tag "budget" ;
+    rt:tag "dual-fan" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 210 ;
+    rt:coolerHeight 157 ;
+    rt:coolerType "air-tower" ;
+    rt:noiseLevel 26.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:deepcool-ak400 .
+
+p:coolermaster-hyper-212 a rt:Cooling ;
+    rdfs:label "Cooler Master Hyper 212 Black Edition" ;
+    rdfs:comment "The legendary Hyper 212, updated with a black nickel-plated heatsink and improved fan. Four direct-contact heatpipes handle up to 180W. 158mm height fits in most cases. The most-recommended CPU cooler in PC building history — reliable, quiet, and adequate for most mid-range CPUs." ;
+    rt:productId "coolermaster-hyper-212" ;
+    schema:brand b:CoolerMaster ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 39.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 18765 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "air-cooler" ;
+    rt:tag "classic" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 180 ;
+    rt:coolerHeight 158 ;
+    rt:coolerType "air-tower" ;
+    rt:noiseLevel 27.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasSocket rt:LGA1200 ;
+    rt:alternativeTo p:arctic-freezer-34 .
+
+p:noctua-nh-l9i a rt:Cooling ;
+    rdfs:label "Noctua NH-L9i-17xx" ;
+    rdfs:comment "Ultra-low-profile cooler at just 37mm for SFF builds. The NF-A9x14 92mm fan is whisper-quiet. Handles CPUs up to 65W TDP — adequate for locked i5 and Ryzen 5 processors in small form factor cases where tower coolers cannot fit. Not suitable for high-TDP chips." ;
+    rt:productId "noctua-nh-l9i" ;
+    schema:brand b:Noctua ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 49.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "air-cooler" ;
+    rt:tag "sff" ;
+    rt:tag "low-profile" ;
+    rt:tag "silent" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 65 ;
+    rt:coolerHeight 37 ;
+    rt:coolerType "low-profile" ;
+    rt:noiseLevel 17.0 ;
+    rt:colorScheme "silver" ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:noctua-nh-l12s .
+
+p:noctua-nh-l12s a rt:Cooling ;
+    rdfs:label "Noctua NH-L12S" ;
+    rdfs:comment "Low-profile cooler at 70mm that bridges the gap between ultra-slim and tower designs. Handles up to 95W TDP — enough for locked mid-range CPUs in compact cases. The NF-A12x15 120mm slim fan provides good airflow at low noise. Compatible with all current sockets." ;
+    rt:productId "noctua-nh-l12s" ;
+    schema:brand b:Noctua ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 59.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "air-cooler" ;
+    rt:tag "low-profile" ;
+    rt:tag "silent" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 95 ;
+    rt:coolerHeight 70 ;
+    rt:coolerType "low-profile" ;
+    rt:noiseLevel 19.0 ;
+    rt:colorScheme "silver" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:noctua-nh-l9i .
+
+p:bequiet-dark-rock-4 a rt:Cooling ;
+    rdfs:label "be quiet! Dark Rock 4" ;
+    rdfs:comment "Single-tower cooler with a Silent Wings 135mm fan. Handles up to 200W TDP. 159mm height is tight in some cases but fits most mid-towers. The all-black design blends into any build. Exceptionally quiet — be quiet! rates it at 21.4 dBA at maximum speed." ;
+    rt:productId "bequiet-dark-rock-4" ;
+    schema:brand b:BeQuiet ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 69.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "air-cooler" ;
+    rt:tag "quiet" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 200 ;
+    rt:coolerHeight 159 ;
+    rt:coolerType "air-tower" ;
+    rt:noiseLevel 21.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:noctua-nh-d15 .
+
+p:bequiet-dark-rock-pro-4 a rt:Cooling ;
+    rdfs:label "be quiet! Dark Rock Pro 4" ;
+    rdfs:comment "Dual-tower flagship air cooler with seven heatpipes and two Silent Wings fans. Handles up to 250W TDP. Competes directly with the Noctua NH-D15 for air cooling supremacy — equally capable but in all-black aesthetics. 163mm height. Nearly silent under typical loads." ;
+    rt:productId "bequiet-dark-rock-pro-4" ;
+    schema:brand b:BeQuiet ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 89.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "air-cooler" ;
+    rt:tag "quiet" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 250 ;
+    rt:coolerHeight 163 ;
+    rt:coolerType "air-tower" ;
+    rt:noiseLevel 20.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:noctua-nh-d15 .
+
+p:arctic-liquid-freezer-240 a rt:Cooling ;
+    rdfs:label "Arctic Liquid Freezer II 240" ;
+    rdfs:comment "Best-value 240mm AIO with an integrated VRM fan on the pump head that provides additional airflow to motherboard VRM components. Handles up to 200W sustained. Two P12 fans and a thick 38mm radiator. The value champion of AIOs — performance rivals units costing twice as much." ;
+    rt:productId "arctic-liquid-freezer-240" ;
+    schema:brand b:Arctic ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 74.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 5678 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "aio" ;
+    rt:tag "liquid-cooling" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 200 ;
+    rt:coolerHeight 63 ;
+    rt:coolerType "aio-240" ;
+    rt:noiseLevel 24.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:corsair-h100i .
+
+p:deepcool-ls520 a rt:Cooling ;
+    rdfs:label "DeepCool LS520 240mm AIO" ;
+    rdfs:comment "240mm AIO with a fourth-generation pump and ARGB fans. Strong cooling performance with a modern aesthetic. The infinity mirror pump cap adds visual flair. Handles up to 200W and keeps noise below 30 dBA under typical loads." ;
+    rt:productId "deepcool-ls520" ;
+    schema:brand b:DeepCool ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 89.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "aio" ;
+    rt:tag "liquid-cooling" ;
+    rt:tag "rgb" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 200 ;
+    rt:coolerHeight 55 ;
+    rt:coolerType "aio-240" ;
+    rt:noiseLevel 29.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:arctic-liquid-freezer-240 .
+
+p:arctic-liquid-freezer-280 a rt:Cooling ;
+    rdfs:label "Arctic Liquid Freezer II 280" ;
+    rdfs:comment "280mm AIO variant with two 140mm P14 fans for higher airflow at lower RPM than 120mm alternatives. Handles up to 250W sustained. The larger radiator surface area makes this the sweet spot for cooling performance per dollar in cases that support 280mm mounts." ;
+    rt:productId "arctic-liquid-freezer-280" ;
+    schema:brand b:Arctic ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 84.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "aio" ;
+    rt:tag "liquid-cooling" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 250 ;
+    rt:coolerHeight 63 ;
+    rt:coolerType "aio-280" ;
+    rt:noiseLevel 22.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:noctua-nh-d15 .
+
+p:corsair-h150i a rt:Cooling ;
+    rdfs:label "Corsair iCUE H150i Elite 360mm AIO" ;
+    rdfs:comment "360mm AIO for maximum liquid cooling performance. Three SP120 RGB Elite fans and a copper cold plate handle even the most power-hungry CPUs under sustained load. iCUE software controls fan curves, lighting, and monitoring. The 360mm radiator requires a case with front or top 360mm mount support." ;
+    rt:productId "corsair-h150i" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 169.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 2876 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "aio" ;
+    rt:tag "liquid-cooling" ;
+    rt:tag "rgb" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 300 ;
+    rt:coolerHeight 55 ;
+    rt:coolerType "aio-360" ;
+    rt:noiseLevel 30.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:arctic-liquid-freezer-360 .
+
+p:arctic-liquid-freezer-360 a rt:Cooling ;
+    rdfs:label "Arctic Liquid Freezer II 360" ;
+    rdfs:comment "360mm AIO at a price that embarrasses the competition. Same integrated VRM fan and thick radiator design as the 240mm model, scaled up. Handles up to 300W sustained with three P12 fans. The best cooling performance per dollar at the 360mm tier." ;
+    rt:productId "arctic-liquid-freezer-360" ;
+    schema:brand b:Arctic ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 104.99 ;
+    rt:rating 4.9 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "aio" ;
+    rt:tag "liquid-cooling" ;
+    rt:tag "value" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 300 ;
+    rt:coolerHeight 63 ;
+    rt:coolerType "aio-360" ;
+    rt:noiseLevel 25.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:alternativeTo p:corsair-h150i .
+
+p:coolermaster-masterair-120 a rt:Cooling ;
+    rdfs:label "Cooler Master MasterAir MA120SE" ;
+    rdfs:comment "120mm single-tower AIO alternative at a budget price. Four direct-contact heatpipes and a 120mm SickleFlow fan handle up to 150W. At 130mm height it fits in compact cases where taller coolers cannot. A good upgrade from stock coolers for mid-range CPUs." ;
+    rt:productId "coolermaster-masterair-120" ;
+    schema:brand b:CoolerMaster ;
+    rt:hasCategory rt:PCComponents ;
+    rt:hasSubcategory rt:CoolingCategory ;
+    rt:price 29.99 ;
+    rt:originalPrice 39.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "cooling" ;
+    rt:tag "air-cooler" ;
+    rt:tag "budget" ;
+    rt:tag "compact" ;
+    rt:giftSuitability "low" ;
+    rt:coolingCapacity 150 ;
+    rt:coolerHeight 130 ;
+    rt:coolerType "air-tower" ;
+    rt:noiseLevel 30.0 ;
+    rt:colorScheme "black" ;
+    rt:hasSocket rt:AM5 ;
+    rt:hasSocket rt:AM4 ;
+    rt:hasSocket rt:LGA1700 ;
+    rt:hasSocket rt:LGA1200 ;
+    rt:alternativeTo p:deepcool-ak400 .

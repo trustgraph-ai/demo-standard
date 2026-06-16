@@ -388,6 +388,36 @@ rt:coolerHeight a owl:DatatypeProperty ;
     rdfs:label "cooler height (mm)" ;
     rdfs:comment "The physical height of the cooler in millimetres. Must not exceed the case's maximum cooler clearance." .
 
+rt:coolerType a owl:DatatypeProperty ;
+    rdfs:domain rt:Cooling ;
+    rdfs:range xsd:string ;
+    rdfs:label "cooler type" ;
+    rdfs:comment "The type of cooling solution. Values: 'air-tower' (single or dual tower heatsink with fans), 'aio-120' (120mm radiator all-in-one liquid), 'aio-240' (240mm radiator), 'aio-280' (280mm radiator), 'aio-360' (360mm radiator), 'low-profile' (compact air cooler for SFF builds)." .
+
+rt:noiseLevel a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "noise level (dBA)" ;
+    rdfs:comment "The typical noise output under load in A-weighted decibels. Lower is quieter. Useful for cooling, PSU, and GPU comparisons where acoustic comfort is a priority. Values under 25 dBA are generally considered silent; 30-35 dBA is audible but unobtrusive; above 40 dBA is noticeable." .
+
+rt:caseSize a owl:DatatypeProperty ;
+    rdfs:domain rt:Case ;
+    rdfs:range xsd:string ;
+    rdfs:label "case size" ;
+    rdfs:comment "The physical size class of the case. Values: 'full-tower' (large, maximum expandability), 'mid-tower' (standard, most common), 'mini-tower' (compact ATX or Micro-ATX), 'sff' (small form factor, Mini-ITX only). Determines desk space, internal room, and airflow characteristics." .
+
+rt:colorScheme a owl:DatatypeProperty ;
+    rdfs:domain rt:Product ;
+    rdfs:range xsd:string ;
+    rdfs:label "colour scheme" ;
+    rdfs:comment "The primary colour or finish of the product. Values: 'black', 'white', 'silver', 'gunmetal', 'black-rgb' (black with RGB lighting accents). Used for aesthetic matching across a build." .
+
+rt:psuModular a owl:DatatypeProperty ;
+    rdfs:domain rt:PSU ;
+    rdfs:range xsd:string ;
+    rdfs:label "modularity" ;
+    rdfs:comment "Whether the PSU cables are detachable. Values: 'full' (all cables removable — easiest cable management), 'semi' (main ATX and CPU cables fixed, peripheral cables removable), 'non-modular' (all cables permanently attached). Modular PSUs are easier to build with and produce cleaner cable routing." .
+
 rt:performanceScore a owl:DatatypeProperty ;
     rdfs:domain rt:Component ;
     rdfs:range xsd:integer ;

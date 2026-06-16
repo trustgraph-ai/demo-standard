@@ -27,8 +27,8 @@ not).
 | File | Description |
 |------|-------------|
 | `retail-vocabulary.ttl` | Retail reference data: specification values (socket types, RAM types, form factors, storage interfaces, performance tiers, efficiency ratings), product categories, activity templates, and compatibility constraints (hard and soft). |
-| `retail-products-pc.ttl` | 16 PC components (2 CPUs, 2 GPUs, 2 motherboards, 2 RAM kits, 2 SSDs, 2 PSUs, 2 cases, 2 CPU coolers) plus brand entities. |
-| `retail-products-electronics.ttl` | 16 electronics (stream deck, headset, chest mount, microphone, webcam, 2 mice, 2 keyboards, mousepad, 2 monitors, 2 speakers, wireless headset) plus brand entities. Cross-sell peripherals for PC builds. |
+| `retail-products-pc.ttl` | 123 PC components (18 CPUs, 17 GPUs, 15 motherboards, 14 RAM kits, 15 SSDs, 14 PSUs, 15 cases, 15 CPU coolers) plus brand entities. |
+| `retail-products-electronics.ttl` | 15 electronics (stream deck, headset, chest mount, microphone, webcam, 2 mice, 2 keyboards, mousepad, 2 monitors, 2 speakers, wireless headset) plus brand entities. Cross-sell peripherals for PC builds. |
 | `retail-products-camping.ttl` | 12 outdoor gear items (3 sleep, 4 cooking/food, 3 lighting/safety, 2 comfort) plus brand entities. Includes one consumable (propane fuel). |
 | `interaction-vocabulary.ttl` | Interaction reference data: 7 objection category individuals (price, trust, compatibility, complexity, timing, need, risk). |
 | `interaction-sample-data.ttl` | 3 sample user journeys with 45 events demonstrating the full event and signal model. |
@@ -135,10 +135,10 @@ modify them. Queries can traverse both graphs.
 
 | Category | Count | Types |
 |----------|-------|-------|
-| PC components | 16 | CPU, GPU, Motherboard, RAM, Storage, PSU, Case, Cooling |
-| Electronics | 16 | Peripherals, displays, speakers, audio, video, streaming tools |
+| PC components | 123 | CPU (18), GPU (17), Motherboard (15), RAM (14), Storage (15), PSU (14), Case (15), Cooling (15) |
+| Electronics | 15 | Peripherals, displays, speakers, audio, video, streaming tools |
 | Outdoor gear | 12 | Sleep system, cooking, lighting/safety, comfort |
-| **Total** | **44** | |
+| **Total** | **150** | |
 
 ## Sample journey summary
 
@@ -152,12 +152,12 @@ modify them. Queries can traverse both graphs.
 
 | File | Triples |
 |------|---------|
-| `retail-ontology.ttl` | 499 |
+| `retail-ontology.ttl` | 524 |
 | `retail-vocabulary.ttl` | 414 |
-| `retail-products-pc.ttl` | 394 |
+| `retail-products-pc.ttl` | 2,951 |
 | `retail-products-electronics.ttl` | 321 |
 | `retail-products-camping.ttl` | 214 |
 | `interaction-ontology.ttl` | 456 |
 | `interaction-vocabulary.ttl` | 21 |
 | `interaction-sample-data.ttl` | 660 |
-| **Total** | **2,979** |
+| **Total** | **5,561** |
