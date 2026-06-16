@@ -29,6 +29,34 @@ b:Logitech a schema:Brand ;
     rdfs:label "Logitech" ;
     rdfs:comment "Logitech International, manufacturer of webcams, mice, keyboards, and other computer peripherals." .
 
+b:Razer a schema:Brand ;
+    rdfs:label "Razer" ;
+    rdfs:comment "Razer Inc., manufacturer of gaming peripherals, laptops, and accessories." .
+
+b:SteelSeries a schema:Brand ;
+    rdfs:label "SteelSeries" ;
+    rdfs:comment "SteelSeries, Danish manufacturer of gaming peripherals including headsets, mice, and mousepads." .
+
+b:Keychron a schema:Brand ;
+    rdfs:label "Keychron" ;
+    rdfs:comment "Keychron, manufacturer of mechanical keyboards for Mac, Windows, and Linux." .
+
+b:Dell a schema:Brand ;
+    rdfs:label "Dell" ;
+    rdfs:comment "Dell Technologies, manufacturer of monitors, computers, and enterprise hardware." .
+
+b:LG a schema:Brand ;
+    rdfs:label "LG" ;
+    rdfs:comment "LG Electronics, manufacturer of displays, monitors, TVs, and consumer electronics." .
+
+b:Creative a schema:Brand ;
+    rdfs:label "Creative" ;
+    rdfs:comment "Creative Technology, manufacturer of speakers, sound cards, and audio accessories." .
+
+b:Audioengine a schema:Brand ;
+    rdfs:label "Audioengine" ;
+    rdfs:comment "Audioengine, manufacturer of premium desktop speakers and audio products." .
+
 # =============================================================================
 # Elgato Stream Deck Mini
 # =============================================================================
@@ -149,3 +177,226 @@ p:logitech-c920 a rt:Accessory ;
     rt:giftSuitability "high" ;
     rt:worksWellWith p:blue-yeti-mic ;
     rt:worksWellWith p:elgato-stream-deck-mini .
+
+# =============================================================================
+# Mice
+# =============================================================================
+
+p:logitech-g502 a rt:Accessory ;
+    rdfs:label "Logitech G502 X PLUS Wireless" ;
+    rdfs:comment "Premium wireless gaming mouse with LIGHTFORCE hybrid optical-mechanical switches and HERO 25K sensor tracking at up to 25,600 DPI. Features LIGHTSPEED wireless with sub-1ms response time, 130-hour battery life on a single AA, and 13 programmable buttons. The adjustable weight system lets users fine-tune the feel from 89g to 130g. A strong all-rounder for both gaming and productivity." ;
+    rt:productId "logitech-g502-x-plus" ;
+    schema:brand b:Logitech ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:PeripheralsCategory ;
+    rt:price 149.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "mouse" ;
+    rt:tag "wireless" ;
+    rt:tag "peripherals" ;
+    rt:giftSuitability "high" ;
+    rt:isAccessoryFor p:amd-ryzen-7-7800x3d ;
+    rt:isAccessoryFor p:intel-i5-13600k ;
+    rt:worksWellWith p:steelseries-qck ;
+    rt:alternativeTo p:razer-deathadder .
+
+p:razer-deathadder a rt:Accessory ;
+    rdfs:label "Razer DeathAdder V3" ;
+    rdfs:comment "Ultra-lightweight ergonomic gaming mouse at just 59g with Razer Focus Pro 35K optical sensor. The iconic ergonomic shape has been refined over multiple generations and is widely regarded as one of the most comfortable mouse shapes ever designed. Features Razer HyperSpeed wireless with up to 90 hours of battery life and optical mouse switches rated for 90 million clicks." ;
+    rt:productId "razer-deathadder-v3" ;
+    schema:brand b:Razer ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:PeripheralsCategory ;
+    rt:price 89.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 2134 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "mouse" ;
+    rt:tag "wireless" ;
+    rt:tag "lightweight" ;
+    rt:giftSuitability "high" ;
+    rt:isAccessoryFor p:amd-ryzen-7-7800x3d ;
+    rt:isAccessoryFor p:intel-i5-13600k ;
+    rt:worksWellWith p:steelseries-qck ;
+    rt:alternativeTo p:logitech-g502 .
+
+# =============================================================================
+# Keyboards
+# =============================================================================
+
+p:corsair-k70 a rt:Accessory ;
+    rdfs:label "Corsair K70 RGB PRO Mechanical" ;
+    rdfs:comment "Full-size mechanical gaming keyboard with Cherry MX Red linear switches, per-key RGB backlighting, and a detachable palm rest. The tournament switch disables the Windows key and macros during gaming. PBT double-shot keycaps resist shine and wear. USB passthrough port and dedicated media controls with an aluminium volume roller." ;
+    rt:productId "corsair-k70-rgb-pro" ;
+    schema:brand b:Corsair ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:PeripheralsCategory ;
+    rt:price 139.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 4567 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "keyboard" ;
+    rt:tag "mechanical" ;
+    rt:tag "rgb" ;
+    rt:giftSuitability "medium" ;
+    rt:isAccessoryFor p:amd-ryzen-7-7800x3d ;
+    rt:isAccessoryFor p:intel-i5-13600k ;
+    rt:alternativeTo p:keychron-q1 .
+
+p:keychron-q1 a rt:Accessory ;
+    rdfs:label "Keychron Q1 HE Wireless" ;
+    rdfs:comment "75% layout wireless mechanical keyboard with Gateron double-rail magnetic Hall Effect switches. The adjustable actuation point from 0.1mm to 3.6mm allows per-key customisation for both gaming (hair-trigger) and typing (deep travel). Full aluminium CNC-machined body, hot-swappable switches, gasket mount, and QMK/VIA programmability. Works with Mac, Windows, and Linux over Bluetooth 5.1 or USB-C." ;
+    rt:productId "keychron-q1-he" ;
+    schema:brand b:Keychron ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:PeripheralsCategory ;
+    rt:price 219.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 1234 ;
+    rt:inStock true ;
+    rt:tag "keyboard" ;
+    rt:tag "mechanical" ;
+    rt:tag "wireless" ;
+    rt:tag "productivity" ;
+    rt:tag "premium" ;
+    rt:giftSuitability "medium" ;
+    rt:isAccessoryFor p:amd-ryzen-7-7800x3d ;
+    rt:isAccessoryFor p:intel-i5-13600k ;
+    rt:alternativeTo p:corsair-k70 .
+
+# =============================================================================
+# Mousepads
+# =============================================================================
+
+p:steelseries-qck a rt:Accessory ;
+    rdfs:label "SteelSeries QcK Heavy XXL" ;
+    rdfs:comment "Extra-large cloth gaming mousepad (900mm x 400mm) with a 6mm thick non-slip rubber base. The micro-woven cloth surface provides consistent tracking for both optical and laser sensors. Covers the full desk width, providing space for keyboard and mouse. Machine washable." ;
+    rt:productId "steelseries-qck-heavy-xxl" ;
+    schema:brand b:SteelSeries ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:PeripheralsCategory ;
+    rt:price 29.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 8901 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "mousepad" ;
+    rt:tag "peripherals" ;
+    rt:tag "desk-mat" ;
+    rt:giftSuitability "high" ;
+    rt:worksWellWith p:logitech-g502 ;
+    rt:worksWellWith p:razer-deathadder .
+
+# =============================================================================
+# Monitors
+# =============================================================================
+
+p:dell-s2722dgm a rt:Accessory ;
+    rdfs:label "Dell S2722DGM 27\" 1440p Curved" ;
+    rdfs:comment "27-inch curved VA panel gaming monitor running at 2560x1440 resolution and 165Hz refresh rate. 1ms MPRT response time with AMD FreeSync Premium and NVIDIA G-Sync Compatible certification for tear-free gaming. The 1500R curvature provides an immersive experience, and the panel covers 99% of the sRGB colour space. HDMI 2.0 and DisplayPort 1.4 inputs." ;
+    rt:productId "dell-s2722dgm" ;
+    schema:brand b:Dell ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:DisplayCategory ;
+    rt:price 249.99 ;
+    rt:originalPrice 299.99 ;
+    rt:rating 4.6 ;
+    rt:reviewCount 5678 ;
+    rt:inStock true ;
+    rt:tag "monitor" ;
+    rt:tag "1440p" ;
+    rt:tag "gaming" ;
+    rt:tag "curved" ;
+    rt:giftSuitability "low" ;
+    rt:worksWellWith p:nvidia-rtx-4070 ;
+    rt:worksWellWith p:amd-rx-7800-xt ;
+    rt:alternativeTo p:lg-27gp850 .
+
+p:lg-27gp850 a rt:Accessory ;
+    rdfs:label "LG 27GP850-B 27\" 1440p Nano IPS" ;
+    rdfs:comment "27-inch Nano IPS gaming monitor with 2560x1440 resolution, 165Hz refresh rate (overclockable to 180Hz), and 1ms GtG response time. The Nano IPS panel delivers excellent colour accuracy at 98% DCI-P3 and wide viewing angles — a better choice than VA for colour-critical work alongside gaming. NVIDIA G-Sync Compatible and AMD FreeSync Premium. Features a versatile stand with height, tilt, swivel, and pivot adjustment." ;
+    rt:productId "lg-27gp850-b" ;
+    schema:brand b:LG ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:DisplayCategory ;
+    rt:price 349.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 3456 ;
+    rt:inStock true ;
+    rt:tag "monitor" ;
+    rt:tag "1440p" ;
+    rt:tag "gaming" ;
+    rt:tag "ips" ;
+    rt:tag "colour-accurate" ;
+    rt:giftSuitability "low" ;
+    rt:worksWellWith p:nvidia-rtx-4070 ;
+    rt:worksWellWith p:amd-rx-7800-xt ;
+    rt:alternativeTo p:dell-s2722dgm .
+
+# =============================================================================
+# Speakers
+# =============================================================================
+
+p:creative-pebble a rt:Accessory ;
+    rdfs:label "Creative Pebble V3" ;
+    rdfs:comment "Compact USB-C desktop speakers with 8W peak power and a built-in passive radiator for bass response that belies their size. USB-powered with no external power supply needed. The 45-degree elevated driver angle directs sound toward the listener at desk height. A no-fuss, affordable audio upgrade over built-in monitor speakers." ;
+    rt:productId "creative-pebble-v3" ;
+    schema:brand b:Creative ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:SpeakersCategory ;
+    rt:price 34.99 ;
+    rt:rating 4.5 ;
+    rt:reviewCount 6789 ;
+    rt:inStock true ;
+    rt:tag "speakers" ;
+    rt:tag "desktop" ;
+    rt:tag "usb" ;
+    rt:tag "budget" ;
+    rt:giftSuitability "high" ;
+    rt:alternativeTo p:audioengine-a2plus .
+
+p:audioengine-a2plus a rt:Accessory ;
+    rdfs:label "Audioengine A2+ Wireless" ;
+    rdfs:comment "Premium compact powered desktop speakers with 60W peak power, built-in DAC, and Bluetooth 5.0. Custom aramid fibre woofers and 20mm silk dome tweeters deliver audiophile-quality sound from a small footprint. Inputs include USB, 3.5mm, and RCA. The integrated amplifier eliminates the need for an external sound card or amp. A significant audio upgrade for anyone who appreciates sound quality." ;
+    rt:productId "audioengine-a2plus" ;
+    schema:brand b:Audioengine ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:SpeakersCategory ;
+    rt:price 269.99 ;
+    rt:rating 4.8 ;
+    rt:reviewCount 2345 ;
+    rt:inStock true ;
+    rt:tag "speakers" ;
+    rt:tag "desktop" ;
+    rt:tag "bluetooth" ;
+    rt:tag "premium" ;
+    rt:tag "audiophile" ;
+    rt:giftSuitability "medium" ;
+    rt:alternativeTo p:creative-pebble .
+
+# =============================================================================
+# Wireless Headset (cross-sell alternative to HyperX Cloud II)
+# =============================================================================
+
+p:steelseries-arctis-nova-7 a rt:Accessory ;
+    rdfs:label "SteelSeries Arctis Nova 7 Wireless" ;
+    rdfs:comment "Premium wireless gaming headset with simultaneous 2.4GHz and Bluetooth connectivity — play on PC while taking a phone call without switching. 38-hour battery life, retractable ClearCast Gen 2 microphone with AI noise cancellation, and 40mm custom drivers with 360-degree Spatial Audio. The ComfortMAX system with suspension headband distributes weight evenly for long sessions." ;
+    rt:productId "steelseries-arctis-nova-7" ;
+    schema:brand b:SteelSeries ;
+    rt:hasCategory rt:Electronics ;
+    rt:hasSubcategory rt:AudioCategory ;
+    rt:price 179.99 ;
+    rt:rating 4.7 ;
+    rt:reviewCount 3210 ;
+    rt:inStock true ;
+    rt:tag "gaming" ;
+    rt:tag "audio" ;
+    rt:tag "headset" ;
+    rt:tag "wireless" ;
+    rt:giftSuitability "high" ;
+    rt:alternativeTo p:hyperx-cloud-ii .

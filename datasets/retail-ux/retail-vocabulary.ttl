@@ -191,6 +191,21 @@ rt:StreamingCategory a rt:ProductCategory ;
     rdfs:label "Streaming Tools" ;
     rdfs:comment "Stream decks, lighting, green screens, and other content creation tools." .
 
+rt:PeripheralsCategory a rt:ProductCategory ;
+    rt:parentCategory rt:Electronics ;
+    rdfs:label "Peripherals" ;
+    rdfs:comment "Keyboards, mice, mousepads, and other input devices for interacting with a computer." .
+
+rt:DisplayCategory a rt:ProductCategory ;
+    rt:parentCategory rt:Electronics ;
+    rdfs:label "Displays" ;
+    rdfs:comment "Monitors, portable displays, and related accessories." .
+
+rt:SpeakersCategory a rt:ProductCategory ;
+    rt:parentCategory rt:Electronics ;
+    rdfs:label "Speakers" ;
+    rdfs:comment "Desktop speakers, soundbars, and external audio output devices." .
+
 # =============================================================================
 # Product categories — outdoor gear
 # =============================================================================
@@ -229,7 +244,12 @@ rt:GamingPCBuild a rt:Activity ;
         rt:GamingReqStorage ,
         rt:GamingReqPSU ,
         rt:GamingReqCase ,
-        rt:GamingReqCooling .
+        rt:GamingReqCooling ;
+    rt:crossSellCategory rt:PeripheralsCategory ,
+        rt:DisplayCategory ,
+        rt:AudioCategory ,
+        rt:SpeakersCategory ,
+        rt:StreamingCategory .
 
 rt:WorkstationPCBuild a rt:Activity ;
     rdfs:label "Workstation PC Build" ;
@@ -241,7 +261,11 @@ rt:WorkstationPCBuild a rt:Activity ;
         rt:WorkstationReqStorage ,
         rt:WorkstationReqPSU ,
         rt:WorkstationReqCase ,
-        rt:WorkstationReqCooling .
+        rt:WorkstationReqCooling ;
+    rt:crossSellCategory rt:PeripheralsCategory ,
+        rt:DisplayCategory ,
+        rt:AudioCategory ,
+        rt:SpeakersCategory .
 
 rt:CampingTrip a rt:Activity ;
     rdfs:label "Camping Trip" ;
@@ -257,7 +281,10 @@ rt:HomeOfficeSetup a rt:Activity ;
     rdfs:comment "Assembling a complete home office with desk, monitor, peripherals, and accessories. Requirements depend on the user's work type and available space." ;
     rt:requiresCategory rt:HomeOfficeReqAudio ,
         rt:HomeOfficeReqVideo ,
-        rt:HomeOfficeReqStreaming .
+        rt:HomeOfficeReqStreaming ;
+    rt:crossSellCategory rt:PeripheralsCategory ,
+        rt:DisplayCategory ,
+        rt:SpeakersCategory .
 
 # =============================================================================
 # Category requirements — Gaming PC Build

@@ -606,6 +606,12 @@ rt:minimumQuantityPerGroup a owl:DatatypeProperty ;
     rdfs:label "minimum quantity per group" ;
     rdfs:comment "The minimum number of items needed per group regardless of size. For example, one first aid kit per group, one camp stove per group." .
 
+rt:crossSellCategory a owl:ObjectProperty ;
+    rdfs:domain rt:Activity ;
+    rdfs:range rt:ProductCategory ;
+    rdfs:label "cross-sell category" ;
+    rdfs:comment "Links an activity to a product category that should be surfaced as a cross-sell suggestion at checkout. Unlike requiresCategory, cross-sell categories are not needed for the build or kit to be complete — they are complementary purchases that enhance the overall experience. The UX should present these after the core build is assembled, typically during checkout review. Examples: peripherals and monitors for a PC build, camp accessories for a camping trip." .
+
 rt:scenarioSeason a owl:DatatypeProperty ;
     rdfs:domain rt:Activity ;
     rdfs:range xsd:string ;
