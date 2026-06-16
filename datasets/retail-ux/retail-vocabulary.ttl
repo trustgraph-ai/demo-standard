@@ -221,19 +221,220 @@ rt:CampComfortCategory a rt:ProductCategory ;
 
 rt:GamingPCBuild a rt:Activity ;
     rdfs:label "Gaming PC Build" ;
-    rdfs:comment "Building a personal computer optimised for gaming. Requires a balanced set of components where the GPU is typically the performance anchor. The build should target a specific resolution and quality tier (1080p, 1440p, or 4K) based on the user's budget and monitor." .
+    rdfs:comment "Building a personal computer optimised for gaming. Requires a balanced set of components where the GPU is typically the performance anchor. The build should target a specific resolution and quality tier (1080p, 1440p, or 4K) based on the user's budget and monitor." ;
+    rt:requiresCategory rt:GamingReqCPU ,
+        rt:GamingReqGPU ,
+        rt:GamingReqMotherboard ,
+        rt:GamingReqRAM ,
+        rt:GamingReqStorage ,
+        rt:GamingReqPSU ,
+        rt:GamingReqCase ,
+        rt:GamingReqCooling .
 
 rt:WorkstationPCBuild a rt:Activity ;
     rdfs:label "Workstation PC Build" ;
-    rdfs:comment "Building a personal computer optimised for professional workloads such as video editing, 3D rendering, software development, or scientific computing. CPU and RAM are typically the performance anchors, with storage speed also critical." .
+    rdfs:comment "Building a personal computer optimised for professional workloads such as video editing, 3D rendering, software development, or scientific computing. CPU and RAM are typically the performance anchors, with storage speed also critical." ;
+    rt:requiresCategory rt:WorkstationReqCPU ,
+        rt:WorkstationReqGPU ,
+        rt:WorkstationReqMotherboard ,
+        rt:WorkstationReqRAM ,
+        rt:WorkstationReqStorage ,
+        rt:WorkstationReqPSU ,
+        rt:WorkstationReqCase ,
+        rt:WorkstationReqCooling .
 
 rt:CampingTrip a rt:Activity ;
     rdfs:label "Camping Trip" ;
-    rdfs:comment "Assembling a complete kit of gear for an outdoor camping trip. Requirements vary significantly based on trip type (car camping vs backpacking), season, group size, and location-specific regulations." .
+    rdfs:comment "Assembling a complete kit of gear for an outdoor camping trip. Requirements vary significantly based on trip type (car camping vs backpacking), season, group size, and location-specific regulations." ;
+    rt:scenarioSeason "3-season" ;
+    rt:requiresCategory rt:CampingReqSleep ,
+        rt:CampingReqCooking ,
+        rt:CampingReqLighting ,
+        rt:CampingReqComfort .
 
 rt:HomeOfficeSetup a rt:Activity ;
     rdfs:label "Home Office Setup" ;
-    rdfs:comment "Assembling a complete home office with desk, monitor, peripherals, and accessories. Requirements depend on the user's work type and available space." .
+    rdfs:comment "Assembling a complete home office with desk, monitor, peripherals, and accessories. Requirements depend on the user's work type and available space." ;
+    rt:requiresCategory rt:HomeOfficeReqAudio ,
+        rt:HomeOfficeReqVideo ,
+        rt:HomeOfficeReqStreaming .
+
+# =============================================================================
+# Category requirements — Gaming PC Build
+# =============================================================================
+
+rt:GamingReqCPU a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Processor" ;
+    rdfs:comment "A gaming PC needs exactly one CPU. Gaming workloads are increasingly multi-threaded, but single-thread performance still matters for frame rates." ;
+    rt:requirementCategory rt:ProcessorCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqGPU a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Graphics Card" ;
+    rdfs:comment "The GPU is the performance anchor for a gaming PC. Budget allocation should prioritise the GPU — it determines the resolution and quality settings the system can sustain." ;
+    rt:requirementCategory rt:GraphicsCardCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqMotherboard a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Motherboard" ;
+    rdfs:comment "The motherboard must be compatible with the chosen CPU socket and RAM type. For gaming, mid-range boards are usually sufficient." ;
+    rt:requirementCategory rt:MotherboardCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqRAM a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Memory" ;
+    rdfs:comment "16 GB is the minimum for modern gaming; 32 GB provides headroom for streaming or multitasking alongside games." ;
+    rt:requirementCategory rt:MemoryCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqStorage a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Storage" ;
+    rdfs:comment "An NVMe SSD significantly reduces game load times. 1 TB is the practical minimum given modern game sizes." ;
+    rt:requirementCategory rt:StorageCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqPSU a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Power Supply" ;
+    rdfs:comment "The PSU must provide enough wattage for the CPU and GPU combined, with headroom for transient power spikes." ;
+    rt:requirementCategory rt:PowerSupplyCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqCase a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Case" ;
+    rdfs:comment "The case must physically fit the motherboard form factor and GPU length. Airflow quality affects thermals and noise." ;
+    rt:requirementCategory rt:CaseCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqCooling a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Cooling" ;
+    rdfs:comment "A CPU cooler is recommended for gaming builds. The stock cooler may be sufficient for mid-range CPUs, but a tower or AIO cooler improves thermals and noise for higher-end chips." ;
+    rt:requirementCategory rt:CoolingCategory ;
+    rt:requirementPriority "recommended" ;
+    rt:minimumQuantityPerGroup 1 .
+
+# =============================================================================
+# Category requirements — Workstation PC Build
+# =============================================================================
+
+rt:WorkstationReqCPU a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Processor" ;
+    rdfs:comment "Workstation workloads are heavily multi-threaded. A high core-count CPU is the primary performance driver for rendering, compilation, and simulation." ;
+    rt:requirementCategory rt:ProcessorCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqGPU a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Graphics Card" ;
+    rdfs:comment "A GPU is recommended for workstations doing 3D rendering or GPU-accelerated compute. For pure software development, integrated graphics may suffice." ;
+    rt:requirementCategory rt:GraphicsCardCategory ;
+    rt:requirementPriority "recommended" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqMotherboard a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Motherboard" ;
+    rdfs:comment "The motherboard must support the CPU socket and enough RAM slots for the expected memory capacity." ;
+    rt:requirementCategory rt:MotherboardCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqRAM a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Memory" ;
+    rdfs:comment "Workstation RAM requirements vary widely — 32 GB minimum for video editing, 64 GB or more for large 3D scenes or datasets." ;
+    rt:requirementCategory rt:MemoryCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqStorage a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Storage" ;
+    rdfs:comment "Fast NVMe storage is critical for workstations handling large files. Multiple drives (fast working drive plus bulk storage) are common." ;
+    rt:requirementCategory rt:StorageCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqPSU a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Power Supply" ;
+    rdfs:comment "Workstation PSUs should prioritise efficiency and reliability over raw wattage, especially for systems running 24/7." ;
+    rt:requirementCategory rt:PowerSupplyCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqCase a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Case" ;
+    rdfs:comment "Workstation cases prioritise airflow, noise damping, and room for expansion over aesthetics." ;
+    rt:requirementCategory rt:CaseCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqCooling a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Cooling" ;
+    rdfs:comment "Sustained workloads generate more heat than gaming bursts. A quality CPU cooler is essential for workstation reliability." ;
+    rt:requirementCategory rt:CoolingCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+# =============================================================================
+# Category requirements — Camping Trip
+# =============================================================================
+
+rt:CampingReqSleep a rt:CategoryRequirement ;
+    rdfs:label "Camping Trip — Sleep System" ;
+    rdfs:comment "Every camper needs shelter and a sleeping bag. The sleep system is non-negotiable — without it the trip cannot proceed safely." ;
+    rt:requirementCategory rt:SleepSystemCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerPerson 1 .
+
+rt:CampingReqCooking a rt:CategoryRequirement ;
+    rdfs:label "Camping Trip — Cooking" ;
+    rdfs:comment "A stove, fuel, and basic cookware are needed for trips longer than a day. One cooking setup typically serves the whole group." ;
+    rt:requirementCategory rt:CookingCategory ;
+    rt:requirementPriority "recommended" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:CampingReqLighting a rt:CategoryRequirement ;
+    rdfs:label "Camping Trip — Lighting & Safety" ;
+    rdfs:comment "At minimum a headlamp per person and a first aid kit per group. Essential for safety after dark and in emergencies." ;
+    rt:requirementCategory rt:LightingAndSafetyCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerPerson 1 .
+
+rt:CampingReqComfort a rt:CategoryRequirement ;
+    rdfs:label "Camping Trip — Camp Comfort" ;
+    rdfs:comment "Camp chairs, tables, and similar comfort items. Nice to have for car camping, less practical for backpacking." ;
+    rt:requirementCategory rt:CampComfortCategory ;
+    rt:requirementPriority "optional" ;
+    rt:minimumQuantityPerGroup 1 .
+
+# =============================================================================
+# Category requirements — Home Office Setup
+# =============================================================================
+
+rt:HomeOfficeReqAudio a rt:CategoryRequirement ;
+    rdfs:label "Home Office — Audio" ;
+    rdfs:comment "A headset or microphone is essential for video calls and meetings." ;
+    rt:requirementCategory rt:AudioCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:HomeOfficeReqVideo a rt:CategoryRequirement ;
+    rdfs:label "Home Office — Video" ;
+    rdfs:comment "A webcam improves video call presence over built-in laptop cameras." ;
+    rt:requirementCategory rt:VideoCategory ;
+    rt:requirementPriority "recommended" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:HomeOfficeReqStreaming a rt:CategoryRequirement ;
+    rdfs:label "Home Office — Streaming Tools" ;
+    rdfs:comment "Stream decks and similar productivity tools are optional but can improve workflow efficiency for power users." ;
+    rt:requirementCategory rt:StreamingCategory ;
+    rt:requirementPriority "optional" ;
+    rt:minimumQuantityPerGroup 1 .
 
 # =============================================================================
 # Hard constraints

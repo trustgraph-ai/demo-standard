@@ -153,11 +153,11 @@ modify them. Queries can traverse both graphs.
 | File | Triples |
 |------|---------|
 | `retail-ontology.ttl` | 494 |
-| `retail-vocabulary.ttl` | 228 |
+| `retail-vocabulary.ttl` | 390 |
 | `retail-products-pc.ttl` | 349 |
 | `retail-products-electronics.ttl` | 111 |
 | `retail-products-camping.ttl` | 214 |
 | `interaction-ontology.ttl` | 456 |
 | `interaction-vocabulary.ttl` | 21 |
 | `interaction-sample-data.ttl` | 660 |
-| **Total** | **2,533** |
+| **Total** | **2,695** |
