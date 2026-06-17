@@ -112,6 +112,16 @@ ix:CheckoutCompleted a owl:Class ;
     rdfs:label "Checkout Completed" ;
     rdfs:comment "The purchase is finalised. Captures what was bought, the total spend, and the journey that led to the purchase. The terminal success event in a buying journey. Comparing what was initially considered to what was finally bought reveals how the journey shaped the outcome." .
 
+ix:CrossSellAccepted a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Cross-Sell Accepted" ;
+    rdfs:comment "The user was offered a cross-sell product category and added one or more products from it. Captures which category the offer was for and which products were selected. Paired with CrossSellDeclined, this enables direct measurement of cross-sell conversion rates per category. Distinct from a plain AddedToCart because it records the cross-sell context — the product was added in response to a category suggestion, not discovered through the main build flow." .
+
+ix:CrossSellDeclined a owl:Class ;
+    rdfs:subClassOf ix:InteractionEvent ;
+    rdfs:label "Cross-Sell Declined" ;
+    rdfs:comment "The user was offered a cross-sell product category and declined it. Semantically softer than a DecisionPoint rejection — the user never entered the consideration set for this category. They are not rejecting a specific product they evaluated; they are signalling that the category is not relevant to them right now. Reasons vary: they already own one, they do not need one, they want to think about it later, or they simply are not interested. Tracking cross-sell declines separately from product rejections prevents inflating rejection metrics with low-signal category dismissals." .
+
 ix:SessionEnded a owl:Class ;
     rdfs:subClassOf ix:InteractionEvent ;
     rdfs:label "Session Ended" ;
@@ -509,6 +519,34 @@ ix:totalSpend a owl:DatatypeProperty ;
     rdfs:range xsd:decimal ;
     rdfs:label "total spend" ;
     rdfs:comment "The total amount spent in the completed purchase." .
+
+# =============================================================================
+# Event content properties — cross-sell
+# =============================================================================
+
+ix:acceptedCategory a owl:ObjectProperty ;
+    rdfs:domain ix:CrossSellAccepted ;
+    rdfs:range rt:ProductCategory ;
+    rdfs:label "accepted category" ;
+    rdfs:comment "The product category that was offered as a cross-sell and accepted by the user." .
+
+ix:acceptedProduct a owl:ObjectProperty ;
+    rdfs:domain ix:CrossSellAccepted ;
+    rdfs:range rt:Product ;
+    rdfs:label "accepted product" ;
+    rdfs:comment "A product the user selected from the cross-sell offer. Multi-valued — the user may pick more than one product from the same category." .
+
+ix:declinedCategory a owl:ObjectProperty ;
+    rdfs:domain ix:CrossSellDeclined ;
+    rdfs:range rt:ProductCategory ;
+    rdfs:label "declined category" ;
+    rdfs:comment "The product category that was offered as a cross-sell and declined by the user." .
+
+ix:declineReason a owl:DatatypeProperty ;
+    rdfs:domain ix:CrossSellDeclined ;
+    rdfs:range xsd:string ;
+    rdfs:label "decline reason" ;
+    rdfs:comment "Why the user declined the cross-sell category, if stated or inferable. Values: 'not-needed' (user does not want this type of product), 'already-own' (user already has one), 'not-now' (interested but not ready to buy today), 'too-expensive' (would consider at a lower price), 'no-reason' (declined without explanation)." .
 
 # =============================================================================
 # Signal properties — decision points

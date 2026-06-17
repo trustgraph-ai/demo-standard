@@ -42,7 +42,7 @@ DATA_FILES = [
     "retail-products-electronics.ttl",
     "retail-products-camping.ttl",
     "interaction-vocabulary.ttl",
-    "interaction-sample-data.ttl",
+    # "interaction-sample-data.ttl",
 ]
 
 QUERY_FILES = [
