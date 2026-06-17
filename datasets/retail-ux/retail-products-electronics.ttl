@@ -63,7 +63,7 @@ b:Audioengine a schema:Brand ;
 
 p:elgato-stream-deck-mini a rt:Accessory ;
     rdfs:label "Elgato Stream Deck Mini" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/deck-mini.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/deck-mini.jpg> ;
     rdfs:comment "Compact stream deck with 6 customizable LCD keys. Perfect for streamers, content creators, and gamers who want quick access to commands, macros, and shortcuts. Each key displays a dynamic icon and can be configured to launch applications, switch scenes, post to social media, or trigger complex multi-step actions." ;
     rt:productId "elgato-stream-deck-mini" ;
     schema:brand b:Elgato ;
@@ -89,7 +89,7 @@ p:elgato-stream-deck-mini a rt:Accessory ;
 
 p:hyperx-cloud-ii a rt:Accessory ;
     rdfs:label "HyperX Cloud II Gaming Headset" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/gaming-headset.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/gaming-headset.jpg> ;
     rdfs:comment "Comfortable gaming headset with 7.1 virtual surround sound, memory foam ear cushions, and detachable noise-cancelling microphone. The 53mm drivers deliver rich audio across the frequency range from 15 Hz to 25 kHz. Works on PC, Mac, PS4, Xbox, and mobile devices via the included USB sound card or 3.5mm jack." ;
     rt:productId "hyperx-cloud-ii" ;
     schema:brand b:HyperX ;
@@ -113,7 +113,7 @@ p:hyperx-cloud-ii a rt:Accessory ;
 
 p:gopro-chest-mount-bundle a rt:Accessory ;
     rdfs:label "GoPro-Compatible Chest Mount + 64GB SD Card Bundle" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/vid-cam.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/vid-cam.jpg> ;
     rdfs:comment "Hands-free chest mount harness for action cameras, bundled with a high-speed 64GB microSD card (Class 10, U3). The adjustable elastic nylon harness fits chests from 36 to 60 inches. Compatible with GoPro Hero 3 through 12, DJI Osmo Action, and Insta360 cameras. Perfect for skateboarding, biking, skiing, and first-person-view footage." ;
     rt:productId "gopro-chest-mount-bundle" ;
     schema:brand b:ProMount ;
@@ -137,7 +137,7 @@ p:gopro-chest-mount-bundle a rt:Accessory ;
 
 p:blue-yeti-mic a rt:Accessory ;
     rdfs:label "Blue Yeti USB Microphone" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/mic.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/mic.jpg> ;
     rdfs:comment "Professional USB condenser microphone for streaming, podcasting, gaming, and YouTube. Features four selectable polar patterns (cardioid, omnidirectional, bidirectional, and stereo) to suit different recording scenarios. Records at 48 kHz / 16-bit with zero-latency headphone monitoring via the built-in 3.5mm jack. The industry standard USB microphone for content creators." ;
     rt:productId "blue-yeti-mic" ;
     schema:brand b:Blue ;
@@ -164,7 +164,7 @@ p:blue-yeti-mic a rt:Accessory ;
 
 p:logitech-c920 a rt:Accessory ;
     rdfs:label "Logitech C920 HD Pro Webcam" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/webcam.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/webcam.jpg> ;
     rdfs:comment "Full HD 1080p webcam at 30fps with stereo audio and autofocus. The 78-degree field of view frames a single person well without excessive background. The universal clip mount fits laptops and monitors. An industry standard for streaming, video calls, and content creation, with wide software compatibility and reliable autofocus performance." ;
     rt:productId "logitech-c920" ;
     schema:brand b:Logitech ;
@@ -189,7 +189,7 @@ p:logitech-c920 a rt:Accessory ;
 
 p:logitech-g502 a rt:Accessory ;
     rdfs:label "Logitech G502 X PLUS Wireless" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/mouse1.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/mouse1.jpg> ;
     rdfs:comment "Premium wireless gaming mouse with LIGHTFORCE hybrid optical-mechanical switches and HERO 25K sensor tracking at up to 25,600 DPI. Features LIGHTSPEED wireless with sub-1ms response time, 130-hour battery life on a single AA, and 13 programmable buttons. The adjustable weight system lets users fine-tune the feel from 89g to 130g. A strong all-rounder for both gaming and productivity." ;
     rt:productId "logitech-g502-x-plus" ;
     schema:brand b:Logitech ;
@@ -211,7 +211,7 @@ p:logitech-g502 a rt:Accessory ;
 
 p:razer-deathadder a rt:Accessory ;
     rdfs:label "Razer DeathAdder V3" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/mouse2.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/mouse2.jpg> ;
     rdfs:comment "Ultra-lightweight ergonomic gaming mouse at just 59g with Razer Focus Pro 35K optical sensor. The iconic ergonomic shape has been refined over multiple generations and is widely regarded as one of the most comfortable mouse shapes ever designed. Features Razer HyperSpeed wireless with up to 90 hours of battery life and optical mouse switches rated for 90 million clicks." ;
     rt:productId "razer-deathadder-v3" ;
     schema:brand b:Razer ;
@@ -237,7 +237,7 @@ p:razer-deathadder a rt:Accessory ;
 
 p:corsair-k70 a rt:Accessory ;
     rdfs:label "Corsair K70 RGB PRO Mechanical" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/keyboard1.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/keyboard1.jpg> ;
     rdfs:comment "Full-size mechanical gaming keyboard with Cherry MX Red linear switches, per-key RGB backlighting, and a detachable palm rest. The tournament switch disables the Windows key and macros during gaming. PBT double-shot keycaps resist shine and wear. USB passthrough port and dedicated media controls with an aluminium volume roller." ;
     rt:productId "corsair-k70-rgb-pro" ;
     schema:brand b:Corsair ;
@@ -258,7 +258,7 @@ p:corsair-k70 a rt:Accessory ;
 
 p:keychron-q1 a rt:Accessory ;
     rdfs:label "Keychron Q1 HE Wireless" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/keyboard2.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/keyboard2.jpg> ;
     rdfs:comment "75% layout wireless mechanical keyboard with Gateron double-rail magnetic Hall Effect switches. The adjustable actuation point from 0.1mm to 3.6mm allows per-key customisation for both gaming (hair-trigger) and typing (deep travel). Full aluminium CNC-machined body, hot-swappable switches, gasket mount, and QMK/VIA programmability. Works with Mac, Windows, and Linux over Bluetooth 5.1 or USB-C." ;
     rt:productId "keychron-q1-he" ;
     schema:brand b:Keychron ;
@@ -284,7 +284,7 @@ p:keychron-q1 a rt:Accessory ;
 
 p:steelseries-qck a rt:Accessory ;
     rdfs:label "SteelSeries QcK Heavy XXL" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/mousepad.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/mousepad.jpg> ;
     rdfs:comment "Extra-large cloth gaming mousepad (900mm x 400mm) with a 6mm thick non-slip rubber base. The micro-woven cloth surface provides consistent tracking for both optical and laser sensors. Covers the full desk width, providing space for keyboard and mouse. Machine washable." ;
     rt:productId "steelseries-qck-heavy-xxl" ;
     schema:brand b:SteelSeries ;
@@ -308,7 +308,7 @@ p:steelseries-qck a rt:Accessory ;
 
 p:dell-s2722dgm a rt:Accessory ;
     rdfs:label "Dell S2722DGM 27\" 1440p Curved" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/monitor1.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/monitor1.jpg> ;
     rdfs:comment "27-inch curved VA panel gaming monitor running at 2560x1440 resolution and 165Hz refresh rate. 1ms MPRT response time with AMD FreeSync Premium and NVIDIA G-Sync Compatible certification for tear-free gaming. The 1500R curvature provides an immersive experience, and the panel covers 99% of the sRGB colour space. HDMI 2.0 and DisplayPort 1.4 inputs." ;
     rt:productId "dell-s2722dgm" ;
     schema:brand b:Dell ;
@@ -330,7 +330,7 @@ p:dell-s2722dgm a rt:Accessory ;
 
 p:lg-27gp850 a rt:Accessory ;
     rdfs:label "LG 27GP850-B 27\" 1440p Nano IPS" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/monitor2.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/monitor2.jpg> ;
     rdfs:comment "27-inch Nano IPS gaming monitor with 2560x1440 resolution, 165Hz refresh rate (overclockable to 180Hz), and 1ms GtG response time. The Nano IPS panel delivers excellent colour accuracy at 98% DCI-P3 and wide viewing angles — a better choice than VA for colour-critical work alongside gaming. NVIDIA G-Sync Compatible and AMD FreeSync Premium. Features a versatile stand with height, tilt, swivel, and pivot adjustment." ;
     rt:productId "lg-27gp850-b" ;
     schema:brand b:LG ;
@@ -356,7 +356,7 @@ p:lg-27gp850 a rt:Accessory ;
 
 p:creative-pebble a rt:Accessory ;
     rdfs:label "Creative Pebble V3" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/speakers1.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/speakers1.jpg> ;
     rdfs:comment "Compact USB-C desktop speakers with 8W peak power and a built-in passive radiator for bass response that belies their size. USB-powered with no external power supply needed. The 45-degree elevated driver angle directs sound toward the listener at desk height. A no-fuss, affordable audio upgrade over built-in monitor speakers." ;
     rt:productId "creative-pebble-v3" ;
     schema:brand b:Creative ;
@@ -375,7 +375,7 @@ p:creative-pebble a rt:Accessory ;
 
 p:audioengine-a2plus a rt:Accessory ;
     rdfs:label "Audioengine A2+ Wireless" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/speakers2.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/speakers2.jpg> ;
     rdfs:comment "Premium compact powered desktop speakers with 60W peak power, built-in DAC, and Bluetooth 5.0. Custom aramid fibre woofers and 20mm silk dome tweeters deliver audiophile-quality sound from a small footprint. Inputs include USB, 3.5mm, and RCA. The integrated amplifier eliminates the need for an external sound card or amp. A significant audio upgrade for anyone who appreciates sound quality." ;
     rt:productId "audioengine-a2plus" ;
     schema:brand b:Audioengine ;
@@ -399,7 +399,7 @@ p:audioengine-a2plus a rt:Accessory ;
 
 p:steelseries-arctis-nova-7 a rt:Accessory ;
     rdfs:label "SteelSeries Arctis Nova 7 Wireless" ;
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/headset.jpg> ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/images/headset.jpg> ;
     rdfs:comment "Premium wireless gaming headset with simultaneous 2.4GHz and Bluetooth connectivity — play on PC while taking a phone call without switching. 38-hour battery life, retractable ClearCast Gen 2 microphone with AI noise cancellation, and 40mm custom drivers with 360-degree Spatial Audio. The ComfortMAX system with suspension headband distributes weight evenly for long sessions." ;
     rt:productId "steelseries-arctis-nova-7" ;
     schema:brand b:SteelSeries ;
