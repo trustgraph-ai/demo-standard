@@ -13,3 +13,16 @@ python3 setup-space-data.py
 Use `--help` to see options for skipping individual steps or overriding the
 API URL and token.
 
+## Hardware security
+
+The `setup-hwsec-data.py` script loads the hardware security assessment
+dataset, including device decomposition, vulnerabilities, attack surfaces,
+trust boundaries, and countermeasures:
+
+```
+python3 setup-hwsec-data.py
+```
+
+Use `--help` to see options for skipping individual steps or overriding the
+API URL and token.
+

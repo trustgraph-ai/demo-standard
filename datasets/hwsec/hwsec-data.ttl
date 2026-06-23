@@ -1,0 +1,956 @@
+@prefix hw:    <https://trustgraph.ai/ontology/hwsec/hw#> .
+@prefix sec:   <https://trustgraph.ai/ontology/hwsec/sec#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix :      <https://trustgraph.ai/hwsec/> .
+
+# =============================================================================
+# SYSTEM 1: Amazon Echo Dot 3rd Generation
+# Source: Giese & Noubir, WiSec '21
+# =============================================================================
+
+:echo-dot-3gen a hw:System ;
+    rdfs:label "Amazon Echo Dot 3rd Generation"@en ;
+    hw:manufacturer "Amazon" ;
+    hw:model "Echo Dot 3rd Gen" ;
+    hw:description "Smart speaker with voice assistant, based on Fire OS (Android 7.1.2 Nougat)" ;
+    hw:firmwareVersion "Fire OS 6 (Android 7.1.2 Nougat)" ;
+    hw:hasSubsystem :echo-dot-processing-subsystem ,
+                    :echo-dot-storage-subsystem ,
+                    :echo-dot-connectivity-subsystem ,
+                    :echo-dot-audio-subsystem ;
+    hw:hasSecurityProperty :echo-dot-threat-data-remanence ,
+                           :echo-dot-threat-account-hijack .
+
+# --- Processing subsystem ---------------------------------------------------
+
+:echo-dot-processing-subsystem a hw:Subsystem ;
+    rdfs:label "Processing subsystem"@en ;
+    hw:function "Main computation and secure execution" ;
+    hw:hasComponent :echo-dot-soc ,
+                    :echo-dot-ddr3-ram ,
+                    :echo-dot-boot-rom .
+
+:echo-dot-soc a hw:Component ;
+    rdfs:label "MediaTek MT8516B SoC"@en ;
+    hw:manufacturer "MediaTek" ;
+    hw:partNumber "MT8516B" ;
+    hw:architecture "ARM Cortex-A35 64-bit quad-core" ;
+    hw:description "Application processor designed for voice assistant devices" ;
+    hw:hasSecureBoot true ;
+    hw:trustLevel 4 ;
+    hw:hasSubComponent :echo-dot-soc-cpu ,
+                       :echo-dot-soc-trustzone ,
+                       :echo-dot-soc-efuse ;
+    hw:hasFirmware :echo-dot-fw-lk ,
+                   :echo-dot-fw-atf ,
+                   :echo-dot-fw-tee ,
+                   :echo-dot-fw-linux-kernel ;
+    hw:hasTrustBoundary :echo-dot-tb-trustzone ;
+    hw:hasInterface :echo-dot-iface-usb-debug ,
+                    :echo-dot-iface-uart-debug ;
+    hw:hasSecurityProperty :echo-dot-soc-secure-boot-cm .
+
+:echo-dot-soc-cpu a hw:SubComponent ;
+    rdfs:label "ARM Cortex-A35 CPU cluster"@en ;
+    hw:ipBlock "ARM Cortex-A35" ;
+    hw:privilegeLevel "EL3" ;
+    hw:description "Quad-core 64-bit application processor" .
+
+:echo-dot-soc-trustzone a hw:SubComponent ;
+    rdfs:label "ARM TrustZone"@en ;
+    hw:ipBlock "ARM TrustZone" ;
+    hw:privilegeLevel "Secure World" ;
+    hw:description "Hardware security extension providing isolated secure world for key storage and DHA credentials" ;
+    hw:hasElement :echo-dot-soc-tz-scr-ns-bit .
+
+:echo-dot-soc-tz-scr-ns-bit a hw:Element ;
+    rdfs:label "SCR.NS bit"@en ;
+    hw:description "Secure Configuration Register Non-Secure bit controlling world selection" ;
+    hw:bitWidth 1 ;
+    hw:accessRights "RW" .
+
+:echo-dot-soc-efuse a hw:SubComponent ;
+    rdfs:label "eFuse block"@en ;
+    hw:description "One-time programmable fuses storing RSA public key hash for Boot ROM verification" ;
+    hw:privilegeLevel "EL3" ;
+    hw:hasElement :echo-dot-efuse-rsa-hash .
+
+:echo-dot-efuse-rsa-hash a hw:Element ;
+    rdfs:label "RSA public key hash"@en ;
+    hw:description "SHA-256 hash of manufacturer RSA public key burned into eFuses for Boot ROM integrity verification" ;
+    hw:accessRights "RO" ;
+    hw:isLocked true .
+
+:echo-dot-ddr3-ram a hw:Component ;
+    rdfs:label "DDR3 RAM"@en ;
+    hw:description "System memory integrated within eMCP package" .
+
+:echo-dot-boot-rom a hw:Component ;
+    rdfs:label "Boot ROM"@en ;
+    hw:description "First code to execute on power-on, stored on SoC, verifies Pre-loader using eFuse RSA key hash" ;
+    hw:hasSecureBoot true ;
+    hw:trustLevel 5 .
+
+# --- Storage subsystem ------------------------------------------------------
+
+:echo-dot-storage-subsystem a hw:Subsystem ;
+    rdfs:label "Storage subsystem"@en ;
+    hw:function "Non-volatile data storage including OS, firmware, and user data" ;
+    hw:hasComponent :echo-dot-emcp .
+
+:echo-dot-emcp a hw:Component ;
+    rdfs:label "Hynix H9TQ32A4GTMCUR-KUM eMCP"@en ;
+    hw:manufacturer "SK Hynix" ;
+    hw:partNumber "H9TQ32A4GTMCUR-KUM" ;
+    hw:packageType "BGA-221" ;
+    hw:description "Embedded Multi-Chip Package combining 4 GB DDR3 RAM and 4 GB eMMC flash" ;
+    hw:hasSubComponent :echo-dot-emcp-emmc-controller ,
+                       :echo-dot-emcp-nand-flash ,
+                       :echo-dot-emcp-rpmb ;
+    hw:hasInterface :echo-dot-iface-emmc-data ,
+                    :echo-dot-iface-isp-test-pads ;
+    hw:hasSecurityProperty :echo-dot-vuln-no-encryption ,
+                           :echo-dot-vuln-wear-leveling ,
+                           :echo-dot-vuln-no-secure-trim ,
+                           :echo-dot-attack-isp ,
+                           :echo-dot-attack-chipoff .
+
+:echo-dot-emcp-emmc-controller a hw:SubComponent ;
+    rdfs:label "eMMC flash controller"@en ;
+    hw:description "Integrated controller handling wear-leveling, ECC, and bad-block management" .
+
+:echo-dot-emcp-nand-flash a hw:SubComponent ;
+    rdfs:label "NAND flash array"@en ;
+    hw:description "4 GB raw NAND flash storage, page size 9040 bytes, 2112 blocks total" .
+
+:echo-dot-emcp-rpmb a hw:SubComponent ;
+    rdfs:label "Replay Protected Memory Block (RPMB)"@en ;
+    hw:description "Authenticated storage area for anti-rollback counters; not utilised on all analysed devices" .
+
+# --- Connectivity subsystem -------------------------------------------------
+
+:echo-dot-connectivity-subsystem a hw:Subsystem ;
+    rdfs:label "Connectivity subsystem"@en ;
+    hw:function "Wireless communication with network and cloud services" ;
+    hw:hasComponent :echo-dot-wifi-bt-ic .
+
+:echo-dot-wifi-bt-ic a hw:Component ;
+    rdfs:label "MediaTek MT7658CSN"@en ;
+    hw:manufacturer "MediaTek" ;
+    hw:partNumber "MT7658CSN" ;
+    hw:description "Combined dual-band Wi-Fi and Bluetooth radio IC" ;
+    hw:hasInterface :echo-dot-iface-wifi ,
+                    :echo-dot-iface-bluetooth .
+
+# --- Audio subsystem --------------------------------------------------------
+
+:echo-dot-audio-subsystem a hw:Subsystem ;
+    rdfs:label "Audio subsystem"@en ;
+    hw:function "Audio input/output for voice interaction" ;
+    hw:hasComponent :echo-dot-adc-1 ,
+                    :echo-dot-adc-2 ,
+                    :echo-dot-led-driver .
+
+:echo-dot-adc-1 a hw:Component ;
+    rdfs:label "Stereo ADC TLV320ADC3101 (1)"@en ;
+    hw:manufacturer "Texas Instruments" ;
+    hw:partNumber "TLV320ADC3101" ;
+    hw:description "Stereo analog-to-digital converter for microphone array" .
+
+:echo-dot-adc-2 a hw:Component ;
+    rdfs:label "Stereo ADC TLV320ADC3101 (2)"@en ;
+    hw:manufacturer "Texas Instruments" ;
+    hw:partNumber "TLV320ADC3101" ;
+    hw:description "Second stereo ADC for microphone array" .
+
+:echo-dot-led-driver a hw:Component ;
+    rdfs:label "LED driver IS31FL3236"@en ;
+    hw:manufacturer "ISSI" ;
+    hw:partNumber "IS31FL3236" ;
+    hw:description "36-channel LED driver for light ring indicator" .
+
+# --- Interfaces -------------------------------------------------------------
+
+:echo-dot-iface-usb-debug a hw:PhysicalInterface ;
+    rdfs:label "USB debug pins"@en ;
+    hw:protocol "USB" ;
+    hw:boardLocation "Back side of PCB" ;
+    hw:probeRequired true ;
+    hw:isExternallyAccessible false ;
+    hw:requiresAuthentication true ;
+    hw:description "USB debug pin header; bootloader is locked, no open services in Android listening on USB" .
+
+:echo-dot-iface-uart-debug a hw:PhysicalInterface ;
+    rdfs:label "UART debug interface"@en ;
+    hw:protocol "UART" ;
+    hw:boardLocation "Back side of PCB" ;
+    hw:probeRequired true ;
+    hw:isExternallyAccessible false ;
+    hw:requiresAuthentication false ;
+    hw:description "UART test points providing boot log output; serial connections disabled after boot" .
+
+:echo-dot-iface-isp-test-pads a hw:PhysicalInterface ;
+    rdfs:label "eMMC ISP test pads (CMD/CLK/DAT0)"@en ;
+    hw:protocol "eMMC" ;
+    hw:boardLocation "PCB front side near SoC, CMD at TP18, CLK at TP19" ;
+    hw:probeRequired true ;
+    hw:isExternallyAccessible false ;
+    hw:requiresAuthentication false ;
+    hw:description "In-System Programming test points for direct eMMC flash access; DAT lines use buried vias on Gen3" .
+
+:echo-dot-iface-emmc-data a hw:LogicalInterface ;
+    rdfs:label "eMMC data interface"@en ;
+    hw:description "Logical data path between SoC and eMCP, typically 2 control lanes and 1+ data lanes per JEDEC standard" ;
+    hw:sanitisesInput false .
+
+:echo-dot-iface-wifi a hw:NetworkInterface ;
+    rdfs:label "Wi-Fi interface"@en ;
+    hw:protocol "802.11a/b/g/n/ac" ;
+    hw:remotelyReachable true ;
+    hw:requiresAuthentication true ;
+    hw:encryptionMode "WPA/WPA2-PSK" ;
+    hw:description "Dual-band Wi-Fi; creates open AP 'Amazon-XXXX' during provisioning setup mode" .
+
+:echo-dot-iface-bluetooth a hw:NetworkInterface ;
+    rdfs:label "Bluetooth interface"@en ;
+    hw:protocol "Bluetooth" ;
+    hw:remotelyReachable false ;
+    hw:wirelessRange "10m" ;
+    hw:description "Bluetooth for device pairing and smart home device connectivity" .
+
+# --- Firmware ---------------------------------------------------------------
+
+:echo-dot-fw-lk a hw:Firmware ;
+    rdfs:label "Little Kernel (LK) bootloader"@en ;
+    hw:description "Second-stage bootloader verified by Pre-loader, handles anti-rollback via RPMB" ;
+    hw:isSignatureVerified true ;
+    hw:binaryFormat "ELF" .
+
+:echo-dot-fw-atf a hw:Firmware ;
+    rdfs:label "ARM Trusted Firmware (ATF)"@en ;
+    hw:description "Loaded by Pre-loader and executed at TrustZone EL3; manages secure world entry" ;
+    hw:isSignatureVerified true .
+
+:echo-dot-fw-tee a hw:Firmware ;
+    rdfs:label "Trusted Execution Environment (TEE) firmware"@en ;
+    hw:description "Runs in TrustZone secure world; handles DHA credential decryption via KeyBox partition" ;
+    hw:isSignatureVerified true .
+
+:echo-dot-fw-linux-kernel a hw:Firmware ;
+    rdfs:label "Linux kernel (Fire OS)"@en ;
+    hw:description "Signed Linux kernel; mounts root partition with dm-verity integrity protection; SELinux enforcing" ;
+    hw:isSignatureVerified true ;
+    hw:binaryFormat "ELF" .
+
+# --- Trust boundaries -------------------------------------------------------
+
+:echo-dot-tb-trustzone a hw:TrustBoundary ;
+    rdfs:label "ARM TrustZone boundary"@en ;
+    hw:boundaryMechanism "ARM TrustZone SCR.NS bit" ;
+    hw:enforcedByHardware true ;
+    hw:bypassKnown false ;
+    hw:description "Separates Secure World (TEE, key storage, DHA) from Normal World (Android, apps)" .
+
+# --- Security properties: vulnerabilities -----------------------------------
+
+:echo-dot-vuln-no-encryption a sec:Vulnerability ;
+    rdfs:label "User data partition not encrypted"@en ;
+    hw:description "User data partition on eMMC is formatted as Ext4 but neither encrypted nor integrity protected; Wi-Fi credentials, tokens, and account data stored in plaintext" ;
+    sec:discoveryMethod "BINARY_ANALYSIS" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:echo-dot-vuln-wear-leveling a sec:Vulnerability ;
+    rdfs:label "Data remanence due to NAND wear-leveling"@en ;
+    hw:description "Wear-leveling algorithm preserves multiple copies of deleted data across flash blocks; factory reset does not reliably erase sensitive data from physical NAND" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:echo-dot-vuln-no-secure-trim a sec:Vulnerability ;
+    rdfs:label "eMMC Secure Trim/Sanitize not used"@en ;
+    hw:description "None of the analysed devices used eMMC Secure Trim or Sanitize commands despite support in eMMC 4.5+; formatting the filesystem does not erase physical flash pages" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+# --- Security properties: attack surfaces -----------------------------------
+
+:echo-dot-attack-isp a sec:AttackSurface ;
+    rdfs:label "In-System Programming (ISP) flash extraction"@en ;
+    hw:description "Direct eMMC access via ISP test pads using conductive needles; SoC clock grounded to prevent interference; non-destructive, works on provisioned devices" ;
+    sec:accessVector "PHYSICAL" ;
+    sec:authenticated false ;
+    sec:remotelyExploitable false ;
+    sec:complexity "LOW" .
+
+:echo-dot-attack-chipoff a sec:AttackSurface ;
+    rdfs:label "Chip-Off / Hybrid Chip-Off flash extraction"@en ;
+    hw:description "Physical removal or re-soldering of eMCP IC for direct NAND dump; hybrid method uses donor eMCP to avoid repeated soldering" ;
+    sec:accessVector "PHYSICAL" ;
+    sec:authenticated false ;
+    sec:remotelyExploitable false ;
+    sec:complexity "HIGH" .
+
+# --- Security properties: countermeasures -----------------------------------
+
+:echo-dot-soc-secure-boot-cm a sec:Countermeasure ;
+    rdfs:label "Verified Boot chain"@en ;
+    hw:description "Boot ROM verifies Pre-loader via eFuse RSA key; Pre-loader verifies LK and ATF; LK verifies Linux kernel; dm-verity protects root partition integrity" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "HIGH" ;
+    sec:isImplemented true .
+
+:echo-dot-cm-encrypt-user-data a sec:Countermeasure ;
+    rdfs:label "User data partition encryption (recommended)"@en ;
+    hw:description "Encrypt user data partition using Android FDE/FBE with key bound to TrustZone; mitigates both flash extraction and wear-leveling data remanence" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "HIGH" ;
+    sec:isImplemented false ;
+    sec:implementationCost "LOW" ;
+    sec:mitigates :echo-dot-vuln-no-encryption ,
+                  :echo-dot-vuln-wear-leveling .
+
+:echo-dot-cm-secure-erase a sec:Countermeasure ;
+    rdfs:label "eMMC Secure Erase/Sanitize on factory reset (recommended)"@en ;
+    hw:description "Use eMMC Sanitize command during factory reset to ensure physical erasure of flash blocks" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "MEDIUM" ;
+    sec:isImplemented false ;
+    sec:implementationCost "LOW" ;
+    sec:mitigates :echo-dot-vuln-no-secure-trim .
+
+:echo-dot-cm-wear-leveling-aware-erase a sec:Countermeasure ;
+    rdfs:label "Wear-leveling aware data erasure (recommended)"@en ;
+    hw:description "OS-level awareness of physical flash layout to ensure all copies of sensitive data are overwritten; requires FTL cooperation or MTD subsystem integration" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "MEDIUM" ;
+    sec:isImplemented false ;
+    sec:implementationCost "HIGH" ;
+    sec:mitigates :echo-dot-vuln-wear-leveling .
+
+# --- Security properties: threat models -------------------------------------
+
+:echo-dot-threat-data-remanence a sec:ThreatModel ;
+    rdfs:label "Private data extraction from used device"@en ;
+    sec:adversaryProfile "Opportunistic attacker with physical access to a second-hand device and under $100 of equipment" ;
+    sec:threatScenario "Attacker purchases used Echo Dot from eBay/flea market, extracts eMMC flash via ISP or Chip-Off, and recovers Wi-Fi credentials, account tokens, paired device info, and owner identity from plaintext user data partition and NAND remanence" ;
+    sec:likelihood "HIGH" ;
+    sec:impact "HIGH" ;
+    sec:exploits :echo-dot-vuln-no-encryption ,
+                 :echo-dot-vuln-wear-leveling ,
+                 :echo-dot-attack-isp .
+
+:echo-dot-threat-account-hijack a sec:ThreatModel ;
+    rdfs:label "Amazon account hijack via cloud reconnection"@en ;
+    sec:adversaryProfile "Attacker with extracted Wi-Fi credentials and basic networking knowledge" ;
+    sec:threatScenario "Attacker extracts Wi-Fi SSID/PSK from device flash, creates spoofed AP, reconnects device to Amazon cloud, gains access to previous owner's Alexa account and smart home controls" ;
+    sec:likelihood "MEDIUM" ;
+    sec:impact "CRITICAL" ;
+    sec:exploits :echo-dot-vuln-no-encryption .
+
+# --- Debug access -----------------------------------------------------------
+
+:echo-dot-debug-uart a sec:DebugAccess ;
+    rdfs:label "UART boot log access"@en ;
+    sec:interfaceType "UART" ;
+    sec:debugIsLocked false ;
+    sec:requiresPhysicalAccess true ;
+    hw:description "Boot process observable via UART; serial connections disabled after boot completes" .
+
+:echo-dot-soc hw:hasSecurityProperty :echo-dot-debug-uart .
+
+:echo-dot-debug-usb a sec:DebugAccess ;
+    rdfs:label "USB debug port"@en ;
+    sec:interfaceType "USB" ;
+    sec:debugIsLocked true ;
+    sec:requiresPhysicalAccess true ;
+    hw:description "USB access limited; bootloader locked; no open Android services on USB" .
+
+:echo-dot-soc hw:hasSecurityProperty :echo-dot-debug-usb .
+
+# =============================================================================
+# SYSTEM 2: Master Lock Bluetooth Padlock
+# Source: Knight, Lord & Arief, University of Kent
+# =============================================================================
+
+:masterlock-ble-padlock a hw:System ;
+    rdfs:label "Master Lock Bluetooth Padlock"@en ;
+    hw:manufacturer "Master Lock" ;
+    hw:description "Bluetooth-enabled padlock with 4-directional override pad, smartphone app control, and cloud-managed access sharing" ;
+    hw:hasSubsystem :masterlock-mcu-subsystem ,
+                    :masterlock-connectivity-subsystem ,
+                    :masterlock-input-subsystem ,
+                    :masterlock-cloud-subsystem ;
+    hw:hasSecurityProperty :masterlock-threat-guest-code-gen ,
+                           :masterlock-threat-brute-force .
+
+# --- MCU subsystem ----------------------------------------------------------
+
+:masterlock-mcu-subsystem a hw:Subsystem ;
+    rdfs:label "Microcontroller subsystem"@en ;
+    hw:function "Lock control logic, RTC timekeeping, and temporary code validation" ;
+    hw:hasComponent :masterlock-mcu .
+
+:masterlock-mcu a hw:Component ;
+    rdfs:label "Texas Instruments MSP430"@en ;
+    hw:manufacturer "Texas Instruments" ;
+    hw:partNumber "MSP430" ;
+    hw:architecture "MSP430 16-bit RISC" ;
+    hw:description "Ultra-low-power MCU handling lock control and RTC for temporary code validation" ;
+    hw:hasSubComponent :masterlock-mcu-rtc ;
+    hw:hasFirmware :masterlock-fw-mcu ;
+    hw:hasSecurityProperty :masterlock-vuln-rtc-manipulation .
+
+:masterlock-mcu-rtc a hw:SubComponent ;
+    rdfs:label "Real-Time Clock (RTC)"@en ;
+    hw:ipBlock "MSP430 internal RTC" ;
+    hw:description "Timekeeping for temporary code validation; pauses when battery removed, resumes on reinsertion, syncs to owner phone time on reconnection" .
+
+:masterlock-fw-mcu a hw:Firmware ;
+    rdfs:label "MSP430 lock firmware"@en ;
+    hw:description "Firmware controlling lock mechanism, BLE communication, and code validation; version transmitted in plaintext during BLE handshake" ;
+    hw:isSignatureVerified false .
+
+# --- Connectivity subsystem -------------------------------------------------
+
+:masterlock-connectivity-subsystem a hw:Subsystem ;
+    rdfs:label "Connectivity subsystem"@en ;
+    hw:function "Bluetooth Low Energy communication with smartphone app" ;
+    hw:hasComponent :masterlock-ble-radio .
+
+:masterlock-ble-radio a hw:Component ;
+    rdfs:label "BLE radio"@en ;
+    hw:description "Bluetooth Low Energy transceiver; padlock operates as BLE Slave advertising on 3 channels" ;
+    hw:hasInterface :masterlock-iface-ble ;
+    hw:hasSecurityProperty :masterlock-sidechannel-ble-plaintext .
+
+# --- Input subsystem --------------------------------------------------------
+
+:masterlock-input-subsystem a hw:Subsystem ;
+    rdfs:label "Input subsystem"@en ;
+    hw:function "Physical user input for manual override codes" ;
+    hw:hasComponent :masterlock-directional-pad .
+
+:masterlock-directional-pad a hw:Component ;
+    rdfs:label "4-directional override pad"@en ;
+    hw:description "Physical input pad with Up/Down/Left/Right directions for entering primary code, backup master code, or temporary codes as manual override mechanism" ;
+    hw:hasInterface :masterlock-iface-dpad ;
+    hw:hasSecurityProperty :masterlock-attack-brute-force .
+
+# --- Cloud subsystem (logical) ----------------------------------------------
+
+:masterlock-cloud-subsystem a hw:Subsystem ;
+    rdfs:label "Cloud service subsystem"@en ;
+    hw:function "REST API backend for account management, device registration, and temporary code generation" ;
+    hw:hasComponent :masterlock-rest-api .
+
+:masterlock-rest-api a hw:Component ;
+    rdfs:label "Master Lock Vault eLocks REST API"@en ;
+    hw:description "Cloud REST API (v4/v5) for authentication, device management, and temporary code generation; smartphone app communicates via Retrofit over HTTPS" ;
+    hw:hasInterface :masterlock-iface-rest-api ;
+    hw:hasSecurityProperty :masterlock-vuln-guest-primary-code ,
+                           :masterlock-vuln-future-temp-codes ,
+                           :masterlock-vuln-access-hours-bypass ,
+                           :masterlock-vuln-no-rate-limit ,
+                           :masterlock-vuln-http-fallback ,
+                           :masterlock-vuln-api-key-no-expiry ,
+                           :masterlock-vuln-codes-persist-reregister .
+
+# --- Interfaces -------------------------------------------------------------
+
+:masterlock-iface-ble a hw:NetworkInterface ;
+    rdfs:label "Bluetooth Low Energy interface"@en ;
+    hw:protocol "Bluetooth Low Energy 4.x" ;
+    hw:remotelyReachable false ;
+    hw:wirelessRange "10m BLE" ;
+    hw:requiresAuthentication true ;
+    hw:description "BLE communication between padlock (Slave) and smartphone app (Master); handshake reveals firmware version in plaintext before encrypted session" .
+
+:masterlock-iface-dpad a hw:PhysicalInterface ;
+    rdfs:label "Directional pad interface"@en ;
+    hw:protocol "Mechanical input" ;
+    hw:isExternallyAccessible true ;
+    hw:requiresAuthentication true ;
+    hw:description "4-direction physical pad on lock face; 60-second lockout after 3 incorrect codes; temporary codes start with Right, primary/backup start with Up" .
+
+:masterlock-iface-rest-api a hw:NetworkInterface ;
+    rdfs:label "REST API endpoint"@en ;
+    hw:protocol "HTTPS (HTTP also accepted)" ;
+    hw:remotelyReachable true ;
+    hw:requiresAuthentication true ;
+    hw:encryptionMode "TLS (HTTPS)" ;
+    hw:description "Cloud REST API; app uses HTTPS but API also responds to plain HTTP, leaking credentials in transit" .
+
+# --- Vulnerabilities --------------------------------------------------------
+
+:masterlock-vuln-rtc-manipulation a sec:Vulnerability ;
+    rdfs:label "RTC manipulation via battery removal"@en ;
+    hw:description "Removing coin cell battery pauses RTC; reinserting and syncing to manipulated phone clock causes padlock to accept expired temporary codes" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:masterlock-vuln-guest-primary-code a sec:Vulnerability ;
+    rdfs:label "Guest user can retrieve owner's primary code via API"@en ;
+    hw:description "The 'get product details' API call returns the owner-set primary directional code even to accounts with only guest association; code persists even after guest access is revoked and encryption keys are reset" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable true .
+
+:masterlock-vuln-future-temp-codes a sec:Vulnerability ;
+    rdfs:label "Guests can generate future temporary codes"@en ;
+    hw:description "The 'generate temporary code' API allows specifying arbitrary future access_time parameter; guest users can pre-generate codes valid until year 9999" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable true .
+
+:masterlock-vuln-access-hours-bypass a sec:Vulnerability ;
+    rdfs:label "Guest access hours restriction bypass"@en ;
+    hw:description "Day-time/night-time access restrictions only limit when codes can be requested, not their validity window; a day-time guest can request a code at 4pm valid until midnight" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:masterlock-vuln-no-rate-limit a sec:Vulnerability ;
+    rdfs:label "No API rate limiting"@en ;
+    hw:description "REST API does not rate-limit calls or blacklist IP addresses; enables mass temporary code generation and brute-force of account credentials" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable true .
+
+:masterlock-vuln-http-fallback a sec:Vulnerability ;
+    rdfs:label "API accessible over plain HTTP"@en ;
+    hw:description "While the app uses HTTPS, the API responds to plain HTTP requests, allowing credentials and API keys to be transmitted in cleartext" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable true .
+
+:masterlock-vuln-api-key-no-expiry a sec:Vulnerability ;
+    rdfs:label "API keys never expire"@en ;
+    hw:description "API keys generated via authentication endpoint do not expire; a leaked API key is equivalent to a leaked password until the user changes their password" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:masterlock-vuln-codes-persist-reregister a sec:Vulnerability ;
+    rdfs:label "Temporary codes survive device re-registration"@en ;
+    hw:description "When a Master Lock device is unregistered and registered to a new owner, previously generated temporary codes remain valid" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+# --- Side channels ----------------------------------------------------------
+
+:masterlock-sidechannel-ble-plaintext a sec:SideChannel ;
+    rdfs:label "BLE handshake plaintext information leakage"@en ;
+    sec:channelType "EM" ;
+    sec:measuredLeakage true ;
+    sec:requiredEquipment "Bluetooth packet sniffer (e.g. Wireshark with BLE dongle)" ;
+    hw:description "Firmware version and lock details transmitted in plaintext during BLE handshake before encrypted session is established" .
+
+# --- Attack surfaces --------------------------------------------------------
+
+:masterlock-attack-brute-force a sec:AttackSurface ;
+    rdfs:label "Directional pad brute-force"@en ;
+    sec:accessVector "PHYSICAL" ;
+    sec:authenticated false ;
+    sec:remotelyExploitable false ;
+    sec:complexity "LOW" ;
+    hw:description "Primary code has 4^6 combinations (max 30 hours); temporary codes have 4^7/2 space (max 60 hours but codes expire in 8 hours); mechanical rig can enter codes faster than manual 26.7s rate" .
+
+:masterlock-attack-api-abuse a sec:AttackSurface ;
+    rdfs:label "REST API abuse (remote)"@en ;
+    sec:accessVector "NETWORK" ;
+    sec:authenticated true ;
+    sec:remotelyExploitable true ;
+    sec:complexity "LOW" ;
+    hw:description "Guest-level API credentials sufficient to extract primary code, generate unlimited future temporary codes, and enumerate lock GPS location" .
+
+:masterlock-rest-api hw:hasSecurityProperty :masterlock-attack-api-abuse .
+
+# --- Countermeasures (patched by vendor) -------------------------------------
+
+:masterlock-cm-restrict-guest-api a sec:Countermeasure ;
+    rdfs:label "Restricted guest API permissions (patched)"@en ;
+    hw:description "Guest accounts can no longer retrieve primary code or future temporary codes via get_products API call" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "HIGH" ;
+    sec:isImplemented true ;
+    sec:mitigates :masterlock-vuln-guest-primary-code ,
+                  :masterlock-vuln-future-temp-codes .
+
+:masterlock-cm-disable-http a sec:Countermeasure ;
+    rdfs:label "HTTP access disabled (patched)"@en ;
+    hw:description "API no longer responds to plain HTTP requests; HTTPS required for all API calls" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "HIGH" ;
+    sec:isImplemented true ;
+    sec:mitigates :masterlock-vuln-http-fallback .
+
+:masterlock-cm-rate-limiting a sec:Countermeasure ;
+    rdfs:label "API rate limiting (patched)"@en ;
+    hw:description "Rate limiting mechanism added to prevent mass code generation and email-based account enumeration" ;
+    sec:controlType "DETECT" ;
+    sec:effectiveness "MEDIUM" ;
+    sec:isImplemented true ;
+    sec:mitigates :masterlock-vuln-no-rate-limit .
+
+# --- Threat models ----------------------------------------------------------
+
+:masterlock-threat-guest-code-gen a sec:ThreatModel ;
+    rdfs:label "Persistent guest access after revocation"@en ;
+    sec:adversaryProfile "Former guest user with API credentials and basic scripting ability" ;
+    sec:threatScenario "Guest user pre-generates temporary codes for 10-year span via unrate-limited API before access is revoked; codes remain valid even after device re-registration, allowing indefinite physical unlock access" ;
+    sec:likelihood "HIGH" ;
+    sec:impact "HIGH" ;
+    sec:exploits :masterlock-vuln-future-temp-codes ,
+                 :masterlock-vuln-codes-persist-reregister ,
+                 :masterlock-vuln-no-rate-limit .
+
+:masterlock-threat-brute-force a sec:ThreatModel ;
+    rdfs:label "Mechanical brute-force of override code"@en ;
+    sec:adversaryProfile "Attacker with physical access and simple mechanical rig" ;
+    sec:threatScenario "Attacker builds directional-pad brute-force rig to systematically try all primary code combinations; 4^6 keyspace reachable in approximately 30 hours" ;
+    sec:likelihood "MEDIUM" ;
+    sec:impact "HIGH" ;
+    sec:exploits :masterlock-attack-brute-force .
+
+# --- Application security ---------------------------------------------------
+
+:masterlock-vuln-hardcoded-db-key a sec:Vulnerability ;
+    rdfs:label "Hard-coded database encryption key in APK"@en ;
+    hw:description "The 'dbToken' password for the SQLCipher-encrypted local database masterlock.db is embedded in the decompiled Android APK source code; grants access to cached API data" ;
+    sec:discoveryMethod "BINARY_ANALYSIS" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:masterlock-rest-api hw:hasSecurityProperty :masterlock-vuln-hardcoded-db-key .
+
+# =============================================================================
+# SYSTEM 3: Eufy Ecosystem (Homebase 2 + Video Doorbell 2K)
+# Source: Goeman et al., USENIX WOOT '24
+# =============================================================================
+
+:eufy-ecosystem a hw:System ;
+    rdfs:label "Eufy Ecosystem (Homebase 2 + Video Doorbell 2K)"@en ;
+    hw:manufacturer "Anker Innovations (Eufy)" ;
+    hw:description "Smart doorbell and home security hub ecosystem with proprietary P2P protocol, local storage, and cloud connectivity" ;
+    hw:hasSubsystem :eufy-homebase-subsystem ,
+                    :eufy-doorbell-subsystem ,
+                    :eufy-cloud-subsystem ;
+    hw:hasSecurityProperty :eufy-threat-network-pivot ,
+                           :eufy-threat-media-decryption .
+
+# --- Homebase subsystem -----------------------------------------------------
+
+:eufy-homebase-subsystem a hw:Subsystem ;
+    rdfs:label "Eufy Homebase 2"@en ;
+    hw:function "Central hub for device management, encryption, networking, firmware updates, and local media storage" ;
+    hw:hasComponent :eufy-homebase-soc ,
+                    :eufy-homebase-flash ;
+    hw:isolationBoundary false .
+
+:eufy-homebase-soc a hw:Component ;
+    rdfs:label "Homebase 2 MIPS processor"@en ;
+    hw:architecture "MIPS" ;
+    hw:description "Main application processor running custom Linux built with Buildroot" ;
+    hw:hasFirmware :eufy-fw-homebase ;
+    hw:hasInterface :eufy-iface-homebase-uart ,
+                    :eufy-iface-homebase-ethernet ,
+                    :eufy-iface-homebase-eufy-wifi ;
+    hw:hasSecurityProperty :eufy-vuln-password-reuse ,
+                           :eufy-vuln-cleartext-p2p-commands ,
+                           :eufy-debug-uart .
+
+:eufy-homebase-flash a hw:Component ;
+    rdfs:label "Homebase flash storage"@en ;
+    hw:description "Stores firmware, P2P connection info (serial numbers, licenses), PPCS identifiers, and encrypted media locally" .
+
+:eufy-fw-homebase a hw:Firmware ;
+    rdfs:label "Homebase firmware (home_security binary)"@en ;
+    hw:description "Main binary handling all major Homebase functionality including P2P protocol, encryption, and device management; multiple concurrent instances" ;
+    hw:binaryFormat "ELF (MIPS)" ;
+    hw:extractionMethod "UART bootloader firmware dump via recovery shell" ;
+    hw:isSignatureVerified false .
+
+# --- Doorbell subsystem -----------------------------------------------------
+
+:eufy-doorbell-subsystem a hw:Subsystem ;
+    rdfs:label "Eufy Video Doorbell 2K"@en ;
+    hw:function "Video capture, motion detection, and communication with Homebase over dedicated Eufy Wi-Fi network" ;
+    hw:hasComponent :eufy-doorbell-soc ,
+                    :eufy-doorbell-spi-flash ,
+                    :eufy-doorbell-camera .
+
+:eufy-doorbell-soc a hw:Component ;
+    rdfs:label "Doorbell processor"@en ;
+    hw:description "Embedded processor handling video capture, encoding, and P2P communication with Homebase" ;
+    hw:hasFirmware :eufy-fw-doorbell ;
+    hw:hasInterface :eufy-iface-doorbell-eufy-wifi .
+
+:eufy-doorbell-spi-flash a hw:Component ;
+    rdfs:label "SPI NOR flash"@en ;
+    hw:description "Stores doorbell firmware; no obvious UART debug ports on doorbell unlike Homebase" ;
+    hw:hasInterface :eufy-iface-doorbell-spi .
+
+:eufy-doorbell-camera a hw:Component ;
+    rdfs:label "2K video camera module"@en ;
+    hw:description "Camera with motion detection and facial recognition; streams continuous JFIF video over UDP and TCP to Homebase" .
+
+:eufy-fw-doorbell a hw:Firmware ;
+    rdfs:label "Doorbell firmware"@en ;
+    hw:extractionMethod "SPI flash reader (CH314a programmer)" ;
+    hw:isSignatureVerified false .
+
+# --- Cloud subsystem (logical) ----------------------------------------------
+
+:eufy-cloud-subsystem a hw:Subsystem ;
+    rdfs:label "Eufy cloud service"@en ;
+    hw:function "Remote access relay, account management, and optional cloud media backup" ;
+    hw:hasComponent :eufy-cloud-relay .
+
+:eufy-cloud-relay a hw:Component ;
+    rdfs:label "Cloud relay / TURN server"@en ;
+    hw:description "Relays P2P traffic when direct connection between mobile app and Homebase is infeasible; uses STUN/TURN/ICE for NAT traversal" ;
+    hw:hasInterface :eufy-iface-cloud-webrtc .
+
+# --- Interfaces -------------------------------------------------------------
+
+:eufy-iface-homebase-uart a hw:PhysicalInterface ;
+    rdfs:label "Homebase UART debug port"@en ;
+    hw:protocol "UART (USB-to-TTL)" ;
+    hw:isExternallyAccessible false ;
+    hw:requiresAuthentication true ;
+    hw:probeRequired false ;
+    hw:description "UART debug ports revealed on disassembly; password-protected shell accessible but temporary recovery shell during boot has no authentication" .
+
+:eufy-iface-homebase-ethernet a hw:NetworkInterface ;
+    rdfs:label "Homebase Ethernet (LAN)"@en ;
+    hw:protocol "Ethernet" ;
+    hw:remotelyReachable true ;
+    hw:requiresAuthentication false ;
+    hw:description "Wired connection to end user's home LAN; Homebase acts as gateway between dedicated Eufy network and home network with no isolation" .
+
+:eufy-iface-homebase-eufy-wifi a hw:NetworkInterface ;
+    rdfs:label "Dedicated Eufy Wi-Fi network"@en ;
+    hw:protocol "802.11 (WPA2-PSK)" ;
+    hw:remotelyReachable false ;
+    hw:requiresAuthentication true ;
+    hw:encryptionMode "WPA2-PSK (8-char key derived from serial number)" ;
+    hw:wirelessRange "30m" ;
+    hw:description "Hidden wireless network with SSID 'OCEAN_XXXXXX' (last 24 bits of Homebase MAC); connects all Eufy devices; WPA2-PSK derived deterministically from device serial number" .
+
+:eufy-iface-doorbell-eufy-wifi a hw:NetworkInterface ;
+    rdfs:label "Doorbell Eufy Wi-Fi interface"@en ;
+    hw:protocol "802.11 (WPA2-PSK)" ;
+    hw:remotelyReachable false ;
+    hw:requiresAuthentication true ;
+    hw:encryptionMode "WPA2-PSK" ;
+    hw:description "Connects to Homebase's dedicated Eufy Wi-Fi network; paired via soundwave-based out-of-band channel" .
+
+:eufy-iface-doorbell-spi a hw:PhysicalInterface ;
+    rdfs:label "Doorbell SPI NOR flash interface"@en ;
+    hw:protocol "SPI" ;
+    hw:isExternallyAccessible false ;
+    hw:requiresAuthentication false ;
+    hw:probeRequired true ;
+    hw:description "SPI NOR flash chip readable with CH314a flash programmer for firmware extraction" .
+
+:eufy-iface-cloud-webrtc a hw:NetworkInterface ;
+    rdfs:label "WebRTC cloud interface"@en ;
+    hw:protocol "WebRTC (DTLS/SRTP)" ;
+    hw:remotelyReachable true ;
+    hw:requiresAuthentication true ;
+    hw:encryptionMode "DTLS/SRTP" ;
+    hw:description "Secure WebRTC used only between Homebase and web application; mobile app uses proprietary P2P protocol instead" .
+
+# --- Trust boundaries -------------------------------------------------------
+
+:eufy-tb-eufy-to-home-network a hw:TrustBoundary ;
+    rdfs:label "Eufy network to home LAN boundary"@en ;
+    hw:boundaryMechanism "Linux network stack (no iptables rules)" ;
+    hw:enforcedByHardware false ;
+    hw:bypassKnown true ;
+    hw:description "Homebase bridges dedicated Eufy Wi-Fi and home LAN with no traffic filtering; attacker on Eufy network can pivot to entire home network" .
+
+:eufy-homebase-soc hw:hasTrustBoundary :eufy-tb-eufy-to-home-network .
+
+# --- Vulnerabilities --------------------------------------------------------
+
+:eufy-vuln-wpa2-psk-from-serial a sec:Vulnerability ;
+    rdfs:label "WPA2-PSK deterministically derived from serial number (CVE-2023-37822)"@en ;
+    hw:description "WPA2-PSK = Base64(MD5(serial))[0:7]; serial number has predictable structure (T8010P + batch + device ID); effective entropy only 24 bits (~16.8M keys), crackable in 20 seconds with commodity GPU using Hashcat" ;
+    sec:mapsToCVE <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-37822> ;
+    sec:cvssBaseScore 8.8 ;
+    sec:discoveryMethod "BINARY_ANALYSIS" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable true ;
+    sec:disclosureDate "2023-06-01"^^xsd:date .
+
+:eufy-iface-homebase-eufy-wifi hw:hasSecurityProperty :eufy-vuln-wpa2-psk-from-serial .
+
+:eufy-vuln-password-reuse a sec:Vulnerability ;
+    rdfs:label "UART root password equals WPA2-PSK"@en ;
+    hw:description "Root password for password-protected UART shell is the same as the WPA2-PSK; compromising the Wi-Fi key grants full shell access" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:eufy-vuln-no-network-isolation a sec:Vulnerability ;
+    rdfs:label "No network isolation between Eufy and home LAN"@en ;
+    hw:description "Homebase permits unrestricted traffic flow between dedicated Eufy Wi-Fi network and user's home network; no iptables rules; enables network pivot from Eufy network to home LAN" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:eufy-homebase-soc hw:hasSecurityProperty :eufy-vuln-no-network-isolation .
+
+:eufy-vuln-cleartext-p2p-commands a sec:Vulnerability ;
+    rdfs:label "Cleartext P2P commands on Eufy network"@en ;
+    hw:description "All P2P commands, video streams (UDP JFIF), and TCP JFIF image streams transmitted unencrypted on the dedicated Eufy Wi-Fi network" ;
+    sec:discoveryMethod "MANUAL_REVIEW" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:eufy-vuln-aes-ecb-mode a sec:Vulnerability ;
+    rdfs:label "AES ECB mode used for P2P and media encryption"@en ;
+    hw:description "Eufy uses AES in ECB mode for encrypting P2P traffic and media; ECB is deterministic and reveals patterns in encrypted data" ;
+    sec:discoveryMethod "BINARY_ANALYSIS" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:eufy-homebase-soc hw:hasSecurityProperty :eufy-vuln-aes-ecb-mode .
+
+:eufy-vuln-p2p-key-from-public-data a sec:Vulnerability ;
+    rdfs:label "P2P AES key derived from public identifiers"@en ;
+    hw:description "P2P encryption key = PPCS_ID[0:15] + serial[9:15]; all parameters observable in cleartext network traffic between Homebase and app; encryption provides no additional security" ;
+    sec:discoveryMethod "BINARY_ANALYSIS" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:eufy-homebase-soc hw:hasSecurityProperty :eufy-vuln-p2p-key-from-public-data .
+
+:eufy-vuln-media-key-low-entropy a sec:Vulnerability ;
+    rdfs:label "Media encryption key derivable from serial and PPCS_ID"@en ;
+    hw:description "Media AES key generated via obfuscation of serial number, PPCS_ID, and per-image random; PPCS suffix has only ~480 possible values; any encrypted image can be decrypted without device access by brute-forcing the suffix" ;
+    sec:discoveryMethod "BINARY_ANALYSIS" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:eufy-homebase-soc hw:hasSecurityProperty :eufy-vuln-media-key-low-entropy .
+
+:eufy-vuln-partial-media-encryption a sec:Vulnerability ;
+    rdfs:label "Only JFIF header encrypted in media files"@en ;
+    hw:description "Image encryption only covers the 256-byte JFIF header; remainder of image data is unencrypted, leaking visual information" ;
+    sec:discoveryMethod "BINARY_ANALYSIS" ;
+    sec:exploitAvailable true ;
+    sec:patchAvailable false .
+
+:eufy-homebase-soc hw:hasSecurityProperty :eufy-vuln-partial-media-encryption .
+
+# --- Debug access -----------------------------------------------------------
+
+:eufy-debug-uart a sec:DebugAccess ;
+    rdfs:label "Homebase UART recovery shell"@en ;
+    sec:interfaceType "UART" ;
+    sec:debugIsLocked false ;
+    sec:requiresPhysicalAccess true ;
+    sec:bypassTechnique "Temporary recovery shell accessible during boot process without authentication; password-protected shell uses same password as WPA2-PSK" ;
+    hw:description "UART debug ports on Homebase accessible after disassembly" .
+
+# --- Attack surfaces --------------------------------------------------------
+
+:eufy-attack-wifi-cracking a sec:AttackSurface ;
+    rdfs:label "Eufy Wi-Fi network WPA2-PSK cracking"@en ;
+    sec:accessVector "ADJACENT" ;
+    sec:authenticated false ;
+    sec:remotelyExploitable false ;
+    sec:complexity "LOW" ;
+    hw:description "Wardrive for hidden SSID 'OCEAN_*', capture WPA handshake via deauthentication attack, crack 24-bit effective entropy key in 20 seconds using custom wordlist and Hashcat on commodity GPU" .
+
+:eufy-homebase-soc hw:hasSecurityProperty :eufy-attack-wifi-cracking .
+
+:eufy-attack-firmware-re a sec:AttackSurface ;
+    rdfs:label "Firmware reverse engineering via UART/SPI"@en ;
+    sec:accessVector "PHYSICAL" ;
+    sec:authenticated false ;
+    sec:remotelyExploitable false ;
+    sec:complexity "HIGH" ;
+    hw:description "Homebase firmware extracted via UART recovery shell; doorbell firmware via SPI flash reader; analysed with EMBA, Ghidra, and dAngr symbolic debugger" .
+
+:eufy-homebase-soc hw:hasSecurityProperty :eufy-attack-firmware-re .
+
+# --- Countermeasures (recommended) ------------------------------------------
+
+:eufy-cm-disable-password-reuse a sec:Countermeasure ;
+    rdfs:label "Separate UART and WPA2-PSK credentials (recommended)"@en ;
+    hw:description "Avoid reusing WPA2-PSK as UART root password; disable debug port in production" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "HIGH" ;
+    sec:isImplemented false ;
+    sec:implementationCost "LOW" ;
+    sec:mitigates :eufy-vuln-password-reuse .
+
+:eufy-cm-random-wpa2-psk a sec:Countermeasure ;
+    rdfs:label "High-entropy random WPA2-PSK (recommended)"@en ;
+    hw:description "Generate WPA2-PSK using CSPRNG rather than deriving from serial number; distribute new key to paired devices via secure background update" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "HIGH" ;
+    sec:isImplemented false ;
+    sec:implementationCost "MEDIUM" ;
+    sec:mitigates :eufy-vuln-wpa2-psk-from-serial .
+
+:eufy-cm-network-isolation a sec:Countermeasure ;
+    rdfs:label "Network isolation via iptables (recommended)"@en ;
+    hw:description "Implement iptables rules on Homebase to restrict traffic between Eufy network and home LAN; forward only essential ports" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "HIGH" ;
+    sec:isImplemented false ;
+    sec:implementationCost "LOW" ;
+    sec:mitigates :eufy-vuln-no-network-isolation .
+
+:eufy-cm-encrypt-all-traffic a sec:Countermeasure ;
+    rdfs:label "TLS/E2E encryption for all Eufy network traffic (recommended)"@en ;
+    hw:description "Encrypt all communication on dedicated Eufy network using TLS or equivalent; replace AES-ECB with AES-GCM or ChaCha20-Poly1305; encrypt entire media payload not just headers" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "HIGH" ;
+    sec:isImplemented false ;
+    sec:implementationCost "MEDIUM" ;
+    sec:mitigates :eufy-vuln-cleartext-p2p-commands ,
+                  :eufy-vuln-aes-ecb-mode ,
+                  :eufy-vuln-partial-media-encryption .
+
+:eufy-cm-proper-key-derivation a sec:Countermeasure ;
+    rdfs:label "Standard key derivation for encryption keys (recommended)"@en ;
+    hw:description "Use standard KDF (e.g. HKDF) with device-unique secret material not derivable from public identifiers; ensure keys are not deterministic from serial/PPCS_ID" ;
+    sec:controlType "PREVENT" ;
+    sec:effectiveness "HIGH" ;
+    sec:isImplemented false ;
+    sec:implementationCost "MEDIUM" ;
+    sec:mitigates :eufy-vuln-p2p-key-from-public-data ,
+                  :eufy-vuln-media-key-low-entropy .
+
+# --- Threat models ----------------------------------------------------------
+
+:eufy-threat-network-pivot a sec:ThreatModel ;
+    rdfs:label "Home network compromise via Eufy Wi-Fi pivot"@en ;
+    sec:adversaryProfile "Outdoor adversary within wireless range (~30m with directional antenna) with commodity GPU hardware" ;
+    sec:threatScenario "Attacker wardrives for hidden OCEAN_* SSID, cracks WPA2-PSK in 20 seconds, joins Eufy network, intercepts all cleartext P2P commands and video streams, then pivots through un-firewalled Homebase to access entire home LAN" ;
+    sec:likelihood "HIGH" ;
+    sec:impact "CRITICAL" ;
+    sec:exploits :eufy-vuln-wpa2-psk-from-serial ,
+                 :eufy-vuln-no-network-isolation ,
+                 :eufy-vuln-cleartext-p2p-commands .
+
+:eufy-threat-media-decryption a sec:ThreatModel ;
+    rdfs:label "Decryption of all stored and streamed Eufy media"@en ;
+    sec:adversaryProfile "Indoor adversary on home LAN or outdoor adversary who has cracked the Eufy Wi-Fi key" ;
+    sec:threatScenario "Attacker intercepts encrypted media, extracts serial number and PPCS_ID from cleartext network traffic, brute-forces 480-value PPCS suffix space, and recovers AES media encryption key to decrypt all images and video" ;
+    sec:likelihood "HIGH" ;
+    sec:impact "HIGH" ;
+    sec:exploits :eufy-vuln-media-key-low-entropy ,
+                 :eufy-vuln-p2p-key-from-public-data ,
+                 :eufy-vuln-partial-media-encryption .
