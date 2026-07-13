@@ -1,4 +1,3 @@
-
 @prefix tg: <http://trustgraph.ai/ontology/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -11,10 +10,10 @@
 
 tg:RiskManagementOntology rdf:type owl:Ontology ;
     rdfs:label "TrustGraph Risk Management Ontology" ;
-    rdfs:comment "A streamlined, event-centric ontology designed for enterprise risk tracking, optimization, and visualization." .
+    rdfs:comment "A streamlined, event-centric ontology designed for enterprise risk tracking, optimization, governance, and interactive mitigation workflows with clear accountability." .
 
 ### ==========================================
-###   2. CLASSES (The 4 Core Nodes)
+###   2. CLASSES (The 6 Core Nodes)
 ### ==========================================
 
 tg:Event rdf:type owl:Class ;
@@ -33,47 +32,82 @@ tg:Asset rdf:type owl:Class ;
     rdfs:label "Asset" ;
     rdfs:comment "The corporate resource, system, or entity at stake." .
 
+tg:Process rdf:type owl:Class ;
+    rdfs:label "Process" ;
+    rdfs:comment "A governance, incident response, or mitigation workflow invoked to manage or resolve risk." .
+
+tg:ProcessStep rdf:type owl:Class ;
+    rdfs:label "Process Step" ;
+    rdfs:comment "A specific task or action item within a larger risk mitigation process." .
+
 ### ==========================================
 ###   3. OBJECT PROPERTIES (Relationships)
 ### ==========================================
 
 tg:hasActor rdf:type owl:ObjectProperty ;
     rdfs:label "has actor" ;
-    rdfs:comment "Links the risk event to the specific entity responsible for initiating it." ;
     rdfs:domain tg:Event ;
     rdfs:range tg:Actor .
 
 tg:hasRisk rdf:type owl:ObjectProperty ;
     rdfs:label "has risk" ;
-    rdfs:comment "Links the risk event to the underlying classification or mechanism of risk." ;
     rdfs:domain tg:Event ;
     rdfs:range tg:Risk .
 
 tg:impactsAsset rdf:type owl:ObjectProperty ;
     rdfs:label "impacts asset" ;
-    rdfs:comment "Links the risk event to one or more assets currently exposed or compromised." ;
     rdfs:domain tg:Event ;
     rdfs:range tg:Asset .
+
+tg:mitigatesEvent rdf:type owl:ObjectProperty ;
+    rdfs:label "mitigates event" ;
+    rdfs:domain tg:Process ;
+    rdfs:range tg:Event .
+
+tg:hasStep rdf:type owl:ObjectProperty ;
+    rdfs:label "has step" ;
+    rdfs:domain tg:Process ;
+    rdfs:range tg:ProcessStep .
 
 ### ==========================================
 ###   4. DATATYPE PROPERTIES (Attributes)
 ### ==========================================
 
+# Temporal Properties
 tg:timestamp rdf:type owl:DatatypeProperty ;
-    rdfs:label "timestamp" ;
-    rdfs:comment "The exact, fine-grained date and time the risk event occurred." ;
     rdfs:domain tg:Event ;
     rdfs:range xsd:dateTime .
 
 tg:eventDate rdf:type owl:DatatypeProperty ;
-    rdfs:label "event date" ;
-    rdfs:comment "Optimization property containing only the calendar date, used for high-speed primary index filtering." ;
     rdfs:domain tg:Event ;
     rdfs:range xsd:date .
 
+# Risk Metrics
 tg:riskScore rdf:type owl:DatatypeProperty ;
-    rdfs:label "risk score" ;
-    rdfs:comment "A normalized risk calculation score ranging from 0.0 to 1.0." ;
     rdfs:domain tg:Risk ;
     rdfs:range xsd:float .
+
+# Process Metadata
+tg:invokedBy rdf:type owl:DatatypeProperty ;
+    rdfs:domain tg:Process ;
+    rdfs:range xsd:string .
+
+tg:processStatus rdf:type owl:DatatypeProperty ;
+    rdfs:domain tg:Process ;
+    rdfs:range xsd:string .
+
+# Step Metadata
+tg:stepNumber rdf:type owl:DatatypeProperty ;
+    rdfs:domain tg:ProcessStep ;
+    rdfs:range xsd:integer .
+
+tg:isComplete rdf:type owl:DatatypeProperty ;
+    rdfs:domain tg:ProcessStep ;
+    rdfs:range xsd:boolean .
+
+# Accountability Property (Applicable to both Process and ProcessStep)
+tg:assignedTo rdf:type owl:DatatypeProperty ;
+    rdfs:label "assigned to" ;
+    rdfs:comment "The individual or team responsible for owning the process or executing the specific step." ;
+    rdfs:range xsd:string .
 
