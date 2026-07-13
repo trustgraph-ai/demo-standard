@@ -40,5 +40,19 @@
     "description": "Identify events that impact more than one asset, indicating broader organisational exposure.",
     "language": "graph-rag",
     "query": "Which risk events impacted multiple assets simultaneously, and what does that tell us about systemic vulnerabilities?"
+  },
+  {
+    "id": "incident-response-overview",
+    "title": "Incident response overview",
+    "description": "Summarise the state of all incident response processes and their progress.",
+    "language": "graph-rag",
+    "query": "What is the current state of our incident response efforts? How many processes are open, in progress, or resolved, and what work remains?"
+  },
+  {
+    "id": "accountability-gaps",
+    "title": "Accountability and ownership gaps",
+    "description": "Identify events or process steps that lack clear ownership or accountability.",
+    "language": "graph-rag",
+    "query": "Are there any gaps in accountability across our risk mitigation processes? Which severe events lack a response, and which response steps are incomplete?"
   }
 ]

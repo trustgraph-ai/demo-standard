@@ -40,5 +40,19 @@
     "description": "Assess the risk exposure of source code assets across all threat vectors.",
     "language": "agent",
     "query": "What are all the ways our source code repository has been threatened, and which actors and risk types were involved?"
+  },
+  {
+    "id": "unmitigated-gaps",
+    "title": "Unmitigated severe events",
+    "description": "Identify severe risk events that have no incident response process assigned.",
+    "language": "agent",
+    "query": "Are there any high-severity risk events that don't have an incident response process assigned yet? What should we prioritise?"
+  },
+  {
+    "id": "process-bottlenecks",
+    "title": "Incident response bottlenecks",
+    "description": "Identify which teams have the most incomplete process steps.",
+    "language": "agent",
+    "query": "Which teams or individuals have the most outstanding incident response steps? Where are the bottlenecks in our mitigation workflows?"
   }
 ]

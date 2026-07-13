@@ -68,5 +68,40 @@
     "description": "Returns a chronological timeline of all risk events with actor and risk details.",
     "language": "sparql",
     "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?timestamp ?eventLabel ?actorLabel ?riskLabel ?score\nWHERE {\n  ?event a tg:Event ;\n         rdfs:label ?eventLabel ;\n         tg:timestamp ?timestamp ;\n         tg:hasActor ?actor ;\n         tg:hasRisk ?risk .\n  ?actor rdfs:label ?actorLabel .\n  ?risk rdfs:label ?riskLabel ;\n        tg:riskScore ?score .\n}\nORDER BY ?timestamp"
+  },
+  {
+    "id": "list-all-processes",
+    "title": "List all incident response processes",
+    "description": "Returns all mitigation processes with their status, owner, and the event they mitigate.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?processLabel ?status ?invoker ?eventLabel ?riskLabel ?score\nWHERE {\n  ?process a tg:Process ;\n           rdfs:label ?processLabel ;\n           tg:processStatus ?status ;\n           tg:invokedBy ?invoker ;\n           tg:mitigatesEvent ?event .\n  ?event rdfs:label ?eventLabel ;\n         tg:hasRisk ?risk .\n  ?risk rdfs:label ?riskLabel ;\n        tg:riskScore ?score .\n}\nORDER BY ?status ?processLabel"
+  },
+  {
+    "id": "process-steps-detail",
+    "title": "Process steps with completion status",
+    "description": "Returns all steps for all processes with their step number, owner, and completion status.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?processLabel ?stepNumber ?stepLabel ?owner ?isComplete\nWHERE {\n  ?process a tg:Process ;\n           rdfs:label ?processLabel ;\n           tg:hasStep ?step .\n  ?step rdfs:label ?stepLabel ;\n        tg:stepNumber ?stepNumber ;\n        tg:isComplete ?isComplete ;\n        tg:assignedTo ?owner .\n}\nORDER BY ?processLabel ?stepNumber"
+  },
+  {
+    "id": "incomplete-steps",
+    "title": "Incomplete process steps requiring action",
+    "description": "Returns all process steps that are not yet complete, grouped by owner.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?owner ?processLabel ?stepNumber ?stepLabel\nWHERE {\n  ?process a tg:Process ;\n           rdfs:label ?processLabel ;\n           tg:hasStep ?step .\n  ?step rdfs:label ?stepLabel ;\n        tg:stepNumber ?stepNumber ;\n        tg:isComplete \"false\"^^xsd:boolean ;\n        tg:assignedTo ?owner .\n}\nORDER BY ?owner ?processLabel ?stepNumber"
+  },
+  {
+    "id": "unmitigated-severe-events",
+    "title": "Severe events with no mitigation process",
+    "description": "Returns high-risk events (score > 0.7) that have no incident response process assigned.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?eventLabel ?date ?actorLabel ?riskLabel ?score\nWHERE {\n  ?event a tg:Event ;\n         rdfs:label ?eventLabel ;\n         tg:eventDate ?date ;\n         tg:hasActor ?actor ;\n         tg:hasRisk ?risk .\n  ?actor rdfs:label ?actorLabel .\n  ?risk rdfs:label ?riskLabel ;\n        tg:riskScore ?score .\n  FILTER(?score > 0.7)\n  FILTER NOT EXISTS {\n    ?process a tg:Process ;\n             tg:mitigatesEvent ?event .\n  }\n}\nORDER BY DESC(?score)"
+  },
+  {
+    "id": "process-status-summary",
+    "title": "Process status summary",
+    "description": "Returns a count of processes grouped by status.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\n\nSELECT ?status (COUNT(?process) AS ?count)\nWHERE {\n  ?process a tg:Process ;\n           tg:processStatus ?status .\n}\nGROUP BY ?status\nORDER BY ?status"
   }
 ]

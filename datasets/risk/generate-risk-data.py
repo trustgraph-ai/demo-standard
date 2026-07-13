@@ -8,6 +8,9 @@ Events are randomly generated across a configurable date range by
 combining actors, risks, and assets with weighted probabilities that
 reflect realistic threat patterns (e.g. APT groups favour phishing and
 privilege escalation; insiders favour data exfiltration and fraud).
+
+Severe events (risk score >= threshold) may trigger an incident response
+Process with ordered ProcessSteps, assigned owners, and completion status.
 """
 
 import random
@@ -270,6 +273,99 @@ EVENT_TEMPLATES = {
 }
 
 
+# Severity threshold — only events with risk score at or above this get a
+# mitigation process attached.
+SEVERITY_THRESHOLD = 0.75
+
+# Probability that a qualifying severe event actually gets a process.
+# Not every severe event has been triaged yet.
+PROCESS_PROBABILITY = 0.6
+
+# People / teams who can own processes and steps
+INVOKERS = [
+    "CISO Office",
+    "SOC Lead",
+    "VP Engineering",
+    "Head of Risk",
+    "Incident Commander",
+]
+
+STEP_OWNERS = [
+    "SOC Tier-2 Analyst",
+    "Forensics Team",
+    "IT Operations",
+    "Legal & Compliance",
+    "Network Security",
+    "Identity & Access Team",
+    "DevSecOps",
+    "HR Investigations",
+    "External Counsel",
+    "Crisis Communications",
+]
+
+# Playbook steps per risk type.  Each tuple is (label, typical owner pool).
+# The generator picks owners from the pool randomly.
+PLAYBOOKS = {
+    "risk-ransomware": [
+        ("Isolate affected hosts from the network", ["IT Operations", "Network Security"]),
+        ("Capture forensic disk images", ["Forensics Team"]),
+        ("Identify ransomware variant and IOCs", ["SOC Tier-2 Analyst", "Forensics Team"]),
+        ("Notify legal and executive leadership", ["Legal & Compliance", "Crisis Communications"]),
+        ("Restore systems from verified backups", ["IT Operations", "DevSecOps"]),
+        ("Conduct post-incident review", ["SOC Tier-2 Analyst", "Forensics Team"]),
+    ],
+    "risk-zero-day": [
+        ("Activate emergency patching protocol", ["DevSecOps", "IT Operations"]),
+        ("Deploy compensating network controls", ["Network Security"]),
+        ("Hunt for indicators of compromise across estate", ["SOC Tier-2 Analyst", "Forensics Team"]),
+        ("Engage vendor for patch ETA", ["DevSecOps"]),
+        ("Validate patch deployment and close", ["IT Operations", "DevSecOps"]),
+    ],
+    "risk-insider-trading": [
+        ("Preserve access logs and query history", ["Forensics Team", "SOC Tier-2 Analyst"]),
+        ("Restrict subject's system access", ["Identity & Access Team"]),
+        ("Brief legal and compliance on findings", ["Legal & Compliance"]),
+        ("Coordinate with HR for disciplinary review", ["HR Investigations"]),
+        ("File regulatory disclosure if required", ["Legal & Compliance", "External Counsel"]),
+    ],
+    "risk-supply-chain": [
+        ("Quarantine compromised packages and artifacts", ["DevSecOps"]),
+        ("Audit dependency tree for additional exposure", ["DevSecOps", "SOC Tier-2 Analyst"]),
+        ("Roll back to last known-good build", ["IT Operations", "DevSecOps"]),
+        ("Notify downstream consumers", ["Crisis Communications", "Legal & Compliance"]),
+        ("Harden build pipeline controls", ["DevSecOps"]),
+    ],
+    "risk-payroll-fraud": [
+        ("Freeze affected payroll accounts", ["IT Operations"]),
+        ("Review payroll change audit trail", ["Forensics Team", "SOC Tier-2 Analyst"]),
+        ("Coordinate with HR and legal", ["HR Investigations", "Legal & Compliance"]),
+        ("Recover diverted funds", ["Legal & Compliance", "External Counsel"]),
+    ],
+    "risk-priv-escalation": [
+        ("Revoke escalated privileges immediately", ["Identity & Access Team"]),
+        ("Analyse exploitation method", ["SOC Tier-2 Analyst", "Forensics Team"]),
+        ("Patch or mitigate underlying vulnerability", ["DevSecOps", "IT Operations"]),
+        ("Review access logs for lateral movement", ["SOC Tier-2 Analyst"]),
+    ],
+    "risk-phishing": [
+        ("Block sender domains and quarantine messages", ["Network Security", "IT Operations"]),
+        ("Reset credentials for affected users", ["Identity & Access Team"]),
+        ("Scan endpoints for payload execution", ["SOC Tier-2 Analyst"]),
+        ("Issue employee awareness notification", ["Crisis Communications"]),
+    ],
+}
+
+# Fallback playbook for severe risks without a specific one
+DEFAULT_PLAYBOOK = [
+    ("Triage and confirm incident severity", ["SOC Tier-2 Analyst"]),
+    ("Contain affected systems", ["IT Operations", "Network Security"]),
+    ("Collect and preserve evidence", ["Forensics Team"]),
+    ("Notify stakeholders and begin remediation", ["Crisis Communications", "Legal & Compliance"]),
+]
+
+PROCESS_STATUSES = ["open", "in-progress", "resolved"]
+
+
 def weighted_choice(items_with_weights):
     items, weights = zip(*items_with_weights)
     return random.choices(items, weights=weights, k=1)[0]
@@ -331,7 +427,57 @@ def generate_events(n_events, start_date, end_date, seed=None):
     return events
 
 
-def emit_turtle(events, out):
+def generate_processes(events):
+    risk_scores = {r[0]: r[3] for r in RISKS}
+    processes = []
+    proc_id = 0
+
+    for ev in events:
+        score = risk_scores.get(ev["risk_id"], 0)
+        if score < SEVERITY_THRESHOLD:
+            continue
+        if random.random() > PROCESS_PROBABILITY:
+            continue
+
+        proc_id += 1
+        risk_id = ev["risk_id"]
+        playbook = PLAYBOOKS.get(risk_id, DEFAULT_PLAYBOOK)
+
+        invoker = random.choice(INVOKERS)
+        status = random.choices(
+            PROCESS_STATUSES, weights=[1, 3, 2], k=1
+        )[0]
+
+        steps = []
+        for step_num, (step_label, owner_pool) in enumerate(playbook, start=1):
+            owner = random.choice(owner_pool)
+            if status == "resolved":
+                complete = True
+            elif status == "in-progress":
+                complete = step_num <= len(playbook) // 2
+            else:
+                complete = False
+            steps.append({
+                "number": step_num,
+                "label": step_label,
+                "owner": owner,
+                "complete": complete,
+            })
+
+        processes.append({
+            "id": proc_id,
+            "event_id": ev["id"],
+            "label": f"IR-{proc_id:04d}: Response to {ev['label'][:60]}",
+            "invoker": invoker,
+            "status": status,
+            "assigned_to": invoker,
+            "steps": steps,
+        })
+
+    return processes
+
+
+def emit_turtle(events, processes, out):
     out.write("\n")
     out.write("@prefix tg: <http://trustgraph.ai/ontology/> .\n")
     out.write("@prefix d: <http://trustgraph.ai/data/risk/> .\n")
@@ -388,6 +534,43 @@ def emit_turtle(events, out):
 
         out.write("\n")
 
+    if not processes:
+        return
+
+    out.write("### ==========================================\n")
+    out.write("###   PROCESSES & STEPS\n")
+    out.write("### ==========================================\n\n")
+
+    for proc in processes:
+        pid = f"process-{proc['id']:04d}"
+        eid = f"event-{proc['event_id']:04d}"
+        label = proc["label"].replace('"', '\\"')
+
+        out.write(f'd:{pid} a tg:Process ;\n')
+        out.write(f'    rdfs:label "{label}" ;\n')
+        out.write(f'    tg:mitigatesEvent d:{eid} ;\n')
+        out.write(f'    tg:invokedBy "{proc["invoker"]}" ;\n')
+        out.write(f'    tg:processStatus "{proc["status"]}" ;\n')
+        out.write(f'    tg:assignedTo "{proc["assigned_to"]}" ;\n')
+
+        for j, step in enumerate(proc["steps"]):
+            sid = f"{pid}-step-{step['number']:02d}"
+            sep = " ." if j == len(proc["steps"]) - 1 else " ;"
+            out.write(f'    tg:hasStep d:{sid}{sep}\n')
+
+        out.write("\n")
+
+        for step in proc["steps"]:
+            sid = f"{pid}-step-{step['number']:02d}"
+            step_label = step["label"].replace('"', '\\"')
+            complete = "true" if step["complete"] else "false"
+
+            out.write(f'd:{sid} a tg:ProcessStep ;\n')
+            out.write(f'    rdfs:label "{step_label}" ;\n')
+            out.write(f'    tg:stepNumber {step["number"]} ;\n')
+            out.write(f'    tg:isComplete "{complete}"^^xsd:boolean ;\n')
+            out.write(f'    tg:assignedTo "{step["owner"]}" .\n\n')
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -419,11 +602,14 @@ def main():
     end = datetime.strptime(args.end_date, "%Y-%m-%d")
 
     events = generate_events(args.num_events, start, end, seed=args.seed)
+    processes = generate_processes(events)
 
     with open(args.output, "w") as f:
-        emit_turtle(events, f)
+        emit_turtle(events, processes, f)
 
-    print(f"Generated {len(events)} events -> {args.output}")
+    n_steps = sum(len(p["steps"]) for p in processes)
+    print(f"Generated {len(events)} events, {len(processes)} processes, "
+          f"{n_steps} steps -> {args.output}")
 
 
 if __name__ == "__main__":
