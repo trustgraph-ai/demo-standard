@@ -1,0 +1,44 @@
+[
+  {
+    "id": "highest-risk-actor",
+    "title": "Highest risk actor",
+    "description": "Determine which actor is associated with the highest overall risk exposure.",
+    "language": "agent",
+    "query": "Which threat actor poses the greatest risk to the organisation based on the severity and frequency of their events?"
+  },
+  {
+    "id": "most-vulnerable-asset",
+    "title": "Most vulnerable asset",
+    "description": "Identify the asset most frequently impacted by risk events.",
+    "language": "agent",
+    "query": "Which corporate asset is most at risk, and what types of threats has it been exposed to?"
+  },
+  {
+    "id": "insider-vs-external",
+    "title": "Insider vs external threat comparison",
+    "description": "Compare the risk profile of insider threats versus external threat actors.",
+    "language": "agent",
+    "query": "How do insider threats compare to external threats in terms of number of events and average risk score?"
+  },
+  {
+    "id": "ransomware-blast-radius",
+    "title": "Ransomware blast radius",
+    "description": "Assess the full impact of ransomware events across the organisation.",
+    "language": "agent",
+    "query": "What is the total blast radius of ransomware attacks — which assets were affected and over what timeframe?"
+  },
+  {
+    "id": "escalation-pattern",
+    "title": "Attack escalation pattern",
+    "description": "Identify whether events show a pattern of escalating attacks over time.",
+    "language": "agent",
+    "query": "Is there evidence of attack escalation — are threat actors progressing from initial access techniques to more severe actions over time?"
+  },
+  {
+    "id": "source-code-risk",
+    "title": "Source code risk assessment",
+    "description": "Assess the risk exposure of source code assets across all threat vectors.",
+    "language": "agent",
+    "query": "What are all the ways our source code repository has been threatened, and which actors and risk types were involved?"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "list-all-events",
+    "title": "List all risk events with details",
+    "description": "Returns all events with timestamp, actor, risk type, risk score, and impacted assets.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?eventLabel ?date ?actorLabel ?riskLabel ?score ?assetLabel\nWHERE {\n  ?event a tg:Event ;\n         rdfs:label ?eventLabel ;\n         tg:eventDate ?date ;\n         tg:hasActor ?actor ;\n         tg:hasRisk ?risk ;\n         tg:impactsAsset ?asset .\n  ?actor rdfs:label ?actorLabel .\n  ?risk rdfs:label ?riskLabel ;\n        tg:riskScore ?score .\n  ?asset rdfs:label ?assetLabel .\n}\nORDER BY ?date"
+  },
+  {
+    "id": "high-risk-events",
+    "title": "High-risk events (score > 0.7)",
+    "description": "Returns events where the associated risk has a score above 0.7, ordered by score descending.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?eventLabel ?date ?actorLabel ?riskLabel ?score ?assetLabel\nWHERE {\n  ?event a tg:Event ;\n         rdfs:label ?eventLabel ;\n         tg:eventDate ?date ;\n         tg:hasActor ?actor ;\n         tg:hasRisk ?risk ;\n         tg:impactsAsset ?asset .\n  ?actor rdfs:label ?actorLabel .\n  ?risk rdfs:label ?riskLabel ;\n        tg:riskScore ?score .\n  ?asset rdfs:label ?assetLabel .\n  FILTER(?score > 0.7)\n}\nORDER BY DESC(?score)"
+  },
+  {
+    "id": "events-by-date-range",
+    "title": "Events in a date range (1-7 Jul 2026)",
+    "description": "Returns events within a specific date range using the optimised eventDate index.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?eventLabel ?date ?actorLabel ?riskLabel ?score\nWHERE {\n  ?event a tg:Event ;\n         rdfs:label ?eventLabel ;\n         tg:eventDate ?date ;\n         tg:hasActor ?actor ;\n         tg:hasRisk ?risk .\n  FILTER(?date >= \"2026-07-01\"^^xsd:date && ?date <= \"2026-07-07\"^^xsd:date)\n  ?actor rdfs:label ?actorLabel .\n  ?risk rdfs:label ?riskLabel ;\n        tg:riskScore ?score .\n}\nORDER BY ?date"
+  },
+  {
+    "id": "events-by-actor",
+    "title": "Events by a specific actor (APT-28)",
+    "description": "Returns all events attributed to a named threat actor.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?eventLabel ?date ?riskLabel ?score ?assetLabel\nWHERE {\n  ?actor rdfs:label \"APT-28 Threat Group\" .\n  ?event a tg:Event ;\n         rdfs:label ?eventLabel ;\n         tg:eventDate ?date ;\n         tg:hasActor ?actor ;\n         tg:hasRisk ?risk ;\n         tg:impactsAsset ?asset .\n  ?risk rdfs:label ?riskLabel ;\n        tg:riskScore ?score .\n  ?asset rdfs:label ?assetLabel .\n}\nORDER BY ?date"
+  },
+  {
+    "id": "count-events-by-actor",
+    "title": "Count events per actor",
+    "description": "Returns the number of risk events attributed to each actor, ordered by count descending.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?actorLabel (COUNT(DISTINCT ?event) AS ?eventCount)\nWHERE {\n  ?event a tg:Event ;\n         tg:hasActor ?actor .\n  ?actor rdfs:label ?actorLabel .\n}\nGROUP BY ?actorLabel\nORDER BY DESC(?eventCount)"
+  },
+  {
+    "id": "count-events-by-risk",
+    "title": "Count events per risk type",
+    "description": "Returns how many events are associated with each risk classification.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?riskLabel ?score (COUNT(DISTINCT ?event) AS ?eventCount)\nWHERE {\n  ?event a tg:Event ;\n         tg:hasRisk ?risk .\n  ?risk rdfs:label ?riskLabel ;\n        tg:riskScore ?score .\n}\nGROUP BY ?riskLabel ?score\nORDER BY DESC(?eventCount)"
+  },
+  {
+    "id": "most-impacted-assets",
+    "title": "Most impacted assets",
+    "description": "Returns assets ranked by the number of risk events that impact them.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?assetLabel (COUNT(DISTINCT ?event) AS ?eventCount)\nWHERE {\n  ?event a tg:Event ;\n         tg:impactsAsset ?asset .\n  ?asset rdfs:label ?assetLabel .\n}\nGROUP BY ?assetLabel\nORDER BY DESC(?eventCount)"
+  },
+  {
+    "id": "assets-impacted-by-risk",
+    "title": "Assets impacted by a specific risk (Ransomware)",
+    "description": "Returns all assets impacted by events involving a named risk type.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT DISTINCT ?assetLabel ?eventLabel ?date\nWHERE {\n  ?risk rdfs:label \"Ransomware Deployment\" .\n  ?event a tg:Event ;\n         rdfs:label ?eventLabel ;\n         tg:eventDate ?date ;\n         tg:hasRisk ?risk ;\n         tg:impactsAsset ?asset .\n  ?asset rdfs:label ?assetLabel .\n}\nORDER BY ?date"
+  },
+  {
+    "id": "actor-asset-matrix",
+    "title": "Actor-to-asset exposure matrix",
+    "description": "Shows which actors have impacted which assets, with the highest risk score for each pair.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?actorLabel ?assetLabel (MAX(?score) AS ?maxScore) (COUNT(DISTINCT ?event) AS ?eventCount)\nWHERE {\n  ?event a tg:Event ;\n         tg:hasActor ?actor ;\n         tg:hasRisk ?risk ;\n         tg:impactsAsset ?asset .\n  ?actor rdfs:label ?actorLabel .\n  ?risk tg:riskScore ?score .\n  ?asset rdfs:label ?assetLabel .\n}\nGROUP BY ?actorLabel ?assetLabel\nORDER BY DESC(?maxScore)"
+  },
+  {
+    "id": "event-timeline",
+    "title": "Full event timeline",
+    "description": "Returns a chronological timeline of all risk events with actor and risk details.",
+    "language": "sparql",
+    "query": "PREFIX tg: <http://trustgraph.ai/ontology/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?timestamp ?eventLabel ?actorLabel ?riskLabel ?score\nWHERE {\n  ?event a tg:Event ;\n         rdfs:label ?eventLabel ;\n         tg:timestamp ?timestamp ;\n         tg:hasActor ?actor ;\n         tg:hasRisk ?risk .\n  ?actor rdfs:label ?actorLabel .\n  ?risk rdfs:label ?riskLabel ;\n        tg:riskScore ?score .\n}\nORDER BY ?timestamp"
+  }
+]

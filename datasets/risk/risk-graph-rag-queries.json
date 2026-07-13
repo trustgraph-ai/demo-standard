@@ -1,0 +1,44 @@
+[
+  {
+    "id": "risk-landscape-overview",
+    "title": "Risk landscape overview",
+    "description": "Provide a high-level summary of the current risk landscape.",
+    "language": "graph-rag",
+    "query": "What does the overall risk landscape look like? Summarise the key threat actors, risk types, and impacted assets."
+  },
+  {
+    "id": "apt28-campaign",
+    "title": "APT-28 campaign analysis",
+    "description": "Analyse the activities of the APT-28 threat group across all events.",
+    "language": "graph-rag",
+    "query": "What has APT-28 been doing? Describe their campaign including targets, techniques, and timeline."
+  },
+  {
+    "id": "contractor-risk",
+    "title": "Third-party and contractor risk",
+    "description": "Assess risks introduced by third-party contractors and vendors.",
+    "language": "graph-rag",
+    "query": "What risks have third-party contractors and vendors introduced, and which assets have they put at risk?"
+  },
+  {
+    "id": "cloud-exposure",
+    "title": "Cloud infrastructure exposure",
+    "description": "Analyse the risk exposure of cloud infrastructure assets.",
+    "language": "graph-rag",
+    "query": "How exposed is our cloud infrastructure? What events have targeted it and through what risk mechanisms?"
+  },
+  {
+    "id": "risk-score-distribution",
+    "title": "Risk score distribution analysis",
+    "description": "Analyse the distribution of risk scores and identify the most severe risk categories.",
+    "language": "graph-rag",
+    "query": "How are risk scores distributed across different risk types? Which categories are the most severe and why?"
+  },
+  {
+    "id": "multi-asset-events",
+    "title": "Events impacting multiple assets",
+    "description": "Identify events that impact more than one asset, indicating broader organisational exposure.",
+    "language": "graph-rag",
+    "query": "Which risk events impacted multiple assets simultaneously, and what does that tell us about systemic vulnerabilities?"
+  }
+]

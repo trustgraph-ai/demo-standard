@@ -1,0 +1,272 @@
+
+@prefix tg: <http://trustgraph.ai/ontology/> .
+@prefix d: <http://trustgraph.ai/data/risk/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+### ==========================================
+###   ACTORS
+### ==========================================
+
+d:actor-insider-fin a tg:Actor ;
+    rdfs:label "Finance Insider" ;
+    rdfs:comment "An employee within the finance department with elevated access to payment systems." .
+
+d:actor-extern-apt28 a tg:Actor ;
+    rdfs:label "APT-28 Threat Group" ;
+    rdfs:comment "State-sponsored advanced persistent threat group targeting critical infrastructure." .
+
+d:actor-contractor-it a tg:Actor ;
+    rdfs:label "IT Contractor" ;
+    rdfs:comment "Third-party contractor with temporary privileged access to internal systems." .
+
+d:actor-insider-eng a tg:Actor ;
+    rdfs:label "Engineering Insider" ;
+    rdfs:comment "A software engineer with access to source code repositories and CI/CD pipelines." .
+
+d:actor-extern-darkside a tg:Actor ;
+    rdfs:label "DarkSide Ransomware Group" ;
+    rdfs:comment "Cybercriminal group specialising in ransomware-as-a-service operations." .
+
+d:actor-insider-hr a tg:Actor ;
+    rdfs:label "HR Insider" ;
+    rdfs:comment "Human resources employee with access to personnel records and payroll systems." .
+
+d:actor-extern-unknown a tg:Actor ;
+    rdfs:label "Unknown External Actor" ;
+    rdfs:comment "Unattributed external threat actor identified through anomalous network activity." .
+
+d:actor-vendor-cloud a tg:Actor ;
+    rdfs:label "Cloud Service Vendor" ;
+    rdfs:comment "Third-party cloud infrastructure provider with shared responsibility for data security." .
+
+### ==========================================
+###   RISKS
+### ==========================================
+
+d:risk-payroll-fraud a tg:Risk ;
+    rdfs:label "Payroll Fraud" ;
+    rdfs:comment "Manipulation of payroll records to divert funds to unauthorised accounts." ;
+    tg:riskScore "0.85"^^xsd:float .
+
+d:risk-phishing a tg:Risk ;
+    rdfs:label "Spear Phishing" ;
+    rdfs:comment "Targeted email attack using social engineering to harvest credentials." ;
+    tg:riskScore "0.72"^^xsd:float .
+
+d:risk-usb-exfil a tg:Risk ;
+    rdfs:label "USB Data Exfiltration" ;
+    rdfs:comment "Unauthorised transfer of sensitive data via removable storage media." ;
+    tg:riskScore "0.68"^^xsd:float .
+
+d:risk-ransomware a tg:Risk ;
+    rdfs:label "Ransomware Deployment" ;
+    rdfs:comment "Encryption of critical systems and data with demand for payment." ;
+    tg:riskScore "0.95"^^xsd:float .
+
+d:risk-priv-escalation a tg:Risk ;
+    rdfs:label "Privilege Escalation" ;
+    rdfs:comment "Exploitation of vulnerabilities to gain unauthorised elevated access." ;
+    tg:riskScore "0.78"^^xsd:float .
+
+d:risk-supply-chain a tg:Risk ;
+    rdfs:label "Supply Chain Compromise" ;
+    rdfs:comment "Injection of malicious code through a trusted third-party software dependency." ;
+    tg:riskScore "0.88"^^xsd:float .
+
+d:risk-data-leak a tg:Risk ;
+    rdfs:label "Accidental Data Leak" ;
+    rdfs:comment "Unintentional exposure of sensitive data through misconfiguration or human error." ;
+    tg:riskScore "0.55"^^xsd:float .
+
+d:risk-credential-stuffing a tg:Risk ;
+    rdfs:label "Credential Stuffing" ;
+    rdfs:comment "Automated use of stolen credential pairs to gain unauthorised access." ;
+    tg:riskScore "0.65"^^xsd:float .
+
+d:risk-insider-trading a tg:Risk ;
+    rdfs:label "Insider Trading Data Access" ;
+    rdfs:comment "Unauthorised access to material non-public information for financial gain." ;
+    tg:riskScore "0.91"^^xsd:float .
+
+d:risk-cloud-misconfig a tg:Risk ;
+    rdfs:label "Cloud Misconfiguration" ;
+    rdfs:comment "Security gaps arising from improperly configured cloud service settings." ;
+    tg:riskScore "0.60"^^xsd:float .
+
+### ==========================================
+###   ASSETS
+### ==========================================
+
+d:asset-treasury a tg:Asset ;
+    rdfs:label "Treasury Funds" ;
+    rdfs:comment "Corporate treasury accounts holding operating capital and reserves." .
+
+d:asset-source-code a tg:Asset ;
+    rdfs:label "Source Code Repository" ;
+    rdfs:comment "Internal Git repositories containing proprietary application source code." .
+
+d:asset-customer-db a tg:Asset ;
+    rdfs:label "Customer Database" ;
+    rdfs:comment "Production database containing customer PII, account details, and transaction history." .
+
+d:asset-email-system a tg:Asset ;
+    rdfs:label "Corporate Email System" ;
+    rdfs:comment "Enterprise email platform used for internal and external communications." .
+
+d:asset-erp a tg:Asset ;
+    rdfs:label "ERP System" ;
+    rdfs:comment "Enterprise resource planning system managing finance, HR, and operations." .
+
+d:asset-cicd a tg:Asset ;
+    rdfs:label "CI/CD Pipeline" ;
+    rdfs:comment "Continuous integration and deployment infrastructure for software delivery." .
+
+d:asset-cloud-infra a tg:Asset ;
+    rdfs:label "Cloud Infrastructure" ;
+    rdfs:comment "Production cloud environment hosting customer-facing applications and services." .
+
+d:asset-hr-records a tg:Asset ;
+    rdfs:label "HR Personnel Records" ;
+    rdfs:comment "Employee personal data including salaries, performance reviews, and benefits." .
+
+d:asset-trading-platform a tg:Asset ;
+    rdfs:label "Trading Platform" ;
+    rdfs:comment "Internal electronic trading platform with access to market-sensitive data." .
+
+d:asset-vpn a tg:Asset ;
+    rdfs:label "VPN Gateway" ;
+    rdfs:comment "Remote access VPN infrastructure providing encrypted connectivity to internal network." .
+
+### ==========================================
+###   EVENTS
+### ==========================================
+
+d:event-001 a tg:Event ;
+    rdfs:label "Payroll diversion detected in finance" ;
+    tg:timestamp "2026-07-01T09:15:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-01"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-treasury ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-002 a tg:Event ;
+    rdfs:label "Spear phishing campaign targeting executives" ;
+    tg:timestamp "2026-07-02T14:30:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-02"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-003 a tg:Event ;
+    rdfs:label "USB device connected to restricted workstation" ;
+    tg:timestamp "2026-07-03T11:45:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-03"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-004 a tg:Event ;
+    rdfs:label "Ransomware payload delivered via compromised update" ;
+    tg:timestamp "2026-07-04T03:22:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-04"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-erp ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-005 a tg:Event ;
+    rdfs:label "Contractor account escalated to domain admin" ;
+    tg:timestamp "2026-07-05T16:08:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-05"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-006 a tg:Event ;
+    rdfs:label "Malicious dependency injected into build pipeline" ;
+    tg:timestamp "2026-07-06T08:55:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-06"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-cicd ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-007 a tg:Event ;
+    rdfs:label "S3 bucket exposed with customer data" ;
+    tg:timestamp "2026-07-07T10:30:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-07"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-008 a tg:Event ;
+    rdfs:label "Credential stuffing attack on VPN gateway" ;
+    tg:timestamp "2026-07-08T22:17:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-08"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-009 a tg:Event ;
+    rdfs:label "Unauthorised access to pre-earnings financial data" ;
+    tg:timestamp "2026-07-09T07:40:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-09"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-010 a tg:Event ;
+    rdfs:label "HR data accidentally shared via public link" ;
+    tg:timestamp "2026-07-10T13:05:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-10"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-011 a tg:Event ;
+    rdfs:label "Second phishing wave targeting engineering team" ;
+    tg:timestamp "2026-07-10T15:20:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-10"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-012 a tg:Event ;
+    rdfs:label "Ransomware lateral movement to cloud infrastructure" ;
+    tg:timestamp "2026-07-11T04:10:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-11"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-013 a tg:Event ;
+    rdfs:label "Engineer exfiltrated proprietary algorithms via personal repo" ;
+    tg:timestamp "2026-07-11T18:30:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-11"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-014 a tg:Event ;
+    rdfs:label "Cloud IAM policy left overly permissive after migration" ;
+    tg:timestamp "2026-07-12T09:00:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-12"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-015 a tg:Event ;
+    rdfs:label "Privilege escalation via unpatched CI runner" ;
+    tg:timestamp "2026-07-12T21:45:00"^^xsd:dateTime ;
+    tg:eventDate "2026-07-12"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-cicd ;
+    tg:impactsAsset d:asset-source-code .
