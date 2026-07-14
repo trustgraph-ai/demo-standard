@@ -12,6 +12,7 @@
 
 ex:clacton_gambit_2026 a gt:Game ;
     rdfs:label "The Clacton Gambit By-election Scenario (2026)"@en ;
+    rdfs:comment "A game-theoretic model of Nigel Farage's strategic resignation and the Establishment's coordinated response in the 2026 Clacton by-election."@en ;
     gt:hasRootNode ex:node_farage_initial_choice .
 
 
@@ -20,7 +21,8 @@ ex:clacton_gambit_2026 a gt:Game ;
 # ==========================================
 
 ex:player_farage a gt:Player ;
-    rdfs:label "Nigel Farage (Reform UK)"@en .
+    rdfs:label "Nigel Farage (Reform UK)"@en ;
+    rdfs:comment "Leader of Reform UK and incumbent MP for Clacton, facing a standards inquiry over an undeclared £5 million crypto donation."@en .
 
 ex:player_establishment a gt:Player ;
     rdfs:label "The Establishment Coalition"@en ;
@@ -34,12 +36,14 @@ ex:player_establishment a gt:Player ;
 # --- ROOT NODE ---
 ex:node_farage_initial_choice a gt:DecisionNode ;
     rdfs:label "Farage's Pre-emptive Dilemma"@en ;
+    rdfs:comment "Root decision node where Farage chooses between a pre-emptive resignation or waiting for the standards inquiry verdict."@en ;
     gt:belongsToPlayer ex:player_farage ;
     gt:hasAction ex:act_farage_resign , ex:act_farage_wait .
 
 
 # --- BRANCH 1: STRATEGY RESIGN (The Chosen Path) ---
 ex:act_farage_resign a gt:Action ;
+    rdfs:label "Strategy: Resign"@en ;
     gt:actionLabel "Strategy: Resign"@en ;
     rdfs:comment "Pre-emptively resign seat to stall the standards inquiry and force a summer by-election."@en ;
     gt:leadsToNode ex:node_media_chance_evaluation .
@@ -47,17 +51,22 @@ ex:act_farage_resign a gt:Action ;
 # Chance Node (Nature's Turn)
 ex:node_media_chance_evaluation a gt:ChanceNode ;
     rdfs:label "Chance Node: Public & Media Atmosphere"@en ;
+    rdfs:comment "Nature's turn determining whether the resignation generates intense media coverage or fizzles out."@en ;
     gt:hasAction ex:act_chance_media_frenzy , ex:act_chance_media_boredom .
 
 # Chance Outgoing Edge A (70% Frenzy)
 ex:act_chance_media_frenzy a gt:Action ;
+    rdfs:label "Media Frenzy"@en ;
     gt:actionLabel "Media Frenzy"@en ;
+    rdfs:comment "70% probability outcome where the resignation generates intense media coverage and public attention."@en ;
     gt:hasProbability "0.7"^^xsd:float ;
     gt:leadsToNode ex:node_establishment_counter_choice .
 
 # Chance Outgoing Edge B (30% Boredom)
 ex:act_chance_media_boredom a gt:Action ;
+    rdfs:label "Media Boredom"@en ;
     gt:actionLabel "Media Boredom"@en ;
+    rdfs:comment "30% probability outcome where the resignation fails to capture media interest."@en ;
     gt:hasProbability "0.3"^^xsd:float ;
     gt:leadsToNode ex:outcome_the_vacuum .
 
@@ -65,15 +74,18 @@ ex:act_chance_media_boredom a gt:Action ;
 # --- SUB-DECISION (Establishment's Counter-move under Frenzy) ---
 ex:node_establishment_counter_choice a gt:DecisionNode ;
     rdfs:label "Establishment Response to Media Frenzy"@en ;
+    rdfs:comment "The Establishment Coalition's decision point on whether to contest the by-election or deny Farage a platform."@en ;
     gt:belongsToPlayer ex:player_establishment ;
     gt:hasAction ex:act_establishment_fight , ex:act_establishment_boycott .
 
 ex:act_establishment_fight a gt:Action ;
+    rdfs:label "Strategy: Fight"@en ;
     gt:actionLabel "Strategy: Fight"@en ;
     rdfs:comment "Flood Clacton with high-profile candidates and resources."@en ;
     gt:leadsToNode ex:outcome_big_circus .
 
 ex:act_establishment_boycott a gt:Action ;
+    rdfs:label "Strategy: Boycott"@en ;
     gt:actionLabel "Strategy: Boycott"@en ;
     rdfs:comment "Refuse to stand candidates, leaving only novelty acts like Count Binface."@en ;
     gt:leadsToNode ex:outcome_the_vacuum .
@@ -81,6 +93,7 @@ ex:act_establishment_boycott a gt:Action ;
 
 # --- BRANCH 2: STRATEGY WAIT (The Counterfactual Path) ---
 ex:act_farage_wait a gt:Action ;
+    rdfs:label "Strategy: Wait"@en ;
     gt:actionLabel "Strategy: Wait"@en ;
     rdfs:comment "Defend case via standard parliamentary tracks and await the Commissioner's verdict."@en ;
     gt:leadsToNode ex:outcome_forced_recall .
@@ -97,10 +110,14 @@ ex:outcome_big_circus a gt:OutcomeNode ;
     gt:hasPayoff ex:payoff_farage_in_circus , ex:payoff_est_in_circus .
 
 ex:payoff_farage_in_circus a gt:Payoff ;
+    rdfs:label "Farage Payoff in Big Circus"@en ;
+    rdfs:comment "Maximum populist victory for Farage through open political warfare over the summer."@en ;
     gt:forPlayer ex:player_farage ;
     gt:utilityValue "5"^^xsd:integer .
 
 ex:payoff_est_in_circus a gt:Payoff ;
+    rdfs:label "Establishment Payoff in Big Circus"@en ;
+    rdfs:comment "Severe public relations defeat for the Establishment in a contested by-election."@en ;
     gt:forPlayer ex:player_establishment ;
     gt:utilityValue "-4"^^xsd:integer .
 
@@ -112,10 +129,14 @@ ex:outcome_the_vacuum a gt:OutcomeNode ;
     gt:hasPayoff ex:payoff_farage_in_vacuum , ex:payoff_est_in_vacuum .
 
 ex:payoff_farage_in_vacuum a gt:Payoff ;
+    rdfs:label "Farage Payoff in The Vacuum"@en ;
+    rdfs:comment "Farage wins an uncontested seat but is starved of the media oxygen he craved."@en ;
     gt:forPlayer ex:player_farage ;
     gt:utilityValue "2"^^xsd:integer .
 
 ex:payoff_est_in_vacuum a gt:Payoff ;
+    rdfs:label "Establishment Payoff in The Vacuum"@en ;
+    rdfs:comment "Neutral outcome for the Establishment, having successfully denied Farage a high-profile contest."@en ;
     gt:forPlayer ex:player_establishment ;
     gt:utilityValue "0"^^xsd:integer .
 
@@ -123,14 +144,18 @@ ex:payoff_est_in_vacuum a gt:Payoff ;
 # --- OUTCOME: FORCED RECALL ---
 ex:outcome_forced_recall a gt:OutcomeNode ;
     rdfs:label "Outcome: Forced Recall Petition"@en ;
-    rdfs:comment "A multi-day parliamentary suspension triggers a mandatory recall petition at an disadvantageous time."@en ;
+    rdfs:comment "A multi-day parliamentary suspension triggers a mandatory recall petition at a disadvantageous time."@en ;
     gt:hasPayoff ex:payoff_farage_in_recall , ex:payoff_est_in_recall .
 
 ex:payoff_farage_in_recall a gt:Payoff ;
+    rdfs:label "Farage Payoff in Forced Recall"@en ;
+    rdfs:comment "Catastrophic outcome for Farage, forced into a by-election at a disadvantageous time after a standards suspension."@en ;
     gt:forPlayer ex:player_farage ;
     gt:utilityValue "-5"^^xsd:integer .
 
 ex:payoff_est_in_recall a gt:Payoff ;
+    rdfs:label "Establishment Payoff in Forced Recall"@en ;
+    rdfs:comment "Favourable outcome for the Establishment, with the standards process vindicating their position."@en ;
     gt:forPlayer ex:player_establishment ;
     gt:utilityValue "2"^^xsd:integer .
 
