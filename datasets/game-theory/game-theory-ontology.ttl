@@ -1,0 +1,110 @@
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gt: <http://trustgraph.ai/schemas/gametheory#> .
+
+# ==========================================
+# 1. Classes (The Entities)
+# ==========================================
+
+gt:Game a owl:Class ;
+    rdfs:label "Game Scenario"@en ;
+    rdfs:comment "The root container for a game theory analysis. It represents the overall conflict, situation, or tactical interaction being modeled."@en .
+
+gt:Player a owl:Class ;
+    rdfs:label "Player"@en ;
+    rdfs:comment "An active decision-maker or stakeholder in the game scenario. Can represent an individual, group, organization, or sovereign state."@en .
+
+gt:Node a owl:Class ;
+    rdfs:label "Game Tree Node"@en ;
+    rdfs:comment "An abstract base class representing any point or state within a sequential game tree."@en .
+
+gt:DecisionNode a owl:Class ;
+    rdfs:subClassOf gt:Node ;
+    rdfs:label "Decision Node"@en ;
+    rdfs:comment "A specific point in a game tree where a human/agent player must actively choose between one or more strategies/actions."@en .
+
+gt:ChanceNode a owl:Class ;
+    rdfs:subClassOf gt:Node ;
+    rdfs:label "Chance Node"@en ;
+    rdfs:comment "A point in a game tree representing external uncertainty or Nature's play. Outgoing paths from this node are governed by probability."@en .
+
+gt:OutcomeNode a owl:Class ;
+    rdfs:subClassOf gt:Node ;
+    rdfs:label "Outcome Node"@en ;
+    rdfs:comment "A terminal leaf node in a game tree representing the end-state of a specific path of play where payoffs are realized."@en .
+
+gt:Action a owl:Class ;
+    rdfs:label "Action / Strategy Edge"@en ;
+    rdfs:comment "A choice made by a player or an outcome decided by chance. In a game tree, this acts as the directed edge connecting one Node to the next."@en .
+
+gt:Payoff a owl:Class ;
+    rdfs:label "Payoff / Utility Allocation"@en ;
+    rdfs:comment "The numeric value representing the preference, reward, or cost experienced by a specific player in a given final outcome."@en .
+
+
+# ==========================================
+# 2. Object Properties (Relational Connections)
+# ==========================================
+
+gt:hasRootNode a owl:ObjectProperty ;
+    rdfs:label "has root node"@en ;
+    rdfs:comment "Links a Game Scenario to its starting Node (typically the first Decision Node)."@en ;
+    rdfs:domain gt:Game ;
+    rdfs:range gt:Node .
+
+gt:belongsToPlayer a owl:ObjectProperty ;
+    rdfs:label "belongs to player"@en ;
+    rdfs:comment "Identifies which Player is responsible for making the decision at a given Decision Node."@en ;
+    rdfs:domain gt:DecisionNode ;
+    rdfs:range gt:Player .
+
+gt:hasAction a owl:ObjectProperty ;
+    rdfs:label "has action"@en ;
+    rdfs:comment "Connects a decision or chance node to the outgoing actions or outcomes that can occur from that state."@en ;
+    rdfs:domain gt:Node ;
+    rdfs:range gt:Action .
+
+gt:leadsToNode a owl:ObjectProperty ;
+    rdfs:label "leads to node"@en ;
+    rdfs:comment "Specifies the subsequent Node in the tree that is reached by taking this action."@en ;
+    rdfs:domain gt:Action ;
+    rdfs:range gt:Node .
+
+gt:hasPayoff a owl:ObjectProperty ;
+    rdfs:label "has payoff"@en ;
+    rdfs:comment "Connects a terminal Outcome Node to the individual payoff allocations for the participating players."@en ;
+    rdfs:domain gt:OutcomeNode ;
+    rdfs:range gt:Payoff .
+
+gt:forPlayer a owl:ObjectProperty ;
+    rdfs:label "for player"@en ;
+    rdfs:comment "Specifies which Player receives this specific numeric payoff utility."@en ;
+    rdfs:domain gt:Payoff ;
+    rdfs:range gt:Player .
+
+
+# ==========================================
+# 3. Data Properties (Literals and Attributes)
+# ==========================================
+
+gt:hasProbability a owl:DatatypeProperty ;
+    rdfs:label "has probability"@en ;
+    rdfs:comment "The likelihood (expressed as a float between 0.0 and 1.0) of a specific branch occurring at a Chance Node."@en ;
+    rdfs:domain gt:Action ;
+    rdfs:range xsd:float .
+
+gt:utilityValue a owl:DatatypeProperty ;
+    rdfs:label "utility value"@en ;
+    rdfs:comment "The raw relative numeric value (payout) of this payoff, where higher numbers indicate more preferred outcomes."@en ;
+    rdfs:domain gt:Payoff ;
+    rdfs:range xsd:integer .
+
+gt:actionLabel a owl:DatatypeProperty ;
+    rdfs:label "action label"@en ;
+    rdfs:comment "The human-readable name of the action or strategy being played (e.g., 'Resign', 'Fight')."@en ;
+    rdfs:domain gt:Action ;
+    rdfs:range xsd:string .
+
