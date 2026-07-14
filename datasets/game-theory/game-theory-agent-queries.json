@@ -1,0 +1,58 @@
+[
+  {
+    "id": "gt-best-strategy",
+    "title": "Best strategy recommendation",
+    "description": "Determine the optimal strategy for a given player based on the game tree.",
+    "language": "agent",
+    "query": "Given the game tree and payoff structure, what is the optimal strategy for each player? Which player has the stronger position?"
+  },
+  {
+    "id": "gt-expected-utility",
+    "title": "Expected utility calculation",
+    "description": "Calculate expected utility values accounting for chance node probabilities.",
+    "language": "agent",
+    "query": "What is the expected utility for each player's strategic choices, taking into account the probabilities at chance nodes?"
+  },
+  {
+    "id": "gt-dominant-strategy",
+    "title": "Dominant strategy identification",
+    "description": "Identify whether any player has a dominant strategy.",
+    "language": "agent",
+    "query": "Does any player have a dominant strategy — one that yields a better payoff regardless of what the other player does?"
+  },
+  {
+    "id": "gt-game-of-chicken",
+    "title": "Game of chicken analysis",
+    "description": "Analyse the scenario through the lens of a classic game of chicken.",
+    "language": "agent",
+    "query": "How does this scenario compare to a classic game of chicken? Who blinked first, and was the outcome stable or is further escalation likely?"
+  },
+  {
+    "id": "gt-information-asymmetry",
+    "title": "Information asymmetry assessment",
+    "description": "Assess what each player knew and how information gaps shaped decisions.",
+    "language": "agent",
+    "query": "What information asymmetries exist between the players? How might incomplete information have affected their strategic choices?"
+  },
+  {
+    "id": "gt-credible-threats",
+    "title": "Credible threats and commitments",
+    "description": "Evaluate which threats and commitments in the game are credible.",
+    "language": "agent",
+    "query": "Which threats or commitments made by each player are credible? Are there any bluffs, and how does credibility affect the equilibrium?"
+  },
+  {
+    "id": "gt-payoff-sensitivity",
+    "title": "Payoff sensitivity analysis",
+    "description": "Assess how changes in payoff values would alter optimal strategies.",
+    "language": "agent",
+    "query": "How sensitive are the strategic conclusions to changes in payoff values? If the utility numbers shifted slightly, would the optimal strategies change?"
+  },
+  {
+    "id": "gt-real-world-implications",
+    "title": "Real-world implications",
+    "description": "Translate the game-theoretic analysis into real-world strategic implications.",
+    "language": "agent",
+    "query": "What are the real-world implications of this game theory analysis? What lessons can be drawn about strategic decision-making in this domain?"
+  }
+]
