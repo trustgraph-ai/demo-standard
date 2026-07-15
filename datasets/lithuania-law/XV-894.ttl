@@ -1,0 +1,66 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Article 31 (Fine Imposition Procedure)
+#   No. XV-894, enacted 2026-05-12, Vilnius
+#   Signed by President Gitanas Nausėda
+#   Effective 2026-06-30
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XV-894 a llo:Statute ;
+    rdfs:label "Amendment to Cybersecurity Law – Article 31 Fine Enforcement (No. XV-894)" ;
+    rdfs:label "Amendment to Cybersecurity Law – Article 31 Fine Enforcement (No. XV-894)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 31 straipsnio pakeitimo įstatymas (Nr. XV-894)"@lt ;
+    rdfs:comment "Amends Article 31(13) to change the enforcement mechanism for NKSC fine decisions. Previously, fine decisions were enforcement documents executed under the Civil Procedure Code. After amendment, fine decisions are enforcement documents executed under the Tax Administration Act and the Civil Procedure Code. This adds tax-administration enforcement as a parallel execution route for cybersecurity fines." ;
+    rdfs:comment "Amends Article 31(13) to change the enforcement mechanism for NKSC fine decisions. Previously, fine decisions were enforcement documents executed under the Civil Procedure Code. After amendment, fine decisions are enforcement documents executed under the Tax Administration Act and the Civil Procedure Code. This adds tax-administration enforcement as a parallel execution route for cybersecurity fines."@en ;
+    rdfs:comment "Pakeičia 31 straipsnio 13 dalį, keisdamas NKSC baudų sprendimų vykdymo mechanizmą. Anksčiau baudų sprendimai buvo vykdomieji dokumentai, vykdomi pagal Civilinio proceso kodeksą. Po pakeitimo baudų sprendimai yra vykdomieji dokumentai, vykdomi pagal Mokesčių administravimo įstatymą ir Civilinio proceso kodeksą. Tai prideda mokesčių administravimo vykdymą kaip lygiagrečią kibernetinio saugumo baudų vykdymo priemonę."@lt ;
+    llo:hasDocID "No. XV-894" ;
+    llo:dateEnacted "2026-05-12"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XV-894_Art1 ,
+                     lld:XV-894_Art2 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XV-894_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 31(13) (Fine Enforcement)" ;
+    rdfs:label "Article 1 – Amendment of Article 31(13) (Fine Enforcement)"@en ;
+    rdfs:label "1 straipsnis – 31 straipsnio 13 dalies pakeitimas (baudų vykdymas)"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_FineEnforcementTaxRoute .
+
+lld:XV-894_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Entry into Force and Transitional Provisions" ;
+    rdfs:label "Article 2 – Entry into Force and Transitional Provisions"@en ;
+    rdfs:label "2 straipsnis – Įstatymo įsigaliojimas ir taikymas"@lt ;
+    llo:hasIndexNumber 2 .
+
+
+# =================================================================
+# SECTION 3: LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_FineEnforcementTaxRoute a llo:LegalConcept ;
+    rdfs:label "Tax administration enforcement route for cybersecurity fines" ;
+    rdfs:label "Tax administration enforcement route for cybersecurity fines"@en ;
+    rdfs:label "Mokesčių administravimo vykdymo priemonė kibernetinio saugumo baudoms"@lt ;
+    rdfs:comment "Article 31(13) restated: NKSC fine decisions are now enforcement documents executed under both the Tax Administration Act (Mokesčių administravimo įstatymas) and the Civil Procedure Code (Civilinio proceso kodeksas). Previously only the Civil Procedure Code applied. The transitional provision (Art. 2(2)) specifies that fine decisions adopted and entered into force before 2026-06-29 continue to be executed under the Cybersecurity Law provisions in force before 2026-06-29, ensuring no retroactive application of the new enforcement route." ;
+    rdfs:comment "Article 31(13) restated: NKSC fine decisions are now enforcement documents executed under both the Tax Administration Act (Mokesčių administravimo įstatymas) and the Civil Procedure Code (Civilinio proceso kodeksas). Previously only the Civil Procedure Code applied. The transitional provision (Art. 2(2)) specifies that fine decisions adopted and entered into force before 2026-06-29 continue to be executed under the Cybersecurity Law provisions in force before 2026-06-29, ensuring no retroactive application of the new enforcement route."@en ;
+    rdfs:comment "31 straipsnio 13 dalis išdėstyta iš naujo: NKSC baudų sprendimai dabar yra vykdomieji dokumentai, vykdomi pagal Mokesčių administravimo įstatymą ir Civilinio proceso kodeksą. Anksčiau taikomas tik Civilinio proceso kodeksas. Pereinamoji nuostata (2 str. 2 d.) nustato, kad iki 2026-06-29 priimti ir įsiteisėję baudų sprendimai vykdomi pagal iki 2026-06-29 galiojusias nuostatas, užtikrinant naujo vykdymo būdo netaikymą atgaline tvarka."@lt ;
+    llo:hasLegalBasis "Art. 1, XV-894 (amending Art. 31(13), XII-1428)" .

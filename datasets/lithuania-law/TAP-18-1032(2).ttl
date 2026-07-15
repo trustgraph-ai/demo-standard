@@ -1,0 +1,43 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 818
+#   Approving the National Cybersecurity Strategy
+#   (original Resolution 818 with the strategy as annex)
+#   2018-08-13, Vilnius
+#   Prime Minister Saulius Skvernelis
+# =================================================================
+
+lld:GovRes-818-2018 a llo:Statute ;
+    rdfs:label "Government Resolution No. 818 – National Cybersecurity Strategy and Cybersecurity Law Implementation (2018)" ;
+    rdfs:label "Government Resolution No. 818 – National Cybersecurity Strategy and Cybersecurity Law Implementation (2018)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 818 – Nacionalinė kibernetinio saugumo strategija ir Kibernetinio saugumo įstatymo įgyvendinimas (2018)"@lt ;
+    rdfs:comment "Foundational implementing resolution for the Cybersecurity Law (Art. 5(1)) and NIS Directive 2016/1148 (Art. 7(1)). Approves the National Cybersecurity Strategy (Nacionalinė kibernetinio saugumo strategija) as an annex. Tasks MoD to submit the Strategy implementation inter-institutional action plan to Government by 2018-11-02. Invites NGOs, public/private sector and academic institutions to participate in Strategy implementation. The Strategy sets 5 goals until 2023: (1) Strengthen state cybersecurity and cyber defence capabilities – including NATO 5th domain recognition, NKSC consolidation as single incident management authority, CERT-LT data (54,414 incidents in 2017), malware prevalence in energy (27%), public security (22%), and foreign affairs (21%) sectors; (2) Prevent, deter and investigate cybercrime – cooperation with Europol EC3, Joint Investigation Teams, evidence in the cloud; (3) Foster cybersecurity culture, innovation and R&D – address specialist shortage (22,600 ICT specialists, projected 13,300 additional needed), develop university programmes (4 universities), promote FinTech cybersecurity, support Horizon 2020 participation; (4) Strengthen public-private sector cooperation – Cybersecurity Council, Cybersecurity Information Network, responsible vulnerability disclosure; (5) Strengthen international cooperation – bilateral/multilateral partnerships, EU/NATO engagement, OSCE CBMs, UN GGE norms, Tallinn Manual. Includes annex with evaluation criteria and target values. PM Saulius Skvernelis, Defence Minister Raimundas Karoblis." ;
+    rdfs:comment "Foundational implementing resolution for the Cybersecurity Law (Art. 5(1)) and NIS Directive 2016/1148 (Art. 7(1)). Approves the National Cybersecurity Strategy (Nacionalinė kibernetinio saugumo strategija) as an annex. Tasks MoD to submit the Strategy implementation inter-institutional action plan to Government by 2018-11-02. Invites NGOs, public/private sector and academic institutions to participate in Strategy implementation. The Strategy sets 5 goals until 2023: (1) Strengthen state cybersecurity and cyber defence capabilities – including NATO 5th domain recognition, NKSC consolidation as single incident management authority, CERT-LT data (54,414 incidents in 2017), malware prevalence in energy (27%), public security (22%), and foreign affairs (21%) sectors; (2) Prevent, deter and investigate cybercrime – cooperation with Europol EC3, Joint Investigation Teams, evidence in the cloud; (3) Foster cybersecurity culture, innovation and R&D – address specialist shortage (22,600 ICT specialists, projected 13,300 additional needed), develop university programmes (4 universities), promote FinTech cybersecurity, support Horizon 2020 participation; (4) Strengthen public-private sector cooperation – Cybersecurity Council, Cybersecurity Information Network, responsible vulnerability disclosure; (5) Strengthen international cooperation – bilateral/multilateral partnerships, EU/NATO engagement, OSCE CBMs, UN GGE norms, Tallinn Manual. Includes annex with evaluation criteria and target values. PM Saulius Skvernelis, Defence Minister Raimundas Karoblis."@en ;
+    rdfs:comment "Pagrindinis Kibernetinio saugumo įstatymo (5 str. 1 p.) ir TIS direktyvos 2016/1148 (7 str. 1 d.) įgyvendinimo nutarimas. Tvirtina Nacionalinę kibernetinio saugumo strategiją kaip priedą. Paveda KAM iki 2018-11-02 pateikti Vyriausybei strategijos įgyvendinimo tarpinstitucinį veiklos planą. Strategija nustato 5 tikslus iki 2023 m.: (1) Stiprinti valstybės kibernetinį saugumą ir kibernetinės gynybos pajėgumus – NATO 5-asis domenas, NKSC konsolidacija, CERT-LT duomenys (54 414 incidentų 2017 m.); (2) Užkardyti ir tirti nusikalstamas veikas kibernetinėje erdvėje; (3) Skatinti kibernetinio saugumo kultūrą, inovacijas ir MTEP; (4) Stiprinti viešojo ir privataus sektorių bendradarbiavimą – Kibernetinio saugumo taryba, informacinis tinklas, atsakingas pažeidžiamumų atskleidimas; (5) Stiprinti tarptautinį bendradarbiavimą – ES, NATO, ESBO, JT. Ministras Pirmininkas Saulius Skvernelis, krašto apsaugos ministras Raimundas Karoblis."@lt ;
+    llo:hasDocID "No. 818" ;
+    llo:dateEnacted "2018-08-13"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:hasComponent lld:GovRes-818-2018_Strategy .
+
+lld:GovRes-818-2018_Strategy a llo:Article ;
+    rdfs:label "Annex – National Cybersecurity Strategy" ;
+    rdfs:label "Annex – National Cybersecurity Strategy"@en ;
+    rdfs:label "Priedas – Nacionalinė kibernetinio saugumo strategija"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_NationalCybersecurityStrategy2018 .
+
+lld:Concept_NationalCybersecurityStrategy2018 a llo:LegalConcept ;
+    rdfs:label "National Cybersecurity Strategy 2018 – five strategic goals" ;
+    rdfs:label "National Cybersecurity Strategy 2018 – five strategic goals"@en ;
+    rdfs:label "Nacionalinė kibernetinio saugumo strategija 2018 – penki strateginiai tikslai"@lt ;
+    rdfs:comment "Strategy sets five goals: (1) State cybersecurity and cyber defence capabilities (NATO 5th domain, integrated security management, regional capacity building); (2) Cybercrime prevention (Europol EC3, JITs, cloud evidence, cyber fraud); (3) Cybersecurity culture, innovation and education (specialist training at 4 universities, R&D via Horizon 2020, FinTech security, competency standards, children's digital literacy); (4) Public-private cooperation (Cybersecurity Council multi-stakeholder model, Cybersecurity Information Network for threat sharing, responsible vulnerability disclosure framework); (5) International cooperation (EU NIS cooperation, NATO CCDCOE exercises, OSCE CBMs, UN GGE norms, bilateral cyber consultations, capacity building for developing states). Strategy period until 2023 with evaluation criteria and target values in annex." ;
+    rdfs:comment "Strategy sets five goals: (1) State cybersecurity and cyber defence capabilities (NATO 5th domain, integrated security management, regional capacity building); (2) Cybercrime prevention (Europol EC3, JITs, cloud evidence, cyber fraud); (3) Cybersecurity culture, innovation and education (specialist training at 4 universities, R&D via Horizon 2020, FinTech security, competency standards, children's digital literacy); (4) Public-private cooperation (Cybersecurity Council multi-stakeholder model, Cybersecurity Information Network for threat sharing, responsible vulnerability disclosure framework); (5) International cooperation (EU NIS cooperation, NATO CCDCOE exercises, OSCE CBMs, UN GGE norms, bilateral cyber consultations, capacity building for developing states). Strategy period until 2023 with evaluation criteria and target values in annex."@en ;
+    rdfs:comment "Strategija nustato penkis tikslus: (1) Valstybės kibernetinis saugumas ir kibernetinės gynybos pajėgumai; (2) Nusikalstamų veikų kibernetinėje erdvėje prevencija; (3) Kibernetinio saugumo kultūra, inovacijos ir švietimas; (4) Viešojo ir privataus sektorių bendradarbiavimas; (5) Tarptautinis bendradarbiavimas. Strategijos laikotarpis iki 2023 m. su vertinimo kriterijais ir siekiamomis reikšmėmis priede."@lt ;
+    llo:hasLegalBasis "Annex to GovRes 818/2018 (under Cybersecurity Law Art. 5(1) and NIS Directive Art. 7(1))" .

@@ -1,0 +1,28 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 979
+#   Approving submission of Cybersecurity Law 1st complete
+#   restatement package (Arts. 1, 2, 4, 6, 10, 15, 16, 18
+#   amendment, Art. 8 repeal, annex addition) and accompanying
+#   laws to Seimas
+#   2017-11-29, Vilnius
+#   Prime Minister Saulius Skvernelis
+# =================================================================
+
+lld:GovRes-979-2017 a llo:Statute ;
+    rdfs:label "Government Resolution No. 979 – Submission of Cybersecurity Law 1st restatement package to Seimas (2017)" ;
+    rdfs:label "Government Resolution No. 979 – Submission of Cybersecurity Law 1st restatement package to Seimas (2017)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 979 – Kibernetinio saugumo įstatymo 1-ojo išdėstymo nauja redakcija paketo teikimas Seimui (2017)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas a four-law package: (1) Cybersecurity Law No. XII-1428 Arts. 1, 2, 4, 6, 10, 15, 16, 18 amendment, Art. 8 repeal and annex addition (the 1st complete restatement, later enacted as XIII-1299), (2) Electronic Communications Law No. IX-2135 Arts. 3, 8, 9, 42¹ and 71 amendment, (3) Administrative Offences Code Arts. 479, 480 and 589 amendment, (4) State Pensions for Officials and Military Personnel Law No. I-693 Arts. 1 and 16 amendment. Requests urgent consideration to implement electronic communications security and MoD subordinate institution reforms by 2018-01-01. Delegates Defence Minister Raimundas Karoblis (deputy: Vice-Minister Edvinas Kerza). PM Skvernelis; signing minister: FM Linas Antanas Linkevičius acting for Defence Minister." ;
+    rdfs:comment "Government approves and submits to Seimas a four-law package: (1) Cybersecurity Law No. XII-1428 Arts. 1, 2, 4, 6, 10, 15, 16, 18 amendment, Art. 8 repeal and annex addition (the 1st complete restatement, later enacted as XIII-1299), (2) Electronic Communications Law No. IX-2135 Arts. 3, 8, 9, 42¹ and 71 amendment, (3) Administrative Offences Code Arts. 479, 480 and 589 amendment, (4) State Pensions for Officials and Military Personnel Law No. I-693 Arts. 1 and 16 amendment. Requests urgent consideration to implement electronic communications security and MoD subordinate institution reforms by 2018-01-01. Delegates Defence Minister Raimundas Karoblis (deputy: Vice-Minister Edvinas Kerza). PM Skvernelis; signing minister: FM Linas Antanas Linkevičius acting for Defence Minister."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui keturių įstatymų paketą: (1) Kibernetinio saugumo įstatymo Nr. XII-1428 1, 2, 4, 6, 10, 15, 16, 18 straipsnių pakeitimo, 8 straipsnio pripažinimo netekusiu galios ir papildymo priedu (1-asis išdėstymas nauja redakcija, vėliau priimtas kaip XIII-1299), (2) Elektroninių ryšių įstatymo pakeitimo, (3) Administracinių nusižengimų kodekso pakeitimo, (4) Pareigūnų ir karių valstybinių pensijų įstatymo pakeitimo. Prašo svarstyti skubos tvarka dėl elektroninių ryšių saugumo ir KAM reformų iki 2018-01-01. Įgalioja krašto apsaugos ministrą Raimundą Karoblį atstovauti Seime."@lt ;
+    llo:hasDocID "No. 979" ;
+    llo:dateEnacted "2017-11-29"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

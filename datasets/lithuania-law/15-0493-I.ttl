@@ -1,0 +1,26 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 29
+#   Approving submission of military/defence law amendments
+#   including Cybersecurity Law Art. 19 amendment to Seimas
+#   2016-01-14, Vilnius
+#   Prime Minister Algirdas Butkevičius
+# =================================================================
+
+lld:GovRes-29-2016 a llo:Statute ;
+    rdfs:label "Government Resolution No. 29 – Submission of defence law package including Cybersecurity Law Art. 19 amendment (2016)" ;
+    rdfs:label "Government Resolution No. 29 – Submission of defence law package including Cybersecurity Law Art. 19 amendment (2016)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 29 – Gynybos teisės paketo, įskaitant Kibernetinio saugumo įstatymo 19 str. pakeitimą, teikimas Seimui (2016)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas a defence law package comprising six draft laws: (1) Military Material Liability Law Art. 12 amendment, (2) Military Police Law Art. 15 amendment, (3) Military Conscription Law Arts. 33-34 amendment, (4) Cybersecurity Law XII-1428 Art. 19 amendment, (5) Lithuanian Riflemen's Union Law Arts. 30, 33 amendment, (6) Intelligence Law Art. 52 amendment. Delegates Defence Minister Juozas Olekas to represent Government in Seimas." ;
+    rdfs:comment "Government approves and submits to Seimas a defence law package comprising six draft laws: (1) Military Material Liability Law Art. 12 amendment, (2) Military Police Law Art. 15 amendment, (3) Military Conscription Law Arts. 33-34 amendment, (4) Cybersecurity Law XII-1428 Art. 19 amendment, (5) Lithuanian Riflemen's Union Law Arts. 30, 33 amendment, (6) Intelligence Law Art. 52 amendment. Delegates Defence Minister Juozas Olekas to represent Government in Seimas."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui gynybos teisės paketą iš šešių projektų: (1) Karių materialinės atsakomybės įstatymo, (2) Karo policijos įstatymo, (3) Karo prievolės įstatymo, (4) Kibernetinio saugumo įstatymo XII-1428 19 str. pakeitimo, (5) Šaulių sąjungos įstatymo, (6) Žvalgybos įstatymo pakeitimų. Įgalioja krašto apsaugos ministrą Juozą Oleką atstovauti Seime."@lt ;
+    llo:hasDocID "No. 29" ;
+    llo:dateEnacted "2016-01-14"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

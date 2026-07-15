@@ -1,0 +1,900 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+
+<http://trustgraph.ai/ontologies/lithuanian-legal> a owl:Ontology ;
+    rdfs:label "Lithuanian Legal, Risk, and Civic Resilience Ontology (Unified Master TBox)" ;
+    rdfs:label "Lithuanian Legal, Risk, and Civic Resilience Ontology (Unified Master TBox)"@en ;
+    rdfs:label "Lietuvos teisinė, rizikos ir pilietinio atsparumo ontologija (vieningoji pagrindinė TBox schema)"@lt ;
+    rdfs:comment "A comprehensive, zero-gap structural schema optimized for automated Ontology-Based Information Extraction (OBIE) pipelines. Connects strategic geopolitical drivers, threat vectors, state power models, and corporate compliance targets directly to civic transparency, human liberties, and public oversight mechanisms." ;
+    rdfs:comment "A comprehensive, zero-gap structural schema optimized for automated Ontology-Based Information Extraction (OBIE) pipelines. Connects strategic geopolitical drivers, threat vectors, state power models, and corporate compliance targets directly to civic transparency, human liberties, and public oversight mechanisms."@en ;
+    rdfs:comment "Visapusė struktūrinė schema, optimizuota automatizuotiems ontologija grindžiamo informacijos išgavimo (OBIE) procesams. Sujungia strateginius geopolitinius veiksnius, grėsmių vektorius, valstybės galios modelius ir įmonių atitikties tikslus su pilietinio skaidrumo, žmogaus laisvių ir viešosios priežiūros mechanizmais."@lt .
+
+# =================================================================
+# # SECTION 1: LEGISLATIVE CONTAINER CLASS TAXONOMY (The Document Anatomy)
+# =================================================================
+
+llo:LegalDocument a owl:Class ;
+    rdfs:label "Legal Document" ;
+    rdfs:label "Legal Document"@en ;
+    rdfs:label "Teisės dokumentas"@lt ;
+    rdfs:comment "The root physical container architecture for items harvested from registries like TAR or Seimas." ;
+    rdfs:comment "The root physical container architecture for items harvested from registries like TAR or Seimas."@en ;
+    rdfs:comment "Pagrindinė fizinė konteinerio struktūra elementams, gaunamiems iš registrų, tokių kaip TAR ar Seimas."@lt .
+
+llo:Statute a owl:Class ;
+    rdfs:subClassOf llo:LegalDocument ;
+    rdfs:label "Statute (Priimtas Įstatymas)" ;
+    rdfs:label "Statute (Priimtas Įstatymas)"@en ;
+    rdfs:label "Priimtas įstatymas"@lt ;
+    rdfs:comment "An enacted, fully effective national law passed by the Seimas and signed into power by the President." ;
+    rdfs:comment "An enacted, fully effective national law passed by the Seimas and signed into power by the President."@en ;
+    rdfs:comment "Seimo priimtas ir Respublikos Prezidento pasirašytas, visiškai galiojantis nacionalinis įstatymas."@lt .
+
+llo:LegislativeDraft a owl:Class ;
+    rdfs:subClassOf llo:LegalDocument ;
+    rdfs:label "Legislative Draft (Teisės Akto Projektas)" ;
+    rdfs:label "Legislative Draft (Teisės Akto Projektas)"@en ;
+    rdfs:label "Teisės akto projektas"@lt ;
+    rdfs:comment "Proposed bills, amendments, revisions, or vetoed alternates moving through parliament." ;
+    rdfs:comment "Proposed bills, amendments, revisions, or vetoed alternates moving through parliament."@en ;
+    rdfs:comment "Siūlomi įstatymų projektai, pataisos, pakeitimai ar vetuotos alternatyvos, nagrinėjamos parlamente."@lt .
+
+llo:ExplanatoryMemorandum a owl:Class ;
+    rdfs:subClassOf llo:LegalDocument ;
+    rdfs:label "Explanatory Memorandum (Aiškinamasis Raštas)" ;
+    rdfs:label "Explanatory Memorandum (Aiškinamasis Raštas)"@en ;
+    rdfs:label "Aiškinamasis raštas"@lt ;
+    rdfs:comment "The underlying contextual text written by sponsoring politicians explaining the geopolitical, economic, or social necessity of a draft bill." ;
+    rdfs:comment "The underlying contextual text written by sponsoring politicians explaining the geopolitical, economic, or social necessity of a draft bill."@en ;
+    rdfs:comment "Kontekstinis tekstas, parengtas įstatymo projekto iniciatorių, paaiškinantis geopolitinę, ekonominę ar socialinę projekto būtinybę."@lt .
+
+llo:DocumentComponent a owl:Class ;
+    rdfs:label "Document Component" ;
+    rdfs:label "Document Component"@en ;
+    rdfs:label "Dokumento sudedamoji dalis"@lt ;
+    rdfs:comment "Structural hierarchical sub-units located inside any Legal Document." ;
+    rdfs:comment "Structural hierarchical sub-units located inside any Legal Document."@en ;
+    rdfs:comment "Struktūriniai hierarchiniai poskyriai, esantys bet kuriame teisės dokumente."@lt .
+
+llo:Chapter a owl:Class ;
+    rdfs:subClassOf llo:DocumentComponent ;
+    rdfs:label "Chapter (Skyrius)" ;
+    rdfs:label "Chapter (Skyrius)"@en ;
+    rdfs:label "Skyrius"@lt ;
+    rdfs:comment "A major structural division within a legal document grouping related articles by theme." ;
+    rdfs:comment "A major structural division within a legal document grouping related articles by theme."@en ;
+    rdfs:comment "Pagrindinis struktūrinis teisės akto padalinys, grupuojantis susijusius straipsnius pagal temą."@lt .
+
+llo:Article a owl:Class ;
+    rdfs:subClassOf llo:DocumentComponent ;
+    rdfs:label "Article (Straipsnis)" ;
+    rdfs:label "Article (Straipsnis)"@en ;
+    rdfs:label "Straipsnis"@lt ;
+    rdfs:comment "A numbered article within a statute or draft, the primary unit of legal prescription." ;
+    rdfs:comment "A numbered article within a statute or draft, the primary unit of legal prescription."@en ;
+    rdfs:comment "Numeruotas straipsnis įstatyme ar projekte – pagrindinis teisinio reguliavimo vienetas."@lt .
+
+llo:Clause a owl:Class ;
+    rdfs:subClassOf llo:DocumentComponent ;
+    rdfs:label "Clause/Paragraph (Dalis/Punktas)" ;
+    rdfs:label "Clause/Paragraph (Dalis/Punktas)"@en ;
+    rdfs:label "Dalis arba punktas"@lt ;
+    rdfs:comment "A sub-article unit containing a single rule, definition, or obligation within an article." ;
+    rdfs:comment "A sub-article unit containing a single rule, definition, or obligation within an article."@en ;
+    rdfs:comment "Straipsnio vidinis vienetas, apimantis vieną taisyklę, apibrėžtį ar pareigą."@lt .
+
+
+# =================================================================
+# # SECTION 2: SEMANTIC DOMAIN CLASS TAXONOMY (The Core Concepts)
+# =================================================================
+
+llo:LegalConcept a owl:Class ;
+    rdfs:label "Legal Concept" ;
+    rdfs:label "Legal Concept"@en ;
+    rdfs:label "Teisinė sąvoka"@lt ;
+    rdfs:comment "The conceptual root for all entities and mechanisms described inside legal texts." ;
+    rdfs:comment "The conceptual root for all entities and mechanisms described inside legal texts."@en ;
+    rdfs:comment "Konceptuali šakninė klasė visiems teisės aktuose aprašomiems subjektams ir mechanizmams."@lt .
+
+# --- Institutional Jurisdiction & Powers ---
+llo:Organization a owl:Class ;
+    rdfs:subClassOf llo:LegalConcept ;
+    rdfs:label "Organization" ;
+    rdfs:label "Organization"@en ;
+    rdfs:label "Organizacija"@lt ;
+    rdfs:comment "Any institutional body – public, private, or hybrid – referenced in legal texts as a participant in governance or regulation." ;
+    rdfs:comment "Any institutional body – public, private, or hybrid – referenced in legal texts as a participant in governance or regulation."@en ;
+    rdfs:comment "Bet kuri institucinė įstaiga – viešoji, privati ar mišri – teisės aktuose nurodyta kaip valdymo ar reguliavimo dalyvė."@lt .
+
+llo:Ministry a owl:Class ;
+    rdfs:subClassOf llo:Organization ;
+    rdfs:label "Ministry (Ministerija)" ;
+    rdfs:label "Ministry (Ministerija)"@en ;
+    rdfs:label "Ministerija"@lt ;
+    rdfs:comment "Top-level executive state bodies forming policy parameters (e.g., Ministry of National Defence)." ;
+    rdfs:comment "Top-level executive state bodies forming policy parameters (e.g., Ministry of National Defence)."@en ;
+    rdfs:comment "Aukščiausio lygio vykdomosios valdžios institucijos, formuojančios politikos kryptis (pvz., Krašto apsaugos ministerija)."@lt .
+
+llo:JurisdictionAuthority a owl:Class ;
+    rdfs:subClassOf llo:Organization ;
+    rdfs:label "Jurisdiction Authority" ;
+    rdfs:label "Jurisdiction Authority"@en ;
+    rdfs:label "Jurisdikcinė institucija"@lt ;
+    rdfs:comment "State regulatory bodies, enforcement agencies, or operational centers (e.g., NKSC, RRT, VDAI, Police)." ;
+    rdfs:comment "State regulatory bodies, enforcement agencies, or operational centers (e.g., NKSC, RRT, VDAI, Police)."@en ;
+    rdfs:comment "Valstybės reguliavimo institucijos, teisėsaugos įstaigos ar operaciniai centrai (pvz., NKSC, RRT, VDAI, policija)."@lt .
+
+# --- The Regulatory Perimeter ---
+llo:RegulatedEntity a owl:Class ;
+    rdfs:subClassOf llo:Organization ;
+    rdfs:label "Regulated Entity" ;
+    rdfs:label "Regulated Entity"@en ;
+    rdfs:label "Reguliuojamas subjektas"@lt ;
+    rdfs:comment "Corporate, public, or academic targets caught within the state's compliance reporting net." ;
+    rdfs:comment "Corporate, public, or academic targets caught within the state's compliance reporting net."@en ;
+    rdfs:comment "Įmonės, viešojo administravimo ar akademiniai subjektai, patenkantys į valstybės atitikties priežiūros tinklą."@lt .
+
+llo:EssentialEntity a owl:Class ;
+    rdfs:subClassOf llo:RegulatedEntity ;
+    rdfs:label "Essential Entity (Esminis subjektas)" ;
+    rdfs:label "Essential Entity (Esminis subjektas)"@en ;
+    rdfs:label "Esminis subjektas"@lt ;
+    rdfs:comment "High-impact critical infrastructure operators subject to proactive, stringent state supervision (NIS 2 standard)." ;
+    rdfs:comment "High-impact critical infrastructure operators subject to proactive, stringent state supervision (NIS 2 standard)."@en ;
+    rdfs:comment "Didelę reikšmę turintys ypatingos svarbos infrastruktūros operatoriai, kuriems taikoma aktyvi ir griežta valstybės priežiūra (NIS 2 standartas)."@lt .
+
+llo:ImportantEntity a owl:Class ;
+    rdfs:subClassOf llo:RegulatedEntity ;
+    rdfs:label "Important Entity (Svarbus subjektas)" ;
+    rdfs:label "Important Entity (Svarbus subjektas)"@en ;
+    rdfs:label "Svarbus subjektas"@lt ;
+    rdfs:comment "Medium-to-large operators in critical fields subject to reactive or remedial oversight." ;
+    rdfs:comment "Medium-to-large operators in critical fields subject to reactive or remedial oversight."@en ;
+    rdfs:comment "Vidutiniai ir dideli operatoriai svarbiausiose srityse, kuriems taikoma reagavimo ar taisomoji priežiūra."@lt .
+
+llo:CriticalInfrastructureOperator a owl:Class ;
+    rdfs:subClassOf llo:RegulatedEntity ;
+    rdfs:label "Critical Infrastructure Operator" ;
+    rdfs:label "Critical Infrastructure Operator"@en ;
+    rdfs:label "Ypatingos svarbos infrastruktūros valdytojas"@lt ;
+    rdfs:comment "Physical or digital asset managers in vital fields like energy, transport, water, and space." ;
+    rdfs:comment "Physical or digital asset managers in vital fields like energy, transport, water, and space."@en ;
+    rdfs:comment "Fizinio ar skaitmeninio turto valdytojai gyvybiškai svarbiose srityse: energetikos, transporto, vandens tiekimo ir kosmoso."@lt .
+
+llo:ElectronicCommunicationsProvider a owl:Class ;
+    rdfs:subClassOf llo:RegulatedEntity ;
+    rdfs:label "Electronic Communications Provider (ISP / Ryšių teikėjas)" ;
+    rdfs:label "Electronic Communications Provider (ISP / Ryšių teikėjas)"@en ;
+    rdfs:label "Viešųjų elektroninių ryšių paslaugų teikėjas"@lt ;
+    rdfs:comment "Operators of public electronic communications networks or services subject to cybersecurity obligations." ;
+    rdfs:comment "Operators of public electronic communications networks or services subject to cybersecurity obligations."@en ;
+    rdfs:comment "Viešųjų elektroninių ryšių tinklų ar paslaugų operatoriai, kuriems taikomos kibernetinio saugumo pareigos."@lt .
+
+llo:HostingServiceProvider a owl:Class ;
+    rdfs:subClassOf llo:RegulatedEntity ;
+    rdfs:label "Hosting Service Provider (Prieglobos paslaugų teikėjas)" ;
+    rdfs:label "Hosting Service Provider (Prieglobos paslaugų teikėjas)"@en ;
+    rdfs:label "Elektroninės informacijos prieglobos paslaugų teikėjas"@lt ;
+    rdfs:comment "Providers of electronic information hosting services enabling the creation, storage, or publication of electronic data." ;
+    rdfs:comment "Providers of electronic information hosting services enabling the creation, storage, or publication of electronic data."@en ;
+    rdfs:comment "Elektroninės informacijos prieglobos paslaugų teikėjai, sudarantys sąlygas kurti, saugoti ar skelbti elektroninius duomenis."@lt .
+
+llo:ThirdPartyTechVendor a owl:Class ;
+    rdfs:subClassOf llo:RegulatedEntity ;
+    rdfs:label "Third-Party Tech Vendor" ;
+    rdfs:label "Third-Party Tech Vendor"@en ;
+    rdfs:label "Trečiųjų šalių technologijų tiekėjas"@lt ;
+    rdfs:comment "External software, cloud, or hardware providers caught in supply-chain vetting loops." ;
+    rdfs:comment "External software, cloud, or hardware providers caught in supply-chain vetting loops."@en ;
+    rdfs:comment "Išoriniai programinės įrangos, debesijos ar techninės įrangos tiekėjai, patenkantys į tiekimo grandinės tikrinimo procesus."@lt .
+
+# --- Strategy & Alignment ---
+llo:StrategyAlignment a owl:Class ;
+    rdfs:subClassOf llo:LegalConcept ;
+    rdfs:label "Strategy Alignment" ;
+    rdfs:label "Strategy Alignment"@en ;
+    rdfs:label "Strateginė dermė"@lt ;
+    rdfs:comment "High-level strategic frameworks – EU directives, national strategies, or defense doctrines – that drive domestic legislative action." ;
+    rdfs:comment "High-level strategic frameworks – EU directives, national strategies, or defense doctrines – that drive domestic legislative action."@en ;
+    rdfs:comment "Aukšto lygio strateginės sistemos – ES direktyvos, nacionalinės strategijos ar gynybos doktrinos – lemiančios nacionalinę teisėkūrą."@lt .
+
+llo:EUDirective a owl:Class ;
+    rdfs:subClassOf llo:StrategyAlignment ;
+    rdfs:label "EU Directive" ;
+    rdfs:label "EU Directive"@en ;
+    rdfs:label "ES direktyva"@lt ;
+    rdfs:comment "European Union legislation forcing domestic legal transposition (e.g., NIS 2, DORA, CER Directive)." ;
+    rdfs:comment "European Union legislation forcing domestic legal transposition (e.g., NIS 2, DORA, CER Directive)."@en ;
+    rdfs:comment "Europos Sąjungos teisės aktai, reikalaujantys perkėlimo į nacionalinę teisę (pvz., NIS 2, DORA, CER direktyva)."@lt .
+
+llo:NationalStrategy a owl:Class ;
+    rdfs:subClassOf llo:StrategyAlignment ;
+    rdfs:label "National Strategy" ;
+    rdfs:label "National Strategy"@en ;
+    rdfs:label "Nacionalinė strategija"@lt ;
+    rdfs:comment "Lithuanian state-level roadmaps (e.g., National Cyber Security Strategy)." ;
+    rdfs:comment "Lithuanian state-level roadmaps (e.g., National Cyber Security Strategy)."@en ;
+    rdfs:comment "Lietuvos valstybinio lygio veiksmų planai (pvz., Nacionalinė kibernetinio saugumo strategija)."@lt .
+
+llo:DefenseDoctrine a owl:Class ;
+    rdfs:subClassOf llo:StrategyAlignment ;
+    rdfs:label "Defense Doctrine" ;
+    rdfs:label "Defense Doctrine"@en ;
+    rdfs:label "Gynybos doktrina"@lt ;
+    rdfs:comment "Guidelines handling military, total defense, or hybrid threat mitigation parameters." ;
+    rdfs:comment "Guidelines handling military, total defense, or hybrid threat mitigation parameters."@en ;
+    rdfs:comment "Gairės, reglamentuojančios karinės, visuotinės gynybos ar hibridinių grėsmių mažinimo parametrus."@lt .
+
+# --- Risk & Threat Landscape ---
+llo:RiskThreat a owl:Class ;
+    rdfs:subClassOf llo:LegalConcept ;
+    rdfs:label "Risk or Threat" ;
+    rdfs:label "Risk or Threat"@en ;
+    rdfs:label "Rizika arba grėsmė"@lt ;
+    rdfs:comment "The abstract root class for all adversarial risks, threat actors, systemic vulnerabilities, and unacceptable harms identified in legislation." ;
+    rdfs:comment "The abstract root class for all adversarial risks, threat actors, systemic vulnerabilities, and unacceptable harms identified in legislation."@en ;
+    rdfs:comment "Abstrakti šakninė klasė visoms teisės aktuose identifikuotoms priešiškoms rizikoms, grėsmių veikėjams, sisteminėms pažeidžiamumų vietoms ir nepriimtinai žalai."@lt .
+
+llo:HostileActor a owl:Class ;
+    rdfs:subClassOf llo:RiskThreat ;
+    rdfs:label "Hostile Actor" ;
+    rdfs:label "Hostile Actor"@en ;
+    rdfs:label "Priešiškas veikėjas"@lt ;
+    rdfs:comment "Geopolitical adversaries (e.g., Russia, Belarus, China) or malicious groups explicitly identified." ;
+    rdfs:comment "Geopolitical adversaries (e.g., Russia, Belarus, China) or malicious groups explicitly identified."@en ;
+    rdfs:comment "Geopolitiniai priešininkai (pvz., Rusija, Baltarusija, Kinija) ar kenkėjiškos grupuotės, aiškiai įvardytos teisės aktuose."@lt .
+
+llo:ThreatVector a owl:Class ;
+    rdfs:subClassOf llo:RiskThreat ;
+    rdfs:label "Threat Vector" ;
+    rdfs:label "Threat Vector"@en ;
+    rdfs:label "Grėsmės vektorius"@lt ;
+    rdfs:comment "The operational mechanism used by an actor (e.g., hybrid tactics, AI-driven phishing, blind-proxy sabotage)." ;
+    rdfs:comment "The operational mechanism used by an actor (e.g., hybrid tactics, AI-driven phishing, blind-proxy sabotage)."@en ;
+    rdfs:comment "Veikėjo naudojamas operacinis mechanizmas (pvz., hibridinė taktika, dirbtinio intelekto sukčiavimas, aklojo tarpininko sabotažas)."@lt .
+
+llo:Vulnerability a owl:Class ;
+    rdfs:subClassOf llo:RiskThreat ;
+    rdfs:label "Vulnerability" ;
+    rdfs:label "Vulnerability"@en ;
+    rdfs:label "Pažeidžiamumas"@lt ;
+    rdfs:comment "Systemic flaws or compliance gaps discovered during audits or specified in infrastructure reviews." ;
+    rdfs:comment "Systemic flaws or compliance gaps discovered during audits or specified in infrastructure reviews."@en ;
+    rdfs:comment "Sisteminiai trūkumai ar atitikties spragos, nustatytos audito metu arba nurodytos infrastruktūros peržiūrose."@lt .
+
+llo:UnacceptableHarm a owl:Class ;
+    rdfs:subClassOf llo:RiskThreat ;
+    rdfs:label "Unacceptable Harm" ;
+    rdfs:label "Unacceptable Harm"@en ;
+    rdfs:label "Nepriimtina žala"@lt ;
+    rdfs:comment "The legally defined threshold of severe consequence or impact that triggers state intervention." ;
+    rdfs:comment "The legally defined threshold of severe consequence or impact that triggers state intervention."@en ;
+    rdfs:comment "Teisiškai apibrėžta sunkių pasekmių ar poveikio riba, kurios peržengimas lemia valstybės įsikišimą."@lt .
+
+# --- Systemic Resilience ---
+llo:ResilienceMandate a owl:Class ;
+    rdfs:subClassOf llo:LegalConcept ;
+    rdfs:label "Resilience Mandate" ;
+    rdfs:label "Resilience Mandate"@en ;
+    rdfs:label "Atsparumo reikalavimas"@lt ;
+    rdfs:comment "Legal obligations requiring organizations to maintain operational continuity, strategic independence, or crisis readiness." ;
+    rdfs:comment "Legal obligations requiring organizations to maintain operational continuity, strategic independence, or crisis readiness."@en ;
+    rdfs:comment "Teisinės prievolės, reikalaujančios organizacijų užtikrinti veiklos tęstinumą, strateginę nepriklausomybę ar pasirengimą krizėms."@lt .
+
+llo:ContinuityProtocol a owl:Class ;
+    rdfs:subClassOf llo:ResilienceMandate ;
+    rdfs:label "Continuity Protocol" ;
+    rdfs:label "Continuity Protocol"@en ;
+    rdfs:label "Veiklos tęstinumo protokolas"@lt ;
+    rdfs:comment "Technical infrastructure operational mandates (e.g., backup power, offline redundancy requirements)." ;
+    rdfs:comment "Technical infrastructure operational mandates (e.g., backup power, offline redundancy requirements)."@en ;
+    rdfs:comment "Techninės infrastruktūros veikimo reikalavimai (pvz., atsarginis maitinimas, autonominio veikimo dubliavimo reikalavimai)."@lt .
+
+llo:StrategicDecoupling a owl:Class ;
+    rdfs:subClassOf llo:ResilienceMandate ;
+    rdfs:label "Strategic Decoupling" ;
+    rdfs:label "Strategic Decoupling"@en ;
+    rdfs:label "Strateginis atsiejimas"@lt ;
+    rdfs:comment "Mandates focused on removing systemic dependencies on hostile foreign networks (e.g., BRELL power ring synchronization)." ;
+    rdfs:comment "Mandates focused on removing systemic dependencies on hostile foreign networks (e.g., BRELL power ring synchronization)."@en ;
+    rdfs:comment "Reikalavimai, skirti pašalinti sistemines priklausomybes nuo priešiškų užsienio tinklų (pvz., BRELL elektros žiedo sinchronizacija)."@lt .
+
+llo:MobilizationFramework a owl:Class ;
+    rdfs:subClassOf llo:ResilienceMandate ;
+    rdfs:label "Mobilization Framework" ;
+    rdfs:label "Mobilization Framework"@en ;
+    rdfs:label "Mobilizacijos sistema"@lt ;
+    rdfs:comment "Civilian and host-nation defense support actions triggered by state mobilization laws." ;
+    rdfs:comment "Civilian and host-nation defense support actions triggered by state mobilization laws."@en ;
+    rdfs:comment "Civilinės ir priimančiosios šalies gynybos paramos veiksmai, inicijuojami valstybės mobilizacijos įstatymais."@lt .
+
+llo:SupplyChainRestriction a owl:Class ;
+    rdfs:subClassOf llo:ResilienceMandate ;
+    rdfs:label "Supply Chain Restriction" ;
+    rdfs:label "Supply Chain Restriction"@en ;
+    rdfs:label "Tiekimo grandinės apribojimas"@lt ;
+    rdfs:comment "Legal bans or vetting requirements targeting hardware/software vendors from designated high-risk geographic areas." ;
+    rdfs:comment "Legal bans or vetting requirements targeting hardware/software vendors from designated high-risk geographic areas."@en ;
+    rdfs:comment "Teisiniai draudimai ar patikros reikalavimai, taikomi techninės ar programinės įrangos tiekėjams iš nustatytų didelės rizikos geografinių zonų."@lt .
+
+# --- Tactical Information Flow & Incidents ---
+llo:IncidentTrigger a owl:Class ;
+    rdfs:subClassOf llo:LegalConcept ;
+    rdfs:label "Incident Trigger" ;
+    rdfs:label "Incident Trigger"@en ;
+    rdfs:label "Incidento suaktyvinimas"@lt ;
+    rdfs:comment "State-level crises, severe data breaches, or operational disruptions breaking baseline operations." ;
+    rdfs:comment "State-level crises, severe data breaches, or operational disruptions breaking baseline operations."@en ;
+    rdfs:comment "Valstybinio lygio krizės, rimti duomenų saugumo pažeidimai ar veiklos sutrikimai, pažeidžiantys bazinį veikimą."@lt .
+
+llo:InformationPipeline a owl:Class ;
+    rdfs:subClassOf llo:LegalConcept ;
+    rdfs:label "Information Pipeline" ;
+    rdfs:label "Information Pipeline"@en ;
+    rdfs:label "Informacijos perdavimo kanalas"@lt ;
+    rdfs:comment "Secure technical reporting networks (e.g., Kibernetinio saugumo informacinė sistema - KSIS)." ;
+    rdfs:comment "Secure technical reporting networks (e.g., Kibernetinio saugumo informacinė sistema - KSIS)."@en ;
+    rdfs:comment "Saugūs techniniai pranešimų tinklai (pvz., Kibernetinio saugumo informacinė sistema – KSIS)."@lt .
+
+# --- Liability & Enforcement Teeth ---
+llo:LiabilityEnforcement a owl:Class ;
+    rdfs:subClassOf llo:LegalConcept ;
+    rdfs:label "Liability and Enforcement" ;
+    rdfs:label "Liability and Enforcement"@en ;
+    rdfs:label "Atsakomybė ir vykdymo užtikrinimas"@lt ;
+    rdfs:comment "The root class for all punitive mechanisms – financial penalties, personal executive liability, and operational sanctions – available to state authorities." ;
+    rdfs:comment "The root class for all punitive mechanisms – financial penalties, personal executive liability, and operational sanctions – available to state authorities."@en ;
+    rdfs:comment "Šakninė klasė visiems baudžiamiesiems mechanizmams – finansinėms baudoms, asmeninei vadovų atsakomybei ir veiklos sankcijoms – kuriuos gali taikyti valstybės institucijos."@lt .
+
+llo:FinancialPenalty a owl:Class ;
+    rdfs:subClassOf llo:LiabilityEnforcement ;
+    rdfs:label "Financial Penalty" ;
+    rdfs:label "Financial Penalty"@en ;
+    rdfs:label "Finansinė bauda"@lt ;
+    rdfs:comment "Administrative corporate fines, calculated via flat metrics or global turnover percentages." ;
+    rdfs:comment "Administrative corporate fines, calculated via flat metrics or global turnover percentages."@en ;
+    rdfs:comment "Administracinės įmonių baudos, apskaičiuojamos pagal fiksuotus rodiklius arba pasaulinės apyvartos procentus."@lt .
+
+llo:ExecutiveLiability a owl:Class ;
+    rdfs:subClassOf llo:LiabilityEnforcement ;
+    rdfs:label "Executive Liability" ;
+    rdfs:label "Executive Liability"@en ;
+    rdfs:label "Vadovų asmeninė atsakomybė"@lt ;
+    rdfs:comment "Personal, non-corporate administrative accountability placed directly on C-level administration heads (Vadovai)." ;
+    rdfs:comment "Personal, non-corporate administrative accountability placed directly on C-level administration heads (Vadovai)."@en ;
+    rdfs:comment "Asmeninė, ne įmonės, administracinė atsakomybė, taikoma tiesiogiai aukščiausio lygio vadovams."@lt .
+
+llo:OperationalSanction a owl:Class ;
+    rdfs:subClassOf llo:LiabilityEnforcement ;
+    rdfs:label "Operational Sanction" ;
+    rdfs:label "Operational Sanction"@en ;
+    rdfs:label "Veiklos sankcija"@lt ;
+    rdfs:comment "Direct state interference with corporate capabilities (e.g., freezing operational licenses, forcing service suspension)." ;
+    rdfs:comment "Direct state interference with corporate capabilities (e.g., freezing operational licenses, forcing service suspension)."@en ;
+    rdfs:comment "Tiesioginis valstybės kišimasis į įmonės veiklą (pvz., veiklos licencijų sustabdymas, priverstinis paslaugų nutraukimas)."@lt .
+
+# --- Civic Integration Layer (The Public Loop) ---
+llo:CivicRight a owl:Class ;
+    rdfs:subClassOf llo:LegalConcept ;
+    rdfs:label "Civic Right / Liberty" ;
+    rdfs:label "Civic Right / Liberty"@en ;
+    rdfs:label "Pilietinė teisė / laisvė"@lt ;
+    rdfs:comment "Fundamental constitutional protections or civil liberties guaranteed to individual citizens (e.g., Privacy, Freedom of Information)." ;
+    rdfs:comment "Fundamental constitutional protections or civil liberties guaranteed to individual citizens (e.g., Privacy, Freedom of Information)."@en ;
+    rdfs:comment "Pagrindinės konstitucinės apsaugos priemonės ar pilietinės laisvės, garantuojamos kiekvienam piliečiui (pvz., privatumas, teisė į informaciją)."@lt .
+
+llo:CivicInput a owl:Class ;
+    rdfs:subClassOf llo:LegalConcept ;
+    rdfs:label "Civic Input" ;
+    rdfs:label "Civic Input"@en ;
+    rdfs:label "Pilietinis indėlis"@lt ;
+    rdfs:comment "Public commentary, citizen petitions, or NGO declarations reacting to a proposed draft law." ;
+    rdfs:comment "Public commentary, citizen petitions, or NGO declarations reacting to a proposed draft law."@en ;
+    rdfs:comment "Viešieji komentarai, piliečių peticijos ar NVO pareiškimai, reaguojantys į siūlomą teisės akto projektą."@lt .
+
+llo:OversightBody a owl:Class ;
+    rdfs:subClassOf llo:Organization ;
+    rdfs:label "Oversight Body" ;
+    rdfs:label "Oversight Body"@en ;
+    rdfs:label "Priežiūros institucija"@lt ;
+    rdfs:comment "Independent watchdogs protecting the general populace from state overreach or bureaucratic corruption (e.g., Seimo kontrolieriai)." ;
+    rdfs:comment "Independent watchdogs protecting the general populace from state overreach or bureaucratic corruption (e.g., Seimo kontrolieriai)."@en ;
+    rdfs:comment "Nepriklausomos kontrolės institucijos, saugančios visuomenę nuo valstybės piktnaudžiavimo ar biurokratinės korupcijos (pvz., Seimo kontrolieriai)."@lt .
+
+
+# =================================================================
+# # SECTION 3: OBJECT PROPERTIES (The Structural & Semantic Connecting Links)
+# =================================================================
+
+# --- Document Structural Anatomy ---
+llo:hasComponent a owl:ObjectProperty ;
+    a owl:IrreflexiveProperty ;
+    rdfs:domain llo:LegalDocument ;
+    rdfs:range llo:DocumentComponent ;
+    rdfs:label "has structural component" ;
+    rdfs:label "has structural component"@en ;
+    rdfs:label "turi struktūrinę dalį"@lt ;
+    rdfs:comment "Links a legal document to its hierarchical sub-units such as chapters, articles, and clauses." ;
+    rdfs:comment "Links a legal document to its hierarchical sub-units such as chapters, articles, and clauses."@en ;
+    rdfs:comment "Susieja teisės dokumentą su jo hierarchiniais poskyriais: skyriais, straipsniais ir punktais."@lt .
+
+llo:subComponentOf a owl:ObjectProperty ;
+    owl:inverseOf llo:hasComponent ;
+    rdfs:label "is sub-component of" ;
+    rdfs:label "is sub-component of"@en ;
+    rdfs:label "yra sudedamoji dalis"@lt ;
+    rdfs:comment "Inverse of hasComponent – indicates that a document component belongs to a parent document or component." ;
+    rdfs:comment "Inverse of hasComponent – indicates that a document component belongs to a parent document or component."@en ;
+    rdfs:comment "Atvirkštinė hasComponent savybė – nurodo, kad dokumento dalis priklauso pirminiam dokumentui ar daliai."@lt .
+
+llo:codifiesConcept a owl:ObjectProperty ;
+    rdfs:domain llo:DocumentComponent ;
+    rdfs:range llo:LegalConcept ;
+    rdfs:label "codifies domain concept" ;
+    rdfs:label "codifies domain concept"@en ;
+    rdfs:label "kodifikuoja dalykinę sąvoką"@lt ;
+    rdfs:comment "The primary connective bridge mapping a specific parsed sentence/clause down to a semantic domain node." ;
+    rdfs:comment "The primary connective bridge mapping a specific parsed sentence/clause down to a semantic domain node."@en ;
+    rdfs:comment "Pagrindinis jungiantysis ryšys, susiejantis konkrečią analizuojamą sakinio dalį ar punktą su semantinio domeno mazgu."@lt .
+
+llo:proposesAmendmentTo a owl:ObjectProperty ;
+    rdfs:domain llo:LegislativeDraft ;
+    rdfs:range llo:Statute ;
+    rdfs:label "proposes amendment to" ;
+    rdfs:label "proposes amendment to"@en ;
+    rdfs:label "siūlo pataisą"@lt ;
+    rdfs:comment "Links a legislative draft to the existing statute it seeks to amend or revise." ;
+    rdfs:comment "Links a legislative draft to the existing statute it seeks to amend or revise."@en ;
+    rdfs:comment "Susieja teisės akto projektą su galiojančiu įstatymu, kurį siekiama pakeisti ar papildyti."@lt .
+
+llo:supersedesVersion a owl:ObjectProperty ;
+    a owl:TransitiveProperty , owl:AsymmetricProperty ;
+    rdfs:domain llo:LegalDocument ;
+    rdfs:range llo:LegalDocument ;
+    rdfs:label "supersedes version" ;
+    rdfs:label "supersedes version"@en ;
+    rdfs:label "pakeičia versiją"@lt ;
+    rdfs:comment "Tracks version lineage across the 10-year evolutionary dataset timeline." ;
+    rdfs:comment "Tracks version lineage across the 10-year evolutionary dataset timeline."@en ;
+    rdfs:comment "Seka versijų kilmės grandinę per dešimties metų teisės aktų evoliucijos laikotarpį."@lt .
+
+llo:accompaniesDraft a owl:ObjectProperty ;
+    rdfs:domain llo:ExplanatoryMemorandum ;
+    rdfs:range llo:LegislativeDraft ;
+    rdfs:label "accompanies draft" ;
+    rdfs:label "accompanies draft"@en ;
+    rdfs:label "lydi projektą"@lt ;
+    rdfs:comment "Links an explanatory memorandum to the legislative draft it was submitted alongside." ;
+    rdfs:comment "Links an explanatory memorandum to the legislative draft it was submitted alongside."@en ;
+    rdfs:comment "Susieja aiškinamąjį raštą su teisės akto projektu, kartu su kuriuo jis buvo pateiktas."@lt .
+
+# --- Strategic & Risk Lineage ---
+llo:transposesDirective a owl:ObjectProperty ;
+    rdfs:domain llo:LegalDocument ;
+    rdfs:range llo:EUDirective ;
+    rdfs:label "transposes directive" ;
+    rdfs:label "transposes directive"@en ;
+    rdfs:label "perkelia direktyvą"@lt ;
+    rdfs:comment "Links a national legal document to the EU directive it transposes into domestic law." ;
+    rdfs:comment "Links a national legal document to the EU directive it transposes into domestic law."@en ;
+    rdfs:comment "Susieja nacionalinį teisės aktą su ES direktyva, kurią jis perkelia į vidaus teisę."@lt .
+
+llo:implementsStrategy a owl:ObjectProperty ;
+    rdfs:domain llo:LegalDocument ;
+    rdfs:range llo:NationalStrategy ;
+    rdfs:label "implements strategy" ;
+    rdfs:label "implements strategy"@en ;
+    rdfs:label "įgyvendina strategiją"@lt ;
+    rdfs:comment "Links a legal document to the national strategy it operationalizes through specific legal provisions." ;
+    rdfs:comment "Links a legal document to the national strategy it operationalizes through specific legal provisions."@en ;
+    rdfs:comment "Susieja teisės aktą su nacionaline strategija, kurią jis įgyvendina konkrečiomis teisinėmis nuostatomis."@lt .
+
+llo:alignedWithDoctrine a owl:ObjectProperty ;
+    rdfs:domain llo:NationalStrategy ;
+    rdfs:range llo:DefenseDoctrine ;
+    rdfs:label "aligned with doctrine" ;
+    rdfs:label "aligned with doctrine"@en ;
+    rdfs:label "suderinta su doktrina"@lt ;
+    rdfs:comment "Links a national strategy to the defense doctrine whose principles it reflects or operationalizes." ;
+    rdfs:comment "Links a national strategy to the defense doctrine whose principles it reflects or operationalizes."@en ;
+    rdfs:comment "Susieja nacionalinę strategiją su gynybos doktrina, kurios principus ji atspindi ar įgyvendina."@lt .
+
+llo:addressesRisk a owl:ObjectProperty ;
+    rdfs:domain llo:StrategyAlignment ;
+    rdfs:range llo:RiskThreat ;
+    rdfs:label "addresses risk" ;
+    rdfs:label "addresses risk"@en ;
+    rdfs:label "sprendžia riziką"@lt ;
+    rdfs:comment "Links a strategic framework to the specific risk or threat it was designed to counter." ;
+    rdfs:comment "Links a strategic framework to the specific risk or threat it was designed to counter."@en ;
+    rdfs:comment "Susieja strateginę sistemą su konkrečia rizika ar grėsme, kuriai atremti ji buvo sukurta."@lt .
+
+# --- Operational Governance Limits ---
+llo:governsEntity a owl:ObjectProperty ;
+    a owl:AsymmetricProperty , owl:IrreflexiveProperty ;
+    rdfs:domain llo:JurisdictionAuthority ;
+    rdfs:range llo:RegulatedEntity ;
+    rdfs:label "governs entity" ;
+    rdfs:label "governs entity"@en ;
+    rdfs:label "prižiūri subjektą"@lt ;
+    rdfs:comment "Links a jurisdiction authority to a regulated entity falling under its supervisory or enforcement mandate." ;
+    rdfs:comment "Links a jurisdiction authority to a regulated entity falling under its supervisory or enforcement mandate."@en ;
+    rdfs:comment "Susieja jurisdikcinę instituciją su reguliuojamu subjektu, patenkančiu į jos priežiūros ar vykdymo užtikrinimo įgaliojimus."@lt .
+
+llo:subAgencyOf a owl:ObjectProperty ;
+    a owl:TransitiveProperty , owl:IrreflexiveProperty ;
+    rdfs:domain llo:JurisdictionAuthority ;
+    rdfs:range llo:Organization ;
+    rdfs:label "is sub-agency of" ;
+    rdfs:label "is sub-agency of"@en ;
+    rdfs:label "yra pavaldi įstaiga"@lt ;
+    rdfs:comment "Tracks department encapsulation and shifting power structures (e.g., civilian oversight moving to MoD)." ;
+    rdfs:comment "Tracks department encapsulation and shifting power structures (e.g., civilian oversight moving to MoD)."@en ;
+    rdfs:comment "Seka departamentų pavaldumą ir besikeičiančias galios struktūras (pvz., civilinės priežiūros perkėlimą KAM žinion)."@lt .
+
+llo:executedByAuthority a owl:ObjectProperty ;
+    rdfs:domain llo:IncidentTrigger ;
+    rdfs:range llo:JurisdictionAuthority ;
+    rdfs:label "is executed by authority" ;
+    rdfs:label "is executed by authority"@en ;
+    rdfs:label "vykdoma institucijos"@lt ;
+    rdfs:comment "Links an incident-triggered action or emergency power to the authority empowered to execute it." ;
+    rdfs:comment "Links an incident-triggered action or emergency power to the authority empowered to execute it."@en ;
+    rdfs:comment "Susieja incidento sukeltą veiksmą ar ypatingąjį įgaliojimą su institucija, įgaliota jį vykdyti."@lt .
+
+llo:mustReportTo a owl:ObjectProperty ;
+    rdfs:domain llo:RegulatedEntity ;
+    rdfs:range llo:JurisdictionAuthority ;
+    rdfs:label "must report to" ;
+    rdfs:label "must report to"@en ;
+    rdfs:label "privalo pranešti"@lt ;
+    rdfs:comment "Links a regulated entity to the authority it is legally obligated to report incidents or compliance status to." ;
+    rdfs:comment "Links a regulated entity to the authority it is legally obligated to report incidents or compliance status to."@en ;
+    rdfs:comment "Susieja reguliuojamą subjektą su institucija, kuriai jis teisiškai privalo pranešti apie incidentus ar atitikties būklę."@lt .
+
+llo:imposesLiability a owl:ObjectProperty ;
+    rdfs:domain llo:JurisdictionAuthority ;
+    rdfs:range llo:LiabilityEnforcement ;
+    rdfs:label "imposes liability" ;
+    rdfs:label "imposes liability"@en ;
+    rdfs:label "taiko atsakomybę"@lt ;
+    rdfs:comment "Links a jurisdiction authority to the type of punitive measure it is empowered to impose." ;
+    rdfs:comment "Links a jurisdiction authority to the type of punitive measure it is empowered to impose."@en ;
+    rdfs:comment "Susieja jurisdikcinę instituciją su baudžiamąja priemone, kurią ji turi teisę taikyti."@lt .
+
+llo:penalizesEntity a owl:ObjectProperty ;
+    rdfs:domain llo:LiabilityEnforcement ;
+    rdfs:range llo:RegulatedEntity ;
+    rdfs:label "penalizes entity" ;
+    rdfs:label "penalizes entity"@en ;
+    rdfs:label "baudžia subjektą"@lt ;
+    rdfs:comment "Links a liability or enforcement action to the regulated entity it targets." ;
+    rdfs:comment "Links a liability or enforcement action to the regulated entity it targets."@en ;
+    rdfs:comment "Susieja atsakomybės ar vykdymo užtikrinimo veiksmą su reguliuojamu subjektu, kuriam jis taikomas."@lt .
+
+# --- Risk Mechanics & Resilience Vetting ---
+llo:utilizesVector a owl:ObjectProperty ;
+    rdfs:domain llo:HostileActor ;
+    rdfs:range llo:ThreatVector ;
+    rdfs:label "utilizes vector" ;
+    rdfs:label "utilizes vector"@en ;
+    rdfs:label "naudoja grėsmės vektorių"@lt ;
+    rdfs:comment "Links a hostile actor to the attack mechanism or tactic it employs." ;
+    rdfs:comment "Links a hostile actor to the attack mechanism or tactic it employs."@en ;
+    rdfs:comment "Susieja priešišką veikėją su atakos mechanizmu ar taktika, kurią jis naudoja."@lt .
+
+llo:exploitsVulnerability a owl:ObjectProperty ;
+    rdfs:domain llo:ThreatVector ;
+    rdfs:range llo:Vulnerability ;
+    rdfs:label "exploits vulnerability" ;
+    rdfs:label "exploits vulnerability"@en ;
+    rdfs:label "išnaudoja pažeidžiamumą"@lt ;
+    rdfs:comment "Links a threat vector to the specific systemic flaw or compliance gap it targets." ;
+    rdfs:comment "Links a threat vector to the specific systemic flaw or compliance gap it targets."@en ;
+    rdfs:comment "Susieja grėsmės vektorių su konkrečiu sisteminiu trūkumu ar atitikties spraga, kurią jis taikosi išnaudoti."@lt .
+
+llo:resultsInHarm a owl:ObjectProperty ;
+    rdfs:domain llo:RiskThreat ;
+    rdfs:range llo:UnacceptableHarm ;
+    rdfs:label "results in harm" ;
+    rdfs:label "results in harm"@en ;
+    rdfs:label "sukelia žalą"@lt ;
+    rdfs:comment "Links a risk or threat to the severe consequence or unacceptable harm it may cause." ;
+    rdfs:comment "Links a risk or threat to the severe consequence or unacceptable harm it may cause."@en ;
+    rdfs:comment "Susieja riziką ar grėsmę su sunkiomis pasekmėmis ar nepriimtina žala, kurią ji gali sukelti."@lt .
+
+llo:mitigatesRisk a owl:ObjectProperty ;
+    rdfs:domain llo:ResilienceMandate ;
+    rdfs:range llo:RiskThreat ;
+    rdfs:label "mitigates risk" ;
+    rdfs:label "mitigates risk"@en ;
+    rdfs:label "mažina riziką"@lt ;
+    rdfs:comment "Links a resilience mandate to the risk or threat it is designed to reduce or neutralize." ;
+    rdfs:comment "Links a resilience mandate to the risk or threat it is designed to reduce or neutralize."@en ;
+    rdfs:comment "Susieja atsparumo reikalavimą su rizika ar grėsme, kurią jis skirtas sumažinti ar neutralizuoti."@lt .
+
+llo:bearsCostOf a owl:ObjectProperty ;
+    rdfs:domain llo:RegulatedEntity ;
+    rdfs:range llo:ResilienceMandate ;
+    rdfs:label "bears cost of" ;
+    rdfs:label "bears cost of"@en ;
+    rdfs:label "padengia išlaidas"@lt ;
+    rdfs:comment "Links a regulated entity to the resilience mandate whose implementation costs it must fund from its own resources." ;
+    rdfs:comment "Links a regulated entity to the resilience mandate whose implementation costs it must fund from its own resources."@en ;
+    rdfs:comment "Susieja reguliuojamą subjektą su atsparumo reikalavimu, kurio įgyvendinimo išlaidas jis privalo padengti savo lėšomis."@lt .
+
+# --- Transactional Incident Information Flows ---
+llo:submitsDataVia a owl:ObjectProperty ;
+    rdfs:domain llo:RegulatedEntity ;
+    rdfs:range llo:InformationPipeline ;
+    rdfs:label "submits data via" ;
+    rdfs:label "submits data via"@en ;
+    rdfs:label "teikia duomenis per"@lt ;
+    rdfs:comment "Captures data ingress direction from corporate targets into secure networks during crises." ;
+    rdfs:comment "Captures data ingress direction from corporate targets into secure networks during crises."@en ;
+    rdfs:comment "Fiksuoja duomenų įvedimo kryptį iš įmonių į saugius tinklus krizių metu."@lt .
+
+llo:relaysDataTo a owl:ObjectProperty ;
+    rdfs:domain llo:InformationPipeline ;
+    rdfs:range llo:JurisdictionAuthority ;
+    rdfs:label "relays data to" ;
+    rdfs:label "relays data to"@en ;
+    rdfs:label "perduoda duomenis"@lt ;
+    rdfs:comment "Tracks how information networks feed structured alerts automatically down to authorities." ;
+    rdfs:comment "Tracks how information networks feed structured alerts automatically down to authorities."@en ;
+    rdfs:comment "Seka, kaip informaciniai tinklai automatiškai perduoda struktūrinius pranešimus institucijoms."@lt .
+
+llo:exchangesDataWith a owl:ObjectProperty , owl:SymmetricProperty ;
+    rdfs:domain llo:JurisdictionAuthority ;
+    rdfs:range llo:JurisdictionAuthority ;
+    rdfs:label "exchanges data with" ;
+    rdfs:label "exchanges data with"@en ;
+    rdfs:label "keičiasi duomenimis su"@lt ;
+    rdfs:comment "Models legal interagency lateral communication pathways established by statute." ;
+    rdfs:comment "Models legal interagency lateral communication pathways established by statute."@en ;
+    rdfs:comment "Modeliuoja įstatyme nustatytus tarpinstitucinius horizontalius komunikacijos kanalus."@lt .
+
+llo:occursWithin a owl:ObjectProperty ;
+    rdfs:domain llo:IncidentTrigger ;
+    rdfs:range llo:RegulatedEntity ;
+    rdfs:label "occurs within" ;
+    rdfs:label "occurs within"@en ;
+    rdfs:label "įvyksta subjekte"@lt ;
+    rdfs:comment "Links an incident trigger to the regulated entity within whose systems or infrastructure it occurs." ;
+    rdfs:comment "Links an incident trigger to the regulated entity within whose systems or infrastructure it occurs."@en ;
+    rdfs:comment "Susieja incidento suaktyvinimą su reguliuojamu subjektu, kurio sistemose ar infrastruktūroje jis įvyksta."@lt .
+
+llo:flowsThrough a owl:ObjectProperty ;
+    rdfs:domain llo:IncidentTrigger ;
+    rdfs:range llo:InformationPipeline ;
+    rdfs:label "flows through" ;
+    rdfs:label "flows through"@en ;
+    rdfs:label "perduodamas per"@lt ;
+    rdfs:comment "Links an incident trigger to the information pipeline through which it is reported." ;
+    rdfs:comment "Links an incident trigger to the information pipeline through which it is reported."@en ;
+    rdfs:comment "Susieja incidento suaktyvinimą su informacijos perdavimo kanalu, per kurį apie jį pranešama."@lt .
+
+# --- Civic Transparency Loops ---
+llo:guaranteesRightTo a owl:ObjectProperty ;
+    rdfs:domain llo:Statute ;
+    rdfs:range llo:CivicRight ;
+    rdfs:label "guarantees right to" ;
+    rdfs:label "guarantees right to"@en ;
+    rdfs:label "garantuoja teisę į"@lt ;
+    rdfs:comment "Links a statute to the civic right or liberty it formally guarantees to citizens." ;
+    rdfs:comment "Links a statute to the civic right or liberty it formally guarantees to citizens."@en ;
+    rdfs:comment "Susieja įstatymą su pilietine teise ar laisve, kurią jis formaliai garantuoja piliečiams."@lt .
+
+llo:limitsRight a owl:ObjectProperty ;
+    rdfs:domain llo:IncidentTrigger ;
+    rdfs:range llo:CivicRight ;
+    rdfs:label "temporarily limits right" ;
+    rdfs:label "temporarily limits right"@en ;
+    rdfs:label "laikinai apriboja teisę"@lt ;
+    rdfs:comment "Flags points where state emergency mechanisms push past normal citizen liberties." ;
+    rdfs:comment "Flags points where state emergency mechanisms push past normal citizen liberties."@en ;
+    rdfs:comment "Žymi vietas, kur valstybės ypatingųjų situacijų mechanizmai viršija įprastas piliečių laisves."@lt .
+
+llo:providesRedressFor a owl:ObjectProperty ;
+    rdfs:domain llo:OversightBody ;
+    rdfs:range llo:LiabilityEnforcement ;
+    rdfs:label "provides redress for" ;
+    rdfs:label "provides redress for"@en ;
+    rdfs:label "užtikrina teisių gynimą dėl"@lt ;
+    rdfs:comment "The citizen's avenue to challenge state-issued sanctions or penalties." ;
+    rdfs:comment "The citizen's avenue to challenge state-issued sanctions or penalties."@en ;
+    rdfs:comment "Piliečio galimybė ginčyti valstybės institucijų paskirtas sankcijas ar baudas."@lt .
+
+llo:influencesDraft a owl:ObjectProperty ;
+    rdfs:domain llo:CivicInput ;
+    rdfs:range llo:LegislativeDraft ;
+    rdfs:label "influences draft" ;
+    rdfs:label "influences draft"@en ;
+    rdfs:label "daro įtaką projektui"@lt ;
+    rdfs:comment "Links civic input such as public commentary or petitions to the legislative draft they respond to." ;
+    rdfs:comment "Links civic input such as public commentary or petitions to the legislative draft they respond to."@en ;
+    rdfs:comment "Susieja pilietinį indėlį, pvz., viešuosius komentarus ar peticijas, su teisės akto projektu, į kurį jie reaguoja."@lt .
+
+llo:investigatesAuthority a owl:ObjectProperty ;
+    rdfs:domain llo:OversightBody ;
+    rdfs:range llo:JurisdictionAuthority ;
+    rdfs:label "investigates authority" ;
+    rdfs:label "investigates authority"@en ;
+    rdfs:label "tiria institucijos veiklą"@lt ;
+    rdfs:comment "Tracks independent watchdog actions evaluating state entities for corruption or overreach." ;
+    rdfs:comment "Tracks independent watchdog actions evaluating state entities for corruption or overreach."@en ;
+    rdfs:comment "Seka nepriklausomų kontrolės institucijų veiksmus, vertinančius valstybės subjektus dėl korupcijos ar galių viršijimo."@lt .
+
+
+# =================================================================
+# # SECTION 4: DATA PROPERTIES (The Quantifiable Rules & Constraints)
+# =================================================================
+
+# --- Registry Identification ---
+llo:hasDocID a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain llo:LegalDocument ;
+    rdfs:range xsd:string ;
+    rdfs:label "Official Legal Code ID (e.g., No. XII-1428)" ;
+    rdfs:label "Official Legal Code ID (e.g., No. XII-1428)"@en ;
+    rdfs:label "Oficialus teisės akto kodas (pvz., Nr. XII-1428)"@lt ;
+    rdfs:comment "The unique official registration number assigned to a legal document in state registries." ;
+    rdfs:comment "The unique official registration number assigned to a legal document in state registries."@en ;
+    rdfs:comment "Unikalus oficialus registracijos numeris, priskirtas teisės dokumentui valstybės registruose."@lt .
+
+llo:dateEnacted a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain llo:LegalDocument ;
+    rdfs:range xsd:date ;
+    rdfs:label "Date Enacted" ;
+    rdfs:label "Date Enacted"@en ;
+    rdfs:label "Priėmimo data"@lt ;
+    rdfs:comment "The official date on which a legal document was enacted, signed, or came into force." ;
+    rdfs:comment "The official date on which a legal document was enacted, signed, or came into force."@en ;
+    rdfs:comment "Oficiali data, kurią teisės dokumentas buvo priimtas, pasirašytas ar įsigaliojo."@lt .
+
+llo:hasIndexNumber a owl:DatatypeProperty ;
+    rdfs:domain llo:DocumentComponent ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Hierarchical ordering index" ;
+    rdfs:label "Hierarchical ordering index"@en ;
+    rdfs:label "Hierarchinis eilės numeris"@lt ;
+    rdfs:comment "The sequential number of a document component within its parent structure (e.g., article 3, clause 7)." ;
+    rdfs:comment "The sequential number of a document component within its parent structure (e.g., article 3, clause 7)."@en ;
+    rdfs:comment "Dokumento dalies eilės numeris pirminėje struktūroje (pvz., 3 straipsnis, 7 punktas)."@lt .
+
+# --- Governance Contexts ---
+llo:hasGovernanceDomain a owl:DatatypeProperty ;
+    rdfs:domain llo:JurisdictionAuthority ;
+    rdfs:range xsd:string ;
+    rdfs:label "governance class descriptor (e.g., Civilian, Military, Independent Regulatory)" ;
+    rdfs:label "governance class descriptor (e.g., Civilian, Military, Independent Regulatory)"@en ;
+    rdfs:label "valdymo srities aprašas (pvz., civilinė, karinė, nepriklausoma reguliavimo)"@lt ;
+    rdfs:comment "Classifies the governance type of a jurisdiction authority as civilian, military, or independent regulatory." ;
+    rdfs:comment "Classifies the governance type of a jurisdiction authority as civilian, military, or independent regulatory."@en ;
+    rdfs:comment "Klasifikuoja jurisdikcinės institucijos valdymo tipą: civilinis, karinis ar nepriklausomas reguliavimo."@lt .
+
+llo:isExtraordinaryPower a owl:DatatypeProperty ;
+    rdfs:domain llo:IncidentTrigger ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is extraordinary power bypassing standard court approval mechanisms" ;
+    rdfs:label "is extraordinary power bypassing standard court approval mechanisms"@en ;
+    rdfs:label "yra ypatingasis įgaliojimas, apeinantis įprastą teismo sankciją"@lt ;
+    rdfs:comment "Boolean flag indicating whether an incident-triggered power bypasses standard judicial approval." ;
+    rdfs:comment "Boolean flag indicating whether an incident-triggered power bypasses standard judicial approval."@en ;
+    rdfs:comment "Loginis žymėjimas, nurodantis, ar incidento sukeltas įgaliojimas apeina įprastą teismo sankciją."@lt .
+
+llo:isPublicAdministration a owl:DatatypeProperty ;
+    rdfs:domain llo:RegulatedEntity ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is public administration element" ;
+    rdfs:label "is public administration element"@en ;
+    rdfs:label "yra viešojo administravimo subjektas"@lt ;
+    rdfs:comment "Boolean flag indicating whether a regulated entity is a public administration body as opposed to a private entity." ;
+    rdfs:comment "Boolean flag indicating whether a regulated entity is a public administration body as opposed to a private entity."@en ;
+    rdfs:comment "Loginis žymėjimas, nurodantis, ar reguliuojamas subjektas yra viešojo administravimo įstaiga, o ne privatus subjektas."@lt .
+
+# --- Operational Windows ---
+llo:hasResponseWindow a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain llo:IncidentTrigger ;
+    rdfs:range xsd:duration ;
+    rdfs:label "compliance response window metric" ;
+    rdfs:label "compliance response window metric"@en ;
+    rdfs:label "atitikties reagavimo laikotarpio rodiklis"@lt ;
+    rdfs:comment "The maximum time period within which a regulated entity must respond to or report an incident." ;
+    rdfs:comment "The maximum time period within which a regulated entity must respond to or report an incident."@en ;
+    rdfs:comment "Didžiausias laikotarpis, per kurį reguliuojamas subjektas privalo reaguoti į incidentą ar apie jį pranešti."@lt .
+
+llo:hasEmergencyLimit a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain llo:IncidentTrigger ;
+    rdfs:range xsd:duration ;
+    rdfs:label "temporary operational restriction duration threshold" ;
+    rdfs:label "temporary operational restriction duration threshold"@en ;
+    rdfs:label "laikino veiklos apribojimo trukmės riba"@lt ;
+    rdfs:comment "The maximum duration for which an authority may impose emergency operational restrictions without court approval." ;
+    rdfs:comment "The maximum duration for which an authority may impose emergency operational restrictions without court approval."@en ;
+    rdfs:comment "Didžiausia trukmė, kuriai institucija gali taikyti ypatingąjį veiklos apribojimą be teismo sankcijos."@lt .
+
+# --- Economic Burden & Vetting ---
+llo:isAtExpenseOfEntity a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain llo:ResilienceMandate ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is funded at entity expense (savo lėšomis)" ;
+    rdfs:label "is funded at entity expense (savo lėšomis)"@en ;
+    rdfs:label "finansuojama subjekto lėšomis (savo lėšomis)"@lt ;
+    rdfs:comment "Boolean flag indicating whether the regulated entity must fund the resilience mandate from its own resources." ;
+    rdfs:comment "Boolean flag indicating whether the regulated entity must fund the resilience mandate from its own resources."@en ;
+    rdfs:comment "Loginis žymėjimas, nurodantis, ar reguliuojamas subjektas privalo finansuoti atsparumo reikalavimą savo lėšomis."@lt .
+
+llo:supportsVitalFunction a owl:DatatypeProperty ;
+    rdfs:domain llo:ResilienceMandate ;
+    rdfs:range xsd:string ;
+    rdfs:label "supports vital state function (Gyvybiškai svarbi funkcija)" ;
+    rdfs:label "supports vital state function (Gyvybiškai svarbi funkcija)"@en ;
+    rdfs:label "palaiko gyvybiškai svarbią valstybės funkciją"@lt ;
+    rdfs:comment "Names the vital state function (e.g., energy supply, public safety) that a resilience mandate is designed to protect." ;
+    rdfs:comment "Names the vital state function (e.g., energy supply, public safety) that a resilience mandate is designed to protect."@en ;
+    rdfs:comment "Nurodo gyvybiškai svarbią valstybės funkciją (pvz., energijos tiekimą, visuomenės saugumą), kurią atsparumo reikalavimas skirtas apsaugoti."@lt .
+
+llo:prohibitsGeopoliticalOrigin a owl:DatatypeProperty ;
+    rdfs:domain llo:SupplyChainRestriction ;
+    rdfs:range xsd:string ;
+    rdfs:label "prohibits geopolitical asset origin" ;
+    rdfs:label "prohibits geopolitical asset origin"@en ;
+    rdfs:label "draudžia geopolitinę turto kilmę"@lt ;
+    rdfs:comment "Specifies the geographic origin (country or region) whose hardware or software products are banned or restricted." ;
+    rdfs:comment "Specifies the geographic origin (country or region) whose hardware or software products are banned or restricted."@en ;
+    rdfs:comment "Nurodo geografinę kilmę (šalį ar regioną), kurios techninės ar programinės įrangos produktai yra draudžiami ar ribojami."@lt .
+
+# --- Sanction Specifications ---
+llo:hasMaxTurnoverPercentage a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain llo:FinancialPenalty ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "maximum global turnover penalty capability limit" ;
+    rdfs:label "maximum global turnover penalty capability limit"@en ;
+    rdfs:label "didžiausia baudos riba pagal pasaulinę apyvartą"@lt ;
+    rdfs:comment "The maximum percentage of global annual turnover that may be imposed as a financial penalty." ;
+    rdfs:comment "The maximum percentage of global annual turnover that may be imposed as a financial penalty."@en ;
+    rdfs:comment "Didžiausias pasaulinės metinės apyvartos procentas, kuris gali būti skirtas kaip finansinė bauda."@lt .
+
+llo:isPersonalHazard a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain llo:LiabilityEnforcement ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "targets human executives personally rather than corporate assets" ;
+    rdfs:label "targets human executives personally rather than corporate assets"@en ;
+    rdfs:label "taikoma vadovams asmeniškai, o ne įmonės turtui"@lt ;
+    rdfs:comment "Boolean flag indicating whether a liability mechanism targets individual executives personally rather than the corporate entity." ;
+    rdfs:comment "Boolean flag indicating whether a liability mechanism targets individual executives personally rather than the corporate entity."@en ;
+    rdfs:comment "Loginis žymėjimas, nurodantis, ar atsakomybės mechanizmas taikomas individualiems vadovams asmeniškai, o ne juridiniam asmeniui."@lt .
+
+# --- Public Clarity Metrics ---
+llo:isPubliclyDisclosed a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain llo:LegalDocument ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is completely open to public access" ;
+    rdfs:label "is completely open to public access"@en ;
+    rdfs:label "yra visiškai viešai prieinamas"@lt ;
+    rdfs:comment "Boolean flag indicating whether the legal document is published and freely accessible to the public." ;
+    rdfs:comment "Boolean flag indicating whether the legal document is published and freely accessible to the public."@en ;
+    rdfs:comment "Loginis žymėjimas, nurodantis, ar teisės dokumentas yra paskelbtas ir laisvai prieinamas visuomenei."@lt .
+
+llo:hasCitizenRecourseWindow a owl:DatatypeProperty ;
+    rdfs:domain llo:CivicRight ;
+    rdfs:range xsd:duration ;
+    rdfs:label "time window open for citizens to submit an appeal" ;
+    rdfs:label "time window open for citizens to submit an appeal"@en ;
+    rdfs:label "laikotarpis piliečių apeliacijai pateikti"@lt ;
+    rdfs:comment "The time period during which a citizen may submit an appeal or challenge against a state decision affecting their rights." ;
+    rdfs:comment "The time period during which a citizen may submit an appeal or challenge against a state decision affecting their rights."@en ;
+    rdfs:comment "Laikotarpis, per kurį pilietis gali pateikti apeliaciją ar ginčyti valstybės sprendimą, pažeidžiantį jo teises."@lt .
+
+llo:hasLegalBasis a owl:DatatypeProperty ;
+    rdfs:domain llo:LegalConcept ;
+    rdfs:range xsd:string ;
+    rdfs:label "statute origin string syntax basis reference" ;
+    rdfs:label "statute origin string syntax basis reference"@en ;
+    rdfs:label "teisinio pagrindo nuoroda"@lt ;
+    rdfs:comment "A textual reference citing the specific statute, article, or clause that provides the legal basis for a concept." ;
+    rdfs:comment "A textual reference citing the specific statute, article, or clause that provides the legal basis for a concept."@en ;
+    rdfs:comment "Tekstinė nuoroda, nurodanti konkretų įstatymą, straipsnį ar punktą, suteikiantį teisinį pagrindą sąvokai."@lt .

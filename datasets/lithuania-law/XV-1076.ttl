@@ -1,0 +1,275 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Articles 2, 11, 12, 13, 19, 23, 28, 30, 31, 38
+#   and Annexes 2, 3
+#   No. XV-1076, enacted 2026-06-25, Vilnius
+#   Signed by President Gitanas Nausėda
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XV-1076 a llo:Statute ;
+    rdfs:label "Amendment to Cybersecurity Law – Definitions, Subject Identification, Competence Community, and Data Centres (No. XV-1076)" ;
+    rdfs:label "Amendment to Cybersecurity Law – Definitions, Subject Identification, Competence Community, and Data Centres (No. XV-1076)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 2, 11, 12, 13, 19, 23, 28, 30, 31, 38 straipsnių ir 2, 3 priedų pakeitimo įstatymas (Nr. XV-1076)"@lt ;
+    rdfs:comment "Comprehensive refinement amendment to the NIS2-restated Cybersecurity Law. Adds 'root name server' definition and expands Art. 2(27) with cross-references to eIDAS (amended), P2B Regulation 2019/1150, EU Standardisation Regulation 1025/2012, State Information Resource Management Act, Tax Administration Act, SME Act, Companies and Groups Accountability Act, and Social Insurance Act. Refines essential/important subject identification thresholds with explicit SME Act references and new data sources (Social Insurance Fund, Legal Persons Register, tax administrator). Restructures competence community governance to route applications through European Competence Centre (Reg 2021/887) instead of direct NKSC registration. Adds 'special purpose implementing institutions' to data centre localisation requirements. Updates Annex 2 manufacturing sector (adds NACE C-30) and Annex 3 Cybersecurity Act reference (adds Reg 2025/37 amendments)." ;
+    rdfs:comment "Comprehensive refinement amendment to the NIS2-restated Cybersecurity Law. Adds 'root name server' definition and expands Art. 2(27) with cross-references to eIDAS (amended), P2B Regulation 2019/1150, EU Standardisation Regulation 1025/2012, State Information Resource Management Act, Tax Administration Act, SME Act, Companies and Groups Accountability Act, and Social Insurance Act. Refines essential/important subject identification thresholds with explicit SME Act references and new data sources (Social Insurance Fund, Legal Persons Register, tax administrator). Restructures competence community governance to route applications through European Competence Centre (Reg 2021/887) instead of direct NKSC registration. Adds 'special purpose implementing institutions' to data centre localisation requirements. Updates Annex 2 manufacturing sector (adds NACE C-30) and Annex 3 Cybersecurity Act reference (adds Reg 2025/37 amendments)."@en ;
+    rdfs:comment "Išsamus TIS 2 atnaujinto Kibernetinio saugumo įstatymo tobulinimo pakeitimas. Prideda 'šakninis domenų vardų serveris' sąvoką ir išplečia 2 str. 27 d. nuorodas į eIDAS (su pakeitimais), P2B reglamentą 2019/1150, ES standartizacijos reglamentą 1025/2012, Valstybės informacinių išteklių valdymo įstatymą, Mokesčių administravimo įstatymą, SVV plėtros įstatymą, Įmonių ir grupių atskaitomybės įstatymą ir Valstybinio socialinio draudimo įstatymą. Patikslina esminių/svarbių subjektų identifikavimo ribas su aiškiomis SVV įstatymo nuorodomis ir naujais duomenų šaltiniais. Pertvarko kompetencijos bendruomenės valdymą per Europos kompetencijos centrą. Papildo duomenų centrų reikalavimus specialiųjų tikslų institucijomis. Atnaujina 2 priedą (prideda EVRK C-30) ir 3 priedą (prideda Regl. 2025/37)."@lt ;
+    llo:hasDocID "No. XV-1076" ;
+    llo:dateEnacted "2026-06-25"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XV-1076_Art1 ,
+                     lld:XV-1076_Art2 ,
+                     lld:XV-1076_Art3 ,
+                     lld:XV-1076_Art4 ,
+                     lld:XV-1076_Art5 ,
+                     lld:XV-1076_Art6 ,
+                     lld:XV-1076_Art7 ,
+                     lld:XV-1076_Art8 ,
+                     lld:XV-1076_Art9 ,
+                     lld:XV-1076_Art10 ,
+                     lld:XV-1076_Art11 ,
+                     lld:XV-1076_Art12 ,
+                     lld:XV-1076_Art13 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XV-1076_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 2 (Definitions)" ;
+    rdfs:label "Article 1 – Amendment of Article 2 (Definitions)"@en ;
+    rdfs:label "1 straipsnis – 2 straipsnio pakeitimas (sąvokos)"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_RootNameServer ,
+                        lld:Concept_ExpandedDefinitionCrossRefs .
+
+lld:XV-1076_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Amendment of Article 11 (Subject Identification Thresholds)" ;
+    rdfs:label "Article 2 – Amendment of Article 11 (Subject Identification Thresholds)"@en ;
+    rdfs:label "2 straipsnis – 11 straipsnio pakeitimas (subjektų identifikavimo ribos)"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_RefinedSubjectThresholds .
+
+lld:XV-1076_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Amendment of Article 12 (Jurisdiction Clarification)" ;
+    rdfs:label "Article 3 – Amendment of Article 12 (Jurisdiction Clarification)"@en ;
+    rdfs:label "3 straipsnis – 12 straipsnio pakeitimas (jurisdikcijos patikslinimas)"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_JurisdictionClarification .
+
+lld:XV-1076_Art4 a llo:Article ;
+    rdfs:label "Article 4 – Amendment of Article 13 (Registry Data for Special Subjects)" ;
+    rdfs:label "Article 4 – Amendment of Article 13 (Registry Data for Special Subjects)"@en ;
+    rdfs:label "4 straipsnis – 13 straipsnio pakeitimas (registro duomenys specialiesiems subjektams)"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:codifiesConcept lld:Concept_RegistryDataExpansion .
+
+lld:XV-1076_Art5 a llo:Article ;
+    rdfs:label "Article 5 – Amendment of Article 19 (KSIS Members and Data Sharing)" ;
+    rdfs:label "Article 5 – Amendment of Article 19 (KSIS Members and Data Sharing)"@en ;
+    rdfs:label "5 straipsnis – 19 straipsnio pakeitimas (KSIS nariai ir dalijimasis duomenimis)"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:codifiesConcept lld:Concept_KSIS_MembersRefined .
+
+lld:XV-1076_Art6 a llo:Article ;
+    rdfs:label "Article 6 – Restatement of Article 23 (Competence Community via Competence Centre)" ;
+    rdfs:label "Article 6 – Restatement of Article 23 (Competence Community via Competence Centre)"@en ;
+    rdfs:label "6 straipsnis – 23 straipsnio išdėstymas (kompetencijos bendruomenė per Kompetencijos centrą)"@lt ;
+    llo:hasIndexNumber 6 ;
+    llo:codifiesConcept lld:Concept_CompetenceCommunityRestructured .
+
+lld:XV-1076_Art7 a llo:Article ;
+    rdfs:label "Article 7 – Amendment of Article 28(6) (Enforcement Procedure)" ;
+    rdfs:label "Article 7 – Amendment of Article 28(6) (Enforcement Procedure)"@en ;
+    rdfs:label "7 straipsnis – 28 straipsnio 6 dalies pakeitimas (vykdymo tvarka)"@lt ;
+    llo:hasIndexNumber 7 .
+
+lld:XV-1076_Art8 a llo:Article ;
+    rdfs:label "Article 8 – Amendment of Article 30(1) (Fine Imposition Authority)" ;
+    rdfs:label "Article 8 – Amendment of Article 30(1) (Fine Imposition Authority)"@en ;
+    rdfs:label "8 straipsnis – 30 straipsnio 1 dalies pakeitimas (baudų skyrimo kompetencija)"@lt ;
+    llo:hasIndexNumber 8 .
+
+lld:XV-1076_Art9 a llo:Article ;
+    rdfs:label "Article 9 – Amendment of Article 31(9) (Fine Decision Reasoning)" ;
+    rdfs:label "Article 9 – Amendment of Article 31(9) (Fine Decision Reasoning)"@en ;
+    rdfs:label "9 straipsnis – 31 straipsnio 9 dalies pakeitimas (baudos sprendimo motyvavimas)"@lt ;
+    llo:hasIndexNumber 9 ;
+    llo:codifiesConcept lld:Concept_FineDecisionPublicAdmin .
+
+lld:XV-1076_Art10 a llo:Article ;
+    rdfs:label "Article 10 – Amendment of Article 38(1) (Data Centres for Special Purpose Institutions)" ;
+    rdfs:label "Article 10 – Amendment of Article 38(1) (Data Centres for Special Purpose Institutions)"@en ;
+    rdfs:label "10 straipsnis – 38 straipsnio 1 dalies pakeitimas (duomenų centrai specialiųjų tikslų institucijoms)"@lt ;
+    llo:hasIndexNumber 10 ;
+    llo:codifiesConcept lld:Concept_DataCentreSpecialPurpose .
+
+lld:XV-1076_Art11 a llo:Article ;
+    rdfs:label "Article 11 – Amendment of Annex 2 (Manufacturing Sector – adds NACE C-30)" ;
+    rdfs:label "Article 11 – Amendment of Annex 2 (Manufacturing Sector – adds NACE C-30)"@en ;
+    rdfs:label "11 straipsnis – Įstatymo 2 priedo pakeitimas (gamybos sektorius – prideda EVRK C-30)"@lt ;
+    llo:hasIndexNumber 11 ;
+    llo:codifiesConcept lld:Concept_Annex2ManufacturingExpansion .
+
+lld:XV-1076_Art12 a llo:Article ;
+    rdfs:label "Article 12 – Amendment of Annex 3 (Cybersecurity Act updated with Reg 2025/37)" ;
+    rdfs:label "Article 12 – Amendment of Annex 3 (Cybersecurity Act updated with Reg 2025/37)"@en ;
+    rdfs:label "12 straipsnis – Įstatymo 3 priedo pakeitimas (Kibernetinio saugumo aktas atnaujintas Regl. 2025/37)"@lt ;
+    llo:hasIndexNumber 12 ;
+    llo:codifiesConcept lld:Concept_Annex3CybersecurityActUpdate .
+
+lld:XV-1076_Art13 a llo:Article ;
+    rdfs:label "Article 13 – Transitional Provisions (Competence Community Procedures)" ;
+    rdfs:label "Article 13 – Transitional Provisions (Competence Community Procedures)"@en ;
+    rdfs:label "13 straipsnis – Įstatymo taikymas (kompetencijos bendruomenės procedūros)"@lt ;
+    llo:hasIndexNumber 13 .
+
+
+# =================================================================
+# SECTION 3: LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_RootNameServer a llo:LegalConcept ;
+    rdfs:label "New definition: root name server (šakninis domenų vardų serveris)" ;
+    rdfs:label "New definition: root name server (šakninis domenų vardų serveris)"@en ;
+    rdfs:label "Nauja sąvoka: šakninis domenų vardų serveris"@lt ;
+    rdfs:comment "New Art. 2(20): Root name server (šakninis domenų vardų serveris) – a domain name server in the TLD domain name system structure that responds to queries by providing the corresponding TLD domain name server list. This definition supports the Art. 11 amendment which excludes root name server operators from automatic essential subject classification under the digital infrastructure sector." ;
+    rdfs:comment "New Art. 2(20): Root name server (šakninis domenų vardų serveris) – a domain name server in the TLD domain name system structure that responds to queries by providing the corresponding TLD domain name server list. This definition supports the Art. 11 amendment which excludes root name server operators from automatic essential subject classification under the digital infrastructure sector."@en ;
+    rdfs:comment "Naujas 2 str. 20 d.: Šakninis domenų vardų serveris – aukščiausio lygio domenų vardų sistemos struktūroje esantis domenų vardų serveris, kuris atsako į užklausas pateikdamas atitinkamo aukščiausio lygio domeno vardų serverių sąrašą. Ši sąvoka remia 11 straipsnio pakeitimą, kuris neįtraukia šakninių serverių operatorių į automatinius esminius subjektus."@lt ;
+    llo:hasLegalBasis "Art. 1(1), XV-1076 (new Art. 2(20), XII-1428)" .
+
+lld:Concept_ExpandedDefinitionCrossRefs a llo:LegalConcept ;
+    rdfs:label "Expanded definition cross-references to EU and national legislation" ;
+    rdfs:label "Expanded definition cross-references to EU and national legislation"@en ;
+    rdfs:label "Išplėstos sąvokų nuorodos į ES ir nacionalinę teisę"@lt ;
+    rdfs:comment "Art. 2(27) restated to massively expand the cross-reference definitions section. Terms now defined by reference to: Regulation (EU) 2019/881 (cybersecurity certification concepts), Regulation (EU) 2021/887 (competence community concepts), eIDAS Regulation (EU) 910/2014 as amended (trust service concepts including 'qualified'), Regulation (EU) 2019/1150 (internet search engine – P2B regulation), Regulation (EU) 1025/2012 (standard, technical specification – EU standardisation), State Information Resource Management Act (data), Tax Administration Act (tax administrator), SME Act (net sales revenue, company financial statements, group consolidated financial statements), Social Insurance Act (insured persons)." ;
+    rdfs:comment "Art. 2(27) restated to massively expand the cross-reference definitions section. Terms now defined by reference to: Regulation (EU) 2019/881 (cybersecurity certification concepts), Regulation (EU) 2021/887 (competence community concepts), eIDAS Regulation (EU) 910/2014 as amended (trust service concepts including 'qualified'), Regulation (EU) 2019/1150 (internet search engine – P2B regulation), Regulation (EU) 1025/2012 (standard, technical specification – EU standardisation), State Information Resource Management Act (data), Tax Administration Act (tax administrator), SME Act (net sales revenue, company financial statements, group consolidated financial statements), Social Insurance Act (insured persons)."@en ;
+    rdfs:comment "2 str. 27 d. išdėstyta iš naujo, smarkiai išplečiant nuorodų sąvokas: Regl. 2019/881, Regl. 2021/887, eIDAS Regl. 910/2014 su pakeitimais, Regl. 2019/1150 (paieškos sistema), Regl. 1025/2012 (standartai), Valstybės informacinių išteklių valdymo įstatymas (duomenys), Mokesčių administravimo įstatymas, SVV plėtros įstatymas, Įmonių ir grupių atskaitomybės įstatymas, Valstybinio socialinio draudimo įstatymas."@lt ;
+    llo:hasLegalBasis "Art. 1(2), XV-1076 (restated Art. 2(27), XII-1428)" .
+
+lld:Concept_RefinedSubjectThresholds a llo:LegalConcept ;
+    rdfs:label "Refined essential/important subject identification thresholds" ;
+    rdfs:label "Refined essential/important subject identification thresholds"@en ;
+    rdfs:label "Patikslinti esminių/svarbių subjektų identifikavimo slenksčiai"@lt ;
+    rdfs:comment "Article 11 refined in six ways: (1) Art. 11(3)(1) – essential subjects must exceed medium-enterprise employee count AND/OR financial thresholds per SME Act; (2) Art. 11(3)(2) – digital infrastructure qualified trust/TLD/DNS providers are essential regardless of size, but root name server operators are now explicitly excluded; (3) Art. 11(4)(1) – important subjects must exceed small-enterprise thresholds AND their specified services/activities revenue must exceed 50% of total annual revenue; (4) Art. 11(4)(2) – alternative: exceeds small-enterprise but not medium-enterprise employee thresholds AND at least one financial threshold; (5) New Art. 11(8) – employee counts determined using Social Insurance Fund data via Social Insurance and Labour Ministry; discrepancies resolved per SME Act Art. 3(7); (6) New Art. 11(9) – legal person financial thresholds determined using Legal Persons Register data (financial statements) or tax administrator data (when financial statements are not mandatory); natural person thresholds use tax administrator data on individual activity income per Personal Income Tax Act." ;
+    rdfs:comment "Article 11 refined in six ways: (1) Art. 11(3)(1) – essential subjects must exceed medium-enterprise employee count AND/OR financial thresholds per SME Act; (2) Art. 11(3)(2) – digital infrastructure qualified trust/TLD/DNS providers are essential regardless of size, but root name server operators are now explicitly excluded; (3) Art. 11(4)(1) – important subjects must exceed small-enterprise thresholds AND their specified services/activities revenue must exceed 50% of total annual revenue; (4) Art. 11(4)(2) – alternative: exceeds small-enterprise but not medium-enterprise employee thresholds AND at least one financial threshold; (5) New Art. 11(8) – employee counts determined using Social Insurance Fund data via Social Insurance and Labour Ministry; discrepancies resolved per SME Act Art. 3(7); (6) New Art. 11(9) – legal person financial thresholds determined using Legal Persons Register data (financial statements) or tax administrator data (when financial statements are not mandatory); natural person thresholds use tax administrator data on individual activity income per Personal Income Tax Act."@en ;
+    rdfs:comment "11 straipsnis patikslintas šešiais būdais: (1) 11 str. 3 d. 1 p. – esminiai subjektai turi viršyti vidutinės įmonės darbuotojų skaičių IR/ARBA finansines ribas pagal SVV įstatymą; (2) 11 str. 3 d. 2 p. – skaitmeninės infrastruktūros kvalifikuoti patikimumo/TLD/DNS teikėjai esminiai nepriklausomai nuo dydžio, bet šakniniai serveriai aiškiai neįtraukti; (3) 11 str. 4 d. 1 p. – svarbūs subjektai turi viršyti mažos įmonės ribas IR jų paslaugų pajamos viršyti 50 % visų pajamų; (4) 11 str. 4 d. 2 p. – alternatyva; (5) Naujas 11 str. 8 d. – darbuotojų skaičius pagal SODROS duomenis; (6) Naujas 11 str. 9 d. – juridinių asmenų finansiniai duomenys pagal Juridinių asmenų registro/mokesčių administratoriaus duomenis."@lt ;
+    llo:hasLegalBasis "Art. 2, XV-1076 (amending Art. 11, XII-1428)" .
+
+lld:Concept_JurisdictionClarification a llo:LegalConcept ;
+    rdfs:label "Jurisdiction based on location of risk management decisions" ;
+    rdfs:label "Jurisdiction based on location of risk management decisions"@en ;
+    rdfs:label "Jurisdikcija pagal rizikos valdymo sprendimų priėmimo vietą"@lt ;
+    rdfs:comment "Art. 12(2) restated: Lithuanian jurisdiction applies when cybersecurity risk management decisions are made in Lithuania. For EU member states where such decisions are not made or not determinable, jurisdiction is Lithuanian when cybersecurity risk management measures are implemented in Lithuania. If no EU member state of implementation is determinable, jurisdiction is Lithuanian when the subject has an EU division in Lithuania employing the most employees in the EU." ;
+    rdfs:comment "Art. 12(2) restated: Lithuanian jurisdiction applies when cybersecurity risk management decisions are made in Lithuania. For EU member states where such decisions are not made or not determinable, jurisdiction is Lithuanian when cybersecurity risk management measures are implemented in Lithuania. If no EU member state of implementation is determinable, jurisdiction is Lithuanian when the subject has an EU division in Lithuania employing the most employees in the EU."@en ;
+    rdfs:comment "12 str. 2 d. išdėstyta iš naujo: Lietuvos jurisdikcija taikoma, kai kibernetinio saugumo rizikos valdymo sprendimai priimami Lietuvoje. Kai ES valstybė narė, kurioje priimami sprendimai, nenustatoma – kai Lietuvoje įgyvendinamos priemonės. Kai ir tai nenustatoma – kai subjektas Lietuvoje turi padalinį su daugiausiai darbuotojų ES."@lt ;
+    llo:hasLegalBasis "Art. 3, XV-1076 (restated Art. 12(2), XII-1428)" .
+
+lld:Concept_RegistryDataExpansion a llo:LegalConcept ;
+    rdfs:label "Expanded registry data for legal persons and special digital subjects" ;
+    rdfs:label "Expanded registry data for legal persons and special digital subjects"@en ;
+    rdfs:label "Išplėsti registro duomenys juridiniams asmenims ir specialiesiems skaitmeniniams subjektams"@lt ;
+    rdfs:comment "Art. 13(3)(1) restated: When the cybersecurity subject is a legal person, the registry must now include: entity name, legal person code, legal form, economic activity type(s), registered address. For EU-established subjects not incorporated in Lithuania – per Art. 12(3): representative name, legal form, activity types, address. For 'special subjects' (DNS providers, TLD registries, cloud, data centre, CDN, managed service, managed security, online marketplace, search engine, social network, trust service providers, and domain registrars) – additionally: addresses of EU juridical person divisions." ;
+    rdfs:comment "Art. 13(3)(1) restated: When the cybersecurity subject is a legal person, the registry must now include: entity name, legal person code, legal form, economic activity type(s), registered address. For EU-established subjects not incorporated in Lithuania – per Art. 12(3): representative name, legal form, activity types, address. For 'special subjects' (DNS providers, TLD registries, cloud, data centre, CDN, managed service, managed security, online marketplace, search engine, social network, trust service providers, and domain registrars) – additionally: addresses of EU juridical person divisions."@en ;
+    rdfs:comment "13 str. 3 d. 1 p. išdėstytas iš naujo: Kai subjektas juridinis asmuo, registre turi būti: pavadinimas, juridinio asmens kodas, teisinė forma, ekonominės veiklos rūšis, buveinės adresas. ES subjektams be buveinės Lietuvoje – pagal 12 str. 3 d.: atstovo duomenys. Specialiesiems subjektams (DNS, TLD, debesija, duomenų centrai, CDN ir kt.) – papildomai: ES padalinių adresai."@lt ;
+    llo:hasLegalBasis "Art. 4, XV-1076 (restated Art. 13(3)(1), XII-1428)" .
+
+lld:Concept_KSIS_MembersRefined a llo:LegalConcept ;
+    rdfs:label "KSIS membership concept and domain blocking obligations clarified" ;
+    rdfs:label "KSIS membership concept and domain blocking obligations clarified"@en ;
+    rdfs:label "KSIS narystės sąvoka ir domenų blokavimo prievolės patikslinti"@lt ;
+    rdfs:comment "Article 19 amended in four places: (1) Art. 19(1)(5) – KSIS purpose 5 now specifies data exchange with 'subjects meeting KSIS statute requirements and having the right to connect to KSIS (hereinafter – KSIS members)' instead of generic 'users'; (2) Art. 19(3) – domain blocking data usage obligation now applies to 'institutions issuing mandatory blocking orders and cybersecurity subjects implementing them'; (3) Art. 19(4) – KSIS membership available to subjects implementing mutual cybersecurity information sharing agreements, with 20 working day NKSC notification requirement for agreement conclusion/withdrawal; (4) Art. 19(5)(1) – confidentiality scoped to 'KSIS members' related networks and information systems." ;
+    rdfs:comment "Article 19 amended in four places: (1) Art. 19(1)(5) – KSIS purpose 5 now specifies data exchange with 'subjects meeting KSIS statute requirements and having the right to connect to KSIS (hereinafter – KSIS members)' instead of generic 'users'; (2) Art. 19(3) – domain blocking data usage obligation now applies to 'institutions issuing mandatory blocking orders and cybersecurity subjects implementing them'; (3) Art. 19(4) – KSIS membership available to subjects implementing mutual cybersecurity information sharing agreements, with 20 working day NKSC notification requirement for agreement conclusion/withdrawal; (4) Art. 19(5)(1) – confidentiality scoped to 'KSIS members' related networks and information systems."@en ;
+    rdfs:comment "19 straipsnis pakeistas keturiose vietose: (1) 19 str. 1 d. 5 p. – dalijimasis duomenimis su 'KSIS nariais'; (2) 19 str. 3 d. – domenų blokavimo duomenų naudojimo prievolė nurodymus duodančioms institucijoms ir juos įgyvendinantiems subjektams; (3) 19 str. 4 d. – KSIS narystė per tarpusavio informacijos dalijimosi susitarimus; (4) 19 str. 5 d. 1 p. – konfidencialumas apibrėžtas 'KSIS nariams'."@lt ;
+    llo:hasLegalBasis "Art. 5, XV-1076 (amending Art. 19, XII-1428)" .
+
+lld:Concept_CompetenceCommunityRestructured a llo:LegalConcept ;
+    rdfs:label "Competence community governance restructured via European Competence Centre" ;
+    rdfs:label "Competence community governance restructured via European Competence Centre"@en ;
+    rdfs:label "Kompetencijos bendruomenės valdymas pertvarkytas per Europos kompetencijos centrą"@lt ;
+    rdfs:comment "Article 23 completely restated. Key changes from XIV-2902 version: (1) Community member registration now performed by European Cybersecurity Competence Centre (Kompetencijos centras) per Regulation (EU) 2021/887 Art. 8, not by NKSC directly; (2) National Coordination Centre (NCC = NKSC) evaluates applicants and forwards to Competence Centre with assessment within 2 months; (3) NCC provides its conclusion to Competence Centre that applicant cannot be registered if national security threat exists; (4) Applicant submits request to Competence Centre via NCC (not directly to NCC); (5) Updated EU financial regulation reference: Regulation (EU, Euratom) 2024/2509 replaces 2018/1046; (6) NCC informs applicant of registration/refusal within 10 working days of Competence Centre confirmation; (7) Removal process: NCC provides information and removal request to Competence Centre within 10 working days; for non-compliance cases, NCC sends NCC evaluation to Competence Centre with intelligence institution conclusions within 2 months; Competence Centre makes removal decision per Reg 2021/887 Art. 8(4); (8) NCC informs removed member within 5 working days; (9) Judicial review of NCC evaluation (compliance with Art. 23(1) requirements) or refusal to evaluate available via Administrative Court." ;
+    rdfs:comment "Article 23 completely restated. Key changes from XIV-2902 version: (1) Community member registration now performed by European Cybersecurity Competence Centre (Kompetencijos centras) per Regulation (EU) 2021/887 Art. 8, not by NKSC directly; (2) National Coordination Centre (NCC = NKSC) evaluates applicants and forwards to Competence Centre with assessment within 2 months; (3) NCC provides its conclusion to Competence Centre that applicant cannot be registered if national security threat exists; (4) Applicant submits request to Competence Centre via NCC (not directly to NCC); (5) Updated EU financial regulation reference: Regulation (EU, Euratom) 2024/2509 replaces 2018/1046; (6) NCC informs applicant of registration/refusal within 10 working days of Competence Centre confirmation; (7) Removal process: NCC provides information and removal request to Competence Centre within 10 working days; for non-compliance cases, NCC sends NCC evaluation to Competence Centre with intelligence institution conclusions within 2 months; Competence Centre makes removal decision per Reg 2021/887 Art. 8(4); (8) NCC informs removed member within 5 working days; (9) Judicial review of NCC evaluation (compliance with Art. 23(1) requirements) or refusal to evaluate available via Administrative Court."@en ;
+    rdfs:comment "23 straipsnis visiškai išdėstytas iš naujo. Pagrindiniai pokyčiai: (1) Narių registraciją atlieka Europos kibernetinio saugumo kompetencijos centras (Kompetencijos centras) pagal Regl. 2021/887 8 str., ne NKSC tiesiogiai; (2) Nacionalinis koordinavimo centras (NKC = NKSC) vertina pareiškėjus ir perduoda Kompetencijos centrui per 2 mėnesius; (3) NKC teikia išvadą Kompetencijos centrui, jei asmuo kelia grėsmę nacionaliniam saugumui; (4) Pareiškėjas teikia prašymą Kompetencijos centrui per NKC; (5) Atnaujinta ES finansų reglamento nuoroda: Regl. 2024/2509 vietoj 2018/1046; (6) NKC informuoja pareiškėją apie registraciją/atsisakymą per 10 darbo dienų; (7) Pašalinimo procesas per Kompetencijos centrą; (8) Teisminė peržiūra NKC vertinimo dėl atitikties."@lt ;
+    llo:hasLegalBasis "Art. 6, XV-1076 (restated Art. 23, XII-1428)" .
+
+lld:Concept_FineDecisionPublicAdmin a llo:LegalConcept ;
+    rdfs:label "Fine decision reasoning references Public Administration Act" ;
+    rdfs:label "Fine decision reasoning references Public Administration Act"@en ;
+    rdfs:label "Baudos sprendimo motyvavimas pagal Viešojo administravimo įstatymą"@lt ;
+    rdfs:comment "Art. 31(9) amended: NKSC fine decisions must now be reasoned with reference to Public Administration Act (Viešojo administravimo įstatymas) Art. 10(5) required information, replacing the previous reference to Civil Service Act (Valstybės tarnybos įstatymas) Art. 10(5). This reflects the correct legislative basis for administrative decision requirements." ;
+    rdfs:comment "Art. 31(9) amended: NKSC fine decisions must now be reasoned with reference to Public Administration Act (Viešojo administravimo įstatymas) Art. 10(5) required information, replacing the previous reference to Civil Service Act (Valstybės tarnybos įstatymas) Art. 10(5). This reflects the correct legislative basis for administrative decision requirements."@en ;
+    rdfs:comment "31 str. 9 d. pakeista: NKSC baudų sprendimai dabar motyvuojami nurodant Viešojo administravimo įstatymo 10 str. 5 d. reikalaujamą informaciją, pakeičiant ankstesnę nuorodą į Valstybės tarnybos įstatymą. Tai atspindi teisingą administracinių sprendimų teisinį pagrindą."@lt ;
+    llo:hasLegalBasis "Art. 9, XV-1076 (amending Art. 31(9), XII-1428)" .
+
+lld:Concept_DataCentreSpecialPurpose a llo:LegalConcept ;
+    rdfs:label "Data centre requirements extended to special purpose implementing institutions" ;
+    rdfs:label "Data centre requirements extended to special purpose implementing institutions"@en ;
+    rdfs:label "Duomenų centrų reikalavimai išplėsti specialiųjų tikslų institucijoms"@lt ;
+    rdfs:comment "Art. 38(1) restated: Institutions on the secure network user list now explicitly include, alongside intelligence institutions, 'institutions managing state information resources under State Information Resource Management Act Art. 1(5) designated purposes (hereinafter – special purpose implementing institutions)'. These special purpose institutions must keep their state information resources in state data centres, while their data and information system copies may be kept in EU/EEA/NATO data centres by agency head decision. This distinguishes them from regular secure network users who may use any domestic or EU/EEA/NATO data centre." ;
+    rdfs:comment "Art. 38(1) restated: Institutions on the secure network user list now explicitly include, alongside intelligence institutions, 'institutions managing state information resources under State Information Resource Management Act Art. 1(5) designated purposes (hereinafter – special purpose implementing institutions)'. These special purpose institutions must keep their state information resources in state data centres, while their data and information system copies may be kept in EU/EEA/NATO data centres by agency head decision. This distinguishes them from regular secure network users who may use any domestic or EU/EEA/NATO data centre."@en ;
+    rdfs:comment "38 str. 1 d. išdėstyta iš naujo: Saugiojo tinklo naudotojų sąraše esančios institucijos dabar aiškiai apima, šalia žvalgybos institucijų, 'institucijas, valstybės informacinius išteklius tvarkančias Valstybės informacinių išteklių valdymo įstatymo 1 str. 5 d. nurodytais tikslais (specialiųjų tikslų institucijos)'. Šios institucijos privalo laikyti išteklius valstybiniuose duomenų centruose, o kopijos gali būti ES/EEE/NATO centruose vadovo sprendimu."@lt ;
+    llo:hasLegalBasis "Art. 10, XV-1076 (restated Art. 38(1), XII-1428)" .
+
+lld:Concept_Annex2ManufacturingExpansion a llo:LegalConcept ;
+    rdfs:label "Annex 2 manufacturing sector expanded with NACE Rev. 2 Division C-30" ;
+    rdfs:label "Annex 2 manufacturing sector expanded with NACE Rev. 2 Division C-30"@en ;
+    rdfs:label "2 priedo gamybos sektorius išplėstas EVRK 2 red. C skirsnio 30 skyriumi"@lt ;
+    rdfs:comment "Annex 2 item 5.6.1 restated: The 'other transport equipment manufacturing' subsector now covers entities engaged in any economic activity listed in NACE Rev. 2 Section C Division 30 (manufacture of other transport equipment – ships, boats, railway locomotives, air/spacecraft, military vehicles, etc.). Previously referenced Division 29 (motor vehicles). This broadens the scope of the important-sector manufacturing category." ;
+    rdfs:comment "Annex 2 item 5.6.1 restated: The 'other transport equipment manufacturing' subsector now covers entities engaged in any economic activity listed in NACE Rev. 2 Section C Division 30 (manufacture of other transport equipment – ships, boats, railway locomotives, air/spacecraft, military vehicles, etc.). Previously referenced Division 29 (motor vehicles). This broadens the scope of the important-sector manufacturing category."@en ;
+    rdfs:comment "2 priedo 5.6.1 papunktis išdėstytas iš naujo: 'Kitos transporto įrangos gamybos' subsektorius dabar apima subjektus, vykdančius bet kurią ekonominę veiklą, nurodytą EVRK 2 redakcijos C skirsnio 30 skyriuje (kitų transporto priemonių gamyba – laivai, valtys, lokomotyvai, orlaiviai/erdvėlaiviai, karinės transporto priemonės ir kt.). Tai išplečia svarbaus sektoriaus gamybos kategorijos apimtį."@lt ;
+    llo:hasLegalBasis "Art. 11, XV-1076 (amending Annex 2 item 5.6.1, XII-1428)" .
+
+lld:Concept_Annex3CybersecurityActUpdate a llo:LegalConcept ;
+    rdfs:label "Annex 3 updated: Cybersecurity Act now includes Reg (EU) 2025/37 amendments" ;
+    rdfs:label "Annex 3 updated: Cybersecurity Act now includes Reg (EU) 2025/37 amendments"@en ;
+    rdfs:label "3 priedas atnaujintas: Kibernetinio saugumo aktas dabar apima Regl. (ES) 2025/37 pakeitimus"@lt ;
+    rdfs:comment "Annex 3 item 1 restated to update the Regulation (EU) 2019/881 (EU Cybersecurity Act) reference to include amendments made by Regulation (EU) 2025/37 of the European Parliament and of the Council of 19 December 2024. This ensures the Lithuanian law's EU legal acts annex reflects the most current version of the Cybersecurity Act certification framework." ;
+    rdfs:comment "Annex 3 item 1 restated to update the Regulation (EU) 2019/881 (EU Cybersecurity Act) reference to include amendments made by Regulation (EU) 2025/37 of the European Parliament and of the Council of 19 December 2024. This ensures the Lithuanian law's EU legal acts annex reflects the most current version of the Cybersecurity Act certification framework."@en ;
+    rdfs:comment "3 priedo 1 punktas išdėstytas iš naujo, atnaujinant Reglamento (ES) 2019/881 (ES kibernetinio saugumo aktas) nuorodą, įtraukiant 2024 m. gruodžio 19 d. Reglamento (ES) 2025/37 pakeitimus. Tai užtikrina, kad Lietuvos įstatymo ES teisės aktų priedas atspindi naujausią Kibernetinio saugumo akto sertifikavimo sistemos versiją."@lt ;
+    llo:hasLegalBasis "Art. 12, XV-1076 (amending Annex 3 item 1, XII-1428)" .
+
+
+# =================================================================
+# SECTION 4: EU DIRECTIVES AND REGULATIONS
+# =================================================================
+
+lld:XV-1076_EU_Reg2025_37 a llo:EUDirective ;
+    rdfs:label "Regulation (EU) 2025/37 – Cybersecurity Act Amendment" ;
+    rdfs:label "Regulation (EU) 2025/37 – Cybersecurity Act Amendment"@en ;
+    rdfs:label "Reglamentas (ES) 2025/37 – Kibernetinio saugumo akto pakeitimas"@lt ;
+    rdfs:comment "Regulation (EU) 2025/37 of 19 December 2024 amending Regulation (EU) 2019/881 (EU Cybersecurity Act). Referenced in Art. 12 of XV-1076 updating Annex 3 item 1 to reflect the amended certification framework." ;
+    rdfs:comment "Regulation (EU) 2025/37 of 19 December 2024 amending Regulation (EU) 2019/881 (EU Cybersecurity Act). Referenced in Art. 12 of XV-1076 updating Annex 3 item 1 to reflect the amended certification framework."@en ;
+    rdfs:comment "2024 m. gruodžio 19 d. Reglamentas (ES) 2025/37, keičiantis Reglamentą (ES) 2019/881 (ES kibernetinio saugumo aktas). Nurodomas XV-1076 12 straipsnyje atnaujinant 3 priedo 1 punktą."@lt ;
+    llo:hasLegalBasis "Art. 12, XV-1076 (Annex 3 item 1)" .
+
+lld:XV-1076_EU_Reg2019_1150 a llo:EUDirective ;
+    rdfs:label "Regulation (EU) 2019/1150 – Platform-to-Business (P2B)" ;
+    rdfs:label "Regulation (EU) 2019/1150 – Platform-to-Business (P2B)"@en ;
+    rdfs:label "Reglamentas (ES) 2019/1150 – Verslas platformai (P2B)"@lt ;
+    rdfs:comment "Regulation (EU) 2019/1150 on promoting fairness and transparency for business users of online intermediation services. Referenced in Art. 1(2) of XV-1076 for the definition of 'internet search engine' (interneto paieškos sistema) in restated Art. 2(27)." ;
+    rdfs:comment "Regulation (EU) 2019/1150 on promoting fairness and transparency for business users of online intermediation services. Referenced in Art. 1(2) of XV-1076 for the definition of 'internet search engine' (interneto paieškos sistema) in restated Art. 2(27)."@en ;
+    rdfs:comment "Reglamentas (ES) 2019/1150 dėl verslo klientams teikiamų internetinių tarpininkavimo paslaugų sąžiningumo ir skaidrumo didinimo. Nurodomas XV-1076 1 str. 2 d. 'interneto paieškos sistemos' sąvokai."@lt ;
+    llo:hasLegalBasis "Art. 1(2), XV-1076 (Art. 2(27), XII-1428)" .
+
+lld:XV-1076_EU_Reg2024_2509 a llo:EUDirective ;
+    rdfs:label "Regulation (EU, Euratom) 2024/2509 – EU Financial Regulation (replacing 2018/1046)" ;
+    rdfs:label "Regulation (EU, Euratom) 2024/2509 – EU Financial Regulation (replacing 2018/1046)"@en ;
+    rdfs:label "Reglamentas (ES, Euratomas) 2024/2509 – ES finansų reglamentas (keičiantis 2018/1046)"@lt ;
+    rdfs:comment "Regulation (EU, Euratom) 2024/2509 of 23 September 2024 on the financial rules applicable to the general budget of the Union. Referenced in restated Art. 23(3)(3) for the exclusion criteria applicable to competence community applicants, replacing the previous reference to Regulation (EU, Euratom) 2018/1046 Art. 136." ;
+    rdfs:comment "Regulation (EU, Euratom) 2024/2509 of 23 September 2024 on the financial rules applicable to the general budget of the Union. Referenced in restated Art. 23(3)(3) for the exclusion criteria applicable to competence community applicants, replacing the previous reference to Regulation (EU, Euratom) 2018/1046 Art. 136."@en ;
+    rdfs:comment "2024 m. rugsėjo 23 d. Reglamentas (ES, Euratomas) 2024/2509 dėl Sąjungos bendrajam biudžetui taikomų finansinių taisyklių. Nurodomas pertvarkytame 23 str. 3 d. 3 p. kompetencijos bendruomenės pareiškėjų pašalinimo kriterijams."@lt ;
+    llo:hasLegalBasis "Art. 6, XV-1076 (restated Art. 23(3)(3), XII-1428)" .

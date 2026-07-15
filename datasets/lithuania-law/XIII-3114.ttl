@@ -1,0 +1,138 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Articles 2, 4, 5, and 6
+#   No. XIII-3114, enacted 2020-06-25, Vilnius
+#   Signed by President Gitanas Nausėda
+#   Effective 2021-01-01
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XIII-3114 a llo:Statute ;
+    rdfs:label "Amendment to Cybersecurity Law – Articles 2, 4, 5, and 6 (No. XIII-3114)" ;
+    rdfs:label "Amendment to Cybersecurity Law – Articles 2, 4, 5, and 6 (No. XIII-3114)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 2, 4, 5 ir 6 straipsnių pakeitimo įstatymas (Nr. XIII-3114)"@lt ;
+    rdfs:comment "Amends Articles 2, 4, 5, and 6 of the Cybersecurity Law to integrate cybersecurity strategic planning into the National Progress Plan framework. Expands cross-referenced legislation and assigns new responsibilities to the Government and Ministry of National Defence for progress objectives and national development programmes." ;
+    rdfs:comment "Amends Articles 2, 4, 5, and 6 of the Cybersecurity Law to integrate cybersecurity strategic planning into the National Progress Plan framework. Expands cross-referenced legislation and assigns new responsibilities to the Government and Ministry of National Defence for progress objectives and national development programmes."@en ;
+    rdfs:comment "Pakeičia Kibernetinio saugumo įstatymo 2, 4, 5 ir 6 straipsnius, integruodamas kibernetinio saugumo strateginį planavimą į Nacionalinio pažangos plano sistemą. Išplečia nuorodų į kitus teisės aktus sąrašą ir priskiria naujas atsakomybes Vyriausybei ir Krašto apsaugos ministerijai dėl pažangos uždavinių ir nacionalinių plėtros programų."@lt ;
+    llo:hasDocID "No. XIII-3114" ;
+    llo:dateEnacted "2020-06-25"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XIII-3114_Art1 ,
+                     lld:XIII-3114_Art2 ,
+                     lld:XIII-3114_Art3 ,
+                     lld:XIII-3114_Art4 ,
+                     lld:XIII-3114_Art5 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XIII-3114_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 2 (Definitions)" ;
+    rdfs:label "Article 1 – Amendment of Article 2 (Definitions)"@en ;
+    rdfs:label "1 straipsnis – 2 straipsnio pakeitimas (sąvokos)"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_ExpandedLegalCrossRefs .
+
+lld:XIII-3114_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Amendment of Article 4 (Policy Institutions)" ;
+    rdfs:label "Article 2 – Amendment of Article 4 (Policy Institutions)"@en ;
+    rdfs:label "2 straipsnis – 4 straipsnio pakeitimas (politikos institucijos)"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_ProgressPlanIntegration .
+
+lld:XIII-3114_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Amendment of Article 5 (Government Powers)" ;
+    rdfs:label "Article 3 – Amendment of Article 5 (Government Powers)"@en ;
+    rdfs:label "3 straipsnis – 5 straipsnio pakeitimas (Vyriausybės įgaliojimai)"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_ProgressPlanIntegration .
+
+lld:XIII-3114_Art4 a llo:Article ;
+    rdfs:label "Article 4 – Amendment of Article 6 (MoD Powers)" ;
+    rdfs:label "Article 4 – Amendment of Article 6 (MoD Powers)"@en ;
+    rdfs:label "4 straipsnis – 6 straipsnio pakeitimas (KAM įgaliojimai)"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:codifiesConcept lld:Concept_MoD_DevelopmentProgrammes .
+
+lld:XIII-3114_Art5 a llo:Article ;
+    rdfs:label "Article 5 – Entry into Force" ;
+    rdfs:label "Article 5 – Entry into Force"@en ;
+    rdfs:label "5 straipsnis – Įstatymo įsigaliojimas"@lt ;
+    llo:hasIndexNumber 5 .
+
+
+# =================================================================
+# SECTION 3: NEW LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_ProgressPlanIntegration a llo:LegalConcept ;
+    rdfs:label "National Progress Plan integration for cybersecurity" ;
+    rdfs:label "National Progress Plan integration for cybersecurity"@en ;
+    rdfs:label "Nacionalinio pažangos plano integracija kibernetinio saugumo srityje"@lt ;
+    rdfs:comment "The Government now sets cybersecurity strategic objectives and progress objectives through the National Progress Plan (Nacionalinis pažangos planas), replacing the previous formulation which referenced only strategic goals and necessary measures." ;
+    rdfs:comment "The Government now sets cybersecurity strategic objectives and progress objectives through the National Progress Plan (Nacionalinis pažangos planas), replacing the previous formulation which referenced only strategic goals and necessary measures."@en ;
+    rdfs:comment "Vyriausybė nuo šiol nustato kibernetinio saugumo politikos strateginius tikslus ir pažangos uždavinius tvirtindama Nacionalinį pažangos planą, pakeisdama ankstesnę formuluotę, kurioje buvo nurodomi tik strateginiai tikslai ir būtinos priemonės."@lt ;
+    llo:hasLegalBasis "Art. 2-3, XIII-3114 (amending Art. 4(1) and Art. 5(1), XII-1428)" .
+
+lld:Concept_MoD_DevelopmentProgrammes a llo:LegalConcept ;
+    rdfs:label "MoD national cybersecurity development programmes" ;
+    rdfs:label "MoD national cybersecurity development programmes"@en ;
+    rdfs:label "KAM nacionalinės kibernetinio saugumo plėtros programos"@lt ;
+    rdfs:comment "New power for the Ministry of National Defence to prepare national development programmes implementing cybersecurity policy progress objectives, and to organize, coordinate, and control their implementation." ;
+    rdfs:comment "New power for the Ministry of National Defence to prepare national development programmes implementing cybersecurity policy progress objectives, and to organize, coordinate, and control their implementation."@en ;
+    rdfs:comment "Naujas Krašto apsaugos ministerijos įgaliojimas rengti kibernetinio saugumo politikos pažangos uždavinius įgyvendinančias nacionalines plėtros programas, organizuoti, koordinuoti ir kontroliuoti jų įgyvendinimą."@lt ;
+    llo:hasLegalBasis "Art. 4, XIII-3114 (new Art. 6(1¹), XII-1428)" .
+
+lld:Concept_ExpandedLegalCrossRefs a llo:LegalConcept ;
+    rdfs:label "Expanded legal cross-references in definitions" ;
+    rdfs:label "Expanded legal cross-references in definitions"@en ;
+    rdfs:label "Išplėstos teisinės nuorodos sąvokų dalyje"@lt ;
+    rdfs:comment "Article 2(19) expanded to include additional cross-referenced legislation: Law on Unfair Commercial Practices, Law on Small and Medium Business Development, Law on Strategic Management, and EU Regulation 1025/2012 on European Standardisation." ;
+    rdfs:comment "Article 2(19) expanded to include additional cross-referenced legislation: Law on Unfair Commercial Practices, Law on Small and Medium Business Development, Law on Strategic Management, and EU Regulation 1025/2012 on European Standardisation."@en ;
+    rdfs:comment "2 straipsnio 19 dalis papildyta nuorodomis į papildomus teisės aktus: Nesąžiningos komercinės veiklos vartotojams draudimo įstatymą, Smulkiojo ir vidutinio verslo plėtros įstatymą, Strateginio valdymo įstatymą ir ES reglamentą Nr. 1025/2012 dėl Europos standartizacijos."@lt ;
+    llo:hasLegalBasis "Art. 1, XIII-3114 (amending Art. 2(19), XII-1428)" .
+
+
+# =================================================================
+# SECTION 4: STRATEGY ALIGNMENT – NATIONAL PROGRESS PLAN
+# =================================================================
+
+lld:Strategy_NationalProgressPlan a llo:NationalStrategy ;
+    rdfs:label "National Progress Plan" ;
+    rdfs:label "National Progress Plan"@en ;
+    rdfs:label "Nacionalinis pažangos planas"@lt ;
+    rdfs:comment "Lithuania's overarching national strategic planning instrument through which cybersecurity strategic objectives and progress objectives are now formally established, as mandated by the Strategic Management Law." ;
+    rdfs:comment "Lithuania's overarching national strategic planning instrument through which cybersecurity strategic objectives and progress objectives are now formally established, as mandated by the Strategic Management Law."@en ;
+    rdfs:comment "Pagrindinis Lietuvos nacionalinio strateginio planavimo dokumentas, per kurį nuo šiol formaliai nustatomi kibernetinio saugumo strateginiai tikslai ir pažangos uždaviniai, kaip reikalauja Strateginio valdymo įstatymas."@lt ;
+    llo:hasLegalBasis "Art. 4(1), XII-1428 (as amended by XIII-3114)" .
+
+lld:XII-1428 llo:implementsStrategy lld:Strategy_NationalProgressPlan .
+
+
+# =================================================================
+# SECTION 5: EU REGULATION CROSS-REFERENCE
+# =================================================================
+
+lld:EU_Reg_1025_2012 a llo:EUDirective ;
+    rdfs:label "EU Regulation 1025/2012 on European Standardisation" ;
+    rdfs:label "EU Regulation 1025/2012 on European Standardisation"@en ;
+    rdfs:label "ES reglamentas Nr. 1025/2012 dėl Europos standartizacijos"@lt ;
+    rdfs:comment "Regulation of the European Parliament and of the Council of 25 October 2012 on European standardisation, amending Council Directives 89/686/EEC and 93/15/EEC and others. Referenced in the expanded cross-reference list of the Cybersecurity Law's definitions article." ;
+    rdfs:comment "Regulation of the European Parliament and of the Council of 25 October 2012 on European standardisation, amending Council Directives 89/686/EEC and 93/15/EEC and others. Referenced in the expanded cross-reference list of the Cybersecurity Law's definitions article."@en ;
+    rdfs:comment "2012 m. spalio 25 d. Europos Parlamento ir Tarybos reglamentas dėl Europos standartizacijos, kuriuo iš dalies keičiamos Tarybos direktyvos 89/686/EEB ir 93/15/EEB ir kitos. Nurodytas išplėstame Kibernetinio saugumo įstatymo sąvokų straipsnio nuorodų sąraše."@lt ;
+    llo:hasLegalBasis "Art. 2(19), XII-1428 (as amended by XIII-3114)" .

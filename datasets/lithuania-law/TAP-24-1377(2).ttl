@@ -1,0 +1,85 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 945
+#   Complete restatement of Government Resolution No. 818
+#   (Cybersecurity Law Implementation) – NIS2 transposition,
+#   new incident management plan, subject identification
+#   methodology, cybersecurity requirements, enforcement
+#   procedures, Secure Network users, payment framework
+#   2024-11-06, Vilnius
+#   Prime Minister Ingrida Šimonytė
+# =================================================================
+
+lld:GovRes-945-2024 a llo:Statute ;
+    rdfs:label "Government Resolution No. 945 – Complete restatement of Resolution No. 818 for NIS2 implementation (2024)" ;
+    rdfs:label "Government Resolution No. 945 – Complete restatement of Resolution No. 818 for NIS2 implementation (2024)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 945 – Nutarimo Nr. 818 išdėstymas nauja redakcija dėl TIS2 įgyvendinimo (2024)"@lt ;
+    rdfs:comment "Complete restatement of Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law, aligned with NIS2 Directive (EU) 2022/2555. References Cybersecurity Law Arts. 7(2)(3), 11(6), 14(1)(1) and (2), 28(6), 30(1), 37(1), (2)(3), (4), (6), (8) and (9). Approves six components: (1) National Cyber Incident Management Plan (Nacionalinis kibernetinių incidentų valdymo planas) – defines incident management at subject and national level, Security Operations Centre separation of duties, significant incident criteria (territory-wide disruption, 2+ hour disruption, 1000+ affected users or 25%, financial loss ≥€500K or 10%+ revenue, data breach 10K+ persons, essential function disruption, state/military system impact, multiple subjects/sectors, cross-border impact), 24h-72h-1month reporting timelines, NKVC escalation for extraordinary events; (2) Cybersecurity Subject Identification by Special Criteria Methodology; (3) Cybersecurity Requirements Description – comprehensive organisational and technical requirements with 12 sections covering risk management, access control, multi-factor authentication, cryptography, mobile devices, backup, supplier security, procurement, vulnerability management, incident response, business continuity, and technical controls; (4) Enforcement Measures Application Procedure Description – compliance checks, warnings, fines; (5) Secure State Data Transmission Network users list (hundreds of institutions); (6) Payment criteria and calculation procedure for Secure Network additional services. Also authorises Defence Minister to approve Secure Network service conditions and connection/disconnection procedures. Tasks cybersecurity subjects to automate incident registration in KSIS National Cyber Incident Management Platform within 12 months of registration (extendable once by 12 months). Repeals GovRes 716/2013 (General Electronic Information Security Requirements) and GovRes 27/2018 (Secure Network implementation) with all amendments. PM Ingrida Šimonytė, Defence Minister Laurynas Kasčiūnas." ;
+    rdfs:comment "Complete restatement of Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law, aligned with NIS2 Directive (EU) 2022/2555. References Cybersecurity Law Arts. 7(2)(3), 11(6), 14(1)(1) and (2), 28(6), 30(1), 37(1), (2)(3), (4), (6), (8) and (9). Approves six components: (1) National Cyber Incident Management Plan (Nacionalinis kibernetinių incidentų valdymo planas) – defines incident management at subject and national level, Security Operations Centre separation of duties, significant incident criteria (territory-wide disruption, 2+ hour disruption, 1000+ affected users or 25%, financial loss ≥€500K or 10%+ revenue, data breach 10K+ persons, essential function disruption, state/military system impact, multiple subjects/sectors, cross-border impact), 24h-72h-1month reporting timelines, NKVC escalation for extraordinary events; (2) Cybersecurity Subject Identification by Special Criteria Methodology; (3) Cybersecurity Requirements Description – comprehensive organisational and technical requirements with 12 sections covering risk management, access control, multi-factor authentication, cryptography, mobile devices, backup, supplier security, procurement, vulnerability management, incident response, business continuity, and technical controls; (4) Enforcement Measures Application Procedure Description – compliance checks, warnings, fines; (5) Secure State Data Transmission Network users list (hundreds of institutions); (6) Payment criteria and calculation procedure for Secure Network additional services. Also authorises Defence Minister to approve Secure Network service conditions and connection/disconnection procedures. Tasks cybersecurity subjects to automate incident registration in KSIS National Cyber Incident Management Platform within 12 months of registration (extendable once by 12 months). Repeals GovRes 716/2013 (General Electronic Information Security Requirements) and GovRes 27/2018 (Secure Network implementation) with all amendments. PM Ingrida Šimonytė, Defence Minister Laurynas Kasčiūnas."@en ;
+    rdfs:comment "Vyriausybės 2018-08-13 nutarimo Nr. 818 dėl Kibernetinio saugumo įstatymo įgyvendinimo išdėstymas nauja redakcija, suderintas su TIS2 direktyva (ES) 2022/2555. Tvirtina šešis komponentus: (1) Nacionalinį kibernetinių incidentų valdymo planą – incidentų valdymas subjekto ir nacionaliniu lygmeniu, didelio kibernetinio incidento kriterijai, pranešimų terminai 24 val.–72 val.–1 mėn.; (2) Kibernetinio saugumo subjektų identifikavimo pagal specialiuosius kriterijus metodiką; (3) Kibernetinio saugumo reikalavimų aprašą – organizaciniai ir techniniai reikalavimai su 12 skirsnių; (4) Vykdymo užtikrinimo priemonių taikymo tvarkos aprašą; (5) Saugiojo valstybinio duomenų perdavimo tinklo naudotojų sąrašą; (6) Atlyginimo už Saugiojo tinklo papildomas paslaugas tvarkos aprašą. Paveda kibernetinio saugumo subjektams per 12 mėnesių automatizuoti incidentų registravimą KSIS. Pripažįsta netekusiais galios nutarimus Nr. 716/2013 ir Nr. 27/2018. Ministrė Pirmininkė Ingrida Šimonytė, krašto apsaugos ministras Laurynas Kasčiūnas."@lt ;
+    llo:hasDocID "No. 945" ;
+    llo:dateEnacted "2024-11-06"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:hasComponent lld:GovRes-945-2024_Point1 ,
+                     lld:GovRes-945-2024_Point2 .
+
+lld:GovRes-945-2024_Point1 a llo:Article ;
+    rdfs:label "Point 1 – Complete restatement of Resolution No. 818" ;
+    rdfs:label "Point 1 – Complete restatement of Resolution No. 818"@en ;
+    rdfs:label "1 punktas – Nutarimo Nr. 818 išdėstymas nauja redakcija"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_NIS2ImplementingFramework ,
+                        lld:Concept_SignificantIncidentCriteria ,
+                        lld:Concept_EnforcementProcedures .
+
+lld:GovRes-945-2024_Point2 a llo:Article ;
+    rdfs:label "Point 2 – Repeal of GovRes 716/2013 and GovRes 27/2018" ;
+    rdfs:label "Point 2 – Repeal of GovRes 716/2013 and GovRes 27/2018"@en ;
+    rdfs:label "2 punktas – Nutarimų Nr. 716/2013 ir Nr. 27/2018 pripažinimas netekusiais galios"@lt ;
+    llo:hasIndexNumber 2 .
+
+lld:Concept_NIS2ImplementingFramework a llo:LegalConcept ;
+    rdfs:label "NIS2 implementing framework under restated Resolution No. 818" ;
+    rdfs:label "NIS2 implementing framework under restated Resolution No. 818"@en ;
+    rdfs:label "TIS2 įgyvendinimo sistema pagal naują nutarimo Nr. 818 redakciją"@lt ;
+    rdfs:comment "Six-component implementing framework for the NIS2-restated Cybersecurity Law: (1) National Cyber Incident Management Plan with SOC requirements and escalation procedures; (2) Subject identification methodology using special criteria for entities not automatically covered by annexes; (3) Comprehensive cybersecurity requirements description with 12 thematic sections; (4) Enforcement measures application procedure; (5) Secure State Data Transmission Network users list; (6) Payment framework for Secure Network services. Mandatory automated incident registration in KSIS National Platform within 12 months of subject registration." ;
+    rdfs:comment "Six-component implementing framework for the NIS2-restated Cybersecurity Law: (1) National Cyber Incident Management Plan with SOC requirements and escalation procedures; (2) Subject identification methodology using special criteria for entities not automatically covered by annexes; (3) Comprehensive cybersecurity requirements description with 12 thematic sections; (4) Enforcement measures application procedure; (5) Secure State Data Transmission Network users list; (6) Payment framework for Secure Network services. Mandatory automated incident registration in KSIS National Platform within 12 months of subject registration."@en ;
+    rdfs:comment "Šešių komponentų TIS2 redakcijos Kibernetinio saugumo įstatymo įgyvendinimo sistema: (1) Nacionalinis kibernetinių incidentų valdymo planas su SOC reikalavimais; (2) Subjektų identifikavimo pagal specialiuosius kriterijus metodika; (3) Kibernetinio saugumo reikalavimų aprašas su 12 teminių skirsnių; (4) Vykdymo užtikrinimo priemonių tvarkos aprašas; (5) Saugiojo tinklo naudotojų sąrašas; (6) Saugiojo tinklo paslaugų apmokėjimo tvarka."@lt ;
+    llo:hasLegalBasis "Point 1, GovRes 945/2024 (restated Resolution 818)" .
+
+lld:Concept_SignificantIncidentCriteria a llo:LegalConcept ;
+    rdfs:label "Significant cyber incident criteria (NIS2 Art. 18(2) implementation)" ;
+    rdfs:label "Significant cyber incident criteria (NIS2 Art. 18(2) implementation)"@en ;
+    rdfs:label "Didelio kibernetinio incidento kriterijai (TIS2 18 str. 2 d. įgyvendinimas)"@lt ;
+    rdfs:comment "A cyber incident is deemed significant when the subject experiences or may experience major service disruption meeting at least one criterion: (1) territory-wide disruption across Lithuania and/or at least one EU/NATO country; (2) network/system disruption for 2+ hours; (3) 1,000+ affected service recipients or workstations, or 25% (whichever is less); (4) financial loss ≥€500,000 or ≥10% of annual revenue; (5) personal data breach affecting 10,000+ persons; (6) disruption of essential functions; (7) impact on state or military systems; (8) impact on multiple subjects or sectors; (9) cross-border impact. Reporting timeline: 24h early warning, 72h incident notification, 1-month final report." ;
+    rdfs:comment "A cyber incident is deemed significant when the subject experiences or may experience major service disruption meeting at least one criterion: (1) territory-wide disruption across Lithuania and/or at least one EU/NATO country; (2) network/system disruption for 2+ hours; (3) 1,000+ affected service recipients or workstations, or 25% (whichever is less); (4) financial loss ≥€500,000 or ≥10% of annual revenue; (5) personal data breach affecting 10,000+ persons; (6) disruption of essential functions; (7) impact on state or military systems; (8) impact on multiple subjects or sectors; (9) cross-border impact. Reporting timeline: 24h early warning, 72h incident notification, 1-month final report."@en ;
+    rdfs:comment "Kibernetinis incidentas laikomas dideliu, kai subjektas patiria ar gali patirti didelių paslaugų teikimo sutrikimų ir atitinka bent vieną kriterijų: (1) trikdymas visoje LT teritorijoje ir/arba bent vienoje ES/NATO šalyje; (2) 2+ val. trikdymas; (3) 1000+ paveiktų gavėjų arba 25%; (4) ≥500 000 EUR nuostoliai arba ≥10% pajamų; (5) 10 000+ asmenų duomenų pažeidimas; (6) esminių funkcijų sutrikimas; (7) valstybės ar karinių sistemų poveikis; (8) kelių subjektų/sektorių poveikis; (9) tarpvalstybinis poveikis."@lt ;
+    llo:hasLegalBasis "Point 9, National Cyber Incident Management Plan (GovRes 945/2024)" .
+
+lld:Concept_EnforcementProcedures a llo:LegalConcept ;
+    rdfs:label "Cybersecurity enforcement measures application procedure" ;
+    rdfs:label "Cybersecurity enforcement measures application procedure"@en ;
+    rdfs:label "Kibernetinio saugumo vykdymo užtikrinimo priemonių taikymo tvarka"@lt ;
+    rdfs:comment "New enforcement measures application procedure approved as component 1.4 of restated Resolution 818: establishes the detailed process for NKSC compliance checks, issuance of warnings, and application of fines to cybersecurity subjects for non-compliance with Cybersecurity Law requirements." ;
+    rdfs:comment "New enforcement measures application procedure approved as component 1.4 of restated Resolution 818: establishes the detailed process for NKSC compliance checks, issuance of warnings, and application of fines to cybersecurity subjects for non-compliance with Cybersecurity Law requirements."@en ;
+    rdfs:comment "Naujas vykdymo užtikrinimo priemonių taikymo tvarkos aprašas, patvirtintas kaip nutarimo Nr. 818 naujos redakcijos 1.4 komponentas: nustato detalią NKSC atitikties patikrinimų, įspėjimų ir baudų kibernetinio saugumo subjektams procesą."@lt ;
+    llo:hasLegalBasis "Component 1.4, GovRes 945/2024 (restated Resolution 818)" .
+
+lld:GovRes-945-2024_Resilience a llo:ResilienceMandate ;
+    rdfs:label "12-month automated incident registration mandate in KSIS National Platform" ;
+    rdfs:label "12-month automated incident registration mandate in KSIS National Platform"@en ;
+    rdfs:label "12 mėnesių automatinio incidentų registravimo KSIS Nacionalinėje platformoje mandatas"@lt ;
+    llo:hasLegalBasis "Point 3, restated Resolution 818 (GovRes 945/2024)" .
+
+lld:GovRes-945-2024_IncidentPipeline a llo:InformationPipeline ;
+    rdfs:label "KSIS National Cyber Incident Management Platform automated registration" ;
+    rdfs:label "KSIS National Cyber Incident Management Platform automated registration"@en ;
+    rdfs:label "KSIS Nacionalinė kibernetinių incidentų valdymo platforma – automatinis registravimas"@lt ;
+    llo:hasLegalBasis "Points 3 and 6, National Cyber Incident Management Plan (GovRes 945/2024)" .

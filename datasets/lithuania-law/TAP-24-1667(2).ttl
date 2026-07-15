@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 71
+#   Amending Government Resolution No. 818 (Cybersecurity Law
+#   Implementation) – removing points 112-116 from Secure State
+#   Data Transmission Network users list
+#   2025-02-05, Vilnius
+#   Prime Minister Gintautas Paluckas
+# =================================================================
+
+lld:GovRes-71-2025 a llo:Statute ;
+    rdfs:label "Government Resolution No. 71 – Amendment of Resolution No. 818: Secure Network users list reduction (2025)" ;
+    rdfs:label "Government Resolution No. 71 – Amendment of Resolution No. 818: Secure Network users list reduction (2025)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 71 – Nutarimo Nr. 818 pakeitimas: Saugiojo tinklo naudotojų sąrašo mažinimas (2025)"@lt ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Removes points 112-116 from the Secure State Data Transmission Network (Saugusis valstybinis duomenų perdavimo tinklas) users list. Effective 2025-07-01. PM Gintautas Paluckas, Defence Minister Dovilė Šakalienė." ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Removes points 112-116 from the Secure State Data Transmission Network (Saugusis valstybinis duomenų perdavimo tinklas) users list. Effective 2025-07-01. PM Gintautas Paluckas, Defence Minister Dovilė Šakalienė."@en ;
+    rdfs:comment "Keičia Vyriausybės 2018-08-13 nutarimą Nr. 818 dėl Kibernetinio saugumo įstatymo įgyvendinimo. Pripažįsta netekusiais galios Saugiojo valstybinio duomenų perdavimo tinklo naudotojų sąrašo 112-116 punktus. Įsigalioja 2025-07-01. Ministras Pirmininkas Gintautas Paluckas, krašto apsaugos ministrė Dovilė Šakalienė."@lt ;
+    llo:hasDocID "No. 71" ;
+    llo:dateEnacted "2025-02-05"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

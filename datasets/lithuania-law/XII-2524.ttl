@@ -1,0 +1,96 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Article 19 (Liability)
+#   No. XII-2524, enacted 2016-06-29, Vilnius
+#   Signed by President Dalia Grybauskaitė
+#   Effective 2017-01-01
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XII-2524 a llo:Statute ;
+    rdfs:label "Amendment to Cybersecurity Law – Article 19 (No. XII-2524)" ;
+    rdfs:label "Amendment to Cybersecurity Law – Article 19 (No. XII-2524)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 19 straipsnio pakeitimo įstatymas (Nr. XII-2524)"@lt ;
+    rdfs:comment "Amends Article 19 of the Cybersecurity Law to replace the reference to the old Administrative Violations Code (1984, No. X-4449) with the new Administrative Offences Code (Administracinių nusižengimų kodeksas), updating the legal basis for enforcement liability." ;
+    rdfs:comment "Amends Article 19 of the Cybersecurity Law to replace the reference to the old Administrative Violations Code (1984, No. X-4449) with the new Administrative Offences Code (Administracinių nusižengimų kodeksas), updating the legal basis for enforcement liability."@en ;
+    rdfs:comment "Pakeičia Kibernetinio saugumo įstatymo 19 straipsnį, pakeisdamas nuorodą į senąjį Administracinių teisės pažeidimų kodeksą (1984 m., Nr. X-4449) nuoroda į naująjį Administracinių nusižengimų kodeksą, atnaujindamas atsakomybės vykdymo užtikrinimo teisinį pagrindą."@lt ;
+    llo:hasDocID "No. XII-2524" ;
+    llo:dateEnacted "2016-06-29"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XII-2524_Art1 ,
+                     lld:XII-2524_Art2 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XII-2524_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 19 (Liability)" ;
+    rdfs:label "Article 1 – Amendment of Article 19 (Liability)"@en ;
+    rdfs:label "1 straipsnis – 19 straipsnio pakeitimas (atsakomybė)"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_LiabilityCodeTransition .
+
+lld:XII-2524_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Entry into Force and Application" ;
+    rdfs:label "Article 2 – Entry into Force and Application"@en ;
+    rdfs:label "2 straipsnis – Įstatymo įsigaliojimas ir taikymas"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_TransitionalApplication .
+
+
+# =================================================================
+# SECTION 3: LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_LiabilityCodeTransition a llo:LegalConcept ;
+    rdfs:label "Transition from Administrative Violations Code to Administrative Offences Code" ;
+    rdfs:label "Transition from Administrative Violations Code to Administrative Offences Code"@en ;
+    rdfs:label "Perėjimas nuo Administracinių teisės pažeidimų kodekso prie Administracinių nusižengimų kodekso"@lt ;
+    rdfs:comment "Article 19 reworded to establish that heads of telecom providers, hosting providers, and critical infrastructure operators bear personal administrative liability for violations under the new Administrative Offences Code (Administracinių nusižengimų kodeksas), replacing the previous reference to the 1984 Administrative Violations Code (No. X-4449)." ;
+    rdfs:comment "Article 19 reworded to establish that heads of telecom providers, hosting providers, and critical infrastructure operators bear personal administrative liability for violations under the new Administrative Offences Code (Administracinių nusižengimų kodeksas), replacing the previous reference to the 1984 Administrative Violations Code (No. X-4449)."@en ;
+    rdfs:comment "19 straipsnis pakeistas, nustatant, kad elektroninių ryšių, prieglobos paslaugų teikėjų ir ypatingos svarbos infrastruktūros valdytojų vadovai asmeniškai atsako administracine tvarka pagal naująjį Administracinių nusižengimų kodeksą, pakeičiant ankstesnę nuorodą į 1984 m. Administracinių teisės pažeidimų kodeksą (Nr. X-4449)."@lt ;
+    llo:hasLegalBasis "Art. 1, XII-2524 (amending Art. 19, XII-1428)" .
+
+lld:Concept_TransitionalApplication a llo:LegalConcept ;
+    rdfs:label "Transitional application of old and new administrative codes" ;
+    rdfs:label "Transitional application of old and new administrative codes"@en ;
+    rdfs:label "Senojo ir naujojo administracinių kodeksų pereinamasis taikymas"@lt ;
+    rdfs:comment "The amended Article 19 provisions also apply to cases where administrative offences were committed under the old Administrative Violations Code confirmed by the 1984 law No. X-4449, ensuring continuity of enforcement during the code transition period." ;
+    rdfs:comment "The amended Article 19 provisions also apply to cases where administrative offences were committed under the old Administrative Violations Code confirmed by the 1984 law No. X-4449, ensuring continuity of enforcement during the code transition period."@en ;
+    rdfs:comment "Pakeisto 19 straipsnio nuostatos taip pat taikomos tais atvejais, kai administraciniai teisės pažeidimai buvo padaryti pagal 1984 m. įstatymu Nr. X-4449 patvirtintą Administracinių teisės pažeidimų kodeksą, užtikrinant vykdymo tęstinumą kodeksų pereinamuoju laikotarpiu."@lt ;
+    llo:hasLegalBasis "Art. 2(2), XII-2524" .
+
+
+# =================================================================
+# SECTION 4: UPDATED LIABILITY INSTANCE
+# =================================================================
+
+lld:Liability_AdminViolation_Updated a llo:ExecutiveLiability ;
+    rdfs:label "Administrative liability under the new Offences Code" ;
+    rdfs:label "Administrative liability under the new Offences Code"@en ;
+    rdfs:label "Administracinė atsakomybė pagal naująjį Nusižengimų kodeksą"@lt ;
+    rdfs:comment "Personal administrative liability of heads (vadovai) of telecom providers, hosting providers, and critical infrastructure operators for violations of the Cybersecurity Law, now enforced under the Administrative Offences Code (Administracinių nusižengimų kodeksas) rather than the former Administrative Violations Code." ;
+    rdfs:comment "Personal administrative liability of heads (vadovai) of telecom providers, hosting providers, and critical infrastructure operators for violations of the Cybersecurity Law, now enforced under the Administrative Offences Code (Administracinių nusižengimų kodeksas) rather than the former Administrative Violations Code."@en ;
+    rdfs:comment "Elektroninių ryšių, prieglobos paslaugų teikėjų ir ypatingos svarbos infrastruktūros valdytojų vadovų asmeninė administracinė atsakomybė už Kibernetinio saugumo įstatymo pažeidimus, nuo šiol taikoma pagal Administracinių nusižengimų kodeksą, o ne pagal ankstesnį Administracinių teisės pažeidimų kodeksą."@lt ;
+    llo:isPersonalHazard true ;
+    llo:hasLegalBasis "Art. 19, XII-1428 (as amended by XII-2524)" ;
+    llo:penalizesEntity lld:Entity_TelecomProvider ,
+                        lld:Entity_HostingProvider ,
+                        lld:Entity_CriticalInfra .
+
+lld:Liability_AdminViolation llo:supersedesVersion lld:Liability_AdminViolation_Updated .

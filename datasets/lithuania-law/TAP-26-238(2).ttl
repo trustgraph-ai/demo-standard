@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 240
+#   Approving submission of Cybersecurity Law Arts. 2, 11, 12,
+#   13, 19, 23, 28, 30, 31, 38 and Annex 2 amendment to Seimas
+#   (later enacted as XV-1076)
+#   2026-04-08, Vilnius
+#   Acting PM Kristupas Vaitiekūnas (Finance Minister)
+# =================================================================
+
+lld:GovRes-240-2026 a llo:Statute ;
+    rdfs:label "Government Resolution No. 240 – Submission of Cybersecurity Law amendment (definitions, thresholds, competence community) to Seimas (2026)" ;
+    rdfs:label "Government Resolution No. 240 – Submission of Cybersecurity Law amendment (definitions, thresholds, competence community) to Seimas (2026)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 240 – Kibernetinio saugumo įstatymo pakeitimo (apibrėžtys, ribos, kompetencijų bendruomenė) teikimas Seimui (2026)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas the draft law amending Cybersecurity Law No. XII-1428 Arts. 2, 11, 12, 13, 19, 23, 28, 30, 31, 38 and Annex 2 (later enacted as XV-1076 on 2026-06-25). Adds root name server definition, refines essential/important subject identification thresholds, restructures competence community governance, expands manufacturing annex. Delegates Defence Minister Robertas Kaunas (deputies: Vice-Minister Tomas Godliauskas, Vice-Minister Karolis Aleksa) to represent Government in Seimas. Acting PM: Finance Minister Kristupas Vaitiekūnas." ;
+    rdfs:comment "Government approves and submits to Seimas the draft law amending Cybersecurity Law No. XII-1428 Arts. 2, 11, 12, 13, 19, 23, 28, 30, 31, 38 and Annex 2 (later enacted as XV-1076 on 2026-06-25). Adds root name server definition, refines essential/important subject identification thresholds, restructures competence community governance, expands manufacturing annex. Delegates Defence Minister Robertas Kaunas (deputies: Vice-Minister Tomas Godliauskas, Vice-Minister Karolis Aleksa) to represent Government in Seimas. Acting PM: Finance Minister Kristupas Vaitiekūnas."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui Kibernetinio saugumo įstatymo Nr. XII-1428 2, 11, 12, 13, 19, 23, 28, 30, 31, 38 straipsnių ir antro priedo pakeitimo įstatymo projektą (vėliau priimtas kaip XV-1076, 2026-06-25). Prideda šakninio vardų serverio apibrėžtį, tikslina esminio/svarbaus subjekto identifikavimo ribas, pertvarko kompetencijų bendruomenės valdymą, praplečia gamybos priedą. Įgalioja krašto apsaugos ministrą Robertą Kauną atstovauti Seime. Laikinai einantis Ministro Pirmininko pareigas: finansų ministras Kristupas Vaitiekūnas."@lt ;
+    llo:hasDocID "No. 240" ;
+    llo:dateEnacted "2026-04-08"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

@@ -1,0 +1,51 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 390
+#   Amending Government Resolution No. 818 (Cybersecurity Law
+#   Implementation) – Cybersecurity Council composition,
+#   National Cybersecurity Strategy, approval stamps
+#   2019-04-24, Vilnius
+#   Prime Minister Saulius Skvernelis
+# =================================================================
+
+lld:GovRes-390-2019 a llo:Statute ;
+    rdfs:label "Government Resolution No. 390 – Amendment of Resolution No. 818: Cybersecurity Council and Strategy (2019)" ;
+    rdfs:label "Government Resolution No. 390 – Amendment of Resolution No. 818: Cybersecurity Council and Strategy (2019)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 390 – Nutarimo Nr. 818 pakeitimas: Kibernetinio saugumo taryba ir strategija (2019)"@lt ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Key changes: (1) Updates preamble to reference Art. 5(1-5) of Cybersecurity Law and NIS Directive 2016/1148; (2) Adds new point 5 establishing the institutional composition of the Cybersecurity Council (Kibernetinio saugumo taryba) with 23 members from ministries (Defence×2, Government Chancellery, Economy & Innovation, Energy, Transport, Education/Science/Sport, Justice, Foreign Affairs), agencies (ICT Dept/MoI, NKSC, State Data Protection Inspectorate, Police Dept, Communications Regulatory Authority), Bank of Lithuania, Lithuanian Banking Association, universities (KTU, Vilnius University), industry associations (Infobalt×3, Internet Media Association), Lithuanian Association of Municipalities, Heat Suppliers Association, Water Suppliers Association, and state energy companies (Lietuvos energija, EPSO-G); (3) Amends National Cybersecurity Strategy point 35 on Council public-private cooperation; (4) Updates approval stamps for Critical Infrastructure Identification Methodology, Organisational/Technical Requirements Description, and National Cyber Incident Management Plan. Also repeals Government Resolution No. 422 of 2015-04-23 (Cybersecurity Council formation and rules of procedure) with all amendments." ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Key changes: (1) Updates preamble to reference Art. 5(1-5) of Cybersecurity Law and NIS Directive 2016/1148; (2) Adds new point 5 establishing the institutional composition of the Cybersecurity Council (Kibernetinio saugumo taryba) with 23 members from ministries (Defence×2, Government Chancellery, Economy & Innovation, Energy, Transport, Education/Science/Sport, Justice, Foreign Affairs), agencies (ICT Dept/MoI, NKSC, State Data Protection Inspectorate, Police Dept, Communications Regulatory Authority), Bank of Lithuania, Lithuanian Banking Association, universities (KTU, Vilnius University), industry associations (Infobalt×3, Internet Media Association), Lithuanian Association of Municipalities, Heat Suppliers Association, Water Suppliers Association, and state energy companies (Lietuvos energija, EPSO-G); (3) Amends National Cybersecurity Strategy point 35 on Council public-private cooperation; (4) Updates approval stamps for Critical Infrastructure Identification Methodology, Organisational/Technical Requirements Description, and National Cyber Incident Management Plan. Also repeals Government Resolution No. 422 of 2015-04-23 (Cybersecurity Council formation and rules of procedure) with all amendments."@en ;
+    rdfs:comment "Keičia Vyriausybės 2018-08-13 nutarimą Nr. 818 dėl Kibernetinio saugumo įstatymo įgyvendinimo. Pagrindiniai pakeitimai: (1) Atnaujina preambulę; (2) Prideda 5 punktą, nustatantį Kibernetinio saugumo tarybos institucinę sudėtį iš 23 narių – ministerijų, agentūrų, Lietuvos banko, universitetų, pramonės asociacijų ir valstybės energetikos įmonių atstovų; (3) Keičia Nacionalinės kibernetinio saugumo strategijos 35 punktą dėl Tarybos viešojo ir privataus sektorių bendradarbiavimo; (4) Atnaujina metodikos, reikalavimų aprašo ir incidentų valdymo plano tvirtinimo žymas. Taip pat pripažįsta netekusiu galios Vyriausybės 2015-04-23 nutarimą Nr. 422 dėl Kibernetinio saugumo tarybos sudarymo."@lt ;
+    llo:hasDocID "No. 390" ;
+    llo:dateEnacted "2019-04-24"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:hasComponent lld:GovRes-390-2019_Art1 ,
+                     lld:GovRes-390-2019_Art2 .
+
+lld:GovRes-390-2019_Art1 a llo:Article ;
+    rdfs:label "Point 1 – Amendments to Resolution No. 818" ;
+    rdfs:label "Point 1 – Amendments to Resolution No. 818"@en ;
+    rdfs:label "1 punktas – Nutarimo Nr. 818 pakeitimai"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_CybersecurityCouncilComposition .
+
+lld:GovRes-390-2019_Art2 a llo:Article ;
+    rdfs:label "Point 2 – Repeal of Resolution No. 422 (2015)" ;
+    rdfs:label "Point 2 – Repeal of Resolution No. 422 (2015)"@en ;
+    rdfs:label "2 punktas – Nutarimo Nr. 422 (2015) pripažinimas netekusiu galios"@lt ;
+    llo:hasIndexNumber 2 .
+
+lld:Concept_CybersecurityCouncilComposition a llo:LegalConcept ;
+    rdfs:label "Cybersecurity Council institutional composition (23 members)" ;
+    rdfs:label "Cybersecurity Council institutional composition (23 members)"@en ;
+    rdfs:label "Kibernetinio saugumo tarybos institucinė sudėtis (23 nariai)"@lt ;
+    rdfs:comment "Establishes the multi-stakeholder composition of the Cybersecurity Council under Resolution No. 818: representatives from 8 ministries, 5 government agencies, Bank of Lithuania, banking association, 2 universities (KTU, VU), 3 industry associations (Infobalt×3, Internet Media Association), 3 municipal/utility associations, and 2 state energy companies (Lietuvos energija, EPSO-G). Replaces the prior council formation under repealed Resolution No. 422 of 2015." ;
+    rdfs:comment "Establishes the multi-stakeholder composition of the Cybersecurity Council under Resolution No. 818: representatives from 8 ministries, 5 government agencies, Bank of Lithuania, banking association, 2 universities (KTU, VU), 3 industry associations (Infobalt×3, Internet Media Association), 3 municipal/utility associations, and 2 state energy companies (Lietuvos energija, EPSO-G). Replaces the prior council formation under repealed Resolution No. 422 of 2015."@en ;
+    rdfs:comment "Nustato Kibernetinio saugumo tarybos daugiašalę sudėtį pagal nutarimą Nr. 818: 8 ministerijų, 5 vyriausybės agentūrų, Lietuvos banko, bankų asociacijos, 2 universitetų (KTU, VU), 3 pramonės asociacijų (Infobalt×3, Interneto žiniasklaidos asociacija), 3 savivaldybių/komunalinių asociacijų ir 2 valstybės energetikos įmonių (Lietuvos energija, EPSO-G) atstovai. Pakeičia ankstesnę tarybos formavimo tvarką pagal panaikintą nutarimą Nr. 422 (2015)."@lt ;
+    llo:hasLegalBasis "Point 1.2, GovRes 390/2019 (new point 5 of Resolution 818)" .

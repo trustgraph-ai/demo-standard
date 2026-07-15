@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 419
+#   Approving submission of GDPR implementation package including
+#   Cybersecurity Law Arts. 4, 11, 13, 14, 15, 18 amendment
+#   to Seimas
+#   2018-04-25, Vilnius
+#   Prime Minister Saulius Skvernelis
+# =================================================================
+
+lld:GovRes-419-2018 a llo:Statute ;
+    rdfs:label "Government Resolution No. 419 – Submission of GDPR implementation package including Cybersecurity Law amendment to Seimas (2018)" ;
+    rdfs:label "Government Resolution No. 419 – Submission of GDPR implementation package including Cybersecurity Law amendment to Seimas (2018)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 419 – BDAR įgyvendinimo paketo, įskaitant Kibernetinio saugumo įstatymo pakeitimą, teikimas Seimui (2018)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas a ten-law GDPR implementation package: (1) Personal Data Protection Law No. I-1374 restatement, (2) Administrative Offences Code Arts. 79, 479, 589 amendment and Art. 82 repeal, (3) Public Information Law No. I-1418 Arts. 49, 50 and annex amendment, (4) Banking Law No. IX-2085 Art. 55 amendment and Art. 56¹ repeal, (5) Labour Code Art. 27 amendment, (6) Cybersecurity Law No. XII-1428 Arts. 4, 11, 13, 14, 15 and 18 amendment, (7) Government Law No. I-464 Arts. 22 and 29¹ amendment, (8) Public Administration Law No. VIII-1234 Arts. 36⁴, 36⁸ and 36⁹ amendment, (9) Central Electoral Commission Law No. IX-985 Art. 3 amendment, (10) Administrative Procedure Law No. VIII-1029 Arts. 17, 20, 21, 29, 36 amendment and Part II Chapter II supplementation. Requests urgent consideration for GDPR Regulation (EU) 2016/679 application from 2018-05-25. Delegates Justice Minister (deputy: Justice Vice-Minister). PM Skvernelis; signing: Interior Minister Eimutis Misiūnas acting as Justice Minister." ;
+    rdfs:comment "Government approves and submits to Seimas a ten-law GDPR implementation package: (1) Personal Data Protection Law No. I-1374 restatement, (2) Administrative Offences Code Arts. 79, 479, 589 amendment and Art. 82 repeal, (3) Public Information Law No. I-1418 Arts. 49, 50 and annex amendment, (4) Banking Law No. IX-2085 Art. 55 amendment and Art. 56¹ repeal, (5) Labour Code Art. 27 amendment, (6) Cybersecurity Law No. XII-1428 Arts. 4, 11, 13, 14, 15 and 18 amendment, (7) Government Law No. I-464 Arts. 22 and 29¹ amendment, (8) Public Administration Law No. VIII-1234 Arts. 36⁴, 36⁸ and 36⁹ amendment, (9) Central Electoral Commission Law No. IX-985 Art. 3 amendment, (10) Administrative Procedure Law No. VIII-1029 Arts. 17, 20, 21, 29, 36 amendment and Part II Chapter II supplementation. Requests urgent consideration for GDPR Regulation (EU) 2016/679 application from 2018-05-25. Delegates Justice Minister (deputy: Justice Vice-Minister). PM Skvernelis; signing: Interior Minister Eimutis Misiūnas acting as Justice Minister."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui dešimties įstatymų BDAR įgyvendinimo paketą: (1) Asmens duomenų teisinės apsaugos įstatymo, (2) Administracinių nusižengimų kodekso, (3) Visuomenės informavimo įstatymo, (4) Bankų įstatymo, (5) Darbo kodekso, (6) Kibernetinio saugumo įstatymo Nr. XII-1428 4, 11, 13, 14, 15 ir 18 str. pakeitimo, (7) Vyriausybės įstatymo, (8) Viešojo administravimo įstatymo, (9) Vyriausiosios rinkimų komisijos įstatymo, (10) Administracinių bylų teisenos įstatymo pakeitimų. Prašo svarstyti skubos tvarka dėl BDAR reglamento (ES) 2016/679 taikymo nuo 2018-05-25. Įgalioja teisingumo ministrą atstovauti Seime."@lt ;
+    llo:hasDocID "No. 419" ;
+    llo:dateEnacted "2018-04-25"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

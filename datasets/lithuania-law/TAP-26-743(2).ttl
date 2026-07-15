@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 501
+#   Amending Government Resolution No. 818 (Cybersecurity Law
+#   Implementation) – Secure State Data Transmission Network
+#   users list changes
+#   2026-06-23, Vilnius
+#   Acting PM Inga Ruginienė
+# =================================================================
+
+lld:GovRes-501-2026 a llo:Statute ;
+    rdfs:label "Government Resolution No. 501 – Amendment of Resolution No. 818: Secure Network users list changes (2026)" ;
+    rdfs:label "Government Resolution No. 501 – Amendment of Resolution No. 818: Secure Network users list changes (2026)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 501 – Nutarimo Nr. 818 pakeitimas: Saugiojo tinklo naudotojų sąrašo pakeitimai (2026)"@lt ;
+    rdfs:comment "Amends the Secure State Data Transmission Network (Saugusis valstybinis duomenų perdavimo tinklas) users list approved by Government Resolution No. 818 of 2018-08-13: removes points 72 and 94, adds new points 356¹ and 445¹. Phased entry into force: points 1.1 (removal of point 72) and 1.4 (addition of point 445¹) effective immediately; points 1.2 (removal of point 94) and 1.3 (addition of point 356¹) effective 2027-01-01. Acting PM Inga Ruginienė, Acting Defence Minister Robertas Kaunas." ;
+    rdfs:comment "Amends the Secure State Data Transmission Network (Saugusis valstybinis duomenų perdavimo tinklas) users list approved by Government Resolution No. 818 of 2018-08-13: removes points 72 and 94, adds new points 356¹ and 445¹. Phased entry into force: points 1.1 (removal of point 72) and 1.4 (addition of point 445¹) effective immediately; points 1.2 (removal of point 94) and 1.3 (addition of point 356¹) effective 2027-01-01. Acting PM Inga Ruginienė, Acting Defence Minister Robertas Kaunas."@en ;
+    rdfs:comment "Keičia Saugiojo valstybinio duomenų perdavimo tinklo naudotojų sąrašą, patvirtintą Vyriausybės 2018-08-13 nutarimu Nr. 818: panaikina 72 ir 94 punktus, prideda naujus 356¹ ir 445¹ punktus. Etapinis įsigaliojimas: 1.1 ir 1.4 papunkčiai iš karto; 1.2 ir 1.3 papunkčiai nuo 2027-01-01. Laikinai einanti MP pareigas Inga Ruginienė, laikinai einantis KAM ministro pareigas Robertas Kaunas."@lt ;
+    llo:hasDocID "No. 501" ;
+    llo:dateEnacted "2026-06-23"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

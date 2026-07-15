@@ -1,0 +1,61 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 1311
+#   Government opinion on Seimas draft No. XIVP-1855 amending
+#   Cybersecurity Law Art. 8 – NKSC powers, domain blocking,
+#   Cybersecurity Information Network improvements
+#   2022-12-29, Vilnius
+#   Prime Minister Ingrida Šimonytė
+# =================================================================
+
+lld:GovRes-1311-2022 a llo:Statute ;
+    rdfs:label "Government Resolution No. 1311 – Opinion on Cybersecurity Law Art. 8 amendment draft XIVP-1855 (2022)" ;
+    rdfs:label "Government Resolution No. 1311 – Opinion on Cybersecurity Law Art. 8 amendment draft XIVP-1855 (2022)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 1311 – Nuomonė dėl Kibernetinio saugumo įstatymo 8 str. pakeitimo projekto XIVP-1855 (2022)"@lt ;
+    rdfs:comment "Government opinion (under Seimas Statute Art. 138(3)) on Seimas draft No. XIVP-1855 amending Cybersecurity Law Art. 8. Agrees in principle with the goal of preventing cyber incidents and reducing their impact, but proposes refinements: (1) Opposes granting NKSC new powers to restrict services for cyber fraud, arguing this would duplicate existing Police powers under Art. 10(3) and could compromise ongoing criminal investigations – the existing separation between NKSC (critical infrastructure incidents only) and Police (general cybercrime) should be maintained; (2) Instead of making NKSC a compliance checker for domain blocking orders from other institutions (proposed new Art. 8(2)(17)), proposes improving the Cybersecurity Information Network (Kibernetinio saugumo informacinis tinklas) as a centralised technical solution; (3) Proposes new Art. 13¹ establishing mandatory use of the Cybersecurity Information Network for processing domain blocking orders, with public disclosure of blocking data; (4) Notes that implementation requires KSIN modernisation (~€100K/year additional budget for MoD) and at least one year lead time. References Seimas Board decision No. SV-S-599 of 2022-07-05." ;
+    rdfs:comment "Government opinion (under Seimas Statute Art. 138(3)) on Seimas draft No. XIVP-1855 amending Cybersecurity Law Art. 8. Agrees in principle with the goal of preventing cyber incidents and reducing their impact, but proposes refinements: (1) Opposes granting NKSC new powers to restrict services for cyber fraud, arguing this would duplicate existing Police powers under Art. 10(3) and could compromise ongoing criminal investigations – the existing separation between NKSC (critical infrastructure incidents only) and Police (general cybercrime) should be maintained; (2) Instead of making NKSC a compliance checker for domain blocking orders from other institutions (proposed new Art. 8(2)(17)), proposes improving the Cybersecurity Information Network (Kibernetinio saugumo informacinis tinklas) as a centralised technical solution; (3) Proposes new Art. 13¹ establishing mandatory use of the Cybersecurity Information Network for processing domain blocking orders, with public disclosure of blocking data; (4) Notes that implementation requires KSIN modernisation (~€100K/year additional budget for MoD) and at least one year lead time. References Seimas Board decision No. SV-S-599 of 2022-07-05."@en ;
+    rdfs:comment "Vyriausybės nuomonė (pagal Seimo statuto 138 str. 3 d.) dėl Seimo projekto Nr. XIVP-1855, keičiančio Kibernetinio saugumo įstatymo 8 str. Iš esmės pritaria tikslui užkardyti kibernetinius incidentus, bet siūlo tobulinti: (1) Nepritaria naujų NKSC įgaliojimų riboti paslaugas dėl kibernetinio sukčiavimo – tai dubliuotų policijos įgaliojimus pagal 10 str. 3 p. ir galėtų pakenkti vykdomiems tyrimams; (2) Vietoj NKSC kaip domeno blokavimo nurodymų vykdymo tikrintojo siūlo tobulinti Kibernetinio saugumo informacinį tinklą kaip centralizuotą techninį sprendimą; (3) Siūlo naują 13¹ straipsnį dėl privalomo KSIN naudojimo domeno blokavimo nurodymams; (4) Pažymi, kad įgyvendinimui reikia KSIN modernizavimo (~100 tūkst. EUR/metus KAM papildomai) ir bent vienerių metų. Remiasi Seimo valdybos sprendimu Nr. SV-S-599 (2022-07-05)."@lt ;
+    llo:hasDocID "No. 1311" ;
+    llo:dateEnacted "2022-12-29"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:hasComponent lld:GovRes-1311-2022_Point1 ,
+                     lld:GovRes-1311-2022_Point2 .
+
+lld:GovRes-1311-2022_Point1 a llo:Article ;
+    rdfs:label "Point 1 – NKSC powers and Police function separation" ;
+    rdfs:label "Point 1 – NKSC powers and Police function separation"@en ;
+    rdfs:label "1 punktas – NKSC įgaliojimai ir policijos funkcijų atskyrimas"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_NKSCPoliceFunctionSeparation .
+
+lld:GovRes-1311-2022_Point2 a llo:Article ;
+    rdfs:label "Point 2 – Domain blocking via Cybersecurity Information Network" ;
+    rdfs:label "Point 2 – Domain blocking via Cybersecurity Information Network"@en ;
+    rdfs:label "2 punktas – Domeno blokavimas per Kibernetinio saugumo informacinį tinklą"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_DomainBlockingKSIN .
+
+lld:Concept_NKSCPoliceFunctionSeparation a llo:LegalConcept ;
+    rdfs:label "NKSC and Police function separation in cybercrime response" ;
+    rdfs:label "NKSC and Police function separation in cybercrime response"@en ;
+    rdfs:label "NKSC ir policijos funkcijų atskyrimas reaguojant į kibernetinius nusikaltimus"@lt ;
+    rdfs:comment "Government position that the existing functional separation between NKSC (Art. 8(2)(11) – service restriction only for incidents affecting state information resources or critical infrastructure) and Police (Art. 10(3) – general cybercrime service restriction) should be maintained. NKSC should not receive parallel powers to restrict services for cyber fraud, as this could compromise ongoing criminal investigations and the existing cooperation mechanism under Art. 14(1) is sufficient." ;
+    rdfs:comment "Government position that the existing functional separation between NKSC (Art. 8(2)(11) – service restriction only for incidents affecting state information resources or critical infrastructure) and Police (Art. 10(3) – general cybercrime service restriction) should be maintained. NKSC should not receive parallel powers to restrict services for cyber fraud, as this could compromise ongoing criminal investigations and the existing cooperation mechanism under Art. 14(1) is sufficient."@en ;
+    rdfs:comment "Vyriausybės pozicija, kad esamas funkcijų atskyrimas tarp NKSC (8 str. 2 d. 11 p. – paslaugų ribojimas tik dėl incidentų, darančių poveikį valstybės informaciniams ištekliams ar ypatingos svarbos infrastruktūrai) ir policijos (10 str. 3 p. – bendrasis kibernetinių nusikaltimų paslaugų ribojimas) turėtų būti išlaikytas. NKSC neturėtų gauti lygiagrečių įgaliojimų riboti paslaugas dėl kibernetinio sukčiavimo."@lt ;
+    llo:hasLegalBasis "Point 1, GovRes 1311/2022 (re XIVP-1855)" .
+
+lld:Concept_DomainBlockingKSIN a llo:LegalConcept ;
+    rdfs:label "Centralised domain blocking via Cybersecurity Information Network (KSIN)" ;
+    rdfs:label "Centralised domain blocking via Cybersecurity Information Network (KSIN)"@en ;
+    rdfs:label "Centralizuotas domeno blokavimas per Kibernetinio saugumo informacinį tinklą (KSIN)"@lt ;
+    rdfs:comment "Government proposal to use the Cybersecurity Information Network (KSIN, Art. 13) as a centralised platform for domain blocking order management, rather than adding NKSC as a compliance checker. Proposes new Art. 13¹ requiring all blocking-order issuing institutions and implementing cybersecurity subjects to use KSIN for processing mandatory domain blocking orders, with public disclosure. Also references the DNS firewall service developed by NKSC with KTU DOMREG as a protective tool for Lithuanian internet users." ;
+    rdfs:comment "Government proposal to use the Cybersecurity Information Network (KSIN, Art. 13) as a centralised platform for domain blocking order management, rather than adding NKSC as a compliance checker. Proposes new Art. 13¹ requiring all blocking-order issuing institutions and implementing cybersecurity subjects to use KSIN for processing mandatory domain blocking orders, with public disclosure. Also references the DNS firewall service developed by NKSC with KTU DOMREG as a protective tool for Lithuanian internet users."@en ;
+    rdfs:comment "Vyriausybės pasiūlymas naudoti Kibernetinio saugumo informacinį tinklą (KSIN, 13 str.) kaip centralizuotą platformą domeno blokavimo nurodymų valdymui. Siūlo naują 13¹ straipsnį, įpareigojantį visas nurodymus duodančias institucijas ir juos įgyvendinančius kibernetinio saugumo subjektus naudotis KSIN, viešai skelbiant blokavimo duomenis. Taip pat nurodo NKSC su KTU DOMREG sukurtą DNS užkardos paslaugą."@lt ;
+    llo:hasLegalBasis "Point 2, GovRes 1311/2022 (proposed new Art. 13¹)" .

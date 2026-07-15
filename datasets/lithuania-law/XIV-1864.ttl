@@ -1,0 +1,129 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Article 13 and adding Article 13¹
+#   No. XIV-1864, enacted 2023-03-30, Vilnius
+#   Signed by President Gitanas Nausėda
+#   Effective 2024-05-01
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XIV-1864 a llo:Statute ;
+    rdfs:label "Amendment to Cybersecurity Law – Article 13 and Article 13¹ (No. XIV-1864)" ;
+    rdfs:label "Amendment to Cybersecurity Law – Article 13 and Article 13¹ (No. XIV-1864)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 13 straipsnio pakeitimo ir įstatymo papildymo 13¹ straipsniu įstatymas (Nr. XIV-1864)"@lt ;
+    rdfs:comment "Amends Article 13 of the Cybersecurity Law to add incident management duties for public administration entities, and introduces a new Article 13¹ establishing mandatory domain name blocking orders processed through the Cybersecurity Information Network (KSIS)." ;
+    rdfs:comment "Amends Article 13 of the Cybersecurity Law to add incident management duties for public administration entities, and introduces a new Article 13¹ establishing mandatory domain name blocking orders processed through the Cybersecurity Information Network (KSIS)."@en ;
+    rdfs:comment "Pakeičia Kibernetinio saugumo įstatymo 13 straipsnį, papildant viešojo administravimo subjektų pareigas dėl incidentų valdymo, ir įveda naują 13¹ straipsnį, nustatantį privalomus domenų vardų blokavimo nurodymus, tvarkomus per Kibernetinio saugumo informacinį tinklą (KSIS)."@lt ;
+    llo:hasDocID "No. XIV-1864" ;
+    llo:dateEnacted "2023-03-30"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XIV-1864_Art1 ,
+                     lld:XIV-1864_Art2 ,
+                     lld:XIV-1864_Art3 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XIV-1864_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 13" ;
+    rdfs:label "Article 1 – Amendment of Article 13"@en ;
+    rdfs:label "1 straipsnis – 13 straipsnio pakeitimas"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_IncidentManagementDuty .
+
+lld:XIV-1864_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Addition of Article 13¹" ;
+    rdfs:label "Article 2 – Addition of Article 13¹"@en ;
+    rdfs:label "2 straipsnis – Įstatymo papildymas 13¹ straipsniu"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_DomainBlocking .
+
+lld:XIV-1864_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Entry into Force and Implementation" ;
+    rdfs:label "Article 3 – Entry into Force and Implementation"@en ;
+    rdfs:label "3 straipsnis – Įstatymo įsigaliojimas ir įgyvendinimas"@lt ;
+    llo:hasIndexNumber 3 .
+
+
+# =================================================================
+# SECTION 3: NEW LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_IncidentManagementDuty a llo:LegalConcept ;
+    rdfs:label "Public administration incident management duty" ;
+    rdfs:label "Public administration incident management duty"@en ;
+    rdfs:label "Viešojo administravimo subjektų incidentų valdymo pareiga"@lt ;
+    rdfs:comment "New obligation for public administration entities to manage and investigate cyber incidents insofar as necessary to perform the functions established in Article 14, paragraphs 1 and 2 of the Cybersecurity Law." ;
+    rdfs:comment "New obligation for public administration entities to manage and investigate cyber incidents insofar as necessary to perform the functions established in Article 14, paragraphs 1 and 2 of the Cybersecurity Law."@en ;
+    rdfs:comment "Nauja viešojo administravimo subjektų pareiga valdyti ir tirti kibernetinius incidentus tiek, kiek tai būtina šio įstatymo 14 straipsnio 1 ir 2 dalyse nustatytoms institucijų funkcijoms atlikti."@lt ;
+    llo:hasLegalBasis "Art. 1, XIV-1864 (amending Art. 13(4)(3), XII-1428)" .
+
+lld:Concept_DomainBlocking a llo:LegalConcept ;
+    rdfs:label "Mandatory domain name blocking via KSIS" ;
+    rdfs:label "Mandatory domain name blocking via KSIS"@en ;
+    rdfs:label "Privalomas domenų vardų blokavimas per KSIS"@lt ;
+    rdfs:comment "New Article 13¹ establishing that mandatory orders to block domain names identifying websites are processed within the Cybersecurity Information Network (KSIS). Both issuing authorities and implementing cybersecurity entities must use the relevant KSIS section regardless of general membership requirements. Blocking order data is published publicly." ;
+    rdfs:comment "New Article 13¹ establishing that mandatory orders to block domain names identifying websites are processed within the Cybersecurity Information Network (KSIS). Both issuing authorities and implementing cybersecurity entities must use the relevant KSIS section regardless of general membership requirements. Blocking order data is published publicly."@en ;
+    rdfs:comment "Naujas 13¹ straipsnis, nustatantis, kad privalomi nurodymai blokuoti domenų vardus, identifikuojančius interneto svetaines, tvarkomi Kibernetinio saugumo informaciniame tinkle (KSIS). Tiek nurodymus duodančios institucijos, tiek juos įgyvendinantys kibernetinio saugumo subjektai privalo naudotis atitinkama KSIS dalimi, nepriklausomai nuo bendrųjų narystės reikalavimų. Blokavimo nurodymų duomenys skelbiami viešai."@lt ;
+    llo:hasLegalBasis "Art. 2, XIV-1864 (new Art. 13¹, XII-1428)" .
+
+
+# =================================================================
+# SECTION 4: INCIDENT TRIGGER – DOMAIN BLOCKING ORDER
+# =================================================================
+
+lld:Trigger_DomainBlockingOrder a llo:IncidentTrigger ;
+    rdfs:label "Mandatory domain name blocking order" ;
+    rdfs:label "Mandatory domain name blocking order"@en ;
+    rdfs:label "Privalomas domenų vardo blokavimo nurodymas"@lt ;
+    rdfs:comment "A binding order to block a domain name identifying a website, processed through the KSIS network. Issued by authorized institutions and executed by cybersecurity entities. Blocking data is publicly disclosed." ;
+    rdfs:comment "A binding order to block a domain name identifying a website, processed through the KSIS network. Issued by authorized institutions and executed by cybersecurity entities. Blocking data is publicly disclosed."@en ;
+    rdfs:comment "Privalomas nurodymas blokuoti domenų vardą, identifikuojantį interneto svetainę, tvarkomas per KSIS tinklą. Duodamas įgaliotų institucijų ir vykdomas kibernetinio saugumo subjektų. Blokavimo duomenys skelbiami viešai."@lt ;
+    llo:isExtraordinaryPower true ;
+    llo:hasLegalBasis "Art. 13¹, XII-1428 (as amended by XIV-1864)" ;
+    llo:flowsThrough lld:Pipeline_KSIS ;
+    llo:limitsRight lld:Right_DomainAccess .
+
+
+# =================================================================
+# SECTION 5: CIVIC RIGHTS AFFECTED
+# =================================================================
+
+lld:Right_DomainAccess a llo:CivicRight ;
+    rdfs:label "Right to access websites via domain names" ;
+    rdfs:label "Right to access websites via domain names"@en ;
+    rdfs:label "Teisė pasiekti interneto svetaines per domenų vardus"@lt ;
+    rdfs:comment "The right of internet users to access websites identified by domain names, which may be restricted through mandatory blocking orders processed via the KSIS network." ;
+    rdfs:comment "The right of internet users to access websites identified by domain names, which may be restricted through mandatory blocking orders processed via the KSIS network."@en ;
+    rdfs:comment "Interneto vartotojų teisė pasiekti interneto svetaines, identifikuojamas domenų vardais, kuri gali būti apribota privalomais blokavimo nurodymais, tvarkomais per KSIS tinklą."@lt ;
+    llo:hasLegalBasis "Art. 13¹, XII-1428 (as amended by XIV-1864)" .
+
+
+# =================================================================
+# SECTION 6: ENHANCED INFORMATION PIPELINE USAGE
+# =================================================================
+
+lld:Pipeline_KSIS_DomainBlocking a llo:InformationPipeline ;
+    rdfs:label "KSIS domain blocking subsystem" ;
+    rdfs:label "KSIS domain blocking subsystem"@en ;
+    rdfs:label "KSIS domenų blokavimo posistemė"@lt ;
+    rdfs:comment "The section of the Cybersecurity Information Network (KSIS) dedicated to processing mandatory domain name blocking orders. Accessible to issuing authorities and implementing entities regardless of general KSIS membership requirements. Data on blocking orders is published publicly." ;
+    rdfs:comment "The section of the Cybersecurity Information Network (KSIS) dedicated to processing mandatory domain name blocking orders. Accessible to issuing authorities and implementing entities regardless of general KSIS membership requirements. Data on blocking orders is published publicly."@en ;
+    rdfs:comment "Kibernetinio saugumo informacinio tinklo (KSIS) dalis, skirta privalomiems domenų vardų blokavimo nurodymams tvarkyti. Prieinama nurodymus duodančioms institucijoms ir juos vykdantiems subjektams, nepriklausomai nuo bendrųjų KSIS narystės reikalavimų. Blokavimo nurodymų duomenys skelbiami viešai."@lt ;
+    llo:hasLegalBasis "Art. 13¹(2-3), XII-1428 (as amended by XIV-1864)" ;
+    llo:relaysDataTo lld:Org_NKSC .

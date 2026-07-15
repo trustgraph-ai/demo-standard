@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 282
+#   Approving submission of Cybersecurity Law complete restatement
+#   and Administrative Offences Code amendment for NIS Directive
+#   transposition to Seimas
+#   2018-03-28, Vilnius
+#   Prime Minister Saulius Skvernelis
+# =================================================================
+
+lld:GovRes-282-2018 a llo:Statute ;
+    rdfs:label "Government Resolution No. 282 – Submission of Cybersecurity Law restatement for NIS Directive transposition to Seimas (2018)" ;
+    rdfs:label "Government Resolution No. 282 – Submission of Cybersecurity Law restatement for NIS Directive transposition to Seimas (2018)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 282 – Kibernetinio saugumo įstatymo naujos redakcijos teikimas Seimui dėl TIS direktyvos perkėlimo (2018)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas two draft laws: (1) Cybersecurity Law No. XII-1428 complete restatement, (2) Administrative Offences Code Arts. 479, 480, 589 and annex amendment. Requests urgent consideration because the drafts are prepared for timely transposition of Directive (EU) 2016/1148 (NIS Directive) on measures for a high common level of security of network and information systems across the Union. Delegates Defence Minister Raimundas Karoblis (deputy: Vice-Minister Edvinas Kerza) to represent Government in Seimas." ;
+    rdfs:comment "Government approves and submits to Seimas two draft laws: (1) Cybersecurity Law No. XII-1428 complete restatement, (2) Administrative Offences Code Arts. 479, 480, 589 and annex amendment. Requests urgent consideration because the drafts are prepared for timely transposition of Directive (EU) 2016/1148 (NIS Directive) on measures for a high common level of security of network and information systems across the Union. Delegates Defence Minister Raimundas Karoblis (deputy: Vice-Minister Edvinas Kerza) to represent Government in Seimas."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui du įstatymų projektus: (1) Kibernetinio saugumo įstatymo Nr. XII-1428 pakeitimo (nauja redakcija), (2) Administracinių nusižengimų kodekso 479, 480, 589 straipsnių ir priedo pakeitimo. Prašo svarstyti skubos tvarka, nes projektai parengti siekiant laiku perkelti Direktyvą (ES) 2016/1148 (TIS direktyvą) dėl priemonių aukštam bendram tinklų ir informacinių sistemų saugumo lygiui visoje Sąjungoje užtikrinti. Įgalioja krašto apsaugos ministrą Raimundą Karoblį atstovauti Seime."@lt ;
+    llo:hasDocID "No. 282" ;
+    llo:dateEnacted "2018-03-28"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

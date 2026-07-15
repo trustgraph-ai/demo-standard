@@ -1,0 +1,50 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 1298
+#   Amending Government Resolution No. 818 (Cybersecurity Law
+#   Implementation) – critical infrastructure methodology,
+#   organisational/technical security deadlines, incident reporting
+#   2020-11-18, Vilnius
+#   Acting PM Saulius Skvernelis
+# =================================================================
+
+lld:GovRes-1298-2020 a llo:Statute ;
+    rdfs:label "Government Resolution No. 1298 – Amendment of Cybersecurity Law Implementation Resolution No. 818 (2020)" ;
+    rdfs:label "Government Resolution No. 1298 – Amendment of Cybersecurity Law Implementation Resolution No. 818 (2020)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 1298 – Kibernetinio saugumo įstatymo įgyvendinimo nutarimo Nr. 818 pakeitimas (2020)"@lt ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Key changes: (1) Updates preamble to reference Art. 4(1) and Art. 5(2-5) of Cybersecurity Law plus NIS Directive 2016/1148 and EECC Directive 2018/1972; (2) Amends Critical Information Infrastructure Identification Methodology Annex 1 (points 6, 11, 13); (3) Adds mandatory deadlines for critical infrastructure operators: organisational cybersecurity requirements within 12 months and technical requirements within 24 months of being added to Government-approved critical infrastructure list (new points 13¹ and 17¹); (4) Updates National Cyber Incident Management Plan point 50.2 on annual reporting to European Commission, Cooperation Group, and ENISA with incident statistics, types, and response measures taken. Phased entry into force: points 1.1 and 1.5 effective 2020-12-21; point 1.2 effective 2021-01-01." ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Key changes: (1) Updates preamble to reference Art. 4(1) and Art. 5(2-5) of Cybersecurity Law plus NIS Directive 2016/1148 and EECC Directive 2018/1972; (2) Amends Critical Information Infrastructure Identification Methodology Annex 1 (points 6, 11, 13); (3) Adds mandatory deadlines for critical infrastructure operators: organisational cybersecurity requirements within 12 months and technical requirements within 24 months of being added to Government-approved critical infrastructure list (new points 13¹ and 17¹); (4) Updates National Cyber Incident Management Plan point 50.2 on annual reporting to European Commission, Cooperation Group, and ENISA with incident statistics, types, and response measures taken. Phased entry into force: points 1.1 and 1.5 effective 2020-12-21; point 1.2 effective 2021-01-01."@en ;
+    rdfs:comment "Keičia Vyriausybės 2018-08-13 nutarimą Nr. 818 dėl Kibernetinio saugumo įstatymo įgyvendinimo. Pagrindiniai pakeitimai: (1) Atnaujina preambulę, nurodant Kibernetinio saugumo įstatymo 4 str. 1 d. ir 5 str. 2-5 p. bei TIS direktyvą 2016/1148 ir EERK direktyvą 2018/1972; (2) Keičia Ypatingos svarbos informacinės infrastruktūros identifikavimo metodikos 1 priedo 6, 11, 13 punktus; (3) Prideda privalomus terminus ypatingos svarbos infrastruktūros valdytojams: organizaciniai reikalavimai per 12 mėnesių, techniniai – per 24 mėnesius nuo įtraukimo į sąrašą; (4) Atnaujina Nacionalinio kibernetinių incidentų valdymo planą dėl metinės ataskaitos Europos Komisijai, bendradarbiavimo grupei ir ENISA."@lt ;
+    llo:hasDocID "No. 1298" ;
+    llo:dateEnacted "2020-11-18"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:hasComponent lld:GovRes-1298-2020_Art1 .
+
+lld:GovRes-1298-2020_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendments to Resolution No. 818" ;
+    rdfs:label "Article 1 – Amendments to Resolution No. 818"@en ;
+    rdfs:label "1 punktas – Nutarimo Nr. 818 pakeitimai"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_CriticalInfraDeadlines .
+
+lld:Concept_CriticalInfraDeadlines a llo:LegalConcept ;
+    rdfs:label "12/24-month implementation deadlines for critical infrastructure operators" ;
+    rdfs:label "12/24-month implementation deadlines for critical infrastructure operators"@en ;
+    rdfs:label "12/24 mėnesių įgyvendinimo terminai ypatingos svarbos infrastruktūros valdytojams"@lt ;
+    rdfs:comment "New mandatory deadlines: critical infrastructure operators must implement organisational cybersecurity requirements within 12 months and technical cybersecurity requirements within 24 months of being added to the Government-approved critical infrastructure and operator list." ;
+    rdfs:comment "New mandatory deadlines: critical infrastructure operators must implement organisational cybersecurity requirements within 12 months and technical cybersecurity requirements within 24 months of being added to the Government-approved critical infrastructure and operator list."@en ;
+    rdfs:comment "Nauji privalomi terminai: ypatingos svarbos infrastruktūros valdytojai privalo įgyvendinti organizacinius kibernetinio saugumo reikalavimus per 12 mėnesių ir techninius reikalavimus per 24 mėnesius nuo įtraukimo į Vyriausybės patvirtintą sąrašą."@lt ;
+    llo:hasLegalBasis "Points 1.4.1 and 1.4.2, GovRes 1298/2020" .
+
+lld:GovRes-1298-2020_Resilience a llo:ResilienceMandate ;
+    rdfs:label "12-month organisational and 24-month technical security implementation mandate" ;
+    rdfs:label "12-month organisational and 24-month technical security implementation mandate"@en ;
+    rdfs:label "12 mėnesių organizacinio ir 24 mėnesių techninio saugumo įgyvendinimo mandatas"@lt ;
+    llo:hasLegalBasis "Points 13¹ and 17¹, Resolution 818 (as amended by 1298)" .

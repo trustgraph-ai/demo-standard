@@ -1,0 +1,45 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 574
+#   Amending Government Resolution No. 818 (Cybersecurity Law
+#   Implementation) – critical infrastructure methodology,
+#   organisational/technical requirements overhaul, supplier
+#   security, procurement requirements
+#   2023-07-19, Vilnius
+#   Acting PM Gintarė Skaistė (Finance Minister)
+# =================================================================
+
+lld:GovRes-574-2023 a llo:Statute ;
+    rdfs:label "Government Resolution No. 574 – Amendment of Resolution No. 818: requirements overhaul, supplier security, procurement (2023)" ;
+    rdfs:label "Government Resolution No. 574 – Amendment of Resolution No. 818: requirements overhaul, supplier security, procurement (2023)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 574 – Nutarimo Nr. 818 pakeitimas: reikalavimų pertvarka, tiekėjų saugumas, viešieji pirkimai (2023)"@lt ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Key changes: (1) Amends Critical Infrastructure Identification Methodology Annex 1 point 13; (2) Major overhaul of Organisational and Technical Cybersecurity Requirements Description: updates definition cross-references to include Public Procurement Law and State Secrets Law (point 2), refines risk assessment methodology to include latest technical developments and annual or post-change assessment requirement (points 3, 5.1), extends access control to cover suppliers, sub-contractors and other economic operators (point 5.3.2), updates mobile device security scope (point 5.3.9), adds new requirements for backup and recovery (5.3.29) and supplier information security (5.3.30), introduces mandatory procurement requirements for cybersecurity compliance in tender documents and contracts (new point 13), updates technical requirements scope (point 14), repeals points 15-16, updates information submission rules excluding digital service providers (point 21); (3) Restates the technical requirements annex entirely. Phased entry: points 1.2.2-1.2.7 effective 2024-01-01; ongoing procurement procedures completed under old rules. Acting PM: Finance Minister Gintarė Skaistė, Defence Minister Arvydas Anušauskas." ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Key changes: (1) Amends Critical Infrastructure Identification Methodology Annex 1 point 13; (2) Major overhaul of Organisational and Technical Cybersecurity Requirements Description: updates definition cross-references to include Public Procurement Law and State Secrets Law (point 2), refines risk assessment methodology to include latest technical developments and annual or post-change assessment requirement (points 3, 5.1), extends access control to cover suppliers, sub-contractors and other economic operators (point 5.3.2), updates mobile device security scope (point 5.3.9), adds new requirements for backup and recovery (5.3.29) and supplier information security (5.3.30), introduces mandatory procurement requirements for cybersecurity compliance in tender documents and contracts (new point 13), updates technical requirements scope (point 14), repeals points 15-16, updates information submission rules excluding digital service providers (point 21); (3) Restates the technical requirements annex entirely. Phased entry: points 1.2.2-1.2.7 effective 2024-01-01; ongoing procurement procedures completed under old rules. Acting PM: Finance Minister Gintarė Skaistė, Defence Minister Arvydas Anušauskas."@en ;
+    rdfs:comment "Keičia Vyriausybės 2018-08-13 nutarimą Nr. 818 dėl Kibernetinio saugumo įstatymo įgyvendinimo. Pagrindiniai pakeitimai: (1) Keičia Ypatingos svarbos infrastruktūros metodikos 1 priedo 13 punktą; (2) Esminė Organizacinių ir techninių reikalavimų aprašo pertvarka: atnaujina sąvokų nuorodas, tikslina rizikos vertinimo metodologiją, praplečia prieigos valdymą tiekėjams ir subtiekėjams, atnaujina mobiliųjų įrenginių saugumą, prideda atsarginių kopijų ir tiekėjų saugumo reikalavimus, įveda privalomus viešųjų pirkimų reikalavimus kibernetiniam saugumui; (3) Išdėsto techninių reikalavimų priedą nauja redakcija. Etapinis įsigaliojimas: 1.2.2-1.2.7 papunkčiai nuo 2024-01-01. Laikinai einanti MP pareigas: finansų ministrė Gintarė Skaistė, KAM ministras Arvydas Anušauskas."@lt ;
+    llo:hasDocID "No. 574" ;
+    llo:dateEnacted "2023-07-19"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:hasComponent lld:GovRes-574-2023_Point1 .
+
+lld:GovRes-574-2023_Point1 a llo:Article ;
+    rdfs:label "Point 1 – Amendments to Resolution No. 818" ;
+    rdfs:label "Point 1 – Amendments to Resolution No. 818"@en ;
+    rdfs:label "1 punktas – Nutarimo Nr. 818 pakeitimai"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_SupplierSecurityProcurement .
+
+lld:Concept_SupplierSecurityProcurement a llo:LegalConcept ;
+    rdfs:label "Mandatory cybersecurity requirements in procurement and supplier contracts" ;
+    rdfs:label "Mandatory cybersecurity requirements in procurement and supplier contracts"@en ;
+    rdfs:label "Privalomi kibernetinio saugumo reikalavimai viešuosiuose pirkimuose ir tiekėjų sutartyse"@lt ;
+    rdfs:comment "New point 13 of the Organisational and Technical Requirements Description: entities managing state information resources and critical infrastructure operators must (13.1) specify in procurement documents that suppliers must ensure compliance with cybersecurity requirements to the extent related to the procurement object, and (13.2) include information security and cybersecurity requirements in contracts with suppliers to the extent related to the procurement object and access to state information resources or critical infrastructure." ;
+    rdfs:comment "New point 13 of the Organisational and Technical Requirements Description: entities managing state information resources and critical infrastructure operators must (13.1) specify in procurement documents that suppliers must ensure compliance with cybersecurity requirements to the extent related to the procurement object, and (13.2) include information security and cybersecurity requirements in contracts with suppliers to the extent related to the procurement object and access to state information resources or critical infrastructure."@en ;
+    rdfs:comment "Naujas Organizacinių ir techninių reikalavimų aprašo 13 punktas: subjektai, valdantys valstybės informacinius išteklius, ir ypatingos svarbos infrastruktūros valdytojai privalo (13.1) pirkimo dokumentuose nustatyti, kad tiekėjas privalo užtikrinti atitiktį kibernetinio saugumo reikalavimams, ir (13.2) į sutartis su tiekėju įtraukti informacijos saugumo ir kibernetinio saugumo reikalavimus."@lt ;
+    llo:hasLegalBasis "Point 1.2.8, GovRes 574/2023 (new point 13 of Requirements Description)" .
