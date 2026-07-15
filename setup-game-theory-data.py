@@ -19,7 +19,7 @@ DATASETS_DIR = os.path.join(os.path.dirname(__file__), "datasets")
 DEFAULT_URL = os.getenv("TRUSTGRAPH_URL", "http://localhost:8888/")
 DEFAULT_TOKEN = os.getenv("TRUSTGRAPH_TOKEN", None)
 
-WORKSPACE = "game-theory"
+WORKSPACE = "gametheory"
 
 GAME_THEORY_DIR = os.path.join(DATASETS_DIR, "game-theory")
 
