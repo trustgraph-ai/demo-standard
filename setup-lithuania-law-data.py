@@ -136,7 +136,13 @@ def load_triples_from_file(path):
     g = rdflib.Graph()
     g.parse(path, format="turtle")
     for s, p, o in g:
-        yield Triple(s=str(s), p=str(p), o=str(o))
+        kwargs = {"s": str(s), "p": str(p), "o": str(o)}
+        if isinstance(o, rdflib.term.Literal):
+            if o.language:
+                kwargs["o_language"] = str(o.language)
+            elif o.datatype:
+                kwargs["o_datatype"] = str(o.datatype)
+        yield Triple(**kwargs)
 
 
 def load_entity_contexts_from_file(path):
