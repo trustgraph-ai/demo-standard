@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ll-nksc-powers",
+    "title": "NKSC powers and responsibilities",
+    "description": "Determine the full scope of powers held by the National Cyber Security Centre.",
+    "language": "agent",
+    "query": "What is the full scope of NKSC's powers and responsibilities across all Lithuanian cybersecurity legislation? How have these evolved over time?"
+  },
+  {
+    "id": "ll-penalty-exposure",
+    "title": "Maximum penalty exposure for regulated entities",
+    "description": "Calculate the maximum financial and operational penalty exposure for different entity types.",
+    "language": "agent",
+    "query": "What is the maximum penalty exposure for essential entities versus important entities under Lithuanian law? Include financial penalties, turnover percentage caps, executive liability, and operational sanctions."
+  },
+  {
+    "id": "ll-russian-threat-response",
+    "title": "Legislative response to Russian threats",
+    "description": "Analyse legislation specifically addressing Russian and Belarusian threats.",
+    "language": "agent",
+    "query": "How does Lithuanian legislation specifically address threats from Russia and Belarus? What supply chain restrictions, strategic decoupling mandates, and defensive measures are in place?"
+  },
+  {
+    "id": "ll-incident-reporting-chain",
+    "title": "Incident reporting chain analysis",
+    "description": "Trace the complete incident reporting chain from regulated entity to authority.",
+    "language": "agent",
+    "query": "Trace the complete incident reporting chain: when a cybersecurity incident occurs at a regulated entity, who must they report to, through what information pipelines, within what time windows, and what happens next?"
+  },
+  {
+    "id": "ll-executive-personal-risk",
+    "title": "Personal risk for executives",
+    "description": "Assess the personal liability exposure of corporate executives under Lithuanian cyber law.",
+    "language": "agent",
+    "query": "What personal liability risks do C-level executives face under Lithuanian cybersecurity and national security laws? What specific provisions create personal rather than corporate accountability?"
+  },
+  {
+    "id": "ll-eu-alignment-gaps",
+    "title": "EU directive alignment gaps",
+    "description": "Identify areas where Lithuanian transposition may diverge from or exceed EU requirements.",
+    "language": "agent",
+    "query": "Are there areas where Lithuanian law goes beyond what EU directives require, or where transposition may have gaps? Compare the domestic provisions against the referenced EU directives."
+  },
+  {
+    "id": "ll-mobilization-framework",
+    "title": "Civilian mobilisation and defence obligations",
+    "description": "Analyse the civilian mobilisation and host-nation defence support framework.",
+    "language": "agent",
+    "query": "What civilian mobilisation and host-nation defence support obligations exist in Lithuanian law? How do these interact with cybersecurity infrastructure and the Secure Network?"
+  },
+  {
+    "id": "ll-oversight-accountability",
+    "title": "Oversight and accountability mechanisms",
+    "description": "Assess the oversight mechanisms protecting against state overreach.",
+    "language": "agent",
+    "query": "What oversight bodies and accountability mechanisms exist to protect citizens and entities from potential state overreach in cybersecurity enforcement? How can penalties be challenged?"
+  }
+]
