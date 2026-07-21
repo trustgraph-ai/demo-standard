@@ -183,7 +183,7 @@
     "schema_name": "stars",
     "options": {
       "confidence": 0.95,
-      "batch_size": 50
+      "batch_size": 200
     },
     "error_handling": {
       "on_validation_error": "log_and_skip",
