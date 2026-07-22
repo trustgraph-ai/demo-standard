@@ -28,5 +28,6 @@
     {"name": "var_min", "type": "float", "primary_key": false, "required": false, "description": "Variable star minimum magnitude (V scale)"},
     {"name": "var_max", "type": "float", "primary_key": false, "required": false, "description": "Variable star maximum magnitude (V scale)"}
   ],
-  "indexes": ["proper", "spect", "con"]
+  "query-indexes": ["proper", "spect", "con"],
+  "vector-indexes": ["proper"]
 }
