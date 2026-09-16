@@ -1,0 +1,53 @@
+{
+  "id": "retail",
+  "name": "Retail UX",
+  "description": "Retail product and interaction journey analysis",
+  "thumbnail": "thumbnail.jpg",
+  "detail": "description.md",
+
+  "workspace": {
+    "id": "retail",
+    "name": "Retail UX"
+  },
+
+  "flows": [
+    { "blueprint": "everything", "id": "default", "description": "Default" }
+  ],
+
+  "knowledge": [
+    {
+      "document_id": "urn:doc:retail-ux",
+      "collection": "default",
+      "format": "turtle",
+      "files": [
+        "retail-ontology.ttl",
+        "interaction-ontology.ttl",
+        "retail-vocabulary.ttl",
+        "retail-products-pc.ttl",
+        "retail-products-electronics.ttl",
+        "retail-products-camping.ttl",
+        "interaction-vocabulary.ttl"
+      ]
+    }
+  ],
+
+  "queries": [
+    { "file": "retail-queries.json" },
+    { "file": "retail-agent-queries.json" },
+    { "file": "retail-graph-rag-queries.json" },
+    { "file": "interaction-queries.json" },
+    { "file": "interaction-agent-queries.json" },
+    { "file": "interaction-graph-rag-queries.json" }
+  ],
+
+  "tools": [
+    { "key": "retail-query", "file": "retail-tool.json" },
+    { "key": "interaction-query", "file": "interaction-tool.json" }
+  ],
+
+  "prompts": [
+    { "key": "retail-assistant", "file": "retail-assistant-prompt.json" },
+    { "key": "checkout-assistant", "file": "checkout-assistant-prompt.json" },
+    { "key": "generic-assistant", "file": "generic-assistant-prompt.json" }
+  ]
+}

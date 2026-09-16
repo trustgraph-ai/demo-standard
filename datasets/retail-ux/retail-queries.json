@@ -1,0 +1,100 @@
+[
+  {
+    "id": "list-all-products",
+    "title": "List all products with category, price, and rating",
+    "description": "Returns all products in the catalog with their type, category, price, and rating.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?name ?type ?category ?price ?rating\nWHERE {\n  ?product a ?type ;\n           rdfs:label ?name ;\n           rt:hasCategory ?cat ;\n           rt:price ?price ;\n           rt:rating ?rating .\n  ?type rdfs:subClassOf* rt:Product .\n  ?cat rdfs:label ?category .\n  FILTER(?type != rt:Product)\n}\nORDER BY ?category ?name"
+  },
+  {
+    "id": "products-by-category",
+    "title": "Products in a category (e.g. PC Components)",
+    "description": "Returns products in a given top-level category with subcategory, price, and rating.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?name ?subcategory ?price ?rating ?inStock\nWHERE {\n  ?product rt:hasCategory rt:PCComponents ;\n           rdfs:label ?name ;\n           rt:hasSubcategory ?subcat ;\n           rt:price ?price ;\n           rt:rating ?rating ;\n           rt:inStock ?inStock .\n  ?subcat rdfs:label ?subcategory .\n}\nORDER BY ?subcategory ?price"
+  },
+  {
+    "id": "gpus-by-price",
+    "title": "GPUs sorted by price with key specs",
+    "description": "Returns all GPUs with VRAM, TDP, performance tier, and price.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?name ?price ?vram ?tdp ?tier ?minPSU ?gpuLength\nWHERE {\n  ?gpu a rt:GPU ;\n       rdfs:label ?name ;\n       rt:price ?price ;\n       rt:vram ?vram ;\n       rt:tdp ?tdp ;\n       rt:minPSUWattage ?minPSU ;\n       rt:gpuLength ?gpuLength ;\n       rt:hasPerformanceTier ?tierNode .\n  ?tierNode rdfs:label ?tier .\n}\nORDER BY ?price"
+  },
+  {
+    "id": "compatible-motherboards-for-cpu",
+    "title": "Motherboards compatible with a CPU (via shared socket)",
+    "description": "Finds motherboards that share a socket type with a named CPU, demonstrating graph traversal through specification nodes.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?cpuName ?socketLabel ?mbName ?mbPrice ?ramType ?formFactor\nWHERE {\n  ?cpu a rt:CPU ;\n       rdfs:label ?cpuName ;\n       rt:hasSocket ?socket .\n  ?socket rdfs:label ?socketLabel .\n  ?mb a rt:Motherboard ;\n      rdfs:label ?mbName ;\n      rt:price ?mbPrice ;\n      rt:hasSocket ?socket ;\n      rt:hasRAMType ?ramTypeNode ;\n      rt:hasFormFactor ?ffNode .\n  ?ramTypeNode rdfs:label ?ramType .\n  ?ffNode rdfs:label ?formFactor .\n  FILTER(?cpuName = \"AMD Ryzen 7 7800X3D\")\n}"
+  },
+  {
+    "id": "compatible-ram-for-motherboard",
+    "title": "RAM kits compatible with a motherboard (via shared RAM type)",
+    "description": "Finds RAM that matches a motherboard's memory generation.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?mbName ?ramTypeName ?ramName ?ramPrice ?ramSpeed ?ramCapacity ?modules\nWHERE {\n  ?mb a rt:Motherboard ;\n      rdfs:label ?mbName ;\n      rt:hasRAMType ?ramType .\n  ?ramType rdfs:label ?ramTypeName .\n  ?ram a rt:RAM ;\n       rdfs:label ?ramName ;\n       rt:price ?ramPrice ;\n       rt:hasRAMType ?ramType ;\n       rt:ramSpeed ?ramSpeed ;\n       rt:ramCapacity ?ramCapacity ;\n       rt:ramModules ?modules .\n  FILTER(?mbName = \"ASUS TUF Gaming B650-PLUS\")\n}"
+  },
+  {
+    "id": "cases-that-fit-gpu",
+    "title": "Cases with enough GPU clearance for a specific GPU",
+    "description": "Finds cases where the maximum GPU length exceeds the GPU's physical length.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?gpuName ?gpuLen ?caseName ?maxLen ?casePrice\nWHERE {\n  ?gpu a rt:GPU ;\n       rdfs:label ?gpuName ;\n       rt:gpuLength ?gpuLen .\n  ?case a rt:Case ;\n        rdfs:label ?caseName ;\n        rt:maxGPULength ?maxLen ;\n        rt:price ?casePrice .\n  FILTER(?maxLen >= ?gpuLen)\n}\nORDER BY ?gpuName ?casePrice"
+  },
+  {
+    "id": "psu-for-build",
+    "title": "PSUs with sufficient wattage for a CPU + GPU combination",
+    "description": "Finds PSUs that can handle the combined TDP of a CPU and GPU with headroom.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?cpuName ?gpuName ?totalTDP ?psuName ?psuWattage ?headroom ?efficiency\nWHERE {\n  ?cpu a rt:CPU ;\n       rdfs:label ?cpuName ;\n       rt:tdp ?cpuTDP .\n  ?gpu a rt:GPU ;\n       rdfs:label ?gpuName ;\n       rt:tdp ?gpuTDP .\n  BIND(?cpuTDP + ?gpuTDP AS ?totalTDP)\n  ?psu a rt:PSU ;\n       rdfs:label ?psuName ;\n       rt:psuWattage ?psuWattage ;\n       rt:hasEfficiencyRating ?effNode .\n  ?effNode rdfs:label ?efficiency .\n  FILTER(?psuWattage >= ?totalTDP)\n  BIND(?psuWattage - ?totalTDP AS ?headroom)\n}\nORDER BY ?cpuName ?gpuName ?psuWattage"
+  },
+  {
+    "id": "bottleneck-detection",
+    "title": "CPU-GPU pairings with performance score gap",
+    "description": "Shows the performance score difference between all CPU-GPU pairings to identify potential bottlenecks.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?cpuName ?cpuScore ?gpuName ?gpuScore ?scoreDiff\nWHERE {\n  ?cpu a rt:CPU ;\n       rdfs:label ?cpuName ;\n       rt:performanceScore ?cpuScore .\n  ?gpu a rt:GPU ;\n       rdfs:label ?gpuName ;\n       rt:performanceScore ?gpuScore .\n  BIND(ABS(?cpuScore - ?gpuScore) AS ?scoreDiff)\n}\nORDER BY ?scoreDiff"
+  },
+  {
+    "id": "products-on-sale",
+    "title": "Products currently on sale",
+    "description": "Returns products that have an original price higher than the current price, with the discount amount.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?name ?price ?originalPrice ?savings\nWHERE {\n  ?product rdfs:label ?name ;\n           rt:price ?price ;\n           rt:originalPrice ?originalPrice .\n  FILTER(?originalPrice > ?price)\n  BIND(?originalPrice - ?price AS ?savings)\n}\nORDER BY DESC(?savings)"
+  },
+  {
+    "id": "gift-suitable-products",
+    "title": "Products suitable as gifts under a budget",
+    "description": "Returns products with high gift suitability under a price threshold.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?name ?price ?rating ?reviewCount ?category\nWHERE {\n  ?product rdfs:label ?name ;\n           rt:price ?price ;\n           rt:rating ?rating ;\n           rt:reviewCount ?reviewCount ;\n           rt:giftSuitability \"high\" ;\n           rt:hasCategory ?cat .\n  ?cat rdfs:label ?category .\n  FILTER(?price <= 100)\n}\nORDER BY DESC(?rating)"
+  },
+  {
+    "id": "product-alternatives",
+    "title": "Product alternatives and relationships",
+    "description": "Returns all alternative-to and works-well-with relationships between products.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?productName ?relationship ?relatedName\nWHERE {\n  {\n    ?product rt:alternativeTo ?related .\n    BIND(\"alternative to\" AS ?relationship)\n  } UNION {\n    ?product rt:worksWellWith ?related .\n    BIND(\"works well with\" AS ?relationship)\n  } UNION {\n    ?product rt:isConsumableFor ?related .\n    BIND(\"consumable for\" AS ?relationship)\n  }\n  ?product rdfs:label ?productName .\n  ?related rdfs:label ?relatedName .\n}\nORDER BY ?productName ?relationship"
+  },
+  {
+    "id": "full-compatible-build",
+    "title": "All valid CPU-Motherboard-RAM combinations",
+    "description": "Finds all combinations where CPU socket matches motherboard socket and RAM type matches motherboard RAM type.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?cpuName ?mbName ?ramName ?socket ?ramType ?totalPrice\nWHERE {\n  ?cpu a rt:CPU ;\n       rdfs:label ?cpuName ;\n       rt:hasSocket ?socket ;\n       rt:price ?cpuPrice .\n  ?mb a rt:Motherboard ;\n      rdfs:label ?mbName ;\n      rt:hasSocket ?socket ;\n      rt:hasRAMType ?ramTypeNode ;\n      rt:price ?mbPrice .\n  ?ram a rt:RAM ;\n       rdfs:label ?ramName ;\n       rt:hasRAMType ?ramTypeNode ;\n       rt:price ?ramPrice .\n  ?socket rdfs:label ?socketLabel .\n  ?ramTypeNode rdfs:label ?ramType .\n  BIND(?cpuPrice + ?mbPrice + ?ramPrice AS ?totalPrice)\n  BIND(?socketLabel AS ?socket)\n}\nORDER BY ?totalPrice"
+  },
+  {
+    "id": "camping-gear-by-category",
+    "title": "Camping gear organised by subcategory",
+    "description": "Returns all outdoor gear grouped by subcategory with price totals.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?subcategory ?name ?price ?rating ?type\nWHERE {\n  ?product rt:hasCategory rt:OutdoorGear ;\n           rdfs:label ?name ;\n           rt:hasSubcategory ?subcat ;\n           rt:price ?price ;\n           rt:rating ?rating ;\n           a ?type .\n  ?subcat rdfs:label ?subcategory .\n  FILTER(?type IN (rt:GearItem, rt:Consumable))\n}\nORDER BY ?subcategory ?price"
+  },
+  {
+    "id": "constraint-catalog",
+    "title": "All compatibility constraints with rules and messages",
+    "description": "Returns all hard and soft constraints with their rules, slot types, and user-facing messages.",
+    "language": "sparql",
+    "query": "PREFIX rt: <http://trustgraph.ai/ontology/retail#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?name ?severity ?rule ?message\nWHERE {\n  ?constraint a ?type ;\n              rdfs:label ?name ;\n              rt:constraintRule ?rule .\n  ?type rdfs:subClassOf rt:CompatibilityConstraint .\n  OPTIONAL { ?constraint rt:errorMessage ?errMsg }\n  OPTIONAL { ?constraint rt:warningMessage ?warnMsg }\n  BIND(IF(?type = rt:HardConstraint, \"hard\", \"soft\") AS ?severity)\n  BIND(COALESCE(?errMsg, ?warnMsg) AS ?message)\n}\nORDER BY ?severity ?name"
+  }
+]

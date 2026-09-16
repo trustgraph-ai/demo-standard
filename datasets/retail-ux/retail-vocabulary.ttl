@@ -1,0 +1,575 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rt: <http://trustgraph.ai/ontology/retail#> .
+
+# =============================================================================
+# Reference data: specification values, product categories, activity templates,
+# and compatibility constraints.
+#
+# These are the named individuals that define the domain vocabulary.
+# Product catalog instances are in separate data files.
+# =============================================================================
+
+# =============================================================================
+# Socket types
+# =============================================================================
+
+rt:AM5 a rt:SocketType ;
+    rdfs:label "AM5" ;
+    rdfs:comment "AMD's current mainstream desktop CPU socket, introduced in 2022. Supports AMD Ryzen 7000 series and newer processors. Uses DDR5 memory and PCIe 5.0." .
+
+rt:AM4 a rt:SocketType ;
+    rdfs:label "AM4" ;
+    rdfs:comment "AMD's previous mainstream desktop CPU socket, used from 2017 to 2022. Supports AMD Ryzen 1000 through 5000 series processors. Uses DDR4 memory." .
+
+rt:LGA1700 a rt:SocketType ;
+    rdfs:label "LGA1700" ;
+    rdfs:comment "Intel's desktop CPU socket for 12th and 13th generation Core processors (Alder Lake and Raptor Lake). Supports DDR4 or DDR5 memory depending on the motherboard." .
+
+rt:LGA1200 a rt:SocketType ;
+    rdfs:label "LGA1200" ;
+    rdfs:comment "Intel's previous desktop CPU socket for 10th and 11th generation Core processors (Comet Lake and Rocket Lake). Supports DDR4 memory." .
+
+# =============================================================================
+# RAM types
+# =============================================================================
+
+rt:DDR4 a rt:RAMType ;
+    rdfs:label "DDR4" ;
+    rdfs:comment "Fourth generation double data rate memory. Standard speeds range from 2133 MHz to 3600 MHz, with overclocked kits reaching higher. Physically incompatible with DDR5 slots due to a different key notch position." .
+
+rt:DDR5 a rt:RAMType ;
+    rdfs:label "DDR5" ;
+    rdfs:comment "Fifth generation double data rate memory, introduced in 2021. Offers higher bandwidth and capacity than DDR4, with standard speeds starting at 4800 MHz. Physically incompatible with DDR4 slots due to a different key notch position." .
+
+# =============================================================================
+# Form factors
+# =============================================================================
+
+rt:ATX a rt:FormFactor ;
+    rdfs:label "ATX" ;
+    rdfs:comment "The standard full-size motherboard and case form factor (305mm x 244mm). Offers the most expansion slots, RAM slots, and storage connectors. Most mid-tower and full-tower cases support ATX." .
+
+rt:MicroATX a rt:FormFactor ;
+    rdfs:label "Micro-ATX" ;
+    rdfs:comment "A compact motherboard form factor (244mm x 244mm) that fits in both ATX and mATX cases. Fewer expansion slots than ATX but adequate for most builds. A good balance of size and expandability." .
+
+rt:MiniITX a rt:FormFactor ;
+    rdfs:label "Mini-ITX" ;
+    rdfs:comment "The smallest common motherboard form factor (170mm x 170mm). Typically has only one PCIe slot and two RAM slots. Used for small form factor builds where space is the primary constraint." .
+
+rt:EATX a rt:FormFactor ;
+    rdfs:label "E-ATX" ;
+    rdfs:comment "Extended ATX, a larger motherboard form factor (305mm x 330mm) used for high-end workstation and enthusiast builds. Requires a full-tower case. Offers additional expansion slots and features." .
+
+# =============================================================================
+# Storage interfaces
+# =============================================================================
+
+rt:NVMe a rt:StorageInterface ;
+    rdfs:label "NVMe" ;
+    rdfs:comment "Non-Volatile Memory Express, a high-speed storage protocol using the PCIe bus via M.2 slots. NVMe SSDs offer sequential read speeds of 3000-7000+ MB/s, dramatically faster than SATA. The current standard for primary boot drives." .
+
+rt:SATA a rt:StorageInterface ;
+    rdfs:label "SATA" ;
+    rdfs:comment "Serial ATA, the legacy storage interface with a maximum throughput of 600 MB/s. Used by 2.5-inch SSDs and traditional hard drives. Widely compatible but significantly slower than NVMe. Still useful for bulk storage where speed is less critical." .
+
+# =============================================================================
+# Performance tiers
+# =============================================================================
+
+rt:EntryTier a rt:PerformanceTier ;
+    rdfs:label "Entry" ;
+    rdfs:comment "Entry-level performance suitable for basic tasks, light gaming at 1080p low-to-medium settings, office productivity, and web browsing. The minimum tier for a functional system but not recommended for demanding workloads." .
+
+rt:MidTier a rt:PerformanceTier ;
+    rdfs:label "Mid-range" ;
+    rdfs:comment "Mid-range performance suitable for 1080p gaming at high settings, 1440p gaming at medium settings, photo editing, and moderate content creation. The sweet spot for most users balancing performance and cost." .
+
+rt:HighTier a rt:PerformanceTier ;
+    rdfs:label "High-end" ;
+    rdfs:comment "High-end performance suitable for 1440p gaming at high-to-ultra settings, 4K gaming at medium settings, video editing, 3D rendering, and streaming while gaming. Significant performance headroom for demanding workloads." .
+
+rt:EnthusiastTier a rt:PerformanceTier ;
+    rdfs:label "Enthusiast" ;
+    rdfs:comment "Top-tier performance for 4K gaming at ultra settings, professional 3D rendering, scientific computing, and multi-monitor high-refresh-rate setups. Premium pricing with diminishing returns relative to the high-end tier." .
+
+# =============================================================================
+# PSU efficiency ratings
+# =============================================================================
+
+rt:Bronze80Plus a rt:EfficiencyRating ;
+    rdfs:label "80+ Bronze" ;
+    rdfs:comment "80 Plus Bronze certification, achieving at least 82% efficiency at 20% load, 85% at 50% load, and 82% at 100% load. The baseline for quality power supplies." .
+
+rt:Gold80Plus a rt:EfficiencyRating ;
+    rdfs:label "80+ Gold" ;
+    rdfs:comment "80 Plus Gold certification, achieving at least 87% efficiency at 20% load, 90% at 50% load, and 87% at 100% load. The recommended tier for mid-range and high-end builds, balancing efficiency and cost." .
+
+rt:Platinum80Plus a rt:EfficiencyRating ;
+    rdfs:label "80+ Platinum" ;
+    rdfs:comment "80 Plus Platinum certification, achieving at least 90% efficiency at 20% load, 92% at 50% load, and 89% at 100% load. Premium efficiency for enthusiast builds and systems that run continuously." .
+
+# =============================================================================
+# Product categories — top level
+# =============================================================================
+
+rt:Electronics a rt:ProductCategory ;
+    rdfs:label "Electronics" ;
+    rdfs:comment "Electronic devices and peripherals including audio equipment, cameras, streaming tools, and input devices." .
+
+rt:PCComponents a rt:ProductCategory ;
+    rdfs:label "PC Components" ;
+    rdfs:comment "Internal computer hardware components used to build or upgrade a personal computer." .
+
+rt:OutdoorGear a rt:ProductCategory ;
+    rdfs:label "Outdoor Gear" ;
+    rdfs:comment "Equipment and supplies for outdoor activities including camping, hiking, and backpacking." .
+
+# =============================================================================
+# Product categories — PC components
+# =============================================================================
+
+rt:ProcessorCategory a rt:ProductCategory ;
+    rt:parentCategory rt:PCComponents ;
+    rdfs:label "Processors" ;
+    rdfs:comment "Central processing units (CPUs) for desktop computers." .
+
+rt:GraphicsCardCategory a rt:ProductCategory ;
+    rt:parentCategory rt:PCComponents ;
+    rdfs:label "Graphics Cards" ;
+    rdfs:comment "Dedicated graphics processing units (GPUs) for gaming, rendering, and compute workloads." .
+
+rt:MotherboardCategory a rt:ProductCategory ;
+    rt:parentCategory rt:PCComponents ;
+    rdfs:label "Motherboards" ;
+    rdfs:comment "Main circuit boards that connect all PC components." .
+
+rt:MemoryCategory a rt:ProductCategory ;
+    rt:parentCategory rt:PCComponents ;
+    rdfs:label "Memory" ;
+    rdfs:comment "RAM modules for desktop computers." .
+
+rt:StorageCategory a rt:ProductCategory ;
+    rt:parentCategory rt:PCComponents ;
+    rdfs:label "Storage" ;
+    rdfs:comment "Solid state drives and hard drives for data storage." .
+
+rt:PowerSupplyCategory a rt:ProductCategory ;
+    rt:parentCategory rt:PCComponents ;
+    rdfs:label "Power Supplies" ;
+    rdfs:comment "Power supply units that provide electrical power to all PC components." .
+
+rt:CaseCategory a rt:ProductCategory ;
+    rt:parentCategory rt:PCComponents ;
+    rdfs:label "Cases" ;
+    rdfs:comment "Computer cases and enclosures that house all PC components." .
+
+rt:CoolingCategory a rt:ProductCategory ;
+    rt:parentCategory rt:PCComponents ;
+    rdfs:label "Cooling" ;
+    rdfs:comment "CPU coolers and case fans for thermal management." .
+
+# =============================================================================
+# Product categories — electronics
+# =============================================================================
+
+rt:AudioCategory a rt:ProductCategory ;
+    rt:parentCategory rt:Electronics ;
+    rdfs:label "Audio" ;
+    rdfs:comment "Microphones, headsets, speakers, and audio interfaces." .
+
+rt:VideoCategory a rt:ProductCategory ;
+    rt:parentCategory rt:Electronics ;
+    rdfs:label "Video" ;
+    rdfs:comment "Webcams, cameras, capture cards, and video accessories." .
+
+rt:StreamingCategory a rt:ProductCategory ;
+    rt:parentCategory rt:Electronics ;
+    rdfs:label "Streaming Tools" ;
+    rdfs:comment "Stream decks, lighting, green screens, and other content creation tools." .
+
+rt:PeripheralsCategory a rt:ProductCategory ;
+    rt:parentCategory rt:Electronics ;
+    rdfs:label "Peripherals" ;
+    rdfs:comment "Keyboards, mice, mousepads, and other input devices for interacting with a computer." .
+
+rt:DisplayCategory a rt:ProductCategory ;
+    rt:parentCategory rt:Electronics ;
+    rdfs:label "Displays" ;
+    rdfs:comment "Monitors, portable displays, and related accessories." .
+
+rt:SpeakersCategory a rt:ProductCategory ;
+    rt:parentCategory rt:Electronics ;
+    rdfs:label "Speakers" ;
+    rdfs:comment "Desktop speakers, soundbars, and external audio output devices." .
+
+# =============================================================================
+# Product categories — outdoor gear
+# =============================================================================
+
+rt:SleepSystemCategory a rt:ProductCategory ;
+    rt:parentCategory rt:OutdoorGear ;
+    rdfs:label "Sleep System" ;
+    rdfs:comment "Tents, sleeping bags, sleeping pads, and air mattresses for overnight outdoor stays." .
+
+rt:CookingCategory a rt:ProductCategory ;
+    rt:parentCategory rt:OutdoorGear ;
+    rdfs:label "Cooking and Food" ;
+    rdfs:comment "Camp stoves, cookware, coolers, fuel, and food storage for outdoor cooking." .
+
+rt:LightingAndSafetyCategory a rt:ProductCategory ;
+    rt:parentCategory rt:OutdoorGear ;
+    rdfs:label "Lighting and Safety" ;
+    rdfs:comment "Headlamps, lanterns, first aid kits, bear canisters, and emergency equipment." .
+
+rt:CampComfortCategory a rt:ProductCategory ;
+    rt:parentCategory rt:OutdoorGear ;
+    rdfs:label "Camp Comfort" ;
+    rdfs:comment "Camp chairs, tables, towels, and other items that improve campsite comfort." .
+
+# =============================================================================
+# Activity templates
+# =============================================================================
+
+rt:GamingPCBuild a rt:Activity ;
+    rdfs:label "Gaming PC Build" ;
+    rdfs:comment "Building a personal computer optimised for gaming. Requires a balanced set of components where the GPU is typically the performance anchor. The build should target a specific resolution and quality tier (1080p, 1440p, or 4K) based on the user's budget and monitor." ;
+    rt:requiresCategory rt:GamingReqCPU ,
+        rt:GamingReqGPU ,
+        rt:GamingReqMotherboard ,
+        rt:GamingReqRAM ,
+        rt:GamingReqStorage ,
+        rt:GamingReqPSU ,
+        rt:GamingReqCase ,
+        rt:GamingReqCooling ;
+    rt:crossSellCategory rt:PeripheralsCategory ,
+        rt:DisplayCategory ,
+        rt:AudioCategory ,
+        rt:SpeakersCategory ,
+        rt:StreamingCategory .
+
+rt:WorkstationPCBuild a rt:Activity ;
+    rdfs:label "Workstation PC Build" ;
+    rdfs:comment "Building a personal computer optimised for professional workloads such as video editing, 3D rendering, software development, or scientific computing. CPU and RAM are typically the performance anchors, with storage speed also critical." ;
+    rt:requiresCategory rt:WorkstationReqCPU ,
+        rt:WorkstationReqGPU ,
+        rt:WorkstationReqMotherboard ,
+        rt:WorkstationReqRAM ,
+        rt:WorkstationReqStorage ,
+        rt:WorkstationReqPSU ,
+        rt:WorkstationReqCase ,
+        rt:WorkstationReqCooling ;
+    rt:crossSellCategory rt:PeripheralsCategory ,
+        rt:DisplayCategory ,
+        rt:AudioCategory ,
+        rt:SpeakersCategory .
+
+rt:CampingTrip a rt:Activity ;
+    rdfs:label "Camping Trip" ;
+    rdfs:comment "Assembling a complete kit of gear for an outdoor camping trip. Requirements vary significantly based on trip type (car camping vs backpacking), season, group size, and location-specific regulations." ;
+    rt:scenarioSeason "3-season" ;
+    rt:requiresCategory rt:CampingReqSleep ,
+        rt:CampingReqCooking ,
+        rt:CampingReqLighting ,
+        rt:CampingReqComfort .
+
+rt:HomeOfficeSetup a rt:Activity ;
+    rdfs:label "Home Office Setup" ;
+    rdfs:comment "Assembling a complete home office with desk, monitor, peripherals, and accessories. Requirements depend on the user's work type and available space." ;
+    rt:requiresCategory rt:HomeOfficeReqAudio ,
+        rt:HomeOfficeReqVideo ,
+        rt:HomeOfficeReqStreaming ;
+    rt:crossSellCategory rt:PeripheralsCategory ,
+        rt:DisplayCategory ,
+        rt:SpeakersCategory .
+
+# =============================================================================
+# Category requirements — Gaming PC Build
+# =============================================================================
+
+rt:GamingReqCPU a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Processor" ;
+    rdfs:comment "A gaming PC needs exactly one CPU. Gaming workloads are increasingly multi-threaded, but single-thread performance still matters for frame rates." ;
+    rt:requirementCategory rt:ProcessorCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqGPU a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Graphics Card" ;
+    rdfs:comment "The GPU is the performance anchor for a gaming PC. Budget allocation should prioritise the GPU — it determines the resolution and quality settings the system can sustain." ;
+    rt:requirementCategory rt:GraphicsCardCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqMotherboard a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Motherboard" ;
+    rdfs:comment "The motherboard must be compatible with the chosen CPU socket and RAM type. For gaming, mid-range boards are usually sufficient." ;
+    rt:requirementCategory rt:MotherboardCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqRAM a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Memory" ;
+    rdfs:comment "16 GB is the minimum for modern gaming; 32 GB provides headroom for streaming or multitasking alongside games." ;
+    rt:requirementCategory rt:MemoryCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqStorage a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Storage" ;
+    rdfs:comment "An NVMe SSD significantly reduces game load times. 1 TB is the practical minimum given modern game sizes." ;
+    rt:requirementCategory rt:StorageCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqPSU a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Power Supply" ;
+    rdfs:comment "The PSU must provide enough wattage for the CPU and GPU combined, with headroom for transient power spikes." ;
+    rt:requirementCategory rt:PowerSupplyCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqCase a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Case" ;
+    rdfs:comment "The case must physically fit the motherboard form factor and GPU length. Airflow quality affects thermals and noise." ;
+    rt:requirementCategory rt:CaseCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:GamingReqCooling a rt:CategoryRequirement ;
+    rdfs:label "Gaming PC — Cooling" ;
+    rdfs:comment "A CPU cooler is recommended for gaming builds. The stock cooler may be sufficient for mid-range CPUs, but a tower or AIO cooler improves thermals and noise for higher-end chips." ;
+    rt:requirementCategory rt:CoolingCategory ;
+    rt:requirementPriority "recommended" ;
+    rt:minimumQuantityPerGroup 1 .
+
+# =============================================================================
+# Category requirements — Workstation PC Build
+# =============================================================================
+
+rt:WorkstationReqCPU a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Processor" ;
+    rdfs:comment "Workstation workloads are heavily multi-threaded. A high core-count CPU is the primary performance driver for rendering, compilation, and simulation." ;
+    rt:requirementCategory rt:ProcessorCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqGPU a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Graphics Card" ;
+    rdfs:comment "A GPU is recommended for workstations doing 3D rendering or GPU-accelerated compute. For pure software development, integrated graphics may suffice." ;
+    rt:requirementCategory rt:GraphicsCardCategory ;
+    rt:requirementPriority "recommended" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqMotherboard a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Motherboard" ;
+    rdfs:comment "The motherboard must support the CPU socket and enough RAM slots for the expected memory capacity." ;
+    rt:requirementCategory rt:MotherboardCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqRAM a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Memory" ;
+    rdfs:comment "Workstation RAM requirements vary widely — 32 GB minimum for video editing, 64 GB or more for large 3D scenes or datasets." ;
+    rt:requirementCategory rt:MemoryCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqStorage a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Storage" ;
+    rdfs:comment "Fast NVMe storage is critical for workstations handling large files. Multiple drives (fast working drive plus bulk storage) are common." ;
+    rt:requirementCategory rt:StorageCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqPSU a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Power Supply" ;
+    rdfs:comment "Workstation PSUs should prioritise efficiency and reliability over raw wattage, especially for systems running 24/7." ;
+    rt:requirementCategory rt:PowerSupplyCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqCase a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Case" ;
+    rdfs:comment "Workstation cases prioritise airflow, noise damping, and room for expansion over aesthetics." ;
+    rt:requirementCategory rt:CaseCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:WorkstationReqCooling a rt:CategoryRequirement ;
+    rdfs:label "Workstation — Cooling" ;
+    rdfs:comment "Sustained workloads generate more heat than gaming bursts. A quality CPU cooler is essential for workstation reliability." ;
+    rt:requirementCategory rt:CoolingCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+# =============================================================================
+# Category requirements — Camping Trip
+# =============================================================================
+
+rt:CampingReqSleep a rt:CategoryRequirement ;
+    rdfs:label "Camping Trip — Sleep System" ;
+    rdfs:comment "Every camper needs shelter and a sleeping bag. The sleep system is non-negotiable — without it the trip cannot proceed safely." ;
+    rt:requirementCategory rt:SleepSystemCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerPerson 1 .
+
+rt:CampingReqCooking a rt:CategoryRequirement ;
+    rdfs:label "Camping Trip — Cooking" ;
+    rdfs:comment "A stove, fuel, and basic cookware are needed for trips longer than a day. One cooking setup typically serves the whole group." ;
+    rt:requirementCategory rt:CookingCategory ;
+    rt:requirementPriority "recommended" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:CampingReqLighting a rt:CategoryRequirement ;
+    rdfs:label "Camping Trip — Lighting & Safety" ;
+    rdfs:comment "At minimum a headlamp per person and a first aid kit per group. Essential for safety after dark and in emergencies." ;
+    rt:requirementCategory rt:LightingAndSafetyCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerPerson 1 .
+
+rt:CampingReqComfort a rt:CategoryRequirement ;
+    rdfs:label "Camping Trip — Camp Comfort" ;
+    rdfs:comment "Camp chairs, tables, and similar comfort items. Nice to have for car camping, less practical for backpacking." ;
+    rt:requirementCategory rt:CampComfortCategory ;
+    rt:requirementPriority "optional" ;
+    rt:minimumQuantityPerGroup 1 .
+
+# =============================================================================
+# Category requirements — Home Office Setup
+# =============================================================================
+
+rt:HomeOfficeReqAudio a rt:CategoryRequirement ;
+    rdfs:label "Home Office — Audio" ;
+    rdfs:comment "A headset or microphone is essential for video calls and meetings." ;
+    rt:requirementCategory rt:AudioCategory ;
+    rt:requirementPriority "essential" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:HomeOfficeReqVideo a rt:CategoryRequirement ;
+    rdfs:label "Home Office — Video" ;
+    rdfs:comment "A webcam improves video call presence over built-in laptop cameras." ;
+    rt:requirementCategory rt:VideoCategory ;
+    rt:requirementPriority "recommended" ;
+    rt:minimumQuantityPerGroup 1 .
+
+rt:HomeOfficeReqStreaming a rt:CategoryRequirement ;
+    rdfs:label "Home Office — Streaming Tools" ;
+    rdfs:comment "Stream decks and similar productivity tools are optional but can improve workflow efficiency for power users." ;
+    rt:requirementCategory rt:StreamingCategory ;
+    rt:requirementPriority "optional" ;
+    rt:minimumQuantityPerGroup 1 .
+
+# =============================================================================
+# Hard constraints
+# =============================================================================
+
+rt:SocketMatchConstraint a rt:HardConstraint ;
+    rdfs:label "CPU-Motherboard Socket Match" ;
+    rdfs:comment "The CPU and motherboard must share the same socket type. A CPU physically cannot be installed in a motherboard with a different socket." ;
+    rt:appliesToSlotType "cpu" ;
+    rt:appliesToSlotType "motherboard" ;
+    rt:constraintRule "CPU.hasSocket = Motherboard.hasSocket" ;
+    rt:errorMessage "This CPU requires a {CPU.hasSocket} socket motherboard, but the selected motherboard uses {Motherboard.hasSocket}." .
+
+rt:RAMTypeMatchConstraint a rt:HardConstraint ;
+    rdfs:label "RAM-Motherboard Type Match" ;
+    rdfs:comment "The RAM modules and motherboard must support the same memory generation. DDR4 and DDR5 are physically incompatible — the key notch is in a different position." ;
+    rt:appliesToSlotType "ram" ;
+    rt:appliesToSlotType "motherboard" ;
+    rt:constraintRule "RAM.hasRAMType = Motherboard.hasRAMType" ;
+    rt:errorMessage "This RAM is {RAM.hasRAMType} but the selected motherboard supports {Motherboard.hasRAMType}. These are physically incompatible." .
+
+rt:FormFactorFitConstraint a rt:HardConstraint ;
+    rdfs:label "Motherboard-Case Form Factor Fit" ;
+    rdfs:comment "The case must support the motherboard's form factor. Larger cases typically support smaller form factors, but the reverse is not true." ;
+    rt:appliesToSlotType "motherboard" ;
+    rt:appliesToSlotType "case" ;
+    rt:constraintRule "Motherboard.hasFormFactor in Case.supportsFormFactor" ;
+    rt:errorMessage "This {Motherboard.hasFormFactor} motherboard does not fit in the selected case, which supports {Case.supportsFormFactor}." .
+
+rt:StorageInterfaceConstraint a rt:HardConstraint ;
+    rdfs:label "Storage-Motherboard Interface Match" ;
+    rdfs:comment "The storage device's interface must be supported by the motherboard. An NVMe drive requires an M.2 slot; a SATA drive requires a SATA port." ;
+    rt:appliesToSlotType "storage" ;
+    rt:appliesToSlotType "motherboard" ;
+    rt:constraintRule "Storage.hasStorageInterface in Motherboard.supportsStorageInterface" ;
+    rt:errorMessage "This storage device uses {Storage.hasStorageInterface} but the motherboard does not have an available {Storage.hasStorageInterface} slot." .
+
+rt:GPUClearanceConstraint a rt:HardConstraint ;
+    rdfs:label "GPU-Case Clearance" ;
+    rdfs:comment "The GPU's physical length must not exceed the case's maximum GPU clearance. An oversized GPU simply will not fit." ;
+    rt:appliesToSlotType "gpu" ;
+    rt:appliesToSlotType "case" ;
+    rt:constraintRule "GPU.gpuLength <= Case.maxGPULength" ;
+    rt:errorMessage "This GPU is {GPU.gpuLength}mm long but the case only supports cards up to {Case.maxGPULength}mm." .
+
+rt:PSUCapacityConstraint a rt:HardConstraint ;
+    rdfs:label "PSU Total Capacity" ;
+    rdfs:comment "The PSU's wattage must be sufficient for the total power draw of all components. An undersized PSU will cause system instability, crashes, or failure to boot." ;
+    rt:appliesToSlotType "psu" ;
+    rt:constraintRule "sum(Component.tdp) <= PSU.psuWattage" ;
+    rt:errorMessage "The total system power draw of {totalTDP}W exceeds the PSU's {PSU.psuWattage}W capacity." .
+
+rt:RAMSlotCountConstraint a rt:HardConstraint ;
+    rdfs:label "RAM Module Count vs Slot Count" ;
+    rdfs:comment "The total number of RAM modules must not exceed the motherboard's available RAM slots." ;
+    rt:appliesToSlotType "ram" ;
+    rt:appliesToSlotType "motherboard" ;
+    rt:constraintRule "sum(RAM.ramModules) <= Motherboard.maxRAMSlots" ;
+    rt:errorMessage "This configuration uses {totalModules} RAM modules but the motherboard only has {Motherboard.maxRAMSlots} slots." .
+
+rt:CoolerSocketConstraint a rt:HardConstraint ;
+    rdfs:label "Cooler-CPU Socket Match" ;
+    rdfs:comment "The CPU cooler must support the CPU's socket type. Coolers have specific mounting hardware for each socket." ;
+    rt:appliesToSlotType "cooling" ;
+    rt:appliesToSlotType "cpu" ;
+    rt:constraintRule "CPU.hasSocket in Cooling.hasSocket" ;
+    rt:errorMessage "This cooler does not support the {CPU.hasSocket} socket used by the selected CPU." .
+
+# =============================================================================
+# Soft constraints
+# =============================================================================
+
+rt:RAMSpeedCapConstraint a rt:SoftConstraint ;
+    rdfs:label "RAM Speed Exceeds Motherboard Maximum" ;
+    rdfs:comment "When the RAM's rated speed exceeds the motherboard's maximum supported speed, the RAM will automatically downclock to the motherboard's maximum. The system will function but the user is paying for speed they cannot use." ;
+    rt:appliesToSlotType "ram" ;
+    rt:appliesToSlotType "motherboard" ;
+    rt:constraintRule "RAM.ramSpeed > Motherboard.maxRAMSpeed" ;
+    rt:warningMessage "This RAM is rated for {RAM.ramSpeed}MHz but the motherboard supports up to {Motherboard.maxRAMSpeed}MHz. The RAM will run at the lower speed." .
+
+rt:PSUHeadroomConstraint a rt:SoftConstraint ;
+    rdfs:label "Low PSU Headroom" ;
+    rdfs:comment "When total system power draw exceeds 80% of the PSU's rated wattage, the system is running with low headroom. This can reduce PSU efficiency, increase heat and noise, and leave no margin for transient power spikes." ;
+    rt:appliesToSlotType "psu" ;
+    rt:constraintRule "sum(Component.tdp) > PSU.psuWattage * 0.8" ;
+    rt:warningMessage "Total system power draw of {totalTDP}W is above 80% of the PSU's {PSU.psuWattage}W capacity. Consider a higher-wattage PSU for better efficiency and longevity." .
+
+rt:BottleneckConstraint a rt:SoftConstraint ;
+    rdfs:label "CPU-GPU Performance Bottleneck" ;
+    rdfs:comment "When the CPU and GPU performance scores are significantly mismatched, the weaker component bottlenecks the stronger one. For gaming, an underpowered CPU causes frame drops and stuttering even with a powerful GPU. For workstation use, an underpowered GPU may not matter." ;
+    rt:appliesToSlotType "cpu" ;
+    rt:appliesToSlotType "gpu" ;
+    rt:constraintRule "abs(CPU.performanceScore - GPU.performanceScore) > bottleneckThreshold" ;
+    rt:warningMessage "The {weakerComponent} may bottleneck the {strongerComponent} in this build. Consider upgrading the {weakerComponent} or saving money by choosing a less powerful {strongerComponent}." .
+
+rt:GPUMinPSUConstraint a rt:SoftConstraint ;
+    rdfs:label "GPU Minimum PSU Recommendation" ;
+    rdfs:comment "Many GPUs specify a minimum recommended PSU wattage set by the manufacturer. While the system may function below this threshold, the manufacturer does not guarantee stability under sustained load." ;
+    rt:appliesToSlotType "gpu" ;
+    rt:appliesToSlotType "psu" ;
+    rt:constraintRule "GPU.minPSUWattage > PSU.psuWattage" ;
+    rt:warningMessage "The GPU manufacturer recommends at least a {GPU.minPSUWattage}W PSU, but the selected PSU is only {PSU.psuWattage}W." .
+
+rt:UpgradeCliffConstraint a rt:SoftConstraint ;
+    rdfs:label "Upgrade Cliff Warning" ;
+    rdfs:comment "In upgrade scenarios, when the performance bottleneck is the motherboard, CPU, or RAM generation, resolving it requires replacing the motherboard — which cascades to also replacing the CPU and RAM (due to socket and memory type changes). This is an upgrade cliff: the cost and complexity jump dramatically. The user should be informed that they are effectively building a new core platform." ;
+    rt:appliesToSlotType "motherboard" ;
+    rt:appliesToSlotType "cpu" ;
+    rt:appliesToSlotType "ram" ;
+    rt:constraintRule "upgradeRequiresMotherboardSwap(existingConfig, targetPerformanceTier)" ;
+    rt:warningMessage "Reaching your target performance requires a new motherboard, which also means replacing your CPU and RAM. At that point you are building a new core platform — consider whether a full rebuild makes more sense." .

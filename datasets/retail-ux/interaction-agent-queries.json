@@ -1,0 +1,44 @@
+[
+  {
+    "id": "why-user-bought",
+    "title": "Why a user completed a purchase",
+    "description": "Test the agent's ability to trace a journey from trigger through decision points to purchase.",
+    "language": "agent",
+    "query": "Walk me through why user-001 ended up buying what they bought. What were the key decision points?"
+  },
+  {
+    "id": "objection-patterns",
+    "title": "Common objection patterns across journeys",
+    "description": "Test the agent's ability to aggregate objection data across multiple journeys.",
+    "language": "agent",
+    "query": "What types of objections do users raise most often, and how successfully are they resolved?"
+  },
+  {
+    "id": "abandoned-vs-completed",
+    "title": "Compare abandoned vs completed journeys",
+    "description": "Test the agent's ability to identify signals that distinguish successful from unsuccessful journeys.",
+    "language": "agent",
+    "query": "Are there any patterns that distinguish journeys that end in a purchase from those that don't?"
+  },
+  {
+    "id": "recommendation-impact",
+    "title": "How effective are recommendations",
+    "description": "Test the agent's ability to evaluate recommendation acceptance rates and downstream impact.",
+    "language": "agent",
+    "query": "How often do users accept the assistant's recommendations? Are accepted recommendations correlated with purchase completion?"
+  },
+  {
+    "id": "budget-influence",
+    "title": "How budget constraints shape purchases",
+    "description": "Test the agent's ability to trace how budget signals influence downstream decisions.",
+    "language": "agent",
+    "query": "How do stated budgets compare to actual spend? Do users tend to go over or under their stated budget?"
+  },
+  {
+    "id": "upgrade-journey-signals",
+    "title": "Signals in the upgrade journey",
+    "description": "Test the agent's ability to identify the mixin pattern in a complex journey with course changes.",
+    "language": "agent",
+    "query": "What signals did user-002 give during their upgrade journey, and how did those signals change the direction of the conversation?"
+  }
+]

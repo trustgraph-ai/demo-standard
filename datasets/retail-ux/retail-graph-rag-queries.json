@@ -1,0 +1,44 @@
+[
+  {
+    "id": "pc-compatibility-explained",
+    "title": "How PC component compatibility works",
+    "description": "Test graph-RAG's ability to explain the compatibility model using ontology structure.",
+    "language": "graph-rag",
+    "query": "How does the system determine whether PC components are compatible with each other?"
+  },
+  {
+    "id": "gpu-comparison",
+    "title": "Compare available GPUs",
+    "description": "Test retrieval of GPU specifications and comparison across key attributes.",
+    "language": "graph-rag",
+    "query": "Compare the available GPUs — what are the key differences in price, VRAM, and power requirements?"
+  },
+  {
+    "id": "product-categories",
+    "title": "Product catalog overview",
+    "description": "Test graph-RAG's ability to summarise the product catalog structure.",
+    "language": "graph-rag",
+    "query": "What categories of products are available, and how many products are in each?"
+  },
+  {
+    "id": "constraint-system",
+    "title": "Hard vs soft compatibility constraints",
+    "description": "Test retrieval and explanation of the constraint model.",
+    "language": "graph-rag",
+    "query": "What are the hard and soft compatibility constraints, and what happens when one is violated?"
+  },
+  {
+    "id": "camping-gear-overview",
+    "title": "Outdoor gear catalog summary",
+    "description": "Test retrieval of non-PC product categories.",
+    "language": "graph-rag",
+    "query": "What outdoor and camping gear is available, organised by subcategory?"
+  },
+  {
+    "id": "product-relationships",
+    "title": "Product alternatives and accessories",
+    "description": "Test traversal of alternativeTo, worksWellWith, and isConsumableFor relationships.",
+    "language": "graph-rag",
+    "query": "Which products are alternatives to each other, and which products work well together?"
+  }
+]

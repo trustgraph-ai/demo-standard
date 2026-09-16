@@ -1,0 +1,14 @@
+{
+  "id": "retail-query",
+  "name": "retail-query",
+  "type": "knowledge-query",
+  "description": "This tool queries a knowledge base that holds information about a retail product catalog covering PC components, electronics accessories, and outdoor gear. The knowledge base models products with detailed specifications, compatibility constraints (socket types, RAM compatibility, GPU clearance, PSU wattage), price and rating data, product relationships (alternatives, works-well-with, consumables), and activity-based kit assembly (gaming PC build, camping trip). The question should be a natural language question.",
+  "collection": "default",
+  "arguments": [
+    {
+      "description": "A simple natural language question.",
+      "name": "question",
+      "type": "string"
+    }
+  ]
+}

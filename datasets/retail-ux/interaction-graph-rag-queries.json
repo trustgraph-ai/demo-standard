@@ -1,0 +1,44 @@
+[
+  {
+    "id": "journey-model",
+    "title": "How user journeys are modelled",
+    "description": "Test graph-RAG's ability to explain the journey-session-event structure.",
+    "language": "graph-rag",
+    "query": "How are user journeys structured in this system? What is the relationship between journeys, sessions, and events?"
+  },
+  {
+    "id": "mixin-pattern",
+    "title": "How interaction and signal events combine",
+    "description": "Test graph-RAG's ability to explain the mixin pattern and dual typing.",
+    "language": "graph-rag",
+    "query": "How does the system capture both what happened and what it means? Can a single event carry both types of information?"
+  },
+  {
+    "id": "objection-categories",
+    "title": "Types of user objections",
+    "description": "Test retrieval and explanation of the seven objection categories.",
+    "language": "graph-rag",
+    "query": "What types of objections can users raise, and how are they categorised?"
+  },
+  {
+    "id": "sample-journey-summary",
+    "title": "Summarise the sample journeys",
+    "description": "Test graph-RAG's ability to retrieve and summarise journey instance data.",
+    "language": "graph-rag",
+    "query": "Summarise the sample user journeys — who were the users, what were they looking for, and what happened?"
+  },
+  {
+    "id": "signal-types",
+    "title": "Types of behavioural signals",
+    "description": "Test retrieval of the signal event class hierarchy.",
+    "language": "graph-rag",
+    "query": "What kinds of behavioural signals can be extracted from user interactions?"
+  },
+  {
+    "id": "cross-ontology-link",
+    "title": "How interaction data links to product data",
+    "description": "Test graph-RAG's understanding of cross-ontology references.",
+    "language": "graph-rag",
+    "query": "How does the interaction tracking system link back to the product catalog? Can you trace from a decision event to the actual products involved?"
+  }
+]
