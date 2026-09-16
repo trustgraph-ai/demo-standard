@@ -1,0 +1,38 @@
+[
+  {
+    "id": "gametheory",
+    "name": "Game Theory",
+    "description": "Game theory analysis of political events",
+    "path": "game-theory/manifest.json"
+  },
+  {
+    "id": "hwsec",
+    "name": "Hardware Security",
+    "description": "Hardware security vulnerability analysis",
+    "path": "hwsec/manifest.json"
+  },
+  {
+    "id": "lithuanialaw",
+    "name": "Lithuanian Law",
+    "description": "Lithuanian legislative documents and legal analysis",
+    "path": "lithuania-law/manifest.json"
+  },
+  {
+    "id": "retail",
+    "name": "Retail UX",
+    "description": "Retail product and interaction journey analysis",
+    "path": "retail-ux/manifest.json"
+  },
+  {
+    "id": "risk",
+    "name": "Risk Management",
+    "description": "Risk management knowledge graph",
+    "path": "risk/manifest.json"
+  },
+  {
+    "id": "space",
+    "name": "Space Exploration",
+    "description": "Solar system knowledge graph and stellar catalogue",
+    "path": "space/manifest.json"
+  }
+]
