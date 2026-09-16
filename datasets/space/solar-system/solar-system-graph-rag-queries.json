@@ -1,0 +1,44 @@
+[
+  {
+    "id": "jupiter-flybys",
+    "title": "Missions with Jupiter flybys",
+    "description": "Find all missions that have performed a flyby of Jupiter.",
+    "language": "graph-rag",
+    "query": "What missions have done a flyby with Jupiter?"
+  },
+  {
+    "id": "saturn-missions",
+    "title": "Missions that visited Saturn",
+    "description": "Find missions that visited Saturn and summarise their discoveries.",
+    "language": "graph-rag",
+    "query": "Which missions have visited Saturn, and what did they discover there?"
+  },
+  {
+    "id": "furthest-from-sun",
+    "title": "Furthest distance from the Sun",
+    "description": "Determine the greatest distance from the Sun reached by any spacecraft.",
+    "language": "graph-rag",
+    "query": "What is the furthest distance from the Sun that any spacecraft has reached?"
+  },
+  {
+    "id": "voyager-comparison",
+    "title": "Compare Voyager 1 and Voyager 2",
+    "description": "Compare the two Voyager missions and the planets each one visited.",
+    "language": "graph-rag",
+    "query": "Compare the Voyager 1 and Voyager 2 missions - which planets did each one visit?"
+  },
+  {
+    "id": "active-missions",
+    "title": "Active NASA missions",
+    "description": "Find NASA missions that are still active and their current status.",
+    "language": "graph-rag",
+    "query": "Which NASA missions are still active, and where are they now?"
+  },
+  {
+    "id": "dwarf-planet-asteroid-missions",
+    "title": "Missions to dwarf planets and asteroids",
+    "description": "Find missions that have explored dwarf planets or asteroids.",
+    "language": "graph-rag",
+    "query": "What missions have explored dwarf planets or asteroids?"
+  }
+]

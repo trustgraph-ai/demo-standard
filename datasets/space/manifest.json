@@ -1,0 +1,57 @@
+{
+  "id": "space",
+  "name": "Space Exploration",
+  "description": "Solar system knowledge graph and stellar catalogue",
+  "thumbnail": "thumbnail.jpg",
+  "detail": "description.md",
+
+  "workspace": {
+    "id": "space",
+    "name": "Space exploration"
+  },
+
+  "flows": [
+    { "blueprint": "everything", "id": "default", "description": "Default" },
+    { "blueprint": "structured", "id": "structured", "description": "Structured" }
+  ],
+
+  "ontology": [
+    { "key": "solar-system-ontology", "file": "solar-system/solar-system-ontology.json" }
+  ],
+
+  "knowledge": [
+    {
+      "document_id": "urn:doc:solar-system",
+      "collection": "default",
+      "format": "turtle",
+      "files": [
+        "solar-system/solar-system-ontology.ttl",
+        "solar-system/solar-system-data.ttl"
+      ]
+    }
+  ],
+
+  "queries": [
+    { "file": "solar-system/solar-system-queries.json" },
+    { "file": "solar-system/solar-system-graph-rag-queries.json" },
+    { "file": "solar-system/solar-system-agent-queries.json" },
+    { "file": "stars/stars-queries.json" }
+  ],
+
+  "tools": [
+    { "key": "solar-system-query", "file": "solar-system/solar-system-tool.json" },
+    { "key": "stars-query", "file": "stars/stars-tool.json" }
+  ],
+
+  "schema": [
+    { "key": "stars", "file": "stars/stars-schema.json" }
+  ],
+
+  "structured_data": [
+    {
+      "file": "stars/hyg_v42.csv",
+      "descriptor": "stars/stars-sdl.json",
+      "flow": "structured"
+    }
+  ]
+}

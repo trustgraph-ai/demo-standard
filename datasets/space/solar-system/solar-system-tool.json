@@ -1,0 +1,14 @@
+{
+  "id": "solar-system-query",
+  "name": "solar-system-query",
+  "type": "knowledge-query",
+  "description": "This tool queries a knowledge base that holds information about space missions in the solar system. The question should be a natural language question",
+  "collection": "default",
+  "arguments": [
+    {
+      "description": "A simple natural language question.",
+      "name": "question",
+      "type": "string"
+    }
+  ]
+}

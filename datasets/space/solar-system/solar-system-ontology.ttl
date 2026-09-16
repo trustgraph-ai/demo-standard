@@ -1,0 +1,286 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ss: <http://trustgraph.ai/ontology/solar-system#> .
+
+<http://trustgraph.ai/ontology/solar-system> a owl:Ontology ;
+    rdfs:label "Solar System Space Missions Ontology" ;
+    rdfs:comment "An ontology describing space missions through the solar system, their events, and celestial bodies." .
+
+# ===================
+# Classes
+# ===================
+
+ss:CelestialBody a owl:Class ;
+    rdfs:label "Celestial Body" ;
+    rdfs:comment "A natural body in the solar system." .
+
+ss:Mission a owl:Class ;
+    rdfs:label "Mission" ;
+    rdfs:comment "A space mission exploring the solar system." .
+
+ss:MissionEvent a owl:Class ;
+    rdfs:label "Mission Event" ;
+    rdfs:comment "A significant event during a space mission." .
+
+ss:Position a owl:Class ;
+    rdfs:label "Position" ;
+    rdfs:comment "A heliocentric ecliptic position described by distance in AU, ecliptic longitude, and ecliptic latitude." .
+
+# ===================
+# Celestial body type subclasses
+# ===================
+
+ss:Star a owl:Class ;
+    rdfs:subClassOf ss:CelestialBody ;
+    rdfs:label "Star" .
+
+ss:Planet a owl:Class ;
+    rdfs:subClassOf ss:CelestialBody ;
+    rdfs:label "Planet" .
+
+ss:DwarfPlanet a owl:Class ;
+    rdfs:subClassOf ss:CelestialBody ;
+    rdfs:label "Dwarf Planet" .
+
+ss:Moon a owl:Class ;
+    rdfs:subClassOf ss:CelestialBody ;
+    rdfs:label "Moon" .
+
+ss:Asteroid a owl:Class ;
+    rdfs:subClassOf ss:CelestialBody ;
+    rdfs:label "Asteroid" .
+
+ss:Comet a owl:Class ;
+    rdfs:subClassOf ss:CelestialBody ;
+    rdfs:label "Comet" .
+
+# ===================
+# Mission type subclasses
+# ===================
+
+ss:Flyby a owl:Class ;
+    rdfs:subClassOf ss:Mission ;
+    rdfs:label "Flyby Mission" .
+
+ss:Orbiter a owl:Class ;
+    rdfs:subClassOf ss:Mission ;
+    rdfs:label "Orbiter Mission" .
+
+ss:OrbiterAndLander a owl:Class ;
+    rdfs:subClassOf ss:Mission ;
+    rdfs:label "Orbiter and Lander Mission" .
+
+ss:OrbiterAndProbe a owl:Class ;
+    rdfs:subClassOf ss:Mission ;
+    rdfs:label "Orbiter and Probe Mission" .
+
+ss:Rover a owl:Class ;
+    rdfs:subClassOf ss:Mission ;
+    rdfs:label "Rover Mission" .
+
+ss:RoverAndHelicopter a owl:Class ;
+    rdfs:subClassOf ss:Mission ;
+    rdfs:label "Rover and Helicopter Mission" .
+
+ss:LanderAndRover a owl:Class ;
+    rdfs:subClassOf ss:Mission ;
+    rdfs:label "Lander and Rover Mission" .
+
+ss:SampleReturn a owl:Class ;
+    rdfs:subClassOf ss:Mission ;
+    rdfs:label "Sample Return Mission" .
+
+ss:RotorcraftLander a owl:Class ;
+    rdfs:subClassOf ss:Mission ;
+    rdfs:label "Rotorcraft Lander Mission" .
+
+# ===================
+# Mission event type subclasses
+# ===================
+
+ss:Launch a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Launch" .
+
+ss:FlybyEvent a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Flyby Event" .
+
+ss:OrbitInsertion a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Orbit Insertion" .
+
+ss:Landing a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Landing" .
+
+ss:Milestone a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Milestone" .
+
+ss:EndOfMission a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "End of Mission" .
+
+ss:ProbeDeployment a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Probe Deployment" .
+
+ss:Departure a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Departure" .
+
+ss:Discovery a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Discovery" .
+
+ss:Perihelion a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Perihelion" .
+
+ss:StatusUpdate a owl:Class ;
+    rdfs:subClassOf ss:MissionEvent ;
+    rdfs:label "Status Update" .
+
+# ===================
+# Mission status individuals
+# ===================
+
+ss:Active a owl:NamedIndividual ;
+    rdfs:label "Active" .
+
+ss:Completed a owl:NamedIndividual ;
+    rdfs:label "Completed" .
+
+ss:Inactive a owl:NamedIndividual ;
+    rdfs:label "Inactive" .
+
+ss:InDevelopment a owl:NamedIndividual ;
+    rdfs:label "In Development" .
+
+# ===================
+# Celestial body datatype properties
+# ===================
+
+ss:name a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "name" .
+
+ss:description a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "description" .
+
+ss:avg-distance-from-sun-au a owl:DatatypeProperty ;
+    rdfs:domain ss:CelestialBody ;
+    rdfs:range xsd:double ;
+    rdfs:label "average distance from Sun in AU" .
+
+ss:orbital-period-years a owl:DatatypeProperty ;
+    rdfs:domain ss:CelestialBody ;
+    rdfs:range xsd:double ;
+    rdfs:label "orbital period in years" .
+
+ss:radius-km a owl:DatatypeProperty ;
+    rdfs:domain ss:CelestialBody ;
+    rdfs:range xsd:double ;
+    rdfs:label "radius in kilometres" .
+
+# ===================
+# Celestial body object properties
+# ===================
+
+ss:parent-body a owl:ObjectProperty ;
+    rdfs:domain ss:CelestialBody ;
+    rdfs:range ss:CelestialBody ;
+    rdfs:label "parent body" .
+
+# ===================
+# Mission datatype properties
+# ===================
+
+ss:agency a owl:DatatypeProperty ;
+    rdfs:domain ss:Mission ;
+    rdfs:range xsd:string ;
+    rdfs:label "agency" .
+
+ss:launch-date a owl:DatatypeProperty ;
+    rdfs:domain ss:Mission ;
+    rdfs:range xsd:date ;
+    rdfs:label "launch date" .
+
+ss:end-date a owl:DatatypeProperty ;
+    rdfs:domain ss:Mission ;
+    rdfs:range xsd:date ;
+    rdfs:label "end date" .
+
+# ===================
+# Mission object properties
+# ===================
+
+ss:status a owl:ObjectProperty ;
+    rdfs:domain ss:Mission ;
+    rdfs:label "mission status" .
+
+ss:target-body a owl:ObjectProperty ;
+    rdfs:domain ss:Mission ;
+    rdfs:range ss:CelestialBody ;
+    rdfs:label "target body" .
+
+ss:has-event a owl:ObjectProperty ;
+    rdfs:domain ss:Mission ;
+    rdfs:range ss:MissionEvent ;
+    rdfs:label "has event" .
+
+# ===================
+# Mission event datatype properties
+# ===================
+
+ss:date a owl:DatatypeProperty ;
+    rdfs:domain ss:MissionEvent ;
+    rdfs:range xsd:date ;
+    rdfs:label "date" .
+
+ss:distance-from-body-km a owl:DatatypeProperty ;
+    rdfs:domain ss:MissionEvent ;
+    rdfs:range xsd:double ;
+    rdfs:label "distance from nearest body in kilometres" .
+
+ss:velocity-km-s a owl:DatatypeProperty ;
+    rdfs:domain ss:MissionEvent ;
+    rdfs:range xsd:double ;
+    rdfs:label "velocity in km/s" .
+
+# ===================
+# Mission event object properties
+# ===================
+
+ss:nearest-body a owl:ObjectProperty ;
+    rdfs:domain ss:MissionEvent ;
+    rdfs:range ss:CelestialBody ;
+    rdfs:label "nearest body" .
+
+ss:position a owl:ObjectProperty ;
+    rdfs:domain ss:MissionEvent ;
+    rdfs:range ss:Position ;
+    rdfs:label "position" .
+
+# ===================
+# Position datatype properties
+# ===================
+
+ss:distance-au a owl:DatatypeProperty ;
+    rdfs:domain ss:Position ;
+    rdfs:range xsd:double ;
+    rdfs:label "distance from Sun in AU" .
+
+ss:ecliptic-longitude-deg a owl:DatatypeProperty ;
+    rdfs:domain ss:Position ;
+    rdfs:range xsd:double ;
+    rdfs:label "ecliptic longitude in degrees" .
+
+ss:ecliptic-latitude-deg a owl:DatatypeProperty ;
+    rdfs:domain ss:Position ;
+    rdfs:range xsd:double ;
+    rdfs:label "ecliptic latitude in degrees" .
