@@ -1,0 +1,3948 @@
+
+@prefix tg: <http://trustgraph.ai/ontology/> .
+@prefix d: <http://trustgraph.ai/data/risk/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+### ==========================================
+###   ACTORS
+### ==========================================
+
+d:actor-insider-fin a tg:Actor ;
+    rdfs:label "Finance Insider" ;
+    rdfs:comment "An employee within the finance department with elevated access to payment systems." .
+
+d:actor-extern-apt28 a tg:Actor ;
+    rdfs:label "APT-28 Threat Group" ;
+    rdfs:comment "State-sponsored advanced persistent threat group targeting critical infrastructure." .
+
+d:actor-contractor-it a tg:Actor ;
+    rdfs:label "IT Contractor" ;
+    rdfs:comment "Third-party contractor with temporary privileged access to internal systems." .
+
+d:actor-insider-eng a tg:Actor ;
+    rdfs:label "Engineering Insider" ;
+    rdfs:comment "A software engineer with access to source code repositories and CI/CD pipelines." .
+
+d:actor-extern-darkside a tg:Actor ;
+    rdfs:label "DarkSide Ransomware Group" ;
+    rdfs:comment "Cybercriminal group specialising in ransomware-as-a-service operations." .
+
+d:actor-insider-hr a tg:Actor ;
+    rdfs:label "HR Insider" ;
+    rdfs:comment "Human resources employee with access to personnel records and payroll systems." .
+
+d:actor-extern-unknown a tg:Actor ;
+    rdfs:label "Unknown External Actor" ;
+    rdfs:comment "Unattributed external threat actor identified through anomalous network activity." .
+
+d:actor-vendor-cloud a tg:Actor ;
+    rdfs:label "Cloud Service Vendor" ;
+    rdfs:comment "Third-party cloud infrastructure provider with shared responsibility for data security." .
+
+d:actor-extern-lazarus a tg:Actor ;
+    rdfs:label "Lazarus Group" ;
+    rdfs:comment "State-sponsored threat group known for financially motivated cyber operations." .
+
+d:actor-insider-exec a tg:Actor ;
+    rdfs:label "Executive Insider" ;
+    rdfs:comment "Senior executive with broad access to strategic and financial systems." .
+
+d:actor-contractor-msp a tg:Actor ;
+    rdfs:label "Managed Service Provider" ;
+    rdfs:comment "External MSP with remote management access to network and endpoint infrastructure." .
+
+d:actor-extern-fin7 a tg:Actor ;
+    rdfs:label "FIN7 Cybercrime Group" ;
+    rdfs:comment "Financially motivated threat group targeting retail and hospitality sectors." .
+
+### ==========================================
+###   RISKS
+### ==========================================
+
+d:risk-payroll-fraud a tg:Risk ;
+    rdfs:label "Payroll Fraud" ;
+    rdfs:comment "Manipulation of payroll records to divert funds to unauthorised accounts." ;
+    tg:riskScore "0.85"^^xsd:float .
+
+d:risk-phishing a tg:Risk ;
+    rdfs:label "Spear Phishing" ;
+    rdfs:comment "Targeted email attack using social engineering to harvest credentials." ;
+    tg:riskScore "0.72"^^xsd:float .
+
+d:risk-usb-exfil a tg:Risk ;
+    rdfs:label "USB Data Exfiltration" ;
+    rdfs:comment "Unauthorised transfer of sensitive data via removable storage media." ;
+    tg:riskScore "0.68"^^xsd:float .
+
+d:risk-ransomware a tg:Risk ;
+    rdfs:label "Ransomware Deployment" ;
+    rdfs:comment "Encryption of critical systems and data with demand for payment." ;
+    tg:riskScore "0.95"^^xsd:float .
+
+d:risk-priv-escalation a tg:Risk ;
+    rdfs:label "Privilege Escalation" ;
+    rdfs:comment "Exploitation of vulnerabilities to gain unauthorised elevated access." ;
+    tg:riskScore "0.78"^^xsd:float .
+
+d:risk-supply-chain a tg:Risk ;
+    rdfs:label "Supply Chain Compromise" ;
+    rdfs:comment "Injection of malicious code through a trusted third-party software dependency." ;
+    tg:riskScore "0.88"^^xsd:float .
+
+d:risk-data-leak a tg:Risk ;
+    rdfs:label "Accidental Data Leak" ;
+    rdfs:comment "Unintentional exposure of sensitive data through misconfiguration or human error." ;
+    tg:riskScore "0.55"^^xsd:float .
+
+d:risk-credential-stuffing a tg:Risk ;
+    rdfs:label "Credential Stuffing" ;
+    rdfs:comment "Automated use of stolen credential pairs to gain unauthorised access." ;
+    tg:riskScore "0.65"^^xsd:float .
+
+d:risk-insider-trading a tg:Risk ;
+    rdfs:label "Insider Trading Data Access" ;
+    rdfs:comment "Unauthorised access to material non-public information for financial gain." ;
+    tg:riskScore "0.91"^^xsd:float .
+
+d:risk-cloud-misconfig a tg:Risk ;
+    rdfs:label "Cloud Misconfiguration" ;
+    rdfs:comment "Security gaps arising from improperly configured cloud service settings." ;
+    tg:riskScore "0.6"^^xsd:float .
+
+d:risk-sql-injection a tg:Risk ;
+    rdfs:label "SQL Injection" ;
+    rdfs:comment "Exploitation of input validation flaws to execute arbitrary database queries." ;
+    tg:riskScore "0.74"^^xsd:float .
+
+d:risk-dns-hijack a tg:Risk ;
+    rdfs:label "DNS Hijacking" ;
+    rdfs:comment "Redirection of DNS queries to attacker-controlled infrastructure." ;
+    tg:riskScore "0.7"^^xsd:float .
+
+d:risk-zero-day a tg:Risk ;
+    rdfs:label "Zero-Day Exploit" ;
+    rdfs:comment "Exploitation of a previously unknown vulnerability with no available patch." ;
+    tg:riskScore "0.93"^^xsd:float .
+
+d:risk-brute-force a tg:Risk ;
+    rdfs:label "Brute Force Authentication" ;
+    rdfs:comment "Systematic trial of credential combinations to gain account access." ;
+    tg:riskScore "0.58"^^xsd:float .
+
+d:risk-shadow-it a tg:Risk ;
+    rdfs:label "Shadow IT" ;
+    rdfs:comment "Use of unsanctioned applications or services that bypass security controls." ;
+    tg:riskScore "0.5"^^xsd:float .
+
+### ==========================================
+###   ASSETS
+### ==========================================
+
+d:asset-treasury a tg:Asset ;
+    rdfs:label "Treasury Funds" ;
+    rdfs:comment "Corporate treasury accounts holding operating capital and reserves." .
+
+d:asset-source-code a tg:Asset ;
+    rdfs:label "Source Code Repository" ;
+    rdfs:comment "Internal Git repositories containing proprietary application source code." .
+
+d:asset-customer-db a tg:Asset ;
+    rdfs:label "Customer Database" ;
+    rdfs:comment "Production database containing customer PII, account details, and transaction history." .
+
+d:asset-email-system a tg:Asset ;
+    rdfs:label "Corporate Email System" ;
+    rdfs:comment "Enterprise email platform used for internal and external communications." .
+
+d:asset-erp a tg:Asset ;
+    rdfs:label "ERP System" ;
+    rdfs:comment "Enterprise resource planning system managing finance, HR, and operations." .
+
+d:asset-cicd a tg:Asset ;
+    rdfs:label "CI/CD Pipeline" ;
+    rdfs:comment "Continuous integration and deployment infrastructure for software delivery." .
+
+d:asset-cloud-infra a tg:Asset ;
+    rdfs:label "Cloud Infrastructure" ;
+    rdfs:comment "Production cloud environment hosting customer-facing applications and services." .
+
+d:asset-hr-records a tg:Asset ;
+    rdfs:label "HR Personnel Records" ;
+    rdfs:comment "Employee personal data including salaries, performance reviews, and benefits." .
+
+d:asset-trading-platform a tg:Asset ;
+    rdfs:label "Trading Platform" ;
+    rdfs:comment "Internal electronic trading platform with access to market-sensitive data." .
+
+d:asset-vpn a tg:Asset ;
+    rdfs:label "VPN Gateway" ;
+    rdfs:comment "Remote access VPN infrastructure providing encrypted connectivity to internal network." .
+
+d:asset-api-gateway a tg:Asset ;
+    rdfs:label "API Gateway" ;
+    rdfs:comment "Public-facing API gateway routing external requests to internal microservices." .
+
+d:asset-backup-system a tg:Asset ;
+    rdfs:label "Backup System" ;
+    rdfs:comment "Enterprise backup and disaster recovery infrastructure." .
+
+d:asset-dns-infra a tg:Asset ;
+    rdfs:label "DNS Infrastructure" ;
+    rdfs:comment "Internal and external DNS servers managing domain resolution." .
+
+d:asset-payment-processor a tg:Asset ;
+    rdfs:label "Payment Processor" ;
+    rdfs:comment "Integration with third-party payment processing for customer transactions." .
+
+### ==========================================
+###   EVENTS
+### ==========================================
+
+d:event-0001 a tg:Event ;
+    rdfs:label "Novel exploit chain executed by APT-28 Threat Group" ;
+    tg:timestamp "2026-01-02T06:17:11"^^xsd:dateTime ;
+    tg:eventDate "2026-01-02"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0002 a tg:Event ;
+    rdfs:label "Phishing link clicked by employee — attributed to APT-28 Threat Group" ;
+    tg:timestamp "2026-01-03T05:30:19"^^xsd:dateTime ;
+    tg:eventDate "2026-01-03"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0003 a tg:Event ;
+    rdfs:label "Phishing link clicked by employee — attributed to Lazarus Group" ;
+    tg:timestamp "2026-01-05T20:33:30"^^xsd:dateTime ;
+    tg:eventDate "2026-01-05"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0004 a tg:Event ;
+    rdfs:label "IAM policy overly permissive after change by Managed Service Provider" ;
+    tg:timestamp "2026-01-06T03:39:59"^^xsd:dateTime ;
+    tg:eventDate "2026-01-06"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0005 a tg:Event ;
+    rdfs:label "Malicious dependency injected by Lazarus Group" ;
+    tg:timestamp "2026-01-06T18:51:54"^^xsd:dateTime ;
+    tg:eventDate "2026-01-06"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0006 a tg:Event ;
+    rdfs:label "Unsanctioned SaaS application deployed by HR Insider" ;
+    tg:timestamp "2026-01-07T04:07:04"^^xsd:dateTime ;
+    tg:eventDate "2026-01-07"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0007 a tg:Event ;
+    rdfs:label "Unpatched vulnerability exploited by APT-28 Threat Group" ;
+    tg:timestamp "2026-01-07T05:35:52"^^xsd:dateTime ;
+    tg:eventDate "2026-01-07"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0008 a tg:Event ;
+    rdfs:label "IAM policy overly permissive after change by IT Contractor" ;
+    tg:timestamp "2026-01-09T10:29:37"^^xsd:dateTime ;
+    tg:eventDate "2026-01-09"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0009 a tg:Event ;
+    rdfs:label "Phishing link clicked by employee — attributed to Lazarus Group" ;
+    tg:timestamp "2026-01-09T21:33:25"^^xsd:dateTime ;
+    tg:eventDate "2026-01-09"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0010 a tg:Event ;
+    rdfs:label "Malicious dependency injected by Cloud Service Vendor" ;
+    tg:timestamp "2026-01-10T03:34:41"^^xsd:dateTime ;
+    tg:eventDate "2026-01-10"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0011 a tg:Event ;
+    rdfs:label "Sensitive data exposed via public link by HR Insider" ;
+    tg:timestamp "2026-01-11T20:41:23"^^xsd:dateTime ;
+    tg:eventDate "2026-01-11"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0012 a tg:Event ;
+    rdfs:label "Zero-day exploit used to compromise perimeter — APT-28 Threat Group" ;
+    tg:timestamp "2026-01-13T08:03:38"^^xsd:dateTime ;
+    tg:eventDate "2026-01-13"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0013 a tg:Event ;
+    rdfs:label "Accidental data share to external recipients by HR Insider" ;
+    tg:timestamp "2026-01-13T20:27:40"^^xsd:dateTime ;
+    tg:eventDate "2026-01-13"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0014 a tg:Event ;
+    rdfs:label "Ransom note deployed across network by Lazarus Group" ;
+    tg:timestamp "2026-01-14T12:09:01"^^xsd:dateTime ;
+    tg:eventDate "2026-01-14"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0015 a tg:Event ;
+    rdfs:label "USB device connected to restricted workstation by Engineering Insider" ;
+    tg:timestamp "2026-01-14T20:45:35"^^xsd:dateTime ;
+    tg:eventDate "2026-01-14"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0016 a tg:Event ;
+    rdfs:label "Credential stuffing attack on authentication endpoint — Managed Service Provider" ;
+    tg:timestamp "2026-01-16T07:14:07"^^xsd:dateTime ;
+    tg:eventDate "2026-01-16"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0017 a tg:Event ;
+    rdfs:label "Large file transfer to removable media by Engineering Insider" ;
+    tg:timestamp "2026-01-16T11:51:27"^^xsd:dateTime ;
+    tg:eventDate "2026-01-16"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0018 a tg:Event ;
+    rdfs:label "Ransomware payload delivered by DarkSide Ransomware Group" ;
+    tg:timestamp "2026-01-17T21:09:51"^^xsd:dateTime ;
+    tg:eventDate "2026-01-17"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-backup-system ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0019 a tg:Event ;
+    rdfs:label "Unauthorised access to pre-earnings data by Finance Insider" ;
+    tg:timestamp "2026-01-18T15:40:06"^^xsd:dateTime ;
+    tg:eventDate "2026-01-18"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform .
+
+d:event-0020 a tg:Event ;
+    rdfs:label "Unauthorised removable storage use by Engineering Insider" ;
+    tg:timestamp "2026-01-19T00:13:37"^^xsd:dateTime ;
+    tg:eventDate "2026-01-19"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0021 a tg:Event ;
+    rdfs:label "Unauthorised bonus disbursement initiated by Finance Insider" ;
+    tg:timestamp "2026-01-19T04:39:05"^^xsd:dateTime ;
+    tg:eventDate "2026-01-19"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0022 a tg:Event ;
+    rdfs:label "File encryption detected on critical systems — DarkSide Ransomware Group" ;
+    tg:timestamp "2026-01-19T18:43:51"^^xsd:dateTime ;
+    tg:eventDate "2026-01-19"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-backup-system .
+
+d:event-0023 a tg:Event ;
+    rdfs:label "USB device connected to restricted workstation by Engineering Insider" ;
+    tg:timestamp "2026-01-20T14:42:02"^^xsd:dateTime ;
+    tg:eventDate "2026-01-20"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0024 a tg:Event ;
+    rdfs:label "Material non-public information accessed by Finance Insider" ;
+    tg:timestamp "2026-01-20T20:20:03"^^xsd:dateTime ;
+    tg:eventDate "2026-01-20"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0025 a tg:Event ;
+    rdfs:label "Unsanctioned SaaS application deployed by Finance Insider" ;
+    tg:timestamp "2026-01-20T21:39:43"^^xsd:dateTime ;
+    tg:eventDate "2026-01-20"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0026 a tg:Event ;
+    rdfs:label "Compromised package detected in build pipeline — Managed Service Provider" ;
+    tg:timestamp "2026-01-22T07:00:07"^^xsd:dateTime ;
+    tg:eventDate "2026-01-22"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0027 a tg:Event ;
+    rdfs:label "Misconfigured permissions led to data exposure — Executive Insider" ;
+    tg:timestamp "2026-01-22T14:50:25"^^xsd:dateTime ;
+    tg:eventDate "2026-01-22"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0028 a tg:Event ;
+    rdfs:label "Ransomware lateral movement by DarkSide Ransomware Group" ;
+    tg:timestamp "2026-01-25T05:43:55"^^xsd:dateTime ;
+    tg:eventDate "2026-01-25"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0029 a tg:Event ;
+    rdfs:label "Cloud storage bucket left publicly accessible — Cloud Service Vendor" ;
+    tg:timestamp "2026-01-27T20:40:21"^^xsd:dateTime ;
+    tg:eventDate "2026-01-27"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0030 a tg:Event ;
+    rdfs:label "Novel exploit chain executed by APT-28 Threat Group" ;
+    tg:timestamp "2026-01-28T02:17:37"^^xsd:dateTime ;
+    tg:eventDate "2026-01-28"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0031 a tg:Event ;
+    rdfs:label "Breached credential reuse detected — APT-28 Threat Group" ;
+    tg:timestamp "2026-01-28T02:43:28"^^xsd:dateTime ;
+    tg:eventDate "2026-01-28"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0032 a tg:Event ;
+    rdfs:label "Unapproved tool usage detected for Executive Insider" ;
+    tg:timestamp "2026-01-28T17:49:47"^^xsd:dateTime ;
+    tg:eventDate "2026-01-28"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0033 a tg:Event ;
+    rdfs:label "Privilege escalation via unpatched service — Managed Service Provider" ;
+    tg:timestamp "2026-01-30T16:17:31"^^xsd:dateTime ;
+    tg:eventDate "2026-01-30"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0034 a tg:Event ;
+    rdfs:label "Ransomware lateral movement by DarkSide Ransomware Group" ;
+    tg:timestamp "2026-01-31T04:35:13"^^xsd:dateTime ;
+    tg:eventDate "2026-01-31"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0035 a tg:Event ;
+    rdfs:label "Novel exploit chain executed by Lazarus Group" ;
+    tg:timestamp "2026-02-01T00:03:58"^^xsd:dateTime ;
+    tg:eventDate "2026-02-01"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0036 a tg:Event ;
+    rdfs:label "Unauthorised bonus disbursement initiated by Finance Insider" ;
+    tg:timestamp "2026-02-01T01:34:12"^^xsd:dateTime ;
+    tg:eventDate "2026-02-01"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-treasury ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0037 a tg:Event ;
+    rdfs:label "Credential harvesting email from Lazarus Group detected" ;
+    tg:timestamp "2026-02-01T14:01:22"^^xsd:dateTime ;
+    tg:eventDate "2026-02-01"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0038 a tg:Event ;
+    rdfs:label "Ransom note deployed across network by Lazarus Group" ;
+    tg:timestamp "2026-02-01T17:30:38"^^xsd:dateTime ;
+    tg:eventDate "2026-02-01"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0039 a tg:Event ;
+    rdfs:label "Account escalated to domain admin by IT Contractor" ;
+    tg:timestamp "2026-02-03T05:33:50"^^xsd:dateTime ;
+    tg:eventDate "2026-02-03"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0040 a tg:Event ;
+    rdfs:label "Unencrypted PII transmitted by HR Insider" ;
+    tg:timestamp "2026-02-07T08:07:47"^^xsd:dateTime ;
+    tg:eventDate "2026-02-07"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-0041 a tg:Event ;
+    rdfs:label "Accidental data share to external recipients by Executive Insider" ;
+    tg:timestamp "2026-02-08T14:39:02"^^xsd:dateTime ;
+    tg:eventDate "2026-02-08"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-source-code ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-0042 a tg:Event ;
+    rdfs:label "Automated login attempts detected from Unknown External Actor" ;
+    tg:timestamp "2026-02-10T16:22:24"^^xsd:dateTime ;
+    tg:eventDate "2026-02-10"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0043 a tg:Event ;
+    rdfs:label "Ransom note deployed across network by DarkSide Ransomware Group" ;
+    tg:timestamp "2026-02-10T23:15:04"^^xsd:dateTime ;
+    tg:eventDate "2026-02-10"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0044 a tg:Event ;
+    rdfs:label "Large file transfer to removable media by Engineering Insider" ;
+    tg:timestamp "2026-02-11T06:54:41"^^xsd:dateTime ;
+    tg:eventDate "2026-02-11"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-source-code ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-0045 a tg:Event ;
+    rdfs:label "Unauthorised access to pre-earnings data by Finance Insider" ;
+    tg:timestamp "2026-02-11T19:26:05"^^xsd:dateTime ;
+    tg:eventDate "2026-02-11"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform .
+
+d:event-0046 a tg:Event ;
+    rdfs:label "Ransomware lateral movement by DarkSide Ransomware Group" ;
+    tg:timestamp "2026-02-12T10:55:36"^^xsd:dateTime ;
+    tg:eventDate "2026-02-12"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0047 a tg:Event ;
+    rdfs:label "Payroll diversion detected — Finance Insider modified payment routing" ;
+    tg:timestamp "2026-02-12T14:06:31"^^xsd:dateTime ;
+    tg:eventDate "2026-02-12"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-payment-processor ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0048 a tg:Event ;
+    rdfs:label "Unauthorised access to pre-earnings data by Executive Insider" ;
+    tg:timestamp "2026-02-12T15:28:51"^^xsd:dateTime ;
+    tg:eventDate "2026-02-12"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0049 a tg:Event ;
+    rdfs:label "Third-party library backdoor introduced by Unknown External Actor" ;
+    tg:timestamp "2026-02-12T19:19:39"^^xsd:dateTime ;
+    tg:eventDate "2026-02-12"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0050 a tg:Event ;
+    rdfs:label "Material non-public information accessed by Finance Insider" ;
+    tg:timestamp "2026-02-13T08:14:14"^^xsd:dateTime ;
+    tg:eventDate "2026-02-13"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-treasury ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0051 a tg:Event ;
+    rdfs:label "Sensitive data exposed via public link by HR Insider" ;
+    tg:timestamp "2026-02-14T06:04:58"^^xsd:dateTime ;
+    tg:eventDate "2026-02-14"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0052 a tg:Event ;
+    rdfs:label "Authentication brute force detected — FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-02-14T11:26:28"^^xsd:dateTime ;
+    tg:eventDate "2026-02-14"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-brute-force ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0053 a tg:Event ;
+    rdfs:label "Automated SQL injection scan from Unknown External Actor" ;
+    tg:timestamp "2026-02-15T04:16:42"^^xsd:dateTime ;
+    tg:eventDate "2026-02-15"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0054 a tg:Event ;
+    rdfs:label "High-volume authentication failures from Managed Service Provider" ;
+    tg:timestamp "2026-02-15T04:53:02"^^xsd:dateTime ;
+    tg:eventDate "2026-02-15"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0055 a tg:Event ;
+    rdfs:label "Phishing link clicked by employee — attributed to Lazarus Group" ;
+    tg:timestamp "2026-02-17T12:54:05"^^xsd:dateTime ;
+    tg:eventDate "2026-02-17"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0056 a tg:Event ;
+    rdfs:label "IAM policy overly permissive after change by Cloud Service Vendor" ;
+    tg:timestamp "2026-02-17T13:16:43"^^xsd:dateTime ;
+    tg:eventDate "2026-02-17"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0057 a tg:Event ;
+    rdfs:label "Unauthorised role elevation detected for Managed Service Provider" ;
+    tg:timestamp "2026-02-17T21:22:02"^^xsd:dateTime ;
+    tg:eventDate "2026-02-17"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0058 a tg:Event ;
+    rdfs:label "Automated login attempts detected from APT-28 Threat Group" ;
+    tg:timestamp "2026-02-18T19:40:28"^^xsd:dateTime ;
+    tg:eventDate "2026-02-18"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0059 a tg:Event ;
+    rdfs:label "Account escalated to domain admin by IT Contractor" ;
+    tg:timestamp "2026-02-21T00:27:52"^^xsd:dateTime ;
+    tg:eventDate "2026-02-21"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0060 a tg:Event ;
+    rdfs:label "Cloud logging disabled by Cloud Service Vendor" ;
+    tg:timestamp "2026-02-21T08:45:23"^^xsd:dateTime ;
+    tg:eventDate "2026-02-21"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0061 a tg:Event ;
+    rdfs:label "Credential stuffing attack on authentication endpoint — Unknown External Actor" ;
+    tg:timestamp "2026-02-21T10:25:51"^^xsd:dateTime ;
+    tg:eventDate "2026-02-21"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0062 a tg:Event ;
+    rdfs:label "Automated login attempts detected from Unknown External Actor" ;
+    tg:timestamp "2026-02-21T20:12:24"^^xsd:dateTime ;
+    tg:eventDate "2026-02-21"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0063 a tg:Event ;
+    rdfs:label "Unauthorised role elevation detected for APT-28 Threat Group" ;
+    tg:timestamp "2026-02-21T23:45:46"^^xsd:dateTime ;
+    tg:eventDate "2026-02-21"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-source-code ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0064 a tg:Event ;
+    rdfs:label "Unencrypted PII transmitted by Cloud Service Vendor" ;
+    tg:timestamp "2026-02-22T10:02:52"^^xsd:dateTime ;
+    tg:eventDate "2026-02-22"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0065 a tg:Event ;
+    rdfs:label "IAM policy overly permissive after change by IT Contractor" ;
+    tg:timestamp "2026-02-23T09:43:46"^^xsd:dateTime ;
+    tg:eventDate "2026-02-23"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0066 a tg:Event ;
+    rdfs:label "Kernel exploit used for privilege escalation by Managed Service Provider" ;
+    tg:timestamp "2026-02-23T22:58:27"^^xsd:dateTime ;
+    tg:eventDate "2026-02-23"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0067 a tg:Event ;
+    rdfs:label "Zero-day exploit used to compromise perimeter — APT-28 Threat Group" ;
+    tg:timestamp "2026-02-23T23:27:03"^^xsd:dateTime ;
+    tg:eventDate "2026-02-23"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0068 a tg:Event ;
+    rdfs:label "Privilege escalation via unpatched service — IT Contractor" ;
+    tg:timestamp "2026-02-24T00:27:45"^^xsd:dateTime ;
+    tg:eventDate "2026-02-24"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0069 a tg:Event ;
+    rdfs:label "Account escalated to domain admin by APT-28 Threat Group" ;
+    tg:timestamp "2026-02-26T04:38:44"^^xsd:dateTime ;
+    tg:eventDate "2026-02-26"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0070 a tg:Event ;
+    rdfs:label "Sensitive data exposed via public link by Engineering Insider" ;
+    tg:timestamp "2026-02-26T22:18:35"^^xsd:dateTime ;
+    tg:eventDate "2026-02-26"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0071 a tg:Event ;
+    rdfs:label "Restricted trading data downloaded by Executive Insider" ;
+    tg:timestamp "2026-03-03T02:30:18"^^xsd:dateTime ;
+    tg:eventDate "2026-03-03"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform .
+
+d:event-0072 a tg:Event ;
+    rdfs:label "Automated SQL injection scan from Unknown External Actor" ;
+    tg:timestamp "2026-03-03T06:07:03"^^xsd:dateTime ;
+    tg:eventDate "2026-03-03"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-payment-processor .
+
+d:event-0073 a tg:Event ;
+    rdfs:label "Unauthorised removable storage use by Engineering Insider" ;
+    tg:timestamp "2026-03-04T23:16:01"^^xsd:dateTime ;
+    tg:eventDate "2026-03-04"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0074 a tg:Event ;
+    rdfs:label "SQL injection attempt on customer portal — FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-03-07T08:38:39"^^xsd:dateTime ;
+    tg:eventDate "2026-03-07"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0075 a tg:Event ;
+    rdfs:label "Automated SQL injection scan from Unknown External Actor" ;
+    tg:timestamp "2026-03-08T01:40:56"^^xsd:dateTime ;
+    tg:eventDate "2026-03-08"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0076 a tg:Event ;
+    rdfs:label "Unauthorised role elevation detected for IT Contractor" ;
+    tg:timestamp "2026-03-08T18:56:59"^^xsd:dateTime ;
+    tg:eventDate "2026-03-08"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0077 a tg:Event ;
+    rdfs:label "Unauthorised bonus disbursement initiated by HR Insider" ;
+    tg:timestamp "2026-03-10T23:40:53"^^xsd:dateTime ;
+    tg:eventDate "2026-03-10"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0078 a tg:Event ;
+    rdfs:label "Credential stuffing attack on authentication endpoint — DarkSide Ransomware Group" ;
+    tg:timestamp "2026-03-11T16:57:54"^^xsd:dateTime ;
+    tg:eventDate "2026-03-11"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0079 a tg:Event ;
+    rdfs:label "Sensitive data exposed via public link by HR Insider" ;
+    tg:timestamp "2026-03-12T05:20:28"^^xsd:dateTime ;
+    tg:eventDate "2026-03-12"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0080 a tg:Event ;
+    rdfs:label "Shadow IT cloud instance discovered — Finance Insider" ;
+    tg:timestamp "2026-03-12T07:01:32"^^xsd:dateTime ;
+    tg:eventDate "2026-03-12"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0081 a tg:Event ;
+    rdfs:label "Data exfiltration via USB detected — Engineering Insider" ;
+    tg:timestamp "2026-03-12T20:14:28"^^xsd:dateTime ;
+    tg:eventDate "2026-03-12"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0082 a tg:Event ;
+    rdfs:label "Accidental data share to external recipients by HR Insider" ;
+    tg:timestamp "2026-03-13T21:10:06"^^xsd:dateTime ;
+    tg:eventDate "2026-03-13"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-source-code ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-0083 a tg:Event ;
+    rdfs:label "Ransom note deployed across network by DarkSide Ransomware Group" ;
+    tg:timestamp "2026-03-15T12:05:53"^^xsd:dateTime ;
+    tg:eventDate "2026-03-15"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0084 a tg:Event ;
+    rdfs:label "Compromised package detected in build pipeline — Unknown External Actor" ;
+    tg:timestamp "2026-03-15T16:23:25"^^xsd:dateTime ;
+    tg:eventDate "2026-03-15"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0085 a tg:Event ;
+    rdfs:label "Zero-day exploit used to compromise perimeter — APT-28 Threat Group" ;
+    tg:timestamp "2026-03-15T18:35:22"^^xsd:dateTime ;
+    tg:eventDate "2026-03-15"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0086 a tg:Event ;
+    rdfs:label "Misconfigured permissions led to data exposure — Executive Insider" ;
+    tg:timestamp "2026-03-15T19:30:59"^^xsd:dateTime ;
+    tg:eventDate "2026-03-15"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0087 a tg:Event ;
+    rdfs:label "Kernel exploit used for privilege escalation by APT-28 Threat Group" ;
+    tg:timestamp "2026-03-16T02:28:29"^^xsd:dateTime ;
+    tg:eventDate "2026-03-16"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0088 a tg:Event ;
+    rdfs:label "Kernel exploit used for privilege escalation by APT-28 Threat Group" ;
+    tg:timestamp "2026-03-16T17:08:44"^^xsd:dateTime ;
+    tg:eventDate "2026-03-16"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0089 a tg:Event ;
+    rdfs:label "Malicious SQL payload detected from FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-03-18T19:46:41"^^xsd:dateTime ;
+    tg:eventDate "2026-03-18"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0090 a tg:Event ;
+    rdfs:label "Data uploaded to personal cloud storage by Executive Insider" ;
+    tg:timestamp "2026-03-19T13:20:28"^^xsd:dateTime ;
+    tg:eventDate "2026-03-19"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0091 a tg:Event ;
+    rdfs:label "Spear phishing campaign by FIN7 Cybercrime Group targeting executives" ;
+    tg:timestamp "2026-03-19T21:33:48"^^xsd:dateTime ;
+    tg:eventDate "2026-03-19"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0092 a tg:Event ;
+    rdfs:label "High-volume authentication failures from DarkSide Ransomware Group" ;
+    tg:timestamp "2026-03-23T11:06:14"^^xsd:dateTime ;
+    tg:eventDate "2026-03-23"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0093 a tg:Event ;
+    rdfs:label "Misconfigured permissions led to data exposure — HR Insider" ;
+    tg:timestamp "2026-03-23T22:17:53"^^xsd:dateTime ;
+    tg:eventDate "2026-03-23"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-0094 a tg:Event ;
+    rdfs:label "Sensitive data exposed via public link by HR Insider" ;
+    tg:timestamp "2026-03-23T23:24:28"^^xsd:dateTime ;
+    tg:eventDate "2026-03-23"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0095 a tg:Event ;
+    rdfs:label "Third-party library backdoor introduced by Lazarus Group" ;
+    tg:timestamp "2026-03-24T01:31:33"^^xsd:dateTime ;
+    tg:eventDate "2026-03-24"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0096 a tg:Event ;
+    rdfs:label "Spear phishing campaign by Lazarus Group targeting executives" ;
+    tg:timestamp "2026-03-25T04:38:46"^^xsd:dateTime ;
+    tg:eventDate "2026-03-25"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-source-code ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0097 a tg:Event ;
+    rdfs:label "Unauthorised role elevation detected for APT-28 Threat Group" ;
+    tg:timestamp "2026-03-29T05:27:57"^^xsd:dateTime ;
+    tg:eventDate "2026-03-29"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0098 a tg:Event ;
+    rdfs:label "Misconfigured permissions led to data exposure — Cloud Service Vendor" ;
+    tg:timestamp "2026-03-30T01:02:42"^^xsd:dateTime ;
+    tg:eventDate "2026-03-30"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0099 a tg:Event ;
+    rdfs:label "Payroll diversion detected — HR Insider modified payment routing" ;
+    tg:timestamp "2026-03-31T02:24:16"^^xsd:dateTime ;
+    tg:eventDate "2026-03-31"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0100 a tg:Event ;
+    rdfs:label "Database exfiltration via injection attack — FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-03-31T05:04:30"^^xsd:dateTime ;
+    tg:eventDate "2026-03-31"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0101 a tg:Event ;
+    rdfs:label "Data exfiltration via USB detected — Engineering Insider" ;
+    tg:timestamp "2026-03-31T18:17:19"^^xsd:dateTime ;
+    tg:eventDate "2026-03-31"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0102 a tg:Event ;
+    rdfs:label "Breached credential reuse detected — APT-28 Threat Group" ;
+    tg:timestamp "2026-04-01T21:16:14"^^xsd:dateTime ;
+    tg:eventDate "2026-04-01"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0103 a tg:Event ;
+    rdfs:label "Sensitive data exposed via public link by Finance Insider" ;
+    tg:timestamp "2026-04-06T19:57:01"^^xsd:dateTime ;
+    tg:eventDate "2026-04-06"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-0104 a tg:Event ;
+    rdfs:label "Ransomware payload delivered by Lazarus Group" ;
+    tg:timestamp "2026-04-07T22:35:10"^^xsd:dateTime ;
+    tg:eventDate "2026-04-07"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0105 a tg:Event ;
+    rdfs:label "Unauthorised access to pre-earnings data by Executive Insider" ;
+    tg:timestamp "2026-04-09T03:07:34"^^xsd:dateTime ;
+    tg:eventDate "2026-04-09"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform .
+
+d:event-0106 a tg:Event ;
+    rdfs:label "High-volume authentication failures from DarkSide Ransomware Group" ;
+    tg:timestamp "2026-04-09T22:33:52"^^xsd:dateTime ;
+    tg:eventDate "2026-04-09"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0107 a tg:Event ;
+    rdfs:label "Security group misconfiguration by Cloud Service Vendor" ;
+    tg:timestamp "2026-04-13T17:51:05"^^xsd:dateTime ;
+    tg:eventDate "2026-04-13"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0108 a tg:Event ;
+    rdfs:label "DNS hijacking detected on external domains — APT-28 Threat Group" ;
+    tg:timestamp "2026-04-14T17:16:20"^^xsd:dateTime ;
+    tg:eventDate "2026-04-14"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-dns-hijack ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0109 a tg:Event ;
+    rdfs:label "Zero-day exploit used to compromise perimeter — Lazarus Group" ;
+    tg:timestamp "2026-04-15T03:00:14"^^xsd:dateTime ;
+    tg:eventDate "2026-04-15"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0110 a tg:Event ;
+    rdfs:label "Shadow IT cloud instance discovered — Executive Insider" ;
+    tg:timestamp "2026-04-15T15:48:58"^^xsd:dateTime ;
+    tg:eventDate "2026-04-15"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0111 a tg:Event ;
+    rdfs:label "Spear phishing campaign by DarkSide Ransomware Group targeting executives" ;
+    tg:timestamp "2026-04-16T19:36:40"^^xsd:dateTime ;
+    tg:eventDate "2026-04-16"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0112 a tg:Event ;
+    rdfs:label "Unauthorised role elevation detected for IT Contractor" ;
+    tg:timestamp "2026-04-16T21:35:32"^^xsd:dateTime ;
+    tg:eventDate "2026-04-16"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0113 a tg:Event ;
+    rdfs:label "Suspicious payroll amendment flagged for Finance Insider" ;
+    tg:timestamp "2026-04-18T04:41:44"^^xsd:dateTime ;
+    tg:eventDate "2026-04-18"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-treasury ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0114 a tg:Event ;
+    rdfs:label "Whaling attack by DarkSide Ransomware Group impersonating CFO" ;
+    tg:timestamp "2026-04-18T10:13:10"^^xsd:dateTime ;
+    tg:eventDate "2026-04-18"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0115 a tg:Event ;
+    rdfs:label "Zero-day exploit used to compromise perimeter — APT-28 Threat Group" ;
+    tg:timestamp "2026-04-19T03:34:26"^^xsd:dateTime ;
+    tg:eventDate "2026-04-19"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-cicd ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0116 a tg:Event ;
+    rdfs:label "Ghost employee record created by Finance Insider" ;
+    tg:timestamp "2026-04-19T23:35:29"^^xsd:dateTime ;
+    tg:eventDate "2026-04-19"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0117 a tg:Event ;
+    rdfs:label "Cloud logging disabled by Cloud Service Vendor" ;
+    tg:timestamp "2026-04-20T00:09:54"^^xsd:dateTime ;
+    tg:eventDate "2026-04-20"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0118 a tg:Event ;
+    rdfs:label "Security group misconfiguration by Cloud Service Vendor" ;
+    tg:timestamp "2026-04-21T03:15:02"^^xsd:dateTime ;
+    tg:eventDate "2026-04-21"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0119 a tg:Event ;
+    rdfs:label "Unauthorised access to pre-earnings data by Executive Insider" ;
+    tg:timestamp "2026-04-23T02:39:21"^^xsd:dateTime ;
+    tg:eventDate "2026-04-23"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0120 a tg:Event ;
+    rdfs:label "Automated login attempts detected from Managed Service Provider" ;
+    tg:timestamp "2026-04-24T07:27:37"^^xsd:dateTime ;
+    tg:eventDate "2026-04-24"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0121 a tg:Event ;
+    rdfs:label "Cloud logging disabled by Cloud Service Vendor" ;
+    tg:timestamp "2026-04-24T12:22:05"^^xsd:dateTime ;
+    tg:eventDate "2026-04-24"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0122 a tg:Event ;
+    rdfs:label "Credential stuffing attack on authentication endpoint — Managed Service Provider" ;
+    tg:timestamp "2026-04-25T10:10:37"^^xsd:dateTime ;
+    tg:eventDate "2026-04-25"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0123 a tg:Event ;
+    rdfs:label "Account escalated to domain admin by IT Contractor" ;
+    tg:timestamp "2026-04-25T15:53:40"^^xsd:dateTime ;
+    tg:eventDate "2026-04-25"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0124 a tg:Event ;
+    rdfs:label "Cloud logging disabled by Cloud Service Vendor" ;
+    tg:timestamp "2026-04-26T17:02:28"^^xsd:dateTime ;
+    tg:eventDate "2026-04-26"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0125 a tg:Event ;
+    rdfs:label "Whaling attack by Lazarus Group impersonating CFO" ;
+    tg:timestamp "2026-04-26T19:28:03"^^xsd:dateTime ;
+    tg:eventDate "2026-04-26"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0126 a tg:Event ;
+    rdfs:label "High-volume authentication failures from Unknown External Actor" ;
+    tg:timestamp "2026-04-27T21:36:38"^^xsd:dateTime ;
+    tg:eventDate "2026-04-27"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0127 a tg:Event ;
+    rdfs:label "IAM policy overly permissive after change by Managed Service Provider" ;
+    tg:timestamp "2026-04-28T05:34:02"^^xsd:dateTime ;
+    tg:eventDate "2026-04-28"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0128 a tg:Event ;
+    rdfs:label "File encryption detected on critical systems — DarkSide Ransomware Group" ;
+    tg:timestamp "2026-04-29T06:45:22"^^xsd:dateTime ;
+    tg:eventDate "2026-04-29"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-backup-system ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0129 a tg:Event ;
+    rdfs:label "SQL injection attempt on customer portal — FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-05-01T02:30:39"^^xsd:dateTime ;
+    tg:eventDate "2026-05-01"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0130 a tg:Event ;
+    rdfs:label "Data uploaded to personal cloud storage by Engineering Insider" ;
+    tg:timestamp "2026-05-02T20:06:37"^^xsd:dateTime ;
+    tg:eventDate "2026-05-02"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0131 a tg:Event ;
+    rdfs:label "Automated SQL injection scan from FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-05-03T01:40:25"^^xsd:dateTime ;
+    tg:eventDate "2026-05-03"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0132 a tg:Event ;
+    rdfs:label "Compromised package detected in build pipeline — Engineering Insider" ;
+    tg:timestamp "2026-05-04T07:12:47"^^xsd:dateTime ;
+    tg:eventDate "2026-05-04"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0133 a tg:Event ;
+    rdfs:label "Phishing link clicked by employee — attributed to APT-28 Threat Group" ;
+    tg:timestamp "2026-05-04T10:30:15"^^xsd:dateTime ;
+    tg:eventDate "2026-05-04"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0134 a tg:Event ;
+    rdfs:label "Unauthorised bonus disbursement initiated by Finance Insider" ;
+    tg:timestamp "2026-05-05T03:56:41"^^xsd:dateTime ;
+    tg:eventDate "2026-05-05"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0135 a tg:Event ;
+    rdfs:label "Unauthorised removable storage use by IT Contractor" ;
+    tg:timestamp "2026-05-05T06:36:54"^^xsd:dateTime ;
+    tg:eventDate "2026-05-05"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-usb-exfil ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0136 a tg:Event ;
+    rdfs:label "Third-party library backdoor introduced by Cloud Service Vendor" ;
+    tg:timestamp "2026-05-05T19:54:24"^^xsd:dateTime ;
+    tg:eventDate "2026-05-05"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0137 a tg:Event ;
+    rdfs:label "Data uploaded to personal cloud storage by Engineering Insider" ;
+    tg:timestamp "2026-05-06T20:03:49"^^xsd:dateTime ;
+    tg:eventDate "2026-05-06"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0138 a tg:Event ;
+    rdfs:label "Sustained password spraying from FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-05-07T04:40:51"^^xsd:dateTime ;
+    tg:eventDate "2026-05-07"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-brute-force ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0139 a tg:Event ;
+    rdfs:label "Supply chain attack via trojanised update — Cloud Service Vendor" ;
+    tg:timestamp "2026-05-08T06:33:56"^^xsd:dateTime ;
+    tg:eventDate "2026-05-08"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0140 a tg:Event ;
+    rdfs:label "High-volume authentication failures from APT-28 Threat Group" ;
+    tg:timestamp "2026-05-09T09:42:37"^^xsd:dateTime ;
+    tg:eventDate "2026-05-09"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0141 a tg:Event ;
+    rdfs:label "Accidental data share to external recipients by Finance Insider" ;
+    tg:timestamp "2026-05-11T03:14:33"^^xsd:dateTime ;
+    tg:eventDate "2026-05-11"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0142 a tg:Event ;
+    rdfs:label "Unauthorised role elevation detected for APT-28 Threat Group" ;
+    tg:timestamp "2026-05-12T09:38:53"^^xsd:dateTime ;
+    tg:eventDate "2026-05-12"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0143 a tg:Event ;
+    rdfs:label "Third-party library backdoor introduced by Managed Service Provider" ;
+    tg:timestamp "2026-05-13T02:21:01"^^xsd:dateTime ;
+    tg:eventDate "2026-05-13"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-supply-chain ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0144 a tg:Event ;
+    rdfs:label "Ransomware lateral movement by Lazarus Group" ;
+    tg:timestamp "2026-05-13T03:16:20"^^xsd:dateTime ;
+    tg:eventDate "2026-05-13"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0145 a tg:Event ;
+    rdfs:label "Sensitive data exposed via public link by Engineering Insider" ;
+    tg:timestamp "2026-05-13T17:33:46"^^xsd:dateTime ;
+    tg:eventDate "2026-05-13"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-0146 a tg:Event ;
+    rdfs:label "Security group misconfiguration by Cloud Service Vendor" ;
+    tg:timestamp "2026-05-13T22:32:01"^^xsd:dateTime ;
+    tg:eventDate "2026-05-13"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0147 a tg:Event ;
+    rdfs:label "Unauthorised bonus disbursement initiated by Finance Insider" ;
+    tg:timestamp "2026-05-14T15:04:01"^^xsd:dateTime ;
+    tg:eventDate "2026-05-14"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0148 a tg:Event ;
+    rdfs:label "Unencrypted PII transmitted by Executive Insider" ;
+    tg:timestamp "2026-05-16T13:33:55"^^xsd:dateTime ;
+    tg:eventDate "2026-05-16"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-0149 a tg:Event ;
+    rdfs:label "Accidental data share to external recipients by Executive Insider" ;
+    tg:timestamp "2026-05-17T04:24:40"^^xsd:dateTime ;
+    tg:eventDate "2026-05-17"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0150 a tg:Event ;
+    rdfs:label "Unencrypted PII transmitted by Cloud Service Vendor" ;
+    tg:timestamp "2026-05-17T06:43:10"^^xsd:dateTime ;
+    tg:eventDate "2026-05-17"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0151 a tg:Event ;
+    rdfs:label "Phishing link clicked by employee — attributed to DarkSide Ransomware Group" ;
+    tg:timestamp "2026-05-17T19:32:33"^^xsd:dateTime ;
+    tg:eventDate "2026-05-17"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0152 a tg:Event ;
+    rdfs:label "Restricted trading data downloaded by Executive Insider" ;
+    tg:timestamp "2026-05-20T00:53:35"^^xsd:dateTime ;
+    tg:eventDate "2026-05-20"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0153 a tg:Event ;
+    rdfs:label "Security group misconfiguration by Cloud Service Vendor" ;
+    tg:timestamp "2026-05-20T09:43:22"^^xsd:dateTime ;
+    tg:eventDate "2026-05-20"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0154 a tg:Event ;
+    rdfs:label "SQL injection attempt on customer portal — FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-05-20T22:48:25"^^xsd:dateTime ;
+    tg:eventDate "2026-05-20"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0155 a tg:Event ;
+    rdfs:label "Accidental data share to external recipients by Executive Insider" ;
+    tg:timestamp "2026-05-22T13:58:37"^^xsd:dateTime ;
+    tg:eventDate "2026-05-22"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0156 a tg:Event ;
+    rdfs:label "Unapproved tool usage detected for Executive Insider" ;
+    tg:timestamp "2026-05-22T16:47:47"^^xsd:dateTime ;
+    tg:eventDate "2026-05-22"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0157 a tg:Event ;
+    rdfs:label "Credential stuffing attack on authentication endpoint — Managed Service Provider" ;
+    tg:timestamp "2026-05-24T00:12:16"^^xsd:dateTime ;
+    tg:eventDate "2026-05-24"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0158 a tg:Event ;
+    rdfs:label "Breached credential reuse detected — Managed Service Provider" ;
+    tg:timestamp "2026-05-24T19:45:42"^^xsd:dateTime ;
+    tg:eventDate "2026-05-24"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0159 a tg:Event ;
+    rdfs:label "Malicious SQL payload detected from FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-05-24T23:52:32"^^xsd:dateTime ;
+    tg:eventDate "2026-05-24"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0160 a tg:Event ;
+    rdfs:label "Zero-day remote code execution by Lazarus Group" ;
+    tg:timestamp "2026-05-25T15:54:01"^^xsd:dateTime ;
+    tg:eventDate "2026-05-25"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0161 a tg:Event ;
+    rdfs:label "Spear phishing campaign by DarkSide Ransomware Group targeting executives" ;
+    tg:timestamp "2026-05-26T01:20:12"^^xsd:dateTime ;
+    tg:eventDate "2026-05-26"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0162 a tg:Event ;
+    rdfs:label "Cloud logging disabled by IT Contractor" ;
+    tg:timestamp "2026-05-27T18:12:00"^^xsd:dateTime ;
+    tg:eventDate "2026-05-27"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0163 a tg:Event ;
+    rdfs:label "Zero-day remote code execution by Lazarus Group" ;
+    tg:timestamp "2026-05-28T08:17:55"^^xsd:dateTime ;
+    tg:eventDate "2026-05-28"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0164 a tg:Event ;
+    rdfs:label "Ghost employee record created by HR Insider" ;
+    tg:timestamp "2026-05-29T06:08:25"^^xsd:dateTime ;
+    tg:eventDate "2026-05-29"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-payroll-fraud ;
+    tg:impactsAsset d:asset-payment-processor ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0165 a tg:Event ;
+    rdfs:label "Novel exploit chain executed by APT-28 Threat Group" ;
+    tg:timestamp "2026-05-30T04:36:02"^^xsd:dateTime ;
+    tg:eventDate "2026-05-30"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-cicd .
+
+d:event-0166 a tg:Event ;
+    rdfs:label "Suspicious query of financial forecasts by Executive Insider" ;
+    tg:timestamp "2026-05-31T02:45:34"^^xsd:dateTime ;
+    tg:eventDate "2026-05-31"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-erp .
+
+d:event-0167 a tg:Event ;
+    rdfs:label "Security group misconfiguration by Managed Service Provider" ;
+    tg:timestamp "2026-05-31T16:25:18"^^xsd:dateTime ;
+    tg:eventDate "2026-05-31"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0168 a tg:Event ;
+    rdfs:label "Cloud logging disabled by Cloud Service Vendor" ;
+    tg:timestamp "2026-06-03T19:21:26"^^xsd:dateTime ;
+    tg:eventDate "2026-06-03"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0169 a tg:Event ;
+    rdfs:label "IAM policy overly permissive after change by Cloud Service Vendor" ;
+    tg:timestamp "2026-06-06T07:47:07"^^xsd:dateTime ;
+    tg:eventDate "2026-06-06"^^xsd:date ;
+    tg:hasActor d:actor-vendor-cloud ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0170 a tg:Event ;
+    rdfs:label "Malicious SQL payload detected from Unknown External Actor" ;
+    tg:timestamp "2026-06-06T11:23:23"^^xsd:dateTime ;
+    tg:eventDate "2026-06-06"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-payment-processor ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0171 a tg:Event ;
+    rdfs:label "Material non-public information accessed by Finance Insider" ;
+    tg:timestamp "2026-06-06T17:29:25"^^xsd:dateTime ;
+    tg:eventDate "2026-06-06"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform .
+
+d:event-0172 a tg:Event ;
+    rdfs:label "Misconfigured permissions led to data exposure — HR Insider" ;
+    tg:timestamp "2026-06-07T04:13:09"^^xsd:dateTime ;
+    tg:eventDate "2026-06-07"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0173 a tg:Event ;
+    rdfs:label "Restricted trading data downloaded by Finance Insider" ;
+    tg:timestamp "2026-06-09T13:52:39"^^xsd:dateTime ;
+    tg:eventDate "2026-06-09"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform .
+
+d:event-0174 a tg:Event ;
+    rdfs:label "Novel exploit chain executed by APT-28 Threat Group" ;
+    tg:timestamp "2026-06-11T01:18:21"^^xsd:dateTime ;
+    tg:eventDate "2026-06-11"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0175 a tg:Event ;
+    rdfs:label "Shadow IT cloud instance discovered — Engineering Insider" ;
+    tg:timestamp "2026-06-11T23:14:10"^^xsd:dateTime ;
+    tg:eventDate "2026-06-11"^^xsd:date ;
+    tg:hasActor d:actor-insider-eng ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0176 a tg:Event ;
+    rdfs:label "Unauthorised access to pre-earnings data by Executive Insider" ;
+    tg:timestamp "2026-06-13T15:58:28"^^xsd:dateTime ;
+    tg:eventDate "2026-06-13"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform .
+
+d:event-0177 a tg:Event ;
+    rdfs:label "Breached credential reuse detected — DarkSide Ransomware Group" ;
+    tg:timestamp "2026-06-14T13:36:36"^^xsd:dateTime ;
+    tg:eventDate "2026-06-14"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0178 a tg:Event ;
+    rdfs:label "Privilege escalation via unpatched service — IT Contractor" ;
+    tg:timestamp "2026-06-16T02:04:10"^^xsd:dateTime ;
+    tg:eventDate "2026-06-16"^^xsd:date ;
+    tg:hasActor d:actor-contractor-it ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0179 a tg:Event ;
+    rdfs:label "Restricted trading data downloaded by Executive Insider" ;
+    tg:timestamp "2026-06-17T03:31:26"^^xsd:dateTime ;
+    tg:eventDate "2026-06-17"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-trading-platform .
+
+d:event-0180 a tg:Event ;
+    rdfs:label "Ransomware lateral movement by Lazarus Group" ;
+    tg:timestamp "2026-06-17T05:01:49"^^xsd:dateTime ;
+    tg:eventDate "2026-06-17"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0181 a tg:Event ;
+    rdfs:label "Zero-day exploit used to compromise perimeter — Lazarus Group" ;
+    tg:timestamp "2026-06-17T07:50:42"^^xsd:dateTime ;
+    tg:eventDate "2026-06-17"^^xsd:date ;
+    tg:hasActor d:actor-extern-lazarus ;
+    tg:hasRisk d:risk-zero-day ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0182 a tg:Event ;
+    rdfs:label "Credential stuffing attack on authentication endpoint — FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-06-18T06:06:23"^^xsd:dateTime ;
+    tg:eventDate "2026-06-18"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-credential-stuffing ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0183 a tg:Event ;
+    rdfs:label "Data uploaded to personal cloud storage by Finance Insider" ;
+    tg:timestamp "2026-06-18T19:13:59"^^xsd:dateTime ;
+    tg:eventDate "2026-06-18"^^xsd:date ;
+    tg:hasActor d:actor-insider-fin ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0184 a tg:Event ;
+    rdfs:label "DNS hijacking detected on external domains — APT-28 Threat Group" ;
+    tg:timestamp "2026-06-20T04:10:08"^^xsd:dateTime ;
+    tg:eventDate "2026-06-20"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-dns-hijack ;
+    tg:impactsAsset d:asset-dns-infra .
+
+d:event-0185 a tg:Event ;
+    rdfs:label "Whaling attack by DarkSide Ransomware Group impersonating CFO" ;
+    tg:timestamp "2026-06-21T18:55:20"^^xsd:dateTime ;
+    tg:eventDate "2026-06-21"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0186 a tg:Event ;
+    rdfs:label "Sensitive data exposed via public link by Executive Insider" ;
+    tg:timestamp "2026-06-21T22:30:15"^^xsd:dateTime ;
+    tg:eventDate "2026-06-21"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-customer-db .
+
+d:event-0187 a tg:Event ;
+    rdfs:label "Database exfiltration via injection attack — FIN7 Cybercrime Group" ;
+    tg:timestamp "2026-06-23T05:51:29"^^xsd:dateTime ;
+    tg:eventDate "2026-06-23"^^xsd:date ;
+    tg:hasActor d:actor-extern-fin7 ;
+    tg:hasRisk d:risk-sql-injection ;
+    tg:impactsAsset d:asset-payment-processor ;
+    tg:impactsAsset d:asset-api-gateway .
+
+d:event-0188 a tg:Event ;
+    rdfs:label "Distributed login attack from Unknown External Actor" ;
+    tg:timestamp "2026-06-24T08:09:28"^^xsd:dateTime ;
+    tg:eventDate "2026-06-24"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-brute-force ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0189 a tg:Event ;
+    rdfs:label "Authentication brute force detected — Unknown External Actor" ;
+    tg:timestamp "2026-06-27T07:31:21"^^xsd:dateTime ;
+    tg:eventDate "2026-06-27"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-brute-force ;
+    tg:impactsAsset d:asset-vpn .
+
+d:event-0190 a tg:Event ;
+    rdfs:label "Unsanctioned SaaS application deployed by HR Insider" ;
+    tg:timestamp "2026-06-27T14:06:02"^^xsd:dateTime ;
+    tg:eventDate "2026-06-27"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-cloud-infra ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0191 a tg:Event ;
+    rdfs:label "Account escalated to domain admin by APT-28 Threat Group" ;
+    tg:timestamp "2026-06-29T02:12:28"^^xsd:dateTime ;
+    tg:eventDate "2026-06-29"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-priv-escalation ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0192 a tg:Event ;
+    rdfs:label "Data uploaded to personal cloud storage by Executive Insider" ;
+    tg:timestamp "2026-06-29T16:38:07"^^xsd:dateTime ;
+    tg:eventDate "2026-06-29"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-source-code .
+
+d:event-0193 a tg:Event ;
+    rdfs:label "Unapproved tool usage detected for HR Insider" ;
+    tg:timestamp "2026-07-01T21:07:36"^^xsd:dateTime ;
+    tg:eventDate "2026-07-01"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0194 a tg:Event ;
+    rdfs:label "Material non-public information accessed by Executive Insider" ;
+    tg:timestamp "2026-07-03T00:02:46"^^xsd:dateTime ;
+    tg:eventDate "2026-07-03"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-insider-trading ;
+    tg:impactsAsset d:asset-treasury .
+
+d:event-0195 a tg:Event ;
+    rdfs:label "Cloud storage bucket left publicly accessible — Managed Service Provider" ;
+    tg:timestamp "2026-07-03T02:16:39"^^xsd:dateTime ;
+    tg:eventDate "2026-07-03"^^xsd:date ;
+    tg:hasActor d:actor-contractor-msp ;
+    tg:hasRisk d:risk-cloud-misconfig ;
+    tg:impactsAsset d:asset-customer-db ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0196 a tg:Event ;
+    rdfs:label "Ransomware payload delivered by DarkSide Ransomware Group" ;
+    tg:timestamp "2026-07-05T20:56:10"^^xsd:dateTime ;
+    tg:eventDate "2026-07-05"^^xsd:date ;
+    tg:hasActor d:actor-extern-darkside ;
+    tg:hasRisk d:risk-ransomware ;
+    tg:impactsAsset d:asset-backup-system .
+
+d:event-0197 a tg:Event ;
+    rdfs:label "Unapproved tool usage detected for Executive Insider" ;
+    tg:timestamp "2026-07-08T13:33:11"^^xsd:dateTime ;
+    tg:eventDate "2026-07-08"^^xsd:date ;
+    tg:hasActor d:actor-insider-exec ;
+    tg:hasRisk d:risk-shadow-it ;
+    tg:impactsAsset d:asset-cloud-infra .
+
+d:event-0198 a tg:Event ;
+    rdfs:label "Unencrypted PII transmitted by HR Insider" ;
+    tg:timestamp "2026-07-08T23:02:53"^^xsd:dateTime ;
+    tg:eventDate "2026-07-08"^^xsd:date ;
+    tg:hasActor d:actor-insider-hr ;
+    tg:hasRisk d:risk-data-leak ;
+    tg:impactsAsset d:asset-hr-records .
+
+d:event-0199 a tg:Event ;
+    rdfs:label "Credential harvesting email from APT-28 Threat Group detected" ;
+    tg:timestamp "2026-07-11T07:27:54"^^xsd:dateTime ;
+    tg:eventDate "2026-07-11"^^xsd:date ;
+    tg:hasActor d:actor-extern-apt28 ;
+    tg:hasRisk d:risk-phishing ;
+    tg:impactsAsset d:asset-vpn ;
+    tg:impactsAsset d:asset-email-system .
+
+d:event-0200 a tg:Event ;
+    rdfs:label "Authentication brute force detected — Unknown External Actor" ;
+    tg:timestamp "2026-07-12T03:30:46"^^xsd:dateTime ;
+    tg:eventDate "2026-07-12"^^xsd:date ;
+    tg:hasActor d:actor-extern-unknown ;
+    tg:hasRisk d:risk-brute-force ;
+    tg:impactsAsset d:asset-vpn .
+
+### ==========================================
+###   PROCESSES & STEPS
+### ==========================================
+
+d:process-0001 a tg:Process ;
+    rdfs:label "IR-0001: Response to Malicious dependency injected by Lazarus Group" ;
+    tg:mitigatesEvent d:event-0005 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0001-step-01 ;
+    tg:hasStep d:process-0001-step-02 ;
+    tg:hasStep d:process-0001-step-03 ;
+    tg:hasStep d:process-0001-step-04 ;
+    tg:hasStep d:process-0001-step-05 .
+
+d:process-0001-step-01 a tg:ProcessStep ;
+    rdfs:label "Quarantine compromised packages and artifacts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0001-step-02 a tg:ProcessStep ;
+    rdfs:label "Audit dependency tree for additional exposure" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0001-step-03 a tg:ProcessStep ;
+    rdfs:label "Roll back to last known-good build" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0001-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify downstream consumers" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0001-step-05 a tg:ProcessStep ;
+    rdfs:label "Harden build pipeline controls" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0002 a tg:Process ;
+    rdfs:label "IR-0002: Response to Unpatched vulnerability exploited by APT-28 Threat Group" ;
+    tg:mitigatesEvent d:event-0007 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0002-step-01 ;
+    tg:hasStep d:process-0002-step-02 ;
+    tg:hasStep d:process-0002-step-03 ;
+    tg:hasStep d:process-0002-step-04 ;
+    tg:hasStep d:process-0002-step-05 .
+
+d:process-0002-step-01 a tg:ProcessStep ;
+    rdfs:label "Activate emergency patching protocol" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0002-step-02 a tg:ProcessStep ;
+    rdfs:label "Deploy compensating network controls" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0002-step-03 a tg:ProcessStep ;
+    rdfs:label "Hunt for indicators of compromise across estate" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0002-step-04 a tg:ProcessStep ;
+    rdfs:label "Engage vendor for patch ETA" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0002-step-05 a tg:ProcessStep ;
+    rdfs:label "Validate patch deployment and close" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0003 a tg:Process ;
+    rdfs:label "IR-0003: Response to Malicious dependency injected by Cloud Service Vendor" ;
+    tg:mitigatesEvent d:event-0010 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0003-step-01 ;
+    tg:hasStep d:process-0003-step-02 ;
+    tg:hasStep d:process-0003-step-03 ;
+    tg:hasStep d:process-0003-step-04 ;
+    tg:hasStep d:process-0003-step-05 .
+
+d:process-0003-step-01 a tg:ProcessStep ;
+    rdfs:label "Quarantine compromised packages and artifacts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0003-step-02 a tg:ProcessStep ;
+    rdfs:label "Audit dependency tree for additional exposure" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0003-step-03 a tg:ProcessStep ;
+    rdfs:label "Roll back to last known-good build" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0003-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify downstream consumers" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0003-step-05 a tg:ProcessStep ;
+    rdfs:label "Harden build pipeline controls" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0004 a tg:Process ;
+    rdfs:label "IR-0004: Response to Ransom note deployed across network by Lazarus Group" ;
+    tg:mitigatesEvent d:event-0014 ;
+    tg:invokedBy "SOC Lead" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "SOC Lead" ;
+    tg:hasStep d:process-0004-step-01 ;
+    tg:hasStep d:process-0004-step-02 ;
+    tg:hasStep d:process-0004-step-03 ;
+    tg:hasStep d:process-0004-step-04 ;
+    tg:hasStep d:process-0004-step-05 ;
+    tg:hasStep d:process-0004-step-06 .
+
+d:process-0004-step-01 a tg:ProcessStep ;
+    rdfs:label "Isolate affected hosts from the network" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0004-step-02 a tg:ProcessStep ;
+    rdfs:label "Capture forensic disk images" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0004-step-03 a tg:ProcessStep ;
+    rdfs:label "Identify ransomware variant and IOCs" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0004-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify legal and executive leadership" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0004-step-05 a tg:ProcessStep ;
+    rdfs:label "Restore systems from verified backups" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0004-step-06 a tg:ProcessStep ;
+    rdfs:label "Conduct post-incident review" ;
+    tg:stepNumber 6 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0005 a tg:Process ;
+    rdfs:label "IR-0005: Response to Ransomware payload delivered by DarkSide Ransomware Group" ;
+    tg:mitigatesEvent d:event-0018 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0005-step-01 ;
+    tg:hasStep d:process-0005-step-02 ;
+    tg:hasStep d:process-0005-step-03 ;
+    tg:hasStep d:process-0005-step-04 ;
+    tg:hasStep d:process-0005-step-05 ;
+    tg:hasStep d:process-0005-step-06 .
+
+d:process-0005-step-01 a tg:ProcessStep ;
+    rdfs:label "Isolate affected hosts from the network" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0005-step-02 a tg:ProcessStep ;
+    rdfs:label "Capture forensic disk images" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0005-step-03 a tg:ProcessStep ;
+    rdfs:label "Identify ransomware variant and IOCs" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0005-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify legal and executive leadership" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0005-step-05 a tg:ProcessStep ;
+    rdfs:label "Restore systems from verified backups" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0005-step-06 a tg:ProcessStep ;
+    rdfs:label "Conduct post-incident review" ;
+    tg:stepNumber 6 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0006 a tg:Process ;
+    rdfs:label "IR-0006: Response to Unauthorised access to pre-earnings data by Finance Insider" ;
+    tg:mitigatesEvent d:event-0019 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0006-step-01 ;
+    tg:hasStep d:process-0006-step-02 ;
+    tg:hasStep d:process-0006-step-03 ;
+    tg:hasStep d:process-0006-step-04 ;
+    tg:hasStep d:process-0006-step-05 .
+
+d:process-0006-step-01 a tg:ProcessStep ;
+    rdfs:label "Preserve access logs and query history" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0006-step-02 a tg:ProcessStep ;
+    rdfs:label "Restrict subject's system access" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0006-step-03 a tg:ProcessStep ;
+    rdfs:label "Brief legal and compliance on findings" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0006-step-04 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR for disciplinary review" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0006-step-05 a tg:ProcessStep ;
+    rdfs:label "File regulatory disclosure if required" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "External Counsel" .
+
+d:process-0007 a tg:Process ;
+    rdfs:label "IR-0007: Response to Unauthorised bonus disbursement initiated by Finance Insider" ;
+    tg:mitigatesEvent d:event-0021 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0007-step-01 ;
+    tg:hasStep d:process-0007-step-02 ;
+    tg:hasStep d:process-0007-step-03 ;
+    tg:hasStep d:process-0007-step-04 .
+
+d:process-0007-step-01 a tg:ProcessStep ;
+    rdfs:label "Freeze affected payroll accounts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0007-step-02 a tg:ProcessStep ;
+    rdfs:label "Review payroll change audit trail" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0007-step-03 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR and legal" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0007-step-04 a tg:ProcessStep ;
+    rdfs:label "Recover diverted funds" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0008 a tg:Process ;
+    rdfs:label "IR-0008: Response to File encryption detected on critical systems — DarkSide Rans" ;
+    tg:mitigatesEvent d:event-0022 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0008-step-01 ;
+    tg:hasStep d:process-0008-step-02 ;
+    tg:hasStep d:process-0008-step-03 ;
+    tg:hasStep d:process-0008-step-04 ;
+    tg:hasStep d:process-0008-step-05 ;
+    tg:hasStep d:process-0008-step-06 .
+
+d:process-0008-step-01 a tg:ProcessStep ;
+    rdfs:label "Isolate affected hosts from the network" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0008-step-02 a tg:ProcessStep ;
+    rdfs:label "Capture forensic disk images" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0008-step-03 a tg:ProcessStep ;
+    rdfs:label "Identify ransomware variant and IOCs" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0008-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify legal and executive leadership" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0008-step-05 a tg:ProcessStep ;
+    rdfs:label "Restore systems from verified backups" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0008-step-06 a tg:ProcessStep ;
+    rdfs:label "Conduct post-incident review" ;
+    tg:stepNumber 6 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0009 a tg:Process ;
+    rdfs:label "IR-0009: Response to Material non-public information accessed by Finance Insider" ;
+    tg:mitigatesEvent d:event-0024 ;
+    tg:invokedBy "SOC Lead" ;
+    tg:processStatus "open" ;
+    tg:assignedTo "SOC Lead" ;
+    tg:hasStep d:process-0009-step-01 ;
+    tg:hasStep d:process-0009-step-02 ;
+    tg:hasStep d:process-0009-step-03 ;
+    tg:hasStep d:process-0009-step-04 ;
+    tg:hasStep d:process-0009-step-05 .
+
+d:process-0009-step-01 a tg:ProcessStep ;
+    rdfs:label "Preserve access logs and query history" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0009-step-02 a tg:ProcessStep ;
+    rdfs:label "Restrict subject's system access" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0009-step-03 a tg:ProcessStep ;
+    rdfs:label "Brief legal and compliance on findings" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0009-step-04 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR for disciplinary review" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0009-step-05 a tg:ProcessStep ;
+    rdfs:label "File regulatory disclosure if required" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0010 a tg:Process ;
+    rdfs:label "IR-0010: Response to Compromised package detected in build pipeline — Managed Ser" ;
+    tg:mitigatesEvent d:event-0026 ;
+    tg:invokedBy "SOC Lead" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "SOC Lead" ;
+    tg:hasStep d:process-0010-step-01 ;
+    tg:hasStep d:process-0010-step-02 ;
+    tg:hasStep d:process-0010-step-03 ;
+    tg:hasStep d:process-0010-step-04 ;
+    tg:hasStep d:process-0010-step-05 .
+
+d:process-0010-step-01 a tg:ProcessStep ;
+    rdfs:label "Quarantine compromised packages and artifacts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0010-step-02 a tg:ProcessStep ;
+    rdfs:label "Audit dependency tree for additional exposure" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0010-step-03 a tg:ProcessStep ;
+    rdfs:label "Roll back to last known-good build" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0010-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify downstream consumers" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0010-step-05 a tg:ProcessStep ;
+    rdfs:label "Harden build pipeline controls" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0011 a tg:Process ;
+    rdfs:label "IR-0011: Response to Ransomware lateral movement by DarkSide Ransomware Group" ;
+    tg:mitigatesEvent d:event-0028 ;
+    tg:invokedBy "Incident Commander" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "Incident Commander" ;
+    tg:hasStep d:process-0011-step-01 ;
+    tg:hasStep d:process-0011-step-02 ;
+    tg:hasStep d:process-0011-step-03 ;
+    tg:hasStep d:process-0011-step-04 ;
+    tg:hasStep d:process-0011-step-05 ;
+    tg:hasStep d:process-0011-step-06 .
+
+d:process-0011-step-01 a tg:ProcessStep ;
+    rdfs:label "Isolate affected hosts from the network" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0011-step-02 a tg:ProcessStep ;
+    rdfs:label "Capture forensic disk images" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0011-step-03 a tg:ProcessStep ;
+    rdfs:label "Identify ransomware variant and IOCs" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0011-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify legal and executive leadership" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0011-step-05 a tg:ProcessStep ;
+    rdfs:label "Restore systems from verified backups" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0011-step-06 a tg:ProcessStep ;
+    rdfs:label "Conduct post-incident review" ;
+    tg:stepNumber 6 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0012 a tg:Process ;
+    rdfs:label "IR-0012: Response to Novel exploit chain executed by APT-28 Threat Group" ;
+    tg:mitigatesEvent d:event-0030 ;
+    tg:invokedBy "VP Engineering" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "VP Engineering" ;
+    tg:hasStep d:process-0012-step-01 ;
+    tg:hasStep d:process-0012-step-02 ;
+    tg:hasStep d:process-0012-step-03 ;
+    tg:hasStep d:process-0012-step-04 ;
+    tg:hasStep d:process-0012-step-05 .
+
+d:process-0012-step-01 a tg:ProcessStep ;
+    rdfs:label "Activate emergency patching protocol" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0012-step-02 a tg:ProcessStep ;
+    rdfs:label "Deploy compensating network controls" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0012-step-03 a tg:ProcessStep ;
+    rdfs:label "Hunt for indicators of compromise across estate" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0012-step-04 a tg:ProcessStep ;
+    rdfs:label "Engage vendor for patch ETA" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0012-step-05 a tg:ProcessStep ;
+    rdfs:label "Validate patch deployment and close" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0013 a tg:Process ;
+    rdfs:label "IR-0013: Response to Privilege escalation via unpatched service — Managed Service" ;
+    tg:mitigatesEvent d:event-0033 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0013-step-01 ;
+    tg:hasStep d:process-0013-step-02 ;
+    tg:hasStep d:process-0013-step-03 ;
+    tg:hasStep d:process-0013-step-04 .
+
+d:process-0013-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0013-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0013-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0013-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0014 a tg:Process ;
+    rdfs:label "IR-0014: Response to Ransomware lateral movement by DarkSide Ransomware Group" ;
+    tg:mitigatesEvent d:event-0034 ;
+    tg:invokedBy "Incident Commander" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "Incident Commander" ;
+    tg:hasStep d:process-0014-step-01 ;
+    tg:hasStep d:process-0014-step-02 ;
+    tg:hasStep d:process-0014-step-03 ;
+    tg:hasStep d:process-0014-step-04 ;
+    tg:hasStep d:process-0014-step-05 ;
+    tg:hasStep d:process-0014-step-06 .
+
+d:process-0014-step-01 a tg:ProcessStep ;
+    rdfs:label "Isolate affected hosts from the network" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0014-step-02 a tg:ProcessStep ;
+    rdfs:label "Capture forensic disk images" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0014-step-03 a tg:ProcessStep ;
+    rdfs:label "Identify ransomware variant and IOCs" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0014-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify legal and executive leadership" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0014-step-05 a tg:ProcessStep ;
+    rdfs:label "Restore systems from verified backups" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0014-step-06 a tg:ProcessStep ;
+    rdfs:label "Conduct post-incident review" ;
+    tg:stepNumber 6 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0015 a tg:Process ;
+    rdfs:label "IR-0015: Response to Unauthorised bonus disbursement initiated by Finance Insider" ;
+    tg:mitigatesEvent d:event-0036 ;
+    tg:invokedBy "VP Engineering" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "VP Engineering" ;
+    tg:hasStep d:process-0015-step-01 ;
+    tg:hasStep d:process-0015-step-02 ;
+    tg:hasStep d:process-0015-step-03 ;
+    tg:hasStep d:process-0015-step-04 .
+
+d:process-0015-step-01 a tg:ProcessStep ;
+    rdfs:label "Freeze affected payroll accounts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0015-step-02 a tg:ProcessStep ;
+    rdfs:label "Review payroll change audit trail" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0015-step-03 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR and legal" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0015-step-04 a tg:ProcessStep ;
+    rdfs:label "Recover diverted funds" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0016 a tg:Process ;
+    rdfs:label "IR-0016: Response to Ransom note deployed across network by DarkSide Ransomware G" ;
+    tg:mitigatesEvent d:event-0043 ;
+    tg:invokedBy "Incident Commander" ;
+    tg:processStatus "open" ;
+    tg:assignedTo "Incident Commander" ;
+    tg:hasStep d:process-0016-step-01 ;
+    tg:hasStep d:process-0016-step-02 ;
+    tg:hasStep d:process-0016-step-03 ;
+    tg:hasStep d:process-0016-step-04 ;
+    tg:hasStep d:process-0016-step-05 ;
+    tg:hasStep d:process-0016-step-06 .
+
+d:process-0016-step-01 a tg:ProcessStep ;
+    rdfs:label "Isolate affected hosts from the network" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0016-step-02 a tg:ProcessStep ;
+    rdfs:label "Capture forensic disk images" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0016-step-03 a tg:ProcessStep ;
+    rdfs:label "Identify ransomware variant and IOCs" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0016-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify legal and executive leadership" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0016-step-05 a tg:ProcessStep ;
+    rdfs:label "Restore systems from verified backups" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0016-step-06 a tg:ProcessStep ;
+    rdfs:label "Conduct post-incident review" ;
+    tg:stepNumber 6 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0017 a tg:Process ;
+    rdfs:label "IR-0017: Response to Payroll diversion detected — Finance Insider modified paymen" ;
+    tg:mitigatesEvent d:event-0047 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0017-step-01 ;
+    tg:hasStep d:process-0017-step-02 ;
+    tg:hasStep d:process-0017-step-03 ;
+    tg:hasStep d:process-0017-step-04 .
+
+d:process-0017-step-01 a tg:ProcessStep ;
+    rdfs:label "Freeze affected payroll accounts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0017-step-02 a tg:ProcessStep ;
+    rdfs:label "Review payroll change audit trail" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0017-step-03 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR and legal" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0017-step-04 a tg:ProcessStep ;
+    rdfs:label "Recover diverted funds" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0018 a tg:Process ;
+    rdfs:label "IR-0018: Response to Unauthorised access to pre-earnings data by Executive Inside" ;
+    tg:mitigatesEvent d:event-0048 ;
+    tg:invokedBy "Incident Commander" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Incident Commander" ;
+    tg:hasStep d:process-0018-step-01 ;
+    tg:hasStep d:process-0018-step-02 ;
+    tg:hasStep d:process-0018-step-03 ;
+    tg:hasStep d:process-0018-step-04 ;
+    tg:hasStep d:process-0018-step-05 .
+
+d:process-0018-step-01 a tg:ProcessStep ;
+    rdfs:label "Preserve access logs and query history" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0018-step-02 a tg:ProcessStep ;
+    rdfs:label "Restrict subject's system access" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0018-step-03 a tg:ProcessStep ;
+    rdfs:label "Brief legal and compliance on findings" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0018-step-04 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR for disciplinary review" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0018-step-05 a tg:ProcessStep ;
+    rdfs:label "File regulatory disclosure if required" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0019 a tg:Process ;
+    rdfs:label "IR-0019: Response to Third-party library backdoor introduced by Unknown External " ;
+    tg:mitigatesEvent d:event-0049 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0019-step-01 ;
+    tg:hasStep d:process-0019-step-02 ;
+    tg:hasStep d:process-0019-step-03 ;
+    tg:hasStep d:process-0019-step-04 ;
+    tg:hasStep d:process-0019-step-05 .
+
+d:process-0019-step-01 a tg:ProcessStep ;
+    rdfs:label "Quarantine compromised packages and artifacts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0019-step-02 a tg:ProcessStep ;
+    rdfs:label "Audit dependency tree for additional exposure" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0019-step-03 a tg:ProcessStep ;
+    rdfs:label "Roll back to last known-good build" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0019-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify downstream consumers" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0019-step-05 a tg:ProcessStep ;
+    rdfs:label "Harden build pipeline controls" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0020 a tg:Process ;
+    rdfs:label "IR-0020: Response to Material non-public information accessed by Finance Insider" ;
+    tg:mitigatesEvent d:event-0050 ;
+    tg:invokedBy "VP Engineering" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "VP Engineering" ;
+    tg:hasStep d:process-0020-step-01 ;
+    tg:hasStep d:process-0020-step-02 ;
+    tg:hasStep d:process-0020-step-03 ;
+    tg:hasStep d:process-0020-step-04 ;
+    tg:hasStep d:process-0020-step-05 .
+
+d:process-0020-step-01 a tg:ProcessStep ;
+    rdfs:label "Preserve access logs and query history" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0020-step-02 a tg:ProcessStep ;
+    rdfs:label "Restrict subject's system access" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0020-step-03 a tg:ProcessStep ;
+    rdfs:label "Brief legal and compliance on findings" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0020-step-04 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR for disciplinary review" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0020-step-05 a tg:ProcessStep ;
+    rdfs:label "File regulatory disclosure if required" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0021 a tg:Process ;
+    rdfs:label "IR-0021: Response to Account escalated to domain admin by IT Contractor" ;
+    tg:mitigatesEvent d:event-0059 ;
+    tg:invokedBy "VP Engineering" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "VP Engineering" ;
+    tg:hasStep d:process-0021-step-01 ;
+    tg:hasStep d:process-0021-step-02 ;
+    tg:hasStep d:process-0021-step-03 ;
+    tg:hasStep d:process-0021-step-04 .
+
+d:process-0021-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0021-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0021-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0021-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0022 a tg:Process ;
+    rdfs:label "IR-0022: Response to Unauthorised role elevation detected for APT-28 Threat Group" ;
+    tg:mitigatesEvent d:event-0063 ;
+    tg:invokedBy "SOC Lead" ;
+    tg:processStatus "open" ;
+    tg:assignedTo "SOC Lead" ;
+    tg:hasStep d:process-0022-step-01 ;
+    tg:hasStep d:process-0022-step-02 ;
+    tg:hasStep d:process-0022-step-03 ;
+    tg:hasStep d:process-0022-step-04 .
+
+d:process-0022-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0022-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0022-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0022-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0023 a tg:Process ;
+    rdfs:label "IR-0023: Response to Kernel exploit used for privilege escalation by Managed Serv" ;
+    tg:mitigatesEvent d:event-0066 ;
+    tg:invokedBy "SOC Lead" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "SOC Lead" ;
+    tg:hasStep d:process-0023-step-01 ;
+    tg:hasStep d:process-0023-step-02 ;
+    tg:hasStep d:process-0023-step-03 ;
+    tg:hasStep d:process-0023-step-04 .
+
+d:process-0023-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0023-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0023-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0023-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0024 a tg:Process ;
+    rdfs:label "IR-0024: Response to Zero-day exploit used to compromise perimeter — APT-28 Threa" ;
+    tg:mitigatesEvent d:event-0067 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0024-step-01 ;
+    tg:hasStep d:process-0024-step-02 ;
+    tg:hasStep d:process-0024-step-03 ;
+    tg:hasStep d:process-0024-step-04 ;
+    tg:hasStep d:process-0024-step-05 .
+
+d:process-0024-step-01 a tg:ProcessStep ;
+    rdfs:label "Activate emergency patching protocol" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0024-step-02 a tg:ProcessStep ;
+    rdfs:label "Deploy compensating network controls" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0024-step-03 a tg:ProcessStep ;
+    rdfs:label "Hunt for indicators of compromise across estate" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0024-step-04 a tg:ProcessStep ;
+    rdfs:label "Engage vendor for patch ETA" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0024-step-05 a tg:ProcessStep ;
+    rdfs:label "Validate patch deployment and close" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0025 a tg:Process ;
+    rdfs:label "IR-0025: Response to Account escalated to domain admin by APT-28 Threat Group" ;
+    tg:mitigatesEvent d:event-0069 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0025-step-01 ;
+    tg:hasStep d:process-0025-step-02 ;
+    tg:hasStep d:process-0025-step-03 ;
+    tg:hasStep d:process-0025-step-04 .
+
+d:process-0025-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0025-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0025-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0025-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0026 a tg:Process ;
+    rdfs:label "IR-0026: Response to Unauthorised bonus disbursement initiated by HR Insider" ;
+    tg:mitigatesEvent d:event-0077 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0026-step-01 ;
+    tg:hasStep d:process-0026-step-02 ;
+    tg:hasStep d:process-0026-step-03 ;
+    tg:hasStep d:process-0026-step-04 .
+
+d:process-0026-step-01 a tg:ProcessStep ;
+    rdfs:label "Freeze affected payroll accounts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0026-step-02 a tg:ProcessStep ;
+    rdfs:label "Review payroll change audit trail" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0026-step-03 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR and legal" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0026-step-04 a tg:ProcessStep ;
+    rdfs:label "Recover diverted funds" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0027 a tg:Process ;
+    rdfs:label "IR-0027: Response to Ransom note deployed across network by DarkSide Ransomware G" ;
+    tg:mitigatesEvent d:event-0083 ;
+    tg:invokedBy "Incident Commander" ;
+    tg:processStatus "open" ;
+    tg:assignedTo "Incident Commander" ;
+    tg:hasStep d:process-0027-step-01 ;
+    tg:hasStep d:process-0027-step-02 ;
+    tg:hasStep d:process-0027-step-03 ;
+    tg:hasStep d:process-0027-step-04 ;
+    tg:hasStep d:process-0027-step-05 ;
+    tg:hasStep d:process-0027-step-06 .
+
+d:process-0027-step-01 a tg:ProcessStep ;
+    rdfs:label "Isolate affected hosts from the network" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0027-step-02 a tg:ProcessStep ;
+    rdfs:label "Capture forensic disk images" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0027-step-03 a tg:ProcessStep ;
+    rdfs:label "Identify ransomware variant and IOCs" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0027-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify legal and executive leadership" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0027-step-05 a tg:ProcessStep ;
+    rdfs:label "Restore systems from verified backups" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0027-step-06 a tg:ProcessStep ;
+    rdfs:label "Conduct post-incident review" ;
+    tg:stepNumber 6 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0028 a tg:Process ;
+    rdfs:label "IR-0028: Response to Compromised package detected in build pipeline — Unknown Ext" ;
+    tg:mitigatesEvent d:event-0084 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0028-step-01 ;
+    tg:hasStep d:process-0028-step-02 ;
+    tg:hasStep d:process-0028-step-03 ;
+    tg:hasStep d:process-0028-step-04 ;
+    tg:hasStep d:process-0028-step-05 .
+
+d:process-0028-step-01 a tg:ProcessStep ;
+    rdfs:label "Quarantine compromised packages and artifacts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0028-step-02 a tg:ProcessStep ;
+    rdfs:label "Audit dependency tree for additional exposure" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0028-step-03 a tg:ProcessStep ;
+    rdfs:label "Roll back to last known-good build" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0028-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify downstream consumers" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0028-step-05 a tg:ProcessStep ;
+    rdfs:label "Harden build pipeline controls" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0029 a tg:Process ;
+    rdfs:label "IR-0029: Response to Zero-day exploit used to compromise perimeter — APT-28 Threa" ;
+    tg:mitigatesEvent d:event-0085 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0029-step-01 ;
+    tg:hasStep d:process-0029-step-02 ;
+    tg:hasStep d:process-0029-step-03 ;
+    tg:hasStep d:process-0029-step-04 ;
+    tg:hasStep d:process-0029-step-05 .
+
+d:process-0029-step-01 a tg:ProcessStep ;
+    rdfs:label "Activate emergency patching protocol" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0029-step-02 a tg:ProcessStep ;
+    rdfs:label "Deploy compensating network controls" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0029-step-03 a tg:ProcessStep ;
+    rdfs:label "Hunt for indicators of compromise across estate" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0029-step-04 a tg:ProcessStep ;
+    rdfs:label "Engage vendor for patch ETA" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0029-step-05 a tg:ProcessStep ;
+    rdfs:label "Validate patch deployment and close" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0030 a tg:Process ;
+    rdfs:label "IR-0030: Response to Kernel exploit used for privilege escalation by APT-28 Threa" ;
+    tg:mitigatesEvent d:event-0088 ;
+    tg:invokedBy "SOC Lead" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "SOC Lead" ;
+    tg:hasStep d:process-0030-step-01 ;
+    tg:hasStep d:process-0030-step-02 ;
+    tg:hasStep d:process-0030-step-03 ;
+    tg:hasStep d:process-0030-step-04 .
+
+d:process-0030-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0030-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0030-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0030-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0031 a tg:Process ;
+    rdfs:label "IR-0031: Response to Third-party library backdoor introduced by Lazarus Group" ;
+    tg:mitigatesEvent d:event-0095 ;
+    tg:invokedBy "SOC Lead" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "SOC Lead" ;
+    tg:hasStep d:process-0031-step-01 ;
+    tg:hasStep d:process-0031-step-02 ;
+    tg:hasStep d:process-0031-step-03 ;
+    tg:hasStep d:process-0031-step-04 ;
+    tg:hasStep d:process-0031-step-05 .
+
+d:process-0031-step-01 a tg:ProcessStep ;
+    rdfs:label "Quarantine compromised packages and artifacts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0031-step-02 a tg:ProcessStep ;
+    rdfs:label "Audit dependency tree for additional exposure" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0031-step-03 a tg:ProcessStep ;
+    rdfs:label "Roll back to last known-good build" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0031-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify downstream consumers" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0031-step-05 a tg:ProcessStep ;
+    rdfs:label "Harden build pipeline controls" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0032 a tg:Process ;
+    rdfs:label "IR-0032: Response to Unauthorised role elevation detected for APT-28 Threat Group" ;
+    tg:mitigatesEvent d:event-0097 ;
+    tg:invokedBy "SOC Lead" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "SOC Lead" ;
+    tg:hasStep d:process-0032-step-01 ;
+    tg:hasStep d:process-0032-step-02 ;
+    tg:hasStep d:process-0032-step-03 ;
+    tg:hasStep d:process-0032-step-04 .
+
+d:process-0032-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0032-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0032-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0032-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0033 a tg:Process ;
+    rdfs:label "IR-0033: Response to Payroll diversion detected — HR Insider modified payment rou" ;
+    tg:mitigatesEvent d:event-0099 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0033-step-01 ;
+    tg:hasStep d:process-0033-step-02 ;
+    tg:hasStep d:process-0033-step-03 ;
+    tg:hasStep d:process-0033-step-04 .
+
+d:process-0033-step-01 a tg:ProcessStep ;
+    rdfs:label "Freeze affected payroll accounts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0033-step-02 a tg:ProcessStep ;
+    rdfs:label "Review payroll change audit trail" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0033-step-03 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR and legal" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0033-step-04 a tg:ProcessStep ;
+    rdfs:label "Recover diverted funds" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "External Counsel" .
+
+d:process-0034 a tg:Process ;
+    rdfs:label "IR-0034: Response to Ransomware payload delivered by Lazarus Group" ;
+    tg:mitigatesEvent d:event-0104 ;
+    tg:invokedBy "VP Engineering" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "VP Engineering" ;
+    tg:hasStep d:process-0034-step-01 ;
+    tg:hasStep d:process-0034-step-02 ;
+    tg:hasStep d:process-0034-step-03 ;
+    tg:hasStep d:process-0034-step-04 ;
+    tg:hasStep d:process-0034-step-05 ;
+    tg:hasStep d:process-0034-step-06 .
+
+d:process-0034-step-01 a tg:ProcessStep ;
+    rdfs:label "Isolate affected hosts from the network" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0034-step-02 a tg:ProcessStep ;
+    rdfs:label "Capture forensic disk images" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0034-step-03 a tg:ProcessStep ;
+    rdfs:label "Identify ransomware variant and IOCs" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0034-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify legal and executive leadership" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0034-step-05 a tg:ProcessStep ;
+    rdfs:label "Restore systems from verified backups" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0034-step-06 a tg:ProcessStep ;
+    rdfs:label "Conduct post-incident review" ;
+    tg:stepNumber 6 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0035 a tg:Process ;
+    rdfs:label "IR-0035: Response to Unauthorised access to pre-earnings data by Executive Inside" ;
+    tg:mitigatesEvent d:event-0105 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "open" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0035-step-01 ;
+    tg:hasStep d:process-0035-step-02 ;
+    tg:hasStep d:process-0035-step-03 ;
+    tg:hasStep d:process-0035-step-04 ;
+    tg:hasStep d:process-0035-step-05 .
+
+d:process-0035-step-01 a tg:ProcessStep ;
+    rdfs:label "Preserve access logs and query history" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0035-step-02 a tg:ProcessStep ;
+    rdfs:label "Restrict subject's system access" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0035-step-03 a tg:ProcessStep ;
+    rdfs:label "Brief legal and compliance on findings" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0035-step-04 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR for disciplinary review" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0035-step-05 a tg:ProcessStep ;
+    rdfs:label "File regulatory disclosure if required" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "External Counsel" .
+
+d:process-0036 a tg:Process ;
+    rdfs:label "IR-0036: Response to Unauthorised role elevation detected for IT Contractor" ;
+    tg:mitigatesEvent d:event-0112 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0036-step-01 ;
+    tg:hasStep d:process-0036-step-02 ;
+    tg:hasStep d:process-0036-step-03 ;
+    tg:hasStep d:process-0036-step-04 .
+
+d:process-0036-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0036-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0036-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0036-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0037 a tg:Process ;
+    rdfs:label "IR-0037: Response to Suspicious payroll amendment flagged for Finance Insider" ;
+    tg:mitigatesEvent d:event-0113 ;
+    tg:invokedBy "SOC Lead" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "SOC Lead" ;
+    tg:hasStep d:process-0037-step-01 ;
+    tg:hasStep d:process-0037-step-02 ;
+    tg:hasStep d:process-0037-step-03 ;
+    tg:hasStep d:process-0037-step-04 .
+
+d:process-0037-step-01 a tg:ProcessStep ;
+    rdfs:label "Freeze affected payroll accounts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0037-step-02 a tg:ProcessStep ;
+    rdfs:label "Review payroll change audit trail" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0037-step-03 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR and legal" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0037-step-04 a tg:ProcessStep ;
+    rdfs:label "Recover diverted funds" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0038 a tg:Process ;
+    rdfs:label "IR-0038: Response to Zero-day exploit used to compromise perimeter — APT-28 Threa" ;
+    tg:mitigatesEvent d:event-0115 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "open" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0038-step-01 ;
+    tg:hasStep d:process-0038-step-02 ;
+    tg:hasStep d:process-0038-step-03 ;
+    tg:hasStep d:process-0038-step-04 ;
+    tg:hasStep d:process-0038-step-05 .
+
+d:process-0038-step-01 a tg:ProcessStep ;
+    rdfs:label "Activate emergency patching protocol" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0038-step-02 a tg:ProcessStep ;
+    rdfs:label "Deploy compensating network controls" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0038-step-03 a tg:ProcessStep ;
+    rdfs:label "Hunt for indicators of compromise across estate" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0038-step-04 a tg:ProcessStep ;
+    rdfs:label "Engage vendor for patch ETA" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0038-step-05 a tg:ProcessStep ;
+    rdfs:label "Validate patch deployment and close" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0039 a tg:Process ;
+    rdfs:label "IR-0039: Response to Unauthorised access to pre-earnings data by Executive Inside" ;
+    tg:mitigatesEvent d:event-0119 ;
+    tg:invokedBy "Incident Commander" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Incident Commander" ;
+    tg:hasStep d:process-0039-step-01 ;
+    tg:hasStep d:process-0039-step-02 ;
+    tg:hasStep d:process-0039-step-03 ;
+    tg:hasStep d:process-0039-step-04 ;
+    tg:hasStep d:process-0039-step-05 .
+
+d:process-0039-step-01 a tg:ProcessStep ;
+    rdfs:label "Preserve access logs and query history" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0039-step-02 a tg:ProcessStep ;
+    rdfs:label "Restrict subject's system access" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0039-step-03 a tg:ProcessStep ;
+    rdfs:label "Brief legal and compliance on findings" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0039-step-04 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR for disciplinary review" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0039-step-05 a tg:ProcessStep ;
+    rdfs:label "File regulatory disclosure if required" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0040 a tg:Process ;
+    rdfs:label "IR-0040: Response to File encryption detected on critical systems — DarkSide Rans" ;
+    tg:mitigatesEvent d:event-0128 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0040-step-01 ;
+    tg:hasStep d:process-0040-step-02 ;
+    tg:hasStep d:process-0040-step-03 ;
+    tg:hasStep d:process-0040-step-04 ;
+    tg:hasStep d:process-0040-step-05 ;
+    tg:hasStep d:process-0040-step-06 .
+
+d:process-0040-step-01 a tg:ProcessStep ;
+    rdfs:label "Isolate affected hosts from the network" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0040-step-02 a tg:ProcessStep ;
+    rdfs:label "Capture forensic disk images" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0040-step-03 a tg:ProcessStep ;
+    rdfs:label "Identify ransomware variant and IOCs" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0040-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify legal and executive leadership" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0040-step-05 a tg:ProcessStep ;
+    rdfs:label "Restore systems from verified backups" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0040-step-06 a tg:ProcessStep ;
+    rdfs:label "Conduct post-incident review" ;
+    tg:stepNumber 6 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0041 a tg:Process ;
+    rdfs:label "IR-0041: Response to Compromised package detected in build pipeline — Engineering" ;
+    tg:mitigatesEvent d:event-0132 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0041-step-01 ;
+    tg:hasStep d:process-0041-step-02 ;
+    tg:hasStep d:process-0041-step-03 ;
+    tg:hasStep d:process-0041-step-04 ;
+    tg:hasStep d:process-0041-step-05 .
+
+d:process-0041-step-01 a tg:ProcessStep ;
+    rdfs:label "Quarantine compromised packages and artifacts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0041-step-02 a tg:ProcessStep ;
+    rdfs:label "Audit dependency tree for additional exposure" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0041-step-03 a tg:ProcessStep ;
+    rdfs:label "Roll back to last known-good build" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0041-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify downstream consumers" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Crisis Communications" .
+
+d:process-0041-step-05 a tg:ProcessStep ;
+    rdfs:label "Harden build pipeline controls" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0042 a tg:Process ;
+    rdfs:label "IR-0042: Response to Supply chain attack via trojanised update — Cloud Service Ve" ;
+    tg:mitigatesEvent d:event-0139 ;
+    tg:invokedBy "VP Engineering" ;
+    tg:processStatus "open" ;
+    tg:assignedTo "VP Engineering" ;
+    tg:hasStep d:process-0042-step-01 ;
+    tg:hasStep d:process-0042-step-02 ;
+    tg:hasStep d:process-0042-step-03 ;
+    tg:hasStep d:process-0042-step-04 ;
+    tg:hasStep d:process-0042-step-05 .
+
+d:process-0042-step-01 a tg:ProcessStep ;
+    rdfs:label "Quarantine compromised packages and artifacts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0042-step-02 a tg:ProcessStep ;
+    rdfs:label "Audit dependency tree for additional exposure" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0042-step-03 a tg:ProcessStep ;
+    rdfs:label "Roll back to last known-good build" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0042-step-04 a tg:ProcessStep ;
+    rdfs:label "Notify downstream consumers" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0042-step-05 a tg:ProcessStep ;
+    rdfs:label "Harden build pipeline controls" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0043 a tg:Process ;
+    rdfs:label "IR-0043: Response to Unauthorised role elevation detected for APT-28 Threat Group" ;
+    tg:mitigatesEvent d:event-0142 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0043-step-01 ;
+    tg:hasStep d:process-0043-step-02 ;
+    tg:hasStep d:process-0043-step-03 ;
+    tg:hasStep d:process-0043-step-04 .
+
+d:process-0043-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0043-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0043-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0043-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0044 a tg:Process ;
+    rdfs:label "IR-0044: Response to Unauthorised bonus disbursement initiated by Finance Insider" ;
+    tg:mitigatesEvent d:event-0147 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0044-step-01 ;
+    tg:hasStep d:process-0044-step-02 ;
+    tg:hasStep d:process-0044-step-03 ;
+    tg:hasStep d:process-0044-step-04 .
+
+d:process-0044-step-01 a tg:ProcessStep ;
+    rdfs:label "Freeze affected payroll accounts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0044-step-02 a tg:ProcessStep ;
+    rdfs:label "Review payroll change audit trail" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0044-step-03 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR and legal" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0044-step-04 a tg:ProcessStep ;
+    rdfs:label "Recover diverted funds" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "External Counsel" .
+
+d:process-0045 a tg:Process ;
+    rdfs:label "IR-0045: Response to Restricted trading data downloaded by Executive Insider" ;
+    tg:mitigatesEvent d:event-0152 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0045-step-01 ;
+    tg:hasStep d:process-0045-step-02 ;
+    tg:hasStep d:process-0045-step-03 ;
+    tg:hasStep d:process-0045-step-04 ;
+    tg:hasStep d:process-0045-step-05 .
+
+d:process-0045-step-01 a tg:ProcessStep ;
+    rdfs:label "Preserve access logs and query history" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0045-step-02 a tg:ProcessStep ;
+    rdfs:label "Restrict subject's system access" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0045-step-03 a tg:ProcessStep ;
+    rdfs:label "Brief legal and compliance on findings" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0045-step-04 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR for disciplinary review" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0045-step-05 a tg:ProcessStep ;
+    rdfs:label "File regulatory disclosure if required" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0046 a tg:Process ;
+    rdfs:label "IR-0046: Response to Ghost employee record created by HR Insider" ;
+    tg:mitigatesEvent d:event-0164 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0046-step-01 ;
+    tg:hasStep d:process-0046-step-02 ;
+    tg:hasStep d:process-0046-step-03 ;
+    tg:hasStep d:process-0046-step-04 .
+
+d:process-0046-step-01 a tg:ProcessStep ;
+    rdfs:label "Freeze affected payroll accounts" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0046-step-02 a tg:ProcessStep ;
+    rdfs:label "Review payroll change audit trail" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0046-step-03 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR and legal" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0046-step-04 a tg:ProcessStep ;
+    rdfs:label "Recover diverted funds" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "External Counsel" .
+
+d:process-0047 a tg:Process ;
+    rdfs:label "IR-0047: Response to Novel exploit chain executed by APT-28 Threat Group" ;
+    tg:mitigatesEvent d:event-0165 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "open" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0047-step-01 ;
+    tg:hasStep d:process-0047-step-02 ;
+    tg:hasStep d:process-0047-step-03 ;
+    tg:hasStep d:process-0047-step-04 ;
+    tg:hasStep d:process-0047-step-05 .
+
+d:process-0047-step-01 a tg:ProcessStep ;
+    rdfs:label "Activate emergency patching protocol" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0047-step-02 a tg:ProcessStep ;
+    rdfs:label "Deploy compensating network controls" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0047-step-03 a tg:ProcessStep ;
+    rdfs:label "Hunt for indicators of compromise across estate" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0047-step-04 a tg:ProcessStep ;
+    rdfs:label "Engage vendor for patch ETA" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0047-step-05 a tg:ProcessStep ;
+    rdfs:label "Validate patch deployment and close" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0048 a tg:Process ;
+    rdfs:label "IR-0048: Response to Restricted trading data downloaded by Finance Insider" ;
+    tg:mitigatesEvent d:event-0173 ;
+    tg:invokedBy "Incident Commander" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Incident Commander" ;
+    tg:hasStep d:process-0048-step-01 ;
+    tg:hasStep d:process-0048-step-02 ;
+    tg:hasStep d:process-0048-step-03 ;
+    tg:hasStep d:process-0048-step-04 ;
+    tg:hasStep d:process-0048-step-05 .
+
+d:process-0048-step-01 a tg:ProcessStep ;
+    rdfs:label "Preserve access logs and query history" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0048-step-02 a tg:ProcessStep ;
+    rdfs:label "Restrict subject's system access" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0048-step-03 a tg:ProcessStep ;
+    rdfs:label "Brief legal and compliance on findings" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0048-step-04 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR for disciplinary review" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0048-step-05 a tg:ProcessStep ;
+    rdfs:label "File regulatory disclosure if required" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0049 a tg:Process ;
+    rdfs:label "IR-0049: Response to Novel exploit chain executed by APT-28 Threat Group" ;
+    tg:mitigatesEvent d:event-0174 ;
+    tg:invokedBy "Head of Risk" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "Head of Risk" ;
+    tg:hasStep d:process-0049-step-01 ;
+    tg:hasStep d:process-0049-step-02 ;
+    tg:hasStep d:process-0049-step-03 ;
+    tg:hasStep d:process-0049-step-04 ;
+    tg:hasStep d:process-0049-step-05 .
+
+d:process-0049-step-01 a tg:ProcessStep ;
+    rdfs:label "Activate emergency patching protocol" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0049-step-02 a tg:ProcessStep ;
+    rdfs:label "Deploy compensating network controls" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Network Security" .
+
+d:process-0049-step-03 a tg:ProcessStep ;
+    rdfs:label "Hunt for indicators of compromise across estate" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0049-step-04 a tg:ProcessStep ;
+    rdfs:label "Engage vendor for patch ETA" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0049-step-05 a tg:ProcessStep ;
+    rdfs:label "Validate patch deployment and close" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "DevSecOps" .
+
+d:process-0050 a tg:Process ;
+    rdfs:label "IR-0050: Response to Account escalated to domain admin by APT-28 Threat Group" ;
+    tg:mitigatesEvent d:event-0191 ;
+    tg:invokedBy "CISO Office" ;
+    tg:processStatus "resolved" ;
+    tg:assignedTo "CISO Office" ;
+    tg:hasStep d:process-0050-step-01 ;
+    tg:hasStep d:process-0050-step-02 ;
+    tg:hasStep d:process-0050-step-03 ;
+    tg:hasStep d:process-0050-step-04 .
+
+d:process-0050-step-01 a tg:ProcessStep ;
+    rdfs:label "Revoke escalated privileges immediately" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0050-step-02 a tg:ProcessStep ;
+    rdfs:label "Analyse exploitation method" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0050-step-03 a tg:ProcessStep ;
+    rdfs:label "Patch or mitigate underlying vulnerability" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "IT Operations" .
+
+d:process-0050-step-04 a tg:ProcessStep ;
+    rdfs:label "Review access logs for lateral movement" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "SOC Tier-2 Analyst" .
+
+d:process-0051 a tg:Process ;
+    rdfs:label "IR-0051: Response to Material non-public information accessed by Executive Inside" ;
+    tg:mitigatesEvent d:event-0194 ;
+    tg:invokedBy "Incident Commander" ;
+    tg:processStatus "in-progress" ;
+    tg:assignedTo "Incident Commander" ;
+    tg:hasStep d:process-0051-step-01 ;
+    tg:hasStep d:process-0051-step-02 ;
+    tg:hasStep d:process-0051-step-03 ;
+    tg:hasStep d:process-0051-step-04 ;
+    tg:hasStep d:process-0051-step-05 .
+
+d:process-0051-step-01 a tg:ProcessStep ;
+    rdfs:label "Preserve access logs and query history" ;
+    tg:stepNumber 1 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Forensics Team" .
+
+d:process-0051-step-02 a tg:ProcessStep ;
+    rdfs:label "Restrict subject's system access" ;
+    tg:stepNumber 2 ;
+    tg:isComplete "true"^^xsd:boolean ;
+    tg:assignedTo "Identity & Access Team" .
+
+d:process-0051-step-03 a tg:ProcessStep ;
+    rdfs:label "Brief legal and compliance on findings" ;
+    tg:stepNumber 3 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "Legal & Compliance" .
+
+d:process-0051-step-04 a tg:ProcessStep ;
+    rdfs:label "Coordinate with HR for disciplinary review" ;
+    tg:stepNumber 4 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "HR Investigations" .
+
+d:process-0051-step-05 a tg:ProcessStep ;
+    rdfs:label "File regulatory disclosure if required" ;
+    tg:stepNumber 5 ;
+    tg:isComplete "false"^^xsd:boolean ;
+    tg:assignedTo "External Counsel" .
+

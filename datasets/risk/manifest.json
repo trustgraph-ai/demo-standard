@@ -1,0 +1,38 @@
+{
+  "id": "risk",
+  "name": "Risk Management",
+  "description": "Risk management knowledge graph",
+  "thumbnail": "thumbnail.jpg",
+  "detail": "description.md",
+
+  "workspace": {
+    "id": "risk",
+    "name": "Risk Management"
+  },
+
+  "flows": [
+    { "blueprint": "everything", "id": "default", "description": "Default" }
+  ],
+
+  "knowledge": [
+    {
+      "document_id": "urn:doc:risk",
+      "collection": "default",
+      "format": "turtle",
+      "files": [
+        "risk-ontology.ttl",
+        "risk-data.ttl"
+      ]
+    }
+  ],
+
+  "queries": [
+    { "file": "risk-queries.json" },
+    { "file": "risk-graph-rag-queries.json" },
+    { "file": "risk-agent-queries.json" }
+  ],
+
+  "tools": [
+    { "key": "risk-query", "file": "risk-tool.json" }
+  ]
+}
