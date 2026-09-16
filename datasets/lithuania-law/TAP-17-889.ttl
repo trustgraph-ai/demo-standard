@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 535
+#   Approving submission of State Information Resource Management
+#   Law amendments and Cybersecurity Law Arts. 4, 6 amendment
+#   and Art. 7 repeal to Seimas
+#   2017-06-28, Vilnius
+#   Prime Minister Saulius Skvernelis
+# =================================================================
+
+lld:GovRes-535-2017 a llo:Statute ;
+    rdfs:label "Government Resolution No. 535 – Submission of State Information Resource and Cybersecurity Law amendments to Seimas (2017)" ;
+    rdfs:label "Government Resolution No. 535 – Submission of State Information Resource and Cybersecurity Law amendments to Seimas (2017)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 535 – Valstybės informacinių išteklių valdymo ir Kibernetinio saugumo įstatymų pakeitimų teikimas Seimui (2017)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas two draft laws: (1) State Information Resource Management Law No. XI-1807 Arts. 5, 6, 43 and 43¹ amendment, (2) Cybersecurity Law No. XII-1428 Arts. 4 and 6 amendment and Art. 7 repeal. Requests urgent consideration to consolidate state information resource security and cybersecurity management. Delegates Interior Minister Eimutis Misiūnas (deputy: Vice-Minister Darius Urbonas) to represent Government in Seimas." ;
+    rdfs:comment "Government approves and submits to Seimas two draft laws: (1) State Information Resource Management Law No. XI-1807 Arts. 5, 6, 43 and 43¹ amendment, (2) Cybersecurity Law No. XII-1428 Arts. 4 and 6 amendment and Art. 7 repeal. Requests urgent consideration to consolidate state information resource security and cybersecurity management. Delegates Interior Minister Eimutis Misiūnas (deputy: Vice-Minister Darius Urbonas) to represent Government in Seimas."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui du įstatymų projektus: (1) Valstybės informacinių išteklių valdymo įstatymo Nr. XI-1807 5, 6, 43 ir 43¹ straipsnių pakeitimo, (2) Kibernetinio saugumo įstatymo Nr. XII-1428 4 ir 6 straipsnių pakeitimo ir 7 straipsnio pripažinimo netekusiu galios. Prašo svarstyti skubos tvarka dėl valstybės informacinių išteklių saugos ir kibernetinio saugumo valdymo sričių konsolidavimo. Įgalioja vidaus reikalų ministrą Eimutį Misiūną atstovauti Seime."@lt ;
+    llo:hasDocID "No. 535" ;
+    llo:dateEnacted "2017-06-28"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ll-legislative-landscape",
+    "title": "Lithuanian legislative landscape overview",
+    "description": "Provide a high-level summary of the Lithuanian legal framework represented in the knowledge base.",
+    "language": "graph-rag",
+    "query": "What does the Lithuanian legislative landscape look like? Summarise the key statutes, legislative drafts, and the main themes they address such as cybersecurity, national defence, and civic resilience."
+  },
+  {
+    "id": "ll-nis2-transposition",
+    "title": "NIS 2 directive transposition analysis",
+    "description": "Analyse how Lithuania has transposed EU NIS 2 requirements into domestic law.",
+    "language": "graph-rag",
+    "query": "How has Lithuania transposed the EU NIS 2 Directive into national law? What specific statutes implement it, what entities are regulated, and what enforcement mechanisms are in place?"
+  },
+  {
+    "id": "ll-cybersecurity-governance",
+    "title": "Cybersecurity governance structure",
+    "description": "Map the institutional governance structure for cybersecurity in Lithuania.",
+    "language": "graph-rag",
+    "query": "What is the institutional governance structure for cybersecurity in Lithuania? Which authorities have jurisdiction, what are their roles, and how do they relate to each other and to the Ministry of National Defence?"
+  },
+  {
+    "id": "ll-geopolitical-threat-landscape",
+    "title": "Geopolitical threat landscape",
+    "description": "Analyse the geopolitical threats and hostile actors identified in Lithuanian legislation.",
+    "language": "graph-rag",
+    "query": "What geopolitical threats and hostile actors are explicitly identified in Lithuanian legislation? What threat vectors do they use and what harms are they expected to cause?"
+  },
+  {
+    "id": "ll-corporate-compliance-burden",
+    "title": "Corporate compliance burden assessment",
+    "description": "Assess the compliance obligations placed on regulated entities.",
+    "language": "graph-rag",
+    "query": "What compliance obligations do Lithuanian laws impose on regulated entities? Summarise reporting duties, resilience mandates, financial penalties, and executive liability provisions."
+  },
+  {
+    "id": "ll-civic-rights-vs-security",
+    "title": "Civic rights versus security powers",
+    "description": "Analyse the tension between security powers and civic rights in the legislation.",
+    "language": "graph-rag",
+    "query": "How do Lithuanian cybersecurity and national security laws balance state security powers against civic rights and liberties? Where are the safeguards, oversight mechanisms, and citizen recourse provisions?"
+  },
+  {
+    "id": "ll-legislative-evolution",
+    "title": "Legislative evolution over time",
+    "description": "Trace how key legislation has evolved through amendments and superseding versions.",
+    "language": "graph-rag",
+    "query": "How has Lithuanian cybersecurity and national security legislation evolved over time? Trace the amendment chains and identify the major shifts in policy direction."
+  },
+  {
+    "id": "ll-critical-infrastructure-protection",
+    "title": "Critical infrastructure protection framework",
+    "description": "Analyse the legal framework for protecting critical infrastructure in Lithuania.",
+    "language": "graph-rag",
+    "query": "What legal framework exists in Lithuania for protecting critical infrastructure? Which sectors are covered, what resilience mandates apply, and how are supply chain risks from hostile geographies addressed?"
+  }
+]

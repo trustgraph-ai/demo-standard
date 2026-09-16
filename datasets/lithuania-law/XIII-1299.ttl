@@ -1,0 +1,533 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Complete Restatement of the Cybersecurity Law No. XII-1428
+#   No. XIII-1299, enacted 2018-06-27, Vilnius
+#   Signed by President Dalia Grybauskaitė
+#   (No separate effective date stated — Government and MoD
+#    adopt implementing legislation per Art. 2)
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE RESTATING STATUTE
+# =================================================================
+
+lld:XIII-1299 a llo:Statute ;
+    rdfs:label "Complete Restatement of the Cybersecurity Law (No. XIII-1299)" ;
+    rdfs:label "Complete Restatement of the Cybersecurity Law (No. XIII-1299)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 pakeitimo įstatymas (Nr. XIII-1299)"@lt ;
+    rdfs:comment "Fully restates the Cybersecurity Law XII-1428 (nauja redakcija). Replaces the entire text with 5 chapters and 16 articles: expanded definitions (19 terms including cloud, digital services, cyberspace, cybersecurity crisis), six codified cybersecurity principles, formalized Cybersecurity Council, greatly expanded NKSC powers (17 functions), VDAI role aligned with GDPR, Police cybercrime investigation powers, digital service provider obligations with EU representative requirement, KSIS information network, inter-institutional cooperation framework, information protection rules, voluntary incident reporting, and an updated EU annex transposing the Framework Directive 2002/21/EC and NIS Directive (EU) 2016/1148." ;
+    rdfs:comment "Fully restates the Cybersecurity Law XII-1428 (nauja redakcija). Replaces the entire text with 5 chapters and 16 articles: expanded definitions (19 terms including cloud, digital services, cyberspace, cybersecurity crisis), six codified cybersecurity principles, formalized Cybersecurity Council, greatly expanded NKSC powers (17 functions), VDAI role aligned with GDPR, Police cybercrime investigation powers, digital service provider obligations with EU representative requirement, KSIS information network, inter-institutional cooperation framework, information protection rules, voluntary incident reporting, and an updated EU annex transposing the Framework Directive 2002/21/EC and NIS Directive (EU) 2016/1148."@en ;
+    rdfs:comment "Visiškai pakeičia Kibernetinio saugumo įstatymą Nr. XII-1428 (nauja redakcija). Pakeičia visą tekstą 5 skyriais ir 16 straipsnių: išplėstos sąvokos (19 terminų, įskaitant debesijos paslaugas, skaitmenines paslaugas, kibernetinę erdvę, kibernetinio saugumo krizę), šeši kodifikuoti kibernetinio saugumo principai, formalizuota Kibernetinio saugumo taryba, žymiai išplėsti NKSC įgaliojimai (17 funkcijų), VDAI vaidmuo suderintas su BDAR, policijos kibernetinių nusikaltimų tyrimo įgaliojimai, skaitmeninių paslaugų teikėjų pareigos su ES atstovo reikalavimu, KSIS informacinis tinklas, tarpinstitucinė bendradarbiavimo sistema, informacijos apsaugos taisyklės, savanoriškas pranešimas apie incidentus ir atnaujintas ES priedas, perkeliant Pagrindų direktyvą 2002/21/EB ir TIS direktyvą (ES) 2016/1148."@lt ;
+    llo:hasDocID "No. XIII-1299" ;
+    llo:dateEnacted "2018-06-27"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XIII-1299_Art1 ,
+                     lld:XIII-1299_Art2 .
+
+
+# =================================================================
+# SECTION 2: OUTER STRUCTURE – THE AMENDING STATUTE ARTICLES
+# =================================================================
+
+lld:XIII-1299_Art1 a llo:Article ;
+    rdfs:label "Article 1 – New Text of the Cybersecurity Law" ;
+    rdfs:label "Article 1 – New Text of the Cybersecurity Law"@en ;
+    rdfs:label "1 straipsnis – Kibernetinio saugumo įstatymo nauja redakcija"@lt ;
+    llo:hasIndexNumber 1 .
+
+lld:XIII-1299_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Implementation" ;
+    rdfs:label "Article 2 – Implementation"@en ;
+    rdfs:label "2 straipsnis – Įstatymo įgyvendinimas"@lt ;
+    llo:hasIndexNumber 2 .
+
+
+# =================================================================
+# SECTION 3: RESTATED LAW STRUCTURE – CHAPTERS
+# =================================================================
+
+lld:XIII-1299_Ch1 a llo:Chapter ;
+    rdfs:label "Chapter I – General Provisions" ;
+    rdfs:label "Chapter I – General Provisions"@en ;
+    rdfs:label "I skyrius – Bendrosios nuostatos"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:hasComponent lld:XIII-1299_S1 ,
+                     lld:XIII-1299_S2 ,
+                     lld:XIII-1299_S3 .
+
+lld:XIII-1299_Ch2 a llo:Chapter ;
+    rdfs:label "Chapter II – Cybersecurity Policy Formation and Implementation" ;
+    rdfs:label "Chapter II – Cybersecurity Policy Formation and Implementation"@en ;
+    rdfs:label "II skyrius – Kibernetinio saugumo politikos formavimas ir įgyvendinimas"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:hasComponent lld:XIII-1299_S4 ,
+                     lld:XIII-1299_S5 ,
+                     lld:XIII-1299_S6 ,
+                     lld:XIII-1299_S7 ,
+                     lld:XIII-1299_S8 ,
+                     lld:XIII-1299_S9 ,
+                     lld:XIII-1299_S10 .
+
+lld:XIII-1299_Ch3 a llo:Chapter ;
+    rdfs:label "Chapter III – Cybersecurity Subject Duties" ;
+    rdfs:label "Chapter III – Cybersecurity Subject Duties"@en ;
+    rdfs:label "III skyrius – Kibernetinio saugumo subjektų pareigos"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:hasComponent lld:XIII-1299_S11 ,
+                     lld:XIII-1299_S12 .
+
+lld:XIII-1299_Ch4 a llo:Chapter ;
+    rdfs:label "Chapter IV – Information Exchange and Inter-institutional Cooperation" ;
+    rdfs:label "Chapter IV – Information Exchange and Inter-institutional Cooperation"@en ;
+    rdfs:label "IV skyrius – Keitimasis informacija ir tarpinstitucinis bendradarbiavimas"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:hasComponent lld:XIII-1299_S13 ,
+                     lld:XIII-1299_S14 ,
+                     lld:XIII-1299_S15 .
+
+lld:XIII-1299_Ch5 a llo:Chapter ;
+    rdfs:label "Chapter V – Final Provisions" ;
+    rdfs:label "Chapter V – Final Provisions"@en ;
+    rdfs:label "V skyrius – Baigiamosios nuostatos"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:hasComponent lld:XIII-1299_S16 .
+
+
+# =================================================================
+# SECTION 4: RESTATED LAW STRUCTURE – ARTICLES (STRAIPSNIAI)
+# =================================================================
+
+lld:XIII-1299_S1 a llo:Article ;
+    rdfs:label "Article 1 – Purpose and Scope of the Law" ;
+    rdfs:label "Article 1 – Purpose and Scope of the Law"@en ;
+    rdfs:label "1 straipsnis – Įstatymo paskirtis ir taikymas"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_LawScope_Restated .
+
+lld:XIII-1299_S2 a llo:Article ;
+    rdfs:label "Article 2 – Key Definitions (19 terms)" ;
+    rdfs:label "Article 2 – Key Definitions (19 terms)"@en ;
+    rdfs:label "2 straipsnis – Pagrindinės šio įstatymo sąvokos (19 terminų)"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_ExpandedDefinitions .
+
+lld:XIII-1299_S3 a llo:Article ;
+    rdfs:label "Article 3 – Cybersecurity Principles" ;
+    rdfs:label "Article 3 – Cybersecurity Principles"@en ;
+    rdfs:label "3 straipsnis – Kibernetinio saugumo principai"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_SixPrinciples .
+
+lld:XIII-1299_S4 a llo:Article ;
+    rdfs:label "Article 4 – Policy Formation and Implementation Institutions" ;
+    rdfs:label "Article 4 – Policy Formation and Implementation Institutions"@en ;
+    rdfs:label "4 straipsnis – Kibernetinio saugumo politikos formavimo ir įgyvendinimo institucijos"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:codifiesConcept lld:Concept_InstitutionalFramework_Restated .
+
+lld:XIII-1299_S5 a llo:Article ;
+    rdfs:label "Article 5 – Government Powers in Cybersecurity" ;
+    rdfs:label "Article 5 – Government Powers in Cybersecurity"@en ;
+    rdfs:label "5 straipsnis – Vyriausybės įgaliojimai kibernetinio saugumo srityje"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:codifiesConcept lld:Concept_GovernmentPowers_Restated .
+
+lld:XIII-1299_S6 a llo:Article ;
+    rdfs:label "Article 6 – Ministry of National Defence Powers" ;
+    rdfs:label "Article 6 – Ministry of National Defence Powers"@en ;
+    rdfs:label "6 straipsnis – Krašto apsaugos ministerijos įgaliojimai kibernetinio saugumo srityje"@lt ;
+    llo:hasIndexNumber 6 ;
+    llo:codifiesConcept lld:Concept_MoD_Powers_Restated .
+
+lld:XIII-1299_S7 a llo:Article ;
+    rdfs:label "Article 7 – Cybersecurity Council" ;
+    rdfs:label "Article 7 – Cybersecurity Council"@en ;
+    rdfs:label "7 straipsnis – Kibernetinio saugumo taryba"@lt ;
+    llo:hasIndexNumber 7 ;
+    llo:codifiesConcept lld:Concept_CyberCouncil_Formalized .
+
+lld:XIII-1299_S8 a llo:Article ;
+    rdfs:label "Article 8 – National Cybersecurity Centre (NKSC)" ;
+    rdfs:label "Article 8 – National Cybersecurity Centre (NKSC)"@en ;
+    rdfs:label "8 straipsnis – Nacionalinis kibernetinio saugumo centras"@lt ;
+    llo:hasIndexNumber 8 ;
+    llo:codifiesConcept lld:Concept_NKSC_FullPowers .
+
+lld:XIII-1299_S9 a llo:Article ;
+    rdfs:label "Article 9 – State Data Protection Inspectorate (VDAI) Powers" ;
+    rdfs:label "Article 9 – State Data Protection Inspectorate (VDAI) Powers"@en ;
+    rdfs:label "9 straipsnis – Valstybinės duomenų apsaugos inspekcijos įgaliojimai kibernetinio saugumo srityje"@lt ;
+    llo:hasIndexNumber 9 ;
+    llo:codifiesConcept lld:Concept_VDAI_GDPR_Role .
+
+lld:XIII-1299_S10 a llo:Article ;
+    rdfs:label "Article 10 – Police Powers in Cybersecurity" ;
+    rdfs:label "Article 10 – Police Powers in Cybersecurity"@en ;
+    rdfs:label "10 straipsnis – Policijos įgaliojimai kibernetinio saugumo srityje"@lt ;
+    llo:hasIndexNumber 10 ;
+    llo:codifiesConcept lld:Concept_PolicePowers_Restated .
+
+lld:XIII-1299_S11 a llo:Article ;
+    rdfs:label "Article 11 – General Cybersecurity Subject Duties" ;
+    rdfs:label "Article 11 – General Cybersecurity Subject Duties"@en ;
+    rdfs:label "11 straipsnis – Bendrosios kibernetinio saugumo subjektų pareigos"@lt ;
+    llo:hasIndexNumber 11 ;
+    llo:codifiesConcept lld:Concept_GeneralSubjectDuties .
+
+lld:XIII-1299_S12 a llo:Article ;
+    rdfs:label "Article 12 – Special Cybersecurity Subject Duties" ;
+    rdfs:label "Article 12 – Special Cybersecurity Subject Duties"@en ;
+    rdfs:label "12 straipsnis – Specialiosios kibernetinio saugumo subjektų pareigos"@lt ;
+    llo:hasIndexNumber 12 ;
+    llo:codifiesConcept lld:Concept_SpecialSubjectDuties .
+
+lld:XIII-1299_S13 a llo:Article ;
+    rdfs:label "Article 13 – Cybersecurity Information Network (KSIS)" ;
+    rdfs:label "Article 13 – Cybersecurity Information Network (KSIS)"@en ;
+    rdfs:label "13 straipsnis – Kibernetinio saugumo informacinis tinklas"@lt ;
+    llo:hasIndexNumber 13 ;
+    llo:codifiesConcept lld:Concept_KSIS_Restated .
+
+lld:XIII-1299_S14 a llo:Article ;
+    rdfs:label "Article 14 – Inter-institutional Cooperation in Incident Management" ;
+    rdfs:label "Article 14 – Inter-institutional Cooperation in Incident Management"@en ;
+    rdfs:label "14 straipsnis – Tarpinstitucinis bendradarbiavimas valdant ir tiriant kibernetinius incidentus"@lt ;
+    llo:hasIndexNumber 14 ;
+    llo:codifiesConcept lld:Concept_InterInstitutionalCooperation .
+
+lld:XIII-1299_S15 a llo:Article ;
+    rdfs:label "Article 15 – Information Protection" ;
+    rdfs:label "Article 15 – Information Protection"@en ;
+    rdfs:label "15 straipsnis – Informacijos apsauga"@lt ;
+    llo:hasIndexNumber 15 ;
+    llo:codifiesConcept lld:Concept_InformationProtection .
+
+lld:XIII-1299_S16 a llo:Article ;
+    rdfs:label "Article 16 – Voluntary Incident Reporting" ;
+    rdfs:label "Article 16 – Voluntary Incident Reporting"@en ;
+    rdfs:label "16 straipsnis – Savanoriškas pranešimas apie kibernetinius incidentus"@lt ;
+    llo:hasIndexNumber 16 ;
+    llo:codifiesConcept lld:Concept_VoluntaryReporting .
+
+
+# =================================================================
+# SECTION 5: LEGAL CONCEPTS – GENERAL PROVISIONS
+# =================================================================
+
+lld:Concept_LawScope_Restated a llo:LegalConcept ;
+    rdfs:label "Restated law scope and EU alignment" ;
+    rdfs:label "Restated law scope and EU alignment"@en ;
+    rdfs:label "Iš naujo išdėstyta įstatymo paskirtis ir suderinimas su ES"@lt ;
+    rdfs:comment "The law establishes cybersecurity principles, policy formation and implementation institutions, institutional powers, cybersecurity subject duties, and inter-institutional cooperation. It does not apply to trust service providers subject to EU Regulation (EU) No. 910/2014 (eIDAS). Provisions are harmonised with EU law as listed in the annex." ;
+    rdfs:comment "The law establishes cybersecurity principles, policy formation and implementation institutions, institutional powers, cybersecurity subject duties, and inter-institutional cooperation. It does not apply to trust service providers subject to EU Regulation (EU) No. 910/2014 (eIDAS). Provisions are harmonised with EU law as listed in the annex."@en ;
+    rdfs:comment "Įstatymas nustato kibernetinio saugumo principus, politikos formavimo ir įgyvendinimo institucijas, institucijų įgaliojimus, kibernetinio saugumo subjektų pareigas ir tarpinstitucinį bendradarbiavimą. Netaikomas patikimumo užtikrinimo paslaugų teikėjams, kuriems taikomas ES reglamentas (ES) Nr. 910/2014 (eIDAS). Nuostatos suderintos su ES teise, nurodyta priede."@lt ;
+    llo:hasLegalBasis "Art. 1, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_ExpandedDefinitions a llo:LegalConcept ;
+    rdfs:label "Nineteen statutory definitions including digital services and cyberspace" ;
+    rdfs:label "Nineteen statutory definitions including digital services and cyberspace"@en ;
+    rdfs:label "Devyniolika įstatyme apibrėžtų sąvokų, įskaitant skaitmenines paslaugas ir kibernetinę erdvę"@lt ;
+    rdfs:comment "Article 2 defines 19 terms: (1) cloud services, (2) electronic information hosting services, (3) online marketplace service, (4) critical information infrastructure, (5) critical information infrastructure operator, (6) cyberspace, (7) cybersecurity crisis, (8) cybersecurity subject, (9) cyber incident, (10) cybersecurity, (11) cyber incident management, (12) internet search service, (13) industrial process control system, (14) network and information system, (15) risk, (16) digital services, (17) digital service provider, (18) critical infrastructure identification criteria, (19) cross-referenced legislation list." ;
+    rdfs:comment "Article 2 defines 19 terms: (1) cloud services, (2) electronic information hosting services, (3) online marketplace service, (4) critical information infrastructure, (5) critical information infrastructure operator, (6) cyberspace, (7) cybersecurity crisis, (8) cybersecurity subject, (9) cyber incident, (10) cybersecurity, (11) cyber incident management, (12) internet search service, (13) industrial process control system, (14) network and information system, (15) risk, (16) digital services, (17) digital service provider, (18) critical infrastructure identification criteria, (19) cross-referenced legislation list."@en ;
+    rdfs:comment "2 straipsnis apibrėžia 19 sąvokų: (1) debesijos paslaugos, (2) elektroninės informacijos prieglobos paslaugos, (3) elektroninės prekyvietės paslauga, (4) ypatingos svarbos informacinė infrastruktūra, (5) ypatingos svarbos informacinės infrastruktūros valdytojas, (6) kibernetinė erdvė, (7) kibernetinio saugumo krizė, (8) kibernetinio saugumo subjektas, (9) kibernetinis incidentas, (10) kibernetinis saugumas, (11) kibernetinių incidentų valdymas, (12) paieškos internete paslauga, (13) pramoninių procesų valdymo sistema, (14) ryšių ir informacinė sistema, (15) rizika, (16) skaitmeninės paslaugos, (17) skaitmeninių paslaugų teikėjas, (18) infrastruktūros identifikavimo kriterijai, (19) nuorodų į teisės aktus sąrašas."@lt ;
+    llo:hasLegalBasis "Art. 2, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_SixPrinciples a llo:LegalConcept ;
+    rdfs:label "Six codified cybersecurity principles" ;
+    rdfs:label "Six codified cybersecurity principles"@en ;
+    rdfs:label "Šeši kodifikuoti kibernetinio saugumo principai"@lt ;
+    rdfs:comment "Article 3 codifies six cybersecurity principles that must be balanced with no single principle taking precedence: (1) cyberspace non-discrimination – legal protections apply equally in physical and cyber realms; (2) risk management – measures must ensure regular risk assessment; (3) proportionality – measures must not restrict cybersecurity subjects' activity more than necessary; (4) public interest primacy – measures must primarily protect the public interest without disproportionately limiting individual rights or freedoms in cyberspace; (5) standardisation and technology neutrality – implementation guided by national, EU, and international standards without mandating specific technologies; (6) subsidiarity – primary cybersecurity responsibility lies with subjects managing systems, with state intervention only when subjects cannot ensure security themselves." ;
+    rdfs:comment "Article 3 codifies six cybersecurity principles that must be balanced with no single principle taking precedence: (1) cyberspace non-discrimination – legal protections apply equally in physical and cyber realms; (2) risk management – measures must ensure regular risk assessment; (3) proportionality – measures must not restrict cybersecurity subjects' activity more than necessary; (4) public interest primacy – measures must primarily protect the public interest without disproportionately limiting individual rights or freedoms in cyberspace; (5) standardisation and technology neutrality – implementation guided by national, EU, and international standards without mandating specific technologies; (6) subsidiarity – primary cybersecurity responsibility lies with subjects managing systems, with state intervention only when subjects cannot ensure security themselves."@en ;
+    rdfs:comment "3 straipsnis kodifikuoja šešis kibernetinio saugumo principus, kurie turi būti derinami tarpusavyje, nė vienam iš jų nesuteikiant pirmenybės: (1) kibernetinės erdvės nediskriminavimas – teisinė apsauga taikoma vienodai tiek fizinėje, tiek kibernetinėje erdvėje; (2) rizikos valdymas – priemonės turi užtikrinti reguliarų rizikos suvaldymą; (3) proporcingumas – priemonės neturi apriboti kibernetinio saugumo subjektų veiklos labiau negu būtina; (4) viešojo intereso viršenybė – priemonės turi pirmiausia saugoti viešąjį interesą, neproporcingai neribodamos atskirų vartotojų teisių ar laisvių; (5) standartizacijos ir technologinio neutralumo – įgyvendinimas grindžiamas nacionaliniais, ES ir tarptautiniais standartais, neįpareigojant naudoti konkrečių technologijų; (6) subsidiarumo – pagrindinė atsakomybė tenka kibernetinio saugumo subjektams, o valstybė įsikiša tik tada, kai subjektai negali patys užtikrinti saugumo."@lt ;
+    llo:hasLegalBasis "Art. 3, XII-1428 (as restated by XIII-1299)" .
+
+
+# =================================================================
+# SECTION 6: LEGAL CONCEPTS – INSTITUTIONAL FRAMEWORK
+# =================================================================
+
+lld:Concept_InstitutionalFramework_Restated a llo:LegalConcept ;
+    rdfs:label "Restated institutional framework for cybersecurity governance" ;
+    rdfs:label "Restated institutional framework for cybersecurity governance"@en ;
+    rdfs:label "Iš naujo išdėstyta kibernetinio saugumo valdymo institucinė sistema"@lt ;
+    rdfs:comment "Article 4 establishes the cybersecurity governance framework: the Government sets strategic goals, priorities, and necessary measures; the Ministry of National Defence forms, implements, organises, controls, and coordinates policy, with NKSC participating in policy formation insofar as needed for legal regulation of subjects; policy is implemented by NKSC, VDAI, Lithuanian Police, and other institutions with cybersecurity-related functions." ;
+    rdfs:comment "Article 4 establishes the cybersecurity governance framework: the Government sets strategic goals, priorities, and necessary measures; the Ministry of National Defence forms, implements, organises, controls, and coordinates policy, with NKSC participating in policy formation insofar as needed for legal regulation of subjects; policy is implemented by NKSC, VDAI, Lithuanian Police, and other institutions with cybersecurity-related functions."@en ;
+    rdfs:comment "4 straipsnis nustato kibernetinio saugumo valdymo sistemą: Vyriausybė nustato strateginius tikslus, prioritetus ir būtinas priemones; Krašto apsaugos ministerija formuoja, įgyvendina, organizuoja, kontroliuoja ir koordinuoja politiką, NKSC dalyvauja formuojant politiką tiek, kiek reikia subjektų teisiniam reguliavimui; politiką įgyvendina NKSC, VDAI, Lietuvos policija ir kitos institucijos, kurių funkcijos susijusios su kibernetiniu saugumu."@lt ;
+    llo:hasLegalBasis "Art. 4, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_GovernmentPowers_Restated a llo:LegalConcept ;
+    rdfs:label "Government cybersecurity powers (restated)" ;
+    rdfs:label "Government cybersecurity powers (restated)"@en ;
+    rdfs:label "Vyriausybės kibernetinio saugumo įgaliojimai (nauja redakcija)"@lt ;
+    rdfs:comment "Article 5: Government approves the National Cybersecurity Strategy, Cybersecurity Council composition, critical infrastructure identification methodology and operator list, organisational and technical cybersecurity requirements for subjects, the National Cyber Incident Management Plan, and leads cybersecurity crisis management." ;
+    rdfs:comment "Article 5: Government approves the National Cybersecurity Strategy, Cybersecurity Council composition, critical infrastructure identification methodology and operator list, organisational and technical cybersecurity requirements for subjects, the National Cyber Incident Management Plan, and leads cybersecurity crisis management."@en ;
+    rdfs:comment "5 straipsnis: Vyriausybė tvirtina Nacionalinę kibernetinio saugumo strategiją, Kibernetinio saugumo tarybos sudėtį, ypatingos svarbos infrastruktūros identifikavimo metodiką ir valdytojų sąrašą, organizacinius ir techninius kibernetinio saugumo reikalavimus subjektams, Nacionalinį kibernetinių incidentų valdymo planą ir vadovauja kibernetinio saugumo krizių valdymui."@lt ;
+    llo:hasLegalBasis "Art. 5, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_MoD_Powers_Restated a llo:LegalConcept ;
+    rdfs:label "Ministry of National Defence powers (restated)" ;
+    rdfs:label "Ministry of National Defence powers (restated)"@en ;
+    rdfs:label "Krašto apsaugos ministerijos įgaliojimai (nauja redakcija)"@lt ;
+    rdfs:comment "Article 6: MoD coordinates preparation of the National Cybersecurity Strategy, proposes organisational and technical requirements, submits the National Cyber Incident Management Plan and critical infrastructure identification methodology for Government approval, approves standard incident management plans for critical infrastructure, approves cyber defence plans, sets NKSC incident response procedures, approves technical cybersecurity measures deployment plans, participates in crisis management, establishes KSIS and approves its statutes, and approves the Cybersecurity Council rules and composition." ;
+    rdfs:comment "Article 6: MoD coordinates preparation of the National Cybersecurity Strategy, proposes organisational and technical requirements, submits the National Cyber Incident Management Plan and critical infrastructure identification methodology for Government approval, approves standard incident management plans for critical infrastructure, approves cyber defence plans, sets NKSC incident response procedures, approves technical cybersecurity measures deployment plans, participates in crisis management, establishes KSIS and approves its statutes, and approves the Cybersecurity Council rules and composition."@en ;
+    rdfs:comment "6 straipsnis: KAM koordinuoja Nacionalinės kibernetinio saugumo strategijos rengimą, siūlo organizacinius ir techninius reikalavimus, teikia Vyriausybei tvirtinti Nacionalinį kibernetinių incidentų valdymo planą ir infrastruktūros identifikavimo metodiką, tvirtina tipinius incidentų valdymo planus, tvirtina kibernetinės gynybos planus, nustato NKSC reagavimo tvarką, tvirtina techninių priemonių diegimo planus, dalyvauja krizių valdyme, steigia KSIS ir tvirtina jo nuostatus, tvirtina Kibernetinio saugumo tarybos reglamentą ir sudėtį."@lt ;
+    llo:hasLegalBasis "Art. 6, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_CyberCouncil_Formalized a llo:LegalConcept ;
+    rdfs:label "Formalized Cybersecurity Council as permanent advisory body" ;
+    rdfs:label "Formalized Cybersecurity Council as permanent advisory body"@en ;
+    rdfs:label "Formalizuota Kibernetinio saugumo taryba kaip nuolatinė patariamoji institucija"@lt ;
+    rdfs:comment "Article 7: The Cybersecurity Council is a permanent collegial independent advisory body that analyses cybersecurity posture in Lithuania and provides proposals to policy institutions, cybersecurity subjects, and academic/business entities (cybersecurity participants). Chaired by a MoD representative; administratively supported by MoD or its authorised institution. Functions: (1) propose priorities, development directions, targets, and implementation methods; (2) propose public-private-academic cooperation in cybersecurity; (3) analyse improvement trends and propose incident management measures; (4) recommend cybersecurity strengthening measures." ;
+    rdfs:comment "Article 7: The Cybersecurity Council is a permanent collegial independent advisory body that analyses cybersecurity posture in Lithuania and provides proposals to policy institutions, cybersecurity subjects, and academic/business entities (cybersecurity participants). Chaired by a MoD representative; administratively supported by MoD or its authorised institution. Functions: (1) propose priorities, development directions, targets, and implementation methods; (2) propose public-private-academic cooperation in cybersecurity; (3) analyse improvement trends and propose incident management measures; (4) recommend cybersecurity strengthening measures."@en ;
+    rdfs:comment "7 straipsnis: Kibernetinio saugumo taryba yra nuolatinė kolegiali nepriklausoma patariamoji institucija, analizuojanti kibernetinio saugumo būklę Lietuvoje ir teikianti pasiūlymus politikos institucijoms, kibernetinio saugumo subjektams ir mokslo bei verslo subjektams (kibernetinio saugumo dalyviams). Jai vadovauja KAM atstovas; ūkiškai aptarnauja KAM ar jos įgaliota institucija. Funkcijos: (1) siūlyti prioritetus, plėtros kryptis, tikslus ir įgyvendinimo būdus; (2) siūlyti viešojo, privataus ir akademinio sektorių bendradarbiavimą; (3) analizuoti tobulinimo tendencijas ir siūlyti incidentų valdymo priemones; (4) rekomenduoti kibernetinio saugumo stiprinimo priemones."@lt ;
+    llo:hasLegalBasis "Art. 7, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_NKSC_FullPowers a llo:LegalConcept ;
+    rdfs:label "NKSC full powers – 17 enumerated functions" ;
+    rdfs:label "NKSC full powers – 17 enumerated functions"@en ;
+    rdfs:label "NKSC visi įgaliojimai – 17 išvardytų funkcijų"@lt ;
+    rdfs:comment "Article 8: NKSC is an institution under MoD with 17 functions: (1) compliance audits of subjects; (2) binding information disclosure orders; (3) technical resilience assessments; (4) binding remediation orders with deadlines; (5) mandatory independent security audits (except for digital service providers); (6) cross-border digital service provider enforcement via EU cooperation; (7) national cyber incident monitoring and risk analysis; (8) technical cybersecurity measure deployment in state resources and critical infrastructure; (9) national-level incident management coordination; (10) mandatory cybersecurity measures during incidents; (11) 48-hour emergency service restriction orders for public ECN/ECS providers with RRT notification; (12) participation in crisis management; (13) public information on cyber incidents after consulting affected subjects; (14) international cooperation with competent organisations; (15) personal data processing for NKSC functions under data protection law; (16) national cybersecurity strengthening projects with business, academia, and subjects; (17) other functions prescribed by Lithuanian law." ;
+    rdfs:comment "Article 8: NKSC is an institution under MoD with 17 functions: (1) compliance audits of subjects; (2) binding information disclosure orders; (3) technical resilience assessments; (4) binding remediation orders with deadlines; (5) mandatory independent security audits (except for digital service providers); (6) cross-border digital service provider enforcement via EU cooperation; (7) national cyber incident monitoring and risk analysis; (8) technical cybersecurity measure deployment in state resources and critical infrastructure; (9) national-level incident management coordination; (10) mandatory cybersecurity measures during incidents; (11) 48-hour emergency service restriction orders for public ECN/ECS providers with RRT notification; (12) participation in crisis management; (13) public information on cyber incidents after consulting affected subjects; (14) international cooperation with competent organisations; (15) personal data processing for NKSC functions under data protection law; (16) national cybersecurity strengthening projects with business, academia, and subjects; (17) other functions prescribed by Lithuanian law."@en ;
+    rdfs:comment "8 straipsnis: NKSC yra įstaiga prie KAM su 17 funkcijų: (1) subjektų atitikties tyrimai; (2) privalomi informacijos pateikimo nurodymai; (3) techniniai atsparumo vertinimai; (4) privalomi trūkumų šalinimo nurodymai su terminais; (5) privalomi nepriklausomi saugumo auditai (išskyrus skaitmeninių paslaugų teikėjus); (6) tarpvalstybinis skaitmeninių paslaugų teikėjų vykdymo užtikrinimas per ES bendradarbiavimą; (7) nacionalinis kibernetinių incidentų stebėjimas ir rizikos analizė; (8) techninių kibernetinio saugumo priemonių diegimas valstybės ištekliuose ir ypatingos svarbos infrastruktūroje; (9) nacionalinio lygio incidentų valdymo koordinavimas; (10) privalomos kibernetinio saugumo priemonės incidentų metu; (11) 48 val. skubaus paslaugų apribojimo nurodymai viešųjų ECN/ECS teikėjams su RRT pranešimu; (12) dalyvavimas krizių valdyme; (13) visuomenės informavimas apie kibernetinius incidentus, pasikonsultavus su subjektais; (14) tarptautinis bendradarbiavimas; (15) asmens duomenų tvarkymas NKSC funkcijoms pagal duomenų apsaugos teisę; (16) nacionaliniai kibernetinio saugumo stiprinimo projektai su verslu, akademija ir subjektais; (17) kitos Lietuvos teisės aktuose nustatytos funkcijos."@lt ;
+    llo:hasLegalBasis "Art. 8, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_VDAI_GDPR_Role a llo:LegalConcept ;
+    rdfs:label "VDAI cybersecurity role aligned with GDPR" ;
+    rdfs:label "VDAI cybersecurity role aligned with GDPR"@en ;
+    rdfs:label "VDAI kibernetinio saugumo vaidmuo, suderintas su BDAR"@lt ;
+    rdfs:comment "Article 9: The State Data Protection Inspectorate (VDAI) implements cybersecurity policy in the personal data protection field and performs supervisory functions established by EU Regulation (EU) 2016/679 (GDPR) on the protection of natural persons with regard to the processing of personal data and on the free movement of such data." ;
+    rdfs:comment "Article 9: The State Data Protection Inspectorate (VDAI) implements cybersecurity policy in the personal data protection field and performs supervisory functions established by EU Regulation (EU) 2016/679 (GDPR) on the protection of natural persons with regard to the processing of personal data and on the free movement of such data."@en ;
+    rdfs:comment "9 straipsnis: Valstybinė duomenų apsaugos inspekcija (VDAI) įgyvendina kibernetinio saugumo politiką asmens duomenų apsaugos srityje ir atlieka 2016 m. balandžio 27 d. Europos Parlamento ir Tarybos reglamente (ES) 2016/679 (BDAR) dėl fizinių asmenų apsaugos tvarkant asmens duomenis ir dėl laisvo tokių duomenų judėjimo nustatytas priežiūros institucijos užduotis."@lt ;
+    llo:hasLegalBasis "Art. 9, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_PolicePowers_Restated a llo:LegalConcept ;
+    rdfs:label "Police cybersecurity powers (restated)" ;
+    rdfs:label "Police cybersecurity powers (restated)"@en ;
+    rdfs:label "Policijos kibernetinio saugumo įgaliojimai (nauja redakcija)"@lt ;
+    rdfs:comment "Article 10: Police investigate cyber incidents with criminal elements: (1) collect and analyse criminal cyber incident information; (2) set procedures for subjects to report criminal incidents to police; (3) issue 48-hour emergency restriction orders to providers without court sanction (extended periods require court approval with judicial review); (4) issue data preservation orders to providers for subscriber identity, location, billing, and – with court order – traffic and content data. Police service restriction orders must be complied with within 8 hours. Article 10 does not apply to digital services provided by SMEs in Lithuania or other EU member states." ;
+    rdfs:comment "Article 10: Police investigate cyber incidents with criminal elements: (1) collect and analyse criminal cyber incident information; (2) set procedures for subjects to report criminal incidents to police; (3) issue 48-hour emergency restriction orders to providers without court sanction (extended periods require court approval with judicial review); (4) issue data preservation orders to providers for subscriber identity, location, billing, and – with court order – traffic and content data. Police service restriction orders must be complied with within 8 hours. Article 10 does not apply to digital services provided by SMEs in Lithuania or other EU member states."@en ;
+    rdfs:comment "10 straipsnis: Policija tiria kibernetinius incidentus su nusikalstamos veikos požymiais: (1) renka ir analizuoja informaciją apie nusikalstamų veikų požymių turinčius incidentus; (2) nustato procedūras subjektams pranešti policijai; (3) duoda 48 val. skubius apribojimo nurodymus teikėjams be teismo sankcijos (ilgesniems laikotarpiams reikalingas teismo patvirtinimas su teismine kontrole); (4) duoda duomenų saugojimo nurodymus teikėjams dėl abonentų tapatybės, vietos, atsiskaitymų ir – su teismo nutartimi – srauto ir turinio duomenų. Policijos nurodymai dėl paslaugų apribojimo turi būti įvykdyti per 8 valandas. 10 straipsnis netaikomas skaitmeninėms paslaugoms, kurias teikia mažos ir labai mažos įmonės Lietuvoje ar kitose ES valstybėse narėse."@lt ;
+    llo:hasLegalBasis "Art. 10, XII-1428 (as restated by XIII-1299)" .
+
+
+# =================================================================
+# SECTION 7: LEGAL CONCEPTS – SUBJECT DUTIES
+# =================================================================
+
+lld:Concept_GeneralSubjectDuties a llo:LegalConcept ;
+    rdfs:label "General duties of cybersecurity subjects" ;
+    rdfs:label "General duties of cybersecurity subjects"@en ;
+    rdfs:label "Bendrosios kibernetinio saugumo subjektų pareigos"@lt ;
+    rdfs:comment "Article 11: All cybersecurity subjects must: (1) ensure cybersecurity of their managed systems and meet organisational/technical requirements; (2) perform risk assessments and implement risk-proportionate measures based on latest technical standards; (3) report incidents to NKSC as prescribed in the National Cyber Incident Management Plan and apply incident management measures; (4) provide legally required information to police for cybercrime investigation and comply with police orders within 8 hours; (5) designate a responsible person/unit for cybersecurity and report contact details to NKSC; (6) execute NKSC orders under Article 8. Provisions in 11(2) on state information resources also require entities to provide NKSC access to deploy and manage technical cybersecurity measures." ;
+    rdfs:comment "Article 11: All cybersecurity subjects must: (1) ensure cybersecurity of their managed systems and meet organisational/technical requirements; (2) perform risk assessments and implement risk-proportionate measures based on latest technical standards; (3) report incidents to NKSC as prescribed in the National Cyber Incident Management Plan and apply incident management measures; (4) provide legally required information to police for cybercrime investigation and comply with police orders within 8 hours; (5) designate a responsible person/unit for cybersecurity and report contact details to NKSC; (6) execute NKSC orders under Article 8. Provisions in 11(2) on state information resources also require entities to provide NKSC access to deploy and manage technical cybersecurity measures."@en ;
+    rdfs:comment "11 straipsnis: Visi kibernetinio saugumo subjektai privalo: (1) užtikrinti valdomų sistemų kibernetinį saugumą ir atitikti organizacinius/techninius reikalavimus; (2) atlikti rizikos vertinimus ir diegti rizikai proporcingas priemones, grindžiamas naujausiais technikos laimėjimais; (3) pranešti apie incidentus NKSC pagal Nacionalinį kibernetinių incidentų valdymo planą ir taikyti incidentų valdymo priemones; (4) teikti policijai teisės aktais nustatytą informaciją nusikaltimų tyrimui ir vykdyti policijos nurodymus per 8 valandas; (5) paskirti atsakingą asmenį/padalinį už kibernetinį saugumą ir pateikti NKSC kontaktinę informaciją; (6) vykdyti NKSC nurodymus pagal 8 straipsnį. 11(2) dalis dėl valstybės informacinių išteklių taip pat reikalauja sudaryti NKSC sąlygas diegti ir valdyti technines kibernetinio saugumo priemones."@lt ;
+    llo:hasLegalBasis "Art. 11, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_SpecialSubjectDuties a llo:LegalConcept ;
+    rdfs:label "Special duties by subject category" ;
+    rdfs:label "Special duties by subject category"@en ;
+    rdfs:label "Specialiosios pareigos pagal subjekto kategoriją"@lt ;
+    rdfs:comment "Article 12 establishes category-specific duties: (1) Critical infrastructure operators: prepare and submit incident management plans to NKSC, report digital service provider disruptions to NKSC, conduct annual incident management exercises, provide NKSC access for technical measure deployment; (2) State information resource managers: same NKSC access obligations for technical measures; (3) Public ECN/ECS providers: publish cybersecurity recommendations publicly; (4) Electronic information hosting providers: publish cybersecurity recommendations publicly; (5) Digital service providers: publish cybersecurity recommendations, appoint EU representative if not established in an EU member state, with micro/small enterprises exempt from digital service provider obligations." ;
+    rdfs:comment "Article 12 establishes category-specific duties: (1) Critical infrastructure operators: prepare and submit incident management plans to NKSC, report digital service provider disruptions to NKSC, conduct annual incident management exercises, provide NKSC access for technical measure deployment; (2) State information resource managers: same NKSC access obligations for technical measures; (3) Public ECN/ECS providers: publish cybersecurity recommendations publicly; (4) Electronic information hosting providers: publish cybersecurity recommendations publicly; (5) Digital service providers: publish cybersecurity recommendations, appoint EU representative if not established in an EU member state, with micro/small enterprises exempt from digital service provider obligations."@en ;
+    rdfs:comment "12 straipsnis nustato kategorines pareigas: (1) Ypatingos svarbos infrastruktūros valdytojai: rengia ir teikia NKSC incidentų valdymo planus, praneša NKSC apie skaitmeninių paslaugų teikėjų sutrikimus, kasmet atlieka incidentų valdymo pratybas, sudaro NKSC sąlygas diegti technines priemones; (2) Valstybės informacinių išteklių valdytojai: tos pačios NKSC prieigos pareigos techninėms priemonėms; (3) Viešųjų ECN/ECS teikėjai: viešai skelbia kibernetinio saugumo rekomendacijas; (4) Elektroninės informacijos prieglobos teikėjai: viešai skelbia kibernetinio saugumo rekomendacijas; (5) Skaitmeninių paslaugų teikėjai: skelbia rekomendacijas, skiria ES atstovą, jei neįsisteigę ES valstybėje narėje, mažos ir labai mažos įmonės atleidžiamos nuo skaitmeninių paslaugų teikėjų pareigų."@lt ;
+    llo:hasLegalBasis "Art. 12, XII-1428 (as restated by XIII-1299)" .
+
+
+# =================================================================
+# SECTION 8: LEGAL CONCEPTS – INFORMATION AND COOPERATION
+# =================================================================
+
+lld:Concept_KSIS_Restated a llo:LegalConcept ;
+    rdfs:label "KSIS – cybersecurity information sharing network (restated)" ;
+    rdfs:label "KSIS – cybersecurity information sharing network (restated)"@en ;
+    rdfs:label "KSIS – kibernetinio saugumo informacijos dalijimosi tinklas (nauja redakcija)"@lt ;
+    rdfs:comment "Article 13: KSIS purpose is sharing information on possible and actual cyber incidents, recommendations, orders, technical solutions, and other cybersecurity measures, enabling mutual cooperation among KSIS members. Access restricted to subjects meeting KSIS statute requirements. KSIS publishes contact information of designated cybersecurity persons/units of subjects responsible for cybersecurity organisation and incident management." ;
+    rdfs:comment "Article 13: KSIS purpose is sharing information on possible and actual cyber incidents, recommendations, orders, technical solutions, and other cybersecurity measures, enabling mutual cooperation among KSIS members. Access restricted to subjects meeting KSIS statute requirements. KSIS publishes contact information of designated cybersecurity persons/units of subjects responsible for cybersecurity organisation and incident management."@en ;
+    rdfs:comment "13 straipsnis: KSIS paskirtis – dalytis informacija apie galimus ir įvykusius kibernetinius incidentus, rekomendacijomis, nurodymais, techniniais sprendimais ir kitomis kibernetinio saugumo priemonėmis, užtikrinant tarpusavio bendradarbiavimą tarp KSIS narių. Prieiga ribojama tik subjektams, atitinkantiems KSIS nuostatų reikalavimus. KSIS skelbia paskirtų kibernetinio saugumo asmenų/padalinių kontaktinę informaciją."@lt ;
+    llo:hasLegalBasis "Art. 13, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_InterInstitutionalCooperation a llo:LegalConcept ;
+    rdfs:label "Inter-institutional cooperation in cyber incident management" ;
+    rdfs:label "Inter-institutional cooperation in cyber incident management"@en ;
+    rdfs:label "Tarpinstitucinis bendradarbiavimas valdant kibernetinius incidentus"@lt ;
+    rdfs:comment "Article 14: NKSC and Police consult and cooperate in investigating cyber incidents, exchange investigation-related information within their competence. Investigations may be reported to criminal intelligence entities and intelligence institutions. NKSC and VDAI cooperate on incidents involving personal data and privacy breaches, exchanging information required by law for investigating privacy-violating incidents. Cooperation procedures are established in the National Cyber Incident Management Plan." ;
+    rdfs:comment "Article 14: NKSC and Police consult and cooperate in investigating cyber incidents, exchange investigation-related information within their competence. Investigations may be reported to criminal intelligence entities and intelligence institutions. NKSC and VDAI cooperate on incidents involving personal data and privacy breaches, exchanging information required by law for investigating privacy-violating incidents. Cooperation procedures are established in the National Cyber Incident Management Plan."@en ;
+    rdfs:comment "14 straipsnis: NKSC ir policija konsultuojasi ir bendradarbiauja tiriant kibernetinius incidentus, keičiasi su tyrimu susijusia informacija pagal kompetenciją. Apie tyrimus gali būti pranešama kriminalinės žvalgybos subjektams ir žvalgybos institucijoms. NKSC ir VDAI bendradarbiauja tiriant incidentus, susijusius su asmens duomenimis ir privatumo pažeidimais, keičiasi teisės aktais nustatyta informacija. Bendradarbiavimo tvarka nustatoma Nacionaliniame kibernetinių incidentų valdymo plane."@lt ;
+    llo:hasLegalBasis "Art. 14, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_InformationProtection a llo:LegalConcept ;
+    rdfs:label "Confidentiality obligations for cybersecurity information" ;
+    rdfs:label "Confidentiality obligations for cybersecurity information"@en ;
+    rdfs:label "Kibernetinio saugumo informacijos konfidencialumo pareigos"@lt ;
+    rdfs:comment "Article 15: Cybersecurity policy implementation institutions receiving subject information – including confidential information – may exchange it only insofar as necessary to perform their institutional functions by competence, and must ensure protection of received information." ;
+    rdfs:comment "Article 15: Cybersecurity policy implementation institutions receiving subject information – including confidential information – may exchange it only insofar as necessary to perform their institutional functions by competence, and must ensure protection of received information."@en ;
+    rdfs:comment "15 straipsnis: Kibernetinio saugumo politikos įgyvendinimo institucijos, gaunančios subjektų informaciją, įskaitant konfidencialią, gali ja keistis tik tiek, kiek tai būtina jų institucijų funkcijoms pagal kompetenciją atlikti, ir privalo užtikrinti gautos informacijos apsaugą."@lt ;
+    llo:hasLegalBasis "Art. 15, XII-1428 (as restated by XIII-1299)" .
+
+lld:Concept_VoluntaryReporting a llo:LegalConcept ;
+    rdfs:label "Voluntary cyber incident reporting right" ;
+    rdfs:label "Voluntary cyber incident reporting right"@en ;
+    rdfs:label "Savanoriško pranešimo apie kibernetinius incidentus teisė"@lt ;
+    rdfs:comment "Article 16: Persons not otherwise required by law to report cyber incidents in their managed systems have the right to voluntarily report incidents to NKSC along with applied incident management measures. NKSC processes such reports as prescribed in the National Cyber Incident Management Plan. No additional duties are imposed on a person for voluntarily reporting an incident." ;
+    rdfs:comment "Article 16: Persons not otherwise required by law to report cyber incidents in their managed systems have the right to voluntarily report incidents to NKSC along with applied incident management measures. NKSC processes such reports as prescribed in the National Cyber Incident Management Plan. No additional duties are imposed on a person for voluntarily reporting an incident."@en ;
+    rdfs:comment "16 straipsnis: Asmenys, kuriems šiame įstatyme nėra nustatytos pareigos pranešti apie kibernetinius incidentus jų valdomose sistemose, turi teisę savanoriškai pranešti NKSC apie incidentus ir taikytas incidentų valdymo priemones. NKSC tvarko tokius pranešimus pagal Nacionalinį kibernetinių incidentų valdymo planą. Savanoriškai pranešusiam asmeniui nenustatoma papildomų pareigų dėl pranešimo pateikimo."@lt ;
+    llo:hasLegalBasis "Art. 16, XII-1428 (as restated by XIII-1299)" .
+
+
+# =================================================================
+# SECTION 9: INSTITUTIONAL INSTANCES
+# =================================================================
+
+lld:Org_CyberCouncil_Restated a llo:GovernmentMinistry ;
+    rdfs:label "Cybersecurity Council (Kibernetinio saugumo taryba)" ;
+    rdfs:label "Cybersecurity Council (Kibernetinio saugumo taryba)"@en ;
+    rdfs:label "Kibernetinio saugumo taryba"@lt ;
+    rdfs:comment "Permanent collegial independent advisory body analysing cybersecurity posture and providing proposals to all cybersecurity participants. Chaired by a MoD representative; administratively supported by MoD." ;
+    rdfs:comment "Permanent collegial independent advisory body analysing cybersecurity posture and providing proposals to all cybersecurity participants. Chaired by a MoD representative; administratively supported by MoD."@en ;
+    rdfs:comment "Nuolatinė kolegiali nepriklausoma patariamoji institucija, analizuojanti kibernetinio saugumo būklę ir teikianti pasiūlymus visiems kibernetinio saugumo dalyviams. Jai vadovauja KAM atstovas; ūkiškai aptarnauja KAM."@lt ;
+    llo:hasLegalBasis "Art. 7, XII-1428 (as restated by XIII-1299)" ;
+    llo:hasJurisdictionOver lld:XII-1428 .
+
+
+# =================================================================
+# SECTION 10: RESILIENCE MANDATES
+# =================================================================
+
+lld:Mandate_AnnualExercises a llo:ResilienceMandate ;
+    rdfs:label "Annual cyber incident management exercises for critical infrastructure" ;
+    rdfs:label "Annual cyber incident management exercises for critical infrastructure"@en ;
+    rdfs:label "Kasmetinės kibernetinių incidentų valdymo pratybos ypatingos svarbos infrastruktūroje"@lt ;
+    rdfs:comment "Critical information infrastructure operators must conduct at least annual exercises testing planned incident management measures and compliance with organisational and technical cybersecurity requirements, and report results to NKSC as prescribed." ;
+    rdfs:comment "Critical information infrastructure operators must conduct at least annual exercises testing planned incident management measures and compliance with organisational and technical cybersecurity requirements, and report results to NKSC as prescribed."@en ;
+    rdfs:comment "Ypatingos svarbos informacinės infrastruktūros valdytojai privalo ne rečiau kaip kartą per kalendorinius metus išbandyti kibernetinių incidentų valdymo planuose numatytų priemonių veikimą ir atitiktį organizaciniams bei techniniams reikalavimams ir rezultatus pateikti NKSC nustatyta tvarka."@lt ;
+    llo:hasLegalBasis "Art. 12(1)(3), XII-1428 (as restated by XIII-1299)" ;
+    llo:appliesTo lld:Entity_CriticalInfra .
+
+lld:Mandate_RiskAssessment a llo:ResilienceMandate ;
+    rdfs:label "Mandatory risk assessment and proportionate measures" ;
+    rdfs:label "Mandatory risk assessment and proportionate measures"@en ;
+    rdfs:label "Privalomas rizikos vertinimas ir proporcingos priemonės"@lt ;
+    rdfs:comment "All cybersecurity subjects must perform risk assessments as prescribed and implement technical, organisational, and cybersecurity measures proportionate to identified risks, based on latest technical standards." ;
+    rdfs:comment "All cybersecurity subjects must perform risk assessments as prescribed and implement technical, organisational, and cybersecurity measures proportionate to identified risks, based on latest technical standards."@en ;
+    rdfs:comment "Visi kibernetinio saugumo subjektai privalo atlikti rizikos vertinimus nustatyta tvarka ir diegti nustatytai rizikai proporcingas technines, organizacines ir kibernetinio saugumo priemones, grindžiamas naujausiais technikos laimėjimais."@lt ;
+    llo:hasLegalBasis "Art. 11(1)(2), XII-1428 (as restated by XIII-1299)" .
+
+lld:Mandate_8h_PoliceCompliance a llo:ResilienceMandate ;
+    rdfs:label "8-hour compliance with police cybersecurity orders" ;
+    rdfs:label "8-hour compliance with police cybersecurity orders"@en ;
+    rdfs:label "8 valandų policijos kibernetinio saugumo nurodymų vykdymas"@lt ;
+    rdfs:comment "Police orders regarding service provision restriction must be complied with within 8 hours from receipt of the order." ;
+    rdfs:comment "Police orders regarding service provision restriction must be complied with within 8 hours from receipt of the order."@en ;
+    rdfs:comment "Policijos nurodymai dėl paslaugų teikimo apribojimo privaloma įvykdyti per 8 valandas nuo policijos nurodymo gavimo."@lt ;
+    llo:hasDuration "PT8H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 11(1)(4), XII-1428 (as restated by XIII-1299)" .
+
+
+# =================================================================
+# SECTION 11: INCIDENT TRIGGERS
+# =================================================================
+
+lld:Trigger_NKSC_48h_Restated a llo:IncidentTrigger ;
+    rdfs:label "NKSC 48-hour emergency service restriction (restated)" ;
+    rdfs:label "NKSC 48-hour emergency service restriction (restated)"@en ;
+    rdfs:label "NKSC 48 valandų skubus paslaugų apribojimas (nauja redakcija)"@lt ;
+    rdfs:comment "To stop a cyber incident's impact on state information resources or critical infrastructure cybersecurity, NKSC orders public ECN/ECS providers to restrict service for up to 48 hours, notifying RRT by the next business day." ;
+    rdfs:comment "To stop a cyber incident's impact on state information resources or critical infrastructure cybersecurity, NKSC orders public ECN/ECS providers to restrict service for up to 48 hours, notifying RRT by the next business day."@en ;
+    rdfs:comment "Siekdamas stabdyti kibernetinio incidento poveikį valstybės informaciniams ištekliams ar ypatingos svarbos infrastruktūrų kibernetiniam saugumui, NKSC nurodo viešųjų ECN/ECS teikėjams ne ilgiau kaip 48 valandoms apriboti paslaugų teikimą, pranešdamas RRT ne vėliau kaip kitą darbo dieną."@lt ;
+    llo:isExtraordinaryPower true ;
+    llo:hasDuration "PT48H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 8(2)(11), XII-1428 (as restated by XIII-1299)" ;
+    llo:appliesTo lld:Entity_TelecomProvider .
+
+lld:Trigger_Police_48h_Restated a llo:IncidentTrigger ;
+    rdfs:label "Police 48-hour emergency restriction for cybercrime (restated)" ;
+    rdfs:label "Police 48-hour emergency restriction for cybercrime (restated)"@en ;
+    rdfs:label "Policijos 48 valandų skubus apribojimas dėl kibernetinių nusikaltimų (nauja redakcija)"@lt ;
+    rdfs:comment "When a service user's equipment is suspected of criminal use, police may order public ECN/ECS providers, electronic information hosting providers, and digital service providers to restrict service for up to 48 hours without court sanction. Longer restrictions require district court approval; if the court does not confirm legality by reasoned decision, the order is immediately terminated." ;
+    rdfs:comment "When a service user's equipment is suspected of criminal use, police may order public ECN/ECS providers, electronic information hosting providers, and digital service providers to restrict service for up to 48 hours without court sanction. Longer restrictions require district court approval; if the court does not confirm legality by reasoned decision, the order is immediately terminated."@en ;
+    rdfs:comment "Kai paslaugų gavėjo įranga galimai naudojama nusikalstamai veikai, policija gali nurodyti viešųjų ECN/ECS teikėjams, elektroninės informacijos prieglobos paslaugų teikėjams ir skaitmeninių paslaugų teikėjams ne ilgiau kaip 48 valandoms apriboti paslaugų teikimą be teismo sankcijos. Ilgesniems apribojimams reikalingas apylinkės teismo patvirtinimas; jeigu teisėjas motyvuota nutartimi nepatvirtina veiksmų teisėtumo, nurodymas nedelsiant stabdomas."@lt ;
+    llo:isExtraordinaryPower true ;
+    llo:hasDuration "PT48H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 10(3), XII-1428 (as restated by XIII-1299)" ;
+    llo:appliesTo lld:Entity_TelecomProvider ,
+                  lld:Entity_HostingProvider ,
+                  lld:Entity_DigitalServiceProvider .
+
+
+# =================================================================
+# SECTION 12: INFORMATION PIPELINE
+# =================================================================
+
+lld:Pipeline_KSIS_Restated a llo:InformationPipeline ;
+    rdfs:label "KSIS – Cybersecurity Information Network (restated)" ;
+    rdfs:label "KSIS – Cybersecurity Information Network (restated)"@en ;
+    rdfs:label "KSIS – Kibernetinio saugumo informacinis tinklas (nauja redakcija)"@lt ;
+    rdfs:comment "Established by MoD for sharing cyber incident information, recommendations, binding orders, technical solutions, and other cybersecurity measures among qualifying cybersecurity subjects. Access restricted by KSIS statute requirements. Publishes designated contact information for subject cybersecurity personnel." ;
+    rdfs:comment "Established by MoD for sharing cyber incident information, recommendations, binding orders, technical solutions, and other cybersecurity measures among qualifying cybersecurity subjects. Access restricted by KSIS statute requirements. Publishes designated contact information for subject cybersecurity personnel."@en ;
+    rdfs:comment "KAM įsteigtas tinklas kibernetinių incidentų informacijai, rekomendacijoms, privalomiems nurodymams, techniniams sprendimams ir kitoms kibernetinio saugumo priemonėms dalytis tarp reikalavimus atitinkančių kibernetinio saugumo subjektų. Prieiga ribojama KSIS nuostatų reikalavimais. Skelbia paskirtų kibernetinio saugumo kontaktinių asmenų informaciją."@lt ;
+    llo:hasLegalBasis "Art. 13, XII-1428 (as restated by XIII-1299)" ;
+    llo:relaysDataTo lld:Org_NKSC .
+
+
+# =================================================================
+# SECTION 13: EU DIRECTIVE CROSS-REFERENCES (ANNEX)
+# =================================================================
+
+lld:EU_Dir_2002_21_EC a llo:EUDirective ;
+    rdfs:label "Framework Directive 2002/21/EC on electronic communications" ;
+    rdfs:label "Framework Directive 2002/21/EC on electronic communications"@en ;
+    rdfs:label "Pagrindų direktyva 2002/21/EB dėl elektroninių ryšių"@lt ;
+    rdfs:comment "Directive 2002/21/EC of the European Parliament and of the Council of 7 March 2002 on a common regulatory framework for electronic communications networks and services (Framework Directive), as last amended by Directive 2009/140/EC. Listed in the restated annex of transposed EU acts." ;
+    rdfs:comment "Directive 2002/21/EC of the European Parliament and of the Council of 7 March 2002 on a common regulatory framework for electronic communications networks and services (Framework Directive), as last amended by Directive 2009/140/EC. Listed in the restated annex of transposed EU acts."@en ;
+    rdfs:comment "2002 m. kovo 7 d. Europos Parlamento ir Tarybos direktyva 2002/21/EB dėl elektroninių ryšių tinklų ir paslaugų bendrosios reguliavimo sistemos (Pagrindų direktyva), su paskutiniais pakeitimais, padarytais direktyva 2009/140/EB. Nurodyta iš naujo išdėstytame perkeliamų ES teisės aktų priede."@lt ;
+    llo:hasLegalBasis "Annex, XII-1428 (as restated by XIII-1299)" .
+
+lld:EU_Dir_2016_1148_Restated a llo:EUDirective ;
+    rdfs:label "NIS Directive (EU) 2016/1148 (in restated annex)" ;
+    rdfs:label "NIS Directive (EU) 2016/1148 (in restated annex)"@en ;
+    rdfs:label "TIS direktyva (ES) 2016/1148 (nauja redakcija priede)"@lt ;
+    rdfs:comment "Directive (EU) 2016/1148 of the European Parliament and of the Council of 6 July 2016 concerning measures for a high common level of security of network and information systems across the Union. Listed in the restated annex of transposed EU acts." ;
+    rdfs:comment "Directive (EU) 2016/1148 of the European Parliament and of the Council of 6 July 2016 concerning measures for a high common level of security of network and information systems across the Union. Listed in the restated annex of transposed EU acts."@en ;
+    rdfs:comment "2016 m. liepos 6 d. Europos Parlamento ir Tarybos direktyva (ES) 2016/1148 dėl priemonių aukštam bendram tinklų ir informacinių sistemų saugumo lygiui visoje Sąjungoje užtikrinti. Nurodyta iš naujo išdėstytame perkeliamų ES teisės aktų priede."@lt ;
+    llo:hasLegalBasis "Annex, XII-1428 (as restated by XIII-1299)" .
+
+
+# =================================================================
+# SECTION 14: CIVIC RIGHTS
+# =================================================================
+
+lld:Right_CyberspaceNonDiscrimination a llo:CivicRight ;
+    rdfs:label "Right to equal legal protection in cyberspace" ;
+    rdfs:label "Right to equal legal protection in cyberspace"@en ;
+    rdfs:label "Teisė į vienodą teisinę apsaugą kibernetinėje erdvėje"@lt ;
+    rdfs:comment "The principle of cyberspace non-discrimination mandates that legal protections and rights are applied equally in both physical and cyber domains." ;
+    rdfs:comment "The principle of cyberspace non-discrimination mandates that legal protections and rights are applied equally in both physical and cyber domains."@en ;
+    rdfs:comment "Kibernetinės erdvės nediskriminavimo principas reikalauja, kad teisinė apsauga ir teisės būtų taikomos vienodai tiek fizinėje, tiek kibernetinėje erdvėje."@lt ;
+    llo:hasLegalBasis "Art. 3(1)(1), XII-1428 (as restated by XIII-1299)" .
+
+lld:Right_ProportionalityInCyberMeasures a llo:CivicRight ;
+    rdfs:label "Right to proportionate cybersecurity restrictions" ;
+    rdfs:label "Right to proportionate cybersecurity restrictions"@en ;
+    rdfs:label "Teisė į proporcingas kibernetinio saugumo priemones"@lt ;
+    rdfs:comment "The proportionality principle requires that cybersecurity measures must not restrict cybersecurity subjects' activities in cyberspace more than necessary. The public interest primacy principle further protects individual users by requiring that measures must not disproportionately limit their rights or freedoms in cyberspace." ;
+    rdfs:comment "The proportionality principle requires that cybersecurity measures must not restrict cybersecurity subjects' activities in cyberspace more than necessary. The public interest primacy principle further protects individual users by requiring that measures must not disproportionately limit their rights or freedoms in cyberspace."@en ;
+    rdfs:comment "Proporcingumo principas reikalauja, kad kibernetinio saugumo priemonės neribotų kibernetinio saugumo subjektų veiklos kibernetinėje erdvėje labiau negu būtina. Viešojo intereso viršenybės principas papildomai saugo individualius vartotojus, reikalaudamas, kad priemonės neproporcingai neribotų jų teisių ar laisvių kibernetinėje erdvėje."@lt ;
+    llo:hasLegalBasis "Art. 3(1)(3-4), XII-1428 (as restated by XIII-1299)" .
+
+lld:Right_VoluntaryReportingImmunity a llo:CivicRight ;
+    rdfs:label "Immunity from additional duties for voluntary incident reporters" ;
+    rdfs:label "Immunity from additional duties for voluntary incident reporters"@en ;
+    rdfs:label "Apsauga nuo papildomų pareigų savanoriškai pranešantiems apie incidentus"@lt ;
+    rdfs:comment "Persons who voluntarily report cyber incidents to NKSC incur no additional duties connected to the act of reporting, protecting the right to report without fear of regulatory consequences." ;
+    rdfs:comment "Persons who voluntarily report cyber incidents to NKSC incur no additional duties connected to the act of reporting, protecting the right to report without fear of regulatory consequences."@en ;
+    rdfs:comment "Asmenims, savanoriškai pranešusiems NKSC apie kibernetinius incidentus, nenustatoma jokių papildomų pareigų, susijusių su pranešimo pateikimu, saugant teisę pranešti be reguliacinių pasekmių baimės."@lt ;
+    llo:hasLegalBasis "Art. 16(2), XII-1428 (as restated by XIII-1299)" .

@@ -1,0 +1,344 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Articles 1, 2, 6, 8, 9, 13 Straipsnių,
+#   Chapter V Title, Adding Article 17, Chapter VI
+#   (Articles 18-20), and Annex
+#   No. XIV-413, enacted 2021-06-17, Vilnius
+#   Signed by President Gitanas Nausėda
+#   Effective 2021-06-28
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XIV-413 a llo:Statute ;
+    rdfs:label "Amendment to Cybersecurity Law – Vulnerability Disclosure and EU Certification (No. XIV-413)" ;
+    rdfs:label "Amendment to Cybersecurity Law – Vulnerability Disclosure and EU Certification (No. XIV-413)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 1, 2, 6, 8, 9, 13 straipsnių, V skyriaus pavadinimo, priedo pakeitimo ir įstatymo papildymo 17 straipsniu ir VI skyriumi įstatymas (Nr. XIV-413)"@lt ;
+    rdfs:comment "Introduces two major new regimes into the Cybersecurity Law: (1) a coordinated vulnerability disclosure framework (Article 17) with safe harbour protections for security researchers, 24-hour reporting deadlines, 90-day coordinated disclosure timelines, and researcher conduct restrictions; (2) national cybersecurity certification authority powers (new Chapter VI, Articles 18-20) designating NKSC as the national authority under EU Cybersecurity Act Regulation (EU) 2019/881, with investigation, enforcement, and conformity assessment body supervision powers. Also adds the 'vulnerability' definition, expands NKSC powers to include vulnerability analysis and binding orders, redefines KSIS as a state information system with confidentiality rules, and updates the EU annex to include Regulation (EU) 2019/881." ;
+    rdfs:comment "Introduces two major new regimes into the Cybersecurity Law: (1) a coordinated vulnerability disclosure framework (Article 17) with safe harbour protections for security researchers, 24-hour reporting deadlines, 90-day coordinated disclosure timelines, and researcher conduct restrictions; (2) national cybersecurity certification authority powers (new Chapter VI, Articles 18-20) designating NKSC as the national authority under EU Cybersecurity Act Regulation (EU) 2019/881, with investigation, enforcement, and conformity assessment body supervision powers. Also adds the 'vulnerability' definition, expands NKSC powers to include vulnerability analysis and binding orders, redefines KSIS as a state information system with confidentiality rules, and updates the EU annex to include Regulation (EU) 2019/881."@en ;
+    rdfs:comment "Įveda du naujus pagrindinius režimus į Kibernetinio saugumo įstatymą: (1) koordinuoto spragų atskleidimo sistemą (17 straipsnis) su saugumo tyrinėtojų apsauga, 24 valandų pranešimo terminais, 90 dienų koordinuoto atskleidimo terminais ir tyrinėtojų veiklos apribojimais; (2) nacionalinės kibernetinio saugumo sertifikavimo institucijos įgaliojimus (naujas VI skyrius, 18-20 straipsniai), paskiriančius NKSC nacionaline institucija pagal ES Kibernetinio saugumo aktą – Reglamentą (ES) 2019/881, su tyrimo, vykdymo užtikrinimo ir atitikties vertinimo įstaigų priežiūros įgaliojimais. Taip pat prideda 'spragos' sąvoką, išplečia NKSC įgaliojimus apimant spragų analizę ir privalomus nurodymus, apibrėžia KSIS kaip valstybės informacinę sistemą su konfidencialumo taisyklėmis ir atnaujina ES priedą, įtraukiant Reglamentą (ES) 2019/881."@lt ;
+    llo:hasDocID "No. XIV-413" ;
+    llo:dateEnacted "2021-06-17"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XIV-413_Art1 ,
+                     lld:XIV-413_Art2 ,
+                     lld:XIV-413_Art3 ,
+                     lld:XIV-413_Art4 ,
+                     lld:XIV-413_Art5 ,
+                     lld:XIV-413_Art6 ,
+                     lld:XIV-413_Art7 ,
+                     lld:XIV-413_Art8 ,
+                     lld:XIV-413_Art9 ,
+                     lld:XIV-413_Art10 ,
+                     lld:XIV-413_Art11 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XIV-413_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 1 (Scope)" ;
+    rdfs:label "Article 1 – Amendment of Article 1 (Scope)"@en ;
+    rdfs:label "1 straipsnis – 1 straipsnio pakeitimas (paskirtis)"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_ExpandedScope_VulnCert .
+
+lld:XIV-413_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Amendment of Article 2 (Definitions)" ;
+    rdfs:label "Article 2 – Amendment of Article 2 (Definitions)"@en ;
+    rdfs:label "2 straipsnis – 2 straipsnio pakeitimas (sąvokos)"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_VulnerabilityDefinition ,
+                        lld:Concept_CybersecActTerms .
+
+lld:XIV-413_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Amendment of Article 6 (MoD Powers)" ;
+    rdfs:label "Article 3 – Amendment of Article 6 (MoD Powers)"@en ;
+    rdfs:label "3 straipsnis – 6 straipsnio pakeitimas (KAM įgaliojimai)"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_MoD_VulnDisclosureApproval .
+
+lld:XIV-413_Art4 a llo:Article ;
+    rdfs:label "Article 4 – Amendment of Article 8 (NKSC Powers)" ;
+    rdfs:label "Article 4 – Amendment of Article 8 (NKSC Powers)"@en ;
+    rdfs:label "4 straipsnis – 8 straipsnio pakeitimas (NKSC įgaliojimai)"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:codifiesConcept lld:Concept_NKSC_VulnerabilityAnalysis .
+
+lld:XIV-413_Art5 a llo:Article ;
+    rdfs:label "Article 5 – Amendment of Article 9 (VDAI Powers)" ;
+    rdfs:label "Article 5 – Amendment of Article 9 (VDAI Powers)"@en ;
+    rdfs:label "5 straipsnis – 9 straipsnio pakeitimas (VDAI įgaliojimai)"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:codifiesConcept lld:Concept_VDAI_InfoSystem .
+
+lld:XIV-413_Art6 a llo:Article ;
+    rdfs:label "Article 6 – Amendment of Article 13 (KSIS)" ;
+    rdfs:label "Article 6 – Amendment of Article 13 (KSIS)"@en ;
+    rdfs:label "6 straipsnis – 13 straipsnio pakeitimas (KSIS)"@lt ;
+    llo:hasIndexNumber 6 ;
+    llo:codifiesConcept lld:Concept_KSIS_StateInfoSystem .
+
+lld:XIV-413_Art7 a llo:Article ;
+    rdfs:label "Article 7 – Renaming of Chapter V" ;
+    rdfs:label "Article 7 – Renaming of Chapter V"@en ;
+    rdfs:label "7 straipsnis – V skyriaus pavadinimo pakeitimas"@lt ;
+    llo:hasIndexNumber 7 .
+
+lld:XIV-413_Art8 a llo:Article ;
+    rdfs:label "Article 8 – Addition of Article 17 (Vulnerability Search and Disclosure)" ;
+    rdfs:label "Article 8 – Addition of Article 17 (Vulnerability Search and Disclosure)"@en ;
+    rdfs:label "8 straipsnis – Įstatymo papildymas 17 straipsniu (spragų paieška ir atskleidimas)"@lt ;
+    llo:hasIndexNumber 8 ;
+    llo:codifiesConcept lld:Concept_VulnerabilityDisclosure .
+
+lld:XIV-413_Art9 a llo:Article ;
+    rdfs:label "Article 9 – Addition of Chapter VI (Certification Authority)" ;
+    rdfs:label "Article 9 – Addition of Chapter VI (Certification Authority)"@en ;
+    rdfs:label "9 straipsnis – Įstatymo papildymas VI skyriumi (sertifikavimo institucija)"@lt ;
+    llo:hasIndexNumber 9 ;
+    llo:codifiesConcept lld:Concept_NationalCertificationAuthority .
+
+lld:XIV-413_Art10 a llo:Article ;
+    rdfs:label "Article 10 – Amendment of the Annex (EU Acts)" ;
+    rdfs:label "Article 10 – Amendment of the Annex (EU Acts)"@en ;
+    rdfs:label "10 straipsnis – Įstatymo priedo pakeitimas (ES teisės aktai)"@lt ;
+    llo:hasIndexNumber 10 ;
+    llo:codifiesConcept lld:Concept_CybersecActAnnex .
+
+lld:XIV-413_Art11 a llo:Article ;
+    rdfs:label "Article 11 – Entry into Force and Implementation" ;
+    rdfs:label "Article 11 – Entry into Force and Implementation"@en ;
+    rdfs:label "11 straipsnis – Įstatymo įsigaliojimas ir įgyvendinimas"@lt ;
+    llo:hasIndexNumber 11 .
+
+
+# =================================================================
+# SECTION 3: NEW CHAPTER – ADDED TO XII-1428
+# =================================================================
+
+lld:XIV-413_Ch6 a llo:Chapter ;
+    rdfs:label "Chapter VI – National Cybersecurity Certification Authority Powers" ;
+    rdfs:label "Chapter VI – National Cybersecurity Certification Authority Powers"@en ;
+    rdfs:label "VI skyrius – Nacionalinės kibernetinio saugumo sertifikavimo institucijos įgaliojimai"@lt ;
+    llo:hasIndexNumber 6 ;
+    llo:hasComponent lld:XIV-413_S18 ,
+                     lld:XIV-413_S19 ,
+                     lld:XIV-413_S20 .
+
+lld:XIV-413_S18 a llo:Article ;
+    rdfs:label "Article 18 – National Cybersecurity Certification Authority" ;
+    rdfs:label "Article 18 – National Cybersecurity Certification Authority"@en ;
+    rdfs:label "18 straipsnis – Nacionalinė kibernetinio saugumo sertifikavimo institucija"@lt ;
+    llo:hasIndexNumber 18 ;
+    llo:codifiesConcept lld:Concept_NationalCertificationAuthority .
+
+lld:XIV-413_S19 a llo:Article ;
+    rdfs:label "Article 19 – Supplementary Powers for Conformity Assessment Bodies" ;
+    rdfs:label "Article 19 – Supplementary Powers for Conformity Assessment Bodies"@en ;
+    rdfs:label "19 straipsnis – Papildomi įgaliojimai atitikties vertinimo įstaigoms"@lt ;
+    llo:hasIndexNumber 19 ;
+    llo:codifiesConcept lld:Concept_ConformityAssessmentPowers .
+
+lld:XIV-413_S20 a llo:Article ;
+    rdfs:label "Article 20 – Investigation Procedures" ;
+    rdfs:label "Article 20 – Investigation Procedures"@en ;
+    rdfs:label "20 straipsnis – Tyrimo atlikimo tvarka"@lt ;
+    llo:hasIndexNumber 20 ;
+    llo:codifiesConcept lld:Concept_CertificationInvestigations .
+
+
+# =================================================================
+# SECTION 4: LEGAL CONCEPTS – SCOPE AND DEFINITIONS
+# =================================================================
+
+lld:Concept_ExpandedScope_VulnCert a llo:LegalConcept ;
+    rdfs:label "Expanded law scope: vulnerability disclosure and certification" ;
+    rdfs:label "Expanded law scope: vulnerability disclosure and certification"@en ;
+    rdfs:label "Išplėsta įstatymo paskirtis: spragų atskleidimas ir sertifikavimas"@lt ;
+    rdfs:comment "Article 1 restated to add two new dimensions to the law's scope: (1) the foundations for network and information system vulnerability search, disclosure, and reporting of cyber incidents; and (2) the functions and powers of the national cybersecurity certification authority." ;
+    rdfs:comment "Article 1 restated to add two new dimensions to the law's scope: (1) the foundations for network and information system vulnerability search, disclosure, and reporting of cyber incidents; and (2) the functions and powers of the national cybersecurity certification authority."@en ;
+    rdfs:comment "1 straipsnis išdėstytas iš naujo, papildant įstatymo paskirtį dviem naujomis dimensijomis: (1) ryšių ir informacinių sistemų spragų paieškos ir pranešimo apie kibernetinius incidentus pagrindais; ir (2) nacionalinės kibernetinio saugumo sertifikavimo institucijos funkcijomis ir įgaliojimais."@lt ;
+    llo:hasLegalBasis "Art. 1, XIV-413 (amending Art. 1, XII-1428)" .
+
+lld:Concept_VulnerabilityDefinition a llo:LegalConcept ;
+    rdfs:label "New statutory definition of 'vulnerability' (spraga)" ;
+    rdfs:label "New statutory definition of 'vulnerability' (spraga)"@en ;
+    rdfs:label "Nauja 'spragos' sąvokos apibrėžtis"@lt ;
+    rdfs:comment "New Article 2(14¹): 'Network and information system vulnerability' (spraga) – a deficiency in a network and information system due to which a cyber incident may occur." ;
+    rdfs:comment "New Article 2(14¹): 'Network and information system vulnerability' (spraga) – a deficiency in a network and information system due to which a cyber incident may occur."@en ;
+    rdfs:comment "Naujas 2 straipsnio 14¹ dalis: 'Ryšių ir informacinės sistemos spraga' (toliau – spraga) – ryšių ir informacinės sistemos trūkumas, dėl kurio gali įvykti kibernetinis incidentas."@lt ;
+    llo:hasLegalBasis "Art. 2(1), XIV-413 (adding Art. 2(14¹), XII-1428)" .
+
+lld:Concept_CybersecActTerms a llo:LegalConcept ;
+    rdfs:label "EU Cybersecurity Act terminology integration" ;
+    rdfs:label "EU Cybersecurity Act terminology integration"@en ;
+    rdfs:label "ES Kibernetinio saugumo akto terminijos integracija"@lt ;
+    rdfs:comment "New Article 2(17¹): The terms 'European cybersecurity certification scheme', 'European cybersecurity certificate', 'accreditation', and 'conformity assessment body' are understood as defined in Regulation (EU) 2019/881 (the EU Cybersecurity Act)." ;
+    rdfs:comment "New Article 2(17¹): The terms 'European cybersecurity certification scheme', 'European cybersecurity certificate', 'accreditation', and 'conformity assessment body' are understood as defined in Regulation (EU) 2019/881 (the EU Cybersecurity Act)."@en ;
+    rdfs:comment "Naujas 2 straipsnio 17¹ dalis: Sąvokos 'Europos kibernetinio saugumo sertifikavimo schema', 'Europos kibernetinio saugumo sertifikatas', 'akreditavimas' ir 'atitikties vertinimo įstaiga' šiame įstatyme suprantamos taip, kaip jos apibrėžtos Reglamente (ES) 2019/881 (ES Kibernetinio saugumo aktas)."@lt ;
+    llo:hasLegalBasis "Art. 2(2), XIV-413 (adding Art. 2(17¹), XII-1428)" .
+
+
+# =================================================================
+# SECTION 5: LEGAL CONCEPTS – INSTITUTIONAL CHANGES
+# =================================================================
+
+lld:Concept_MoD_VulnDisclosureApproval a llo:LegalConcept ;
+    rdfs:label "MoD approves national vulnerability disclosure procedures" ;
+    rdfs:label "MoD approves national vulnerability disclosure procedures"@en ;
+    rdfs:label "KAM tvirtina nacionalinės spragų atskleidimo tvarkos aprašą"@lt ;
+    rdfs:comment "Amended Article 6: MoD now additionally (9) approves the list of technical cybersecurity measures specifying their purpose and data they process, and establishes deployment/management procedures; and (13) approves the national vulnerability disclosure procedures." ;
+    rdfs:comment "Amended Article 6: MoD now additionally (9) approves the list of technical cybersecurity measures specifying their purpose and data they process, and establishes deployment/management procedures; and (13) approves the national vulnerability disclosure procedures."@en ;
+    rdfs:comment "Pakeistas 6 straipsnis: KAM nuo šiol papildomai (9) tvirtina techninių kibernetinio saugumo priemonių sąrašą, nurodoma kibernetinio saugumo priemonės paskirtis ir tvarkomi duomenys, nustato jų diegimo ir valdymo tvarką; ir (13) tvirtina nacionalinės spragų atskleidimo tvarkos aprašą."@lt ;
+    llo:hasLegalBasis "Art. 3, XIV-413 (amending Art. 6(9) and adding Art. 6(13), XII-1428)" .
+
+lld:Concept_NKSC_VulnerabilityAnalysis a llo:LegalConcept ;
+    rdfs:label "NKSC vulnerability analysis and binding notification powers" ;
+    rdfs:label "NKSC vulnerability analysis and binding notification powers"@en ;
+    rdfs:label "NKSC spragų analizės ir privalomų pranešimų įgaliojimai"@lt ;
+    rdfs:comment "New Article 8(2)(16¹): NKSC analyses vulnerability information, issues binding orders to state information resource managers/operators, critical infrastructure operators, public ECN/ECS providers, and electronic information hosting providers regarding vulnerability confirmation and notification." ;
+    rdfs:comment "New Article 8(2)(16¹): NKSC analyses vulnerability information, issues binding orders to state information resource managers/operators, critical infrastructure operators, public ECN/ECS providers, and electronic information hosting providers regarding vulnerability confirmation and notification."@en ;
+    rdfs:comment "Naujas 8 straipsnio 2 dalies 16¹ punktas: NKSC analizuoja informaciją apie spragas, duoda nurodymus subjektams, valdantiems ir (arba) tvarkantiems valstybės informacinius išteklius, ypatingos svarbos informacinės infrastruktūros valdytojams, viešųjų ryšių tinklų ir (ar) viešųjų elektroninių ryšių paslaugų teikėjams ir elektroninės informacijos prieglobos paslaugų teikėjams dėl spragų patvirtinimo ir informavimo apie jas."@lt ;
+    llo:hasLegalBasis "Art. 4, XIV-413 (adding Art. 8(2)(16¹), XII-1428)" .
+
+lld:Concept_VDAI_InfoSystem a llo:LegalConcept ;
+    rdfs:label "VDAI redefined with information system capabilities" ;
+    rdfs:label "VDAI redefined with information system capabilities"@en ;
+    rdfs:label "VDAI apibrėžta su informacinės sistemos galimybėmis"@lt ;
+    rdfs:comment "Article 9 restated: VDAI implements cybersecurity policy in the personal data protection field under GDPR (EU) 2016/679, and its information system processes data by technical means, collects technically gathered data for preventing and managing cyber incidents, and exchanges cybersecurity-related information as established in Article 4 of this law and in other cases." ;
+    rdfs:comment "Article 9 restated: VDAI implements cybersecurity policy in the personal data protection field under GDPR (EU) 2016/679, and its information system processes data by technical means, collects technically gathered data for preventing and managing cyber incidents, and exchanges cybersecurity-related information as established in Article 4 of this law and in other cases."@en ;
+    rdfs:comment "9 straipsnis išdėstytas iš naujo: VDAI įgyvendina kibernetinio saugumo politiką asmens duomenų apsaugos srityje pagal BDAR (ES) 2016/679, o jos informacinė sistema tvarko duomenis informacinių technologijų priemonėmis, surenka techninėmis priemonėmis surinktus duomenis kibernetiniams incidentams užkardyti ir valdyti ir keičiasi informacija, susijusia su kibernetiniu saugumu, šio straipsnio 4 dalyje nustatytais atvejais ir kita su kibernetiniu saugumo užtikrinimu susijusia informacija."@lt ;
+    llo:hasLegalBasis "Art. 5, XIV-413 (amending Art. 9, XII-1428)" .
+
+lld:Concept_KSIS_StateInfoSystem a llo:LegalConcept ;
+    rdfs:label "KSIS redefined as state information system with confidentiality rules" ;
+    rdfs:label "KSIS redefined as state information system with confidentiality rules"@en ;
+    rdfs:label "KSIS apibrėžtas kaip valstybės informacinė sistema su konfidencialumo taisyklėmis"@lt ;
+    rdfs:comment "Amended Article 13(1): KSIS is now formally a state information system (valstybės informacinė sistema) designed to process data by IT means, collect technically gathered data for preventing and managing cyber incidents, exchange information about possible and actual incidents as established in Article 4, and share other cybersecurity-related information. New Article 13(4): KSIS data related to cyber incidents is confidential and may only be provided in three cases: (1) to KSIS members insofar as related to their managed systems; (2) to NKSC performing Art. 8(2)(13) functions; (3) if authorized by law or subsidiary legislation." ;
+    rdfs:comment "Amended Article 13(1): KSIS is now formally a state information system (valstybės informacinė sistema) designed to process data by IT means, collect technically gathered data for preventing and managing cyber incidents, exchange information about possible and actual incidents as established in Article 4, and share other cybersecurity-related information. New Article 13(4): KSIS data related to cyber incidents is confidential and may only be provided in three cases: (1) to KSIS members insofar as related to their managed systems; (2) to NKSC performing Art. 8(2)(13) functions; (3) if authorized by law or subsidiary legislation."@en ;
+    rdfs:comment "Pakeistas 13 straipsnio 1 dalis: KSIS nuo šiol formaliai yra valstybės informacinė sistema, skirta informacinių technologijų priemonėmis tvarkyti duomenis, surinkti techninėmis priemonėmis surinktus duomenis kibernetiniams incidentams užkardyti ir valdyti, keistis informacija apie galimus ir įvykusius incidentus šio straipsnio 4 dalyje nustatytais atvejais ir kita su kibernetiniu saugumo užtikrinimu susijusia informacija. Naujas 13 straipsnio 4 dalis: KSIS duomenys, susiję su kibernetiniais incidentais, yra konfidencialūs ir gali būti teikiami tik trimis atvejais: (1) KSIS naudotojams tiek, kiek tai susiję su jų valdomomis sistemomis; (2) NKSC atliekant 8 str. 2 d. 13 p. funkciją; (3) jeigu galimybė teikti šiuos duomenis yra nustatyta įstatymuose ar jų pagrindu priimtuose teisės aktuose."@lt ;
+    llo:hasLegalBasis "Art. 6, XIV-413 (amending Art. 13, XII-1428)" .
+
+
+# =================================================================
+# SECTION 6: VULNERABILITY DISCLOSURE FRAMEWORK
+# =================================================================
+
+lld:Concept_VulnerabilityDisclosure a llo:LegalConcept ;
+    rdfs:label "Coordinated vulnerability disclosure framework with safe harbour" ;
+    rdfs:label "Coordinated vulnerability disclosure framework with safe harbour"@en ;
+    rdfs:label "Koordinuoto spragų atskleidimo sistema su saugumo tyrinėtojų apsauga"@lt ;
+    rdfs:comment "New Article 17 establishes a comprehensive vulnerability search and disclosure regime: (1) Vulnerability search and disclosure is lawful and incurs no legal liability provided the researcher complies with the national or subject-specific disclosure procedure and the restrictions in paragraph 2; (2) Restrictions: must not disrupt system operation or data integrity, must cease activity upon discovering the vulnerability, must report within 24 hours to NKSC and/or the subject via the disclosure procedure, must not attempt password cracking or social engineering, must not use non-public information for purposes other than vulnerability research, must not share vulnerability details except as permitted in paragraph 3 and Article 5; (3) Disclosure to NKSC: content and timeline information provided within 90 calendar days, with shorter deadlines possible for disclosure to others (minimum 3 calendar days); (4) Subjects have the right to establish their own disclosure procedures with restrictions no stricter than paragraph 2; (5) Persons discovering vulnerabilities may disclose no more information than was provided to NKSC and/or the subject, no earlier than 90 calendar days after submission; NKSC may set shorter timelines (minimum 3 days) considering severity and remediation feasibility." ;
+    rdfs:comment "New Article 17 establishes a comprehensive vulnerability search and disclosure regime: (1) Vulnerability search and disclosure is lawful and incurs no legal liability provided the researcher complies with the national or subject-specific disclosure procedure and the restrictions in paragraph 2; (2) Restrictions: must not disrupt system operation or data integrity, must cease activity upon discovering the vulnerability, must report within 24 hours to NKSC and/or the subject via the disclosure procedure, must not attempt password cracking or social engineering, must not use non-public information for purposes other than vulnerability research, must not share vulnerability details except as permitted in paragraph 3 and Article 5; (3) Disclosure to NKSC: content and timeline information provided within 90 calendar days, with shorter deadlines possible for disclosure to others (minimum 3 calendar days); (4) Subjects have the right to establish their own disclosure procedures with restrictions no stricter than paragraph 2; (5) Persons discovering vulnerabilities may disclose no more information than was provided to NKSC and/or the subject, no earlier than 90 calendar days after submission; NKSC may set shorter timelines (minimum 3 days) considering severity and remediation feasibility."@en ;
+    rdfs:comment "Naujas 17 straipsnis nustato visapusišką spragų paieškos ir atskleidimo režimą: (1) Spragų paieška ir atskleidimas yra teisėtai ir neužtraukia teisinės atsakomybės, jeigu tyrinėtojas laikosi nacionalinės arba subjekto nustatytos atskleidimo tvarkos ir 2 dalies apribojimų; (2) Apribojimai: negali būti trikdomas sistemos darbas ar duomenų vientisumas, radus spragą veikla nutraukiama, per 24 valandas pranešama NKSC ir (arba) subjektui, negali būti bandoma spėti slaptažodžių, naudojamasi socialine inžinerija, neskelbtina informacija naudojama tik spragų tyrimams, nesidalijama spragų informacija, išskyrus 3 dalies ir 5 straipsnio atvejus; (3) Atskleidimas NKSC: turinys ir laiko informacija pateikiami per 90 kalendorinių dienų, trumpesni terminai galimi atskleidimui kitiems (mažiausiai 3 kalendorinės dienos); (4) Subjektai turi teisę nustatyti savo atskleidimo tvarką su apribojimais, ne griežtesniais nei 2 dalis; (5) Spragą radę asmenys gali atskleisti ne daugiau informacijos, nei buvo pateikta NKSC ir (arba) subjektui, ne anksčiau kaip po 90 kalendorinių dienų; NKSC gali nustatyti trumpesnius terminus (mažiausiai 3 dienos), atsižvelgiant į sudėtingumą ir ištaisymo galimybes."@lt ;
+    llo:hasLegalBasis "Art. 8, XIV-413 (adding Art. 17, XII-1428)" .
+
+
+# =================================================================
+# SECTION 7: CERTIFICATION AUTHORITY CONCEPTS
+# =================================================================
+
+lld:Concept_NationalCertificationAuthority a llo:LegalConcept ;
+    rdfs:label "NKSC as national cybersecurity certification authority under EU Cybersecurity Act" ;
+    rdfs:label "NKSC as national cybersecurity certification authority under EU Cybersecurity Act"@en ;
+    rdfs:label "NKSC kaip nacionalinė kibernetinio saugumo sertifikavimo institucija pagal ES Kibernetinio saugumo aktą"@lt ;
+    rdfs:comment "New Article 18: NKSC performs national cybersecurity certification authority functions under Regulation (EU) 2019/881 and has the authority's powers. Functions include: (1) right to demand all necessary information from conformity assessment bodies, EU certificate holders, public/municipal entities and institutions; (2) setting supplementary powers for conformity assessment bodies under Regulation (EU) 2019/881 Article 60(3); (3) hearing complaints under administrative procedure per Regulation (EU) 2019/881 Article 58(7)(f); (4) conducting investigations as compliance with EU certification scheme requirements, as per Article 19 and 20 of this law; (5) right of entry to premises (including rented/used) for up to 30 calendar days for investigations; (6) right to obtain oral and written explanations; (7) performing other certification functions under Lithuanian law. Court orders required for entry to private premises of natural persons." ;
+    rdfs:comment "New Article 18: NKSC performs national cybersecurity certification authority functions under Regulation (EU) 2019/881 and has the authority's powers. Functions include: (1) right to demand all necessary information from conformity assessment bodies, EU certificate holders, public/municipal entities and institutions; (2) setting supplementary powers for conformity assessment bodies under Regulation (EU) 2019/881 Article 60(3); (3) hearing complaints under administrative procedure per Regulation (EU) 2019/881 Article 58(7)(f); (4) conducting investigations as compliance with EU certification scheme requirements, as per Article 19 and 20 of this law; (5) right of entry to premises (including rented/used) for up to 30 calendar days for investigations; (6) right to obtain oral and written explanations; (7) performing other certification functions under Lithuanian law. Court orders required for entry to private premises of natural persons."@en ;
+    rdfs:comment "Naujas 18 straipsnis: NKSC vykdo nacionalinės kibernetinio saugumo sertifikavimo institucijos funkcijas pagal Reglamentą (ES) 2019/881 ir turi šios institucijos įgaliojimus. Funkcijos apima: (1) teisę reikalauti visos reikalingos informacijos iš atitikties vertinimo įstaigų, ES sertifikatų turėtojų, valstybės ir savivaldybių subjektų ir įstaigų; (2) papildomų įgaliojimų nustatymą atitikties vertinimo įstaigoms pagal Reglamento (ES) 2019/881 60 str. 3 d.; (3) skundų nagrinėjimą administracine tvarka pagal Reglamento (ES) 2019/881 58 str. 7 d. f p.; (4) tyrimų atlikimą dėl atitikties ES sertifikavimo schemų reikalavimams pagal šio įstatymo 19 ir 20 straipsnius; (5) teisę įeiti į patalpas (įskaitant nuomojamas/naudojamas) iki 30 kalendorinių dienų tyrimams; (6) teisę gauti žodinius ir rašytinius paaiškinimus; (7) kitų sertifikavimo funkcijų atlikimą pagal Lietuvos teisę. Įėjimui į fizinių asmenų privačias patalpas reikalinga teismo nutartis."@lt ;
+    llo:hasLegalBasis "Art. 9, XIV-413 (adding Art. 18, XII-1428)" .
+
+lld:Concept_ConformityAssessmentPowers a llo:LegalConcept ;
+    rdfs:label "Supplementary powers framework for conformity assessment bodies" ;
+    rdfs:label "Supplementary powers framework for conformity assessment bodies"@en ;
+    rdfs:label "Papildomų įgaliojimų sistema atitikties vertinimo įstaigoms"@lt ;
+    rdfs:comment "New Article 19: Establishes the framework for granting, restricting, suspending, and revoking supplementary powers of conformity assessment bodies. Powers are granted when bodies meet Regulation (EU) 2019/881 Annex requirements and hold valid accreditation. Decisions made within 30 calendar days. Powers may be restricted, suspended, or revoked by NKSC decision when conditions are no longer met, with detailed procedures for each enforcement action. Decisions are appealable to administrative courts." ;
+    rdfs:comment "New Article 19: Establishes the framework for granting, restricting, suspending, and revoking supplementary powers of conformity assessment bodies. Powers are granted when bodies meet Regulation (EU) 2019/881 Annex requirements and hold valid accreditation. Decisions made within 30 calendar days. Powers may be restricted, suspended, or revoked by NKSC decision when conditions are no longer met, with detailed procedures for each enforcement action. Decisions are appealable to administrative courts."@en ;
+    rdfs:comment "Naujas 19 straipsnis: Nustato papildomų atitikties vertinimo įstaigų įgaliojimų suteikimo, apribojimo, sustabdymo ir atšaukimo sistemą. Įgaliojimai suteikiami, kai įstaigos atitinka Reglamento (ES) 2019/881 priedo reikalavimus ir turi galiojantį akreditavimo pažymėjimą. Sprendimai priimami per 30 kalendorinių dienų. Įgaliojimai gali būti apriboti, sustabdyti ar atšaukti NKSC sprendimu, kai sąlygos nebeatitinkamos, su detaliai nustatytomis kiekvieno vykdymo veiksmo procedūromis. Sprendimai skundžiami administraciniam teismui."@lt ;
+    llo:hasLegalBasis "Art. 9, XIV-413 (adding Art. 19, XII-1428)" .
+
+lld:Concept_CertificationInvestigations a llo:LegalConcept ;
+    rdfs:label "NKSC investigation procedures for certification compliance" ;
+    rdfs:label "NKSC investigation procedures for certification compliance"@en ;
+    rdfs:label "NKSC tyrimo procedūros dėl sertifikavimo atitikties"@lt ;
+    rdfs:comment "New Article 20: NKSC may initiate investigations concerning any matter related to Regulation (EU) 2019/881 Title III or European cybersecurity certification scheme requirements. Investigations may be prompted by complaints, conformity assessment body applications, or NKSC's own initiative. Investigations must be completed within 4 months (extendable by up to 2 months); total investigation period not to exceed 6 months. NKSC may find no violations, issue orders/recommendations to conformity assessment bodies or EU certificate holders, initiate administrative offence proceedings, or revoke EU certificates/EU statements of conformity. Recommendations must be delivered within 20 business days." ;
+    rdfs:comment "New Article 20: NKSC may initiate investigations concerning any matter related to Regulation (EU) 2019/881 Title III or European cybersecurity certification scheme requirements. Investigations may be prompted by complaints, conformity assessment body applications, or NKSC's own initiative. Investigations must be completed within 4 months (extendable by up to 2 months); total investigation period not to exceed 6 months. NKSC may find no violations, issue orders/recommendations to conformity assessment bodies or EU certificate holders, initiate administrative offence proceedings, or revoke EU certificates/EU statements of conformity. Recommendations must be delivered within 20 business days."@en ;
+    rdfs:comment "Naujas 20 straipsnis: NKSC gali pradėti tyrimus dėl bet kokio klausimo, susijusio su Reglamento (ES) 2019/881 III antraštinės dalies ar Europos kibernetinio saugumo sertifikavimo schemų nuostatų reikalavimais. Tyrimus gali inicijuoti skundai, atitikties vertinimo įstaigų prašymai arba NKSC iniciatyva. Tyrimai turi būti baigti per 4 mėnesius (pratęsiami iki 2 mėnesių); bendras tyrimo terminas negali viršyti 6 mėnesių. NKSC gali konstatuoti, kad pažeidimų nenustatyta, pateikti nurodymus/rekomendacijas atitikties vertinimo įstaigoms ar ES sertifikatų turėtojams, pradėti administracinio nusižengimo teiseną arba panaikinti ES sertifikatus/ES atitikties deklaracijas. Rekomendacijos pateikiamos per 20 darbo dienų."@lt ;
+    llo:hasLegalBasis "Art. 9, XIV-413 (adding Art. 20, XII-1428)" .
+
+
+# =================================================================
+# SECTION 8: CIVIC RIGHTS – VULNERABILITY RESEARCH SAFE HARBOUR
+# =================================================================
+
+lld:Right_VulnerabilityResearchSafeHarbour a llo:CivicRight ;
+    rdfs:label "Safe harbour for lawful vulnerability research" ;
+    rdfs:label "Safe harbour for lawful vulnerability research"@en ;
+    rdfs:label "Teisėtų spragų tyrimų apsauga (safe harbour)"@lt ;
+    rdfs:comment "Article 17(1) establishes that vulnerability search and disclosure is lawful and incurs no legal liability to the researcher, provided they comply with the national or subject-specific vulnerability disclosure procedure and the restrictions enumerated in Article 17(2). This creates a legal safe harbour for security researchers conducting good-faith vulnerability research." ;
+    rdfs:comment "Article 17(1) establishes that vulnerability search and disclosure is lawful and incurs no legal liability to the researcher, provided they comply with the national or subject-specific vulnerability disclosure procedure and the restrictions enumerated in Article 17(2). This creates a legal safe harbour for security researchers conducting good-faith vulnerability research."@en ;
+    rdfs:comment "17 straipsnio 1 dalis nustato, kad spragų paieška ir atskleidimas yra teisėti ir neužtraukia teisinės atsakomybės tyrinėtojui, jeigu jis laikosi nacionalinės arba subjekto nustatytos spragų atskleidimo tvarkos ir 17 straipsnio 2 dalyje išvardytų apribojimų. Tai sukuria teisinę apsaugą (safe harbour) saugumo tyrinėtojams, atliekantiems sąžiningus spragų tyrimus."@lt ;
+    llo:hasLegalBasis "Art. 17(1), XII-1428 (as amended by XIV-413)" .
+
+
+# =================================================================
+# SECTION 9: INCIDENT TRIGGERS – VULNERABILITY TIMELINES
+# =================================================================
+
+lld:Trigger_VulnerabilityReport_24h a llo:IncidentTrigger ;
+    rdfs:label "24-hour vulnerability reporting deadline" ;
+    rdfs:label "24-hour vulnerability reporting deadline"@en ;
+    rdfs:label "24 valandų spragos pranešimo terminas"@lt ;
+    rdfs:comment "Researchers must report discovered vulnerabilities to NKSC and/or the cybersecurity subject within 24 hours of discovery, via the national or subject-specific vulnerability disclosure procedure." ;
+    rdfs:comment "Researchers must report discovered vulnerabilities to NKSC and/or the cybersecurity subject within 24 hours of discovery, via the national or subject-specific vulnerability disclosure procedure."@en ;
+    rdfs:comment "Tyrinėtojai privalo pranešti apie aptiktas spragas NKSC ir (arba) kibernetinio saugumo subjektui per 24 valandas nuo aptikimo, nacionalinės arba subjekto nustatytos spragų atskleidimo tvarkos aprašo nustatyta tvarka."@lt ;
+    llo:isExtraordinaryPower false ;
+    llo:hasDuration "PT24H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 17(2)(3), XII-1428 (as amended by XIV-413)" .
+
+lld:Trigger_VulnerabilityDisclosure_90d a llo:IncidentTrigger ;
+    rdfs:label "90-day coordinated vulnerability disclosure timeline" ;
+    rdfs:label "90-day coordinated vulnerability disclosure timeline"@en ;
+    rdfs:label "90 dienų koordinuoto spragų atskleidimo terminas"@lt ;
+    rdfs:comment "Vulnerability disclosure to the public may not occur earlier than 90 calendar days after submission to NKSC and/or the cybersecurity subject. NKSC may set shorter disclosure deadlines (minimum 3 calendar days) considering the vulnerability's severity and remediation feasibility." ;
+    rdfs:comment "Vulnerability disclosure to the public may not occur earlier than 90 calendar days after submission to NKSC and/or the cybersecurity subject. NKSC may set shorter disclosure deadlines (minimum 3 calendar days) considering the vulnerability's severity and remediation feasibility."@en ;
+    rdfs:comment "Spragos atskleidimas visuomenei negali būti atliktas anksčiau kaip po 90 kalendorinių dienų nuo informacijos pateikimo NKSC ir (arba) kibernetinio saugumo subjektui. NKSC gali nustatyti trumpesnius atskleidimo terminus (mažiausiai 3 kalendorinės dienos), atsižvelgiant į spragos sudėtingumą ir ištaisymo galimybes."@lt ;
+    llo:isExtraordinaryPower false ;
+    llo:hasDuration "P90D"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 17(5), XII-1428 (as amended by XIV-413)" .
+
+
+# =================================================================
+# SECTION 10: EU REGULATION CROSS-REFERENCE
+# =================================================================
+
+lld:Concept_CybersecActAnnex a llo:LegalConcept ;
+    rdfs:label "EU Cybersecurity Act added to transposed acts annex" ;
+    rdfs:label "EU Cybersecurity Act added to transposed acts annex"@en ;
+    rdfs:label "ES Kibernetinio saugumo aktas įtrauktas į perkeliamų aktų priedą"@lt ;
+    rdfs:comment "The Annex is restated to list three EU acts: (1) NIS Directive (EU) 2016/1148, (2) European Electronic Communications Code (EU) 2018/1972, and (3) Regulation (EU) 2019/881 on ENISA and cybersecurity certification (EU Cybersecurity Act), repealing Regulation (EU) No. 526/2013." ;
+    rdfs:comment "The Annex is restated to list three EU acts: (1) NIS Directive (EU) 2016/1148, (2) European Electronic Communications Code (EU) 2018/1972, and (3) Regulation (EU) 2019/881 on ENISA and cybersecurity certification (EU Cybersecurity Act), repealing Regulation (EU) No. 526/2013."@en ;
+    rdfs:comment "Priedas išdėstytas iš naujo, nurodant tris ES teisės aktus: (1) TIS direktyva (ES) 2016/1148, (2) Europos elektroninių ryšių kodeksas (ES) 2018/1972 ir (3) Reglamentas (ES) 2019/881 dėl ENISA ir kibernetinio saugumo sertifikavimo (ES Kibernetinio saugumo aktas), kuriuo panaikinamas Reglamentas (ES) Nr. 526/2013."@lt ;
+    llo:hasLegalBasis "Art. 10, XIV-413 (amending Annex, XII-1428)" .
+
+lld:EU_Reg_2019_881 a llo:EUDirective ;
+    rdfs:label "EU Cybersecurity Act – Regulation (EU) 2019/881" ;
+    rdfs:label "EU Cybersecurity Act – Regulation (EU) 2019/881"@en ;
+    rdfs:label "ES Kibernetinio saugumo aktas – Reglamentas (ES) 2019/881"@lt ;
+    rdfs:comment "Regulation (EU) 2019/881 of the European Parliament and of the Council of 17 April 2019 on ENISA (European Union Agency for Cybersecurity) and on information and communications technology cybersecurity certification, repealing Regulation (EU) No. 526/2013. Added to the Cybersecurity Law's annex and forms the legal basis for the national certification authority framework." ;
+    rdfs:comment "Regulation (EU) 2019/881 of the European Parliament and of the Council of 17 April 2019 on ENISA (European Union Agency for Cybersecurity) and on information and communications technology cybersecurity certification, repealing Regulation (EU) No. 526/2013. Added to the Cybersecurity Law's annex and forms the legal basis for the national certification authority framework."@en ;
+    rdfs:comment "2019 m. balandžio 17 d. Europos Parlamento ir Tarybos reglamentas (ES) 2019/881 dėl ENISA (Europos Sąjungos kibernetinio saugumo agentūros) ir informacinių ir ryšių technologijų kibernetinio saugumo sertifikavimo, kuriuo panaikinamas Reglamentas (ES) Nr. 526/2013. Įtrauktas į Kibernetinio saugumo įstatymo priedą ir sudaro teisinį pagrindą nacionalinės sertifikavimo institucijos sistemai."@lt ;
+    llo:hasLegalBasis "Annex, XII-1428 (as amended by XIV-413)" .

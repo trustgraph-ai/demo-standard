@@ -1,0 +1,27 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 539
+#   Approving submission of Cybersecurity Law, Administrative
+#   Offences Code, State Information Resource Management Law,
+#   and Personal Data Protection Law draft amendments to Seimas
+#   2014-06-16, Vilnius
+#   Prime Minister Algirdas Butkevičius
+# =================================================================
+
+lld:GovRes-539-2014 a llo:Statute ;
+    rdfs:label "Government Resolution No. 539 – Submission of Cybersecurity Law package to Seimas (2014)" ;
+    rdfs:label "Government Resolution No. 539 – Submission of Cybersecurity Law package to Seimas (2014)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 539 – Kibernetinio saugumo įstatymo paketo teikimas Seimui (2014)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas the initial Cybersecurity Law (XII-1428) legislative package comprising four draft laws: (1) Cybersecurity Law, (2) Administrative Offences Code amendments (Arts. 224, 259¹, new Arts. 154¹¹, 154¹²), (3) State Information Resource Management Law amendments (Arts. 5, 11, 18, 30, 43, new Art. 43¹), (4) Personal Data Protection Law amendment (Art. 15). Requests urgent consideration (skubos tvarka). Delegates Interior Minister Dailis Alfonsas Barakauskas to represent Government in Seimas." ;
+    rdfs:comment "Government approves and submits to Seimas the initial Cybersecurity Law (XII-1428) legislative package comprising four draft laws: (1) Cybersecurity Law, (2) Administrative Offences Code amendments (Arts. 224, 259¹, new Arts. 154¹¹, 154¹²), (3) State Information Resource Management Law amendments (Arts. 5, 11, 18, 30, 43, new Art. 43¹), (4) Personal Data Protection Law amendment (Art. 15). Requests urgent consideration (skubos tvarka). Delegates Interior Minister Dailis Alfonsas Barakauskas to represent Government in Seimas."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui pirminį Kibernetinio saugumo įstatymo (XII-1428) teisės aktų paketą, sudarytą iš keturių projektų: (1) Kibernetinio saugumo įstatymo, (2) Administracinių teisės pažeidimų kodekso pakeitimų, (3) Valstybės informacinių išteklių valdymo įstatymo pakeitimų, (4) Asmens duomenų teisinės apsaugos įstatymo pakeitimo. Prašo svarstyti skubos tvarka. Įgalioja vidaus reikalų ministrą Dailį Alfonsą Barakauską atstovauti Vyriausybei Seime."@lt ;
+    llo:hasDocID "No. 539" ;
+    llo:dateEnacted "2014-06-16"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

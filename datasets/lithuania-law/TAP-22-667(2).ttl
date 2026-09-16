@@ -1,0 +1,26 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 368
+#   Approving submission of NIS2 transposition package (10 laws)
+#   including Cybersecurity Law complete restatement to Seimas
+#   2024-05-22, Vilnius
+#   Prime Minister Ingrida Šimonytė
+# =================================================================
+
+lld:GovRes-368-2024 a llo:Statute ;
+    rdfs:label "Government Resolution No. 368 – Submission of NIS2 transposition package including Cybersecurity Law restatement to Seimas (2024)" ;
+    rdfs:label "Government Resolution No. 368 – Submission of NIS2 transposition package including Cybersecurity Law restatement to Seimas (2024)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 368 – TIS2 perkėlimo paketo, įskaitant Kibernetinio saugumo įstatymo naują redakciją, teikimas Seimui (2024)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas a ten-law NIS2 Directive transposition package: (1) Cybersecurity Law No. XII-1428 complete restatement (2nd restatement, later enacted as XIV-2902), (2) Aviation Law No. VIII-2066 Art. 41 amendment, (3) Administrative Offences Code Arts. 589, 479, 480 and annex amendment, (4) Electronic Communications Law No. IX-2135 Arts. 3, 8, 36, 45, 51, 74, 82, 98 amendment, (5) National Security Objects Protection Law No. IX-1132 Arts. 1, 2, 13, 18 amendment, (6) eIDAS Law No. XIII-1120 Art. 4 amendment, (7) State Information Resources Management Law No. XI-1807 Arts. 1, 3, 7, 14, 15, 26, 27, 39, 41, 42, 43 amendment, (8) Public Procurement Law No. I-1491 Arts. 2, 17, 37, 47, 87 amendment, (9) Utilities Procurement Law No. XIII-328 Arts. 2, 29, 50, 95 amendment, (10) State and Service Secrets Law No. VIII-1443 Arts. 4, 7 amendment. Delegates Defence Minister Laurynas Kasčiūnas (deputies: Vice-Minister Greta Monika Tučkutė, Vice-Minister Žilvinas Tomkus) to represent Government in Seimas." ;
+    rdfs:comment "Government approves and submits to Seimas a ten-law NIS2 Directive transposition package: (1) Cybersecurity Law No. XII-1428 complete restatement (2nd restatement, later enacted as XIV-2902), (2) Aviation Law No. VIII-2066 Art. 41 amendment, (3) Administrative Offences Code Arts. 589, 479, 480 and annex amendment, (4) Electronic Communications Law No. IX-2135 Arts. 3, 8, 36, 45, 51, 74, 82, 98 amendment, (5) National Security Objects Protection Law No. IX-1132 Arts. 1, 2, 13, 18 amendment, (6) eIDAS Law No. XIII-1120 Art. 4 amendment, (7) State Information Resources Management Law No. XI-1807 Arts. 1, 3, 7, 14, 15, 26, 27, 39, 41, 42, 43 amendment, (8) Public Procurement Law No. I-1491 Arts. 2, 17, 37, 47, 87 amendment, (9) Utilities Procurement Law No. XIII-328 Arts. 2, 29, 50, 95 amendment, (10) State and Service Secrets Law No. VIII-1443 Arts. 4, 7 amendment. Delegates Defence Minister Laurynas Kasčiūnas (deputies: Vice-Minister Greta Monika Tučkutė, Vice-Minister Žilvinas Tomkus) to represent Government in Seimas."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui dešimties įstatymų TIS2 direktyvos perkėlimo paketą: (1) Kibernetinio saugumo įstatymo Nr. XII-1428 nauja redakcija (2-asis išdėstymas, vėliau priimtas kaip XIV-2902), (2) Aviacijos įstatymo pakeitimas, (3) Administracinių nusižengimų kodekso pakeitimas, (4) Elektroninių ryšių įstatymo pakeitimas, (5) Nacionaliniam saugumui svarbių objektų apsaugos įstatymo pakeitimas, (6) eIDAS įstatymo pakeitimas, (7) Valstybės informacinių išteklių valdymo įstatymo pakeitimas, (8) Viešųjų pirkimų įstatymo pakeitimas, (9) Perkančiųjų subjektų pirkimų įstatymo pakeitimas, (10) Valstybės ir tarnybos paslapčių įstatymo pakeitimas. Įgalioja krašto apsaugos ministrą Lauryną Kasčiūną atstovauti Seime."@lt ;
+    llo:hasDocID "No. 368" ;
+    llo:dateEnacted "2024-05-22"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

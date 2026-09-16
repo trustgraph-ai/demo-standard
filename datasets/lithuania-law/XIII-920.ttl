@@ -1,0 +1,265 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Major Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Articles 1, 2, 4, 6, 10, 15, 16, 18
+#   Repealing Article 8 (RRT powers)
+#   Adding EU law annex
+#   No. XIII-920, enacted 2017-12-19, Vilnius
+#   Signed by President Dalia Grybauskaitė
+#   Effective 2018-01-01
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XIII-920 a llo:Statute ;
+    rdfs:label "Major Amendment to Cybersecurity Law – institutional consolidation (No. XIII-920)" ;
+    rdfs:label "Major Amendment to Cybersecurity Law – institutional consolidation (No. XIII-920)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 1, 2, 4, 6, 10, 15, 16, 18 straipsnių pakeitimo, 8 straipsnio pripažinimo netekusiu galios ir įstatymo papildymo priedu įstatymas (Nr. XIII-920)"@lt ;
+    rdfs:comment "Comprehensive institutional restructuring that removes the Communications Regulatory Authority (RRT) from cybersecurity governance entirely, transfers its supervisory functions over telecom and hosting providers to the National Cyber Security Centre (NKSC), expands NKSC powers to include security assessments, mandatory audits, and EU incident reporting, and adds an EU law transposition annex." ;
+    rdfs:comment "Comprehensive institutional restructuring that removes the Communications Regulatory Authority (RRT) from cybersecurity governance entirely, transfers its supervisory functions over telecom and hosting providers to the National Cyber Security Centre (NKSC), expands NKSC powers to include security assessments, mandatory audits, and EU incident reporting, and adds an EU law transposition annex."@en ;
+    rdfs:comment "Visapusiškas institucinis pertvarkymas, visiškai pašalinantis Ryšių reguliavimo tarnybą (RRT) iš kibernetinio saugumo valdymo, perkeliantis jos priežiūros funkcijas dėl ryšių ir prieglobos paslaugų teikėjų Nacionaliniam kibernetinio saugumo centrui (NKSC), išplečiantis NKSC įgaliojimus apimant saugumo vertinimus, privalomus auditus ir pranešimus ES institucijoms, bei papildantis įstatymą ES teisės aktų priedu."@lt ;
+    llo:hasDocID "No. XIII-920" ;
+    llo:dateEnacted "2017-12-19"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:transposesDirective lld:EU_Dir_2002_21_EC ;
+    llo:hasComponent lld:XIII-920_Art1 ,
+                     lld:XIII-920_Art2 ,
+                     lld:XIII-920_Art3 ,
+                     lld:XIII-920_Art4 ,
+                     lld:XIII-920_Art5 ,
+                     lld:XIII-920_Art6 ,
+                     lld:XIII-920_Art7 ,
+                     lld:XIII-920_Art8 ,
+                     lld:XIII-920_Art9 ,
+                     lld:XIII-920_Art10 ,
+                     lld:XIII-920_Art11 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XIII-920_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 1 (EU harmonization clause)" ;
+    rdfs:label "Article 1 – Amendment of Article 1 (EU harmonization clause)"@en ;
+    rdfs:label "1 straipsnis – 1 straipsnio pakeitimas (ES derinimo nuostata)"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_EUHarmonization .
+
+lld:XIII-920_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Amendment of Article 2 (Cyber incident definition)" ;
+    rdfs:label "Article 2 – Amendment of Article 2 (Cyber incident definition)"@en ;
+    rdfs:label "2 straipsnis – 2 straipsnio pakeitimas (kibernetinio incidento apibrėžtis)"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_ExpandedIncidentDef .
+
+lld:XIII-920_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Amendment of Article 4 (Policy institutions – RRT removed)" ;
+    rdfs:label "Article 3 – Amendment of Article 4 (Policy institutions – RRT removed)"@en ;
+    rdfs:label "3 straipsnis – 4 straipsnio pakeitimas (politikos institucijos – RRT pašalinta)"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_RRT_Removal .
+
+lld:XIII-920_Art4 a llo:Article ;
+    rdfs:label "Article 4 – Amendment of Article 6 (MoD cybersecurity rules power)" ;
+    rdfs:label "Article 4 – Amendment of Article 6 (MoD cybersecurity rules power)"@en ;
+    rdfs:label "4 straipsnis – 6 straipsnio pakeitimas (KAM kibernetinio saugumo taisyklių įgaliojimas)"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:codifiesConcept lld:Concept_MoD_SecurityRules .
+
+lld:XIII-920_Art5 a llo:Article ;
+    rdfs:label "Article 5 – Repeal of Article 8 (RRT powers)" ;
+    rdfs:label "Article 5 – Repeal of Article 8 (RRT powers)"@en ;
+    rdfs:label "5 straipsnis – 8 straipsnio pripažinimas netekusiu galios (RRT įgaliojimai)"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:codifiesConcept lld:Concept_RRT_Removal .
+
+lld:XIII-920_Art6 a llo:Article ;
+    rdfs:label "Article 6 – Amendment of Article 10 (NKSC expanded powers)" ;
+    rdfs:label "Article 6 – Amendment of Article 10 (NKSC expanded powers)"@en ;
+    rdfs:label "6 straipsnis – 10 straipsnio pakeitimas (NKSC išplėsti įgaliojimai)"@lt ;
+    llo:hasIndexNumber 6 ;
+    llo:codifiesConcept lld:Concept_NKSC_Expansion .
+
+lld:XIII-920_Art7 a llo:Article ;
+    rdfs:label "Article 7 – Amendment of Article 15 (Telecom provider duties)" ;
+    rdfs:label "Article 7 – Amendment of Article 15 (Telecom provider duties)"@en ;
+    rdfs:label "7 straipsnis – 15 straipsnio pakeitimas (ryšių paslaugų teikėjų pareigos)"@lt ;
+    llo:hasIndexNumber 7 ;
+    llo:codifiesConcept lld:Concept_TelecomDutiesRevised .
+
+lld:XIII-920_Art8 a llo:Article ;
+    rdfs:label "Article 8 – Amendment of Article 16 (Hosting provider duties)" ;
+    rdfs:label "Article 8 – Amendment of Article 16 (Hosting provider duties)"@en ;
+    rdfs:label "8 straipsnis – 16 straipsnio pakeitimas (prieglobos paslaugų teikėjų pareigos)"@lt ;
+    llo:hasIndexNumber 8 ;
+    llo:codifiesConcept lld:Concept_HostingDutiesRevised .
+
+lld:XIII-920_Art9 a llo:Article ;
+    rdfs:label "Article 9 – Amendment of Article 18 (Inter-institutional cooperation)" ;
+    rdfs:label "Article 9 – Amendment of Article 18 (Inter-institutional cooperation)"@en ;
+    rdfs:label "9 straipsnis – 18 straipsnio pakeitimas (tarpinstitucinis bendradarbiavimas)"@lt ;
+    llo:hasIndexNumber 9 .
+
+lld:XIII-920_Art10 a llo:Article ;
+    rdfs:label "Article 10 – Addition of EU law annex" ;
+    rdfs:label "Article 10 – Addition of EU law annex"@en ;
+    rdfs:label "10 straipsnis – Įstatymo papildymas priedu"@lt ;
+    llo:hasIndexNumber 10 ;
+    llo:codifiesConcept lld:Concept_EUHarmonization .
+
+lld:XIII-920_Art11 a llo:Article ;
+    rdfs:label "Article 11 – Entry into Force and Implementation" ;
+    rdfs:label "Article 11 – Entry into Force and Implementation"@en ;
+    rdfs:label "11 straipsnis – Įstatymo įsigaliojimas ir įgyvendinimas"@lt ;
+    llo:hasIndexNumber 11 .
+
+
+# =================================================================
+# SECTION 3: LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_EUHarmonization a llo:LegalConcept ;
+    rdfs:label "EU legal harmonization clause and annex" ;
+    rdfs:label "EU legal harmonization clause and annex"@en ;
+    rdfs:label "ES teisės derinimo nuostata ir priedas"@lt ;
+    rdfs:comment "Article 1 supplemented with a new paragraph declaring that the law's provisions are harmonized with EU legal acts listed in the annex. The annex references EU Framework Directive 2002/21/EC on electronic communications networks and services." ;
+    rdfs:comment "Article 1 supplemented with a new paragraph declaring that the law's provisions are harmonized with EU legal acts listed in the annex. The annex references EU Framework Directive 2002/21/EC on electronic communications networks and services."@en ;
+    rdfs:comment "1 straipsnis papildytas nauja dalimi, deklaruojančia, kad įstatymo nuostatos suderintos su priede nurodytais ES teisės aktais. Priede nurodytas ES Pagrindų direktyva 2002/21/EB dėl elektroninių ryšių tinklų ir paslaugų."@lt ;
+    llo:hasLegalBasis "Art. 1 and Art. 10, XIII-920 (amending Art. 1(4) and adding Annex, XII-1428)" .
+
+lld:Concept_ExpandedIncidentDef a llo:LegalConcept ;
+    rdfs:label "Expanded cyber incident definition" ;
+    rdfs:label "Expanded cyber incident definition"@en ;
+    rdfs:label "Išplėsta kibernetinio incidento apibrėžtis"@lt ;
+    rdfs:comment "The definition of 'cyber incident' in Article 2(4) is expanded to include 'an event or action in cyberspace' (adding 'kibernetinėje erdvėje'), broadening the definition beyond system-level events to encompass any action occurring in the cyber domain that creates conditions for unauthorized access or disruption." ;
+    rdfs:comment "The definition of 'cyber incident' in Article 2(4) is expanded to include 'an event or action in cyberspace' (adding 'kibernetinėje erdvėje'), broadening the definition beyond system-level events to encompass any action occurring in the cyber domain that creates conditions for unauthorized access or disruption."@en ;
+    rdfs:comment "Kibernetinio incidento apibrėžtis 2 straipsnio 4 dalyje išplėsta, įtraukiant 'įvykis ar veika kibernetinėje erdvėje', praplečiant apibrėžtį nuo sistemos lygio įvykių iki bet kokių veiksmų kibernetinėje erdvėje, sudarančių sąlygas neteisėtai prieigai ar veiklos sutrikdymui."@lt ;
+    llo:hasLegalBasis "Art. 2, XIII-920 (amending Art. 2(4), XII-1428)" .
+
+lld:Concept_RRT_Removal a llo:LegalConcept ;
+    rdfs:label "Removal of RRT from cybersecurity governance" ;
+    rdfs:label "Removal of RRT from cybersecurity governance"@en ;
+    rdfs:label "RRT pašalinimas iš kibernetinio saugumo valdymo"@lt ;
+    rdfs:comment "The Communications Regulatory Authority (RRT) is removed from the cybersecurity policy implementation framework (Article 4 restated without RRT) and Article 8 (RRT cybersecurity powers) is repealed entirely. RRT's former supervisory functions over telecom and hosting providers are transferred to NKSC. Combined with XIII-798 (which removed MoI), this completes the consolidation of all cybersecurity authority under the Ministry of National Defence / NKSC structure." ;
+    rdfs:comment "The Communications Regulatory Authority (RRT) is removed from the cybersecurity policy implementation framework (Article 4 restated without RRT) and Article 8 (RRT cybersecurity powers) is repealed entirely. RRT's former supervisory functions over telecom and hosting providers are transferred to NKSC. Combined with XIII-798 (which removed MoI), this completes the consolidation of all cybersecurity authority under the Ministry of National Defence / NKSC structure."@en ;
+    rdfs:comment "Ryšių reguliavimo tarnyba (RRT) pašalinta iš kibernetinio saugumo politikos įgyvendinimo struktūros (4 straipsnis išdėstytas be RRT) ir 8 straipsnis (RRT kibernetinio saugumo įgaliojimai) panaikintas visiškai. Buvusios RRT priežiūros funkcijos dėl ryšių ir prieglobos paslaugų teikėjų perkeltos NKSC. Kartu su XIII-798 (kuris pašalino VRM), tai užbaigia visos kibernetinio saugumo valdžios konsolidaciją Krašto apsaugos ministerijos / NKSC struktūroje."@lt ;
+    llo:hasLegalBasis "Art. 3 and Art. 5, XIII-920 (amending Art. 4 and repealing Art. 8, XII-1428)" .
+
+lld:Concept_MoD_SecurityRules a llo:LegalConcept ;
+    rdfs:label "MoD power to approve cybersecurity assurance rules" ;
+    rdfs:label "MoD power to approve cybersecurity assurance rules"@en ;
+    rdfs:label "KAM įgaliojimas tvirtinti kibernetinio saugumo užtikrinimo taisykles"@lt ;
+    rdfs:comment "New Article 6(7): MoD now approves the cybersecurity assurance rules applicable to public networks, public electronic communications services, and electronic information hosting services. This function was previously held by RRT under the now-repealed Article 8." ;
+    rdfs:comment "New Article 6(7): MoD now approves the cybersecurity assurance rules applicable to public networks, public electronic communications services, and electronic information hosting services. This function was previously held by RRT under the now-repealed Article 8."@en ;
+    rdfs:comment "Naujas 6 straipsnio 7 punktas: KAM nuo šiol tvirtina viešųjų ryšių tinklų, viešųjų elektroninių ryšių paslaugų ir elektroninės informacijos prieglobos paslaugų kibernetinio saugumo užtikrinimo taisykles. Ši funkcija anksčiau priklausė RRT pagal dabar panaikintą 8 straipsnį."@lt ;
+    llo:hasLegalBasis "Art. 4, XIII-920 (new Art. 6(7), XII-1428)" .
+
+lld:Concept_NKSC_Expansion a llo:LegalConcept ;
+    rdfs:label "NKSC expanded powers over telecom and hosting" ;
+    rdfs:label "NKSC expanded powers over telecom and hosting"@en ;
+    rdfs:label "NKSC išplėsti įgaliojimai dėl ryšių ir prieglobos paslaugų"@lt ;
+    rdfs:comment "Article 10 substantially expanded: NKSC now governs public networks, telecom providers, and hosting providers (absorbing RRT's former role). New powers include: (11) conducting cybersecurity assessments of public networks and telecom/hosting providers; (12) reporting significant incidents to EU NRAs, ENISA, and European Commission, and providing annual summary reports; NKSC binding orders (Art. 10(3)(4)) now explicitly cover telecom and hosting providers and must be 'motivated and proportionate to the objective'; (5) new power to require independent security audits by internationally certified auditors when providers fail to submit required technical information." ;
+    rdfs:comment "Article 10 substantially expanded: NKSC now governs public networks, telecom providers, and hosting providers (absorbing RRT's former role). New powers include: (11) conducting cybersecurity assessments of public networks and telecom/hosting providers; (12) reporting significant incidents to EU NRAs, ENISA, and European Commission, and providing annual summary reports; NKSC binding orders (Art. 10(3)(4)) now explicitly cover telecom and hosting providers and must be 'motivated and proportionate to the objective'; (5) new power to require independent security audits by internationally certified auditors when providers fail to submit required technical information."@en ;
+    rdfs:comment "10 straipsnis iš esmės išplėstas: NKSC nuo šiol prižiūri viešuosius ryšių tinklus, ryšių ir prieglobos paslaugų teikėjus (perimant buvusį RRT vaidmenį). Nauji įgaliojimai: (11) viešųjų ryšių tinklų ir ryšių/prieglobos paslaugų teikėjų kibernetinio saugumo būsenos tyrimai; (12) reikšmingų incidentų pranešimas ES NRI, ENISA ir Europos Komisijai bei metinių suvestinių ataskaitos; NKSC privalomi nurodymai (10 str. 3 d. 4 p.) dabar aiškiai apima ryšių ir prieglobos paslaugų teikėjus ir turi būti 'motyvuoti ir proporcingi tikslui pasiekti'; (5) naujas įgaliojimas reikalauti nepriklausomo saugumo audito, atliekamo tarptautinių organizacijų sertifikuotų auditorių."@lt ;
+    llo:hasLegalBasis "Art. 6, XIII-920 (amending Art. 10, XII-1428)" .
+
+lld:Concept_TelecomDutiesRevised a llo:LegalConcept ;
+    rdfs:label "Revised telecom provider duties – reporting to NKSC" ;
+    rdfs:label "Revised telecom provider duties – reporting to NKSC"@en ;
+    rdfs:label "Pakeistos ryšių paslaugų teikėjų pareigos – pranešimai NKSC"@lt ;
+    rdfs:comment "Article 15 rewritten: telecom providers now report incidents to NKSC (not RRT), implement technical and organisational measures set in the new cybersecurity assurance rules (approved by MoD), and must conduct independent security audits at NKSC request. Security measures must ensure a level commensurate with the threat and prevent or minimise the impact of incidents on end-users." ;
+    rdfs:comment "Article 15 rewritten: telecom providers now report incidents to NKSC (not RRT), implement technical and organisational measures set in the new cybersecurity assurance rules (approved by MoD), and must conduct independent security audits at NKSC request. Security measures must ensure a level commensurate with the threat and prevent or minimise the impact of incidents on end-users."@en ;
+    rdfs:comment "15 straipsnis pakeistas: ryšių paslaugų teikėjai nuo šiol praneša apie incidentus NKSC (ne RRT), įgyvendina technines ir organizacines priemones pagal naujas kibernetinio saugumo užtikrinimo taisykles (tvirtinamas KAM) ir privalo atlikti nepriklausomą saugumo auditą NKSC reikalavimu. Saugumo priemonės turi užtikrinti grėsmę atitinkantį saugumo lygį ir užkirsti kelią incidentų poveikiui galutiniams vartotojams arba jį sumažinti."@lt ;
+    llo:hasLegalBasis "Art. 7, XIII-920 (amending Art. 15, XII-1428)" .
+
+lld:Concept_HostingDutiesRevised a llo:LegalConcept ;
+    rdfs:label "Revised hosting provider duties – reporting to NKSC" ;
+    rdfs:label "Revised hosting provider duties – reporting to NKSC"@en ;
+    rdfs:label "Pakeistos prieglobos paslaugų teikėjų pareigos – pranešimai NKSC"@lt ;
+    rdfs:comment "Article 16 rewritten: hosting providers now report incidents to NKSC (not RRT), implement cybersecurity measures set in the assurance rules, and must conduct independent security audits at NKSC request. Measures must ensure a level commensurate with the threat and prevent or minimise impact on hosting service recipients." ;
+    rdfs:comment "Article 16 rewritten: hosting providers now report incidents to NKSC (not RRT), implement cybersecurity measures set in the assurance rules, and must conduct independent security audits at NKSC request. Measures must ensure a level commensurate with the threat and prevent or minimise impact on hosting service recipients."@en ;
+    rdfs:comment "16 straipsnis pakeistas: prieglobos paslaugų teikėjai nuo šiol praneša apie incidentus NKSC (ne RRT), įgyvendina kibernetinio saugumo priemones pagal užtikrinimo taisykles ir privalo atlikti nepriklausomą saugumo auditą NKSC reikalavimu. Priemonės turi užtikrinti grėsmę atitinkantį saugumo lygį ir užkirsti kelią poveikiui prieglobos paslaugų gavėjams arba jį sumažinti."@lt ;
+    llo:hasLegalBasis "Art. 8, XIII-920 (amending Art. 16, XII-1428)" .
+
+
+# =================================================================
+# SECTION 4: UPDATED GOVERNANCE RELATIONSHIPS
+# =================================================================
+
+# NKSC now governs telecom and hosting (previously RRT's domain)
+lld:Org_NKSC llo:governsEntity lld:Entity_TelecomProvider ,
+                               lld:Entity_HostingProvider .
+
+# Telecom and hosting providers now report to NKSC instead of RRT
+lld:Entity_TelecomProvider llo:mustReportTo lld:Org_NKSC .
+lld:Entity_HostingProvider llo:mustReportTo lld:Org_NKSC .
+
+
+# =================================================================
+# SECTION 5: NEW NKSC POWERS
+# =================================================================
+
+lld:Trigger_NKSC_MandatoryAudit a llo:IncidentTrigger ;
+    rdfs:label "NKSC mandatory independent security audit" ;
+    rdfs:label "NKSC mandatory independent security audit"@en ;
+    rdfs:label "NKSC privalomas nepriklausomas saugumo auditas"@lt ;
+    rdfs:comment "NKSC may require public network operators and telecom providers to conduct an independent security audit at their own expense and submit results, when they fail to provide technical information required to assess cybersecurity posture. Audits must be performed by internationally certified auditors." ;
+    rdfs:comment "NKSC may require public network operators and telecom providers to conduct an independent security audit at their own expense and submit results, when they fail to provide technical information required to assess cybersecurity posture. Audits must be performed by internationally certified auditors."@en ;
+    rdfs:comment "NKSC gali reikalauti, kad viešųjų ryšių tinklų operatoriai ir ryšių paslaugų teikėjai savo lėšomis atliktų nepriklausomą saugumo auditą ir pateiktų rezultatus, kai jie nepateikia techninės informacijos, reikalingos kibernetinio saugumo būsenai įvertinti. Auditus turi atlikti tarptautinių organizacijų sertifikuoti auditoriai."@lt ;
+    llo:isExtraordinaryPower false ;
+    llo:hasLegalBasis "Art. 10(3)(5), XII-1428 (as amended by XIII-920)" ;
+    llo:executedByAuthority lld:Org_NKSC .
+
+lld:Trigger_NKSC_ProportionateOrders a llo:IncidentTrigger ;
+    rdfs:label "NKSC binding orders – proportionality requirement" ;
+    rdfs:label "NKSC binding orders – proportionality requirement"@en ;
+    rdfs:label "NKSC privalomi nurodymai – proporcingumo reikalavimas"@lt ;
+    rdfs:comment "NKSC binding orders related to cybersecurity now explicitly cover all regulated entities including telecom and hosting providers, and must be 'motivated and proportionate to the objective' (motyvuoti ir proporcingi tikslui pasiekti)." ;
+    rdfs:comment "NKSC binding orders related to cybersecurity now explicitly cover all regulated entities including telecom and hosting providers, and must be 'motivated and proportionate to the objective' (motyvuoti ir proporcingi tikslui pasiekti)."@en ;
+    rdfs:comment "NKSC privalomi nurodymai, susiję su kibernetiniu saugumu, nuo šiol aiškiai apima visus reguliuojamus subjektus, įskaitant ryšių ir prieglobos paslaugų teikėjus, ir turi būti 'motyvuoti ir proporcingi tikslui pasiekti'."@lt ;
+    llo:isExtraordinaryPower false ;
+    llo:hasLegalBasis "Art. 10(3)(4), XII-1428 (as amended by XIII-920)" ;
+    llo:executedByAuthority lld:Org_NKSC .
+
+
+# =================================================================
+# SECTION 6: EU DIRECTIVE REFERENCE
+# =================================================================
+
+lld:EU_Dir_2002_21_EC a llo:EUDirective ;
+    rdfs:label "EU Framework Directive 2002/21/EC on electronic communications" ;
+    rdfs:label "EU Framework Directive 2002/21/EC on electronic communications"@en ;
+    rdfs:label "ES Pagrindų direktyva 2002/21/EB dėl elektroninių ryšių"@lt ;
+    rdfs:comment "Directive 2002/21/EC of the European Parliament and of the Council of 7 March 2002 on a common regulatory framework for electronic communications networks and services (Framework Directive), as last amended by Directive 2009/140/EC. Referenced in the new annex to the Cybersecurity Law." ;
+    rdfs:comment "Directive 2002/21/EC of the European Parliament and of the Council of 7 March 2002 on a common regulatory framework for electronic communications networks and services (Framework Directive), as last amended by Directive 2009/140/EC. Referenced in the new annex to the Cybersecurity Law."@en ;
+    rdfs:comment "2002 m. kovo 7 d. Europos Parlamento ir Tarybos direktyva 2002/21/EB dėl elektroninių ryšių tinklų ir paslaugų bendrosios reguliavimo sistemos (Pagrindų direktyva), su paskutiniais pakeitimais, padarytais direktyva 2009/140/EB. Nurodyta naujame Kibernetinio saugumo įstatymo priede."@lt ;
+    llo:hasLegalBasis "Annex, XII-1428 (added by XIII-920)" .
+
+lld:XII-1428 llo:transposesDirective lld:EU_Dir_2002_21_EC .
+
+
+# =================================================================
+# SECTION 7: EU REPORTING PIPELINE
+# =================================================================
+
+lld:Pipeline_EU_IncidentReporting a llo:InformationPipeline ;
+    rdfs:label "NKSC to EU incident reporting pipeline" ;
+    rdfs:label "NKSC to EU incident reporting pipeline"@en ;
+    rdfs:label "NKSC pranešimų ES institucijoms kanalas"@lt ;
+    rdfs:comment "New reporting obligation: NKSC must notify EU Member State national regulatory authorities, ENISA, and the public about significant cybersecurity incidents affecting public networks or telecom/hosting services, and must provide annual summary reports to the European Commission and ENISA on incidents and actions taken." ;
+    rdfs:comment "New reporting obligation: NKSC must notify EU Member State national regulatory authorities, ENISA, and the public about significant cybersecurity incidents affecting public networks or telecom/hosting services, and must provide annual summary reports to the European Commission and ENISA on incidents and actions taken."@en ;
+    rdfs:comment "Nauja pranešimo prievolė: NKSC privalo pranešti ES valstybių narių nacionalinėms reguliavimo institucijoms, ENISA ir visuomenei apie reikšmingus kibernetinius incidentus, turinčius didelę įtaką viešųjų ryšių tinklams ar ryšių/prieglobos paslaugoms, ir kasmet pateikti suvestines ataskaitas Europos Komisijai ir ENISA apie incidentus ir taikytus veiksmus."@lt ;
+    llo:hasLegalBasis "Art. 10(2)(12), XII-1428 (as amended by XIII-920)" ;
+    llo:relaysDataTo lld:Org_NKSC .

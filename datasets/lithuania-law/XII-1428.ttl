@@ -1,0 +1,682 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Lithuanian Cybersecurity Law (Kibernetinio Saugumo Įstatymas)
+#   No. XII-1428, enacted 2014-12-11, Vilnius
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE STATUTE
+# =================================================================
+
+lld:XII-1428 a llo:Statute ;
+    rdfs:label "Cybersecurity Law No. XII-1428" ;
+    rdfs:label "Cybersecurity Law No. XII-1428"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymas Nr. XII-1428"@lt ;
+    rdfs:comment "Lithuanian national cybersecurity law establishing the institutional framework, obligations, and enforcement mechanisms for cybersecurity governance." ;
+    rdfs:comment "Lithuanian national cybersecurity law establishing the institutional framework, obligations, and enforcement mechanisms for cybersecurity governance."@en ;
+    rdfs:comment "Lietuvos nacionalinis kibernetinio saugumo įstatymas, nustatantis institucinę struktūrą, pareigas ir vykdymo užtikrinimo mechanizmus kibernetinio saugumo valdymui."@lt ;
+    llo:hasDocID "No. XII-1428" ;
+    llo:dateEnacted "2014-12-11"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:hasComponent lld:XII-1428_Ch1 ,
+                     lld:XII-1428_Ch2 ,
+                     lld:XII-1428_Ch3 ,
+                     lld:XII-1428_Ch4 ,
+                     lld:XII-1428_Ch5 ;
+    llo:guaranteesRightTo lld:Right_NonDiscrimination ,
+                          lld:Right_Proportionality ,
+                          lld:Right_PublicInterest .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – CHAPTERS
+# =================================================================
+
+lld:XII-1428_Ch1 a llo:Chapter ;
+    rdfs:label "Chapter I – General Provisions" ;
+    rdfs:label "Chapter I – General Provisions"@en ;
+    rdfs:label "I skyrius – Bendrosios nuostatos"@lt ;
+    rdfs:comment "Defines the law's scope, key terms, and foundational cybersecurity principles." ;
+    rdfs:comment "Defines the law's scope, key terms, and foundational cybersecurity principles."@en ;
+    rdfs:comment "Apibrėžia įstatymo taikymo sritį, pagrindines sąvokas ir kibernetinio saugumo principus."@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:hasComponent lld:XII-1428_Art1 ,
+                     lld:XII-1428_Art2 ,
+                     lld:XII-1428_Art3 .
+
+lld:XII-1428_Ch2 a llo:Chapter ;
+    rdfs:label "Chapter II – Cybersecurity Policy Formation and Implementation" ;
+    rdfs:label "Chapter II – Cybersecurity Policy Formation and Implementation"@en ;
+    rdfs:label "II skyrius – Kibernetinio saugumo politikos formavimas ir įgyvendinimas"@lt ;
+    rdfs:comment "Establishes the institutional framework for cybersecurity policy, defining powers and responsibilities of state authorities." ;
+    rdfs:comment "Establishes the institutional framework for cybersecurity policy, defining powers and responsibilities of state authorities."@en ;
+    rdfs:comment "Nustato institucinę kibernetinio saugumo politikos struktūrą, apibrėžia valstybės institucijų įgaliojimus ir atsakomybes."@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:hasComponent lld:XII-1428_Art4 ,
+                     lld:XII-1428_Art5 ,
+                     lld:XII-1428_Art6 ,
+                     lld:XII-1428_Art7 ,
+                     lld:XII-1428_Art8 ,
+                     lld:XII-1428_Art9 ,
+                     lld:XII-1428_Art10 ,
+                     lld:XII-1428_Art11 ,
+                     lld:XII-1428_Art12 .
+
+lld:XII-1428_Ch3 a llo:Chapter ;
+    rdfs:label "Chapter III – Duties of Cybersecurity Participants" ;
+    rdfs:label "Chapter III – Duties of Cybersecurity Participants"@en ;
+    rdfs:label "III skyrius – Kibernetinio saugumo dalyvių pareigos"@lt ;
+    rdfs:comment "Mandatory obligations for public entities, critical infrastructure operators, telecom providers, and hosting providers." ;
+    rdfs:comment "Mandatory obligations for public entities, critical infrastructure operators, telecom providers, and hosting providers."@en ;
+    rdfs:comment "Privalomosios pareigos viešojo administravimo subjektams, ypatingos svarbos infrastruktūros valdytojams, ryšių ir prieglobos paslaugų teikėjams."@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:hasComponent lld:XII-1428_Art13 ,
+                     lld:XII-1428_Art14 ,
+                     lld:XII-1428_Art15 ,
+                     lld:XII-1428_Art16 .
+
+lld:XII-1428_Ch4 a llo:Chapter ;
+    rdfs:label "Chapter IV – Inter-Institutional Cooperation, Information Exchange, and Accountability" ;
+    rdfs:label "Chapter IV – Inter-Institutional Cooperation, Information Exchange, and Accountability"@en ;
+    rdfs:label "IV skyrius – Tarpinstitucinis bendradarbiavimas, informacijos pasikeitimo tvarka ir atsakomybė"@lt ;
+    rdfs:comment "Establishes the cybersecurity information network, inter-agency cooperation rules, and administrative liability for violations." ;
+    rdfs:comment "Establishes the cybersecurity information network, inter-agency cooperation rules, and administrative liability for violations."@en ;
+    rdfs:comment "Nustato kibernetinio saugumo informacinį tinklą, tarpžinybinio bendradarbiavimo taisykles ir administracinę atsakomybę už pažeidimus."@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:hasComponent lld:XII-1428_Art17 ,
+                     lld:XII-1428_Art18 ,
+                     lld:XII-1428_Art19 .
+
+lld:XII-1428_Ch5 a llo:Chapter ;
+    rdfs:label "Chapter V – Final Provisions" ;
+    rdfs:label "Chapter V – Final Provisions"@en ;
+    rdfs:label "V skyrius – Baigiamosios nuostatos"@lt ;
+    rdfs:comment "Entry into force and implementation deadlines for the law and its subordinate legislation." ;
+    rdfs:comment "Entry into force and implementation deadlines for the law and its subordinate legislation."@en ;
+    rdfs:comment "Įstatymo įsigaliojimo data ir poįstatyminių teisės aktų priėmimo terminai."@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:hasComponent lld:XII-1428_Art20 .
+
+
+# =================================================================
+# SECTION 3: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XII-1428_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Purpose and Scope" ;
+    rdfs:label "Article 1 – Purpose and Scope"@en ;
+    rdfs:label "1 straipsnis – Įstatymo paskirtis ir taikymas"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_CybersecurityScope .
+
+lld:XII-1428_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Key Definitions" ;
+    rdfs:label "Article 2 – Key Definitions"@en ;
+    rdfs:label "2 straipsnis – Pagrindinės sąvokos"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_CriticalInfrastructure ,
+                        lld:Concept_Cyberspace ,
+                        lld:Concept_CyberIncident ,
+                        lld:Concept_Cybersecurity ,
+                        lld:Concept_ICS ,
+                        lld:Concept_HostingServices .
+
+lld:XII-1428_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Cybersecurity Principles" ;
+    rdfs:label "Article 3 – Cybersecurity Principles"@en ;
+    rdfs:label "3 straipsnis – Kibernetinio saugumo principai"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Right_NonDiscrimination ,
+                        lld:Right_Proportionality ,
+                        lld:Right_PublicInterest .
+
+lld:XII-1428_Art4 a llo:Article ;
+    rdfs:label "Article 4 – Cybersecurity Policy Institutions" ;
+    rdfs:label "Article 4 – Cybersecurity Policy Institutions"@en ;
+    rdfs:label "4 straipsnis – Kibernetinio saugumo politikos formavimo ir įgyvendinimo institucijos"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:codifiesConcept lld:Org_Government ,
+                        lld:Org_MoD ,
+                        lld:Org_MoI ,
+                        lld:Org_NKSC ,
+                        lld:Org_RRT ,
+                        lld:Org_VDAI ,
+                        lld:Org_Police .
+
+lld:XII-1428_Art5 a llo:Article ;
+    rdfs:label "Article 5 – Government Powers in Cybersecurity" ;
+    rdfs:label "Article 5 – Government Powers in Cybersecurity"@en ;
+    rdfs:label "5 straipsnis – Vyriausybės įgaliojimai kibernetinio saugumo srityje"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:codifiesConcept lld:Org_Government .
+
+lld:XII-1428_Art6 a llo:Article ;
+    rdfs:label "Article 6 – Ministry of National Defence Powers" ;
+    rdfs:label "Article 6 – Ministry of National Defence Powers"@en ;
+    rdfs:label "6 straipsnis – Krašto apsaugos ministerijos įgaliojimai"@lt ;
+    llo:hasIndexNumber 6 ;
+    llo:codifiesConcept lld:Org_MoD .
+
+lld:XII-1428_Art7 a llo:Article ;
+    rdfs:label "Article 7 – Ministry of Interior Powers" ;
+    rdfs:label "Article 7 – Ministry of Interior Powers"@en ;
+    rdfs:label "7 straipsnis – Vidaus reikalų ministerijos įgaliojimai"@lt ;
+    llo:hasIndexNumber 7 ;
+    llo:codifiesConcept lld:Org_MoI .
+
+lld:XII-1428_Art8 a llo:Article ;
+    rdfs:label "Article 8 – Communications Regulatory Authority Powers" ;
+    rdfs:label "Article 8 – Communications Regulatory Authority Powers"@en ;
+    rdfs:label "8 straipsnis – Ryšių reguliavimo tarnybos įgaliojimai"@lt ;
+    llo:hasIndexNumber 8 ;
+    llo:codifiesConcept lld:Org_RRT .
+
+lld:XII-1428_Art9 a llo:Article ;
+    rdfs:label "Article 9 – Cybersecurity Council" ;
+    rdfs:label "Article 9 – Cybersecurity Council"@en ;
+    rdfs:label "9 straipsnis – Kibernetinio saugumo taryba"@lt ;
+    llo:hasIndexNumber 9 ;
+    llo:codifiesConcept lld:Org_CyberCouncil .
+
+lld:XII-1428_Art10 a llo:Article ;
+    rdfs:label "Article 10 – National Cyber Security Centre" ;
+    rdfs:label "Article 10 – National Cyber Security Centre"@en ;
+    rdfs:label "10 straipsnis – Nacionalinis kibernetinio saugumo centras"@lt ;
+    llo:hasIndexNumber 10 ;
+    llo:codifiesConcept lld:Org_NKSC ,
+                        lld:Trigger_NKSC_EmergencyBlock .
+
+lld:XII-1428_Art11 a llo:Article ;
+    rdfs:label "Article 11 – State Data Protection Inspectorate Powers" ;
+    rdfs:label "Article 11 – State Data Protection Inspectorate Powers"@en ;
+    rdfs:label "11 straipsnis – Valstybinės duomenų apsaugos inspekcijos įgaliojimai"@lt ;
+    llo:hasIndexNumber 11 ;
+    llo:codifiesConcept lld:Org_VDAI .
+
+lld:XII-1428_Art12 a llo:Article ;
+    rdfs:label "Article 12 – Police Powers in Cybersecurity" ;
+    rdfs:label "Article 12 – Police Powers in Cybersecurity"@en ;
+    rdfs:label "12 straipsnis – Policijos įgaliojimai kibernetinio saugumo srityje"@lt ;
+    llo:hasIndexNumber 12 ;
+    llo:codifiesConcept lld:Org_Police ,
+                        lld:Trigger_Police_EmergencyBlock .
+
+lld:XII-1428_Art13 a llo:Article ;
+    rdfs:label "Article 13 – Duties of Public Administration Entities" ;
+    rdfs:label "Article 13 – Duties of Public Administration Entities"@en ;
+    rdfs:label "13 straipsnis – Viešojo administravimo subjektų pareigos"@lt ;
+    llo:hasIndexNumber 13 ;
+    llo:codifiesConcept lld:Entity_PublicAdmin .
+
+lld:XII-1428_Art14 a llo:Article ;
+    rdfs:label "Article 14 – Duties of Critical Infrastructure Operators" ;
+    rdfs:label "Article 14 – Duties of Critical Infrastructure Operators"@en ;
+    rdfs:label "14 straipsnis – Ypatingos svarbos informacinės infrastruktūros valdytojų pareigos"@lt ;
+    llo:hasIndexNumber 14 ;
+    llo:codifiesConcept lld:Entity_CriticalInfra .
+
+lld:XII-1428_Art15 a llo:Article ;
+    rdfs:label "Article 15 – Duties of Public Network and Electronic Communications Providers" ;
+    rdfs:label "Article 15 – Duties of Public Network and Electronic Communications Providers"@en ;
+    rdfs:label "15 straipsnis – Viešųjų ryšių tinklų ir viešųjų elektroninių ryšių paslaugų teikėjų pareigos"@lt ;
+    llo:hasIndexNumber 15 ;
+    llo:codifiesConcept lld:Entity_TelecomProvider .
+
+lld:XII-1428_Art16 a llo:Article ;
+    rdfs:label "Article 16 – Duties of Hosting Service Providers" ;
+    rdfs:label "Article 16 – Duties of Hosting Service Providers"@en ;
+    rdfs:label "16 straipsnis – Elektroninės informacijos prieglobos paslaugų teikėjų pareigos"@lt ;
+    llo:hasIndexNumber 16 ;
+    llo:codifiesConcept lld:Entity_HostingProvider .
+
+lld:XII-1428_Art17 a llo:Article ;
+    rdfs:label "Article 17 – Cybersecurity Information Network" ;
+    rdfs:label "Article 17 – Cybersecurity Information Network"@en ;
+    rdfs:label "17 straipsnis – Kibernetinio saugumo informacinis tinklas"@lt ;
+    llo:hasIndexNumber 17 ;
+    llo:codifiesConcept lld:Pipeline_KSIS .
+
+lld:XII-1428_Art18 a llo:Article ;
+    rdfs:label "Article 18 – Inter-Institutional Cooperation in Investigating Incidents" ;
+    rdfs:label "Article 18 – Inter-Institutional Cooperation in Investigating Incidents"@en ;
+    rdfs:label "18 straipsnis – Tarpinstitucinis bendradarbiavimas tiriant kibernetinius incidentus"@lt ;
+    llo:hasIndexNumber 18 .
+
+lld:XII-1428_Art19 a llo:Article ;
+    rdfs:label "Article 19 – Liability for Violations" ;
+    rdfs:label "Article 19 – Liability for Violations"@en ;
+    rdfs:label "19 straipsnis – Atsakomybė už pažeidimus"@lt ;
+    llo:hasIndexNumber 19 ;
+    llo:codifiesConcept lld:Liability_AdminViolation .
+
+lld:XII-1428_Art20 a llo:Article ;
+    rdfs:label "Article 20 – Entry into Force and Implementation" ;
+    rdfs:label "Article 20 – Entry into Force and Implementation"@en ;
+    rdfs:label "20 straipsnis – Įstatymo įsigaliojimas ir įgyvendinimas"@lt ;
+    llo:hasIndexNumber 20 .
+
+
+# =================================================================
+# SECTION 4: ORGANIZATIONS – MINISTRIES
+# =================================================================
+
+lld:Org_Government a llo:JurisdictionAuthority ;
+    rdfs:label "Government of the Republic of Lithuania" ;
+    rdfs:label "Government of the Republic of Lithuania"@en ;
+    rdfs:label "Lietuvos Respublikos Vyriausybė"@lt ;
+    rdfs:comment "Sets cybersecurity strategic objectives, approves the Cybersecurity Council, and adopts organizational and technical security requirements." ;
+    rdfs:comment "Sets cybersecurity strategic objectives, approves the Cybersecurity Council, and adopts organizational and technical security requirements."@en ;
+    rdfs:comment "Nustato kibernetinio saugumo strateginius tikslus, tvirtina Kibernetinio saugumo tarybą ir priima organizacinius bei techninius saugumo reikalavimus."@lt ;
+    llo:hasGovernanceDomain "Civilian" ;
+    llo:hasLegalBasis "Art. 5, XII-1428" .
+
+lld:Org_MoD a llo:Ministry ;
+    rdfs:label "Ministry of National Defence" ;
+    rdfs:label "Ministry of National Defence"@en ;
+    rdfs:label "Krašto apsaugos ministerija"@lt ;
+    rdfs:comment "Leads cybersecurity policy formation, organization, control, and coordination of implementation. Chairs the Cybersecurity Council." ;
+    rdfs:comment "Leads cybersecurity policy formation, organization, control, and coordination of implementation. Chairs the Cybersecurity Council."@en ;
+    rdfs:comment "Vadovauja kibernetinio saugumo politikos formavimui, organizavimui, kontrolei ir įgyvendinimo koordinavimui. Pirmininkauja Kibernetinio saugumo tarybai."@lt ;
+    llo:hasGovernanceDomain "Military" ;
+    llo:hasLegalBasis "Art. 6, XII-1428" .
+
+lld:Org_MoI a llo:Ministry ;
+    rdfs:label "Ministry of Interior" ;
+    rdfs:label "Ministry of Interior"@en ;
+    rdfs:label "Vidaus reikalų ministerija"@lt ;
+    rdfs:comment "Responsible for critical infrastructure identification methodology and maintaining the list of critical infrastructure operators." ;
+    rdfs:comment "Responsible for critical infrastructure identification methodology and maintaining the list of critical infrastructure operators."@en ;
+    rdfs:comment "Atsakinga už ypatingos svarbos informacinės infrastruktūros identifikavimo metodiką ir šios infrastruktūros valdytojų sąrašo tvarkymą."@lt ;
+    llo:hasGovernanceDomain "Civilian" ;
+    llo:hasLegalBasis "Art. 7, XII-1428" .
+
+
+# =================================================================
+# SECTION 5: ORGANIZATIONS – JURISDICTION AUTHORITIES
+# =================================================================
+
+lld:Org_NKSC a llo:JurisdictionAuthority ;
+    rdfs:label "National Cyber Security Centre (NKSC)" ;
+    rdfs:label "National Cyber Security Centre (NKSC)"@en ;
+    rdfs:label "Nacionalinis kibernetinio saugumo centras (NKSC)"@lt ;
+    rdfs:comment "Operational cybersecurity hub under the Ministry of National Defence. Monitors compliance, deploys technical measures, responds to incidents, manages the cybersecurity information network, and may temporarily restrict services for up to 48 hours without court order." ;
+    rdfs:comment "Operational cybersecurity hub under the Ministry of National Defence. Monitors compliance, deploys technical measures, responds to incidents, manages the cybersecurity information network, and may temporarily restrict services for up to 48 hours without court order."@en ;
+    rdfs:comment "Operacinis kibernetinio saugumo centras prie Krašto apsaugos ministerijos. Stebi atitiktį, diegia technines priemones, reaguoja į incidentus, valdo kibernetinio saugumo informacinį tinklą ir gali laikinai apriboti paslaugas iki 48 valandų be teismo sankcijos."@lt ;
+    llo:hasGovernanceDomain "Military" ;
+    llo:hasLegalBasis "Art. 10, XII-1428" ;
+    llo:subAgencyOf lld:Org_MoD ;
+    llo:governsEntity lld:Entity_PublicAdmin ,
+                      lld:Entity_CriticalInfra ;
+    llo:exchangesDataWith lld:Org_RRT ,
+                          lld:Org_VDAI ,
+                          lld:Org_Police .
+
+lld:Org_RRT a llo:JurisdictionAuthority ;
+    rdfs:label "Communications Regulatory Authority (RRT)" ;
+    rdfs:label "Communications Regulatory Authority (RRT)"@en ;
+    rdfs:label "Ryšių reguliavimo tarnyba (RRT)"@lt ;
+    rdfs:comment "Regulates public communications networks and electronic communications service providers in cybersecurity. Sets organizational and technical requirements for hosting service providers. May issue binding orders to reduce risk of harm from incidents." ;
+    rdfs:comment "Regulates public communications networks and electronic communications service providers in cybersecurity. Sets organizational and technical requirements for hosting service providers. May issue binding orders to reduce risk of harm from incidents."@en ;
+    rdfs:comment "Reguliuoja viešųjų ryšių tinklus ir elektroninių ryšių paslaugų teikėjus kibernetinio saugumo srityje. Nustato organizacinius ir techninius reikalavimus prieglobos paslaugų teikėjams. Gali duoti privalomus nurodymus dėl incidentų žalos rizikos mažinimo."@lt ;
+    llo:hasGovernanceDomain "Independent Regulatory" ;
+    llo:hasLegalBasis "Art. 8, XII-1428" ;
+    llo:governsEntity lld:Entity_TelecomProvider ,
+                      lld:Entity_HostingProvider ;
+    llo:exchangesDataWith lld:Org_NKSC ,
+                          lld:Org_VDAI ,
+                          lld:Org_Police .
+
+lld:Org_VDAI a llo:JurisdictionAuthority ;
+    rdfs:label "State Data Protection Inspectorate (VDAI)" ;
+    rdfs:label "State Data Protection Inspectorate (VDAI)"@en ;
+    rdfs:label "Valstybinė duomenų apsaugos inspekcija (VDAI)"@lt ;
+    rdfs:comment "Implements cybersecurity policy in the personal data protection domain. Conducts inspections when cyber incidents may affect personal data, and provides public information on data protection risks in cyberspace." ;
+    rdfs:comment "Implements cybersecurity policy in the personal data protection domain. Conducts inspections when cyber incidents may affect personal data, and provides public information on data protection risks in cyberspace."@en ;
+    rdfs:comment "Įgyvendina kibernetinio saugumo politiką asmens duomenų apsaugos srityje. Atlieka patikrinimus, kai kibernetiniai incidentai gali turėti įtakos asmens duomenų apsaugai, ir teikia visuomenei informaciją apie duomenų apsaugos rizikas kibernetinėje erdvėje."@lt ;
+    llo:hasGovernanceDomain "Independent Regulatory" ;
+    llo:hasLegalBasis "Art. 11, XII-1428" ;
+    llo:exchangesDataWith lld:Org_NKSC ,
+                          lld:Org_RRT .
+
+lld:Org_Police a llo:JurisdictionAuthority ;
+    rdfs:label "Police Department" ;
+    rdfs:label "Police Department"@en ;
+    rdfs:label "Policijos departamentas"@lt ;
+    rdfs:comment "Investigates cyber incidents with criminal elements. May restrict services for up to 48 hours without court order (longer with court approval). Can order preservation of subscriber data and traffic data." ;
+    rdfs:comment "Investigates cyber incidents with criminal elements. May restrict services for up to 48 hours without court order (longer with court approval). Can order preservation of subscriber data and traffic data."@en ;
+    rdfs:comment "Tiria kibernetinius incidentus, turinčius nusikalstamos veikos požymių. Gali apriboti paslaugas iki 48 valandų be teismo sankcijos (ilgesniam laikui – su teismo leidimu). Gali nurodyti išsaugoti abonento ir srauto duomenis."@lt ;
+    llo:hasGovernanceDomain "Civilian" ;
+    llo:hasLegalBasis "Art. 12, XII-1428" ;
+    llo:subAgencyOf lld:Org_MoI ;
+    llo:exchangesDataWith lld:Org_NKSC ,
+                          lld:Org_RRT .
+
+lld:Org_CyberCouncil a llo:JurisdictionAuthority ;
+    rdfs:label "Cybersecurity Council" ;
+    rdfs:label "Cybersecurity Council"@en ;
+    rdfs:label "Kibernetinio saugumo taryba"@lt ;
+    rdfs:comment "Permanent collegial body analyzing cybersecurity posture and making recommendations. Composed of representatives from policy-forming and implementing institutions, business, academia, critical infrastructure operators, and telecom providers." ;
+    rdfs:comment "Permanent collegial body analyzing cybersecurity posture and making recommendations. Composed of representatives from policy-forming and implementing institutions, business, academia, critical infrastructure operators, and telecom providers."@en ;
+    rdfs:comment "Nuolatinė kolegiali institucija, analizuojanti kibernetinio saugumo būklę ir teikianti pasiūlymus. Sudaroma iš politiką formuojančių ir įgyvendinančių institucijų, verslo, mokslo, ypatingos svarbos infrastruktūros valdytojų ir ryšių paslaugų teikėjų atstovų."@lt ;
+    llo:hasGovernanceDomain "Military" ;
+    llo:hasLegalBasis "Art. 9, XII-1428" ;
+    llo:subAgencyOf lld:Org_MoD .
+
+
+# =================================================================
+# SECTION 6: REGULATED ENTITIES (GENERIC CLASSES FROM THE LAW)
+# =================================================================
+
+lld:Entity_PublicAdmin a llo:RegulatedEntity ;
+    rdfs:label "Public Administration Entities" ;
+    rdfs:label "Public Administration Entities"@en ;
+    rdfs:label "Viešojo administravimo subjektai"@lt ;
+    rdfs:comment "Public administration entities managing state information resources, required to ensure cybersecurity at their own expense and report incidents to NKSC." ;
+    rdfs:comment "Public administration entities managing state information resources, required to ensure cybersecurity at their own expense and report incidents to NKSC."@en ;
+    rdfs:comment "Viešojo administravimo subjektai, valdantys valstybės informacinius išteklius, privalantys savo lėšomis užtikrinti kibernetinį saugumą ir pranešti apie incidentus NKSC."@lt ;
+    llo:isPublicAdministration true ;
+    llo:hasLegalBasis "Art. 13, XII-1428" ;
+    llo:mustReportTo lld:Org_NKSC ,
+                     lld:Org_VDAI ,
+                     lld:Org_Police .
+
+lld:Entity_CriticalInfra a llo:CriticalInfrastructureOperator ;
+    rdfs:label "Critical Information Infrastructure Operators" ;
+    rdfs:label "Critical Information Infrastructure Operators"@en ;
+    rdfs:label "Ypatingos svarbos informacinės infrastruktūros valdytojai"@lt ;
+    rdfs:comment "Operators of critical information infrastructure responsible for cybersecurity at their own expense, required to prepare and test incident management plans, and report incidents to NKSC, VDAI, and police." ;
+    rdfs:comment "Operators of critical information infrastructure responsible for cybersecurity at their own expense, required to prepare and test incident management plans, and report incidents to NKSC, VDAI, and police."@en ;
+    rdfs:comment "Ypatingos svarbos informacinės infrastruktūros valdytojai, atsakingi už kibernetinį saugumą savo lėšomis, privalantys parengti ir išbandyti incidentų valdymo planus bei pranešti apie incidentus NKSC, VDAI ir policijai."@lt ;
+    llo:isPublicAdministration false ;
+    llo:hasLegalBasis "Art. 14, XII-1428" ;
+    llo:mustReportTo lld:Org_NKSC ,
+                     lld:Org_VDAI ,
+                     lld:Org_Police .
+
+lld:Entity_TelecomProvider a llo:ElectronicCommunicationsProvider ;
+    rdfs:label "Public Network and Electronic Communications Providers" ;
+    rdfs:label "Public Network and Electronic Communications Providers"@en ;
+    rdfs:label "Viešųjų ryšių tinklų ir viešųjų elektroninių ryšių paslaugų teikėjai"@lt ;
+    rdfs:comment "Public communications network operators and electronic communications service providers subject to cybersecurity obligations set by RRT. Must report incidents, comply with police orders within 8 hours, and appoint a responsible cybersecurity person or unit." ;
+    rdfs:comment "Public communications network operators and electronic communications service providers subject to cybersecurity obligations set by RRT. Must report incidents, comply with police orders within 8 hours, and appoint a responsible cybersecurity person or unit."@en ;
+    rdfs:comment "Viešųjų ryšių tinklų operatoriai ir elektroninių ryšių paslaugų teikėjai, kuriems taikomos RRT nustatytos kibernetinio saugumo pareigos. Privalo pranešti apie incidentus, vykdyti policijos nurodymus per 8 valandas ir paskirti atsakingą asmenį ar padalinį."@lt ;
+    llo:isPublicAdministration false ;
+    llo:hasLegalBasis "Art. 15, XII-1428" ;
+    llo:mustReportTo lld:Org_RRT ,
+                     lld:Org_VDAI ,
+                     lld:Org_Police .
+
+lld:Entity_HostingProvider a llo:HostingServiceProvider ;
+    rdfs:label "Electronic Information Hosting Service Providers" ;
+    rdfs:label "Electronic Information Hosting Service Providers"@en ;
+    rdfs:label "Elektroninės informacijos prieglobos paslaugų teikėjai"@lt ;
+    rdfs:comment "Hosting service providers required to implement cybersecurity measures set by RRT, report incidents, comply with police orders within 8 hours, and appoint a responsible cybersecurity person or unit." ;
+    rdfs:comment "Hosting service providers required to implement cybersecurity measures set by RRT, report incidents, comply with police orders within 8 hours, and appoint a responsible cybersecurity person or unit."@en ;
+    rdfs:comment "Prieglobos paslaugų teikėjai, privalantys įgyvendinti RRT nustatytas kibernetinio saugumo priemones, pranešti apie incidentus, vykdyti policijos nurodymus per 8 valandas ir paskirti atsakingą asmenį ar padalinį."@lt ;
+    llo:isPublicAdministration false ;
+    llo:hasLegalBasis "Art. 16, XII-1428" ;
+    llo:mustReportTo lld:Org_RRT ,
+                     lld:Org_VDAI ,
+                     lld:Org_Police .
+
+
+# =================================================================
+# SECTION 7: INCIDENT TRIGGERS & EMERGENCY POWERS
+# =================================================================
+
+lld:Trigger_NKSC_EmergencyBlock a llo:IncidentTrigger ;
+    rdfs:label "NKSC 48-hour emergency service restriction" ;
+    rdfs:label "NKSC 48-hour emergency service restriction"@en ;
+    rdfs:label "NKSC 48 valandų ypatingasis paslaugų apribojimas"@lt ;
+    rdfs:comment "During a cyber incident, NKSC may give a reasoned instruction to temporarily restrict public electronic communications services for up to 48 hours without a court order, to halt the incident's impact on state information resources or critical infrastructure." ;
+    rdfs:comment "During a cyber incident, NKSC may give a reasoned instruction to temporarily restrict public electronic communications services for up to 48 hours without a court order, to halt the incident's impact on state information resources or critical infrastructure."@en ;
+    rdfs:comment "Kibernetinio incidento metu NKSC gali duoti motyvuotą nurodymą laikinai apriboti viešųjų elektroninių ryšių paslaugas iki 48 valandų be teismo sankcijos, siekdamas stabdyti incidento poveikį valstybės informaciniams ištekliams ar ypatingos svarbos infrastruktūrai."@lt ;
+    llo:isExtraordinaryPower true ;
+    llo:hasEmergencyLimit "PT48H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 10(3)(6), XII-1428" ;
+    llo:executedByAuthority lld:Org_NKSC ;
+    llo:limitsRight lld:Right_ServiceAccess .
+
+lld:Trigger_Police_EmergencyBlock a llo:IncidentTrigger ;
+    rdfs:label "Police 48-hour emergency service restriction" ;
+    rdfs:label "Police 48-hour emergency service restriction"@en ;
+    rdfs:label "Policijos 48 valandų ypatingasis paslaugų apribojimas"@lt ;
+    rdfs:comment "Police may issue reasoned orders to restrict public network or electronic communications and hosting services for up to 48 hours without court order when criminal cyber activity is suspected. Extension beyond 48 hours requires court approval." ;
+    rdfs:comment "Police may issue reasoned orders to restrict public network or electronic communications and hosting services for up to 48 hours without court order when criminal cyber activity is suspected. Extension beyond 48 hours requires court approval."@en ;
+    rdfs:comment "Policija gali duoti motyvuotus nurodymus apriboti viešųjų ryšių tinklų, elektroninių ryšių ar prieglobos paslaugas iki 48 valandų be teismo sankcijos, kai įtariama nusikalstama kibernetinė veika. Ilgesniam laikui reikalinga teismo sankcija."@lt ;
+    llo:isExtraordinaryPower true ;
+    llo:hasEmergencyLimit "PT48H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 12(3), XII-1428" ;
+    llo:executedByAuthority lld:Org_Police ;
+    llo:limitsRight lld:Right_ServiceAccess .
+
+lld:Trigger_PoliceDataPreservation a llo:IncidentTrigger ;
+    rdfs:label "Police data preservation order" ;
+    rdfs:label "Police data preservation order"@en ;
+    rdfs:label "Policijos duomenų išsaugojimo nurodymas"@lt ;
+    rdfs:comment "Police may order public network, electronic communications, and hosting providers to preserve subscriber identity, traffic data, geographic location, billing, and equipment data related to services used in suspected criminal activity." ;
+    rdfs:comment "Police may order public network, electronic communications, and hosting providers to preserve subscriber identity, traffic data, geographic location, billing, and equipment data related to services used in suspected criminal activity."@en ;
+    rdfs:comment "Policija gali nurodyti viešųjų ryšių tinklų, elektroninių ryšių ir prieglobos paslaugų teikėjams išsaugoti abonento tapatybės, srauto, geografinės padėties, atsiskaitymo ir įrangos duomenis, susijusius su įtariama nusikalstama veika."@lt ;
+    llo:isExtraordinaryPower false ;
+    llo:hasLegalBasis "Art. 12(4), XII-1428" ;
+    llo:executedByAuthority lld:Org_Police ;
+    llo:limitsRight lld:Right_Privacy .
+
+lld:Trigger_PoliceOrderCompliance a llo:IncidentTrigger ;
+    rdfs:label "8-hour police order compliance window" ;
+    rdfs:label "8-hour police order compliance window"@en ;
+    rdfs:label "8 valandų policijos nurodymo vykdymo terminas"@lt ;
+    rdfs:comment "Police orders regarding service restriction to end-users must be complied with no later than 8 hours from receipt of the order." ;
+    rdfs:comment "Police orders regarding service restriction to end-users must be complied with no later than 8 hours from receipt of the order."@en ;
+    rdfs:comment "Policijos nurodymai dėl paslaugų teikimo apribojimo gavėjui turi būti įvykdyti ne vėliau kaip per 8 valandas nuo nurodymo gavimo."@lt ;
+    llo:isExtraordinaryPower false ;
+    llo:hasResponseWindow "PT8H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 15(4), Art. 16(4), XII-1428" ;
+    llo:executedByAuthority lld:Org_Police .
+
+
+# =================================================================
+# SECTION 8: RESILIENCE MANDATES
+# =================================================================
+
+lld:Mandate_SelfFundedSecurity_PublicAdmin a llo:ResilienceMandate ;
+    rdfs:label "Self-funded cybersecurity for public administration" ;
+    rdfs:label "Self-funded cybersecurity for public administration"@en ;
+    rdfs:label "Viešojo administravimo kibernetinis saugumas savo lėšomis"@lt ;
+    rdfs:comment "Public administration entities must ensure cybersecurity of state information resources at their own expense and meet Government-set organizational and technical requirements." ;
+    rdfs:comment "Public administration entities must ensure cybersecurity of state information resources at their own expense and meet Government-set organizational and technical requirements."@en ;
+    rdfs:comment "Viešojo administravimo subjektai privalo savo lėšomis užtikrinti valstybės informacinių išteklių kibernetinį saugumą ir atitikti Vyriausybės nustatytus organizacinius ir techninius reikalavimus."@lt ;
+    llo:isAtExpenseOfEntity true ;
+    llo:hasLegalBasis "Art. 13(1), XII-1428" ;
+    llo:bearsCostOf lld:Entity_PublicAdmin .
+
+lld:Mandate_SelfFundedSecurity_CriticalInfra a llo:ResilienceMandate ;
+    rdfs:label "Self-funded cybersecurity for critical infrastructure" ;
+    rdfs:label "Self-funded cybersecurity for critical infrastructure"@en ;
+    rdfs:label "Ypatingos svarbos infrastruktūros kibernetinis saugumas savo lėšomis"@lt ;
+    rdfs:comment "Critical infrastructure operators must ensure cybersecurity at their own expense and meet Government-set organizational and technical requirements." ;
+    rdfs:comment "Critical infrastructure operators must ensure cybersecurity at their own expense and meet Government-set organizational and technical requirements."@en ;
+    rdfs:comment "Ypatingos svarbos infrastruktūros valdytojai privalo savo lėšomis užtikrinti kibernetinį saugumą ir atitikti Vyriausybės nustatytus organizacinius ir techninius reikalavimus."@lt ;
+    llo:isAtExpenseOfEntity true ;
+    llo:hasLegalBasis "Art. 14(1), XII-1428" ;
+    llo:bearsCostOf lld:Entity_CriticalInfra .
+
+lld:Mandate_IncidentPlanTesting a llo:ContinuityProtocol ;
+    rdfs:label "Incident management plan preparation and testing" ;
+    rdfs:label "Incident management plan preparation and testing"@en ;
+    rdfs:label "Incidentų valdymo plano rengimas ir testavimas"@lt ;
+    rdfs:comment "Critical infrastructure operators must prepare, approve, and submit cyber incident management plans to NKSC, and must test plan execution and provide test results to NKSC." ;
+    rdfs:comment "Critical infrastructure operators must prepare, approve, and submit cyber incident management plans to NKSC, and must test plan execution and provide test results to NKSC."@en ;
+    rdfs:comment "Ypatingos svarbos infrastruktūros valdytojai privalo parengti, patvirtinti ir pateikti NKSC kibernetinių incidentų valdymo planus, taip pat išbandyti planų vykdymą ir pateikti bandymų rezultatus NKSC."@lt ;
+    llo:isAtExpenseOfEntity true ;
+    llo:hasLegalBasis "Art. 14(5-6), XII-1428" .
+
+lld:Mandate_NKSCTechDeployment a llo:ResilienceMandate ;
+    rdfs:label "NKSC technical cybersecurity measures deployment" ;
+    rdfs:label "NKSC technical cybersecurity measures deployment"@en ;
+    rdfs:label "NKSC techninių kibernetinio saugumo priemonių diegimas"@lt ;
+    rdfs:comment "Public administration entities and critical infrastructure operators must provide conditions for NKSC to deploy and manage technical cybersecurity measures in their information resources and infrastructure, and ensure uninterrupted operation of these measures." ;
+    rdfs:comment "Public administration entities and critical infrastructure operators must provide conditions for NKSC to deploy and manage technical cybersecurity measures in their information resources and infrastructure, and ensure uninterrupted operation of these measures."@en ;
+    rdfs:comment "Viešojo administravimo subjektai ir ypatingos svarbos infrastruktūros valdytojai privalo sudaryti sąlygas NKSC diegti ir valdyti technines kibernetinio saugumo priemones jų informaciniuose ištekliuose ir infrastruktūroje bei užtikrinti nepertraukiamą šių priemonių veikimą."@lt ;
+    llo:isAtExpenseOfEntity false ;
+    llo:hasLegalBasis "Art. 13(6), Art. 14(8), XII-1428" .
+
+
+# =================================================================
+# SECTION 9: INFORMATION PIPELINE
+# =================================================================
+
+lld:Pipeline_KSIS a llo:InformationPipeline ;
+    rdfs:label "Cybersecurity Information Network (KSIS)" ;
+    rdfs:label "Cybersecurity Information Network (KSIS)"@en ;
+    rdfs:label "Kibernetinio saugumo informacinis tinklas (KSIS)"@lt ;
+    rdfs:comment "Secure information exchange platform managed by NKSC for sharing information about potential and actual cyber incidents, recommendations, instructions, technical solutions, and other cybersecurity measures among network members." ;
+    rdfs:comment "Secure information exchange platform managed by NKSC for sharing information about potential and actual cyber incidents, recommendations, instructions, technical solutions, and other cybersecurity measures among network members."@en ;
+    rdfs:comment "Saugi informacijos mainų platforma, valdoma NKSC, skirta dalytis informacija apie galimus ir įvykusius kibernetinius incidentus, rekomendacijomis, nurodymais, techniniais sprendimais ir kitomis kibernetinio saugumo priemonėmis tarp tinklo narių."@lt ;
+    llo:hasLegalBasis "Art. 17, XII-1428" ;
+    llo:relaysDataTo lld:Org_NKSC .
+
+
+# =================================================================
+# SECTION 10: CIVIC RIGHTS & PRINCIPLES
+# =================================================================
+
+lld:Right_NonDiscrimination a llo:CivicRight ;
+    rdfs:label "Non-discrimination in cyberspace" ;
+    rdfs:label "Non-discrimination in cyberspace"@en ;
+    rdfs:label "Nediskriminavimas kibernetinėje erdvėje"@lt ;
+    rdfs:comment "Legal and other regulatory provisions and best practices shall apply equally in both physical and cyber domains." ;
+    rdfs:comment "Legal and other regulatory provisions and best practices shall apply equally in both physical and cyber domains."@en ;
+    rdfs:comment "Įstatymų ir kitų teisės aktų nuostatos ir geroji praktika taikomi vienodai tiek fizinėje, tiek kibernetinėje erdvėje."@lt ;
+    llo:hasLegalBasis "Art. 3(1)(1), XII-1428" .
+
+lld:Right_Proportionality a llo:CivicRight ;
+    rdfs:label "Proportionality of cybersecurity measures" ;
+    rdfs:label "Proportionality of cybersecurity measures"@en ;
+    rdfs:label "Kibernetinio saugumo priemonių proporcingumas"@lt ;
+    rdfs:comment "Cybersecurity measures shall not be stricter than necessary and shall not restrict participants' activities in cyberspace more than necessary." ;
+    rdfs:comment "Cybersecurity measures shall not be stricter than necessary and shall not restrict participants' activities in cyberspace more than necessary."@en ;
+    rdfs:comment "Kibernetinio saugumo priemonės negali būti griežtesnės, negu būtina, ir neturi apriboti dalyvių veiklos kibernetinėje erdvėje labiau, negu tai būtina."@lt ;
+    llo:hasLegalBasis "Art. 3(1)(2), XII-1428" .
+
+lld:Right_PublicInterest a llo:CivicRight ;
+    rdfs:label "Primacy of public interest" ;
+    rdfs:label "Primacy of public interest"@en ;
+    rdfs:label "Viešojo intereso viršenybė"@lt ;
+    rdfs:comment "Cybersecurity measures must primarily ensure public interest protection but shall not fundamentally violate individual user rights or disproportionately restrict their freedoms in cyberspace." ;
+    rdfs:comment "Cybersecurity measures must primarily ensure public interest protection but shall not fundamentally violate individual user rights or disproportionately restrict their freedoms in cyberspace."@en ;
+    rdfs:comment "Kibernetinio saugumo priemonės pirmiausia turi užtikrinti visuomenės viešojo intereso apsaugą, tačiau neturi iš esmės pažeisti atskirų vartotojų teisių ar neproporcingai apriboti jų laisvių kibernetinėje erdvėje."@lt ;
+    llo:hasLegalBasis "Art. 3(1)(3), XII-1428" .
+
+lld:Right_ServiceAccess a llo:CivicRight ;
+    rdfs:label "Right to electronic communications service access" ;
+    rdfs:label "Right to electronic communications service access"@en ;
+    rdfs:label "Teisė naudotis elektroninių ryšių paslaugomis"@lt ;
+    rdfs:comment "The right of end-users to access public electronic communications services, which may be temporarily limited during cyber incidents under the emergency powers of NKSC or police." ;
+    rdfs:comment "The right of end-users to access public electronic communications services, which may be temporarily limited during cyber incidents under the emergency powers of NKSC or police."@en ;
+    rdfs:comment "Galutinių vartotojų teisė naudotis viešosiomis elektroninių ryšių paslaugomis, kuri gali būti laikinai apribota kibernetinių incidentų metu pagal NKSC ar policijos ypatingąsias galias."@lt ;
+    llo:hasLegalBasis "Art. 10(3)(6), Art. 12(3), XII-1428" .
+
+lld:Right_Privacy a llo:CivicRight ;
+    rdfs:label "Right to privacy and data protection" ;
+    rdfs:label "Right to privacy and data protection"@en ;
+    rdfs:label "Teisė į privatumą ir duomenų apsaugą"@lt ;
+    rdfs:comment "The right to privacy of communications and personal data, which may be affected by police data preservation orders during criminal cyber investigations." ;
+    rdfs:comment "The right to privacy of communications and personal data, which may be affected by police data preservation orders during criminal cyber investigations."@en ;
+    rdfs:comment "Teisė į ryšių ir asmens duomenų privatumą, kurią gali paveikti policijos duomenų išsaugojimo nurodymai nusikalstamų kibernetinių veikų tyrimo metu."@lt ;
+    llo:hasLegalBasis "Art. 12(4), XII-1428" .
+
+
+# =================================================================
+# SECTION 11: LIABILITY & ENFORCEMENT
+# =================================================================
+
+lld:Liability_AdminViolation a llo:ExecutiveLiability ;
+    rdfs:label "Administrative liability for cybersecurity violations" ;
+    rdfs:label "Administrative liability for cybersecurity violations"@en ;
+    rdfs:label "Administracinė atsakomybė už kibernetinio saugumo pažeidimus"@lt ;
+    rdfs:comment "Heads (vadovai) of telecom providers, hosting providers, and critical infrastructure operators bear personal administrative liability for violations of the law and its implementing regulations, under the Lithuanian Administrative Offences Code." ;
+    rdfs:comment "Heads (vadovai) of telecom providers, hosting providers, and critical infrastructure operators bear personal administrative liability for violations of the law and its implementing regulations, under the Lithuanian Administrative Offences Code."@en ;
+    rdfs:comment "Elektroninių ryšių, prieglobos paslaugų teikėjų ir ypatingos svarbos infrastruktūros valdytojų vadovai asmeniškai atsako administracine tvarka už įstatymo ir jo įgyvendinamųjų teisės aktų pažeidimus pagal Lietuvos Respublikos administracinių teisės pažeidimų kodeksą."@lt ;
+    llo:isPersonalHazard true ;
+    llo:hasLegalBasis "Art. 19, XII-1428" ;
+    llo:penalizesEntity lld:Entity_TelecomProvider ,
+                        lld:Entity_HostingProvider ,
+                        lld:Entity_CriticalInfra .
+
+
+# =================================================================
+# SECTION 12: LEGAL CONCEPTS DEFINED IN ARTICLE 2
+# =================================================================
+
+lld:Concept_CybersecurityScope a llo:LegalConcept ;
+    rdfs:label "Cybersecurity system scope" ;
+    rdfs:label "Cybersecurity system scope"@en ;
+    rdfs:label "Kibernetinio saugumo sistemos apimtis"@lt ;
+    rdfs:comment "The law governs the organization, management, and control of the cybersecurity system, defines policy-forming and implementing institutions, and sets obligations for state information resource managers, critical infrastructure operators, telecom providers, and hosting providers." ;
+    rdfs:comment "The law governs the organization, management, and control of the cybersecurity system, defines policy-forming and implementing institutions, and sets obligations for state information resource managers, critical infrastructure operators, telecom providers, and hosting providers."@en ;
+    rdfs:comment "Įstatymas reglamentuoja kibernetinio saugumo sistemos organizavimą, valdymą ir kontrolę, apibrėžia politiką formuojančias ir įgyvendinančias institucijas bei nustato pareigas valstybės informacinių išteklių valdytojams, ypatingos svarbos infrastruktūros valdytojams, ryšių ir prieglobos paslaugų teikėjams."@lt ;
+    llo:hasLegalBasis "Art. 1, XII-1428" .
+
+lld:Concept_CriticalInfrastructure a llo:LegalConcept ;
+    rdfs:label "Critical information infrastructure" ;
+    rdfs:label "Critical information infrastructure"@en ;
+    rdfs:label "Ypatingos svarbos informacinė infrastruktūra"@lt ;
+    rdfs:comment "An electronic communications network or part thereof, information system or part thereof, group of information systems, or industrial process control system or part thereof – whether privately or publicly owned – in which a cyber incident could cause major damage to national security, the economy, state interests, and public welfare." ;
+    rdfs:comment "An electronic communications network or part thereof, information system or part thereof, group of information systems, or industrial process control system or part thereof – whether privately or publicly owned – in which a cyber incident could cause major damage to national security, the economy, state interests, and public welfare."@en ;
+    rdfs:comment "Elektroninių ryšių tinklas ar jo dalis, informacinė sistema ar jos dalis, informacinių sistemų grupė ar pramoninių procesų valdymo sistema ar jos dalis – nepriklausomai nuo nuosavybės formos – kuriuose įvykęs kibernetinis incidentas gali padaryti didelę žalą nacionaliniam saugumui, šalies ūkiui, valstybės ir visuomenės interesams."@lt ;
+    llo:hasLegalBasis "Art. 2(2), XII-1428" .
+
+lld:Concept_Cyberspace a llo:LegalConcept ;
+    rdfs:label "Cyberspace" ;
+    rdfs:label "Cyberspace"@en ;
+    rdfs:label "Kibernetinė erdvė"@lt ;
+    rdfs:comment "An environment in which electronic information is created, transmitted, or stored in individual computers or other ICT equipment connected via electronic communications networks." ;
+    rdfs:comment "An environment in which electronic information is created, transmitted, or stored in individual computers or other ICT equipment connected via electronic communications networks."@en ;
+    rdfs:comment "Aplinka, kurioje pavieniuose kompiuteriuose ar kitoje informacinėje ir ryšių technologijų įrangoje sukuriama elektroninė informacija ir perduodama per elektroninių ryšių tinklu sujungtus kompiuterius ar kitą įrangą."@lt ;
+    llo:hasLegalBasis "Art. 2(3), XII-1428" .
+
+lld:Concept_CyberIncident a llo:IncidentTrigger ;
+    rdfs:label "Cyber incident" ;
+    rdfs:label "Cyber incident"@en ;
+    rdfs:label "Kibernetinis incidentas"@lt ;
+    rdfs:comment "An event or action that causes or may cause unauthorized access to information systems, electronic communications networks or industrial control systems, disrupts or alters their operation, destroys or damages electronic information, or enables unauthorized disclosure of such information." ;
+    rdfs:comment "An event or action that causes or may cause unauthorized access to information systems, electronic communications networks or industrial control systems, disrupts or alters their operation, destroys or damages electronic information, or enables unauthorized disclosure of such information."@en ;
+    rdfs:comment "Įvykis ar veika, kuri sukelia ar gali sukelti neteisėtą prisijungimą prie informacinių sistemų, elektroninių ryšių tinklų ar pramoninių procesų valdymo sistemų, sutrikdyti ar pakeisti jų veikimą, sunaikinti ar sugadinti elektroninę informaciją arba sudaryti sąlygas neteisėtam tokios informacijos atskleidimui."@lt ;
+    llo:isExtraordinaryPower false ;
+    llo:hasLegalBasis "Art. 2(4), XII-1428" .
+
+lld:Concept_Cybersecurity a llo:LegalConcept ;
+    rdfs:label "Cybersecurity" ;
+    rdfs:label "Cybersecurity"@en ;
+    rdfs:label "Kibernetinis saugumas"@lt ;
+    rdfs:comment "The totality of legal, informational, organizational, and technical measures designed to prevent, detect, analyze, and respond to cyber incidents, as well as to restore the normal operation of electronic communications networks, information systems, or industrial control systems after such incidents." ;
+    rdfs:comment "The totality of legal, informational, organizational, and technical measures designed to prevent, detect, analyze, and respond to cyber incidents, as well as to restore the normal operation of electronic communications networks, information systems, or industrial control systems after such incidents."@en ;
+    rdfs:comment "Visuma teisinių, informacijos sklaidos, organizacinių ir techninių priemonių, skirtų kibernetiniams incidentams išvengti, aptikti, analizuoti ir reaguoti į juos, taip pat įprastinei elektroninių ryšių tinklų, informacinių sistemų ar pramoninių procesų valdymo sistemų veiklai atkurti."@lt ;
+    llo:hasLegalBasis "Art. 2(5), XII-1428" .
+
+lld:Concept_ICS a llo:LegalConcept ;
+    rdfs:label "Industrial process control system" ;
+    rdfs:label "Industrial process control system"@en ;
+    rdfs:label "Pramoninių procesų valdymo sistema"@lt ;
+    rdfs:comment "A system built on ICT and communications technology equipment designed to monitor and manage technological processes in industry, energy, transport, water supply, and other economic sectors." ;
+    rdfs:comment "A system built on ICT and communications technology equipment designed to monitor and manage technological processes in industry, energy, transport, water supply, and other economic sectors."@en ;
+    rdfs:comment "Iš informacinėmis ir ryšių technologijomis grindžiamos įrangos sudaryta sistema, skirta technologiniams procesams stebėti ir valdyti pramonės, energetikos, transporto, vandens tiekimo ir kituose ūkinės veiklos sektoriuose."@lt ;
+    llo:hasLegalBasis "Art. 2(6), XII-1428" .
+
+lld:Concept_HostingServices a llo:LegalConcept ;
+    rdfs:label "Electronic information hosting services" ;
+    rdfs:label "Electronic information hosting services"@en ;
+    rdfs:label "Elektroninės informacijos prieglobos paslaugos"@lt ;
+    rdfs:comment "Public services enabling the creation and management of electronic information and data, and/or the storage of electronic information provided by service recipients." ;
+    rdfs:comment "Public services enabling the creation and management of electronic information and data, and/or the storage of electronic information provided by service recipients."@en ;
+    rdfs:comment "Informacinės visuomenės paslaugos, apimančios galimybės naudotis elektroninės informacijos ir elektroninių duomenų kūrimo ir tvarkymo priemonėmis sudarymą ir (arba) paslaugų gavėjo pateiktos elektroninės informacijos saugojimą."@lt ;
+    llo:hasLegalBasis "Art. 2(1), XII-1428" .

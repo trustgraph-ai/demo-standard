@@ -1,0 +1,100 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Articles 4 and 6, repealing Article 7
+#   No. XIII-798, enacted 2017-11-21, Vilnius
+#   Signed by President Dalia Grybauskaitė
+#   Effective 2018-01-01
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XIII-798 a llo:Statute ;
+    rdfs:label "Amendment to Cybersecurity Law – Articles 4, 6, and repeal of Article 7 (No. XIII-798)" ;
+    rdfs:label "Amendment to Cybersecurity Law – Articles 4, 6, and repeal of Article 7 (No. XIII-798)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 4, 6 straipsnių pakeitimo ir 7 straipsnio pripažinimo netekusiu galios įstatymas (Nr. XIII-798)"@lt ;
+    rdfs:comment "Restructures cybersecurity institutional governance by transferring critical infrastructure identification powers from the Ministry of Interior to the Ministry of National Defence, and repealing Article 7 (Ministry of Interior powers) entirely. Consolidates cybersecurity authority under military oversight." ;
+    rdfs:comment "Restructures cybersecurity institutional governance by transferring critical infrastructure identification powers from the Ministry of Interior to the Ministry of National Defence, and repealing Article 7 (Ministry of Interior powers) entirely. Consolidates cybersecurity authority under military oversight."@en ;
+    rdfs:comment "Pertvarko kibernetinio saugumo institucinį valdymą, perkeliant ypatingos svarbos infrastruktūros identifikavimo įgaliojimus iš Vidaus reikalų ministerijos Krašto apsaugos ministerijai ir visiškai panaikinant 7 straipsnį (Vidaus reikalų ministerijos įgaliojimus). Konsoliduoja kibernetinio saugumo valdymą karinės priežiūros struktūroje."@lt ;
+    llo:hasDocID "No. XIII-798" ;
+    llo:dateEnacted "2017-11-21"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XIII-798_Art1 ,
+                     lld:XIII-798_Art2 ,
+                     lld:XIII-798_Art3 ,
+                     lld:XIII-798_Art4 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XIII-798_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 4 (Policy Institutions)" ;
+    rdfs:label "Article 1 – Amendment of Article 4 (Policy Institutions)"@en ;
+    rdfs:label "1 straipsnis – 4 straipsnio pakeitimas (politikos institucijos)"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_InstitutionalRestructuring .
+
+lld:XIII-798_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Amendment of Article 6 (MoD Powers)" ;
+    rdfs:label "Article 2 – Amendment of Article 6 (MoD Powers)"@en ;
+    rdfs:label "2 straipsnis – 6 straipsnio pakeitimas (KAM įgaliojimai)"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_CriticalInfraTransfer .
+
+lld:XIII-798_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Repeal of Article 7 (Ministry of Interior Powers)" ;
+    rdfs:label "Article 3 – Repeal of Article 7 (Ministry of Interior Powers)"@en ;
+    rdfs:label "3 straipsnis – 7 straipsnio pripažinimas netekusiu galios (VRM įgaliojimai)"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_MoI_Removal .
+
+lld:XIII-798_Art4 a llo:Article ;
+    rdfs:label "Article 4 – Entry into Force and Implementation" ;
+    rdfs:label "Article 4 – Entry into Force and Implementation"@en ;
+    rdfs:label "4 straipsnis – Įstatymo įsigaliojimas ir įgyvendinimas"@lt ;
+    llo:hasIndexNumber 4 .
+
+
+# =================================================================
+# SECTION 3: LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_InstitutionalRestructuring a llo:LegalConcept ;
+    rdfs:label "Cybersecurity institutional restructuring" ;
+    rdfs:label "Cybersecurity institutional restructuring"@en ;
+    rdfs:label "Kibernetinio saugumo institucinis pertvarkymas"@lt ;
+    rdfs:comment "Article 4 restated to reflect the removal of the Ministry of Interior from the cybersecurity policy formation framework. The institutional participants are now: Government (strategic goals), MoD (policy formation, organisation, control, coordination), NKSC, RRT, VDAI, and Police Department. MoI is no longer listed as a participant." ;
+    rdfs:comment "Article 4 restated to reflect the removal of the Ministry of Interior from the cybersecurity policy formation framework. The institutional participants are now: Government (strategic goals), MoD (policy formation, organisation, control, coordination), NKSC, RRT, VDAI, and Police Department. MoI is no longer listed as a participant."@en ;
+    rdfs:comment "4 straipsnis išdėstytas iš naujo, atspindint Vidaus reikalų ministerijos pašalinimą iš kibernetinio saugumo politikos formavimo struktūros. Institucijų dalyviai dabar: Vyriausybė (strateginiai tikslai), KAM (politikos formavimas, organizavimas, kontrolė, koordinavimas), NKSC, RRT, VDAI ir Policijos departamentas. VRM nebėra dalyvė."@lt ;
+    llo:hasLegalBasis "Art. 1, XIII-798 (amending Art. 4, XII-1428)" .
+
+lld:Concept_CriticalInfraTransfer a llo:LegalConcept ;
+    rdfs:label "Transfer of critical infrastructure identification to MoD" ;
+    rdfs:label "Transfer of critical infrastructure identification to MoD"@en ;
+    rdfs:label "Ypatingos svarbos infrastruktūros identifikavimo perkėlimas KAM"@lt ;
+    rdfs:comment "New Article 6(3): MoD now prepares and submits to the Government for approval the critical information infrastructure identification methodology and the critical information infrastructure and/or list of its operators. This function was previously held by the Ministry of Interior under the now-repealed Article 7." ;
+    rdfs:comment "New Article 6(3): MoD now prepares and submits to the Government for approval the critical information infrastructure identification methodology and the critical information infrastructure and/or list of its operators. This function was previously held by the Ministry of Interior under the now-repealed Article 7."@en ;
+    rdfs:comment "Naujas 6 straipsnio 3 punktas: KAM nuo šiol rengia ir teikia Vyriausybei tvirtinti ypatingos svarbos informacinės infrastruktūros identifikavimo metodiką ir ypatingos svarbos informacinę infrastruktūrą ir (arba) šios infrastruktūros valdytojų sąrašą. Ši funkcija anksčiau priklausė VRM pagal dabar panaikintą 7 straipsnį."@lt ;
+    llo:hasLegalBasis "Art. 2, XIII-798 (new Art. 6(3), XII-1428)" .
+
+lld:Concept_MoI_Removal a llo:LegalConcept ;
+    rdfs:label "Repeal of Ministry of Interior cybersecurity powers" ;
+    rdfs:label "Repeal of Ministry of Interior cybersecurity powers"@en ;
+    rdfs:label "Vidaus reikalų ministerijos kibernetinio saugumo įgaliojimų panaikinimas"@lt ;
+    rdfs:comment "Article 7 (Ministry of Interior powers in cybersecurity) repealed in its entirety. The MoI's former responsibilities – preparing critical infrastructure identification methodology and maintaining the operator list – are transferred to the Ministry of National Defence under the amended Article 6. This completes the consolidation of cybersecurity governance under military oversight." ;
+    rdfs:comment "Article 7 (Ministry of Interior powers in cybersecurity) repealed in its entirety. The MoI's former responsibilities – preparing critical infrastructure identification methodology and maintaining the operator list – are transferred to the Ministry of National Defence under the amended Article 6. This completes the consolidation of cybersecurity governance under military oversight."@en ;
+    rdfs:comment "7 straipsnis (Vidaus reikalų ministerijos įgaliojimai kibernetinio saugumo srityje) panaikintas visiškai. Buvusios VRM atsakomybės – ypatingos svarbos infrastruktūros identifikavimo metodikos rengimas ir valdytojų sąrašo tvarkymas – perkeltos Krašto apsaugos ministerijai pagal pakeistą 6 straipsnį. Tai užbaigia kibernetinio saugumo valdymo konsolidaciją karinės priežiūros struktūroje."@lt ;
+    llo:hasLegalBasis "Art. 3, XIII-798 (repealing Art. 7, XII-1428)" .

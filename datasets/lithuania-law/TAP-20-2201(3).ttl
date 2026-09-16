@@ -1,0 +1,28 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 190
+#   Approving submission of Cybersecurity Law amendment
+#   (Arts. 1, 2, 6, 8, 9, 13, Chapter V name, annex, new
+#   Art. 17 and Chapter VI) and Administrative Offences Code
+#   amendment to Seimas
+#   2021-03-31, Vilnius
+#   Prime Minister Ingrida Šimonytė
+# =================================================================
+
+lld:GovRes-190-2021 a llo:Statute ;
+    rdfs:label "Government Resolution No. 190 – Submission of Cybersecurity Law amendment (vulnerability disclosure, EU certification) to Seimas (2021)" ;
+    rdfs:label "Government Resolution No. 190 – Submission of Cybersecurity Law amendment (vulnerability disclosure, EU certification) to Seimas (2021)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 190 – Kibernetinio saugumo įstatymo pakeitimo (pažeidžiamumų atskleidimas, ES sertifikavimas) teikimas Seimui (2021)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas two draft laws: (1) Cybersecurity Law No. XII-1428 Arts. 1, 2, 6, 8, 9, 13 amendment, Chapter V title amendment, annex amendment, and supplementation with new Art. 17 and new Chapter VI (vulnerability disclosure and EU cybersecurity certification framework, later enacted as XIV-413), (2) Administrative Offences Code supplementation with Art. 480¹ and Art. 589 and annex amendment. Delegates Defence Minister Arvydas Anušauskas (deputy: Vice-Minister Margiris Abukevičius) to represent Government in Seimas." ;
+    rdfs:comment "Government approves and submits to Seimas two draft laws: (1) Cybersecurity Law No. XII-1428 Arts. 1, 2, 6, 8, 9, 13 amendment, Chapter V title amendment, annex amendment, and supplementation with new Art. 17 and new Chapter VI (vulnerability disclosure and EU cybersecurity certification framework, later enacted as XIV-413), (2) Administrative Offences Code supplementation with Art. 480¹ and Art. 589 and annex amendment. Delegates Defence Minister Arvydas Anušauskas (deputy: Vice-Minister Margiris Abukevičius) to represent Government in Seimas."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui du įstatymų projektus: (1) Kibernetinio saugumo įstatymo Nr. XII-1428 1, 2, 6, 8, 9, 13 straipsnių, V skyriaus pavadinimo, priedo pakeitimo ir papildymo 17 straipsniu ir VI skyriumi (pažeidžiamumų atskleidimas ir ES kibernetinio saugumo sertifikavimo sistema, vėliau priimta kaip XIV-413), (2) Administracinių nusižengimų kodekso papildymo 480¹ straipsniu ir 589 straipsnio bei priedo pakeitimo. Įgalioja krašto apsaugos ministrą Arvydą Anušauską atstovauti Seime."@lt ;
+    llo:hasDocID "No. 190" ;
+    llo:dateEnacted "2021-03-31"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

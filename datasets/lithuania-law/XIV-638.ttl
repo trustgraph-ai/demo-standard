@@ -1,0 +1,252 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Articles 2, 8, 10, 12 and the Annex
+#   No. XIV-638, enacted 2021-11-11, Vilnius
+#   Signed by President Gitanas Nausėda
+#   Effective 2021-12-01
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XIV-638 a llo:Statute ;
+    rdfs:label "Amendment to Cybersecurity Law – Articles 2, 8, 10, 12 and Annex (No. XIV-638)" ;
+    rdfs:label "Amendment to Cybersecurity Law – Articles 2, 8, 10, 12 and Annex (No. XIV-638)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 2, 8, 10, 12 straipsnių ir priedo pakeitimo įstatymas (Nr. XIV-638)"@lt ;
+    rdfs:comment "Amends five articles and the EU annex of the Cybersecurity Law. Expands the definition of 'cybersecurity subject' to include digital service providers, strengthens NKSC binding-order and 48-hour emergency restriction powers, updates court sanction and data preservation procedures for telecom and hosting providers, mandates public cybersecurity recommendations, and adds the NIS Directive (EU) 2016/1148 and European Electronic Communications Code (EU) 2018/1972 to the list of transposed EU acts." ;
+    rdfs:comment "Amends five articles and the EU annex of the Cybersecurity Law. Expands the definition of 'cybersecurity subject' to include digital service providers, strengthens NKSC binding-order and 48-hour emergency restriction powers, updates court sanction and data preservation procedures for telecom and hosting providers, mandates public cybersecurity recommendations, and adds the NIS Directive (EU) 2016/1148 and European Electronic Communications Code (EU) 2018/1972 to the list of transposed EU acts."@en ;
+    rdfs:comment "Pakeičia penkis Kibernetinio saugumo įstatymo straipsnius ir ES teisės aktų priedą. Išplečia 'kibernetinio saugumo subjekto' sąvoką, įtraukdamas skaitmeninių paslaugų teikėjus, sustiprina NKSC privalomų nurodymų ir 48 valandų skubaus apribojimo įgaliojimus, atnaujina teismo sankcijų ir duomenų saugojimo procedūras telekomunikacijų ir prieglobos paslaugų teikėjams, nustato privalomą viešą kibernetinio saugumo rekomendacijų skelbimą ir papildo ES teisės aktų sąrašą TIS direktyva (ES) 2016/1148 ir Europos elektroninių ryšių kodeksu (ES) 2018/1972."@lt ;
+    llo:hasDocID "No. XIV-638" ;
+    llo:dateEnacted "2021-11-11"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XIV-638_Art1 ,
+                     lld:XIV-638_Art2 ,
+                     lld:XIV-638_Art3 ,
+                     lld:XIV-638_Art4 ,
+                     lld:XIV-638_Art5 ,
+                     lld:XIV-638_Art6 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XIV-638_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 2 (Definitions)" ;
+    rdfs:label "Article 1 – Amendment of Article 2 (Definitions)"@en ;
+    rdfs:label "1 straipsnis – 2 straipsnio pakeitimas (sąvokos)"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_DigitalServiceProviderInclusion .
+
+lld:XIV-638_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Amendment of Article 8 (NKSC Powers)" ;
+    rdfs:label "Article 2 – Amendment of Article 8 (NKSC Powers)"@en ;
+    rdfs:label "2 straipsnis – 8 straipsnio pakeitimas (NKSC įgaliojimai)"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_NKSC_EnhancedEnforcement ,
+                        lld:Concept_NKSC_48h_ServiceRestriction .
+
+lld:XIV-638_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Amendment of Article 10 (Court Sanctions and Data Preservation)" ;
+    rdfs:label "Article 3 – Amendment of Article 10 (Court Sanctions and Data Preservation)"@en ;
+    rdfs:label "3 straipsnis – 10 straipsnio pakeitimas (teismo sankcijos ir duomenų saugojimas)"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_CourtSanctionExpansion ,
+                        lld:Concept_DataPreservationExpansion .
+
+lld:XIV-638_Art4 a llo:Article ;
+    rdfs:label "Article 4 – Amendment of Article 12 (Public Recommendations)" ;
+    rdfs:label "Article 4 – Amendment of Article 12 (Public Recommendations)"@en ;
+    rdfs:label "4 straipsnis – 12 straipsnio pakeitimas (viešos rekomendacijos)"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:codifiesConcept lld:Concept_PublicCyberRecommendations .
+
+lld:XIV-638_Art5 a llo:Article ;
+    rdfs:label "Article 5 – Amendment of the Annex (EU Directives)" ;
+    rdfs:label "Article 5 – Amendment of the Annex (EU Directives)"@en ;
+    rdfs:label "5 straipsnis – Įstatymo priedo pakeitimas (ES direktyvos)"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:codifiesConcept lld:Concept_NIS_EECC_Transposition .
+
+lld:XIV-638_Art6 a llo:Article ;
+    rdfs:label "Article 6 – Entry into Force" ;
+    rdfs:label "Article 6 – Entry into Force"@en ;
+    rdfs:label "6 straipsnis – Įstatymo įsigaliojimas"@lt ;
+    llo:hasIndexNumber 6 .
+
+
+# =================================================================
+# SECTION 3: LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_DigitalServiceProviderInclusion a llo:LegalConcept ;
+    rdfs:label "Expansion of 'cybersecurity subject' to include digital service providers" ;
+    rdfs:label "Expansion of 'cybersecurity subject' to include digital service providers"@en ;
+    rdfs:label "'Kibernetinio saugumo subjekto' sąvokos išplėtimas, įtraukiant skaitmeninių paslaugų teikėjus"@lt ;
+    rdfs:comment "Article 2(8) redefined: a 'cybersecurity subject' now encompasses state information resource managers and operators, critical information infrastructure operators, public electronic communications network and/or service providers, electronic information hosting service providers, and digital service providers (skaitmeninių paslaugų teikėjas). The addition of digital service providers broadens the regulatory scope to cover cloud computing, online marketplaces, and search engines." ;
+    rdfs:comment "Article 2(8) redefined: a 'cybersecurity subject' now encompasses state information resource managers and operators, critical information infrastructure operators, public electronic communications network and/or service providers, electronic information hosting service providers, and digital service providers (skaitmeninių paslaugų teikėjas). The addition of digital service providers broadens the regulatory scope to cover cloud computing, online marketplaces, and search engines."@en ;
+    rdfs:comment "2 straipsnio 8 dalis pakeista: 'kibernetinio saugumo subjektas' nuo šiol apima valstybės informacinių išteklių valdytojus ir (arba) tvarkytojus, ypatingos svarbos informacinės infrastruktūros valdytojus, viešųjų elektroninių ryšių tinklų ir (arba) paslaugų teikėjus, elektroninės informacijos prieglobos paslaugų teikėjus ir skaitmeninių paslaugų teikėjus. Skaitmeninių paslaugų teikėjų įtraukimas išplečia reguliavimo apimtį, apimant debesų kompiuteriją, internetines prekyvietės ir paieškos sistemas."@lt ;
+    llo:hasLegalBasis "Art. 1, XIV-638 (amending Art. 2(8), XII-1428)" .
+
+lld:Concept_NKSC_EnhancedEnforcement a llo:LegalConcept ;
+    rdfs:label "NKSC binding orders with compliance deadlines" ;
+    rdfs:label "NKSC binding orders with compliance deadlines"@en ;
+    rdfs:label "NKSC privalomi nurodymai su vykdymo terminais"@lt ;
+    rdfs:comment "Amended Article 8(2)(4): NKSC issues binding orders related to cybersecurity assurance and remediation of identified cybersecurity deficiencies, and sets compliance deadlines for state information resource managers/operators, critical information infrastructure operators, public ECN/ECS providers, and electronic information hosting service providers." ;
+    rdfs:comment "Amended Article 8(2)(4): NKSC issues binding orders related to cybersecurity assurance and remediation of identified cybersecurity deficiencies, and sets compliance deadlines for state information resource managers/operators, critical information infrastructure operators, public ECN/ECS providers, and electronic information hosting service providers."@en ;
+    rdfs:comment "Pakeistas 8 straipsnio 2 dalies 4 punktas: NKSC duoda privalomus nurodymus, susijusius su kibernetinio saugumo užtikrinimu ir nustatytų kibernetinio saugumo trūkumų pašalinimu, nustato šių nurodymų įvykdymo terminą valstybės informacinių išteklių valdytojams ir (arba) tvarkytojams, ypatingos svarbos informacinės infrastruktūros valdytojams, viešųjų elektroninių ryšių tinklų ir (arba) paslaugų teikėjams ir elektroninės informacijos prieglobos paslaugų teikėjams."@lt ;
+    llo:hasLegalBasis "Art. 2(1), XIV-638 (amending Art. 8(2)(4), XII-1428)" .
+
+lld:Concept_NKSC_48h_ServiceRestriction a llo:LegalConcept ;
+    rdfs:label "NKSC 48-hour emergency service restriction power" ;
+    rdfs:label "NKSC 48-hour emergency service restriction power"@en ;
+    rdfs:label "NKSC 48 valandų skubus paslaugų apribojimo įgaliojimas"@lt ;
+    rdfs:comment "Amended Article 8(2)(11): to stop a cyber incident's impact on state information resources or critical information infrastructure cybersecurity, NKSC may order public ECN/ECS providers to restrict service provision for up to 48 hours. NKSC must notify RRT (Communications Regulatory Authority) about orders issued under this provision no later than the next business day." ;
+    rdfs:comment "Amended Article 8(2)(11): to stop a cyber incident's impact on state information resources or critical information infrastructure cybersecurity, NKSC may order public ECN/ECS providers to restrict service provision for up to 48 hours. NKSC must notify RRT (Communications Regulatory Authority) about orders issued under this provision no later than the next business day."@en ;
+    rdfs:comment "Pakeistas 8 straipsnio 2 dalies 11 punktas: siekdamas stabdyti kibernetinio incidento poveikį valstybės informacinių išteklių ar ypatingos svarbos informacinių infrastruktūrų kibernetiniam saugumui, NKSC duoda nurodymą viešųjų elektroninių ryšių tinklų ir (arba) paslaugų teikėjui ne ilgiau kaip 48 valandoms apriboti paslaugų teikimą. NKSC apie pagal šį punktą duotus nurodymus praneša Lietuvos Respublikos ryšių reguliavimo tarnybai ne vėliau kaip kitą darbo dieną."@lt ;
+    llo:hasLegalBasis "Art. 2(2), XIV-638 (amending Art. 8(2)(11), XII-1428)" .
+
+lld:Concept_CourtSanctionExpansion a llo:LegalConcept ;
+    rdfs:label "Expanded court sanction powers for combating cybercrime" ;
+    rdfs:label "Expanded court sanction powers for combating cybercrime"@en ;
+    rdfs:label "Išplėsti teismo sankcijų įgaliojimai kovojant su kibernetiniais nusikaltimais"@lt ;
+    rdfs:comment "Amended Article 10(3): when a service user's equipment is suspected of criminal use, court sanctions may be sought to order public ECN/ECS providers, electronic information hosting providers, digital service providers, and now also digital service providers to apply measures eliminating criminal activity in cyberspace. Emergency 48-hour orders without court sanction remain available, with extended restrictions requiring district court approval. If the court does not confirm legality by reasoned decision, the restriction order is immediately terminated." ;
+    rdfs:comment "Amended Article 10(3): when a service user's equipment is suspected of criminal use, court sanctions may be sought to order public ECN/ECS providers, electronic information hosting providers, digital service providers, and now also digital service providers to apply measures eliminating criminal activity in cyberspace. Emergency 48-hour orders without court sanction remain available, with extended restrictions requiring district court approval. If the court does not confirm legality by reasoned decision, the restriction order is immediately terminated."@en ;
+    rdfs:comment "Pakeistas 10 straipsnio 3 punktas: kai paslaugų gavėjo informacinių technologijų įranga galimai naudojama nusikalstamai veikai, be teismo sankcijos galima duoti nurodymą viešųjų elektroninių ryšių tinklų ir (arba) paslaugų teikėjui, elektroninės informacijos prieglobos paslaugų teikėjui ir skaitmeninių paslaugų teikėjui taikyti priemones, šalinančias nusikalstamų veikų kibernetinėje erdvėje priežastis. Skubūs 48 valandų nurodymai be teismo sankcijos išlieka, o ilgesniems apribojimams reikalingas apylinkės teismo patvirtinimas. Jeigu teisėjas motyvuota nutartimi nepatvirtina veiksmų teisėtumo, nurodymas nedelsiant stabdomas."@lt ;
+    llo:hasLegalBasis "Art. 3(1), XIV-638 (amending Art. 10(3), XII-1428)" .
+
+lld:Concept_DataPreservationExpansion a llo:LegalConcept ;
+    rdfs:label "Expanded data preservation orders for digital service providers" ;
+    rdfs:label "Expanded data preservation orders for digital service providers"@en ;
+    rdfs:label "Išplėsti duomenų saugojimo nurodymai skaitmeninių paslaugų teikėjams"@lt ;
+    rdfs:comment "Amended Article 10(4): authorities may order public ECN/ECS providers, electronic information hosting providers, and digital service providers to preserve subscriber-related information including connection type, usage time, technical measures applied, subscriber identity, geographic location, telephone number, billing data, service contract/agreement information, and – with a reasoned court order – traffic data and content of transmitted information." ;
+    rdfs:comment "Amended Article 10(4): authorities may order public ECN/ECS providers, electronic information hosting providers, and digital service providers to preserve subscriber-related information including connection type, usage time, technical measures applied, subscriber identity, geographic location, telephone number, billing data, service contract/agreement information, and – with a reasoned court order – traffic data and content of transmitted information."@en ;
+    rdfs:comment "Pakeistas 10 straipsnio 4 punktas: institucijos gali nurodyti viešųjų elektroninių ryšių tinklų ir (arba) paslaugų teikėjams, elektroninės informacijos prieglobos paslaugų teikėjams ir skaitmeninių paslaugų teikėjams išsaugoti su abonentais susijusią informaciją, įskaitant ryšio tipą, naudojimo laiką, taikytas technines priemones, gavėjo tapatybę, geografinę padėtį, telefono numerį, atsiskaitymų duomenis, paslaugos sutarties informaciją ir – turint motyvuotą teismo nutartį – srauto duomenis ir perduodamos informacijos turinį."@lt ;
+    llo:hasLegalBasis "Art. 3(2), XIV-638 (amending Art. 10(4), XII-1428)" .
+
+lld:Concept_PublicCyberRecommendations a llo:LegalConcept ;
+    rdfs:label "Mandatory public cybersecurity recommendations for users" ;
+    rdfs:label "Mandatory public cybersecurity recommendations for users"@en ;
+    rdfs:label "Privalomos viešos kibernetinio saugumo rekomendacijos vartotojams"@lt ;
+    rdfs:comment "Amended Article 12(3): public ECN/ECS providers must publicly publish – on their websites or via other public information means – cybersecurity recommendations for service users regarding measures to ensure cybersecurity when using their public networks and/or services." ;
+    rdfs:comment "Amended Article 12(3): public ECN/ECS providers must publicly publish – on their websites or via other public information means – cybersecurity recommendations for service users regarding measures to ensure cybersecurity when using their public networks and/or services."@en ;
+    rdfs:comment "Pakeistas 12 straipsnio 3 dalis: viešųjų elektroninių ryšių tinklų ir (arba) paslaugų teikėjai privalo viešai skelbti savo interneto svetainėse ar kitomis visuomenės informavimo priemonėmis paslaugų gavėjams rekomendacijas dėl priemonių kibernetiniam saugumui užtikrinti naudojantis viešųjų elektroninių ryšių tinklų ir (arba) paslaugų teikėjų teikiamomis paslaugomis."@lt ;
+    llo:hasLegalBasis "Art. 4, XIV-638 (amending Art. 12(3), XII-1428)" .
+
+lld:Concept_NIS_EECC_Transposition a llo:LegalConcept ;
+    rdfs:label "Transposition of NIS Directive and European Electronic Communications Code" ;
+    rdfs:label "Transposition of NIS Directive and European Electronic Communications Code"@en ;
+    rdfs:label "TIS direktyvos ir Europos elektroninių ryšių kodekso perkėlimas"@lt ;
+    rdfs:comment "The Annex is restated to list the EU acts transposed by the Cybersecurity Law: (1) Directive (EU) 2016/1148 concerning measures for a high common level of security of network and information systems across the Union (NIS Directive), and (2) Directive (EU) 2018/1972 establishing the European Electronic Communications Code (recast)." ;
+    rdfs:comment "The Annex is restated to list the EU acts transposed by the Cybersecurity Law: (1) Directive (EU) 2016/1148 concerning measures for a high common level of security of network and information systems across the Union (NIS Directive), and (2) Directive (EU) 2018/1972 establishing the European Electronic Communications Code (recast)."@en ;
+    rdfs:comment "Priedas išdėstytas iš naujo, nurodant ES teisės aktus, kuriuos perkelia Kibernetinio saugumo įstatymas: (1) direktyva (ES) 2016/1148 dėl priemonių aukštam bendram tinklų ir informacinių sistemų saugumo lygiui visoje Sąjungoje užtikrinti (TIS direktyva) ir (2) direktyva (ES) 2018/1972, kuria nustatomas Europos elektroninių ryšių kodeksas (nauja redakcija)."@lt ;
+    llo:hasLegalBasis "Art. 5, XIV-638 (amending Annex, XII-1428)" .
+
+
+# =================================================================
+# SECTION 4: INCIDENT TRIGGERS
+# =================================================================
+
+lld:Trigger_NKSC_48h_ServiceRestriction a llo:IncidentTrigger ;
+    rdfs:label "NKSC 48-hour service restriction order" ;
+    rdfs:label "NKSC 48-hour service restriction order"@en ;
+    rdfs:label "NKSC 48 valandų paslaugų apribojimo nurodymas"@lt ;
+    rdfs:comment "NKSC may order public ECN/ECS providers to restrict service for up to 48 hours to stop a cyber incident's impact on state information resources or critical infrastructure. RRT must be notified by the next business day." ;
+    rdfs:comment "NKSC may order public ECN/ECS providers to restrict service for up to 48 hours to stop a cyber incident's impact on state information resources or critical infrastructure. RRT must be notified by the next business day."@en ;
+    rdfs:comment "NKSC gali nurodyti viešųjų elektroninių ryšių tinklų ir (arba) paslaugų teikėjui ne ilgiau kaip 48 valandoms apriboti paslaugų teikimą, siekiant sustabdyti kibernetinio incidento poveikį valstybės informaciniams ištekliams ar ypatingos svarbos infrastruktūrai. RRT turi būti informuota ne vėliau kaip kitą darbo dieną."@lt ;
+    llo:isExtraordinaryPower true ;
+    llo:hasDuration "PT48H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 8(2)(11), XII-1428 (as amended by XIV-638)" ;
+    llo:appliesTo lld:Entity_TelecomProvider .
+
+lld:Trigger_CourtSanction_Cybercrime a llo:IncidentTrigger ;
+    rdfs:label "Court-sanctioned cybercrime countermeasure order" ;
+    rdfs:label "Court-sanctioned cybercrime countermeasure order"@en ;
+    rdfs:label "Teismo sankcionuotas kibernetinių nusikaltimų kovos nurodymas"@lt ;
+    rdfs:comment "When service user equipment is suspected of criminal use, authorities may order providers to apply countermeasures. Initial 48-hour restriction without court sanction; longer periods require district court approval. If court does not confirm legality, restriction is immediately terminated." ;
+    rdfs:comment "When service user equipment is suspected of criminal use, authorities may order providers to apply countermeasures. Initial 48-hour restriction without court sanction; longer periods require district court approval. If court does not confirm legality, restriction is immediately terminated."@en ;
+    rdfs:comment "Kai paslaugų gavėjo įranga galimai naudojama nusikalstamai veikai, institucijos gali nurodyti paslaugų teikėjams taikyti atsakomąsias priemones. Pradinis 48 valandų apribojimas be teismo sankcijos; ilgesniems laikotarpiams reikalingas apylinkės teismo patvirtinimas. Jeigu teismas nepatvirtina teisėtumo, apribojimas nedelsiant stabdomas."@lt ;
+    llo:isExtraordinaryPower true ;
+    llo:hasDuration "PT48H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 10(3), XII-1428 (as amended by XIV-638)" ;
+    llo:appliesTo lld:Entity_TelecomProvider ,
+                  lld:Entity_HostingProvider ,
+                  lld:Entity_DigitalServiceProvider .
+
+
+# =================================================================
+# SECTION 5: NEW REGULATED ENTITY TYPE
+# =================================================================
+
+lld:Entity_DigitalServiceProvider a llo:RegulatedEntity ;
+    rdfs:label "Digital service provider" ;
+    rdfs:label "Digital service provider"@en ;
+    rdfs:label "Skaitmeninių paslaugų teikėjas"@lt ;
+    rdfs:comment "Digital service providers – including cloud computing, online marketplace, and search engine operators – brought within the definition of 'cybersecurity subject' and now subject to court sanction orders, data preservation requirements, and cybersecurity incident obligations under the Cybersecurity Law." ;
+    rdfs:comment "Digital service providers – including cloud computing, online marketplace, and search engine operators – brought within the definition of 'cybersecurity subject' and now subject to court sanction orders, data preservation requirements, and cybersecurity incident obligations under the Cybersecurity Law."@en ;
+    rdfs:comment "Skaitmeninių paslaugų teikėjai – įskaitant debesų kompiuterijos, internetinių prekyvietių ir paieškos sistemų operatorius – įtraukti į 'kibernetinio saugumo subjekto' sąvoką ir nuo šiol privalo vykdyti teismo sankcijų nurodymus, duomenų saugojimo reikalavimus ir kibernetinio saugumo incidentų pareigas pagal Kibernetinio saugumo įstatymą."@lt ;
+    llo:hasLegalBasis "Art. 2(8), XII-1428 (as amended by XIV-638)" ;
+    llo:mustReportTo lld:Org_NKSC .
+
+
+# =================================================================
+# SECTION 6: RESILIENCE MANDATE – PUBLIC RECOMMENDATIONS
+# =================================================================
+
+lld:Mandate_PublicCyberRecommendations a llo:ResilienceMandate ;
+    rdfs:label "Public cybersecurity recommendation mandate" ;
+    rdfs:label "Public cybersecurity recommendation mandate"@en ;
+    rdfs:label "Viešų kibernetinio saugumo rekomendacijų mandatas"@lt ;
+    rdfs:comment "Public ECN/ECS providers must publicly publish cybersecurity recommendations for service users on their websites or through other public information means, advising on measures to ensure cybersecurity when using the provider's services." ;
+    rdfs:comment "Public ECN/ECS providers must publicly publish cybersecurity recommendations for service users on their websites or through other public information means, advising on measures to ensure cybersecurity when using the provider's services."@en ;
+    rdfs:comment "Viešųjų elektroninių ryšių tinklų ir (arba) paslaugų teikėjai privalo viešai skelbti kibernetinio saugumo rekomendacijas paslaugų gavėjams savo interneto svetainėse ar kitomis visuomenės informavimo priemonėmis, patarti dėl priemonių kibernetiniam saugumui užtikrinti naudojantis teikėjo paslaugomis."@lt ;
+    llo:hasLegalBasis "Art. 12(3), XII-1428 (as amended by XIV-638)" ;
+    llo:appliesTo lld:Entity_TelecomProvider .
+
+
+# =================================================================
+# SECTION 7: EU DIRECTIVE CROSS-REFERENCES
+# =================================================================
+
+lld:EU_Dir_2016_1148 a llo:EUDirective ;
+    rdfs:label "NIS Directive (EU) 2016/1148" ;
+    rdfs:label "NIS Directive (EU) 2016/1148"@en ;
+    rdfs:label "TIS direktyva (ES) 2016/1148"@lt ;
+    rdfs:comment "Directive (EU) 2016/1148 of the European Parliament and of the Council of 6 July 2016 concerning measures for a high common level of security of network and information systems across the Union. Added to the Cybersecurity Law's annex of transposed EU acts." ;
+    rdfs:comment "Directive (EU) 2016/1148 of the European Parliament and of the Council of 6 July 2016 concerning measures for a high common level of security of network and information systems across the Union. Added to the Cybersecurity Law's annex of transposed EU acts."@en ;
+    rdfs:comment "2016 m. liepos 6 d. Europos Parlamento ir Tarybos direktyva (ES) 2016/1148 dėl priemonių aukštam bendram tinklų ir informacinių sistemų saugumo lygiui visoje Sąjungoje užtikrinti. Įtraukta į Kibernetinio saugumo įstatymo perkeliamų ES teisės aktų priedą."@lt ;
+    llo:hasLegalBasis "Annex, XII-1428 (as amended by XIV-638)" .
+
+lld:EU_Dir_2018_1972 a llo:EUDirective ;
+    rdfs:label "European Electronic Communications Code (EU) 2018/1972" ;
+    rdfs:label "European Electronic Communications Code (EU) 2018/1972"@en ;
+    rdfs:label "Europos elektroninių ryšių kodeksas (ES) 2018/1972"@lt ;
+    rdfs:comment "Directive (EU) 2018/1972 of the European Parliament and of the Council of 11 December 2018 establishing the European Electronic Communications Code (recast). Added to the Cybersecurity Law's annex of transposed EU acts." ;
+    rdfs:comment "Directive (EU) 2018/1972 of the European Parliament and of the Council of 11 December 2018 establishing the European Electronic Communications Code (recast). Added to the Cybersecurity Law's annex of transposed EU acts."@en ;
+    rdfs:comment "2018 m. gruodžio 11 d. Europos Parlamento ir Tarybos direktyva (ES) 2018/1972, kuria nustatomas Europos elektroninių ryšių kodeksas (nauja redakcija). Įtraukta į Kibernetinio saugumo įstatymo perkeliamų ES teisės aktų priedą."@lt ;
+    llo:hasLegalBasis "Annex, XII-1428 (as amended by XIV-638)" .
+
+
+# =================================================================
+# SECTION 8: CIVIC RIGHTS AFFECTED
+# =================================================================
+
+lld:Right_DataPreservationPrivacy a llo:CivicRight ;
+    rdfs:label "Right to privacy in subscriber data and communications" ;
+    rdfs:label "Right to privacy in subscriber data and communications"@en ;
+    rdfs:label "Teisė į privatumą abonentų duomenyse ir komunikacijose"@lt ;
+    rdfs:comment "The expanded data preservation power under Article 10(4) allows authorities to require preservation of subscriber identity, geographic location, billing, connection data, and – with a court order – traffic data and communication content. This directly implicates the fundamental right to privacy in electronic communications." ;
+    rdfs:comment "The expanded data preservation power under Article 10(4) allows authorities to require preservation of subscriber identity, geographic location, billing, connection data, and – with a court order – traffic data and communication content. This directly implicates the fundamental right to privacy in electronic communications."@en ;
+    rdfs:comment "Išplėstas duomenų saugojimo įgaliojimas pagal 10 straipsnio 4 punktą leidžia institucijoms reikalauti saugoti abonento tapatybės, geografinės padėties, atsiskaitymų, ryšio duomenis ir – turint teismo nutartį – srauto duomenis ir komunikacijos turinį. Tai tiesiogiai paliečia pagrindinę teisę į privatumą elektroninėse komunikacijose."@lt ;
+    llo:hasLegalBasis "Art. 10(4), XII-1428 (as amended by XIV-638)" .

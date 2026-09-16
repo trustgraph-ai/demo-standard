@@ -1,0 +1,992 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Second Complete Restatement of the Cybersecurity Law No. XII-1428
+#   (NIS2 Directive Transposition)
+#   No. XIV-2902, enacted 2024-07-11, Vilnius
+#   Signed by President Gitanas Nausėda
+#   Effective 2024-10-18
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE (OUTER STRUCTURE)
+# =================================================================
+
+lld:XIV-2902 a llo:Statute ;
+    rdfs:label "Second Complete Restatement of the Cybersecurity Law – NIS2 Transposition (No. XIV-2902)" ;
+    rdfs:label "Second Complete Restatement of the Cybersecurity Law – NIS2 Transposition (No. XIV-2902)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 pakeitimo įstatymas – TIS 2 direktyvos perkėlimas (Nr. XIV-2902)"@lt ;
+    rdfs:comment "Second complete restatement (nauja redakcija) of the Cybersecurity Law XII-1428, transposing EU NIS2 Directive (EU) 2022/2555. Replaces entire law text with 8 chapters, 38 articles, 28 definitions, 3 annexes. Introduces essential/important subject classification, expanded NKSC with 20 functions and certification authority powers, NIS2-aligned incident reporting (24h/72h/1-month), €10M/2% and €7M/1.4% fine regime, court-ordered activity suspension and management removal, cybersecurity competence community, secure state data transmission network, mandatory vulnerability disclosure with safe harbour, and comprehensive sector-specific annexes covering 11 essential and 7 important sectors." ;
+    rdfs:comment "Second complete restatement (nauja redakcija) of the Cybersecurity Law XII-1428, transposing EU NIS2 Directive (EU) 2022/2555. Replaces entire law text with 8 chapters, 38 articles, 28 definitions, 3 annexes. Introduces essential/important subject classification, expanded NKSC with 20 functions and certification authority powers, NIS2-aligned incident reporting (24h/72h/1-month), €10M/2% and €7M/1.4% fine regime, court-ordered activity suspension and management removal, cybersecurity competence community, secure state data transmission network, mandatory vulnerability disclosure with safe harbour, and comprehensive sector-specific annexes covering 11 essential and 7 important sectors."@en ;
+    rdfs:comment "Antrasis visiškas Kibernetinio saugumo įstatymo Nr. XII-1428 išdėstymas nauja redakcija, perkeliant ES TIS 2 direktyvą (ES) 2022/2555. Pakeičia visą įstatymo tekstą 8 skyriais, 38 straipsniais, 28 sąvokomis, 3 priedais. Įveda esminių/svarbių subjektų klasifikaciją, išplėstą NKSC su 20 funkcijų ir sertifikavimo institucijos įgaliojimais, TIS 2 suderintą incidentų pranešimą (24 val./72 val./1 mėn.), baudų režimą iki 10 mln. EUR/2 % ir 7 mln. EUR/1,4 %, teismo nutartimi sustabdomą veiklą ir vadovo nušalinimą, kibernetinio saugumo kompetencijos bendruomenę, saugųjį valstybinį duomenų perdavimo tinklą, privalomą spragų atskleidimą su saugaus uosto apsauga ir išsamius sektorinius priedus, apimančius 11 ypatingos svarbos ir 7 kitus itin svarbius sektorius."@lt ;
+    llo:hasDocID "No. XIV-2902" ;
+    llo:dateEnacted "2024-07-11"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XIV-2902_OuterArt1 ,
+                     lld:XIV-2902_OuterArt2 ,
+                     lld:XIV-2902_OuterArt3 .
+
+
+# =================================================================
+# SECTION 2: OUTER DOCUMENT STRUCTURE – AMENDING ARTICLES
+# =================================================================
+
+lld:XIV-2902_OuterArt1 a llo:Article ;
+    rdfs:label "Article 1 – Restatement of the Cybersecurity Law (nauja redakcija)" ;
+    rdfs:label "Article 1 – Restatement of the Cybersecurity Law (nauja redakcija)"@en ;
+    rdfs:label "1 straipsnis – Kibernetinio saugumo įstatymo išdėstymas nauja redakcija"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:hasComponent lld:XIV-2902_Inner_ChI ,
+                     lld:XIV-2902_Inner_ChII ,
+                     lld:XIV-2902_Inner_ChIII ,
+                     lld:XIV-2902_Inner_ChIV ,
+                     lld:XIV-2902_Inner_ChV ,
+                     lld:XIV-2902_Inner_ChVI ,
+                     lld:XIV-2902_Inner_ChVII ,
+                     lld:XIV-2902_Annex1 ,
+                     lld:XIV-2902_Annex2 ,
+                     lld:XIV-2902_Annex3 .
+
+lld:XIV-2902_OuterArt2 a llo:Article ;
+    rdfs:label "Article 2 – Entry into Force, Implementation, and Transitional Provisions" ;
+    rdfs:label "Article 2 – Entry into Force, Implementation, and Transitional Provisions"@en ;
+    rdfs:label "2 straipsnis – Įstatymo įsigaliojimas, įgyvendinimas ir taikymas"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_NIS2_TransitionalProvisions .
+
+lld:XIV-2902_OuterArt3 a llo:Article ;
+    rdfs:label "Article 3 – Ex Post Evaluation of Legal Regulation" ;
+    rdfs:label "Article 3 – Ex Post Evaluation of Legal Regulation"@en ;
+    rdfs:label "3 straipsnis – Įstatyme nustatyto galiojančio teisinio reguliavimo ex post vertinimas"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_ExPostEvaluation .
+
+
+# =================================================================
+# SECTION 3: INNER RESTATED LAW – CHAPTERS
+# =================================================================
+
+lld:XIV-2902_Inner_ChI a llo:Chapter ;
+    rdfs:label "Chapter I – General Provisions" ;
+    rdfs:label "Chapter I – General Provisions"@en ;
+    rdfs:label "I skyrius – Bendrosios nuostatos"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:hasComponent lld:XIV-2902_Inner_Art1 ,
+                     lld:XIV-2902_Inner_Art2 ,
+                     lld:XIV-2902_Inner_Art3 ,
+                     lld:XIV-2902_Inner_Art4 .
+
+lld:XIV-2902_Inner_ChII a llo:Chapter ;
+    rdfs:label "Chapter II – Cybersecurity Institutional Framework" ;
+    rdfs:label "Chapter II – Cybersecurity Institutional Framework"@en ;
+    rdfs:label "II skyrius – Kibernetinio saugumo institucinė sistema"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:hasComponent lld:XIV-2902_Inner_Art5 ,
+                     lld:XIV-2902_Inner_Art6 ,
+                     lld:XIV-2902_Inner_Art7 ,
+                     lld:XIV-2902_Inner_Art8 ,
+                     lld:XIV-2902_Inner_Art9 ,
+                     lld:XIV-2902_Inner_Art10 .
+
+lld:XIV-2902_Inner_ChIII a llo:Chapter ;
+    rdfs:label "Chapter III – Cybersecurity Subject Identification and Risk Management" ;
+    rdfs:label "Chapter III – Cybersecurity Subject Identification and Risk Management"@en ;
+    rdfs:label "III skyrius – Kibernetinio saugumo subjektų identifikavimas ir rizikos valdymas"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:hasComponent lld:XIV-2902_Inner_Art11 ,
+                     lld:XIV-2902_Inner_Art12 ,
+                     lld:XIV-2902_Inner_Art13 ,
+                     lld:XIV-2902_Inner_Art14 ,
+                     lld:XIV-2902_Inner_Art15 ,
+                     lld:XIV-2902_Inner_Art16 ,
+                     lld:XIV-2902_Inner_Art17 ,
+                     lld:XIV-2902_Inner_Art18 .
+
+lld:XIV-2902_Inner_ChIV a llo:Chapter ;
+    rdfs:label "Chapter IV – Information Exchange and Inter-Institutional Cooperation" ;
+    rdfs:label "Chapter IV – Information Exchange and Inter-Institutional Cooperation"@en ;
+    rdfs:label "IV skyrius – Keitimasis informacija ir tarpinstitucinis bendradarbiavimas"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:hasComponent lld:XIV-2902_Inner_Art19 ,
+                     lld:XIV-2902_Inner_Art20 ,
+                     lld:XIV-2902_Inner_Art21 ,
+                     lld:XIV-2902_Inner_Art22 ,
+                     lld:XIV-2902_Inner_Art23 ,
+                     lld:XIV-2902_Inner_Art24 ,
+                     lld:XIV-2902_Inner_Art25 .
+
+lld:XIV-2902_Inner_ChV a llo:Chapter ;
+    rdfs:label "Chapter V – Inspections and Enforcement Measures" ;
+    rdfs:label "Chapter V – Inspections and Enforcement Measures"@en ;
+    rdfs:label "V skyrius – Patikrinimai ir vykdymo užtikrinimo priemonės"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:hasComponent lld:XIV-2902_Inner_Art26 ,
+                     lld:XIV-2902_Inner_Art27 ,
+                     lld:XIV-2902_Inner_Art28 ,
+                     lld:XIV-2902_Inner_Art29 ,
+                     lld:XIV-2902_Inner_Art30 ,
+                     lld:XIV-2902_Inner_Art31 ,
+                     lld:XIV-2902_Inner_Art32 ,
+                     lld:XIV-2902_Inner_Art33 .
+
+lld:XIV-2902_Inner_ChVI a llo:Chapter ;
+    rdfs:label "Chapter VI – National Cybersecurity Certification Authority Powers" ;
+    rdfs:label "Chapter VI – National Cybersecurity Certification Authority Powers"@en ;
+    rdfs:label "VI skyrius – Nacionalinės kibernetinio saugumo sertifikavimo institucijos įgaliojimai"@lt ;
+    llo:hasIndexNumber 6 ;
+    llo:hasComponent lld:XIV-2902_Inner_Art34 ,
+                     lld:XIV-2902_Inner_Art35 ,
+                     lld:XIV-2902_Inner_Art36 .
+
+lld:XIV-2902_Inner_ChVII a llo:Chapter ;
+    rdfs:label "Chapter VII – Secure State Data Transmission Network Principles" ;
+    rdfs:label "Chapter VII – Secure State Data Transmission Network Principles"@en ;
+    rdfs:label "VII skyrius – Saugiojo valstybinio duomenų perdavimo tinklo naudojimo pagrindai"@lt ;
+    llo:hasIndexNumber 7 ;
+    llo:hasComponent lld:XIV-2902_Inner_Art37 ,
+                     lld:XIV-2902_Inner_Art38 .
+
+
+# =================================================================
+# SECTION 4: INNER RESTATED LAW – ARTICLES
+# =================================================================
+
+# --- Chapter I: General Provisions ---
+
+lld:XIV-2902_Inner_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Purpose of the Law" ;
+    rdfs:label "Article 1 – Purpose of the Law"@en ;
+    rdfs:label "1 straipsnis – Įstatymo paskirtis"@lt ;
+    llo:hasIndexNumber 1 .
+
+lld:XIV-2902_Inner_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Definitions (28 terms)" ;
+    rdfs:label "Article 2 – Definitions (28 terms)"@en ;
+    rdfs:label "2 straipsnis – Pagrindinės šio įstatymo sąvokos (28 sąvokos)"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_NIS2_ExpandedDefinitions .
+
+lld:XIV-2902_Inner_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Cybersecurity Principles (6 principles)" ;
+    rdfs:label "Article 3 – Cybersecurity Principles (6 principles)"@en ;
+    rdfs:label "3 straipsnis – Kibernetinio saugumo principai (6 principai)"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_CybersecurityPrinciples_NIS2 .
+
+lld:XIV-2902_Inner_Art4 a llo:Article ;
+    rdfs:label "Article 4 – Cybersecurity Policy Institutions" ;
+    rdfs:label "Article 4 – Cybersecurity Policy Institutions"@en ;
+    rdfs:label "4 straipsnis – Kibernetinio saugumo politikos institucijos"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:codifiesConcept lld:Concept_InstitutionalFramework_NIS2 .
+
+# --- Chapter II: Cybersecurity Institutional Framework ---
+
+lld:XIV-2902_Inner_Art5 a llo:Article ;
+    rdfs:label "Article 5 – Cybersecurity Council" ;
+    rdfs:label "Article 5 – Cybersecurity Council"@en ;
+    rdfs:label "5 straipsnis – Kibernetinio saugumo taryba"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:codifiesConcept lld:Concept_CybersecurityCouncil_NIS2 .
+
+lld:XIV-2902_Inner_Art6 a llo:Article ;
+    rdfs:label "Article 6 – Ministry of National Defence Powers" ;
+    rdfs:label "Article 6 – Ministry of National Defence Powers"@en ;
+    rdfs:label "6 straipsnis – Krašto apsaugos ministerijos įgaliojimai"@lt ;
+    llo:hasIndexNumber 6 .
+
+lld:XIV-2902_Inner_Art7 a llo:Article ;
+    rdfs:label "Article 7 – National Cyber Security Centre (NKSC) – 20 Functions" ;
+    rdfs:label "Article 7 – National Cyber Security Centre (NKSC) – 20 Functions"@en ;
+    rdfs:label "7 straipsnis – Nacionalinis kibernetinio saugumo centras (NKSC) – 20 funkcijų"@lt ;
+    llo:hasIndexNumber 7 ;
+    llo:codifiesConcept lld:Concept_NKSC_20Functions .
+
+lld:XIV-2902_Inner_Art8 a llo:Article ;
+    rdfs:label "Article 8 – Cybersecurity Crisis Preparedness" ;
+    rdfs:label "Article 8 – Cybersecurity Crisis Preparedness"@en ;
+    rdfs:label "8 straipsnis – Pasirengimas kibernetinio saugumo krizėms"@lt ;
+    llo:hasIndexNumber 8 ;
+    llo:codifiesConcept lld:Concept_CrisisPreparedness .
+
+lld:XIV-2902_Inner_Art9 a llo:Article ;
+    rdfs:label "Article 9 – State Data Protection Inspectorate (VDAI) Functions" ;
+    rdfs:label "Article 9 – State Data Protection Inspectorate (VDAI) Functions"@en ;
+    rdfs:label "9 straipsnis – Valstybinės duomenų apsaugos inspekcijos funkcijos"@lt ;
+    llo:hasIndexNumber 9 .
+
+lld:XIV-2902_Inner_Art10 a llo:Article ;
+    rdfs:label "Article 10 – Police Department Functions" ;
+    rdfs:label "Article 10 – Police Department Functions"@en ;
+    rdfs:label "10 straipsnis – Policijos departamento funkcijos"@lt ;
+    llo:hasIndexNumber 10 ;
+    llo:codifiesConcept lld:Concept_PoliceExpandedPowers .
+
+# --- Chapter III: Subject Identification and Risk Management ---
+
+lld:XIV-2902_Inner_Art11 a llo:Article ;
+    rdfs:label "Article 11 – Cybersecurity Subject Identification (Essential vs Important)" ;
+    rdfs:label "Article 11 – Cybersecurity Subject Identification (Essential vs Important)"@en ;
+    rdfs:label "11 straipsnis – Kibernetinio saugumo subjektų identifikavimas (esminiai ir svarbūs)"@lt ;
+    llo:hasIndexNumber 11 ;
+    llo:codifiesConcept lld:Concept_EssentialImportantClassification .
+
+lld:XIV-2902_Inner_Art12 a llo:Article ;
+    rdfs:label "Article 12 – Jurisdiction Rules" ;
+    rdfs:label "Article 12 – Jurisdiction Rules"@en ;
+    rdfs:label "12 straipsnis – Jurisdikcijos taisyklės"@lt ;
+    llo:hasIndexNumber 12 .
+
+lld:XIV-2902_Inner_Art13 a llo:Article ;
+    rdfs:label "Article 13 – Cybersecurity Subject Registry" ;
+    rdfs:label "Article 13 – Cybersecurity Subject Registry"@en ;
+    rdfs:label "13 straipsnis – Kibernetinio saugumo subjektų registras"@lt ;
+    llo:hasIndexNumber 13 ;
+    llo:codifiesConcept lld:Concept_SubjectRegistry .
+
+lld:XIV-2902_Inner_Art14 a llo:Article ;
+    rdfs:label "Article 14 – Cybersecurity Risk Management (13 elements)" ;
+    rdfs:label "Article 14 – Cybersecurity Risk Management (13 elements)"@en ;
+    rdfs:label "14 straipsnis – Kibernetinio saugumo rizikos valdymas (13 elementų)"@lt ;
+    llo:hasIndexNumber 14 ;
+    llo:codifiesConcept lld:Concept_RiskManagement_13Elements .
+
+lld:XIV-2902_Inner_Art15 a llo:Article ;
+    rdfs:label "Article 15 – Persons Responsible for Cybersecurity" ;
+    rdfs:label "Article 15 – Persons Responsible for Cybersecurity"@en ;
+    rdfs:label "15 straipsnis – Už kibernetinį saugumą atsakingi asmenys"@lt ;
+    llo:hasIndexNumber 15 ;
+    llo:codifiesConcept lld:Concept_SecurityOfficerRequirements .
+
+lld:XIV-2902_Inner_Art16 a llo:Article ;
+    rdfs:label "Article 16 – Technical Cybersecurity Measures" ;
+    rdfs:label "Article 16 – Technical Cybersecurity Measures"@en ;
+    rdfs:label "16 straipsnis – Techninės kibernetinio saugumo priemonės"@lt ;
+    llo:hasIndexNumber 16 ;
+    llo:codifiesConcept lld:Concept_TechnicalMeasures .
+
+lld:XIV-2902_Inner_Art17 a llo:Article ;
+    rdfs:label "Article 17 – TLD Registry and Domain Name Registration Requirements" ;
+    rdfs:label "Article 17 – TLD Registry and Domain Name Registration Requirements"@en ;
+    rdfs:label "17 straipsnis – Aukščiausio lygio domenų vardų registravimo ir domenų vardų registravimo paslaugų teikimo reikalavimai"@lt ;
+    llo:hasIndexNumber 17 ;
+    llo:codifiesConcept lld:Concept_DomainRegistryRequirements .
+
+lld:XIV-2902_Inner_Art18 a llo:Article ;
+    rdfs:label "Article 18 – Incident Reporting (24h / 72h / 1 month)" ;
+    rdfs:label "Article 18 – Incident Reporting (24h / 72h / 1 month)"@en ;
+    rdfs:label "18 straipsnis – Pranešimai apie kibernetinius incidentus (24 val. / 72 val. / 1 mėn.)"@lt ;
+    llo:hasIndexNumber 18 ;
+    llo:codifiesConcept lld:Concept_NIS2_IncidentReporting .
+
+# --- Chapter IV: Information Exchange and Inter-Institutional Cooperation ---
+
+lld:XIV-2902_Inner_Art19 a llo:Article ;
+    rdfs:label "Article 19 – Cybersecurity Information System (KSIS)" ;
+    rdfs:label "Article 19 – Cybersecurity Information System (KSIS)"@en ;
+    rdfs:label "19 straipsnis – Kibernetinio saugumo informacinė sistema"@lt ;
+    llo:hasIndexNumber 19 ;
+    llo:codifiesConcept lld:Concept_KSIS_NIS2 .
+
+lld:XIV-2902_Inner_Art20 a llo:Article ;
+    rdfs:label "Article 20 – Inter-Institutional Cooperation" ;
+    rdfs:label "Article 20 – Inter-Institutional Cooperation"@en ;
+    rdfs:label "20 straipsnis – Tarpinstitucinis bendradarbiavimas"@lt ;
+    llo:hasIndexNumber 20 ;
+    llo:codifiesConcept lld:Concept_InterInstitutionalCooperation .
+
+lld:XIV-2902_Inner_Art21 a llo:Article ;
+    rdfs:label "Article 21 – Mutual Assistance (Cross-Border EU)" ;
+    rdfs:label "Article 21 – Mutual Assistance (Cross-Border EU)"@en ;
+    rdfs:label "21 straipsnis – Savitarpio pagalba"@lt ;
+    llo:hasIndexNumber 21 ;
+    llo:codifiesConcept lld:Concept_MutualAssistance .
+
+lld:XIV-2902_Inner_Art22 a llo:Article ;
+    rdfs:label "Article 22 – Information Protection during Inter-Institutional Cooperation" ;
+    rdfs:label "Article 22 – Information Protection during Inter-Institutional Cooperation"@en ;
+    rdfs:label "22 straipsnis – Vykdant tarpinstitucinį bendradarbiavimą tvarkomos informacijos apsauga"@lt ;
+    llo:hasIndexNumber 22 .
+
+lld:XIV-2902_Inner_Art23 a llo:Article ;
+    rdfs:label "Article 23 – Cybersecurity Competence Community (Reg 2021/887)" ;
+    rdfs:label "Article 23 – Cybersecurity Competence Community (Reg 2021/887)"@en ;
+    rdfs:label "23 straipsnis – Kibernetinio saugumo kompetencijos bendruomenė (Regl. 2021/887)"@lt ;
+    llo:hasIndexNumber 23 ;
+    llo:codifiesConcept lld:Concept_CompetenceCommunity .
+
+lld:XIV-2902_Inner_Art24 a llo:Article ;
+    rdfs:label "Article 24 – Voluntary Reporting" ;
+    rdfs:label "Article 24 – Voluntary Reporting"@en ;
+    rdfs:label "24 straipsnis – Savanoriškas pranešimas"@lt ;
+    llo:hasIndexNumber 24 ;
+    llo:codifiesConcept lld:Concept_VoluntaryReporting .
+
+lld:XIV-2902_Inner_Art25 a llo:Article ;
+    rdfs:label "Article 25 – Vulnerability Search and Disclosure" ;
+    rdfs:label "Article 25 – Vulnerability Search and Disclosure"@en ;
+    rdfs:label "25 straipsnis – Spragų paieška ir atskleidimas"@lt ;
+    llo:hasIndexNumber 25 ;
+    llo:codifiesConcept lld:Concept_VulnerabilityDisclosure_NIS2 .
+
+# --- Chapter V: Inspections and Enforcement Measures ---
+
+lld:XIV-2902_Inner_Art26 a llo:Article ;
+    rdfs:label "Article 26 – Cybersecurity Subject Inspections" ;
+    rdfs:label "Article 26 – Cybersecurity Subject Inspections"@en ;
+    rdfs:label "26 straipsnis – Kibernetinio saugumo subjektų patikrinimai"@lt ;
+    llo:hasIndexNumber 26 ;
+    llo:codifiesConcept lld:Concept_Inspections .
+
+lld:XIV-2902_Inner_Art27 a llo:Article ;
+    rdfs:label "Article 27 – General Inspection Grounds and NKSC Powers" ;
+    rdfs:label "Article 27 – General Inspection Grounds and NKSC Powers"@en ;
+    rdfs:label "27 straipsnis – Bendrieji kibernetinio saugumo subjektų patikrinimų atlikimo pagrindai"@lt ;
+    llo:hasIndexNumber 27 .
+
+lld:XIV-2902_Inner_Art28 a llo:Article ;
+    rdfs:label "Article 28 – Enforcement Measures (11 types)" ;
+    rdfs:label "Article 28 – Enforcement Measures (11 types)"@en ;
+    rdfs:label "28 straipsnis – Vykdymo užtikrinimo priemonės (11 rūšių)"@lt ;
+    llo:hasIndexNumber 28 ;
+    llo:codifiesConcept lld:Concept_EnforcementMeasures_NIS2 .
+
+lld:XIV-2902_Inner_Art29 a llo:Article ;
+    rdfs:label "Article 29 – Violations Classification (Dangerous, Medium, Minor)" ;
+    rdfs:label "Article 29 – Violations Classification (Dangerous, Medium, Minor)"@en ;
+    rdfs:label "29 straipsnis – Pažeidimai, dėl kurių taikomos vykdymo užtikrinimo priemonės"@lt ;
+    llo:hasIndexNumber 29 ;
+    llo:codifiesConcept lld:Concept_ViolationsClassification .
+
+lld:XIV-2902_Inner_Art30 a llo:Article ;
+    rdfs:label "Article 30 – Fines (€10M/2% essential, €7M/1.4% important)" ;
+    rdfs:label "Article 30 – Fines (€10M/2% essential, €7M/1.4% important)"@en ;
+    rdfs:label "30 straipsnis – Baudos (10 mln. EUR/2 % esminiams, 7 mln. EUR/1,4 % svarbiems)"@lt ;
+    llo:hasIndexNumber 30 ;
+    llo:codifiesConcept lld:Concept_NIS2_Fines .
+
+lld:XIV-2902_Inner_Art31 a llo:Article ;
+    rdfs:label "Article 31 – Fine Imposition Procedure" ;
+    rdfs:label "Article 31 – Fine Imposition Procedure"@en ;
+    rdfs:label "31 straipsnis – Baudų skyrimo tvarka"@lt ;
+    llo:hasIndexNumber 31 .
+
+lld:XIV-2902_Inner_Art32 a llo:Article ;
+    rdfs:label "Article 32 – Temporary Activity/Service Suspension for Essential Subjects" ;
+    rdfs:label "Article 32 – Temporary Activity/Service Suspension for Essential Subjects"@en ;
+    rdfs:label "32 straipsnis – Teisės užsiimti dalimi esminio subjekto veiklos laikinas sustabdymas"@lt ;
+    llo:hasIndexNumber 32 ;
+    llo:codifiesConcept lld:Concept_ActivitySuspension .
+
+lld:XIV-2902_Inner_Art33 a llo:Article ;
+    rdfs:label "Article 33 – Temporary Removal of Essential Subject Manager" ;
+    rdfs:label "Article 33 – Temporary Removal of Essential Subject Manager"@en ;
+    rdfs:label "33 straipsnis – Esminio subjekto vadovo laikinas nušalinimas nuo pareigų"@lt ;
+    llo:hasIndexNumber 33 ;
+    llo:codifiesConcept lld:Concept_ManagementRemoval .
+
+# --- Chapter VI: Certification Authority ---
+
+lld:XIV-2902_Inner_Art34 a llo:Article ;
+    rdfs:label "Article 34 – National Cybersecurity Certification Authority (NKSC per Reg 2019/881)" ;
+    rdfs:label "Article 34 – National Cybersecurity Certification Authority (NKSC per Reg 2019/881)"@en ;
+    rdfs:label "34 straipsnis – Nacionalinė kibernetinio saugumo sertifikavimo institucija (NKSC pagal Regl. 2019/881)"@lt ;
+    llo:hasIndexNumber 34 ;
+    llo:codifiesConcept lld:Concept_CertificationAuthority_NIS2 .
+
+lld:XIV-2902_Inner_Art35 a llo:Article ;
+    rdfs:label "Article 35 – Supplementary Authorisations for Conformity Assessment Bodies" ;
+    rdfs:label "Article 35 – Supplementary Authorisations for Conformity Assessment Bodies"@en ;
+    rdfs:label "35 straipsnis – Papildomų įgaliojimų atitikties vertinimo įstaigoms suteikimas, apribojimas ir sustabdymas"@lt ;
+    llo:hasIndexNumber 35 .
+
+lld:XIV-2902_Inner_Art36 a llo:Article ;
+    rdfs:label "Article 36 – Certification Investigations (4+2 months)" ;
+    rdfs:label "Article 36 – Certification Investigations (4+2 months)"@en ;
+    rdfs:label "36 straipsnis – Tyrimo atlikimas"@lt ;
+    llo:hasIndexNumber 36 .
+
+# --- Chapter VII: Secure State Data Transmission Network ---
+
+lld:XIV-2902_Inner_Art37 a llo:Article ;
+    rdfs:label "Article 37 – Secure State Data Transmission Network (Saugusis tinklas)" ;
+    rdfs:label "Article 37 – Secure State Data Transmission Network (Saugusis tinklas)"@en ;
+    rdfs:label "37 straipsnis – Saugusis valstybinis duomenų perdavimo tinklas (Saugusis tinklas)"@lt ;
+    llo:hasIndexNumber 37 ;
+    llo:codifiesConcept lld:Concept_SecureNetwork_NIS2 .
+
+lld:XIV-2902_Inner_Art38 a llo:Article ;
+    rdfs:label "Article 38 – Data Centre Usage" ;
+    rdfs:label "Article 38 – Data Centre Usage"@en ;
+    rdfs:label "38 straipsnis – Duomenų centrų naudojimas"@lt ;
+    llo:hasIndexNumber 38 ;
+    llo:codifiesConcept lld:Concept_DataCentreUsage .
+
+
+# =================================================================
+# SECTION 5: ANNEXES
+# =================================================================
+
+lld:XIV-2902_Annex1 a llo:Article ;
+    rdfs:label "Annex 1 – Essential Sectors (11 sectors)" ;
+    rdfs:label "Annex 1 – Essential Sectors (11 sectors)"@en ;
+    rdfs:label "1 priedas – Ypatingos svarbos sektoriai (11 sektorių)"@lt ;
+    rdfs:comment "Defines 11 essential sectors with subsectors and responsible identification institutions: (1) Energy (electricity, district heating, oil, gas, hydrogen), (2) Transport (air, rail, water, road), (3) Banking, (4) Financial market infrastructure, (5) Health (healthcare, EU reference labs, pharmaceuticals R&D, pharma manufacturing, critical medical devices), (6) Drinking water, (7) Wastewater, (8) Digital infrastructure (IXPs, DNS, TLD registries, cloud, data centres, CDN, trust services, public e-comms networks/services), (9) ICT service management (managed services, managed security services), (10) Public administration (state, regional, municipal), (11) Space." ;
+    rdfs:comment "Defines 11 essential sectors with subsectors and responsible identification institutions: (1) Energy (electricity, district heating, oil, gas, hydrogen), (2) Transport (air, rail, water, road), (3) Banking, (4) Financial market infrastructure, (5) Health (healthcare, EU reference labs, pharmaceuticals R&D, pharma manufacturing, critical medical devices), (6) Drinking water, (7) Wastewater, (8) Digital infrastructure (IXPs, DNS, TLD registries, cloud, data centres, CDN, trust services, public e-comms networks/services), (9) ICT service management (managed services, managed security services), (10) Public administration (state, regional, municipal), (11) Space."@en ;
+    rdfs:comment "Apibrėžia 11 ypatingos svarbos sektorių su subsektoriais ir atsakingomis identifikavimo institucijomis: (1) Energetika, (2) Transportas, (3) Bankininkystė, (4) Finansų rinkų infrastruktūros objektai, (5) Sveikatos priežiūra, (6) Geriamasis vanduo, (7) Nuotekos, (8) Skaitmeninė infrastruktūra, (9) Informacinių ir ryšių technologijų paslaugų valdymas, (10) Viešasis administravimas, (11) Kosmosas."@lt ;
+    llo:codifiesConcept lld:Concept_EssentialSectors .
+
+lld:XIV-2902_Annex2 a llo:Article ;
+    rdfs:label "Annex 2 – Other Important Sectors (7 sectors)" ;
+    rdfs:label "Annex 2 – Other Important Sectors (7 sectors)"@en ;
+    rdfs:label "2 priedas – Kiti itin svarbūs sektoriai (7 sektoriai)"@lt ;
+    rdfs:comment "Defines 7 other important sectors: (1) Postal services, (2) Waste management, (3) Chemical manufacturing and distribution (REACH), (4) Food production, processing and distribution, (5) Manufacturing (medical devices, computers/electronics, electrical equipment, other machinery, motor vehicles, other transport equipment), (6) Digital public services (online marketplaces, search engines, social networks, hosting), (7) Research." ;
+    rdfs:comment "Defines 7 other important sectors: (1) Postal services, (2) Waste management, (3) Chemical manufacturing and distribution (REACH), (4) Food production, processing and distribution, (5) Manufacturing (medical devices, computers/electronics, electrical equipment, other machinery, motor vehicles, other transport equipment), (6) Digital public services (online marketplaces, search engines, social networks, hosting), (7) Research."@en ;
+    rdfs:comment "Apibrėžia 7 kitus itin svarbius sektorius: (1) Pašto paslaugos, (2) Atliekų tvarkymas, (3) Cheminių medžiagų gamyba ir platinimas, (4) Maisto gamyba, perdirbimas ir platinimas, (5) Gamyba, (6) Informacinės visuomenės paslaugos, (7) Moksliniai tyrimai."@lt ;
+    llo:codifiesConcept lld:Concept_ImportantSectors .
+
+lld:XIV-2902_Annex3 a llo:Article ;
+    rdfs:label "Annex 3 – Implemented EU Legal Acts" ;
+    rdfs:label "Annex 3 – Implemented EU Legal Acts"@en ;
+    rdfs:label "3 priedas – Įgyvendinami Europos Sąjungos teisės aktai"@lt ;
+    llo:codifiesConcept lld:Concept_EU_LegalActs_NIS2 .
+
+
+# =================================================================
+# SECTION 6: LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_NIS2_ExpandedDefinitions a llo:LegalConcept ;
+    rdfs:label "NIS2-expanded definitions (28 terms)" ;
+    rdfs:label "NIS2-expanded definitions (28 terms)"@en ;
+    rdfs:label "TIS 2 išplėstos sąvokos (28 terminai)"@lt ;
+    rdfs:comment "Article 2 defines 28 terms including new NIS2 entity types: TLD registry (aukščiausio lygio domenų vardų registras), domain name registration service provider, DNS service provider, cloud computing service (debesijos paslauga), data centre service (duomenų centro paslauga), content delivery network (CDN), managed service provider (valdomų paslaugų teikėjas), managed security service provider (valdomų kibernetinio saugumo paslaugų teikėjas), online marketplace (elektroninė prekyviečių platforma), social networking service (socialinio tinklo paslauga), internet search engine (paieškos sistema), near-miss incident (vos neįvykęs kibernetinis incidentas), cybersecurity risk (kibernetinio saugumo rizika), essential subject (esminis subjektas), important subject (svarbus subjektas), trust service provider, and others." ;
+    rdfs:comment "Article 2 defines 28 terms including new NIS2 entity types: TLD registry (aukščiausio lygio domenų vardų registras), domain name registration service provider, DNS service provider, cloud computing service (debesijos paslauga), data centre service (duomenų centro paslauga), content delivery network (CDN), managed service provider (valdomų paslaugų teikėjas), managed security service provider (valdomų kibernetinio saugumo paslaugų teikėjas), online marketplace (elektroninė prekyviečių platforma), social networking service (socialinio tinklo paslauga), internet search engine (paieškos sistema), near-miss incident (vos neįvykęs kibernetinis incidentas), cybersecurity risk (kibernetinio saugumo rizika), essential subject (esminis subjektas), important subject (svarbus subjektas), trust service provider, and others."@en ;
+    rdfs:comment "2 straipsnis apibrėžia 28 terminus, įskaitant naujus TIS 2 subjektų tipus: aukščiausio lygio domenų vardų registrą, domenų vardų registravimo paslaugų teikėją, DNS paslaugų teikėją, debesijos paslaugą, duomenų centro paslaugą, turinio pristatymo tinklą (CDN), valdomų paslaugų teikėją, valdomų kibernetinio saugumo paslaugų teikėją, elektroninę prekyviečių platformą, socialinio tinklo paslaugą, paieškos sistemą, vos neįvykusį kibernetinį incidentą, kibernetinio saugumo riziką, esminį subjektą, svarbų subjektą, patikimumo užtikrinimo paslaugų teikėją ir kitus."@lt ;
+    llo:hasLegalBasis "Art. 2, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_CybersecurityPrinciples_NIS2 a llo:LegalConcept ;
+    rdfs:label "Six cybersecurity principles retained from 2018 restatement" ;
+    rdfs:label "Six cybersecurity principles retained from 2018 restatement"@en ;
+    rdfs:label "Šeši kibernetinio saugumo principai, išlaikyti iš 2018 m. redakcijos"@lt ;
+    rdfs:comment "Article 3 retains the six codified principles: (1) non-discrimination (nediskriminavimo), (2) risk management (rizikos valdymo), (3) proportionality (proporcingumo), (4) public interest primacy (viešojo intereso pirmenybės), (5) standardisation and technology neutrality (standartizavimo ir technologinio neutralumo), (6) subsidiarity (subsidiarumo). These are unchanged from the XIII-1299 restatement." ;
+    rdfs:comment "Article 3 retains the six codified principles: (1) non-discrimination (nediskriminavimo), (2) risk management (rizikos valdymo), (3) proportionality (proporcingumo), (4) public interest primacy (viešojo intereso pirmenybės), (5) standardisation and technology neutrality (standartizavimo ir technologinio neutralumo), (6) subsidiarity (subsidiarumo). These are unchanged from the XIII-1299 restatement."@en ;
+    rdfs:comment "3 straipsnis išlaiko šešis kodifikuotus principus: (1) nediskriminavimo, (2) rizikos valdymo, (3) proporcingumo, (4) viešojo intereso pirmenybės, (5) standartizavimo ir technologinio neutralumo, (6) subsidiarumo. Šie principai nepakito nuo XIII-1299 redakcijos."@lt ;
+    llo:hasLegalBasis "Art. 3, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_InstitutionalFramework_NIS2 a llo:LegalConcept ;
+    rdfs:label "Expanded institutional framework with Ministry of Foreign Affairs" ;
+    rdfs:label "Expanded institutional framework with Ministry of Foreign Affairs"@en ;
+    rdfs:label "Išplėsta institucinė sistema su Užsienio reikalų ministerija"@lt ;
+    rdfs:comment "Article 4 expands the cybersecurity policy institutional framework to include: Government (strategic goals), Ministry of National Defence (policy formation, organisation, control, coordination), Ministry of Foreign Affairs (international cyber diplomacy cooperation), NKSC, VDAI, Police Department, and Communications Regulatory Authority (RRT). The addition of MFA for cyber diplomacy is new in this restatement." ;
+    rdfs:comment "Article 4 expands the cybersecurity policy institutional framework to include: Government (strategic goals), Ministry of National Defence (policy formation, organisation, control, coordination), Ministry of Foreign Affairs (international cyber diplomacy cooperation), NKSC, VDAI, Police Department, and Communications Regulatory Authority (RRT). The addition of MFA for cyber diplomacy is new in this restatement."@en ;
+    rdfs:comment "4 straipsnis išplečia kibernetinio saugumo politikos institucinę sistemą, įtraukiant: Vyriausybę (strateginiai tikslai), Krašto apsaugos ministeriją (politikos formavimas, organizavimas, kontrolė, koordinavimas), Užsienio reikalų ministeriją (tarptautinis kibernetinis diplomatinis bendradarbiavimas), NKSC, VDAI, Policijos departamentą ir Ryšių reguliavimo tarnybą (RRT). URM įtraukimas kibernetinei diplomatijai yra naujovė šioje redakcijoje."@lt ;
+    llo:hasLegalBasis "Art. 4, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_CybersecurityCouncil_NIS2 a llo:LegalConcept ;
+    rdfs:label "Expanded Cybersecurity Council with community members" ;
+    rdfs:label "Expanded Cybersecurity Council with community members"@en ;
+    rdfs:label "Išplėsta Kibernetinio saugumo taryba su bendruomenės nariais"@lt ;
+    rdfs:comment "Article 5 expands the Cybersecurity Council composition. In addition to institutional representatives, the Council now includes members from the cybersecurity competence community (established under Art. 23 per Regulation (EU) 2021/887). The Council coordinates cybersecurity policy between government institutions." ;
+    rdfs:comment "Article 5 expands the Cybersecurity Council composition. In addition to institutional representatives, the Council now includes members from the cybersecurity competence community (established under Art. 23 per Regulation (EU) 2021/887). The Council coordinates cybersecurity policy between government institutions."@en ;
+    rdfs:comment "5 straipsnis išplečia Kibernetinio saugumo tarybos sudėtį. Be institucinių atstovų, Taryba dabar apima narius iš kibernetinio saugumo kompetencijos bendruomenės (įsteigtos pagal 23 str. ir Reglamentą (ES) 2021/887). Taryba koordinuoja kibernetinio saugumo politiką tarp vyriausybės institucijų."@lt ;
+    llo:hasLegalBasis "Art. 5, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_NKSC_20Functions a llo:LegalConcept ;
+    rdfs:label "NKSC expanded to 20 enumerated functions" ;
+    rdfs:label "NKSC expanded to 20 enumerated functions"@en ;
+    rdfs:label "NKSC išplėstas iki 20 išvardytų funkcijų"@lt ;
+    rdfs:comment "Article 7 grants NKSC 20 enumerated functions including: CSIRT operations, threat hunting, vulnerability coordination, domain blocking orders, near-miss monitoring, crisis coordination with EU-CyCLONe and NATO, compliance monitoring of cybersecurity subjects, supply chain risk assessment, cybersecurity subject registry management, technical measure deployment for essential subjects, public cybersecurity recommendations, cooperation with RRT on trust service audits, cross-border EU cooperation, and ECB consultation for financial sector measures." ;
+    rdfs:comment "Article 7 grants NKSC 20 enumerated functions including: CSIRT operations, threat hunting, vulnerability coordination, domain blocking orders, near-miss monitoring, crisis coordination with EU-CyCLONe and NATO, compliance monitoring of cybersecurity subjects, supply chain risk assessment, cybersecurity subject registry management, technical measure deployment for essential subjects, public cybersecurity recommendations, cooperation with RRT on trust service audits, cross-border EU cooperation, and ECB consultation for financial sector measures."@en ;
+    rdfs:comment "7 straipsnis suteikia NKSC 20 išvardytų funkcijų, įskaitant: CSIRT operacijas, grėsmių medžioklę, spragų koordinavimą, privalomus domenų blokavimo nurodymus, vos neįvykusių incidentų stebėseną, krizių koordinavimą su ES-CyCLONe ir NATO, kibernetinio saugumo subjektų atitikties stebėseną, tiekimo grandinės rizikos vertinimą, subjektų registro valdymą, techninių priemonių diegimą esminiams subjektams, viešas kibernetinio saugumo rekomendacijas, bendradarbiavimą su RRT dėl patikimumo užtikrinimo auditų, tarpvalstybinį ES bendradarbiavimą ir konsultacijas su ECB dėl finansų sektoriaus priemonių."@lt ;
+    llo:hasLegalBasis "Art. 7, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_CrisisPreparedness a llo:LegalConcept ;
+    rdfs:label "Cybersecurity crisis preparedness framework" ;
+    rdfs:label "Cybersecurity crisis preparedness framework"@en ;
+    rdfs:label "Pasirengimo kibernetinio saugumo krizėms sistema"@lt ;
+    rdfs:comment "Article 8 establishes crisis preparedness provisions including: national cybersecurity crisis management plan approved by Government, NKSC coordination with National Crisis Management Centre, large-scale incident response coordination with EU-CyCLONe network, regular crisis exercises, and integration with national defence planning." ;
+    rdfs:comment "Article 8 establishes crisis preparedness provisions including: national cybersecurity crisis management plan approved by Government, NKSC coordination with National Crisis Management Centre, large-scale incident response coordination with EU-CyCLONe network, regular crisis exercises, and integration with national defence planning."@en ;
+    rdfs:comment "8 straipsnis nustato pasirengimo krizėms nuostatas, įskaitant: Vyriausybės tvirtinamas nacionalinis kibernetinio saugumo krizių valdymo planas, NKSC koordinavimas su Nacionaliniu krizių valdymo centru, didelio masto incidentų reagavimo koordinavimas su ES-CyCLONe tinklu, reguliarios krizių pratybos ir integracija su nacionaliniu gynybos planavimu."@lt ;
+    llo:hasLegalBasis "Art. 8, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_PoliceExpandedPowers a llo:LegalConcept ;
+    rdfs:label "Police powers expanded to new digital entity types" ;
+    rdfs:label "Police powers expanded to new digital entity types"@en ;
+    rdfs:label "Policijos įgaliojimai išplėsti naujų skaitmeninių subjektų tipams"@lt ;
+    rdfs:comment "Article 10 expands Police Department powers to issue 48-hour emergency orders to online marketplaces, search engines, cloud providers, CDN providers, and other new digital entity types for cybercrime prevention and investigation purposes." ;
+    rdfs:comment "Article 10 expands Police Department powers to issue 48-hour emergency orders to online marketplaces, search engines, cloud providers, CDN providers, and other new digital entity types for cybercrime prevention and investigation purposes."@en ;
+    rdfs:comment "10 straipsnis išplečia Policijos departamento įgaliojimus leisti 48 valandų skubius nurodymus elektroninėms prekyviečių platformoms, paieškos sistemoms, debesijos paslaugų teikėjams, CDN teikėjams ir kitiems naujiems skaitmeninių subjektų tipams kibernetinių nusikaltimų prevencijos ir tyrimo tikslais."@lt ;
+    llo:hasLegalBasis "Art. 10, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_EssentialImportantClassification a llo:LegalConcept ;
+    rdfs:label "Essential vs important cybersecurity subject classification" ;
+    rdfs:label "Essential vs important cybersecurity subject classification"@en ;
+    rdfs:label "Esminių ir svarbių kibernetinio saugumo subjektų klasifikacija"@lt ;
+    rdfs:comment "Article 11 establishes the NIS2 dual classification: essential subjects (esminiai subjektai) are entities in Annex 1 sectors exceeding medium-size thresholds (250+ employees or €50M+ turnover), plus certain entities regardless of size (trust service providers, TLD registries, DNS providers, public e-comms providers, public administration, entities designated as critical infrastructure). Important subjects (svarbūs subjektai) are entities in Annex 1 or 2 sectors meeting medium-size thresholds (50+ employees or €10M+ turnover) not qualifying as essential. NKSC identifies and registers subjects in the cybersecurity subject registry." ;
+    rdfs:comment "Article 11 establishes the NIS2 dual classification: essential subjects (esminiai subjektai) are entities in Annex 1 sectors exceeding medium-size thresholds (250+ employees or €50M+ turnover), plus certain entities regardless of size (trust service providers, TLD registries, DNS providers, public e-comms providers, public administration, entities designated as critical infrastructure). Important subjects (svarbūs subjektai) are entities in Annex 1 or 2 sectors meeting medium-size thresholds (50+ employees or €10M+ turnover) not qualifying as essential. NKSC identifies and registers subjects in the cybersecurity subject registry."@en ;
+    rdfs:comment "11 straipsnis nustato TIS 2 dvejopą klasifikaciją: esminiai subjektai yra 1 priedo sektoriuose veikiantys subjektai, viršijantys vidutinės įmonės ribas (250+ darbuotojų arba 50+ mln. EUR apyvarta), taip pat tam tikri subjektai nepriklausomai nuo dydžio (patikimumo užtikrinimo paslaugų teikėjai, aukščiausio lygio domenų registrai, DNS teikėjai, viešųjų e. ryšių teikėjai, viešasis administravimas, ypatingos svarbos infrastruktūra). Svarbūs subjektai yra 1 arba 2 priedo sektoriuose veikiantys subjektai, atitinkantys vidutinės įmonės ribas (50+ darbuotojų arba 10+ mln. EUR apyvarta), nepatenkantys į esminius. NKSC identifikuoja ir registruoja subjektus kibernetinio saugumo subjektų registre."@lt ;
+    llo:hasLegalBasis "Art. 11, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_SubjectRegistry a llo:LegalConcept ;
+    rdfs:label "Cybersecurity subject registry" ;
+    rdfs:label "Cybersecurity subject registry"@en ;
+    rdfs:label "Kibernetinio saugumo subjektų registras"@lt ;
+    rdfs:comment "Article 13 establishes a formal cybersecurity subject registry managed by NKSC. Entities must register their contact details, IP address ranges, domain names, and classification status. The registry enables systematic oversight and is linked to the cybersecurity information system (KSIS)." ;
+    rdfs:comment "Article 13 establishes a formal cybersecurity subject registry managed by NKSC. Entities must register their contact details, IP address ranges, domain names, and classification status. The registry enables systematic oversight and is linked to the cybersecurity information system (KSIS)."@en ;
+    rdfs:comment "13 straipsnis įsteigia formalų kibernetinio saugumo subjektų registrą, tvarkomą NKSC. Subjektai privalo registruoti kontaktinius duomenis, IP adresų diapazonus, domenų vardus ir klasifikacijos statusą. Registras užtikrina sistemingą priežiūrą ir yra susietas su kibernetinio saugumo informacine sistema (KSIS)."@lt ;
+    llo:hasLegalBasis "Art. 13, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_RiskManagement_13Elements a llo:LegalConcept ;
+    rdfs:label "13-element cybersecurity risk management framework" ;
+    rdfs:label "13-element cybersecurity risk management framework"@en ;
+    rdfs:label "13 elementų kibernetinio saugumo rizikos valdymo sistema"@lt ;
+    rdfs:comment "Article 14 mandates 13 risk management elements for cybersecurity subjects: (1) risk analysis and information security policies, (2) incident handling, (3) business continuity and crisis management, (4) supply chain security, (5) network acquisition/development/maintenance security, (6) vulnerability handling and disclosure, (7) effectiveness assessment, (8) basic cyber hygiene and training, (9) cryptography and encryption policies, (10) human resource security and access control, (11) multi-factor authentication, (12) secure communication systems, (13) emergency communication systems. Implementation within 12 months, triennial audits by independent auditors meeting NKSC methodology." ;
+    rdfs:comment "Article 14 mandates 13 risk management elements for cybersecurity subjects: (1) risk analysis and information security policies, (2) incident handling, (3) business continuity and crisis management, (4) supply chain security, (5) network acquisition/development/maintenance security, (6) vulnerability handling and disclosure, (7) effectiveness assessment, (8) basic cyber hygiene and training, (9) cryptography and encryption policies, (10) human resource security and access control, (11) multi-factor authentication, (12) secure communication systems, (13) emergency communication systems. Implementation within 12 months, triennial audits by independent auditors meeting NKSC methodology."@en ;
+    rdfs:comment "14 straipsnis nustato 13 privalomų rizikos valdymo elementų kibernetinio saugumo subjektams: (1) rizikos analizė ir informacijos saugumo politika, (2) incidentų valdymas, (3) veiklos tęstinumas ir krizių valdymas, (4) tiekimo grandinės saugumas, (5) tinklų įsigijimo/kūrimo/priežiūros saugumas, (6) spragų valdymas ir atskleidimas, (7) efektyvumo vertinimas, (8) bazinė kibernetinė higiena ir mokymai, (9) kriptografijos ir šifravimo politika, (10) žmogiškųjų išteklių saugumas ir prieigos kontrolė, (11) daugiafaktoris autentifikavimas, (12) saugios ryšių sistemos, (13) avarinės ryšių sistemos. Įgyvendinimas per 12 mėnesių, trimetiniai auditai nepriklausomų auditorių."@lt ;
+    llo:hasLegalBasis "Art. 14, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_SecurityOfficerRequirements a llo:LegalConcept ;
+    rdfs:label "Security officer/manager qualification and appointment requirements" ;
+    rdfs:label "Security officer/manager qualification and appointment requirements"@en ;
+    rdfs:label "Saugos įgaliotinio/vadovo kvalifikacijos ir skyrimo reikalavimai"@lt ;
+    rdfs:comment "Article 15 requires cybersecurity subjects to appoint a cybersecurity manager (kibernetinio saugumo vadovas) reporting directly to subject management, and a security officer (saugos įgaliotinis) responsible for Art. 14 and 18 compliance. Requirements: unblemished reputation per Civil Service Act, no administrative penalties for data/network violations in past year, minimum 2 years IT/cybersecurity experience or qualifying degree/international certification or NKSC training exam. Exemption for natural person subjects. Qualification requirements deferred 2 years from law entry into force." ;
+    rdfs:comment "Article 15 requires cybersecurity subjects to appoint a cybersecurity manager (kibernetinio saugumo vadovas) reporting directly to subject management, and a security officer (saugos įgaliotinis) responsible for Art. 14 and 18 compliance. Requirements: unblemished reputation per Civil Service Act, no administrative penalties for data/network violations in past year, minimum 2 years IT/cybersecurity experience or qualifying degree/international certification or NKSC training exam. Exemption for natural person subjects. Qualification requirements deferred 2 years from law entry into force."@en ;
+    rdfs:comment "15 straipsnis reikalauja, kad kibernetinio saugumo subjektai paskirtų kibernetinio saugumo vadovą, tiesiogiai atskaitingą subjekto vadovybei, ir saugos įgaliotinį, atsakingą už 14 ir 18 straipsnių atitiktį. Reikalavimai: nepriekaištinga reputacija pagal Valstybės tarnybos įstatymą, jokių administracinių nuobaudų duomenų/tinklų srityje per metus, ne mažiau 2 metų IT/kibernetinio saugumo patirtis arba kvalifikacinis diplomas/tarptautinis sertifikatas arba NKSC mokymai. Išimtis fiziniams asmenims. Kvalifikacijos reikalavimai atidėti 2 metams nuo įstatymo įsigaliojimo."@lt ;
+    llo:hasLegalBasis "Art. 15, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_TechnicalMeasures a llo:LegalConcept ;
+    rdfs:label "NKSC-deployed technical cybersecurity measures" ;
+    rdfs:label "NKSC-deployed technical cybersecurity measures"@en ;
+    rdfs:label "NKSC diegiamos techninės kibernetinio saugumo priemonės"@lt ;
+    rdfs:comment "Article 16 mandates NKSC deployment and operation of technical cybersecurity measures in essential subjects' networks, with optional deployment in important subjects upon request. MoD approves the technical measures deployment plan. Measures are deployed, maintained, and repaired at NKSC expense. Essential subjects must facilitate NKSC access for deployment." ;
+    rdfs:comment "Article 16 mandates NKSC deployment and operation of technical cybersecurity measures in essential subjects' networks, with optional deployment in important subjects upon request. MoD approves the technical measures deployment plan. Measures are deployed, maintained, and repaired at NKSC expense. Essential subjects must facilitate NKSC access for deployment."@en ;
+    rdfs:comment "16 straipsnis nustato privalomą NKSC techninių kibernetinio saugumo priemonių diegimą ir valdymą esminių subjektų tinkluose, su galimu diegimu svarbiuose subjektuose jų prašymu. KAM tvirtina techninių priemonių diegimo planą. Priemonės diegiamos, prižiūrimos ir remontuojamos NKSC lėšomis. Esminiai subjektai privalo sudaryti sąlygas NKSC diegimui."@lt ;
+    llo:hasLegalBasis "Art. 16, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_DomainRegistryRequirements a llo:LegalConcept ;
+    rdfs:label "TLD registry and domain name registration service requirements" ;
+    rdfs:label "TLD registry and domain name registration service requirements"@en ;
+    rdfs:label "Aukščiausio lygio domenų registrų ir domenų vardų registravimo paslaugų reikalavimai"@lt ;
+    rdfs:comment "Article 17 imposes NIS2-specific obligations on TLD registries and domain name registrars: collect WHOIS-type registration data (domain name, registration date, registrant entity/individual name, contact details, administrator contact), maintain accurate databases with verification procedures, publish policies publicly, publish non-personal registration data within 72 hours, respond to lawful data access requests within 72 hours per GDPR (Reg 2016/679), and cooperate to avoid duplication of registration data collection." ;
+    rdfs:comment "Article 17 imposes NIS2-specific obligations on TLD registries and domain name registrars: collect WHOIS-type registration data (domain name, registration date, registrant entity/individual name, contact details, administrator contact), maintain accurate databases with verification procedures, publish policies publicly, publish non-personal registration data within 72 hours, respond to lawful data access requests within 72 hours per GDPR (Reg 2016/679), and cooperate to avoid duplication of registration data collection."@en ;
+    rdfs:comment "17 straipsnis nustato TIS 2 specifines prievoles aukščiausio lygio domenų registrams ir domenų vardų registratoriams: rinkti WHOIS tipo registracijos duomenis, tvarkyti tikslias duomenų bazes su tikrinimo procedūromis, viešai skelbti politiką, per 72 valandas skelbti ne asmens duomenis, per 72 valandas atsakyti į teisėtus duomenų prieigos prašymus pagal BDAR, bendradarbiauti vengiant duomenų rinkimo dubliavimo."@lt ;
+    llo:hasLegalBasis "Art. 17, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_NIS2_IncidentReporting a llo:LegalConcept ;
+    rdfs:label "NIS2-aligned multi-stage incident reporting" ;
+    rdfs:label "NIS2-aligned multi-stage incident reporting"@en ;
+    rdfs:label "TIS 2 suderintas daugiapakopis incidentų pranešimas"@lt ;
+    rdfs:comment "Article 18 establishes NIS2-compliant four-stage incident reporting: (1) early warning within 24 hours of becoming aware of a significant incident, indicating whether unlawful/malicious action is suspected and potential cross-border impact; (2) incident notification within 72 hours with updated severity assessment and indicators of compromise; (3) intermediate status reports upon NKSC request; (4) final report within 1 month containing incident description with severity/impact, threat type/root cause, applied and ongoing mitigation measures, and cross-border impact. A significant incident is one causing or capable of causing serious service disruption, financial loss, or affecting other natural/legal persons with material/immaterial damage. The national cybersecurity incident management plan sets additional criteria and procedures." ;
+    rdfs:comment "Article 18 establishes NIS2-compliant four-stage incident reporting: (1) early warning within 24 hours of becoming aware of a significant incident, indicating whether unlawful/malicious action is suspected and potential cross-border impact; (2) incident notification within 72 hours with updated severity assessment and indicators of compromise; (3) intermediate status reports upon NKSC request; (4) final report within 1 month containing incident description with severity/impact, threat type/root cause, applied and ongoing mitigation measures, and cross-border impact. A significant incident is one causing or capable of causing serious service disruption, financial loss, or affecting other natural/legal persons with material/immaterial damage. The national cybersecurity incident management plan sets additional criteria and procedures."@en ;
+    rdfs:comment "18 straipsnis nustato TIS 2 atitinkantį keturių etapų incidentų pranešimą: (1) ankstyvasis perspėjimas per 24 valandas, nurodant ar įtariami neteisėti/piktavališki veiksmai ir galimas tarpvalstybinis poveikis; (2) pranešimas per 72 valandas su atnaujintu sunkumo vertinimu ir įsilaužimo įrodymais; (3) tarpinės ataskaitos NKSC prašymu; (4) galutinė ataskaita per 1 mėnesį su incidento aprašymu, grėsmės tipu/priežastimi, taikomomis priemonėmis ir tarpvalstybiniu poveikiu."@lt ;
+    llo:hasLegalBasis "Art. 18, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_KSIS_NIS2 a llo:LegalConcept ;
+    rdfs:label "Cybersecurity Information System (KSIS) – 7 purposes" ;
+    rdfs:label "Cybersecurity Information System (KSIS) – 7 purposes"@en ;
+    rdfs:label "Kibernetinio saugumo informacinė sistema (KSIS) – 7 tikslai"@lt ;
+    rdfs:comment "Article 19 defines KSIS with 7 purposes: (1) register cybersecurity subject registry objects, (2) process data collected by technical measures for incident prevention, (3) track risk management implementation monitoring, (4) maintain data on subjects for emergency incident tasking, (5) exchange cybersecurity incident/threat/near-miss data with system users, (6) manage mandatory domain blocking order data and publish it publicly, (7) provide cybersecurity services including training and exercises. MoD is data controller, NKSC is data processor. Data is confidential and shared only on need-to-know basis." ;
+    rdfs:comment "Article 19 defines KSIS with 7 purposes: (1) register cybersecurity subject registry objects, (2) process data collected by technical measures for incident prevention, (3) track risk management implementation monitoring, (4) maintain data on subjects for emergency incident tasking, (5) exchange cybersecurity incident/threat/near-miss data with system users, (6) manage mandatory domain blocking order data and publish it publicly, (7) provide cybersecurity services including training and exercises. MoD is data controller, NKSC is data processor. Data is confidential and shared only on need-to-know basis."@en ;
+    rdfs:comment "19 straipsnis apibrėžia KSIS su 7 tikslais: (1) registruoti subjektų registro objektus, (2) tvarkyti techninių priemonių surinktus duomenis incidentų prevencijai, (3) stebėti rizikos valdymo priemonių įgyvendinimą, (4) tvarkyti duomenis apie subjektus ekstremalių incidentų užduotims, (5) keistis incidentų/grėsmių/vos neįvykusių incidentų duomenimis su sistemos naudotojais, (6) tvarkyti privalomų domenų blokavimo nurodymų duomenis ir juos viešai skelbti, (7) teikti kibernetinio saugumo paslaugas įskaitant mokymus ir pratybas. KAM – duomenų valdytoja, NKSC – duomenų tvarkytoja."@lt ;
+    llo:hasLegalBasis "Art. 19, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_InterInstitutionalCooperation a llo:LegalConcept ;
+    rdfs:label "Inter-institutional cooperation including eIDAS and DORA" ;
+    rdfs:label "Inter-institutional cooperation including eIDAS and DORA"@en ;
+    rdfs:label "Tarpinstitucinis bendradarbiavimas, įskaitant eIDAS ir DORA"@lt ;
+    rdfs:comment "Article 20 establishes cooperation with: Communications Regulatory Authority (eIDAS Reg 910/2014), competent institutions under DORA (Reg 2022/2554 on digital operational resilience for financial sector), National Crisis Management Centre. NKSC must notify relevant institutions within 20 working days of enforcement decisions. Specific cooperation includes: RRT on trust service audits (24-hour notification of trust service incidents), cross-border EU competent authorities, and ECB consultation before applying measures to Bank of Lithuania-supervised entities." ;
+    rdfs:comment "Article 20 establishes cooperation with: Communications Regulatory Authority (eIDAS Reg 910/2014), competent institutions under DORA (Reg 2022/2554 on digital operational resilience for financial sector), National Crisis Management Centre. NKSC must notify relevant institutions within 20 working days of enforcement decisions. Specific cooperation includes: RRT on trust service audits (24-hour notification of trust service incidents), cross-border EU competent authorities, and ECB consultation before applying measures to Bank of Lithuania-supervised entities."@en ;
+    rdfs:comment "20 straipsnis nustato bendradarbiavimą su: Ryšių reguliavimo tarnyba (eIDAS Regl. 910/2014), kompetentingomis institucijomis pagal DORA (Regl. 2022/2554 dėl finansų sektoriaus skaitmeninio atsparumo), Nacionaliniu krizių valdymo centru. NKSC privalo pranešti susijusioms institucijoms per 20 darbo dienų nuo vykdymo sprendimų. Specifinis bendradarbiavimas apima: RRT dėl patikimumo auditų (24 val. pranešimas), tarpvalstybinius ES kompetentingus organus ir ECB konsultacijas prieš taikant priemones Lietuvos banko prižiūrimiems subjektams."@lt ;
+    llo:hasLegalBasis "Art. 20, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_MutualAssistance a llo:LegalConcept ;
+    rdfs:label "Cross-border EU mutual assistance framework" ;
+    rdfs:label "Cross-border EU mutual assistance framework"@en ;
+    rdfs:label "Tarpvalstybinė ES savitarpio pagalbos sistema"@lt ;
+    rdfs:comment "Article 21 establishes mutual assistance: NKSC executes inspections and enforcement measures upon requests from other EU member state competent authorities. NKSC may refuse requests only when it lacks competence, the request is disproportionate to resources, or disclosure would harm national security/defence. Before refusing, NKSC must consult European Commission and/or ENISA." ;
+    rdfs:comment "Article 21 establishes mutual assistance: NKSC executes inspections and enforcement measures upon requests from other EU member state competent authorities. NKSC may refuse requests only when it lacks competence, the request is disproportionate to resources, or disclosure would harm national security/defence. Before refusing, NKSC must consult European Commission and/or ENISA."@en ;
+    rdfs:comment "21 straipsnis nustato savitarpio pagalbą: NKSC vykdo patikrinimus ir vykdymo užtikrinimo priemones kitų ES valstybių narių kompetentingų institucijų prašymu. NKSC gali atmesti prašymus tik neturėdamas kompetencijos, kai prašymas neproporcionalus ištekliams arba atskleidimas pakenktų nacionaliniam saugumui/gynybai. Prieš atsisakydamas, NKSC privalo konsultuotis su Europos Komisija ir (arba) ENISA."@lt ;
+    llo:hasLegalBasis "Art. 21, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_CompetenceCommunity a llo:LegalConcept ;
+    rdfs:label "Cybersecurity competence community per Reg (EU) 2021/887" ;
+    rdfs:label "Cybersecurity competence community per Reg (EU) 2021/887"@en ;
+    rdfs:label "Kibernetinio saugumo kompetencijos bendruomenė pagal Regl. (ES) 2021/887"@lt ;
+    rdfs:comment "Article 23 establishes the cybersecurity competence community under Regulation (EU) 2021/887 (European Cybersecurity Competence Centre). Lithuanian-registered legal persons with cybersecurity expertise in areas listed in Art. 8(3) of Reg 2021/887 may apply to join. National Coordination Centre (NKSC) evaluates applicants within 2 months, including national security screening by relevant intelligence institutions within 15 working days. Community members cannot pose national security threats. Members may be removed for failing to meet requirements. Judicial review of NCC decisions available via Administrative Court procedure." ;
+    rdfs:comment "Article 23 establishes the cybersecurity competence community under Regulation (EU) 2021/887 (European Cybersecurity Competence Centre). Lithuanian-registered legal persons with cybersecurity expertise in areas listed in Art. 8(3) of Reg 2021/887 may apply to join. National Coordination Centre (NKSC) evaluates applicants within 2 months, including national security screening by relevant intelligence institutions within 15 working days. Community members cannot pose national security threats. Members may be removed for failing to meet requirements. Judicial review of NCC decisions available via Administrative Court procedure."@en ;
+    rdfs:comment "23 straipsnis įsteigia kibernetinio saugumo kompetencijos bendruomenę pagal Reglamentą (ES) 2021/887 (Europos kibernetinio saugumo kompetencijos centras). Lietuvoje registruoti juridiniai asmenys, turintys kibernetinio saugumo ekspertizę, gali kreiptis dėl narystės. Nacionalinis koordinavimo centras (NKSC) vertina paraiškas per 2 mėnesius, įskaitant žvalgybos institucijų nacionalinio saugumo patikrinimą per 15 darbo dienų."@lt ;
+    llo:hasLegalBasis "Art. 23, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_VoluntaryReporting a llo:LegalConcept ;
+    rdfs:label "Voluntary incident and threat reporting" ;
+    rdfs:label "Voluntary incident and threat reporting"@en ;
+    rdfs:label "Savanoriškas incidentų ir grėsmių pranešimas"@lt ;
+    rdfs:comment "Article 24 grants any entity (not just cybersecurity subjects) the right to voluntarily report incidents, threats, near-miss incidents, and applied incident management measures to NKSC. No obligations arise from voluntary reporting." ;
+    rdfs:comment "Article 24 grants any entity (not just cybersecurity subjects) the right to voluntarily report incidents, threats, near-miss incidents, and applied incident management measures to NKSC. No obligations arise from voluntary reporting."@en ;
+    rdfs:comment "24 straipsnis suteikia bet kuriam subjektui teisę savanoriškai pranešti NKSC apie incidentus, grėsmes, vos neįvykusius incidentus ir taikytas incidentų valdymo priemones. Savanoriškam pranešimui jokios prievolės nenustatytos."@lt ;
+    llo:hasLegalBasis "Art. 24, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_VulnerabilityDisclosure_NIS2 a llo:LegalConcept ;
+    rdfs:label "Vulnerability search and coordinated disclosure with safe harbour" ;
+    rdfs:label "Vulnerability search and coordinated disclosure with safe harbour"@en ;
+    rdfs:label "Spragų paieška ir koordinuotas atskleidimas su saugaus uosto apsauga"@lt ;
+    rdfs:comment "Article 25 provides comprehensive vulnerability disclosure framework: safe harbour (legal liability exclusion) for researchers following the national/entity disclosure procedure, 7 research restrictions (no service disruption, stop upon finding, 24-hour report deadline, no excess data access, no personal data use, no password guessing/social engineering, no sharing before procedure completes or registered in EU vulnerability database), anonymous reporting option with 12-year data retention by NKSC, 90-calendar-day disclosure timeline (NKSC may shorten to minimum 3 days based on complexity), subjects may set their own disclosure procedures with restrictions no stricter than the law, and researchers may disclose after 90 days." ;
+    rdfs:comment "Article 25 provides comprehensive vulnerability disclosure framework: safe harbour (legal liability exclusion) for researchers following the national/entity disclosure procedure, 7 research restrictions (no service disruption, stop upon finding, 24-hour report deadline, no excess data access, no personal data use, no password guessing/social engineering, no sharing before procedure completes or registered in EU vulnerability database), anonymous reporting option with 12-year data retention by NKSC, 90-calendar-day disclosure timeline (NKSC may shorten to minimum 3 days based on complexity), subjects may set their own disclosure procedures with restrictions no stricter than the law, and researchers may disclose after 90 days."@en ;
+    rdfs:comment "25 straipsnis nustato išsamią spragų atskleidimo sistemą: saugaus uosto apsauga (teisinės atsakomybės išimtis) tyrėjams, laikantis nacionalinės/subjekto atskleidimo tvarkos, 7 tyrimo apribojimai (netrukdyti paslaugoms, sustoti aptikus, 24 val. pranešimo terminas, nereikalauti daugiau prieigos, nenaudoti asmens duomenų, nebandyti slaptažodžių/socialinės inžinerijos, nesidalinti iki procedūros pabaigos arba registravimo ES spragų duomenų bazėje), anoniminio pranešimo galimybė su 12 metų NKSC duomenų saugojimu, 90 kalendorinių dienų atskleidimo terminas (NKSC gali trumpinti iki min. 3 dienų), subjektai gali nustatyti savo tvarką su ne griežtesniais apribojimais."@lt ;
+    llo:hasLegalBasis "Art. 25, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_Inspections a llo:LegalConcept ;
+    rdfs:label "Risk-based cybersecurity subject inspections" ;
+    rdfs:label "Risk-based cybersecurity subject inspections"@en ;
+    rdfs:label "Rizika grįsti kibernetinio saugumo subjektų patikrinimai"@lt ;
+    rdfs:comment "Article 26 establishes NKSC inspection authority over cybersecurity subjects (excluding Chapter VI and VII subjects). Risk-based prioritisation of inspections. NKSC may initiate inspections on any compliance question, upon complaint, or on its own initiative. Important subject inspections only upon evidence of suspected violation. Inspections follow NKSC-approved methodology with risk-based prioritisation." ;
+    rdfs:comment "Article 26 establishes NKSC inspection authority over cybersecurity subjects (excluding Chapter VI and VII subjects). Risk-based prioritisation of inspections. NKSC may initiate inspections on any compliance question, upon complaint, or on its own initiative. Important subject inspections only upon evidence of suspected violation. Inspections follow NKSC-approved methodology with risk-based prioritisation."@en ;
+    rdfs:comment "26 straipsnis nustato NKSC patikrinimų kompetenciją kibernetinio saugumo subjektams. Rizika grįstas patikrinimų prioritetizavimas. NKSC gali inicijuoti patikrinimus bet kokiu atitikties klausimu, gavus skundą arba savo iniciatyva. Svarbių subjektų patikrinimai tik turint įtariamo pažeidimo duomenų."@lt ;
+    llo:hasLegalBasis "Art. 26, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_EnforcementMeasures_NIS2 a llo:LegalConcept ;
+    rdfs:label "11 enforcement measure types under NIS2" ;
+    rdfs:label "11 enforcement measure types under NIS2"@en ;
+    rdfs:label "11 vykdymo užtikrinimo priemonių tipų pagal TIS 2"@lt ;
+    rdfs:comment "Article 28 establishes 11 enforcement measures: (1) warnings, (2) binding instructions to essential subjects for incident prevention/remediation, (3) cease-and-desist orders, (4) time-limited orders for risk management/incident reporting compliance, (5) threat notification orders to service recipients, (6) orders to implement audit recommendations within set deadline, (7) monitoring officer appointment for essential subjects, (8) public disclosure orders, (9) fines per Articles 30-31, (10) temporary activity/service suspension initiation (Art. 32), (11) temporary management removal initiation (Art. 33). Measures consider mitigating circumstances (4 types) and aggravating circumstances (6 types). 2-year limitation period." ;
+    rdfs:comment "Article 28 establishes 11 enforcement measures: (1) warnings, (2) binding instructions to essential subjects for incident prevention/remediation, (3) cease-and-desist orders, (4) time-limited orders for risk management/incident reporting compliance, (5) threat notification orders to service recipients, (6) orders to implement audit recommendations within set deadline, (7) monitoring officer appointment for essential subjects, (8) public disclosure orders, (9) fines per Articles 30-31, (10) temporary activity/service suspension initiation (Art. 32), (11) temporary management removal initiation (Art. 33). Measures consider mitigating circumstances (4 types) and aggravating circumstances (6 types). 2-year limitation period."@en ;
+    rdfs:comment "28 straipsnis nustato 11 vykdymo užtikrinimo priemonių: (1) įspėjimai, (2) privalomi nurodymai esminiams subjektams, (3) veiksmų nutraukimo nurodymai, (4) terminuoti nurodymai rizikos valdymo/incidentų pranešimo atitikčiai, (5) grėsmės pranešimo nurodymai paslaugų gavėjams, (6) nurodymai įgyvendinti audito rekomendacijas, (7) stebėsenos pareigūno paskyrimas esminiams subjektams, (8) viešo paskelbimo nurodymai, (9) baudos pagal 30-31 str., (10) veiklos laikino sustabdymo inicijavimas (32 str.), (11) vadovo laikino nušalinimo inicijavimas (33 str.)."@lt ;
+    llo:hasLegalBasis "Art. 28, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_ViolationsClassification a llo:LegalConcept ;
+    rdfs:label "Three-tier violation classification system" ;
+    rdfs:label "Three-tier violation classification system"@en ;
+    rdfs:label "Trijų lygių pažeidimų klasifikacijos sistema"@lt ;
+    rdfs:comment "Article 29 classifies violations into three tiers: (1) Dangerous violations – Art. 14(1) risk management and Art. 18(1)(1) incident reporting requirements; (2) Medium violations – Art. 7(2)(6-7), Art. 14(6,8), Art. 15(1-3) requirements, obstructing Art. 27 inspection powers, and Art. 17 TLD/domain requirements if committed by TLD registries; (3) Minor violations – Art. 14(3,7), Art. 18(1)(2), Art. 19(4) requirements, and Art. 17 domain requirements if committed by domain registrars." ;
+    rdfs:comment "Article 29 classifies violations into three tiers: (1) Dangerous violations – Art. 14(1) risk management and Art. 18(1)(1) incident reporting requirements; (2) Medium violations – Art. 7(2)(6-7), Art. 14(6,8), Art. 15(1-3) requirements, obstructing Art. 27 inspection powers, and Art. 17 TLD/domain requirements if committed by TLD registries; (3) Minor violations – Art. 14(3,7), Art. 18(1)(2), Art. 19(4) requirements, and Art. 17 domain requirements if committed by domain registrars."@en ;
+    rdfs:comment "29 straipsnis klasifikuoja pažeidimus trimis lygiais: (1) Pavojingi – 14 str. 1 d. rizikos valdymo ir 18 str. 1 d. 1 p. incidentų pranešimo reikalavimai; (2) Vidutinio pavojingumo – 7 str. 2 d. 6-7 p., 14 str. 6, 8 d., 15 str. 1-3 d. reikalavimai, trukdymas 27 str. patikrinimo įgaliojimams, 17 str. reikalavimai aukščiausio lygio domenų registrams; (3) Nedidelio pavojingumo – 14 str. 3, 7 d., 18 str. 1 d. 2 p., 19 str. 4 d. reikalavimai ir 17 str. reikalavimai domenų registratoriams."@lt ;
+    llo:hasLegalBasis "Art. 29, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_NIS2_Fines a llo:LegalConcept ;
+    rdfs:label "NIS2-aligned fine regime (€10M/2% essential, €7M/1.4% important)" ;
+    rdfs:label "NIS2-aligned fine regime (€10M/2% essential, €7M/1.4% important)"@en ;
+    rdfs:label "TIS 2 suderintas baudų režimas (10 mln. EUR/2 % esminiams, 7 mln. EUR/1,4 % svarbiems)"@lt ;
+    rdfs:comment "Article 30 establishes NIS2-aligned maximum fines: essential subjects – up to €10,000,000 or 2% of global annual turnover (whichever is higher); important subjects – up to €7,000,000 or 1.4% of global annual turnover; budget institutions that are essential subjects – up to 1% of previous year revenues, minimum €60,000; budget institutions that are important subjects – up to 0.5% of revenues, minimum €30,000. Fine scaling: 100% of maximum for dangerous violations, 50% for medium violations, 10% for minor violations. Fines must be effective, proportionate and dissuasive. No double jeopardy with GDPR fines (Reg 2016/679 Art. 58(2)(i))." ;
+    rdfs:comment "Article 30 establishes NIS2-aligned maximum fines: essential subjects – up to €10,000,000 or 2% of global annual turnover (whichever is higher); important subjects – up to €7,000,000 or 1.4% of global annual turnover; budget institutions that are essential subjects – up to 1% of previous year revenues, minimum €60,000; budget institutions that are important subjects – up to 0.5% of revenues, minimum €30,000. Fine scaling: 100% of maximum for dangerous violations, 50% for medium violations, 10% for minor violations. Fines must be effective, proportionate and dissuasive. No double jeopardy with GDPR fines (Reg 2016/679 Art. 58(2)(i))."@en ;
+    rdfs:comment "30 straipsnis nustato TIS 2 suderintas maksimalias baudas: esminiams subjektams – iki 10 000 000 EUR arba 2 % pasaulinės metinės apyvartos; svarbiems subjektams – iki 7 000 000 EUR arba 1,4 %; biudžetinėms įstaigoms: 1 %/0,5 % pajamų, min. 60 000/30 000 EUR. Baudų skalė: 100 % maksimalios už pavojingus, 50 % už vidutinio pavojingumo, 10 % už nedidelio pavojingumo pažeidimus. Draudžiamas dvigubas baudimas su BDAR baudomis."@lt ;
+    llo:hasLegalBasis "Art. 30, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_ActivitySuspension a llo:LegalConcept ;
+    rdfs:label "Court-ordered temporary activity suspension for essential subjects" ;
+    rdfs:label "Court-ordered temporary activity suspension for essential subjects"@en ;
+    rdfs:label "Teismo nutartimi laikinas esminių subjektų veiklos sustabdymas"@lt ;
+    rdfs:comment "Article 32 allows NKSC to petition a district court to temporarily suspend an essential subject's activity or right to provide services, only for dangerous violations (Art. 29(2)) and only when enforcement measures under Art. 28(1)(1-4,6) have proven ineffective. Maximum 4 months, renewable by 2 months (unlimited renewals). Subject must cease all specified commercial, financial, professional activity and close related departments. Appealable within 7 working days to higher court (final and unappealable). NKSC publishes suspension information on its website." ;
+    rdfs:comment "Article 32 allows NKSC to petition a district court to temporarily suspend an essential subject's activity or right to provide services, only for dangerous violations (Art. 29(2)) and only when enforcement measures under Art. 28(1)(1-4,6) have proven ineffective. Maximum 4 months, renewable by 2 months (unlimited renewals). Subject must cease all specified commercial, financial, professional activity and close related departments. Appealable within 7 working days to higher court (final and unappealable). NKSC publishes suspension information on its website."@en ;
+    rdfs:comment "32 straipsnis leidžia NKSC kreiptis į apylinkės teismą laikinai sustabdyti esminio subjekto veiklą arba teisę teikti paslaugas, tik dėl pavojingų pažeidimų (29 str. 2 d.) ir tik kai 28 str. 1 d. 1-4, 6 p. priemonės neveiksmingos. Maksimalus terminas 4 mėnesiai, pratęsiamas po 2 mėnesius. Subjektas privalo nutraukti visą nurodytą komercinę, finansinę, profesinę veiklą. Skundžiama per 7 darbo dienas aukštesniam teismui (galutinė nutartis)."@lt ;
+    llo:hasLegalBasis "Art. 32, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_ManagementRemoval a llo:LegalConcept ;
+    rdfs:label "Court-ordered temporary removal of essential subject manager" ;
+    rdfs:label "Court-ordered temporary removal of essential subject manager"@en ;
+    rdfs:label "Teismo nutartimi laikinas esminio subjekto vadovo nušalinimas"@lt ;
+    rdfs:comment "Article 33 allows NKSC to petition a district court to temporarily remove an essential subject's manager from duties, only for dangerous violations and when other enforcement measures have proven ineffective. Excludes managers appointed by Seimas, Government, or President. Maximum 6 months, renewable by 3 months (unlimited renewals). Removed manager cannot exercise functions and all decisions made after removal are void. Appealable within 7 working days (final). NKSC publishes removal information on its website." ;
+    rdfs:comment "Article 33 allows NKSC to petition a district court to temporarily remove an essential subject's manager from duties, only for dangerous violations and when other enforcement measures have proven ineffective. Excludes managers appointed by Seimas, Government, or President. Maximum 6 months, renewable by 3 months (unlimited renewals). Removed manager cannot exercise functions and all decisions made after removal are void. Appealable within 7 working days (final). NKSC publishes removal information on its website."@en ;
+    rdfs:comment "33 straipsnis leidžia NKSC kreiptis į apylinkės teismą laikinai nušalinti esminio subjekto vadovą nuo pareigų, tik dėl pavojingų pažeidimų ir kai kitos priemonės neveiksmingos. Išskyrus Seimo, Vyriausybės ir Prezidento skiriamus vadovus. Maksimalus terminas 6 mėnesiai, pratęsiamas po 3 mėnesius. Nušalintas vadovas negali vykdyti funkcijų, visi po nušalinimo priimti sprendimai negalioja. Skundžiama per 7 darbo dienas (galutinė nutartis)."@lt ;
+    llo:hasLegalBasis "Art. 33, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_CertificationAuthority_NIS2 a llo:LegalConcept ;
+    rdfs:label "NKSC as national cybersecurity certification authority per Reg 2019/881" ;
+    rdfs:label "NKSC as national cybersecurity certification authority per Reg 2019/881"@en ;
+    rdfs:label "NKSC kaip nacionalinė kibernetinio saugumo sertifikavimo institucija pagal Regl. 2019/881"@lt ;
+    rdfs:comment "Article 34 designates NKSC as the national cybersecurity certification authority under Regulation (EU) 2019/881 (EU Cybersecurity Act). NKSC powers include: requesting information from conformity assessment bodies, EU certificate holders and EU attestation issuers; granting/restricting/suspending/revoking supplementary authorisations for conformity assessment bodies (Art. 35); handling complaints per Art. 58(7)(f) of Reg 2019/881; conducting investigations per Art. 36 into compliance with European cybersecurity certification schemes; entering premises of conformity assessment bodies/certificate holders for up to 30 days for document review." ;
+    rdfs:comment "Article 34 designates NKSC as the national cybersecurity certification authority under Regulation (EU) 2019/881 (EU Cybersecurity Act). NKSC powers include: requesting information from conformity assessment bodies, EU certificate holders and EU attestation issuers; granting/restricting/suspending/revoking supplementary authorisations for conformity assessment bodies (Art. 35); handling complaints per Art. 58(7)(f) of Reg 2019/881; conducting investigations per Art. 36 into compliance with European cybersecurity certification schemes; entering premises of conformity assessment bodies/certificate holders for up to 30 days for document review."@en ;
+    rdfs:comment "34 straipsnis paskiria NKSC nacionaline kibernetinio saugumo sertifikavimo institucija pagal Reglamentą (ES) 2019/881 (ES kibernetinio saugumo aktas). NKSC įgaliojimai apima: informacijos prašymą iš atitikties vertinimo įstaigų, ES sertifikatų turėtojų ir ES atitikties pareiškimų išdavėjų; papildomų įgaliojimų suteikimą/apribojimą/sustabdymą/atšaukimą atitikties vertinimo įstaigoms (35 str.); skundų nagrinėjimą pagal Regl. 2019/881 58 str. 7 d. f p.; tyrimus dėl atitikties Europos sertifikavimo schemoms (36 str.); patekimą į patalpas iki 30 dienų."@lt ;
+    llo:hasLegalBasis "Art. 34, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_SecureNetwork_NIS2 a llo:LegalConcept ;
+    rdfs:label "Secure State Data Transmission Network (Saugusis tinklas)" ;
+    rdfs:label "Secure State Data Transmission Network (Saugusis tinklas)"@en ;
+    rdfs:label "Saugusis valstybinis duomenų perdavimo tinklas (Saugusis tinklas)"@lt ;
+    rdfs:comment "Article 37 establishes the Secure State Data Transmission Network (Saugusis tinklas). Listed institutions must use only the secure network for electronic communications and connect to public networks only through it (except for intelligence-gathering). Network user list approved by Government on MoD proposal, reviewed annually. MoD owns the network; an authorised state budget institution operates it. Standard services include: data transmission, limited public network access, collective cybersecurity measures, EU/NATO interoperability, mobilisation network interconnection, and inter-user technical cooperation. Supplementary services (beyond standard KPIs) are cost-based with Government-approved pricing. Procurement follows public procurement law." ;
+    rdfs:comment "Article 37 establishes the Secure State Data Transmission Network (Saugusis tinklas). Listed institutions must use only the secure network for electronic communications and connect to public networks only through it (except for intelligence-gathering). Network user list approved by Government on MoD proposal, reviewed annually. MoD owns the network; an authorised state budget institution operates it. Standard services include: data transmission, limited public network access, collective cybersecurity measures, EU/NATO interoperability, mobilisation network interconnection, and inter-user technical cooperation. Supplementary services (beyond standard KPIs) are cost-based with Government-approved pricing. Procurement follows public procurement law."@en ;
+    rdfs:comment "37 straipsnis įsteigia Saugųjį valstybinį duomenų perdavimo tinklą (Saugusis tinklas). Įrašytos institucijos privalo naudotis tik saugiuoju tinklu elektroninėms komunikacijoms ir jungtis prie viešųjų tinklų tik per jį. Naudotojų sąrašą tvirtina Vyriausybė KAM teikimu, peržiūrint kasmet. KAM valdo tinklą; įgaliota biudžetinė įstaiga jį tvarko. Standartinės paslaugos apima: duomenų perdavimą, ribotą viešojo tinklo prieigą, kolektyvines kibernetinio saugumo priemones, ES/NATO sąveiką, mobilizacijos tinklų sujungimą ir techninį bendradarbiavimą. Papildomos paslaugos apmokamos pagal sąnaudas."@lt ;
+    llo:hasLegalBasis "Art. 37, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_DataCentreUsage a llo:LegalConcept ;
+    rdfs:label "State data centre localisation requirements" ;
+    rdfs:label "State data centre localisation requirements"@en ;
+    rdfs:label "Valstybės duomenų centrų lokalizacijos reikalavimai"@lt ;
+    rdfs:comment "Article 38 requires institutions on the secure network user list (except intelligence institutions) to keep state information resources in domestic data centres or in data centres located in EU, EEA, or NATO member states, following State Information Resource Management Law provisions (Art. 45(1,4,6)). Intelligence institutions may keep copies in EU/EEA/NATO data centres by agency head decision. Technical and organisational requirements for data centres set under the State Information Resource Management Law." ;
+    rdfs:comment "Article 38 requires institutions on the secure network user list (except intelligence institutions) to keep state information resources in domestic data centres or in data centres located in EU, EEA, or NATO member states, following State Information Resource Management Law provisions (Art. 45(1,4,6)). Intelligence institutions may keep copies in EU/EEA/NATO data centres by agency head decision. Technical and organisational requirements for data centres set under the State Information Resource Management Law."@en ;
+    rdfs:comment "38 straipsnis reikalauja, kad institucijos, įrašytos į saugiojo tinklo naudotojų sąrašą (išskyrus žvalgybos institucijas), laikytų valstybės informacinius išteklius šalies duomenų centruose arba ES, EEE ar NATO valstybių narių duomenų centruose. Žvalgybos institucijos gali laikyti kopijas ES/EEE/NATO duomenų centruose vadovo sprendimu."@lt ;
+    llo:hasLegalBasis "Art. 38, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_EssentialSectors a llo:LegalConcept ;
+    rdfs:label "11 essential sectors (Annex 1)" ;
+    rdfs:label "11 essential sectors (Annex 1)"@en ;
+    rdfs:label "11 ypatingos svarbos sektorių (1 priedas)"@lt ;
+    rdfs:comment "Annex 1 lists 11 essential sectors with subsectors, entity types, and responsible identification institutions: (1) Energy – electricity (7 types, Energy Ministry), district heating (1 type), oil (3 types), gas (6 types), hydrogen (1 type); (2) Transport – air (3 types, Transport Ministry), rail (3 types), water (3 types), road (2 types); (3) Banking (1 type, Finance Ministry); (4) Financial market infrastructure (2 types, Finance Ministry); (5) Health (5 types, Health Ministry); (6) Drinking water (1 type, Environment Ministry); (7) Wastewater (1 type, Environment Ministry); (8) Digital infrastructure (9 types across Transport and Economy Ministries); (9) ICT service management (2 types, Ministries); (10) Public administration (2 types, Interior Ministry); (11) Space (1 type, Economy Ministry)." ;
+    rdfs:comment "Annex 1 lists 11 essential sectors with subsectors, entity types, and responsible identification institutions: (1) Energy – electricity (7 types, Energy Ministry), district heating (1 type), oil (3 types), gas (6 types), hydrogen (1 type); (2) Transport – air (3 types, Transport Ministry), rail (3 types), water (3 types), road (2 types); (3) Banking (1 type, Finance Ministry); (4) Financial market infrastructure (2 types, Finance Ministry); (5) Health (5 types, Health Ministry); (6) Drinking water (1 type, Environment Ministry); (7) Wastewater (1 type, Environment Ministry); (8) Digital infrastructure (9 types across Transport and Economy Ministries); (9) ICT service management (2 types, Ministries); (10) Public administration (2 types, Interior Ministry); (11) Space (1 type, Economy Ministry)."@en ;
+    rdfs:comment "1 priedas išvardija 11 ypatingos svarbos sektorių su subsektoriais, subjektų tipais ir atsakingomis identifikavimo institucijomis."@lt ;
+    llo:hasLegalBasis "Annex 1, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_ImportantSectors a llo:LegalConcept ;
+    rdfs:label "7 other important sectors (Annex 2)" ;
+    rdfs:label "7 other important sectors (Annex 2)"@en ;
+    rdfs:label "7 kiti itin svarbūs sektoriai (2 priedas)"@lt ;
+    rdfs:comment "Annex 2 lists 7 other important sectors: (1) Postal services (Transport Ministry); (2) Waste management (Environment Ministry); (3) Chemical manufacturing and distribution per REACH Reg 1907/2006 (Environment Ministry); (4) Food production, processing and distribution per Reg 178/2002 (Agriculture Ministry); (5) Manufacturing – medical devices (Health Ministry), computers/electronics (Economy Ministry), electrical equipment (Energy Ministry), other machinery (Ministries), motor vehicles (Transport Ministry), other transport equipment (Transport Ministry); (6) Digital public services – online marketplaces, search engines, social networking platforms, hosting (Economy Ministry); (7) Research (Education Ministry)." ;
+    rdfs:comment "Annex 2 lists 7 other important sectors: (1) Postal services (Transport Ministry); (2) Waste management (Environment Ministry); (3) Chemical manufacturing and distribution per REACH Reg 1907/2006 (Environment Ministry); (4) Food production, processing and distribution per Reg 178/2002 (Agriculture Ministry); (5) Manufacturing – medical devices (Health Ministry), computers/electronics (Economy Ministry), electrical equipment (Energy Ministry), other machinery (Ministries), motor vehicles (Transport Ministry), other transport equipment (Transport Ministry); (6) Digital public services – online marketplaces, search engines, social networking platforms, hosting (Economy Ministry); (7) Research (Education Ministry)."@en ;
+    rdfs:comment "2 priedas išvardija 7 kitus itin svarbius sektorius: (1) Pašto paslaugos, (2) Atliekų tvarkymas, (3) Cheminių medžiagų gamyba ir platinimas, (4) Maisto gamyba, perdirbimas ir platinimas, (5) Gamyba, (6) Informacinės visuomenės paslaugos, (7) Moksliniai tyrimai."@lt ;
+    llo:hasLegalBasis "Annex 2, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_EU_LegalActs_NIS2 a llo:LegalConcept ;
+    rdfs:label "Three implemented EU legal acts (Annex 3)" ;
+    rdfs:label "Three implemented EU legal acts (Annex 3)"@en ;
+    rdfs:label "Trys įgyvendinami ES teisės aktai (3 priedas)"@lt ;
+    rdfs:comment "Annex 3 lists three EU legal acts implemented by this law: (1) Regulation (EU) 2019/881 – EU Cybersecurity Act (ENISA and ICT cybersecurity certification); (2) Regulation (EU) 2021/887 – European Cybersecurity Competence Centre and National Coordination Centres Network; (3) Directive (EU) 2022/2555 – NIS2 Directive (high common level of cybersecurity across the Union, amending Reg 910/2014, Directive 2018/1972, repealing Directive 2016/1148)." ;
+    rdfs:comment "Annex 3 lists three EU legal acts implemented by this law: (1) Regulation (EU) 2019/881 – EU Cybersecurity Act (ENISA and ICT cybersecurity certification); (2) Regulation (EU) 2021/887 – European Cybersecurity Competence Centre and National Coordination Centres Network; (3) Directive (EU) 2022/2555 – NIS2 Directive (high common level of cybersecurity across the Union, amending Reg 910/2014, Directive 2018/1972, repealing Directive 2016/1148)."@en ;
+    rdfs:comment "3 priedas išvardija tris ES teisės aktus: (1) Reglamentas (ES) 2019/881 – Kibernetinio saugumo aktas; (2) Reglamentas (ES) 2021/887 – Europos kibernetinio saugumo kompetencijos centras; (3) Direktyva (ES) 2022/2555 – TIS 2 direktyva."@lt ;
+    llo:hasLegalBasis "Annex 3, restated Cybersecurity Law (XIV-2902 Art. 1)" .
+
+lld:Concept_NIS2_TransitionalProvisions a llo:LegalConcept ;
+    rdfs:label "NIS2 transitional provisions and implementation timeline" ;
+    rdfs:label "NIS2 transitional provisions and implementation timeline"@en ;
+    rdfs:label "TIS 2 pereinamosios nuostatos ir įgyvendinimo tvarkaraštis"@lt ;
+    rdfs:comment "Article 2 of the outer statute establishes implementation timeline: law effective 2024-10-18; implementing acts deadline 2024-10-17; NKSC identifies and registers subjects by 2025-04-17; existing critical infrastructure operators continue under old organisational/technical requirements until 2025-04-17 (then transition to new Art. 14 risk management); existing security officers continue under Art. 15 but qualification requirements (Art. 15(5)(3)) deferred for first 2 years; NKSC monitors compliance using old-law requirements until entry into force, applying old Administrative Offences Code provisions; pending procedures under old law continue under old law; terminology alignment ('ryšių ir informacinė sistema' = 'tinklų ir informacinė sistema'); Government must submit state electronic networks regulation draft to Seimas by 2025-06-01." ;
+    rdfs:comment "Article 2 of the outer statute establishes implementation timeline: law effective 2024-10-18; implementing acts deadline 2024-10-17; NKSC identifies and registers subjects by 2025-04-17; existing critical infrastructure operators continue under old organisational/technical requirements until 2025-04-17 (then transition to new Art. 14 risk management); existing security officers continue under Art. 15 but qualification requirements (Art. 15(5)(3)) deferred for first 2 years; NKSC monitors compliance using old-law requirements until entry into force, applying old Administrative Offences Code provisions; pending procedures under old law continue under old law; terminology alignment ('ryšių ir informacinė sistema' = 'tinklų ir informacinė sistema'); Government must submit state electronic networks regulation draft to Seimas by 2025-06-01."@en ;
+    rdfs:comment "Išorinio įstatymo 2 straipsnis nustato įgyvendinimo tvarkaraštį: įstatymas įsigalioja 2024-10-18; įgyvendinamieji aktai iki 2024-10-17; NKSC identifikuoja subjektus iki 2025-04-17; esamos ypatingos svarbos infrastruktūros operatoriai tęsia pagal senas taisykles iki 2025-04-17; saugos įgaliotinių kvalifikacijos reikalavimai atidėti 2 metams; terminologijos suderinimas; Vyriausybė teikia valstybės elektroninių tinklų reguliavimo projektą Seimui iki 2025-06-01."@lt ;
+    llo:hasLegalBasis "Art. 2, XIV-2902 (outer statute)" .
+
+lld:Concept_ExPostEvaluation a llo:LegalConcept ;
+    rdfs:label "Mandatory ex post evaluation of legal regulation" ;
+    rdfs:label "Mandatory ex post evaluation of legal regulation"@en ;
+    rdfs:label "Privalomas teisinio reguliavimo ex post vertinimas"@lt ;
+    rdfs:comment "Article 3 of the outer statute mandates the Ministry of National Defence to conduct an ex post evaluation of the restated Cybersecurity Law's impact on cybersecurity subjects. Evaluation period: 3 years from entry into force. Must be completed by 2029-01-01." ;
+    rdfs:comment "Article 3 of the outer statute mandates the Ministry of National Defence to conduct an ex post evaluation of the restated Cybersecurity Law's impact on cybersecurity subjects. Evaluation period: 3 years from entry into force. Must be completed by 2029-01-01."@en ;
+    rdfs:comment "Išorinio įstatymo 3 straipsnis įpareigoja Krašto apsaugos ministeriją atlikti atstatytojo Kibernetinio saugumo įstatymo poveikio kibernetinio saugumo subjektams ex post vertinimą. Vertinimo laikotarpis: 3 metai nuo įsigaliojimo. Turi būti atliktas iki 2029-01-01."@lt ;
+    llo:hasLegalBasis "Art. 3, XIV-2902 (outer statute)" .
+
+
+# =================================================================
+# SECTION 7: INCIDENT TRIGGERS
+# =================================================================
+
+lld:XIV-2902_Trigger_24h a llo:IncidentTrigger ;
+    rdfs:label "24-hour early warning for significant cybersecurity incidents" ;
+    rdfs:label "24-hour early warning for significant cybersecurity incidents"@en ;
+    rdfs:label "24 valandų ankstyvasis perspėjimas apie didelius kibernetinius incidentus"@lt ;
+    rdfs:comment "Art. 18(4)(1): Within 24 hours of becoming aware of a significant incident, cybersecurity subjects must submit an early warning indicating whether the incident is suspected to have been caused by unlawful or malicious action and whether it could have cross-border impact." ;
+    rdfs:comment "Art. 18(4)(1): Within 24 hours of becoming aware of a significant incident, cybersecurity subjects must submit an early warning indicating whether the incident is suspected to have been caused by unlawful or malicious action and whether it could have cross-border impact."@en ;
+    rdfs:comment "18 str. 4 d. 1 p.: Per 24 valandas nuo sužinojimo apie didelį incidentą kibernetinio saugumo subjektai privalo pateikti ankstyvąjį perspėjimą, nurodydami ar įtariami neteisėti/piktavališki veiksmai ir galimas tarpvalstybinis poveikis."@lt ;
+    llo:triggerDeadline "PT24H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 18(4)(1), restated Cybersecurity Law" .
+
+lld:XIV-2902_Trigger_72h a llo:IncidentTrigger ;
+    rdfs:label "72-hour incident notification with severity assessment" ;
+    rdfs:label "72-hour incident notification with severity assessment"@en ;
+    rdfs:label "72 valandų pranešimas apie incidentą su sunkumo vertinimu"@lt ;
+    rdfs:comment "Art. 18(4)(2): Within 72 hours of awareness, submit incident notification updating early warning information, providing initial severity and impact assessment, and indicators of compromise where available." ;
+    rdfs:comment "Art. 18(4)(2): Within 72 hours of awareness, submit incident notification updating early warning information, providing initial severity and impact assessment, and indicators of compromise where available."@en ;
+    rdfs:comment "18 str. 4 d. 2 p.: Per 72 valandas nuo sužinojimo pateikti pranešimą apie incidentą, atnaujinant ankstyvojo perspėjimo informaciją, pateikiant pirminį sunkumo ir poveikio vertinimą bei įsilaužimo įrodymus."@lt ;
+    llo:triggerDeadline "PT72H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 18(4)(2), restated Cybersecurity Law" .
+
+lld:XIV-2902_Trigger_1month a llo:IncidentTrigger ;
+    rdfs:label "1-month final incident report" ;
+    rdfs:label "1-month final incident report"@en ;
+    rdfs:label "1 mėnesio galutinė incidento ataskaita"@lt ;
+    rdfs:comment "Art. 18(4)(4): Within 1 month of the Art. 18(4)(1) early warning, submit final report containing: (a) detailed incident description with severity/impact, (b) threat type/root cause, (c) applied and ongoing mitigation measures, (d) cross-border impact if any. If incident is ongoing at report deadline, submit progress report; final report due within 1 month of incident resolution." ;
+    rdfs:comment "Art. 18(4)(4): Within 1 month of the Art. 18(4)(1) early warning, submit final report containing: (a) detailed incident description with severity/impact, (b) threat type/root cause, (c) applied and ongoing mitigation measures, (d) cross-border impact if any. If incident is ongoing at report deadline, submit progress report; final report due within 1 month of incident resolution."@en ;
+    rdfs:comment "18 str. 4 d. 4 p.: Per 1 mėnesį nuo ankstyvojo perspėjimo pateikti galutinę ataskaitą: (a) išsamus incidento aprašymas su sunkumu/poveikiu, (b) grėsmės tipas/priežastis, (c) taikomos priemonės, (d) tarpvalstybinis poveikis. Jei incidentas tęsiasi – pažangos ataskaita; galutinė per 1 mėnesį nuo suvaldymo."@lt ;
+    llo:triggerDeadline "P1M"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 18(4)(4), restated Cybersecurity Law" .
+
+lld:XIV-2902_Trigger_24h_vuln a llo:IncidentTrigger ;
+    rdfs:label "24-hour vulnerability report deadline for researchers" ;
+    rdfs:label "24-hour vulnerability report deadline for researchers"@en ;
+    rdfs:label "24 valandų spragų pranešimo terminas tyrėjams"@lt ;
+    rdfs:comment "Art. 25(2)(3): A researcher who has conducted a vulnerability search must, within 24 hours of starting the search (or every 24 hours if continuing), prepare the required disclosure information and submit it to NKSC and/or the affected cybersecurity subject per the applicable disclosure procedure." ;
+    rdfs:comment "Art. 25(2)(3): A researcher who has conducted a vulnerability search must, within 24 hours of starting the search (or every 24 hours if continuing), prepare the required disclosure information and submit it to NKSC and/or the affected cybersecurity subject per the applicable disclosure procedure."@en ;
+    rdfs:comment "25 str. 2 d. 3 p.: Tyrėjas, atlikęs spragų paiešką, per 24 valandas nuo paieškos pradžios (arba kas 24 valandas tęsiant) privalo parengti reikiamą atskleidimo informaciją ir pateikti ją NKSC ir (arba) paveiktam subjektui."@lt ;
+    llo:triggerDeadline "PT24H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 25(2)(3), restated Cybersecurity Law" .
+
+lld:XIV-2902_Trigger_90d_disclosure a llo:IncidentTrigger ;
+    rdfs:label "90-calendar-day coordinated vulnerability disclosure timeline" ;
+    rdfs:label "90-calendar-day coordinated vulnerability disclosure timeline"@en ;
+    rdfs:label "90 kalendorinių dienų koordinuoto spragų atskleidimo terminas"@lt ;
+    rdfs:comment "Art. 25(4): Under the coordinated disclosure procedure, NKSC provides vulnerability information to the affected subject with a disclosure deadline no shorter than 90 calendar days. NKSC may set a shorter deadline (minimum 3 days) based on vulnerability complexity and remediation feasibility." ;
+    rdfs:comment "Art. 25(4): Under the coordinated disclosure procedure, NKSC provides vulnerability information to the affected subject with a disclosure deadline no shorter than 90 calendar days. NKSC may set a shorter deadline (minimum 3 days) based on vulnerability complexity and remediation feasibility."@en ;
+    rdfs:comment "25 str. 4 d.: Pagal koordinuoto atskleidimo tvarką, NKSC teikia spragos informaciją paveiktam subjektui su atskleidimo terminu ne trumpesniu kaip 90 kalendorinių dienų. NKSC gali nustatyti trumpesnį terminą (min. 3 dienos) pagal spragos sudėtingumą."@lt ;
+    llo:triggerDeadline "P90D"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 25(4), restated Cybersecurity Law" .
+
+lld:XIV-2902_Trigger_36h_GDPR a llo:IncidentTrigger ;
+    rdfs:label "36-hour GDPR data breach notification to VDAI" ;
+    rdfs:label "36-hour GDPR data breach notification to VDAI"@en ;
+    rdfs:label "36 valandų BDAR asmens duomenų pažeidimo pranešimas VDAI"@lt ;
+    rdfs:comment "Art. 20(4): When NKSC determines an essential or important subject may have committed a personal data breach, it must without unjustified delay, but no later than 36 hours, notify the State Data Protection Inspectorate (VDAI), providing information about Regulation (EU) 2016/679 Art. 33(3) circumstances." ;
+    rdfs:comment "Art. 20(4): When NKSC determines an essential or important subject may have committed a personal data breach, it must without unjustified delay, but no later than 36 hours, notify the State Data Protection Inspectorate (VDAI), providing information about Regulation (EU) 2016/679 Art. 33(3) circumstances."@en ;
+    rdfs:comment "20 str. 4 d.: Kai NKSC nustato, kad esminis ar svarbus subjektas galėjo pažeisti asmens duomenų saugumą, jis nedelsdamas, bet ne vėliau kaip per 36 valandas, praneša VDAI, nurodydamas Reglamento (ES) 2016/679 33 str. 3 d. aplinkybes."@lt ;
+    llo:triggerDeadline "PT36H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 20(4), restated Cybersecurity Law" .
+
+lld:XIV-2902_Trigger_72h_domain a llo:IncidentTrigger ;
+    rdfs:label "72-hour domain registration data publication and access response" ;
+    rdfs:label "72-hour domain registration data publication and access response"@en ;
+    rdfs:label "72 valandų domenų registracijos duomenų paskelbimo ir prieigos atsakymo terminas"@lt ;
+    rdfs:comment "Art. 17(4): Non-personal domain registration data must be published within 72 hours of domain registration. Art. 17(5): Responses to lawful access requests for personal domain registration data must be provided within 72 hours of receiving the request, per GDPR (Reg 2016/679)." ;
+    rdfs:comment "Art. 17(4): Non-personal domain registration data must be published within 72 hours of domain registration. Art. 17(5): Responses to lawful access requests for personal domain registration data must be provided within 72 hours of receiving the request, per GDPR (Reg 2016/679)."@en ;
+    rdfs:comment "17 str. 4 d.: Ne asmens domeno registracijos duomenys turi būti paskelbti per 72 valandas nuo registracijos. 17 str. 5 d.: Atsakymai į teisėtus asmens duomenų prieigos prašymus turi būti pateikti per 72 valandas."@lt ;
+    llo:triggerDeadline "PT72H"^^xsd:duration ;
+    llo:hasLegalBasis "Art. 17(4-5), restated Cybersecurity Law" .
+
+
+# =================================================================
+# SECTION 8: RESILIENCE MANDATES
+# =================================================================
+
+lld:XIV-2902_Resilience_RiskMgmt a llo:ResilienceMandate ;
+    rdfs:label "13-element risk management with 12-month implementation" ;
+    rdfs:label "13-element risk management with 12-month implementation"@en ;
+    rdfs:label "13 elementų rizikos valdymas su 12 mėnesių įgyvendinimu"@lt ;
+    rdfs:comment "Art. 14: All cybersecurity subjects must implement 13 risk management measures within 12 months of identification. MoD approves organisational and technical requirements. Triennial security audits by independent auditors meeting NKSC methodology for independence, impartiality, and unblemished reputation. Auditors cannot audit systems owned by entities where they work." ;
+    rdfs:comment "Art. 14: All cybersecurity subjects must implement 13 risk management measures within 12 months of identification. MoD approves organisational and technical requirements. Triennial security audits by independent auditors meeting NKSC methodology for independence, impartiality, and unblemished reputation. Auditors cannot audit systems owned by entities where they work."@en ;
+    rdfs:comment "14 str.: Visi kibernetinio saugumo subjektai privalo įgyvendinti 13 rizikos valdymo priemonių per 12 mėnesių nuo identifikavimo. KAM tvirtina organizacinius ir techninius reikalavimus. Trimetiniai saugumo auditai nepriklausomų auditorių."@lt ;
+    llo:hasLegalBasis "Art. 14, restated Cybersecurity Law" .
+
+lld:XIV-2902_Resilience_TechnicalMeasures a llo:ResilienceMandate ;
+    rdfs:label "Mandatory NKSC technical measures in essential subject networks" ;
+    rdfs:label "Mandatory NKSC technical measures in essential subject networks"@en ;
+    rdfs:label "Privalomos NKSC techninės priemonės esminių subjektų tinkluose"@lt ;
+    rdfs:comment "Art. 16: NKSC deploys and operates technical cybersecurity measures in essential subjects' networks for threat identification and incident prevention. Important subjects may request deployment. MoD approves the deployment plan. Essential subjects must facilitate NKSC access. Measures deployed, maintained, and repaired at NKSC expense." ;
+    rdfs:comment "Art. 16: NKSC deploys and operates technical cybersecurity measures in essential subjects' networks for threat identification and incident prevention. Important subjects may request deployment. MoD approves the deployment plan. Essential subjects must facilitate NKSC access. Measures deployed, maintained, and repaired at NKSC expense."@en ;
+    rdfs:comment "16 str.: NKSC diegia ir valdo technines kibernetinio saugumo priemones esminių subjektų tinkluose grėsmių identifikavimui ir incidentų prevencijai. Svarbūs subjektai gali prašyti diegimo."@lt ;
+    llo:hasLegalBasis "Art. 16, restated Cybersecurity Law" .
+
+lld:XIV-2902_Resilience_SecureNetwork a llo:ResilienceMandate ;
+    rdfs:label "Mandatory secure network usage for listed state institutions" ;
+    rdfs:label "Mandatory secure network usage for listed state institutions"@en ;
+    rdfs:label "Privalomas saugiojo tinklo naudojimas sąraše esančioms valstybės institucijoms"@lt ;
+    rdfs:comment "Art. 37: Institutions on the Government-approved secure network user list must use only the Secure State Data Transmission Network (Saugusis tinklas) for electronic communications and connect to public networks only through it. Annual review of user list by MoD. Standard and supplementary services defined with quality indicators." ;
+    rdfs:comment "Art. 37: Institutions on the Government-approved secure network user list must use only the Secure State Data Transmission Network (Saugusis tinklas) for electronic communications and connect to public networks only through it. Annual review of user list by MoD. Standard and supplementary services defined with quality indicators."@en ;
+    rdfs:comment "37 str.: Vyriausybės patvirtinto saugiojo tinklo naudotojų sąrašo institucijos privalo naudotis tik Saugiuoju valstybiniu duomenų perdavimo tinklu elektroninėms komunikacijoms ir jungtis prie viešųjų tinklų tik per jį."@lt ;
+    llo:hasLegalBasis "Art. 37, restated Cybersecurity Law" .
+
+
+# =================================================================
+# SECTION 9: INFORMATION PIPELINES
+# =================================================================
+
+lld:XIV-2902_Pipeline_KSIS a llo:InformationPipeline ;
+    rdfs:label "Cybersecurity Information System (KSIS) – enhanced for NIS2" ;
+    rdfs:label "Cybersecurity Information System (KSIS) – enhanced for NIS2"@en ;
+    rdfs:label "Kibernetinio saugumo informacinė sistema (KSIS) – patobulinta TIS 2"@lt ;
+    rdfs:comment "Art. 19: KSIS serves 7 purposes including subject registry, technical measure data processing, risk management monitoring, emergency tasking data, inter-system incident/threat data exchange, domain blocking order management, and cybersecurity training services. MoD is data controller, NKSC is data processor. Confidential data shared on need-to-know basis. Subjects participate via information sharing agreements and must report to NKSC within 20 working days of agreement conclusion or withdrawal." ;
+    rdfs:comment "Art. 19: KSIS serves 7 purposes including subject registry, technical measure data processing, risk management monitoring, emergency tasking data, inter-system incident/threat data exchange, domain blocking order management, and cybersecurity training services. MoD is data controller, NKSC is data processor. Confidential data shared on need-to-know basis. Subjects participate via information sharing agreements and must report to NKSC within 20 working days of agreement conclusion or withdrawal."@en ;
+    rdfs:comment "19 str.: KSIS tarnauja 7 tikslams, įskaitant subjektų registrą, techninių priemonių duomenų tvarkymą, rizikos valdymo stebėseną, ekstremalių situacijų užduočių duomenis, tarpinstitucinį incidentų/grėsmių duomenų mainų, domenų blokavimo nurodymų valdymą ir kibernetinio saugumo mokymo paslaugas."@lt ;
+    llo:hasLegalBasis "Art. 19, restated Cybersecurity Law" .
+
+
+# =================================================================
+# SECTION 10: EU DIRECTIVES AND REGULATIONS
+# =================================================================
+
+lld:XIV-2902_EU_NIS2 a llo:EUDirective ;
+    rdfs:label "Directive (EU) 2022/2555 – NIS2 Directive" ;
+    rdfs:label "Directive (EU) 2022/2555 – NIS2 Directive"@en ;
+    rdfs:label "Direktyva (ES) 2022/2555 – TIS 2 direktyva"@lt ;
+    rdfs:comment "The primary EU legal act transposed by this restatement. Directive (EU) 2022/2555 of 14 December 2022 on measures for a high common level of cybersecurity across the Union, amending Regulation (EU) No 910/2014 and Directive (EU) 2018/1972, and repealing Directive (EU) 2016/1148 (NIS1). This is the core legal basis for the essential/important subject classification, incident reporting regime, enforcement measures, and cross-border cooperation framework." ;
+    rdfs:comment "The primary EU legal act transposed by this restatement. Directive (EU) 2022/2555 of 14 December 2022 on measures for a high common level of cybersecurity across the Union, amending Regulation (EU) No 910/2014 and Directive (EU) 2018/1972, and repealing Directive (EU) 2016/1148 (NIS1). This is the core legal basis for the essential/important subject classification, incident reporting regime, enforcement measures, and cross-border cooperation framework."@en ;
+    rdfs:comment "Pagrindinis šia redakcija perkeliamas ES teisės aktas. 2022 m. gruodžio 14 d. Direktyva (ES) 2022/2555 dėl priemonių aukštam bendram kibernetinio saugumo lygiui visoje Sąjungoje užtikrinti, keičianti Reglamentą (ES) Nr. 910/2014 ir Direktyvą (ES) 2018/1972, panaikinanti Direktyvą (ES) 2016/1148 (TIS 1)."@lt ;
+    llo:hasLegalBasis "Annex 3 item 3, restated Cybersecurity Law" .
+
+lld:XIV-2902_EU_CybersecurityAct a llo:EUDirective ;
+    rdfs:label "Regulation (EU) 2019/881 – EU Cybersecurity Act" ;
+    rdfs:label "Regulation (EU) 2019/881 – EU Cybersecurity Act"@en ;
+    rdfs:label "Reglamentas (ES) 2019/881 – ES kibernetinio saugumo aktas"@lt ;
+    rdfs:comment "Regulation (EU) 2019/881 of 17 April 2019 on ENISA and ICT cybersecurity certification, repealing Regulation (EC) No 526/2013. Legal basis for Chapter VI (NKSC as national cybersecurity certification authority), conformity assessment body authorisations, and certification investigations." ;
+    rdfs:comment "Regulation (EU) 2019/881 of 17 April 2019 on ENISA and ICT cybersecurity certification, repealing Regulation (EC) No 526/2013. Legal basis for Chapter VI (NKSC as national cybersecurity certification authority), conformity assessment body authorisations, and certification investigations."@en ;
+    rdfs:comment "2019 m. balandžio 17 d. Reglamentas (ES) 2019/881 dėl ENISA ir informacinių ir ryšių technologijų kibernetinio saugumo sertifikavimo. Teisinis pagrindas VI skyriui (NKSC kaip nacionalinė sertifikavimo institucija)."@lt ;
+    llo:hasLegalBasis "Annex 3 item 1, restated Cybersecurity Law" .
+
+lld:XIV-2902_EU_CompetenceCentre a llo:EUDirective ;
+    rdfs:label "Regulation (EU) 2021/887 – European Cybersecurity Competence Centre" ;
+    rdfs:label "Regulation (EU) 2021/887 – European Cybersecurity Competence Centre"@en ;
+    rdfs:label "Reglamentas (ES) 2021/887 – Europos kibernetinio saugumo kompetencijos centras"@lt ;
+    rdfs:comment "Regulation (EU) 2021/887 of 20 May 2021 establishing the European Cybersecurity Industrial, Technology and Research Competence Centre and the Network of National Coordination Centres. Legal basis for Article 23 (cybersecurity competence community) and NKSC's role as National Coordination Centre." ;
+    rdfs:comment "Regulation (EU) 2021/887 of 20 May 2021 establishing the European Cybersecurity Industrial, Technology and Research Competence Centre and the Network of National Coordination Centres. Legal basis for Article 23 (cybersecurity competence community) and NKSC's role as National Coordination Centre."@en ;
+    rdfs:comment "2021 m. gegužės 20 d. Reglamentas (ES) 2021/887 dėl Europos kibernetinio saugumo pramonės, technologijų ir mokslinių tyrimų kompetencijos centro ir Nacionalinių koordinavimo centrų tinklo. Teisinis pagrindas 23 straipsniui (kompetencijos bendruomenė)."@lt ;
+    llo:hasLegalBasis "Annex 3 item 2, restated Cybersecurity Law" .
+
+lld:XIV-2902_EU_DORA a llo:EUDirective ;
+    rdfs:label "Regulation (EU) 2022/2554 – DORA (Digital Operational Resilience Act)" ;
+    rdfs:label "Regulation (EU) 2022/2554 – DORA (Digital Operational Resilience Act)"@en ;
+    rdfs:label "Reglamentas (ES) 2022/2554 – DORA (Skaitmeninio veiklos atsparumo aktas)"@lt ;
+    rdfs:comment "Regulation (EU) 2022/2554 of 14 December 2022 on digital operational resilience for the financial sector. Referenced in Article 20 for inter-institutional cooperation: NKSC cooperates with the competent institution under DORA and notifies the National Crisis Management Centre when enforcement measures are applied to essential subjects designated as critical third-party ICT service providers under DORA Art. 31." ;
+    rdfs:comment "Regulation (EU) 2022/2554 of 14 December 2022 on digital operational resilience for the financial sector. Referenced in Article 20 for inter-institutional cooperation: NKSC cooperates with the competent institution under DORA and notifies the National Crisis Management Centre when enforcement measures are applied to essential subjects designated as critical third-party ICT service providers under DORA Art. 31."@en ;
+    rdfs:comment "2022 m. gruodžio 14 d. Reglamentas (ES) 2022/2554 dėl finansų sektoriaus skaitmeninio veiklos atsparumo. Nurodomas 20 straipsnyje tarpinstituciniam bendradarbiavimui."@lt ;
+    llo:hasLegalBasis "Art. 20, restated Cybersecurity Law" .
+
+lld:XIV-2902_EU_eIDAS a llo:EUDirective ;
+    rdfs:label "Regulation (EU) No 910/2014 – eIDAS" ;
+    rdfs:label "Regulation (EU) No 910/2014 – eIDAS"@en ;
+    rdfs:label "Reglamentas (ES) Nr. 910/2014 – eIDAS"@lt ;
+    rdfs:comment "Regulation (EU) No 910/2014 on electronic identification and trust services for electronic transactions in the internal market. Referenced in Article 20 for cooperation with the Communications Regulatory Authority (RRT) as the competent authority under eIDAS." ;
+    rdfs:comment "Regulation (EU) No 910/2014 on electronic identification and trust services for electronic transactions in the internal market. Referenced in Article 20 for cooperation with the Communications Regulatory Authority (RRT) as the competent authority under eIDAS."@en ;
+    rdfs:comment "Reglamentas (ES) Nr. 910/2014 dėl elektroninės atpažinties ir patikimumo užtikrinimo paslaugų elektroniniams sandoriams vidaus rinkoje. Nurodomas 20 straipsnyje bendradarbiavimui su RRT."@lt ;
+    llo:hasLegalBasis "Art. 20, restated Cybersecurity Law" .
+
+lld:XIV-2902_EU_GDPR a llo:EUDirective ;
+    rdfs:label "Regulation (EU) 2016/679 – GDPR" ;
+    rdfs:label "Regulation (EU) 2016/679 – GDPR"@en ;
+    rdfs:label "Reglamentas (ES) 2016/679 – BDAR"@lt ;
+    rdfs:comment "General Data Protection Regulation. Referenced throughout: Art. 17 (domain registration data handling per GDPR), Art. 20(4) (36-hour GDPR breach notification to VDAI), Art. 22(3) (personal data processing for law purposes follows GDPR), Art. 31(10) (no double jeopardy with GDPR fines per Art. 58(2)(i))." ;
+    rdfs:comment "General Data Protection Regulation. Referenced throughout: Art. 17 (domain registration data handling per GDPR), Art. 20(4) (36-hour GDPR breach notification to VDAI), Art. 22(3) (personal data processing for law purposes follows GDPR), Art. 31(10) (no double jeopardy with GDPR fines per Art. 58(2)(i))."@en ;
+    rdfs:comment "Bendrasis duomenų apsaugos reglamentas. Nurodomas visame tekste: 17 str. (domenų duomenys pagal BDAR), 20 str. 4 d. (36 val. BDAR pažeidimo pranešimas VDAI), 22 str. 3 d. (asmens duomenų tvarkymas pagal BDAR), 31 str. 10 d. (draudimas dvigubai bausti su BDAR baudomis)."@lt ;
+    llo:hasLegalBasis "Arts. 17, 20(4), 22(3), 31(10), restated Cybersecurity Law" .
+
+
+# =================================================================
+# SECTION 11: CIVIC RIGHTS
+# =================================================================
+
+lld:XIV-2902_Right_VoluntaryReport a llo:CivicRight ;
+    rdfs:label "Right to voluntary incident and threat reporting without obligations" ;
+    rdfs:label "Right to voluntary incident and threat reporting without obligations"@en ;
+    rdfs:label "Teisė savanoriškai pranešti apie incidentus ir grėsmes be prievolių"@lt ;
+    rdfs:comment "Art. 24: Any entity may voluntarily report cybersecurity incidents, threats, near-miss incidents, and incident management measures to NKSC. No obligations arise from voluntary reporting – reporters are not subject to any duties related to the submission." ;
+    rdfs:comment "Art. 24: Any entity may voluntarily report cybersecurity incidents, threats, near-miss incidents, and incident management measures to NKSC. No obligations arise from voluntary reporting – reporters are not subject to any duties related to the submission."@en ;
+    rdfs:comment "24 str.: Bet kuris subjektas gali savanoriškai pranešti NKSC apie kibernetinius incidentus, grėsmes, vos neįvykusius incidentus ir incidentų valdymo priemones. Savanoriškam pranešimui jokios prievolės nenustatytos."@lt ;
+    llo:hasLegalBasis "Art. 24, restated Cybersecurity Law" .
+
+lld:XIV-2902_Right_SafeHarbour a llo:CivicRight ;
+    rdfs:label "Vulnerability researcher safe harbour – legal liability exclusion" ;
+    rdfs:label "Vulnerability researcher safe harbour – legal liability exclusion"@en ;
+    rdfs:label "Spragų tyrėjo saugaus uosto apsauga – teisinės atsakomybės išimtis"@lt ;
+    rdfs:comment "Art. 25(1): Vulnerability search and disclosure are lawful acts that exclude legal liability, but only when the researcher follows the applicable disclosure procedure (national procedure approved by MoD or entity-specific procedure) and observes the 7 research restrictions (no service disruption, stop upon finding, 24h report, no excess access, no personal data use, no password guessing/social engineering, no sharing before procedure completes). Anonymous reporting is preserved, with NKSC retaining data for 12 years." ;
+    rdfs:comment "Art. 25(1): Vulnerability search and disclosure are lawful acts that exclude legal liability, but only when the researcher follows the applicable disclosure procedure (national procedure approved by MoD or entity-specific procedure) and observes the 7 research restrictions (no service disruption, stop upon finding, 24h report, no excess access, no personal data use, no password guessing/social engineering, no sharing before procedure completes). Anonymous reporting is preserved, with NKSC retaining data for 12 years."@en ;
+    rdfs:comment "25 str. 1 d.: Spragų paieška ir atskleidimas yra teisėti veiksmai, neužtraukiantys teisinės atsakomybės, tik kai tyrėjas laikosi taikomos atskleidimo tvarkos ir 7 tyrimo apribojimų. Anoniminis pranešimas išsaugotas, NKSC saugo duomenis 12 metų."@lt ;
+    llo:hasLegalBasis "Art. 25(1), restated Cybersecurity Law" .
+
+lld:XIV-2902_Right_JudicialReview a llo:CivicRight ;
+    rdfs:label "Right to judicial review of NKSC enforcement decisions" ;
+    rdfs:label "Right to judicial review of NKSC enforcement decisions"@en ;
+    rdfs:label "Teisė teismine tvarka ginčyti NKSC vykdymo sprendimus"@lt ;
+    rdfs:comment "Multiple judicial review rights: Art. 31(11) – fine decisions appealable to Administrative Court; Art. 32(7) – activity suspension orders appealable within 7 working days to higher court (final); Art. 33(8) – management removal orders appealable within 7 working days to higher court (final); Art. 23(8) – competence community registration refusals/removals appealable to Administrative Court; Art. 36(7) – certification investigation decisions (except administrative offence proceedings) appealable to Administrative Court." ;
+    rdfs:comment "Multiple judicial review rights: Art. 31(11) – fine decisions appealable to Administrative Court; Art. 32(7) – activity suspension orders appealable within 7 working days to higher court (final); Art. 33(8) – management removal orders appealable within 7 working days to higher court (final); Art. 23(8) – competence community registration refusals/removals appealable to Administrative Court; Art. 36(7) – certification investigation decisions (except administrative offence proceedings) appealable to Administrative Court."@en ;
+    rdfs:comment "Kelios teisminės peržiūros teisės: 31 str. 11 d. – baudų sprendimai skundžiami Administraciniam teismui; 32 str. 7 d. – veiklos sustabdymo nutartys per 7 d. d. aukštesniam teismui; 33 str. 8 d. – vadovo nušalinimo nutartys per 7 d. d.; 23 str. 8 d. – bendruomenės registracijos atsisakymai; 36 str. 7 d. – sertifikavimo tyrimo sprendimai."@lt ;
+    llo:hasLegalBasis "Arts. 23(8), 31(11), 32(7), 33(8), 36(7), restated Cybersecurity Law" .
+
+lld:XIV-2902_Right_FineHearing a llo:CivicRight ;
+    rdfs:label "Right to hearing in fine proceedings (Lithuanian language, interpreter)" ;
+    rdfs:label "Right to hearing in fine proceedings (Lithuanian language, interpreter)"@en ;
+    rdfs:label "Teisė į posėdį baudos bylose (lietuvių kalba, vertėjas)"@lt ;
+    rdfs:comment "Art. 31: Fine proceedings conducted in Lithuanian; non-Lithuanian speakers guaranteed right to interpreter services. Proceedings normally written; oral hearings available upon request or NKSC initiative. Hearings are public unless closed to protect state/professional/commercial secrets or personal privacy. Audio recording and minutes required. NKSC decision must be reasoned, citing Civil Service Act information requirements, and issued within 20 working days. Decisions executed as civil enforcement documents within 3 years." ;
+    rdfs:comment "Art. 31: Fine proceedings conducted in Lithuanian; non-Lithuanian speakers guaranteed right to interpreter services. Proceedings normally written; oral hearings available upon request or NKSC initiative. Hearings are public unless closed to protect state/professional/commercial secrets or personal privacy. Audio recording and minutes required. NKSC decision must be reasoned, citing Civil Service Act information requirements, and issued within 20 working days. Decisions executed as civil enforcement documents within 3 years."@en ;
+    rdfs:comment "31 str.: Baudos svarstymas vyksta lietuvių kalba; nemokantiems garantuojama vertėjo teisė. Paprastai rašytinė procedūra; žodiniai posėdžiai galimi prašymu. Posėdžiai vieši, nebent uždari dėl paslapčių ar privatumo. Garso įrašas ir protokolas privalomi. NKSC sprendimas turi būti motyvuotas, priimamas per 20 darbo dienų. Vykdymo dokumentas galioja 3 metus."@lt ;
+    llo:hasLegalBasis "Art. 31, restated Cybersecurity Law" .

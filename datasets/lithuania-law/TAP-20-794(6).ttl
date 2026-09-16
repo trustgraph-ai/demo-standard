@@ -1,0 +1,28 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 462
+#   Approving submission of Electronic Communications Code
+#   transposition package (10 laws + 1 Seimas resolution)
+#   including Cybersecurity Law Arts. 2, 8, 10, 12 and annex
+#   amendment to Seimas
+#   2021-06-16, Vilnius
+#   Acting PM Gintarė Skaistė (Finance Minister)
+# =================================================================
+
+lld:GovRes-462-2021 a llo:Statute ;
+    rdfs:label "Government Resolution No. 462 – Submission of EECC transposition package including Cybersecurity Law amendment to Seimas (2021)" ;
+    rdfs:label "Government Resolution No. 462 – Submission of EECC transposition package including Cybersecurity Law amendment to Seimas (2021)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 462 – EERK perkėlimo paketo, įskaitant Kibernetinio saugumo įstatymo pakeitimą, teikimas Seimui (2021)"@lt ;
+    rdfs:comment "Government approves and submits to Seimas a package of 9 draft laws and 1 Seimas resolution for transposition of Directive (EU) 2018/1972 (European Electronic Communications Code, EECC): (1) Electronic Communications Law No. IX-2135 complete restatement, (2) Administrative Offences Code Art. 589 and annex amendment and supplementation with Art. 476¹, (3) Emergency Centre Law No. IX-2246 Arts. 2, 5, 7, 8 and annex amendment, (4) Cybersecurity Law No. XII-1428 Arts. 2, 8, 10, 12 and annex amendment, (5) State Politicians and Officials Remuneration Law No. VIII-1904 Art. 2 and annex amendment, (6) Personal Data Protection Law No. I-1374 Art. 24 amendment, (7) Postal Law No. VIII-1141 Arts. 19, 21, 22, 24, 25, 29, 30, 32, 33 amendment, (8) National Security Objects Protection Law No. IX-1132 Arts. 13² and 19 amendment, (9) Special Land Use Conditions Law No. XIII-2166 Arts. 44, 45, 46, 77, 83 and Chapter III Section XI title amendment, (10) Seimas Resolution amending Resolution No. XIII-1896 on institutional classification. Requests urgent consideration as EECC transposition deadline was 2020-12-21. Delegates Transport Minister Marius Skuodis (deputy: Vice-Minister Agnė Vaiciukevičiūtė). Acting PM: Finance Minister Gintarė Skaistė." ;
+    rdfs:comment "Government approves and submits to Seimas a package of 9 draft laws and 1 Seimas resolution for transposition of Directive (EU) 2018/1972 (European Electronic Communications Code, EECC): (1) Electronic Communications Law No. IX-2135 complete restatement, (2) Administrative Offences Code Art. 589 and annex amendment and supplementation with Art. 476¹, (3) Emergency Centre Law No. IX-2246 Arts. 2, 5, 7, 8 and annex amendment, (4) Cybersecurity Law No. XII-1428 Arts. 2, 8, 10, 12 and annex amendment, (5) State Politicians and Officials Remuneration Law No. VIII-1904 Art. 2 and annex amendment, (6) Personal Data Protection Law No. I-1374 Art. 24 amendment, (7) Postal Law No. VIII-1141 Arts. 19, 21, 22, 24, 25, 29, 30, 32, 33 amendment, (8) National Security Objects Protection Law No. IX-1132 Arts. 13² and 19 amendment, (9) Special Land Use Conditions Law No. XIII-2166 Arts. 44, 45, 46, 77, 83 and Chapter III Section XI title amendment, (10) Seimas Resolution amending Resolution No. XIII-1896 on institutional classification. Requests urgent consideration as EECC transposition deadline was 2020-12-21. Delegates Transport Minister Marius Skuodis (deputy: Vice-Minister Agnė Vaiciukevičiūtė). Acting PM: Finance Minister Gintarė Skaistė."@en ;
+    rdfs:comment "Vyriausybė pritaria ir teikia Seimui 9 įstatymų projektų ir 1 Seimo nutarimo projektą dėl Direktyvos (ES) 2018/1972 (Europos elektroninių ryšių kodekso, EERK) perkėlimo: (1) Elektroninių ryšių įstatymo nauja redakcija, (2) Administracinių nusižengimų kodekso pakeitimas, (3) Bendrojo pagalbos centro įstatymo pakeitimas, (4) Kibernetinio saugumo įstatymo Nr. XII-1428 2, 8, 10, 12 str. ir priedo pakeitimas, (5) Valstybės politikų ir pareigūnų darbo apmokėjimo įstatymo pakeitimas, (6) Asmens duomenų apsaugos įstatymo pakeitimas, (7) Pašto įstatymo pakeitimas, (8) Nacionaliniam saugumui svarbių objektų apsaugos įstatymo pakeitimas, (9) Specialiųjų žemės naudojimo sąlygų įstatymo pakeitimas, (10) Seimo nutarimo dėl institucijų klasifikavimo pakeitimas. Prašo svarstyti skubos tvarka – EERK perkėlimo terminas buvo 2020-12-21. Įgalioja susisiekimo ministrą Marių Skuodį atstovauti Seime."@lt ;
+    llo:hasDocID "No. 462" ;
+    llo:dateEnacted "2021-06-16"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

@@ -1,0 +1,51 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 185
+#   Amending Government Resolution No. 818 (Cybersecurity Law
+#   Implementation) – post-quantum cryptography requirements,
+#   cryptography inventory, high quantum risk systems,
+#   Secure Network users list updates
+#   2026-03-25, Vilnius
+#   Prime Minister Inga Ruginienė
+# =================================================================
+
+lld:GovRes-185-2026 a llo:Statute ;
+    rdfs:label "Government Resolution No. 185 – Amendment of Resolution No. 818: post-quantum cryptography and Secure Network users (2026)" ;
+    rdfs:label "Government Resolution No. 185 – Amendment of Resolution No. 818: post-quantum cryptography and Secure Network users (2026)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 185 – Nutarimo Nr. 818 pakeitimas: postkvantinė kriptografija ir Saugiojo tinklo naudotojai (2026)"@lt ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Two major components: (A) Post-quantum cryptography requirements in the Cybersecurity Requirements Description: (1) New point 55.3 – mandatory cryptography inventory at least every 3 years covering algorithms/protocols/encryption tools, their purpose, cryptographic parameters (key lengths, protocol versions, certificate expiry); (2) New point 55.4 – identification of high quantum risk systems meeting at least one of 5 criteria: essential function disruption, national/public security impact, legal liability exposure, data confidentiality required for 10+ years, post-quantum migration taking 8+ years; (3) New technical requirements table point 50¹ for post-quantum cryptography (effective 2031), later restated (effective 2036); (B) Secure State Data Transmission Network users list: amendments to points 54, 146, 289, 319, 333, 349, 425, 439, 475; removal of points 84, 95, 118, 154, 247, 281, 284, 286, 392, 467; addition of points 242¹, 242², 359¹, 387¹. Phased entry: point 1.2.18 effective 2026-04-01; points 1.1.1-1.1.2 (cryptography inventory and high quantum risk identification) effective 2027-01-01; point 1.1.4 (post-quantum technical requirement) effective 2031-01-01; points 1.1.3 and 1.1.5 (final post-quantum requirement) effective 2036-01-01. Tasks: MoD to publish post-quantum cryptography and inventory guidelines by 2026-05-01; essential cybersecurity subjects to complete cryptography inventory, identify high quantum risk systems, and prepare post-quantum migration plan by 2027-05-01. PM Inga Ruginienė, Defence Minister Robertas Kaunas." ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Two major components: (A) Post-quantum cryptography requirements in the Cybersecurity Requirements Description: (1) New point 55.3 – mandatory cryptography inventory at least every 3 years covering algorithms/protocols/encryption tools, their purpose, cryptographic parameters (key lengths, protocol versions, certificate expiry); (2) New point 55.4 – identification of high quantum risk systems meeting at least one of 5 criteria: essential function disruption, national/public security impact, legal liability exposure, data confidentiality required for 10+ years, post-quantum migration taking 8+ years; (3) New technical requirements table point 50¹ for post-quantum cryptography (effective 2031), later restated (effective 2036); (B) Secure State Data Transmission Network users list: amendments to points 54, 146, 289, 319, 333, 349, 425, 439, 475; removal of points 84, 95, 118, 154, 247, 281, 284, 286, 392, 467; addition of points 242¹, 242², 359¹, 387¹. Phased entry: point 1.2.18 effective 2026-04-01; points 1.1.1-1.1.2 (cryptography inventory and high quantum risk identification) effective 2027-01-01; point 1.1.4 (post-quantum technical requirement) effective 2031-01-01; points 1.1.3 and 1.1.5 (final post-quantum requirement) effective 2036-01-01. Tasks: MoD to publish post-quantum cryptography and inventory guidelines by 2026-05-01; essential cybersecurity subjects to complete cryptography inventory, identify high quantum risk systems, and prepare post-quantum migration plan by 2027-05-01. PM Inga Ruginienė, Defence Minister Robertas Kaunas."@en ;
+    rdfs:comment "Keičia Vyriausybės 2018-08-13 nutarimą Nr. 818 dėl Kibernetinio saugumo įstatymo įgyvendinimo. Du pagrindiniai komponentai: (A) Postkvantinės kriptografijos reikalavimai Kibernetinio saugumo reikalavimų apraše: (1) 55.3 p. – privaloma kriptografijos inventorizacija ne rečiau kaip kas 3 metus; (2) 55.4 p. – aukštos kvantinės rizikos sistemų identifikavimas pagal 5 kriterijus; (3) Techninių reikalavimų 50¹ p. postkvantinei kriptografijai (nuo 2031 ir 2036); (B) Saugiojo tinklo naudotojų sąrašo pakeitimai. Etapinis įsigaliojimas: 1.2.18 p. nuo 2026-04-01; 1.1.1-1.1.2 p. nuo 2027-01-01; 1.1.4 p. nuo 2031-01-01; 1.1.3 ir 1.1.5 p. nuo 2036-01-01. Užduotys: KAM paskelbti gaires iki 2026-05-01; esminiai subjektai atlikti inventorizaciją iki 2027-05-01."@lt ;
+    llo:hasDocID "No. 185" ;
+    llo:dateEnacted "2026-03-25"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:hasComponent lld:GovRes-185-2026_Point1 .
+
+lld:GovRes-185-2026_Point1 a llo:Article ;
+    rdfs:label "Point 1 – Amendments to Resolution No. 818" ;
+    rdfs:label "Point 1 – Amendments to Resolution No. 818"@en ;
+    rdfs:label "1 punktas – Nutarimo Nr. 818 pakeitimai"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_PostQuantumCryptography .
+
+lld:Concept_PostQuantumCryptography a llo:LegalConcept ;
+    rdfs:label "Post-quantum cryptography migration requirements with 10-year phased timeline" ;
+    rdfs:label "Post-quantum cryptography migration requirements with 10-year phased timeline"@en ;
+    rdfs:label "Postkvantinės kriptografijos perėjimo reikalavimai su 10 metų etapiniu planu"@lt ;
+    rdfs:comment "Establishes a phased post-quantum cryptography migration framework: (1) From 2027-01-01: mandatory cryptography inventory every 3 years (algorithms, protocols, key lengths, certificate expiry) and identification of high quantum risk systems using 5 criteria (essential function disruption, national security impact, legal liability, 10+ year confidentiality, 8+ year migration time); (2) By 2027-05-01: essential subjects must complete inventory, identify high-risk systems, and prepare migration plans; (3) From 2031-01-01: post-quantum cryptography technical requirements begin; (4) From 2036-01-01: final post-quantum requirements fully effective. MoD must publish post-quantum cryptography guidelines and inventory guidelines by 2026-05-01." ;
+    rdfs:comment "Establishes a phased post-quantum cryptography migration framework: (1) From 2027-01-01: mandatory cryptography inventory every 3 years (algorithms, protocols, key lengths, certificate expiry) and identification of high quantum risk systems using 5 criteria (essential function disruption, national security impact, legal liability, 10+ year confidentiality, 8+ year migration time); (2) By 2027-05-01: essential subjects must complete inventory, identify high-risk systems, and prepare migration plans; (3) From 2031-01-01: post-quantum cryptography technical requirements begin; (4) From 2036-01-01: final post-quantum requirements fully effective. MoD must publish post-quantum cryptography guidelines and inventory guidelines by 2026-05-01."@en ;
+    rdfs:comment "Nustato etapinę postkvantinės kriptografijos perėjimo sistemą: (1) Nuo 2027-01-01: privaloma kriptografijos inventorizacija kas 3 metus ir aukštos kvantinės rizikos sistemų identifikavimas pagal 5 kriterijus; (2) Iki 2027-05-01: esminiai subjektai turi atlikti inventorizaciją, nustatyti rizikos sistemas ir parengti perėjimo planus; (3) Nuo 2031-01-01: postkvantinės kriptografijos techniniai reikalavimai pradeda galioti; (4) Nuo 2036-01-01: galutiniai reikalavimai visiškai įsigalioja. KAM turi paskelbti gaires iki 2026-05-01."@lt ;
+    llo:hasLegalBasis "Points 1.1.1-1.1.5 and 3-4, GovRes 185/2026" .
+
+lld:GovRes-185-2026_Resilience a llo:ResilienceMandate ;
+    rdfs:label "Cryptography inventory and post-quantum migration planning mandate for essential subjects" ;
+    rdfs:label "Cryptography inventory and post-quantum migration planning mandate for essential subjects"@en ;
+    rdfs:label "Kriptografijos inventorizacijos ir postkvantinio perėjimo planavimo mandatas esminiams subjektams"@lt ;
+    llo:hasLegalBasis "Point 3.2, GovRes 185/2026 (deadline 2027-05-01)" .

@@ -1,0 +1,26 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Government Resolution No. 900
+#   Amending Government Resolution No. 818 (Cybersecurity Law
+#   Implementation) – NIS2 preamble update and EU legal acts list
+#   2025-12-10, Vilnius
+#   Prime Minister Inga Ruginienė
+# =================================================================
+
+lld:GovRes-900-2025 a llo:Statute ;
+    rdfs:label "Government Resolution No. 900 – Amendment of Resolution No. 818: NIS2 preamble and EU legal acts list (2025)" ;
+    rdfs:label "Government Resolution No. 900 – Amendment of Resolution No. 818: NIS2 preamble and EU legal acts list (2025)"@en ;
+    rdfs:label "Vyriausybės nutarimas Nr. 900 – Nutarimo Nr. 818 pakeitimas: TIS2 preambulė ir ES teisės aktų sąrašas (2025)"@lt ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Key changes: (1) Updates preamble to reference the NIS2-restated Cybersecurity Law provisions: Art. 1(5), Art. 7(2)(3), Art. 11(6), Art. 14(1)(1) and (2), Art. 28(6), Art. 30(1), Art. 37(1), (2)(3), (4), (6), (8) and (9), and Directive (EU) 2022/2555 (NIS2), replacing the previous NIS1 Directive 2016/1148 reference; (2) Adds new point 1.7 approving the list of EU legal acts meeting at least one criterion under Art. 1(4) of the Cybersecurity Law (sector-specific EU cybersecurity requirements). PM Inga Ruginienė, Defence Minister Robertas Kaunas." ;
+    rdfs:comment "Amends Government Resolution No. 818 of 2018-08-13 implementing the Cybersecurity Law. Key changes: (1) Updates preamble to reference the NIS2-restated Cybersecurity Law provisions: Art. 1(5), Art. 7(2)(3), Art. 11(6), Art. 14(1)(1) and (2), Art. 28(6), Art. 30(1), Art. 37(1), (2)(3), (4), (6), (8) and (9), and Directive (EU) 2022/2555 (NIS2), replacing the previous NIS1 Directive 2016/1148 reference; (2) Adds new point 1.7 approving the list of EU legal acts meeting at least one criterion under Art. 1(4) of the Cybersecurity Law (sector-specific EU cybersecurity requirements). PM Inga Ruginienė, Defence Minister Robertas Kaunas."@en ;
+    rdfs:comment "Keičia Vyriausybės 2018-08-13 nutarimą Nr. 818 dėl Kibernetinio saugumo įstatymo įgyvendinimo. Pagrindiniai pakeitimai: (1) Atnaujina preambulę, nurodant TIS2 redakcijos Kibernetinio saugumo įstatymo nuostatas ir Direktyvą (ES) 2022/2555, pakeičiant ankstesnę TIS1 direktyvos 2016/1148 nuorodą; (2) Prideda naują 1.7 papunktį, patvirtinantį ES teisės aktų, atitinkančių bent vieną Kibernetinio saugumo įstatymo 1 str. 4 d. kriterijų, sąrašą. Ministrė Pirmininkė Inga Ruginienė, krašto apsaugos ministras Robertas Kaunas."@lt ;
+    llo:hasDocID "No. 900" ;
+    llo:dateEnacted "2025-12-10"^^xsd:date ;
+    llo:isPubliclyDisclosed true .

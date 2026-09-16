@@ -1,0 +1,114 @@
+[
+  {
+    "id": "ll-list-all-statutes",
+    "title": "List all enacted statutes",
+    "description": "Returns all statutes with their document ID, enactment date, and label.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?label ?docID ?dateEnacted\nWHERE {\n  ?doc a llo:Statute ;\n       rdfs:label ?label ;\n       llo:hasDocID ?docID .\n  OPTIONAL { ?doc llo:dateEnacted ?dateEnacted . }\n  FILTER(LANG(?label) = \"en\" || LANG(?label) = \"\")\n}\nORDER BY ?dateEnacted"
+  },
+  {
+    "id": "ll-list-all-drafts",
+    "title": "List all legislative drafts",
+    "description": "Returns all legislative drafts with their document ID and label.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?label ?docID ?dateEnacted\nWHERE {\n  ?doc a llo:LegislativeDraft ;\n       rdfs:label ?label ;\n       llo:hasDocID ?docID .\n  OPTIONAL { ?doc llo:dateEnacted ?dateEnacted . }\n  FILTER(LANG(?label) = \"en\" || LANG(?label) = \"\")\n}\nORDER BY ?dateEnacted"
+  },
+  {
+    "id": "ll-document-structure",
+    "title": "Document structure with articles",
+    "description": "Returns the hierarchical structure of a legal document showing its chapters and articles.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?docLabel ?componentLabel ?indexNumber\nWHERE {\n  ?doc a llo:LegalDocument ;\n       rdfs:label ?docLabel ;\n       llo:hasComponent ?component .\n  ?component rdfs:label ?componentLabel ;\n             llo:hasIndexNumber ?indexNumber .\n  FILTER(LANG(?docLabel) = \"en\" || LANG(?docLabel) = \"\")\n  FILTER(LANG(?componentLabel) = \"en\" || LANG(?componentLabel) = \"\")\n}\nORDER BY ?docLabel ?indexNumber"
+  },
+  {
+    "id": "ll-amendments-map",
+    "title": "Amendment relationships between documents",
+    "description": "Shows which documents propose amendments to which statutes.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?amendingLabel ?amendingID ?targetLabel ?targetID\nWHERE {\n  ?amending llo:proposesAmendmentTo ?target ;\n            rdfs:label ?amendingLabel ;\n            llo:hasDocID ?amendingID .\n  ?target rdfs:label ?targetLabel ;\n          llo:hasDocID ?targetID .\n  FILTER(LANG(?amendingLabel) = \"en\" || LANG(?amendingLabel) = \"\")\n  FILTER(LANG(?targetLabel) = \"en\" || LANG(?targetLabel) = \"\")\n}\nORDER BY ?amendingID"
+  },
+  {
+    "id": "ll-eu-directive-transpositions",
+    "title": "EU directive transpositions",
+    "description": "Shows which Lithuanian legal documents transpose which EU directives.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?docLabel ?docID ?directiveLabel\nWHERE {\n  ?doc llo:transposesDirective ?directive ;\n       rdfs:label ?docLabel ;\n       llo:hasDocID ?docID .\n  ?directive rdfs:label ?directiveLabel .\n  FILTER(LANG(?docLabel) = \"en\" || LANG(?docLabel) = \"\")\n  FILTER(LANG(?directiveLabel) = \"en\" || LANG(?directiveLabel) = \"\")\n}\nORDER BY ?docLabel"
+  },
+  {
+    "id": "ll-jurisdiction-authorities",
+    "title": "List all jurisdiction authorities",
+    "description": "Returns all regulatory and enforcement bodies with their governance domains.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?authorityLabel ?domain ?comment\nWHERE {\n  ?auth a llo:JurisdictionAuthority ;\n        rdfs:label ?authorityLabel .\n  OPTIONAL { ?auth llo:hasGovernanceDomain ?domain . }\n  OPTIONAL { ?auth rdfs:comment ?comment . FILTER(LANG(?comment) = \"en\" || LANG(?comment) = \"\") }\n  FILTER(LANG(?authorityLabel) = \"en\" || LANG(?authorityLabel) = \"\")\n}\nORDER BY ?authorityLabel"
+  },
+  {
+    "id": "ll-regulated-entities",
+    "title": "List all regulated entities by type",
+    "description": "Returns regulated entities categorised as essential, important, or critical infrastructure operators.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT ?entityLabel ?type ?isPublicAdmin\nWHERE {\n  ?entity a ?type ;\n          rdfs:label ?entityLabel .\n  ?type rdfs:subClassOf* llo:RegulatedEntity .\n  OPTIONAL { ?entity llo:isPublicAdministration ?isPublicAdmin . }\n  FILTER(LANG(?entityLabel) = \"en\" || LANG(?entityLabel) = \"\")\n  FILTER(?type != llo:RegulatedEntity)\n}\nORDER BY ?type ?entityLabel"
+  },
+  {
+    "id": "ll-governance-relationships",
+    "title": "Authority-to-entity governance map",
+    "description": "Shows which jurisdiction authorities govern which regulated entities.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?authorityLabel ?entityLabel\nWHERE {\n  ?auth llo:governsEntity ?entity ;\n        rdfs:label ?authorityLabel .\n  ?entity rdfs:label ?entityLabel .\n  FILTER(LANG(?authorityLabel) = \"en\" || LANG(?authorityLabel) = \"\")\n  FILTER(LANG(?entityLabel) = \"en\" || LANG(?entityLabel) = \"\")\n}\nORDER BY ?authorityLabel ?entityLabel"
+  },
+  {
+    "id": "ll-risks-and-threats",
+    "title": "List all risks and threats",
+    "description": "Returns all identified risks, threat actors, threat vectors, and vulnerabilities.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT ?riskLabel ?type ?comment\nWHERE {\n  ?risk a ?type ;\n        rdfs:label ?riskLabel .\n  ?type rdfs:subClassOf* llo:RiskThreat .\n  OPTIONAL { ?risk rdfs:comment ?comment . FILTER(LANG(?comment) = \"en\" || LANG(?comment) = \"\") }\n  FILTER(LANG(?riskLabel) = \"en\" || LANG(?riskLabel) = \"\")\n  FILTER(?type != llo:RiskThreat)\n}\nORDER BY ?type ?riskLabel"
+  },
+  {
+    "id": "ll-hostile-actor-vectors",
+    "title": "Hostile actors and their threat vectors",
+    "description": "Shows which threat vectors are utilised by which hostile actors.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?actorLabel ?vectorLabel\nWHERE {\n  ?actor a llo:HostileActor ;\n         rdfs:label ?actorLabel ;\n         llo:utilizesVector ?vector .\n  ?vector rdfs:label ?vectorLabel .\n  FILTER(LANG(?actorLabel) = \"en\" || LANG(?actorLabel) = \"\")\n  FILTER(LANG(?vectorLabel) = \"en\" || LANG(?vectorLabel) = \"\")\n}\nORDER BY ?actorLabel ?vectorLabel"
+  },
+  {
+    "id": "ll-resilience-mandates",
+    "title": "List all resilience mandates",
+    "description": "Returns all resilience mandates including continuity protocols, strategic decoupling, and supply chain restrictions.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT ?mandateLabel ?type ?legalBasis ?comment\nWHERE {\n  ?mandate a ?type ;\n           rdfs:label ?mandateLabel .\n  ?type rdfs:subClassOf* llo:ResilienceMandate .\n  OPTIONAL { ?mandate llo:hasLegalBasis ?legalBasis . }\n  OPTIONAL { ?mandate rdfs:comment ?comment . FILTER(LANG(?comment) = \"en\" || LANG(?comment) = \"\") }\n  FILTER(LANG(?mandateLabel) = \"en\" || LANG(?mandateLabel) = \"\")\n}\nORDER BY ?type ?mandateLabel"
+  },
+  {
+    "id": "ll-financial-penalties",
+    "title": "Financial penalties and turnover caps",
+    "description": "Returns all financial penalties with their maximum turnover percentage caps.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?penaltyLabel ?maxTurnover ?legalBasis\nWHERE {\n  ?penalty a llo:FinancialPenalty ;\n           rdfs:label ?penaltyLabel .\n  OPTIONAL { ?penalty llo:hasMaxTurnoverPercentage ?maxTurnover . }\n  OPTIONAL { ?penalty llo:hasLegalBasis ?legalBasis . }\n  FILTER(LANG(?penaltyLabel) = \"en\" || LANG(?penaltyLabel) = \"\")\n}\nORDER BY DESC(?maxTurnover)"
+  },
+  {
+    "id": "ll-enforcement-mechanisms",
+    "title": "All enforcement and liability mechanisms",
+    "description": "Returns all liability and enforcement mechanisms including financial penalties, executive liability, and operational sanctions.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\nSELECT ?mechanismLabel ?type ?isPersonal ?comment\nWHERE {\n  ?mechanism a ?type ;\n             rdfs:label ?mechanismLabel .\n  ?type rdfs:subClassOf* llo:LiabilityEnforcement .\n  OPTIONAL { ?mechanism llo:isPersonalHazard ?isPersonal . }\n  OPTIONAL { ?mechanism rdfs:comment ?comment . FILTER(LANG(?comment) = \"en\" || LANG(?comment) = \"\") }\n  FILTER(LANG(?mechanismLabel) = \"en\" || LANG(?mechanismLabel) = \"\")\n  FILTER(?type != llo:LiabilityEnforcement)\n}\nORDER BY ?type ?mechanismLabel"
+  },
+  {
+    "id": "ll-civic-rights",
+    "title": "Civic rights and liberties",
+    "description": "Returns all civic rights guaranteed by statutes.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?rightLabel ?statuteLabel ?comment\nWHERE {\n  ?statute llo:guaranteesRightTo ?right ;\n           rdfs:label ?statuteLabel .\n  ?right rdfs:label ?rightLabel .\n  OPTIONAL { ?right rdfs:comment ?comment . FILTER(LANG(?comment) = \"en\" || LANG(?comment) = \"\") }\n  FILTER(LANG(?rightLabel) = \"en\" || LANG(?rightLabel) = \"\")\n  FILTER(LANG(?statuteLabel) = \"en\" || LANG(?statuteLabel) = \"\")\n}\nORDER BY ?rightLabel"
+  },
+  {
+    "id": "ll-incident-response-windows",
+    "title": "Incident triggers and response windows",
+    "description": "Returns all incident triggers with their mandatory response windows and emergency limits.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?triggerLabel ?responseWindow ?emergencyLimit ?isExtraordinary\nWHERE {\n  ?trigger a llo:IncidentTrigger ;\n           rdfs:label ?triggerLabel .\n  OPTIONAL { ?trigger llo:hasResponseWindow ?responseWindow . }\n  OPTIONAL { ?trigger llo:hasEmergencyLimit ?emergencyLimit . }\n  OPTIONAL { ?trigger llo:isExtraordinaryPower ?isExtraordinary . }\n  FILTER(LANG(?triggerLabel) = \"en\" || LANG(?triggerLabel) = \"\")\n}\nORDER BY ?triggerLabel"
+  },
+  {
+    "id": "ll-supply-chain-restrictions",
+    "title": "Supply chain geographic restrictions",
+    "description": "Returns supply chain restrictions with prohibited geographic origins.",
+    "language": "sparql",
+    "query": "PREFIX llo: <http://trustgraph.ai/ontologies/lithuanian-legal#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?restrictionLabel ?prohibitedOrigin ?legalBasis\nWHERE {\n  ?restriction a llo:SupplyChainRestriction ;\n               rdfs:label ?restrictionLabel .\n  OPTIONAL { ?restriction llo:prohibitsGeopoliticalOrigin ?prohibitedOrigin . }\n  OPTIONAL { ?restriction llo:hasLegalBasis ?legalBasis . }\n  FILTER(LANG(?restrictionLabel) = \"en\" || LANG(?restrictionLabel) = \"\")\n}\nORDER BY ?restrictionLabel"
+  }
+]

@@ -1,0 +1,330 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix llo: <http://trustgraph.ai/ontologies/lithuanian-legal#> .
+@prefix lld: <http://trustgraph.ai/data/lithuanian-legal#> .
+
+# =================================================================
+# ABox Instances extracted from:
+#   Amendment to the Cybersecurity Law No. XII-1428
+#   Amending Articles 1, 2, 5, 6, 8, 12 and
+#   Adding Chapter VII (Articles 21-26)
+#   No. XIV-2438, enacted 2023-12-21, Vilnius
+#   Signed by President Gitanas Nausėda
+#   Effective 2024-01-01
+# =================================================================
+
+
+# =================================================================
+# SECTION 1: THE AMENDING STATUTE
+# =================================================================
+
+lld:XIV-2438 a llo:Statute ;
+    rdfs:label "Amendment to Cybersecurity Law – State Information Resource Security (No. XIV-2438)" ;
+    rdfs:label "Amendment to Cybersecurity Law – State Information Resource Security (No. XIV-2438)"@en ;
+    rdfs:label "Kibernetinio saugumo įstatymo Nr. XII-1428 1, 2, 5, 6, 8, 12 straipsnių pakeitimo ir įstatymo papildymo VII skyriumi įstatymas (Nr. XIV-2438)"@lt ;
+    rdfs:comment "Introduces a comprehensive state information resource security framework by adding new Chapter VII (Articles 21-26) to the Cybersecurity Law. Defines the Secure State Data Transmission Network (Saugusis tinklas) – a state-managed independent electronic communications network with special security requirements. Establishes mandatory security officers (saugos įgaliotinis), triennial security audits by internationally certified auditors, compliance monitoring systems, data centre usage rules for intelligence institutions (domestic or EU/EEA/NATO centres), and employee electronic information secrecy obligations. Expands NKSC powers to include state information resource security assurance, compliance monitoring, consulting, and security assessments. Government now approves general electronic information security requirements." ;
+    rdfs:comment "Introduces a comprehensive state information resource security framework by adding new Chapter VII (Articles 21-26) to the Cybersecurity Law. Defines the Secure State Data Transmission Network (Saugusis tinklas) – a state-managed independent electronic communications network with special security requirements. Establishes mandatory security officers (saugos įgaliotinis), triennial security audits by internationally certified auditors, compliance monitoring systems, data centre usage rules for intelligence institutions (domestic or EU/EEA/NATO centres), and employee electronic information secrecy obligations. Expands NKSC powers to include state information resource security assurance, compliance monitoring, consulting, and security assessments. Government now approves general electronic information security requirements."@en ;
+    rdfs:comment "Įveda visapusišką valstybės informacinių išteklių saugos sistemą, papildant Kibernetinio saugumo įstatymą nauju VII skyriumi (21-26 straipsniai). Apibrėžia Saugųjį valstybinį duomenų perdavimo tinklą (Saugusis tinklas) – valstybės valdomą nepriklausomą elektroninių ryšių tinklą su specialiais saugos reikalavimais. Nustato privalomus saugos įgaliotinius, trejų metų periodiškumo saugos auditus, atliekamus tarptautiškai sertifikuotų nepriklausomų auditorių, atitikties stebėsenos sistemas, duomenų centrų naudojimo taisykles žvalgybos institucijoms (šalies arba ES/EEE/NATO centrų) ir darbuotojų elektroninės informacijos paslapties saugojimo pareigas. Išplečia NKSC įgaliojimus, apimant valstybės informacinių išteklių saugos užtikrinimą, atitikties stebėseną, konsultavimą ir saugos vertinimus. Vyriausybė nuo šiol tvirtina bendruosius elektroninės informacijos saugos reikalavimus."@lt ;
+    llo:hasDocID "No. XIV-2438" ;
+    llo:dateEnacted "2023-12-21"^^xsd:date ;
+    llo:isPubliclyDisclosed true ;
+    llo:proposesAmendmentTo lld:XII-1428 ;
+    llo:hasComponent lld:XIV-2438_Art1 ,
+                     lld:XIV-2438_Art2 ,
+                     lld:XIV-2438_Art3 ,
+                     lld:XIV-2438_Art4 ,
+                     lld:XIV-2438_Art5 ,
+                     lld:XIV-2438_Art6 ,
+                     lld:XIV-2438_Art7 ,
+                     lld:XIV-2438_Art8 .
+
+
+# =================================================================
+# SECTION 2: DOCUMENT STRUCTURE – ARTICLES
+# =================================================================
+
+lld:XIV-2438_Art1 a llo:Article ;
+    rdfs:label "Article 1 – Amendment of Article 1 (Scope)" ;
+    rdfs:label "Article 1 – Amendment of Article 1 (Scope)"@en ;
+    rdfs:label "1 straipsnis – 1 straipsnio pakeitimas (paskirtis)"@lt ;
+    llo:hasIndexNumber 1 ;
+    llo:codifiesConcept lld:Concept_ScopeStateInfoSecurity .
+
+lld:XIV-2438_Art2 a llo:Article ;
+    rdfs:label "Article 2 – Amendment of Article 2 (Definitions)" ;
+    rdfs:label "Article 2 – Amendment of Article 2 (Definitions)"@en ;
+    rdfs:label "2 straipsnis – 2 straipsnio pakeitimas (sąvokos)"@lt ;
+    llo:hasIndexNumber 2 ;
+    llo:codifiesConcept lld:Concept_SecureNetworkDefinition .
+
+lld:XIV-2438_Art3 a llo:Article ;
+    rdfs:label "Article 3 – Amendment of Article 5 (Government Powers)" ;
+    rdfs:label "Article 3 – Amendment of Article 5 (Government Powers)"@en ;
+    rdfs:label "3 straipsnis – 5 straipsnio pakeitimas (Vyriausybės įgaliojimai)"@lt ;
+    llo:hasIndexNumber 3 ;
+    llo:codifiesConcept lld:Concept_GovInfoSecurityApproval .
+
+lld:XIV-2438_Art4 a llo:Article ;
+    rdfs:label "Article 4 – Amendment of Article 6 (MoD Powers)" ;
+    rdfs:label "Article 4 – Amendment of Article 6 (MoD Powers)"@en ;
+    rdfs:label "4 straipsnis – 6 straipsnio pakeitimas (KAM įgaliojimai)"@lt ;
+    llo:hasIndexNumber 4 ;
+    llo:codifiesConcept lld:Concept_MoD_SecureNetworkManagement .
+
+lld:XIV-2438_Art5 a llo:Article ;
+    rdfs:label "Article 5 – Amendment of Article 8 (NKSC Powers)" ;
+    rdfs:label "Article 5 – Amendment of Article 8 (NKSC Powers)"@en ;
+    rdfs:label "5 straipsnis – 8 straipsnio pakeitimas (NKSC įgaliojimai)"@lt ;
+    llo:hasIndexNumber 5 ;
+    llo:codifiesConcept lld:Concept_NKSC_StateInfoSecurityPowers .
+
+lld:XIV-2438_Art6 a llo:Article ;
+    rdfs:label "Article 6 – Amendment of Article 12 (Subject Duties)" ;
+    rdfs:label "Article 6 – Amendment of Article 12 (Subject Duties)"@en ;
+    rdfs:label "6 straipsnis – 12 straipsnio pakeitimas (subjektų pareigos)"@lt ;
+    llo:hasIndexNumber 6 ;
+    llo:codifiesConcept lld:Concept_BudgetPlanningDuty .
+
+lld:XIV-2438_Art7 a llo:Article ;
+    rdfs:label "Article 7 – Addition of Chapter VII (State Information Resource Security)" ;
+    rdfs:label "Article 7 – Addition of Chapter VII (State Information Resource Security)"@en ;
+    rdfs:label "7 straipsnis – Įstatymo papildymas VII skyriumi (valstybės informacinių išteklių sauga)"@lt ;
+    llo:hasIndexNumber 7 ;
+    llo:codifiesConcept lld:Concept_StateInfoResourceSecurity .
+
+lld:XIV-2438_Art8 a llo:Article ;
+    rdfs:label "Article 8 – Entry into Force and Application" ;
+    rdfs:label "Article 8 – Entry into Force and Application"@en ;
+    rdfs:label "8 straipsnis – Įstatymo įsigaliojimas ir taikymas"@lt ;
+    llo:hasIndexNumber 8 .
+
+
+# =================================================================
+# SECTION 3: NEW CHAPTER VII – STRUCTURE
+# =================================================================
+
+lld:XIV-2438_Ch7 a llo:Chapter ;
+    rdfs:label "Chapter VII – State Information Resource Security" ;
+    rdfs:label "Chapter VII – State Information Resource Security"@en ;
+    rdfs:label "VII skyrius – Valstybės informacinių išteklių sauga"@lt ;
+    llo:hasIndexNumber 7 ;
+    llo:hasComponent lld:XIV-2438_S21 ,
+                     lld:XIV-2438_S22 ,
+                     lld:XIV-2438_S23 ,
+                     lld:XIV-2438_S24 ,
+                     lld:XIV-2438_S25 ,
+                     lld:XIV-2438_S26 .
+
+lld:XIV-2438_S21 a llo:Article ;
+    rdfs:label "Article 21 – Ensuring State Information Resource Security" ;
+    rdfs:label "Article 21 – Ensuring State Information Resource Security"@en ;
+    rdfs:label "21 straipsnis – Valstybės informacinių išteklių saugos užtikrinimas"@lt ;
+    llo:hasIndexNumber 21 ;
+    llo:codifiesConcept lld:Concept_SecurityAssurance .
+
+lld:XIV-2438_S22 a llo:Article ;
+    rdfs:label "Article 22 – Security Officer (Saugos įgaliotinis)" ;
+    rdfs:label "Article 22 – Security Officer (Saugos įgaliotinis)"@en ;
+    rdfs:label "22 straipsnis – Saugos įgaliotinis"@lt ;
+    llo:hasIndexNumber 22 ;
+    llo:codifiesConcept lld:Concept_SecurityOfficer .
+
+lld:XIV-2438_S23 a llo:Article ;
+    rdfs:label "Article 23 – Compliance Monitoring for Electronic Information Security" ;
+    rdfs:label "Article 23 – Compliance Monitoring for Electronic Information Security"@en ;
+    rdfs:label "23 straipsnis – Valstybės informacinių išteklių atitikties elektroninės informacijos saugos reikalavimams stebėsena"@lt ;
+    llo:hasIndexNumber 23 ;
+    llo:codifiesConcept lld:Concept_ComplianceMonitoring .
+
+lld:XIV-2438_S24 a llo:Article ;
+    rdfs:label "Article 24 – State Information Resource Security Assessment" ;
+    rdfs:label "Article 24 – State Information Resource Security Assessment"@en ;
+    rdfs:label "24 straipsnis – Valstybės informacinių išteklių saugos vertinimas"@lt ;
+    llo:hasIndexNumber 24 ;
+    llo:codifiesConcept lld:Concept_TriennialSecurityAudit .
+
+lld:XIV-2438_S25 a llo:Article ;
+    rdfs:label "Article 25 – Secure Network (Saugusis tinklas)" ;
+    rdfs:label "Article 25 – Secure Network (Saugusis tinklas)"@en ;
+    rdfs:label "25 straipsnis – Saugusis tinklas"@lt ;
+    llo:hasIndexNumber 25 ;
+    llo:codifiesConcept lld:Concept_SecureNetwork .
+
+lld:XIV-2438_S26 a llo:Article ;
+    rdfs:label "Article 26 – Data Centre Usage" ;
+    rdfs:label "Article 26 – Data Centre Usage"@en ;
+    rdfs:label "26 straipsnis – Duomenų centrų naudojimas"@lt ;
+    llo:hasIndexNumber 26 ;
+    llo:codifiesConcept lld:Concept_DataCentreUsage .
+
+
+# =================================================================
+# SECTION 4: LEGAL CONCEPTS – SCOPE AND DEFINITIONS
+# =================================================================
+
+lld:Concept_ScopeStateInfoSecurity a llo:LegalConcept ;
+    rdfs:label "Law scope expanded to include state information resource security requirements" ;
+    rdfs:label "Law scope expanded to include state information resource security requirements"@en ;
+    rdfs:label "Įstatymo paskirtis išplėsta, įtraukiant valstybės informacinių išteklių saugos reikalavimus"@lt ;
+    rdfs:comment "Article 1(1) restated to add 'state information resource security requirements' (valstybės informacinių išteklių saugos reikalavimus) to the enumerated purposes of the Cybersecurity Law." ;
+    rdfs:comment "Article 1(1) restated to add 'state information resource security requirements' (valstybės informacinių išteklių saugos reikalavimus) to the enumerated purposes of the Cybersecurity Law."@en ;
+    rdfs:comment "1 straipsnio 1 dalis išdėstyta iš naujo, papildant Kibernetinio saugumo įstatymo tikslus 'valstybės informacinių išteklių saugos reikalavimais'."@lt ;
+    llo:hasLegalBasis "Art. 1, XIV-2438 (amending Art. 1(1), XII-1428)" .
+
+lld:Concept_SecureNetworkDefinition a llo:LegalConcept ;
+    rdfs:label "Definition of Secure State Data Transmission Network" ;
+    rdfs:label "Definition of Secure State Data Transmission Network"@en ;
+    rdfs:label "Saugiojo valstybinio duomenų perdavimo tinklo sąvokos apibrėžtis"@lt ;
+    rdfs:comment "New Article 2(15¹): 'Secure State Data Transmission Network' (Saugusis tinklas) – a state-managed electronic communications network meeting special organisational and technical requirements and independent from public electronic communications networks." ;
+    rdfs:comment "New Article 2(15¹): 'Secure State Data Transmission Network' (Saugusis tinklas) – a state-managed electronic communications network meeting special organisational and technical requirements and independent from public electronic communications networks."@en ;
+    rdfs:comment "Naujas 2 straipsnio 15¹ dalis: 'Saugusis valstybinis duomenų perdavimo tinklas' (toliau – Saugusis tinklas) – valstybės valdomas specialiuosius organizacinius ir techninius reikalavimus atitinkantis ir nuo viešųjų elektroninių ryšių tinklų nepriklausomas elektroninių ryšių tinklas."@lt ;
+    llo:hasLegalBasis "Art. 2, XIV-2438 (adding Art. 2(15¹), XII-1428)" .
+
+
+# =================================================================
+# SECTION 5: LEGAL CONCEPTS – INSTITUTIONAL CHANGES
+# =================================================================
+
+lld:Concept_GovInfoSecurityApproval a llo:LegalConcept ;
+    rdfs:label "Government approves general electronic information security requirements" ;
+    rdfs:label "Government approves general electronic information security requirements"@en ;
+    rdfs:label "Vyriausybė tvirtina bendruosius elektroninės informacijos saugos reikalavimus"@lt ;
+    rdfs:comment "New Article 5(6): Government approves the general description of electronic information security requirements, security document content guidelines for subjects managing and/or processing state information resources as designated in the State Information Resource Management Law." ;
+    rdfs:comment "New Article 5(6): Government approves the general description of electronic information security requirements, security document content guidelines for subjects managing and/or processing state information resources as designated in the State Information Resource Management Law."@en ;
+    rdfs:comment "Naujas 5 straipsnio 6 punktas: Vyriausybė tvirtina bendrųjų elektroninės informacijos saugos reikalavimų aprašą, saugos dokumentų turinio gairių aprašą subjektams, valdantiems ir (arba) tvarkantiems valstybės informacinius išteklius pagal Valstybės informacinių išteklių valdymo įstatymą."@lt ;
+    llo:hasLegalBasis "Art. 3, XIV-2438 (adding Art. 5(6), XII-1428)" .
+
+lld:Concept_MoD_SecureNetworkManagement a llo:LegalConcept ;
+    rdfs:label "MoD submits security requirements and manages Secure Network" ;
+    rdfs:label "MoD submits security requirements and manages Secure Network"@en ;
+    rdfs:label "KAM teikia saugos reikalavimus ir valdo Saugųjį tinklą"@lt ;
+    rdfs:comment "Amended Article 6: MoD now (5¹) submits to Government for approval the general electronic information security requirements description and security document content guidelines for state information resource subjects; and (11¹) manages the Secure Network." ;
+    rdfs:comment "Amended Article 6: MoD now (5¹) submits to Government for approval the general electronic information security requirements description and security document content guidelines for state information resource subjects; and (11¹) manages the Secure Network."@en ;
+    rdfs:comment "Pakeistas 6 straipsnis: KAM nuo šiol (5¹) teikia Vyriausybei tvirtinti bendrųjų elektroninės informacijos saugos reikalavimų aprašą ir saugos dokumentų turinio gairių aprašą valstybės informacinių išteklių subjektams; ir (11¹) valdo Saugųjį tinklą."@lt ;
+    llo:hasLegalBasis "Art. 4, XIV-2438 (amending Art. 6, XII-1428)" .
+
+lld:Concept_NKSC_StateInfoSecurityPowers a llo:LegalConcept ;
+    rdfs:label "NKSC state information resource security powers" ;
+    rdfs:label "NKSC state information resource security powers"@en ;
+    rdfs:label "NKSC valstybės informacinių išteklių saugos įgaliojimai"@lt ;
+    rdfs:comment "Amended Article 8: NKSC preamble expanded to include 'ensuring state information resource security within its competence'. New functions: (16²) monitors compliance of state information resources with electronic information security requirements established by law; (16³) coordinates legal acts and security document projects related to state information resource security; (16⁴) consults subjects managing and/or processing state information resources on security matters; (16⁵) organises state information resource security assessments." ;
+    rdfs:comment "Amended Article 8: NKSC preamble expanded to include 'ensuring state information resource security within its competence'. New functions: (16²) monitors compliance of state information resources with electronic information security requirements established by law; (16³) coordinates legal acts and security document projects related to state information resource security; (16⁴) consults subjects managing and/or processing state information resources on security matters; (16⁵) organises state information resource security assessments."@en ;
+    rdfs:comment "Pakeistas 8 straipsnis: NKSC preambulė papildyta 'užtikrinamas valstybės informacinių išteklių saugą, pagal kompetenciją'. Naujos funkcijos: (16²) atlieka valstybės informacinių išteklių atitikties teisės aktų nustatytiems elektroninės informacijos saugos reikalavimams stebėseną; (16³) derina su valstybės informacinių išteklių sauga susijusių teisės aktų ir saugos dokumentų projektus; (16⁴) konsultuoja subjektus, valdančius ir (arba) tvarkančius valstybės informacinius išteklius, valstybės informacinių išteklių saugos klausimais; (16⁵) organizuoja valstybės informacinių išteklių saugos vertinimą."@lt ;
+    llo:hasLegalBasis "Art. 5, XIV-2438 (amending Art. 8, XII-1428)" .
+
+lld:Concept_BudgetPlanningDuty a llo:LegalConcept ;
+    rdfs:label "Mandatory budget planning for state information resource security" ;
+    rdfs:label "Mandatory budget planning for state information resource security"@en ;
+    rdfs:label "Privalomas biudžeto planavimas valstybės informacinių išteklių saugai"@lt ;
+    rdfs:comment "Amended Article 12(2): subjects managing state information resources must not only provide NKSC access for technical cybersecurity measures, but also plan budget allocations corresponding to Government or its authorised institution's security requirements, allocate necessary funds, ensure funding adequacy, take action when planned funds are allocated, and monitor how allocated funds are used." ;
+    rdfs:comment "Amended Article 12(2): subjects managing state information resources must not only provide NKSC access for technical cybersecurity measures, but also plan budget allocations corresponding to Government or its authorised institution's security requirements, allocate necessary funds, ensure funding adequacy, take action when planned funds are allocated, and monitor how allocated funds are used."@en ;
+    rdfs:comment "Pakeistas 12 straipsnio 2 dalis: subjektai, valdantys valstybės informacinius išteklius, privalo ne tik sudaryti NKSC sąlygas techninėms kibernetinio saugumo priemonėms, bet ir planuoti Vyriausybės ar jos įgaliotos institucijos nustatytiems saugos reikalavimams atitinkamus biudžeto asignavimus, skirti reikalingas lėšas, užtikrinti finansavimo pakankamumą, imtis veiksmų suplanuotoms lėšoms panaudoti ir kontroliuoti, kaip skirtos lėšos panaudojamos."@lt ;
+    llo:hasLegalBasis "Art. 6, XIV-2438 (amending Art. 12(2), XII-1428)" .
+
+
+# =================================================================
+# SECTION 6: CHAPTER VII LEGAL CONCEPTS
+# =================================================================
+
+lld:Concept_StateInfoResourceSecurity a llo:LegalConcept ;
+    rdfs:label "Comprehensive state information resource security framework" ;
+    rdfs:label "Comprehensive state information resource security framework"@en ;
+    rdfs:label "Visapusiška valstybės informacinių išteklių saugos sistema"@lt ;
+    rdfs:comment "New Chapter VII establishes a complete security governance framework for state information resources across six articles covering: security assurance measures and security documents (Art. 21), security officer appointments (Art. 22), compliance monitoring (Art. 23), triennial security audits (Art. 24), the Secure State Data Transmission Network (Art. 25), and data centre usage for intelligence institutions (Art. 26)." ;
+    rdfs:comment "New Chapter VII establishes a complete security governance framework for state information resources across six articles covering: security assurance measures and security documents (Art. 21), security officer appointments (Art. 22), compliance monitoring (Art. 23), triennial security audits (Art. 24), the Secure State Data Transmission Network (Art. 25), and data centre usage for intelligence institutions (Art. 26)."@en ;
+    rdfs:comment "Naujas VII skyrius nustato visapusišką valstybės informacinių išteklių saugos valdymo sistemą šešiuose straipsniuose: saugos užtikrinimo priemonės ir saugos dokumentai (21 str.), saugos įgaliotinių skyrimas (22 str.), atitikties stebėsena (23 str.), trejų metų periodiškumo saugos auditai (24 str.), Saugusis valstybinis duomenų perdavimo tinklas (25 str.) ir duomenų centrų naudojimas žvalgybos institucijoms (26 str.)."@lt ;
+    llo:hasLegalBasis "Art. 7, XIV-2438 (adding Chapter VII, XII-1428)" .
+
+lld:Concept_SecurityAssurance a llo:LegalConcept ;
+    rdfs:label "State information resource security assurance obligations" ;
+    rdfs:label "State information resource security assurance obligations"@en ;
+    rdfs:label "Valstybės informacinių išteklių saugos užtikrinimo pareigos"@lt ;
+    rdfs:comment "Article 21: (1) Subjects must implement mandatory security measures to ensure electronic information accuracy and protect against accidental or unlawful destruction, alteration, damage, disclosure, unauthorised access, or other unlawful processing; (2) Subjects prepare, coordinate, and approve security documents following Government-approved guidelines, with system owners permitted to approve common documents for all systems under their management (recommended to follow recognised standardisation standards); (3) Data responsibility for information system data rests with the managing/processing subjects; (4) State employees and contractors handling data in information systems must maintain electronic information secrecy, including any digital expressions, documents, copies, audio/video recordings, and personal data – obligation continues after employment ends; (5) Personal data security ensured under GDPR (EU) 2016/679 and Lithuanian data protection law; (6) Security measures information and vulnerability data are not publicly disclosed – access only as established by law." ;
+    rdfs:comment "Article 21: (1) Subjects must implement mandatory security measures to ensure electronic information accuracy and protect against accidental or unlawful destruction, alteration, damage, disclosure, unauthorised access, or other unlawful processing; (2) Subjects prepare, coordinate, and approve security documents following Government-approved guidelines, with system owners permitted to approve common documents for all systems under their management (recommended to follow recognised standardisation standards); (3) Data responsibility for information system data rests with the managing/processing subjects; (4) State employees and contractors handling data in information systems must maintain electronic information secrecy, including any digital expressions, documents, copies, audio/video recordings, and personal data – obligation continues after employment ends; (5) Personal data security ensured under GDPR (EU) 2016/679 and Lithuanian data protection law; (6) Security measures information and vulnerability data are not publicly disclosed – access only as established by law."@en ;
+    rdfs:comment "21 straipsnis: (1) Subjektai privalo įgyvendinti privalomas saugos priemones elektroninės informacijos tikslumui užtikrinti ir apsaugoti nuo atsitiktinio ar neteisėto sunaikinimo, pakeitimo, sugadinimo, atskleidimo, neteisėto pasiekimo ar kitokio neteisėto tvarkymo; (2) Subjektai rengia, derina ir tvirtina saugos dokumentus, vadovaudamiesi Vyriausybės patvirtintomis gairėmis; (3) Atsakomybė už duomenis tenka valdantiems/tvarkantiems subjektams; (4) Valstybės tarnautojai ir darbuotojai privalo saugoti elektroninės informacijos paslaptį, pareiga galioja ir pasibaigus darbo santykiams; (5) Asmens duomenų sauga užtikrinama pagal BDAR; (6) Saugos priemonių informacija neskelbiama viešai."@lt ;
+    llo:hasLegalBasis "Art. 21, XII-1428 (as amended by XIV-2438)" .
+
+lld:Concept_SecurityOfficer a llo:LegalConcept ;
+    rdfs:label "Mandatory security officer (saugos įgaliotinis) for state information resources" ;
+    rdfs:label "Mandatory security officer (saugos įgaliotinis) for state information resources"@en ;
+    rdfs:label "Privalomas saugos įgaliotinis valstybės informaciniams ištekliams"@lt ;
+    rdfs:comment "Article 22: (1) The security officer is responsible for implementing security requirements and performing security functions established in system statutes and other legal acts; (2) Appointed per information system statutes or delegated by the system owner to the system processor; a single officer may be appointed for multiple systems; (3) Must not have an unspent criminal conviction for crimes against electronic data and information systems security, and must not have received an administrative penalty for data protection violations, ECN usage rule violations, network interference, unauthorised network attachment, or ECN infrastructure damage – within one year of penalty imposition." ;
+    rdfs:comment "Article 22: (1) The security officer is responsible for implementing security requirements and performing security functions established in system statutes and other legal acts; (2) Appointed per information system statutes or delegated by the system owner to the system processor; a single officer may be appointed for multiple systems; (3) Must not have an unspent criminal conviction for crimes against electronic data and information systems security, and must not have received an administrative penalty for data protection violations, ECN usage rule violations, network interference, unauthorised network attachment, or ECN infrastructure damage – within one year of penalty imposition."@en ;
+    rdfs:comment "22 straipsnis: (1) Saugos įgaliotinis atsako už saugos reikalavimų vykdymą ir saugą reglamentuojančiuose teisės aktuose nustatytas funkcijas; (2) Skiriamas pagal informacinės sistemos nuostatus arba sistemos valdytojas paveda tvarkytojui; galima skirti vieną įgaliotinį kelioms sistemoms; (3) Negali turėti neišnykusio teistumo už nusikaltimus elektroninių duomenų ir informacinių sistemų saugumui, negali turėti administracinės nuobaudos už duomenų apsaugos, elektroninių ryšių taisyklių pažeidimus per paskutinius metus."@lt ;
+    llo:hasLegalBasis "Art. 22, XII-1428 (as amended by XIV-2438)" .
+
+lld:Concept_ComplianceMonitoring a llo:LegalConcept ;
+    rdfs:label "Continuous compliance monitoring for electronic information security" ;
+    rdfs:label "Continuous compliance monitoring for electronic information security"@en ;
+    rdfs:label "Nuolatinė elektroninės informacijos saugos atitikties stebėsena"@lt ;
+    rdfs:comment "Article 23: Subjects managing state information resources (except classified information processing) must provide data to the compliance monitoring system on organisational and technical cybersecurity requirements and electronic information security requirements applicable to their managed/processed state information resources." ;
+    rdfs:comment "Article 23: Subjects managing state information resources (except classified information processing) must provide data to the compliance monitoring system on organisational and technical cybersecurity requirements and electronic information security requirements applicable to their managed/processed state information resources."@en ;
+    rdfs:comment "23 straipsnis: Subjektai, valdantys valstybės informacinius išteklius (išskyrus įslaptintos informacijos tvarkymą), privalo teikti atitikties stebėsenos sistemoje duomenis apie organizacinius ir techninius kibernetinio saugumo reikalavimus ir elektroninės informacijos saugos reikalavimus, taikomus jų valdomiems ir (arba) tvarkantiems valstybės informaciniams ištekliams."@lt ;
+    llo:hasLegalBasis "Art. 23, XII-1428 (as amended by XIV-2438)" .
+
+lld:Concept_TriennialSecurityAudit a llo:LegalConcept ;
+    rdfs:label "Triennial security audit for state information resources" ;
+    rdfs:label "Triennial security audit for state information resources"@en ;
+    rdfs:label "Trejų metų periodiškumo valstybės informacinių išteklių saugos auditas"@lt ;
+    rdfs:comment "Article 24: (1) When assessing critically important and important state information resources – and if medium or low importance resources are simultaneously managed – all are included in the security audit. Audits conducted at least once every 3 years. (2) Audits performed by universally internationally certified independent information system auditors or specialists holding such certificates, who may not be tasked with assessing their own managed/processed resources." ;
+    rdfs:comment "Article 24: (1) When assessing critically important and important state information resources – and if medium or low importance resources are simultaneously managed – all are included in the security audit. Audits conducted at least once every 3 years. (2) Audits performed by universally internationally certified independent information system auditors or specialists holding such certificates, who may not be tasked with assessing their own managed/processed resources."@en ;
+    rdfs:comment "24 straipsnis: (1) Vertinant ypatingos svarbos ir svarbių valstybės informacinių išteklių saugą, o jeigu kartu yra tvarkomi vidutinės ir (ar) mažos svarbos ištekliai, į saugos auditą įtraukiami ir šie ištekliai. Auditai atliekami ne rečiau kaip kartą per 3 metus. (2) Auditus atlieka visuotinai tarptautinių organizacijų sertifikuoti nepriklausomi informacinių sistemų auditoriai arba tokius sertifikatus turintys specialistai, kuriems negali būti pavedama vertinti savo valdomų ir (arba) tvarkomų išteklių saugos."@lt ;
+    llo:hasLegalBasis "Art. 24, XII-1428 (as amended by XIV-2438)" .
+
+lld:Concept_SecureNetwork a llo:LegalConcept ;
+    rdfs:label "Secure State Data Transmission Network (Saugusis tinklas)" ;
+    rdfs:label "Secure State Data Transmission Network (Saugusis tinklas)"@en ;
+    rdfs:label "Saugusis valstybinis duomenų perdavimo tinklas (Saugusis tinklas)"@lt ;
+    rdfs:comment "Article 25: (1) State and municipal institutions must use only the Secure Network for electronic communications services, connecting to public ECN only through the Secure Network – except when ECN services are needed for intelligence gathering or when technical impossibility exists (requiring Government authorisation for non-Secure connections); (2) User list criteria include: managing vital state information resources, performing vital state/mobilisation functions, being named essential for national security/defence by authorised Government institution, needing EU/EEA/NATO data centre access; (3) Managed by MoD-authorised state budgetary institution; (4) Special organisational/technical requirements, statutes, and service rules approved by the Network operator; (5) Standard services include: dedicated-bandwidth data transmission, access to public ECN, collective cybersecurity protection, EU/EEA/NATO interoperability, state ECN segment connectivity for mobilisation, and technical collaboration tools; (6-9) Service quality metrics, supplementary services, pricing, and connection plans set by Government/authorised institutions." ;
+    rdfs:comment "Article 25: (1) State and municipal institutions must use only the Secure Network for electronic communications services, connecting to public ECN only through the Secure Network – except when ECN services are needed for intelligence gathering or when technical impossibility exists (requiring Government authorisation for non-Secure connections); (2) User list criteria include: managing vital state information resources, performing vital state/mobilisation functions, being named essential for national security/defence by authorised Government institution, needing EU/EEA/NATO data centre access; (3) Managed by MoD-authorised state budgetary institution; (4) Special organisational/technical requirements, statutes, and service rules approved by the Network operator; (5) Standard services include: dedicated-bandwidth data transmission, access to public ECN, collective cybersecurity protection, EU/EEA/NATO interoperability, state ECN segment connectivity for mobilisation, and technical collaboration tools; (6-9) Service quality metrics, supplementary services, pricing, and connection plans set by Government/authorised institutions."@en ;
+    rdfs:comment "25 straipsnis: (1) Valstybės ir savivaldybių institucijos privalo naudotis tik Saugiuoju tinklu elektroninių ryšių paslaugoms, prie viešųjų tinklų jungtis tik per Saugųjį tinklą – išskyrus žvalgybos informacijos rinkimą ar techninę neįmanomybę; (2) Naudotojų sąrašo kriterijai: gyvybiškai svarbių išteklių valdymas, gyvybiškai svarbių funkcijų atlikimas, nacionalinio saugumo/gynybos institucijų įvardijimas, ES/EEE/NATO duomenų centrų prieiga; (3) Valdo KAM įgaliota biudžetinė įstaiga; (4) Specialūs reikalavimai ir nuostatai tvirtinami tinklo valdytojo; (5) Standartinės paslaugos: skirtos spartos duomenų perdavimas, prieiga prie viešųjų tinklų, kolektyvinė kibernetinė apsauga, ES/EEE/NATO sąveikumas, valstybinių tinklų segmentų sujungimas mobilizacijai ir techninės bendradarbiavimo priemonės."@lt ;
+    llo:hasLegalBasis "Art. 25, XII-1428 (as amended by XIV-2438)" .
+
+lld:Concept_DataCentreUsage a llo:LegalConcept ;
+    rdfs:label "Data centre usage rules for intelligence institutions" ;
+    rdfs:label "Data centre usage rules for intelligence institutions"@en ;
+    rdfs:label "Duomenų centrų naudojimo taisyklės žvalgybos institucijoms"@lt ;
+    rdfs:comment "Article 26: (1) Institutions on the Secure Network user list (except intelligence institutions) must keep state information resources in domestic state-owned data centres or in data centres located in EU member states, EEA states, or NATO member states; (2) Costs borne from state budget and other legally established funding sources; (3) Organisational, technical, and informational requirements for data centres in Lithuania, EU, EEA, or NATO states where state information resources are kept are approved per the State Information Resource Management Law." ;
+    rdfs:comment "Article 26: (1) Institutions on the Secure Network user list (except intelligence institutions) must keep state information resources in domestic state-owned data centres or in data centres located in EU member states, EEA states, or NATO member states; (2) Costs borne from state budget and other legally established funding sources; (3) Organisational, technical, and informational requirements for data centres in Lithuania, EU, EEA, or NATO states where state information resources are kept are approved per the State Information Resource Management Law."@en ;
+    rdfs:comment "26 straipsnis: (1) Į Saugiojo tinklo naudotojų sąrašą įrašytos institucijos (išskyrus žvalgybos institucijas) privalo laikyti valstybės informacinius išteklius šalies valstybiniuose duomenų centruose arba ES, EEE ar NATO valstybių duomenų centruose; (2) Išlaidos apmokamos iš valstybės biudžeto ir kitų teisės aktuose nustatytų finansavimo šaltinių; (3) Organizaciniai, techniniai ir informaciniai reikalavimai duomenų centrams tvirtinami pagal Valstybės informacinių išteklių valdymo įstatymą."@lt ;
+    llo:hasLegalBasis "Art. 26, XII-1428 (as amended by XIV-2438)" .
+
+
+# =================================================================
+# SECTION 7: INFORMATION PIPELINE – SECURE NETWORK
+# =================================================================
+
+lld:Pipeline_SecureNetwork a llo:InformationPipeline ;
+    rdfs:label "Secure State Data Transmission Network (Saugusis tinklas)" ;
+    rdfs:label "Secure State Data Transmission Network (Saugusis tinklas)"@en ;
+    rdfs:label "Saugusis valstybinis duomenų perdavimo tinklas (Saugusis tinklas)"@lt ;
+    rdfs:comment "A state-managed independent electronic communications network providing mandatory secure connectivity for state and municipal institutions. Managed by a MoD-authorised budgetary institution. Provides standard services including dedicated data transmission, public ECN access, collective cybersecurity protection, EU/EEA/NATO interoperability, and mobilisation connectivity. Institutions must connect exclusively through this network except for intelligence operations or technical impossibility." ;
+    rdfs:comment "A state-managed independent electronic communications network providing mandatory secure connectivity for state and municipal institutions. Managed by a MoD-authorised budgetary institution. Provides standard services including dedicated data transmission, public ECN access, collective cybersecurity protection, EU/EEA/NATO interoperability, and mobilisation connectivity. Institutions must connect exclusively through this network except for intelligence operations or technical impossibility."@en ;
+    rdfs:comment "Valstybės valdomas nepriklausomas elektroninių ryšių tinklas, teikiantis privalomą saugų ryšį valstybės ir savivaldybių institucijoms. Valdo KAM įgaliota biudžetinė įstaiga. Teikia standartines paslaugas: skirtą duomenų perdavimą, prieigą prie viešųjų tinklų, kolektyvinę kibernetinę apsaugą, ES/EEE/NATO sąveikumą ir mobilizacinį ryšį. Institucijos privalo jungtis tik per šį tinklą, išskyrus žvalgybos operacijas ar techninę neįmanomybę."@lt ;
+    llo:hasLegalBasis "Art. 25, XII-1428 (as amended by XIV-2438)" ;
+    llo:relaysDataTo lld:Org_NKSC .
+
+
+# =================================================================
+# SECTION 8: RESILIENCE MANDATES
+# =================================================================
+
+lld:Mandate_TriennialAudit a llo:ResilienceMandate ;
+    rdfs:label "Triennial security audit mandate for state information resources" ;
+    rdfs:label "Triennial security audit mandate for state information resources"@en ;
+    rdfs:label "Trejų metų periodiškumo saugos audito mandatas valstybės informaciniams ištekliams"@lt ;
+    rdfs:comment "Security audits of state information resources must be conducted at least once every 3 years by universally internationally certified independent auditors who have no conflict of interest with the assessed resources." ;
+    rdfs:comment "Security audits of state information resources must be conducted at least once every 3 years by universally internationally certified independent auditors who have no conflict of interest with the assessed resources."@en ;
+    rdfs:comment "Valstybės informacinių išteklių saugos auditai turi būti atliekami ne rečiau kaip kartą per 3 metus visuotinai tarptautiškai sertifikuotų nepriklausomų auditorių, neturinčių interesų konflikto su vertinamais ištekliais."@lt ;
+    llo:hasLegalBasis "Art. 24, XII-1428 (as amended by XIV-2438)" .
+
+lld:Mandate_SecureNetworkExclusivity a llo:ResilienceMandate ;
+    rdfs:label "Mandatory exclusive use of Secure Network by state institutions" ;
+    rdfs:label "Mandatory exclusive use of Secure Network by state institutions"@en ;
+    rdfs:label "Privalomas išskirtinis valstybės institucijų Saugiojo tinklo naudojimas"@lt ;
+    rdfs:comment "State and municipal institutions on the Secure Network user list must use only the Secure Network for electronic communications services and connect to public networks only through it, ensuring network isolation and controlled access." ;
+    rdfs:comment "State and municipal institutions on the Secure Network user list must use only the Secure Network for electronic communications services and connect to public networks only through it, ensuring network isolation and controlled access."@en ;
+    rdfs:comment "Į Saugiojo tinklo naudotojų sąrašą įrašytos valstybės ir savivaldybių institucijos privalo naudotis tik Saugiuoju tinklu elektroninių ryšių paslaugoms ir prie viešųjų tinklų jungtis tik per jį, užtikrinant tinklo izoliaciją ir kontroliuojamą prieigą."@lt ;
+    llo:hasLegalBasis "Art. 25(1), XII-1428 (as amended by XIV-2438)" .

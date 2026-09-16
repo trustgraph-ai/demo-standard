@@ -1,0 +1,70 @@
+{
+  "id": "lithuanialaw",
+  "name": "Lithuanian Law",
+  "description": "Lithuanian legislative documents and legal analysis",
+  "thumbnail": "thumbnail.jpg",
+  "detail": "description.md",
+
+  "workspace": {
+    "id": "lithuanialaw",
+    "name": "Lithuanian Law"
+  },
+
+  "flows": [
+    { "blueprint": "everything", "id": "default", "description": "Default" }
+  ],
+
+  "knowledge": [
+    {
+      "document_id": "urn:doc:lithuania-law",
+      "collection": "default",
+      "format": "turtle",
+      "files": [
+        "law-ontology.ttl",
+        "14-0104-I.ttl",
+        "15-0493-I.ttl",
+        "LRV+nutarimas+Nr.+818+priimtas+su+herbu.ttl",
+        "TAP-17-1687(2).ttl",
+        "TAP-17-889.ttl",
+        "TAP-18-1032(2).ttl",
+        "Tap-18-190(2).ttl",
+        "TAP-18-358(2).ttl",
+        "TAP-19-205.ttl",
+        "TAP-20-2201(3).ttl",
+        "TAP-20-794(6).ttl",
+        "TAP-22-2145(2).ttl",
+        "TAP-22-667(2).ttl",
+        "TAP-23-222(3).ttl",
+        "TAP-24-1377(2).ttl",
+        "TAP-24-1667(2).ttl",
+        "TAP-25-1309(2).ttl",
+        "TAP-26-150(2).ttl",
+        "TAP-26-238(2).ttl",
+        "TAP-26-743(2).ttl",
+        "XII-1428.ttl",
+        "XII-2524.ttl",
+        "XIII-1299.ttl",
+        "XIII-3114.ttl",
+        "XIII-798.ttl",
+        "XIII-920.ttl",
+        "XIV-1864.ttl",
+        "XIV-2438.ttl",
+        "XIV-2902.ttl",
+        "XIV-413.ttl",
+        "XIV-638.ttl",
+        "XV-1076.ttl",
+        "XV-894.ttl"
+      ]
+    }
+  ],
+
+  "queries": [
+    { "file": "lithuania-law-queries.json" },
+    { "file": "lithuania-law-graph-rag-queries.json" },
+    { "file": "lithuania-law-agent-queries.json" }
+  ],
+
+  "tools": [
+    { "key": "lithuania-law-query", "file": "lithuania-law-tool.json" }
+  ]
+}
