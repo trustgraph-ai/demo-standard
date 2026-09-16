@@ -1,0 +1,38 @@
+{
+  "id": "gametheory",
+  "name": "Game Theory",
+  "description": "Game theory analysis of political events",
+  "thumbnail": "thumbnail.jpg",
+  "detail": "description.md",
+
+  "workspace": {
+    "id": "gametheory",
+    "name": "Game Theory"
+  },
+
+  "flows": [
+    { "blueprint": "everything", "id": "default", "description": "Default" }
+  ],
+
+  "knowledge": [
+    {
+      "document_id": "urn:doc:game-theory",
+      "collection": "default",
+      "format": "turtle",
+      "files": [
+        "game-theory-ontology.ttl",
+        "clacton-byelection.ttl"
+      ]
+    }
+  ],
+
+  "queries": [
+    { "file": "game-theory-queries.json" },
+    { "file": "game-theory-graph-rag-queries.json" },
+    { "file": "game-theory-agent-queries.json" }
+  ],
+
+  "tools": [
+    { "key": "game-theory-query", "file": "game-theory-tool.json" }
+  ]
+}

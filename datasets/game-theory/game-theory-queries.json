@@ -1,0 +1,86 @@
+[
+  {
+    "id": "list-all-games",
+    "title": "List all game scenarios",
+    "description": "Returns all game scenarios with their labels and root nodes.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?gameLabel ?rootNodeLabel\nWHERE {\n  ?game a gt:Game ;\n        rdfs:label ?gameLabel ;\n        gt:hasRootNode ?rootNode .\n  ?rootNode rdfs:label ?rootNodeLabel .\n}"
+  },
+  {
+    "id": "list-all-players",
+    "title": "List all players",
+    "description": "Returns all players with their labels and descriptions.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?playerLabel ?comment\nWHERE {\n  ?player a gt:Player ;\n          rdfs:label ?playerLabel .\n  OPTIONAL { ?player rdfs:comment ?comment . }\n}"
+  },
+  {
+    "id": "list-decision-nodes",
+    "title": "List all decision nodes",
+    "description": "Returns all decision nodes with the player who controls each one and the available actions.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?nodeLabel ?playerLabel ?actionLabel\nWHERE {\n  ?node a gt:DecisionNode ;\n        rdfs:label ?nodeLabel ;\n        gt:belongsToPlayer ?player ;\n        gt:hasAction ?action .\n  ?player rdfs:label ?playerLabel .\n  ?action gt:actionLabel ?actionLabel .\n}\nORDER BY ?nodeLabel ?actionLabel"
+  },
+  {
+    "id": "list-chance-nodes",
+    "title": "List all chance nodes with probabilities",
+    "description": "Returns all chance nodes and their outgoing actions with associated probabilities.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?nodeLabel ?actionLabel ?probability\nWHERE {\n  ?node a gt:ChanceNode ;\n        rdfs:label ?nodeLabel ;\n        gt:hasAction ?action .\n  ?action gt:actionLabel ?actionLabel ;\n          gt:hasProbability ?probability .\n}\nORDER BY ?nodeLabel DESC(?probability)"
+  },
+  {
+    "id": "list-all-outcomes",
+    "title": "List all outcome nodes",
+    "description": "Returns all terminal outcome nodes with their labels and descriptions.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?outcomeLabel ?comment\nWHERE {\n  ?outcome a gt:OutcomeNode ;\n           rdfs:label ?outcomeLabel .\n  OPTIONAL { ?outcome rdfs:comment ?comment . }\n}\nORDER BY ?outcomeLabel"
+  },
+  {
+    "id": "payoffs-by-outcome",
+    "title": "Payoffs for each outcome",
+    "description": "Returns the utility payoff for each player at each terminal outcome node.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?outcomeLabel ?playerLabel ?utility\nWHERE {\n  ?outcome a gt:OutcomeNode ;\n           rdfs:label ?outcomeLabel ;\n           gt:hasPayoff ?payoff .\n  ?payoff gt:forPlayer ?player ;\n          gt:utilityValue ?utility .\n  ?player rdfs:label ?playerLabel .\n}\nORDER BY ?outcomeLabel ?playerLabel"
+  },
+  {
+    "id": "payoffs-by-player",
+    "title": "All payoffs for a specific player",
+    "description": "Returns all possible outcome payoffs grouped by player, ordered by utility value.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?playerLabel ?outcomeLabel ?utility\nWHERE {\n  ?outcome a gt:OutcomeNode ;\n           rdfs:label ?outcomeLabel ;\n           gt:hasPayoff ?payoff .\n  ?payoff gt:forPlayer ?player ;\n          gt:utilityValue ?utility .\n  ?player rdfs:label ?playerLabel .\n}\nORDER BY ?playerLabel DESC(?utility)"
+  },
+  {
+    "id": "best-outcome-per-player",
+    "title": "Best outcome for each player",
+    "description": "Returns the outcome with the highest utility value for each player.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?playerLabel (MAX(?utility) AS ?bestUtility)\nWHERE {\n  ?payoff a gt:Payoff ;\n          gt:forPlayer ?player ;\n          gt:utilityValue ?utility .\n  ?player rdfs:label ?playerLabel .\n}\nGROUP BY ?playerLabel\nORDER BY DESC(?bestUtility)"
+  },
+  {
+    "id": "worst-outcome-per-player",
+    "title": "Worst outcome for each player",
+    "description": "Returns the outcome with the lowest utility value for each player.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?playerLabel (MIN(?utility) AS ?worstUtility)\nWHERE {\n  ?payoff a gt:Payoff ;\n          gt:forPlayer ?player ;\n          gt:utilityValue ?utility .\n  ?player rdfs:label ?playerLabel .\n}\nGROUP BY ?playerLabel\nORDER BY ?worstUtility"
+  },
+  {
+    "id": "game-tree-traversal",
+    "title": "Full game tree traversal",
+    "description": "Traverses the game tree showing nodes, actions, and the nodes they lead to.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?fromNodeLabel ?actionLabel ?toNodeLabel\nWHERE {\n  ?fromNode gt:hasAction ?action .\n  ?fromNode rdfs:label ?fromNodeLabel .\n  ?action gt:actionLabel ?actionLabel ;\n          gt:leadsToNode ?toNode .\n  ?toNode rdfs:label ?toNodeLabel .\n}\nORDER BY ?fromNodeLabel ?actionLabel"
+  },
+  {
+    "id": "actions-with-probabilities",
+    "title": "All actions with probabilities",
+    "description": "Returns all actions that have an associated probability, indicating chance-driven outcomes.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?actionLabel ?probability ?targetNodeLabel\nWHERE {\n  ?action a gt:Action ;\n          gt:actionLabel ?actionLabel ;\n          gt:hasProbability ?probability ;\n          gt:leadsToNode ?targetNode .\n  ?targetNode rdfs:label ?targetNodeLabel .\n}\nORDER BY DESC(?probability)"
+  },
+  {
+    "id": "player-decision-points",
+    "title": "Decision points per player",
+    "description": "Returns a count of decision nodes controlled by each player.",
+    "language": "sparql",
+    "query": "PREFIX gt: <http://trustgraph.ai/schemas/gametheory#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT ?playerLabel (COUNT(DISTINCT ?node) AS ?decisionPoints)\nWHERE {\n  ?node a gt:DecisionNode ;\n        gt:belongsToPlayer ?player .\n  ?player rdfs:label ?playerLabel .\n}\nGROUP BY ?playerLabel\nORDER BY DESC(?decisionPoints)"
+  }
+]

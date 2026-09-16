@@ -1,0 +1,58 @@
+[
+  {
+    "id": "gt-strategic-overview",
+    "title": "Strategic overview",
+    "description": "Provide a high-level summary of the game scenario and the strategic landscape.",
+    "language": "graph-rag",
+    "query": "What is the overall strategic situation in this game theory scenario? Summarise the players, their options, and the key dynamics at play."
+  },
+  {
+    "id": "gt-player-motivations",
+    "title": "Player motivations and incentives",
+    "description": "Analyse what drives each player's decision-making based on their payoff structure.",
+    "language": "graph-rag",
+    "query": "What are the motivations and incentives for each player? How do the payoff structures shape their preferred strategies?"
+  },
+  {
+    "id": "gt-risk-reward-analysis",
+    "title": "Risk-reward analysis",
+    "description": "Analyse the risk-reward trade-offs for the key strategic choices.",
+    "language": "graph-rag",
+    "query": "What are the risk-reward trade-offs for each player's strategic options? Which strategies carry the most risk and which offer the safest outcomes?"
+  },
+  {
+    "id": "gt-chance-impact",
+    "title": "Impact of chance events",
+    "description": "Assess how chance nodes and probabilistic events influence the game outcomes.",
+    "language": "graph-rag",
+    "query": "How do chance events and external uncertainties affect the possible outcomes? What role does probability play in shaping the strategic landscape?"
+  },
+  {
+    "id": "gt-equilibrium-analysis",
+    "title": "Equilibrium and optimal play",
+    "description": "Analyse whether the game has an equilibrium and what optimal play looks like.",
+    "language": "graph-rag",
+    "query": "Is there a Nash equilibrium or dominant strategy in this scenario? What does optimal play look like for each player, and did the actual outcome align with rational expectations?"
+  },
+  {
+    "id": "gt-outcome-comparison",
+    "title": "Outcome comparison",
+    "description": "Compare the different possible outcomes and their implications for each player.",
+    "language": "graph-rag",
+    "query": "Compare all possible outcomes in the game tree. Which outcomes are mutually beneficial, which create winners and losers, and what are the implications of each?"
+  },
+  {
+    "id": "gt-counterfactual-analysis",
+    "title": "Counterfactual analysis",
+    "description": "Explore what would have happened under different strategic choices.",
+    "language": "graph-rag",
+    "query": "What would have happened if the players had made different choices? Explore the counterfactual paths and their consequences."
+  },
+  {
+    "id": "gt-multi-stage-dynamics",
+    "title": "Multi-stage game dynamics",
+    "description": "Analyse the sequential and multi-stage aspects of the game.",
+    "language": "graph-rag",
+    "query": "How does the sequential structure of this game affect strategic decision-making? Are there first-mover advantages, commitment effects, or future stages that influence current choices?"
+  }
+]
