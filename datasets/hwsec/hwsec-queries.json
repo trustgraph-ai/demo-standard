@@ -1,0 +1,194 @@
+[
+  {
+    "id": "full-decomposition-tree",
+    "title": "Full decomposition tree for a system",
+    "description": "Returns the full hardware decomposition hierarchy: system, subsystem, component, sub-component, element.",
+    "category": "Device Decomposition",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?system ?subsystem ?component ?subcomp ?element\nWHERE {\n  ?system a hw:System ;\n          hw:hasSubsystem ?subsystem .\n  ?subsystem hw:hasComponent ?component .\n  OPTIONAL { ?component hw:hasSubComponent ?subcomp .\n             OPTIONAL { ?subcomp hw:hasElement ?element . }\n  }\n}\nORDER BY ?subsystem ?component ?subcomp ?element"
+  },
+  {
+    "id": "components-manufacturer-arch",
+    "title": "All components with their manufacturer and architecture",
+    "description": "Returns components with label, manufacturer, architecture, and package type.",
+    "category": "Device Decomposition",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?component ?label ?manufacturer ?arch ?package\nWHERE {\n  ?component a hw:Component ;\n             rdfs:label ?label .\n  OPTIONAL { ?component hw:manufacturer ?manufacturer . }\n  OPTIONAL { ?component hw:architecture ?arch . }\n  OPTIONAL { ?component hw:packageType ?package . }\n}"
+  },
+  {
+    "id": "vulns-by-cvss",
+    "title": "All vulnerabilities ranked by CVSS score",
+    "description": "Returns all vulnerabilities with entity, CVSS score, CWE mapping, and patch status.",
+    "category": "Vulnerability Analysis",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?vuln ?cvss ?cwe ?patchAvail\nWHERE {\n  ?entity hw:hasSecurityProperty ?vuln .\n  ?vuln a sec:Vulnerability ;\n        sec:cvssBaseScore ?cvss .\n  OPTIONAL { ?entity rdfs:label ?entityLabel . }\n  OPTIONAL { ?vuln sec:mapsToCWE ?cwe . }\n  OPTIONAL { ?vuln sec:patchAvailable ?patchAvail . }\n}\nORDER BY DESC(?cvss)"
+  },
+  {
+    "id": "high-severity-unpatched",
+    "title": "High-severity unpatched vulnerabilities",
+    "description": "Returns vulnerabilities with CVSS >= 7.0 that have no patch available.",
+    "category": "Vulnerability Analysis",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?vuln ?cvss ?cwe\nWHERE {\n  ?entity hw:hasSecurityProperty ?vuln ;\n          rdfs:label ?entityLabel .\n  ?vuln a sec:Vulnerability ;\n        sec:cvssBaseScore ?cvss .\n  FILTER(?cvss >= 7.0)\n  FILTER NOT EXISTS { ?vuln sec:patchAvailable true . }\n}\nORDER BY DESC(?cvss)"
+  },
+  {
+    "id": "vulns-no-countermeasure",
+    "title": "Vulnerabilities with no countermeasure",
+    "description": "Returns vulnerabilities that have no associated countermeasure.",
+    "category": "Vulnerability Analysis",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?vuln ?cvss\nWHERE {\n  ?entity hw:hasSecurityProperty ?vuln ;\n          rdfs:label ?entityLabel .\n  ?vuln a sec:Vulnerability ;\n        sec:cvssBaseScore ?cvss .\n  FILTER NOT EXISTS {\n    ?cm a sec:Countermeasure ;\n        sec:mitigates ?vuln .\n  }\n}\nORDER BY DESC(?cvss)"
+  },
+  {
+    "id": "vulns-exploitable-no-patch",
+    "title": "Vulnerabilities with public exploits but no patch",
+    "description": "Returns vulnerabilities that have a known exploit but no vendor patch.",
+    "category": "Vulnerability Analysis",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?vuln ?cvss ?cve\nWHERE {\n  ?entity hw:hasSecurityProperty ?vuln ;\n          rdfs:label ?entityLabel .\n  ?vuln a sec:Vulnerability ;\n        sec:exploitAvailable true ;\n        sec:cvssBaseScore ?cvss .\n  FILTER NOT EXISTS { ?vuln sec:patchAvailable true . }\n  OPTIONAL { ?vuln sec:mapsToCVE ?cve . }\n}\nORDER BY DESC(?cvss)"
+  },
+  {
+    "id": "remote-attack-surfaces",
+    "title": "Remotely exploitable attack surfaces",
+    "description": "Returns attack surfaces that can be exploited without physical access.",
+    "category": "Attack Surface",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?surface ?vector ?complexity\nWHERE {\n  ?entity hw:hasSecurityProperty ?surface ;\n          rdfs:label ?entityLabel .\n  ?surface a sec:AttackSurface ;\n           sec:remotelyExploitable true ;\n           sec:accessVector ?vector .\n  OPTIONAL { ?surface sec:complexity ?complexity . }\n}"
+  },
+  {
+    "id": "unauth-remote-attack-surfaces",
+    "title": "Unauthenticated remote attack surfaces (highest risk)",
+    "description": "Returns remotely exploitable attack surfaces that require no authentication.",
+    "category": "Attack Surface",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?surface ?vector ?attackTechnique\nWHERE {\n  ?entity hw:hasSecurityProperty ?surface ;\n          rdfs:label ?entityLabel .\n  ?surface a sec:AttackSurface ;\n           sec:remotelyExploitable true ;\n           sec:authenticated false ;\n           sec:accessVector ?vector .\n  OPTIONAL { ?surface sec:mapsToATTACK ?attackTechnique . }\n}"
+  },
+  {
+    "id": "attack-surfaces-mitre",
+    "title": "Attack surfaces mapped to MITRE ATT&CK techniques",
+    "description": "Returns attack surfaces with their associated ATT&CK and CAPEC mappings.",
+    "category": "Attack Surface",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?surface ?technique ?capec\nWHERE {\n  ?entity hw:hasSecurityProperty ?surface ;\n          rdfs:label ?entityLabel .\n  ?surface a sec:AttackSurface ;\n           sec:mapsToATTACK ?technique .\n  OPTIONAL { ?surface sec:mapsToCAPEC ?capec . }\n}"
+  },
+  {
+    "id": "unlocked-debug-interfaces",
+    "title": "Unlocked or bypassable debug interfaces",
+    "description": "Returns debug interfaces that are unlocked or have known bypass techniques.",
+    "category": "Debug & Physical Access",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?debug ?ifaceType ?bypass\nWHERE {\n  ?entity hw:hasSecurityProperty ?debug ;\n          rdfs:label ?entityLabel .\n  ?debug a sec:DebugAccess ;\n         sec:interfaceType ?ifaceType .\n  OPTIONAL { ?debug sec:bypassTechnique ?bypass . }\n  FILTER(\n    !BOUND(?locked) || ?locked = false ||\n    BOUND(?bypass)\n  )\n  OPTIONAL { ?debug sec:debugIsLocked ?locked . }\n}"
+  },
+  {
+    "id": "physical-interfaces-no-probe",
+    "title": "Physical interfaces accessible without probing",
+    "description": "Returns physical interfaces that don't require probing or soldering to access.",
+    "category": "Debug & Physical Access",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?iface ?protocol ?location\nWHERE {\n  ?entity hw:hasInterface ?iface ;\n          rdfs:label ?entityLabel .\n  ?iface a hw:PhysicalInterface ;\n         hw:protocol ?protocol .\n  OPTIONAL { ?iface hw:boardLocation ?location . }\n  FILTER NOT EXISTS { ?iface hw:probeRequired true . }\n}"
+  },
+  {
+    "id": "trust-boundary-bypasses",
+    "title": "Trust boundaries with known bypasses",
+    "description": "Returns trust boundaries that have known bypass techniques with optional CVE references.",
+    "category": "Trust Boundaries",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?boundary ?mechanism ?cve\nWHERE {\n  ?entity hw:hasTrustBoundary ?boundary ;\n          rdfs:label ?entityLabel .\n  ?boundary hw:bypassKnown true ;\n            hw:boundaryMechanism ?mechanism .\n  OPTIONAL { ?boundary hw:boundaryBypassCveRef ?cve . }\n}"
+  },
+  {
+    "id": "interfaces-crossing-trust-boundaries",
+    "title": "Interfaces that cross trust boundaries",
+    "description": "Returns interfaces that cross trust boundaries with protocol and enforcement mechanism.",
+    "category": "Trust Boundaries",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?iface ?protocol ?boundary ?mechanism\nWHERE {\n  ?entity hw:hasInterface ?iface ;\n          rdfs:label ?entityLabel .\n  ?iface hw:crossesTrustBoundary ?boundary ;\n         hw:protocol ?protocol .\n  ?boundary hw:boundaryMechanism ?mechanism .\n}"
+  },
+  {
+    "id": "unsigned-firmware",
+    "title": "Firmware without signature verification",
+    "description": "Returns firmware that lacks cryptographic signature verification.",
+    "category": "Firmware Security",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?fw ?version ?extraction\nWHERE {\n  ?entity hw:hasFirmware ?fw ;\n          rdfs:label ?entityLabel .\n  ?fw a hw:Firmware .\n  FILTER NOT EXISTS { ?fw hw:isSignatureVerified true . }\n  OPTIONAL { ?fw hw:firmwareBinaryVersion ?version . }\n  OPTIONAL { ?fw hw:extractionMethod ?extraction . }\n}"
+  },
+  {
+    "id": "firmware-missing-hardening",
+    "title": "Firmware missing security-hardening compiler flags",
+    "description": "Returns firmware binaries missing stack-protector, FORTIFY_SOURCE, or PIE compiler flags.",
+    "category": "Firmware Security",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?fw ?flags\nWHERE {\n  ?entity hw:hasFirmware ?fw ;\n          rdfs:label ?entityLabel .\n  ?fw hw:compilerFlags ?flags .\n  FILTER(\n    !CONTAINS(?flags, \"stack-protector\") ||\n    !CONTAINS(?flags, \"FORTIFY_SOURCE\") ||\n    !CONTAINS(?flags, \"PIE\")\n  )\n}"
+  },
+  {
+    "id": "network-no-encryption",
+    "title": "Remotely reachable network interfaces without encryption",
+    "description": "Returns network interfaces that are remotely reachable but lack encryption.",
+    "category": "Network Exposure",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?iface ?protocol\nWHERE {\n  ?entity hw:hasInterface ?iface ;\n          rdfs:label ?entityLabel .\n  ?iface a hw:NetworkInterface ;\n         hw:remotelyReachable true ;\n         hw:protocol ?protocol .\n  FILTER NOT EXISTS { ?iface hw:encryptionMode ?enc . }\n}"
+  },
+  {
+    "id": "network-no-auth",
+    "title": "Network interfaces reachable without authentication",
+    "description": "Returns remotely reachable network interfaces that don't require authentication.",
+    "category": "Network Exposure",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?iface ?protocol ?range\nWHERE {\n  ?entity hw:hasInterface ?iface ;\n          rdfs:label ?entityLabel .\n  ?iface a hw:NetworkInterface ;\n         hw:remotelyReachable true .\n  FILTER NOT EXISTS { ?iface hw:requiresAuthentication true . }\n  OPTIONAL { ?iface hw:protocol ?protocol . }\n  OPTIONAL { ?iface hw:wirelessRange ?range . }\n}"
+  },
+  {
+    "id": "high-impact-threats",
+    "title": "High-impact threat scenarios and the vulnerabilities they exploit",
+    "description": "Returns HIGH or CRITICAL impact threat models with their exploited vulnerabilities.",
+    "category": "Threat Modelling",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?threat ?scenario ?likelihood ?impact ?vuln\nWHERE {\n  ?entity hw:hasSecurityProperty ?threat ;\n          rdfs:label ?entityLabel .\n  ?threat a sec:ThreatModel ;\n          sec:threatScenario ?scenario ;\n          sec:impact ?impact .\n  FILTER(?impact IN (\"HIGH\", \"CRITICAL\"))\n  OPTIONAL { ?threat sec:likelihood ?likelihood . }\n  OPTIONAL { ?threat sec:exploits ?vuln . }\n}\nORDER BY ?impact DESC(?likelihood)"
+  },
+  {
+    "id": "threat-vs-countermeasure-gaps",
+    "title": "Threat scenarios vs. deployed countermeasures (gap analysis)",
+    "description": "Returns threat scenarios with their exploited vulnerabilities and any countermeasures, for gap analysis.",
+    "category": "Threat Modelling",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?threat ?scenario ?vuln ?cvss ?cm ?cmImplemented\nWHERE {\n  ?entity hw:hasSecurityProperty ?threat ;\n          rdfs:label ?entityLabel .\n  ?threat a sec:ThreatModel ;\n          sec:threatScenario ?scenario ;\n          sec:exploits ?vuln .\n  ?vuln sec:cvssBaseScore ?cvss .\n  OPTIONAL {\n    ?cm a sec:Countermeasure ;\n        sec:mitigates ?vuln ;\n        sec:isImplemented ?cmImplemented .\n  }\n}\nORDER BY DESC(?cvss)"
+  },
+  {
+    "id": "countermeasures-d3fend",
+    "title": "Countermeasures mapped to MITRE D3FEND",
+    "description": "Returns countermeasures with their D3FEND technique mappings and effectiveness.",
+    "category": "Countermeasures & Defence",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?cm ?controlType ?d3fend ?effectiveness\nWHERE {\n  ?entity hw:hasSecurityProperty ?cm ;\n          rdfs:label ?entityLabel .\n  ?cm a sec:Countermeasure ;\n      sec:mapsToD3FEND ?d3fend ;\n      sec:controlType ?controlType .\n  OPTIONAL { ?cm sec:effectiveness ?effectiveness . }\n}"
+  },
+  {
+    "id": "unimplemented-countermeasures",
+    "title": "Recommended but not yet implemented countermeasures",
+    "description": "Returns countermeasures that are recommended but not deployed, with cost and vulnerability context.",
+    "category": "Countermeasures & Defence",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?cm ?controlType ?cost ?vuln ?cvss\nWHERE {\n  ?entity hw:hasSecurityProperty ?cm ;\n          rdfs:label ?entityLabel .\n  ?cm a sec:Countermeasure ;\n      sec:isImplemented false ;\n      sec:controlType ?controlType .\n  OPTIONAL { ?cm sec:implementationCost ?cost . }\n  OPTIONAL {\n    ?cm sec:mitigates ?vuln .\n    ?vuln sec:cvssBaseScore ?cvss .\n  }\n}\nORDER BY DESC(?cvss)"
+  },
+  {
+    "id": "shared-subcomponents",
+    "title": "Shared sub-components (cross-domain attack potential)",
+    "description": "Returns sub-components shared between multiple trust domains.",
+    "category": "Cross-Cutting Concerns",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?component ?componentLabel ?subcomp ?subcompLabel ?ipBlock\nWHERE {\n  ?component hw:hasSubComponent ?subcomp ;\n             rdfs:label ?componentLabel .\n  ?subcomp hw:isShared true ;\n           rdfs:label ?subcompLabel .\n  OPTIONAL { ?subcomp hw:ipBlock ?ipBlock . }\n}"
+  },
+  {
+    "id": "eol-components-with-vulns",
+    "title": "Components past end-of-life with known vulnerabilities",
+    "description": "Returns end-of-life components that have known vulnerabilities.",
+    "category": "Cross-Cutting Concerns",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?component ?label ?manufacturer ?eol ?vuln ?cvss\nWHERE {\n  ?component a hw:Component ;\n             rdfs:label ?label ;\n             hw:endOfLife ?eol .\n  FILTER(?eol < NOW())\n  ?component hw:hasSecurityProperty ?vuln .\n  ?vuln a sec:Vulnerability ;\n        sec:cvssBaseScore ?cvss .\n  OPTIONAL { ?component hw:manufacturer ?manufacturer . }\n}\nORDER BY DESC(?cvss)"
+  },
+  {
+    "id": "low-trust-network-facing",
+    "title": "Low trust-level entities with network-facing interfaces",
+    "description": "Returns entities with trust level <= 1 that have remotely reachable network interfaces.",
+    "category": "Cross-Cutting Concerns",
+    "language": "sparql",
+    "query": "PREFIX hw:   <https://trustgraph.ai/ontology/hwsec/hw#>\nPREFIX sec:  <https://trustgraph.ai/ontology/hwsec/sec#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX owl:  <http://www.w3.org/2002/07/owl#>\nPREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?entity ?entityLabel ?trustLevel ?iface ?protocol ?range\nWHERE {\n  ?entity hw:trustLevel ?trustLevel ;\n          hw:hasInterface ?iface ;\n          rdfs:label ?entityLabel .\n  ?iface a hw:NetworkInterface ;\n         hw:remotelyReachable true ;\n         hw:protocol ?protocol .\n  FILTER(?trustLevel <= 1)\n  OPTIONAL { ?iface hw:wirelessRange ?range . }\n}"
+  }
+]

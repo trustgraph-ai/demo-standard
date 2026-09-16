@@ -1,0 +1,40 @@
+{
+  "id": "hwsec",
+  "name": "Hardware Security",
+  "description": "Hardware security vulnerability analysis",
+  "thumbnail": "thumbnail.jpg",
+  "detail": "description.md",
+
+  "workspace": {
+    "id": "hwsec",
+    "name": "Hardware Security"
+  },
+
+  "flows": [
+    { "blueprint": "everything", "id": "default", "description": "Default" }
+  ],
+
+  "ontology": [
+    { "key": "hwsec-ontology", "file": "hwsec-ontology.json" }
+  ],
+
+  "knowledge": [
+    {
+      "document_id": "urn:doc:hwsec",
+      "collection": "default",
+      "format": "turtle",
+      "files": [
+        "hwsec-ontology.ttl",
+        "hwsec-data.ttl"
+      ]
+    }
+  ],
+
+  "queries": [
+    { "file": "hwsec-queries.json" }
+  ],
+
+  "tools": [
+    { "key": "hwsec-query", "file": "hwsec-tool.json" }
+  ]
+}
