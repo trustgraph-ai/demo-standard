@@ -281,5 +281,5 @@ ds:service-graphql-query a dcat:DataService ;
     rdfs:label "GraphQL Query" ;
     rdfs:comment "GraphQL query interface over the structured star catalogue." ;
     dcterms:title "GraphQL Query" ;
-    dcterms:identifier "urn:component:graphql-query" ;
+    dcterms:identifier "urn:component:graphql" ;
     dcat:servesDataset data:space-stars .
