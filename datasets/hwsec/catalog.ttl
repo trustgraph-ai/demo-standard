@@ -1,0 +1,184 @@
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema:  <https://schema.org/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix cat:     <http://trustgraph.ai/catalogs/> .
+@prefix data:    <http://trustgraph.ai/datasets/> .
+@prefix ds:      <http://trustgraph.ai/datasets/hwsec#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+
+# ── Catalog ─────────────────────────────────────────────────────────
+
+cat:hwsec a dcat:Catalog ;
+    rdfs:label "Hardware Security Vulnerability Analysis" ;
+    rdfs:comment "Security assessments of IoT and embedded devices with hardware decomposition, vulnerability analysis, and threat modelling." ;
+    dcterms:title "Hardware Security Vulnerability Analysis" ;
+    dcterms:description "Security assessments of IoT and embedded devices with hardware decomposition, vulnerability analysis, and threat modelling." ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> ;
+    dcat:dataset data:hwsec .
+
+# ── Publisher ───────────────────────────────────────────────────────
+
+<http://trustgraph.ai/organization> a foaf:Organization ;
+    rdfs:label "TrustGraph AI" ;
+    rdfs:comment "Publisher and creator of the dataset." ;
+    foaf:name "TrustGraph AI" ;
+    foaf:homepage <https://trustgraph.ai> .
+
+# ── Dataset ─────────────────────────────────────────────────────────
+
+data:hwsec a dcat:Dataset ;
+
+    # ── Description ──
+
+    rdfs:label "Hardware Security Vulnerability Analysis" ;
+    rdfs:comment "Security teardowns of three IoT devices with hardware decomposition hierarchies, vulnerabilities, attack surfaces, threat models, and countermeasures." ;
+    dcterms:title "Hardware Security Vulnerability Analysis" ;
+    dcterms:description """Security analysis of three real-world IoT devices: Amazon Echo
+Dot 3rd Gen, Master Lock Bluetooth Padlock, and Eufy Smart Home ecosystem.
+Models five-level hardware decomposition, vulnerabilities with CVSS scores,
+attack surfaces, threat models, countermeasures, and trust boundaries.""" ;
+    dcterms:abstract """A knowledge graph for hardware security assessment, modelling
+device teardowns from peer-reviewed research with alignment to MITRE ATT&CK,
+CAPEC, D3FEND, CVE, and CWE frameworks.""" ;
+
+    # ── Creator / Publisher ──
+
+    dcterms:creator <http://trustgraph.ai/organization> ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:issued "2026-09-18"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+
+    # ── Subjects & Tags ──
+
+    dcat:keyword "hardware security", "IoT security", "vulnerability assessment",
+                 "embedded systems", "threat modelling", "CVSS", "MITRE ATT&CK",
+                 "device teardown", "countermeasures", "trust boundaries" ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/TECH> ;
+    dcterms:subject <http://dbpedia.org/resource/Hardware_security> ,
+                    <http://dbpedia.org/resource/Internet_of_things> ,
+                    <http://dbpedia.org/resource/Vulnerability_(computing)> ;
+
+    # ── Data Structures ──
+
+    schema:variableMeasured ds:variable-cvss-score ,
+                            ds:variable-trust-level ;
+
+    # ── Use Cases & Problems Solved ──
+
+    schema:audience ds:audience ;
+    schema:potentialAction ds:usecase-vulnerability-assessment ,
+                           ds:usecase-threat-modelling ,
+                           ds:usecase-countermeasure-gap-analysis ;
+
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/hwsec/thumbnail.jpg> ;
+
+    # ── Documentation ──
+
+    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/hwsec/description.md> ;
+
+    # ── Distribution ──
+
+    dcat:distribution ds:distribution-turtle ;
+
+    dcat:accessService ds:service-table-explorer ,
+                       ds:service-document-rag ,
+                       ds:service-context-graph-navigator ,
+                       ds:service-graph-navigator ,
+                       ds:service-search .
+
+# ── Variables Measured ─────────────────────────────────────────────
+
+ds:variable-cvss-score a schema:PropertyValue ;
+    rdfs:label "CVSS Base Score" ;
+    rdfs:comment "Common Vulnerability Scoring System base score for each vulnerability, between 0.0 and 10.0." ;
+    schema:name "CVSS Base Score" ;
+    schema:unitText "CVSS score" ;
+    schema:minValue "0.0"^^xsd:float ;
+    schema:maxValue "10.0"^^xsd:float .
+
+ds:variable-trust-level a schema:PropertyValue ;
+    rdfs:label "Trust Level" ;
+    rdfs:comment "Hardware trust level assigned to each component, on a scale from 0 to 5." ;
+    schema:name "Trust Level" ;
+    schema:unitText "trust level" ;
+    schema:minValue "0"^^xsd:integer ;
+    schema:maxValue "5"^^xsd:integer .
+
+# ── Audience ───────────────────────────────────────────────────────
+
+ds:audience a schema:Audience ;
+    rdfs:label "Target Audience" ;
+    rdfs:comment "The intended consumers of this dataset." ;
+    schema:audienceType "Security researchers, hardware engineers, penetration testers, IoT product teams, and vulnerability analysts" .
+
+# ── Use Cases ──────────────────────────────────────────────────────
+
+ds:usecase-vulnerability-assessment a schema:Action ;
+    rdfs:label "Vulnerability Assessment" ;
+    rdfs:comment "Identify and prioritise vulnerabilities across device hardware, firmware, and network interfaces." ;
+    schema:name "Vulnerability Assessment" ;
+    schema:description "Identify and prioritise vulnerabilities across device hardware, firmware, and network interfaces." .
+
+ds:usecase-threat-modelling a schema:Action ;
+    rdfs:label "Threat Modelling" ;
+    rdfs:comment "Model adversary profiles, attack chains, and threat scenarios against IoT and embedded devices." ;
+    schema:name "Threat Modelling" ;
+    schema:description "Model adversary profiles, attack chains, and threat scenarios against IoT and embedded devices." .
+
+ds:usecase-countermeasure-gap-analysis a schema:Action ;
+    rdfs:label "Countermeasure Gap Analysis" ;
+    rdfs:comment "Compare deployed defences against recommended mitigations to identify unaddressed security gaps." ;
+    schema:name "Countermeasure Gap Analysis" ;
+    schema:description "Compare deployed defences against recommended mitigations to identify unaddressed security gaps." .
+
+# ── Distributions ──────────────────────────────────────────────────
+
+ds:distribution-turtle a dcat:Distribution ;
+    rdfs:label "Turtle serialisation" ;
+    rdfs:comment "The dataset serialised as Turtle." ;
+    dcterms:title "Turtle serialisation" ;
+    dcat:downloadURL <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/hwsec/hwsec-data.ttl> ;
+    dcat:mediaType "text/turtle" .
+
+# ── Access Services ───────────────────────────────────────────────
+
+ds:service-table-explorer a dcat:DataService ;
+    rdfs:label "Table Explorer" ;
+    rdfs:comment "Tabular view of the dataset triples." ;
+    dcterms:title "Table Explorer" ;
+    dcterms:identifier "urn:component:table-explorer" ;
+    dcat:servesDataset data:hwsec .
+
+ds:service-document-rag a dcat:DataService ;
+    rdfs:label "Document RAG" ;
+    rdfs:comment "Retrieval-augmented generation query interface over the dataset." ;
+    dcterms:title "Document RAG" ;
+    dcterms:identifier "urn:component:document-rag" ;
+    dcat:servesDataset data:hwsec .
+
+ds:service-context-graph-navigator a dcat:DataService ;
+    rdfs:label "Context Graph Navigator" ;
+    rdfs:comment "Contextual graph exploration starting from a selected entity." ;
+    dcterms:title "Context Graph Navigator" ;
+    dcterms:identifier "urn:component:context-graph-navigator" ;
+    dcat:servesDataset data:hwsec .
+
+ds:service-graph-navigator a dcat:DataService ;
+    rdfs:label "Graph Navigator" ;
+    rdfs:comment "Full graph visualisation of the dataset." ;
+    dcterms:title "Graph Navigator" ;
+    dcterms:identifier "urn:component:graph-navigator" ;
+    dcat:servesDataset data:hwsec .
+
+ds:service-search a dcat:DataService ;
+    rdfs:label "Search" ;
+    rdfs:comment "Semantic search over the knowledge graph using embeddings." ;
+    dcterms:title "Search" ;
+    dcterms:identifier "urn:component:search" ;
+    dcat:servesDataset data:hwsec .

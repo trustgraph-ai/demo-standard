@@ -1,0 +1,261 @@
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema:  <https://schema.org/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix cat:     <http://trustgraph.ai/catalogs/> .
+@prefix data:    <http://trustgraph.ai/datasets/> .
+@prefix ds:      <http://trustgraph.ai/datasets/retail-ux#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+
+# ── Catalog ─────────────────────────────────────────────────────────
+
+cat:retail-ux a dcat:Catalog ;
+    rdfs:label "Retail UX" ;
+    rdfs:comment "AI-powered shopping assistant with product compatibility, user decision journeys, and behavioural signal tracking." ;
+    dcterms:title "Retail UX" ;
+    dcterms:description "AI-powered shopping assistant with product compatibility, user decision journeys, and behavioural signal tracking." ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> ;
+    dcat:dataset data:retail-products ,
+                 data:retail-interactions .
+
+# ── Publisher ───────────────────────────────────────────────────────
+
+<http://trustgraph.ai/organization> a foaf:Organization ;
+    rdfs:label "TrustGraph AI" ;
+    rdfs:comment "Publisher and creator of the dataset." ;
+    foaf:name "TrustGraph AI" ;
+    foaf:homepage <https://trustgraph.ai> .
+
+# ── Dataset: Retail Products ────────────────────────────────────────
+
+data:retail-products a dcat:Dataset ;
+
+    # ── Description ──
+
+    rdfs:label "Retail Product Catalogue" ;
+    rdfs:comment "150+ products across PC components, electronics, and outdoor gear with compatibility checking via shared specification nodes." ;
+    dcterms:title "Retail Product Catalogue" ;
+    dcterms:description """A product knowledge graph with 150+ items spanning PC components
+(CPUs, GPUs, motherboards, RAM, storage, PSUs, cases, coolers), electronics
+(monitors, headsets, keyboards, streaming gear), and outdoor gear (tents,
+sleeping bags, stoves, coolers). Products are linked through shared
+specification nodes (sockets, RAM types, form factors) enabling
+compatibility checking via graph traversal. Includes hard and soft
+constraints for build validation.""" ;
+    dcterms:abstract """A decision-assist e-commerce knowledge graph where product
+compatibility is a graph traversal problem, not string matching.""" ;
+
+    # ── Creator / Publisher ──
+
+    dcterms:creator <http://trustgraph.ai/organization> ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:issued "2026-09-18"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+
+    # ── Subjects & Tags ──
+
+    dcat:keyword "retail", "e-commerce", "PC build", "product compatibility",
+                 "shopping assistant", "knowledge graph", "recommendations",
+                 "outdoor gear", "electronics", "constraint satisfaction" ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/ECON> ;
+    dcterms:subject <http://dbpedia.org/resource/Recommender_system> ,
+                    <http://dbpedia.org/resource/Electronic_commerce> ,
+                    <http://dbpedia.org/resource/Personal_computer_hardware> ;
+
+    # ── Use Cases & Problems Solved ──
+
+    schema:audience ds:audience ;
+    schema:potentialAction ds:usecase-guided-pc-build ,
+                           ds:usecase-compatibility-checking ,
+                           ds:usecase-gift-recommendation ;
+
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/retail-ux/thumbnail.jpg> ;
+
+    # ── Documentation ──
+
+    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/description.md> ;
+
+    # ── Distribution ──
+
+    dcat:distribution ds:distribution-products-turtle ;
+
+    dcat:accessService ds:service-table-explorer ,
+                       ds:service-document-rag ,
+                       ds:service-context-graph-navigator ,
+                       ds:service-graph-navigator ,
+                       ds:service-search ,
+                       ds:service-retail-assistant ,
+                       ds:service-brand-analytics .
+
+# ── Dataset: Retail Interactions ────────────────────────────────────
+
+data:retail-interactions a dcat:Dataset ;
+
+    # ── Description ──
+
+    rdfs:label "Retail Interaction Journeys" ;
+    rdfs:comment "User decision journeys with behavioural signals, objections, confidence tracking, and conversion analysis." ;
+    dcterms:title "Retail Interaction Journeys" ;
+    dcterms:description """An interaction ontology capturing the full decision arc of shopping
+journeys: searches, comparisons, product views, objections (price, trust,
+compatibility, complexity, timing, need, risk), priority signals, confidence
+levels, budget constraints, and external influences. Events use a mixin
+pattern where a single interaction can carry both structural and signal
+data simultaneously.""" ;
+    dcterms:abstract """Models why users buy or abandon, not just what they clicked,
+enabling retail assistants that adapt their conversation strategy based
+on revealed preferences and objection patterns.""" ;
+
+    # ── Creator / Publisher ──
+
+    dcterms:creator <http://trustgraph.ai/organization> ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:issued "2026-09-18"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+
+    # ── Subjects & Tags ──
+
+    dcat:keyword "user journeys", "behavioural signals", "objections",
+                 "conversion analysis", "decision points", "UX research",
+                 "shopping behaviour", "interaction ontology",
+                 "confidence tracking", "abandonment signals" ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/ECON> ;
+    dcterms:subject <http://dbpedia.org/resource/User_experience> ,
+                    <http://dbpedia.org/resource/Consumer_behaviour> ,
+                    <http://dbpedia.org/resource/Conversion_rate_optimization> ;
+
+    # ── Use Cases & Problems Solved ──
+
+    schema:audience ds:audience ;
+    schema:potentialAction ds:usecase-journey-analysis ,
+                           ds:usecase-objection-tracking ;
+
+    # ── Distribution ──
+
+    dcat:distribution ds:distribution-interactions-turtle ;
+
+    dcat:accessService ds:service-table-explorer ,
+                       ds:service-document-rag ,
+                       ds:service-context-graph-navigator ,
+                       ds:service-graph-navigator ,
+                       ds:service-search ,
+                       ds:service-retail-assistant ,
+                       ds:service-brand-analytics .
+
+# ── Audience ───────────────────────────────────────────────────────
+
+ds:audience a schema:Audience ;
+    rdfs:label "Target Audience" ;
+    rdfs:comment "The intended consumers of this dataset." ;
+    schema:audienceType "Product managers, UX researchers, e-commerce developers, conversational AI designers, and retail strategists" .
+
+# ── Use Cases ──────────────────────────────────────────────────────
+
+ds:usecase-guided-pc-build a schema:Action ;
+    rdfs:label "Guided PC Build" ;
+    rdfs:comment "Walk a user through selecting compatible PC components with constraint validation and budget tracking." ;
+    schema:name "Guided PC Build" ;
+    schema:description "Walk a user through selecting compatible PC components with constraint validation and budget tracking." .
+
+ds:usecase-compatibility-checking a schema:Action ;
+    rdfs:label "Compatibility Checking" ;
+    rdfs:comment "Verify component compatibility through graph traversal of shared specification nodes (sockets, RAM types, form factors)." ;
+    schema:name "Compatibility Checking" ;
+    schema:description "Verify component compatibility through graph traversal of shared specification nodes (sockets, RAM types, form factors)." .
+
+ds:usecase-gift-recommendation a schema:Action ;
+    rdfs:label "Gift Recommendation" ;
+    rdfs:comment "Recommend gift-suitable products filtered by budget, interests, and gift suitability scores." ;
+    schema:name "Gift Recommendation" ;
+    schema:description "Recommend gift-suitable products filtered by budget, interests, and gift suitability scores." .
+
+ds:usecase-journey-analysis a schema:Action ;
+    rdfs:label "Journey Analysis" ;
+    rdfs:comment "Analyse user decision journeys to understand why purchases succeed or are abandoned." ;
+    schema:name "Journey Analysis" ;
+    schema:description "Analyse user decision journeys to understand why purchases succeed or are abandoned." .
+
+ds:usecase-objection-tracking a schema:Action ;
+    rdfs:label "Objection Tracking" ;
+    rdfs:comment "Track and categorise user objections across journeys and measure resolution rates." ;
+    schema:name "Objection Tracking" ;
+    schema:description "Track and categorise user objections across journeys and measure resolution rates." .
+
+# ── Distributions ──────────────────────────────────────────────────
+
+ds:distribution-products-turtle a dcat:Distribution ;
+    rdfs:label "Turtle serialisation (products)" ;
+    rdfs:comment "The retail product catalogue serialised as Turtle." ;
+    dcterms:title "Turtle serialisation (products)" ;
+    dcat:downloadURL <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/retail-ux/retail-products-pc.ttl> ;
+    dcat:mediaType "text/turtle" .
+
+ds:distribution-interactions-turtle a dcat:Distribution ;
+    rdfs:label "Turtle serialisation (interactions)" ;
+    rdfs:comment "The interaction journey sample data serialised as Turtle." ;
+    dcterms:title "Turtle serialisation (interactions)" ;
+    dcat:downloadURL <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/retail-ux/interaction-sample-data.ttl> ;
+    dcat:mediaType "text/turtle" .
+
+# ── Access Services ───────────────────────────────────────────────
+
+ds:service-table-explorer a dcat:DataService ;
+    rdfs:label "Table Explorer" ;
+    rdfs:comment "Tabular view of the dataset triples." ;
+    dcterms:title "Table Explorer" ;
+    dcterms:identifier "urn:component:table-explorer" ;
+    dcat:servesDataset data:retail-products ,
+                       data:retail-interactions .
+
+ds:service-document-rag a dcat:DataService ;
+    rdfs:label "Document RAG" ;
+    rdfs:comment "Retrieval-augmented generation query interface over the dataset." ;
+    dcterms:title "Document RAG" ;
+    dcterms:identifier "urn:component:document-rag" ;
+    dcat:servesDataset data:retail-products ,
+                       data:retail-interactions .
+
+ds:service-context-graph-navigator a dcat:DataService ;
+    rdfs:label "Context Graph Navigator" ;
+    rdfs:comment "Contextual graph exploration starting from a selected entity." ;
+    dcterms:title "Context Graph Navigator" ;
+    dcterms:identifier "urn:component:context-graph-navigator" ;
+    dcat:servesDataset data:retail-products ,
+                       data:retail-interactions .
+
+ds:service-graph-navigator a dcat:DataService ;
+    rdfs:label "Graph Navigator" ;
+    rdfs:comment "Full graph visualisation of the dataset." ;
+    dcterms:title "Graph Navigator" ;
+    dcterms:identifier "urn:component:graph-navigator" ;
+    dcat:servesDataset data:retail-products ,
+                       data:retail-interactions .
+
+ds:service-search a dcat:DataService ;
+    rdfs:label "Search" ;
+    rdfs:comment "Semantic search over the knowledge graph using embeddings." ;
+    dcterms:title "Search" ;
+    dcterms:identifier "urn:component:search" ;
+    dcat:servesDataset data:retail-products ,
+                       data:retail-interactions .
+
+ds:service-retail-assistant a dcat:DataService ;
+    rdfs:label "Retail Assistant" ;
+    rdfs:comment "AI shopping assistant with product compatibility checking, budget tracking, and guided PC builds." ;
+    dcterms:title "Retail Assistant" ;
+    dcterms:identifier "urn:component:retail-assistant" ;
+    dcat:servesDataset data:retail-products ,
+                       data:retail-interactions .
+
+ds:service-brand-analytics a dcat:DataService ;
+    rdfs:label "Brand Analytics" ;
+    rdfs:comment "Analytics dashboard for user decision journeys, objection patterns, and conversion analysis." ;
+    dcterms:title "Brand Analytics" ;
+    dcterms:identifier "urn:component:brand-analytics" ;
+    dcat:servesDataset data:retail-products ,
+                       data:retail-interactions .

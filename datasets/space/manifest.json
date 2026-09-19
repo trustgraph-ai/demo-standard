@@ -19,6 +19,15 @@
     { "key": "solar-system-ontology", "file": "solar-system/solar-system-ontology.json" }
   ],
 
+  "catalog": [
+    {
+      "document_id": "urn:doc:space-catalog",
+      "collection": "default",
+      "format": "turtle",
+      "files": [ "catalog.ttl" ]
+    }
+  ],
+
   "knowledge": [
     {
       "document_id": "urn:doc:solar-system",

@@ -393,6 +393,9 @@ def main():
     if manifest.get("ontology"):
         upload_ontology(api, base_dir, manifest["ontology"])
 
+    if not args.skip_knowledge and manifest.get("catalog"):
+        load_knowledge(api, base_dir, manifest["catalog"])
+
     if not args.skip_knowledge and manifest.get("knowledge"):
         load_knowledge(api, base_dir, manifest["knowledge"])
 
