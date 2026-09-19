@@ -1,0 +1,184 @@
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema:  <https://schema.org/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix cat:     <http://trustgraph.ai/catalogs/> .
+@prefix data:    <http://trustgraph.ai/datasets/> .
+@prefix ds:      <http://trustgraph.ai/datasets/lithuania-law#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+
+# ── Catalog ─────────────────────────────────────────────────────────
+
+cat:lithuania-law a dcat:Catalog ;
+    rdfs:label "Lithuanian Cybersecurity Law" ;
+    rdfs:comment "Lithuanian legislative framework for cybersecurity, national defence, and critical infrastructure protection." ;
+    dcterms:title "Lithuanian Cybersecurity Law" ;
+    dcterms:description "Lithuanian legislative framework for cybersecurity, national defence, and critical infrastructure protection." ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ,
+                     <http://id.loc.gov/vocabulary/iso639-1/lt> ;
+    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> ;
+    dcat:dataset data:lithuania-law .
+
+# ── Publisher ───────────────────────────────────────────────────────
+
+<http://trustgraph.ai/organization> a foaf:Organization ;
+    rdfs:label "TrustGraph AI" ;
+    rdfs:comment "Publisher and creator of the dataset." ;
+    foaf:name "TrustGraph AI" ;
+    foaf:homepage <https://trustgraph.ai> .
+
+# ── Dataset ─────────────────────────────────────────────────────────
+
+data:lithuania-law a dcat:Dataset ;
+
+    # ── Description ──
+
+    rdfs:label "Lithuanian Cybersecurity Law" ;
+    rdfs:comment "33 legislative documents spanning 2014-2026 covering cybersecurity, national defence, and critical infrastructure protection." ;
+    dcterms:title "Lithuanian Cybersecurity Law" ;
+    dcterms:description """Knowledge graph extracted from 33 publicly published Lithuanian
+legislative documents, connecting statutes and amendments, regulatory
+institutions, regulated entities, threat actors, enforcement mechanisms,
+resilience mandates, and guaranteed civic rights. Ontology-guided
+extraction discovers structured linkage between documents and entities.""" ;
+    dcterms:abstract """Models Lithuania's legislative framework for cybersecurity and
+national defence, including EU directive transposition (NIS 2, DORA, CER),
+institutional governance, compliance obligations, geopolitical threat
+response, and the balance between security powers and civic rights.""" ;
+
+    # ── Creator / Publisher ──
+
+    dcterms:creator <http://trustgraph.ai/organization> ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:issued "2026-09-18"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+
+    # ── Subjects & Tags ──
+
+    dcat:keyword "Lithuanian law", "cybersecurity", "NIS 2", "DORA",
+                 "critical infrastructure", "national defence",
+                 "EU directive transposition", "compliance",
+                 "civic rights", "geopolitical risk" ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/GOVE> ,
+               <http://publications.europa.eu/resource/authority/data-theme/JUST> ;
+    dcterms:subject <http://dbpedia.org/resource/Cybersecurity> ,
+                    <http://dbpedia.org/resource/Lithuania> ,
+                    <http://dbpedia.org/resource/Critical_infrastructure_protection> ;
+    dcterms:temporal ds:temporal ;
+    dcterms:spatial <http://dbpedia.org/resource/Lithuania> ;
+
+    # ── Use Cases & Problems Solved ──
+
+    schema:audience ds:audience ;
+    schema:potentialAction ds:usecase-compliance-auditing ,
+                           ds:usecase-governance-analysis ,
+                           ds:usecase-eu-harmonisation ;
+
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/lithuania-law/thumbnail.jpg> ;
+
+    # ── Documentation ──
+
+    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/lithuania-law/description.md> ;
+
+    # ── Distribution ──
+
+    dcat:distribution ds:distribution-turtle ;
+
+    dcat:accessService ds:service-table-explorer ,
+                       ds:service-document-rag ,
+                       ds:service-context-graph-navigator ,
+                       ds:service-graph-navigator ,
+                       ds:service-search ,
+                       ds:service-law-in-context .
+
+# ── Temporal Coverage ──────────────────────────────────────────────
+
+ds:temporal a dcterms:PeriodOfTime ;
+    rdfs:label "Temporal Coverage" ;
+    rdfs:comment "The time period covered by the legislative documents in this dataset." ;
+    dcat:startDate "2014-01-01"^^xsd:date ;
+    dcat:endDate "2026-09-18"^^xsd:date .
+
+# ── Audience ───────────────────────────────────────────────────────
+
+ds:audience a schema:Audience ;
+    rdfs:label "Target Audience" ;
+    rdfs:comment "The intended consumers of this dataset." ;
+    schema:audienceType "Compliance officers, legal analysts, policy researchers, CISOs, government affairs professionals, and EU regulatory specialists" .
+
+# ── Use Cases ──────────────────────────────────────────────────────
+
+ds:usecase-compliance-auditing a schema:Action ;
+    rdfs:label "Compliance Auditing" ;
+    rdfs:comment "Understand obligations, reporting timelines, resilience mandates, and penalties for regulated entities under Lithuanian cybersecurity law." ;
+    schema:name "Compliance Auditing" ;
+    schema:description "Understand obligations, reporting timelines, resilience mandates, and penalties for regulated entities under Lithuanian cybersecurity law." .
+
+ds:usecase-governance-analysis a schema:Action ;
+    rdfs:label "Governance Analysis" ;
+    rdfs:comment "Map institutional power structures, jurisdictions, reporting chains, and oversight mechanisms across Lithuanian cybersecurity governance." ;
+    schema:name "Governance Analysis" ;
+    schema:description "Map institutional power structures, jurisdictions, reporting chains, and oversight mechanisms across Lithuanian cybersecurity governance." .
+
+ds:usecase-eu-harmonisation a schema:Action ;
+    rdfs:label "EU Harmonisation Assessment" ;
+    rdfs:comment "Assess how Lithuanian national law transposes and extends EU directive requirements including NIS 2, DORA, and CER." ;
+    schema:name "EU Harmonisation Assessment" ;
+    schema:description "Assess how Lithuanian national law transposes and extends EU directive requirements including NIS 2, DORA, and CER." .
+
+# ── Distributions ──────────────────────────────────────────────────
+
+ds:distribution-turtle a dcat:Distribution ;
+    rdfs:label "Turtle serialisation" ;
+    rdfs:comment "The dataset serialised as Turtle." ;
+    dcterms:title "Turtle serialisation" ;
+    dcat:downloadURL <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/lithuania-law/law-ontology.ttl> ;
+    dcat:mediaType "text/turtle" .
+
+# ── Access Services ───────────────────────────────────────────────
+
+ds:service-table-explorer a dcat:DataService ;
+    rdfs:label "Table Explorer" ;
+    rdfs:comment "Tabular view of the dataset triples." ;
+    dcterms:title "Table Explorer" ;
+    dcterms:identifier "urn:component:table-explorer" ;
+    dcat:servesDataset data:lithuania-law .
+
+ds:service-document-rag a dcat:DataService ;
+    rdfs:label "Document RAG" ;
+    rdfs:comment "Retrieval-augmented generation query interface over the dataset." ;
+    dcterms:title "Document RAG" ;
+    dcterms:identifier "urn:component:document-rag" ;
+    dcat:servesDataset data:lithuania-law .
+
+ds:service-context-graph-navigator a dcat:DataService ;
+    rdfs:label "Context Graph Navigator" ;
+    rdfs:comment "Contextual graph exploration starting from a selected entity." ;
+    dcterms:title "Context Graph Navigator" ;
+    dcterms:identifier "urn:component:context-graph-navigator" ;
+    dcat:servesDataset data:lithuania-law .
+
+ds:service-graph-navigator a dcat:DataService ;
+    rdfs:label "Graph Navigator" ;
+    rdfs:comment "Full graph visualisation of the dataset." ;
+    dcterms:title "Graph Navigator" ;
+    dcterms:identifier "urn:component:graph-navigator" ;
+    dcat:servesDataset data:lithuania-law .
+
+ds:service-search a dcat:DataService ;
+    rdfs:label "Search" ;
+    rdfs:comment "Semantic search over the knowledge graph using embeddings." ;
+    dcterms:title "Search" ;
+    dcterms:identifier "urn:component:search" ;
+    dcat:servesDataset data:lithuania-law .
+
+ds:service-law-in-context a dcat:DataService ;
+    rdfs:label "Law in Context" ;
+    rdfs:comment "Interactive legal framework explorer with views for documents, institutions, entities, rights, and law structure." ;
+    dcterms:title "Law in Context" ;
+    dcterms:identifier "urn:component:law-in-context" ;
+    dcat:servesDataset data:lithuania-law .

@@ -18,6 +18,15 @@
     { "key": "hwsec-ontology", "file": "hwsec-ontology.json" }
   ],
 
+  "catalog": [
+    {
+      "document_id": "urn:doc:hwsec-catalog",
+      "collection": "default",
+      "format": "turtle",
+      "files": [ "catalog.ttl" ]
+    }
+  ],
+
   "knowledge": [
     {
       "document_id": "urn:doc:hwsec",

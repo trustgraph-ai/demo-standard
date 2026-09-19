@@ -1,0 +1,193 @@
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema:  <https://schema.org/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix cat:     <http://trustgraph.ai/catalogs/> .
+@prefix data:    <http://trustgraph.ai/datasets/> .
+@prefix ds:      <http://trustgraph.ai/datasets/risk#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+
+# ── Catalog ─────────────────────────────────────────────────────────
+
+cat:risk a dcat:Catalog ;
+    rdfs:label "Enterprise Risk Management" ;
+    rdfs:comment "Enterprise security incident tracking with threat actors, risk events, impacted assets, and incident response workflows." ;
+    dcterms:title "Enterprise Risk Management" ;
+    dcterms:description "Enterprise security incident tracking with threat actors, risk events, impacted assets, and incident response workflows." ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> ;
+    dcat:dataset data:risk .
+
+# ── Publisher ───────────────────────────────────────────────────────
+
+<http://trustgraph.ai/organization> a foaf:Organization ;
+    rdfs:label "TrustGraph AI" ;
+    rdfs:comment "Publisher and creator of the dataset." ;
+    foaf:name "TrustGraph AI" ;
+    foaf:homepage <https://trustgraph.ai> .
+
+# ── Dataset ─────────────────────────────────────────────────────────
+
+data:risk a dcat:Dataset ;
+
+    # ── Description ──
+
+    rdfs:label "Enterprise Risk Management" ;
+    rdfs:comment "200 simulated security events linking threat actors to risk categories and corporate assets, with incident response process tracking." ;
+    dcterms:title "Enterprise Risk Management" ;
+    dcterms:description """A simulated enterprise risk management knowledge graph with 200
+security events spanning 12 threat actors (APT groups, insiders, third-party
+vendors), 15 risk categories scored by severity, 14 corporate assets, and
+297 incident response processes with step-level completion tracking.""" ;
+    dcterms:abstract """Models the security event stream of a typical enterprise SOC,
+enabling threat landscape analysis, risk prioritisation, actor-asset
+exposure mapping, and incident response bottleneck detection.""" ;
+
+    # ── Creator / Publisher ──
+
+    dcterms:creator <http://trustgraph.ai/organization> ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:issued "2026-09-18"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+
+    # ── Subjects & Tags ──
+
+    dcat:keyword "risk management", "cybersecurity", "threat actors",
+                 "incident response", "APT", "insider threat",
+                 "security events", "SOC", "vulnerability management",
+                 "enterprise security" ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/TECH> ;
+    dcterms:subject <http://dbpedia.org/resource/Risk_management> ,
+                    <http://dbpedia.org/resource/Computer_security_incident_management> ,
+                    <http://dbpedia.org/resource/Advanced_persistent_threat> ;
+    dcterms:temporal ds:temporal ;
+
+    # ── Data Structures ──
+
+    schema:variableMeasured ds:variable-risk-score ;
+
+    # ── Use Cases & Problems Solved ──
+
+    schema:audience ds:audience ;
+    schema:potentialAction ds:usecase-threat-landscape-analysis ,
+                           ds:usecase-incident-response-tracking ,
+                           ds:usecase-actor-asset-exposure ;
+
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/risk/thumbnail.jpg> ;
+
+    # ── Documentation ──
+
+    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/risk/description.md> ;
+
+    # ── Distribution ──
+
+    dcat:distribution ds:distribution-turtle ;
+
+    dcat:accessService ds:service-table-explorer ,
+                       ds:service-document-rag ,
+                       ds:service-context-graph-navigator ,
+                       ds:service-graph-navigator ,
+                       ds:service-search ,
+                       ds:service-risk-overview .
+
+# ── Temporal Coverage ──────────────────────────────────────────────
+
+ds:temporal a dcterms:PeriodOfTime ;
+    rdfs:label "Temporal Coverage" ;
+    rdfs:comment "The time period covered by the security events in this dataset." ;
+    dcat:startDate "2026-01-01"^^xsd:date ;
+    dcat:endDate "2026-02-28"^^xsd:date .
+
+# ── Variables Measured ─────────────────────────────────────────────
+
+ds:variable-risk-score a schema:PropertyValue ;
+    rdfs:label "Risk Score" ;
+    rdfs:comment "Severity score assigned to each risk category, between 0.0 and 1.0." ;
+    schema:name "Risk Score" ;
+    schema:unitText "risk score" ;
+    schema:minValue "0.0"^^xsd:float ;
+    schema:maxValue "1.0"^^xsd:float .
+
+# ── Audience ───────────────────────────────────────────────────────
+
+ds:audience a schema:Audience ;
+    rdfs:label "Target Audience" ;
+    rdfs:comment "The intended consumers of this dataset." ;
+    schema:audienceType "SOC analysts, risk managers, CISOs, incident response teams, and security governance professionals" .
+
+# ── Use Cases ──────────────────────────────────────────────────────
+
+ds:usecase-threat-landscape-analysis a schema:Action ;
+    rdfs:label "Threat Landscape Analysis" ;
+    rdfs:comment "Analyse which threat actors are most active, which risk types are most severe, and which assets are most frequently targeted." ;
+    schema:name "Threat Landscape Analysis" ;
+    schema:description "Analyse which threat actors are most active, which risk types are most severe, and which assets are most frequently targeted." .
+
+ds:usecase-incident-response-tracking a schema:Action ;
+    rdfs:label "Incident Response Tracking" ;
+    rdfs:comment "Monitor active incident response processes, track step completion, and identify bottlenecks and unmitigated events." ;
+    schema:name "Incident Response Tracking" ;
+    schema:description "Monitor active incident response processes, track step completion, and identify bottlenecks and unmitigated events." .
+
+ds:usecase-actor-asset-exposure a schema:Action ;
+    rdfs:label "Actor-Asset Exposure Mapping" ;
+    rdfs:comment "Map which threat actors have reached which corporate assets, revealing targeting patterns and lateral movement." ;
+    schema:name "Actor-Asset Exposure Mapping" ;
+    schema:description "Map which threat actors have reached which corporate assets, revealing targeting patterns and lateral movement." .
+
+# ── Distributions ──────────────────────────────────────────────────
+
+ds:distribution-turtle a dcat:Distribution ;
+    rdfs:label "Turtle serialisation" ;
+    rdfs:comment "The dataset serialised as Turtle." ;
+    dcterms:title "Turtle serialisation" ;
+    dcat:downloadURL <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/risk/risk-data.ttl> ;
+    dcat:mediaType "text/turtle" .
+
+# ── Access Services ───────────────────────────────────────────────
+
+ds:service-table-explorer a dcat:DataService ;
+    rdfs:label "Table Explorer" ;
+    rdfs:comment "Tabular view of the dataset triples." ;
+    dcterms:title "Table Explorer" ;
+    dcterms:identifier "urn:component:table-explorer" ;
+    dcat:servesDataset data:risk .
+
+ds:service-document-rag a dcat:DataService ;
+    rdfs:label "Document RAG" ;
+    rdfs:comment "Retrieval-augmented generation query interface over the dataset." ;
+    dcterms:title "Document RAG" ;
+    dcterms:identifier "urn:component:document-rag" ;
+    dcat:servesDataset data:risk .
+
+ds:service-context-graph-navigator a dcat:DataService ;
+    rdfs:label "Context Graph Navigator" ;
+    rdfs:comment "Contextual graph exploration starting from a selected entity." ;
+    dcterms:title "Context Graph Navigator" ;
+    dcterms:identifier "urn:component:context-graph-navigator" ;
+    dcat:servesDataset data:risk .
+
+ds:service-graph-navigator a dcat:DataService ;
+    rdfs:label "Graph Navigator" ;
+    rdfs:comment "Full graph visualisation of the dataset." ;
+    dcterms:title "Graph Navigator" ;
+    dcterms:identifier "urn:component:graph-navigator" ;
+    dcat:servesDataset data:risk .
+
+ds:service-search a dcat:DataService ;
+    rdfs:label "Search" ;
+    rdfs:comment "Semantic search over the knowledge graph using embeddings." ;
+    dcterms:title "Search" ;
+    dcterms:identifier "urn:component:search" ;
+    dcat:servesDataset data:risk .
+
+ds:service-risk-overview a dcat:DataService ;
+    rdfs:label "Risk Overview" ;
+    rdfs:comment "Dashboard with risk scores, actor activity, asset impact, and time-windowed analysis." ;
+    dcterms:title "Risk Overview" ;
+    dcterms:identifier "urn:component:risk" ;
+    dcat:servesDataset data:risk .

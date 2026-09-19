@@ -1,0 +1,281 @@
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema:  <https://schema.org/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix cat:     <http://trustgraph.ai/catalogs/> .
+@prefix data:    <http://trustgraph.ai/datasets/> .
+@prefix ds:      <http://trustgraph.ai/datasets/space#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+
+# ── Catalog ─────────────────────────────────────────────────────────
+
+cat:space a dcat:Catalog ;
+    rdfs:label "Space Exploration" ;
+    rdfs:comment "Solar system missions and the HYG star catalogue, combining knowledge graph and structured tabular data." ;
+    dcterms:title "Space Exploration" ;
+    dcterms:description "Solar system missions and the HYG star catalogue, combining knowledge graph and structured tabular data." ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+    dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> ;
+    dcat:dataset data:space-missions ,
+                 data:space-stars .
+
+# ── Publisher ───────────────────────────────────────────────────────
+
+<http://trustgraph.ai/organization> a foaf:Organization ;
+    rdfs:label "TrustGraph AI" ;
+    rdfs:comment "Publisher and creator of the dataset." ;
+    foaf:name "TrustGraph AI" ;
+    foaf:homepage <https://trustgraph.ai> .
+
+# ── Dataset: Solar System Missions ──────────────────────────────────
+
+data:space-missions a dcat:Dataset ;
+
+    # ── Description ──
+
+    rdfs:label "Solar System Missions" ;
+    rdfs:comment "Knowledge graph of space exploration missions, celestial bodies, and mission events extracted from mission documentation." ;
+    dcterms:title "Solar System Missions" ;
+    dcterms:description """Knowledge graph extracted from solar mission documentation
+covering Voyager 1 and 2, Pioneer, Cassini-Huygens, Mars rovers, Rosetta,
+and other missions. Models celestial bodies (planets, moons, dwarf planets,
+asteroids, comets), mission types, and detailed event timelines with
+heliocentric positions and velocities.""" ;
+    dcterms:abstract """A semantic knowledge graph of space exploration missions with
+complete event histories from launch through planetary encounters to
+current status.""" ;
+
+    # ── Creator / Publisher ──
+
+    dcterms:creator <http://trustgraph.ai/organization> ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:issued "2026-09-18"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+
+    # ── Subjects & Tags ──
+
+    dcat:keyword "space exploration", "solar system", "Voyager",
+                 "Cassini-Huygens", "Mars rovers", "planetary science",
+                 "mission events", "celestial bodies", "flyby",
+                 "NASA", "ESA" ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/TECH> ;
+    dcterms:subject <http://dbpedia.org/resource/Space_exploration> ,
+                    <http://dbpedia.org/resource/Solar_System> ,
+                    <http://dbpedia.org/resource/Voyager_program> ;
+
+    # ── Data Structures ──
+
+    schema:variableMeasured ds:variable-distance-au ,
+                            ds:variable-velocity ;
+
+    # ── Use Cases & Problems Solved ──
+
+    schema:audience ds:audience ;
+    schema:potentialAction ds:usecase-mission-comparison ,
+                           ds:usecase-mission-timeline ;
+
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/space/thumbnail.jpg> ;
+
+    # ── Documentation ──
+
+    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/space/description.md> ;
+
+    # ── Distribution ──
+
+    dcat:distribution ds:distribution-missions-turtle ;
+
+    dcat:accessService ds:service-table-explorer ,
+                       ds:service-document-rag ,
+                       ds:service-context-graph-navigator ,
+                       ds:service-graph-navigator ,
+                       ds:service-search ,
+                       ds:service-solar-system-explorer .
+
+# ── Dataset: Star Catalogue ─────────────────────────────────────────
+
+data:space-stars a dcat:Dataset ;
+
+    # ── Description ──
+
+    rdfs:label "HYG Star Catalogue" ;
+    rdfs:comment "Structured tabular data for 119,627 stars from the HYG database v4.2." ;
+    dcterms:title "HYG Star Catalogue" ;
+    dcterms:description """The HYG star database v4.2 containing 119,627 stars with catalogue
+identifiers (Hipparcos, Henry Draper, Gliese, Bayer, Flamsteed), celestial
+coordinates, distance in parsecs, proper motion, radial velocity, apparent
+magnitude, spectral type, colour index, luminosity in solar luminosities,
+constellation membership, and variable star designations.""" ;
+    dcterms:abstract """A comprehensive star catalogue stored as structured tabular data
+in TrustGraph's row store, queryable via GraphQL and natural language.""" ;
+
+    # ── Creator / Publisher ──
+
+    dcterms:creator <http://trustgraph.ai/organization> ;
+    dcterms:publisher <http://trustgraph.ai/organization> ;
+    dcterms:issued "2026-09-18"^^xsd:date ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:source <https://github.com/astronexus/HYG-Database> ;
+
+    # ── Subjects & Tags ──
+
+    dcat:keyword "stars", "star catalogue", "HYG database", "astronomy",
+                 "spectral type", "magnitude", "constellation",
+                 "Hipparcos", "luminosity", "variable stars" ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/TECH> ;
+    dcterms:subject <http://dbpedia.org/resource/Star_catalogue> ,
+                    <http://dbpedia.org/resource/Hipparcos> ,
+                    <http://dbpedia.org/resource/Stellar_classification> ;
+
+    # ── Data Structures ──
+
+    schema:variableMeasured ds:variable-magnitude ,
+                            ds:variable-luminosity ,
+                            ds:variable-distance-parsec ;
+
+    # ── Use Cases & Problems Solved ──
+
+    schema:audience ds:audience ;
+    schema:potentialAction ds:usecase-star-search ,
+                           ds:usecase-stellar-classification ;
+
+    # ── Distribution ──
+
+    dcat:distribution ds:distribution-stars-csv ;
+
+    dcat:accessService ds:service-graphql-query .
+
+# ── Variables Measured ─────────────────────────────────────────────
+
+ds:variable-distance-au a schema:PropertyValue ;
+    rdfs:label "Heliocentric Distance" ;
+    rdfs:comment "Distance from the Sun in astronomical units at the time of a mission event." ;
+    schema:name "Heliocentric Distance" ;
+    schema:unitText "AU" .
+
+ds:variable-velocity a schema:PropertyValue ;
+    rdfs:label "Spacecraft Velocity" ;
+    rdfs:comment "Spacecraft velocity during a mission event in kilometres per second." ;
+    schema:name "Spacecraft Velocity" ;
+    schema:unitText "km/s" .
+
+ds:variable-magnitude a schema:PropertyValue ;
+    rdfs:label "Apparent Magnitude" ;
+    rdfs:comment "Apparent visual magnitude of the star as seen from Earth." ;
+    schema:name "Apparent Magnitude" ;
+    schema:unitText "magnitude" .
+
+ds:variable-luminosity a schema:PropertyValue ;
+    rdfs:label "Luminosity" ;
+    rdfs:comment "Stellar luminosity measured in solar luminosities." ;
+    schema:name "Luminosity" ;
+    schema:unitText "solar luminosities" .
+
+ds:variable-distance-parsec a schema:PropertyValue ;
+    rdfs:label "Distance" ;
+    rdfs:comment "Distance to the star in parsecs." ;
+    schema:name "Distance" ;
+    schema:unitText "parsecs" .
+
+# ── Audience ───────────────────────────────────────────────────────
+
+ds:audience a schema:Audience ;
+    rdfs:label "Target Audience" ;
+    rdfs:comment "The intended consumers of this dataset." ;
+    schema:audienceType "Space enthusiasts, astronomy students, planetary scientists, science communicators, and data engineers" .
+
+# ── Use Cases ──────────────────────────────────────────────────────
+
+ds:usecase-mission-comparison a schema:Action ;
+    rdfs:label "Mission Comparison" ;
+    rdfs:comment "Compare mission trajectories, planetary encounters, discoveries, and current status across multiple space missions." ;
+    schema:name "Mission Comparison" ;
+    schema:description "Compare mission trajectories, planetary encounters, discoveries, and current status across multiple space missions." .
+
+ds:usecase-mission-timeline a schema:Action ;
+    rdfs:label "Mission Timeline Analysis" ;
+    rdfs:comment "Explore the chronological event history of a mission from launch through flybys, landings, and milestones." ;
+    schema:name "Mission Timeline Analysis" ;
+    schema:description "Explore the chronological event history of a mission from launch through flybys, landings, and milestones." .
+
+ds:usecase-star-search a schema:Action ;
+    rdfs:label "Star Search" ;
+    rdfs:comment "Find stars by name, constellation, spectral type, brightness, distance, or luminosity." ;
+    schema:name "Star Search" ;
+    schema:description "Find stars by name, constellation, spectral type, brightness, distance, or luminosity." .
+
+ds:usecase-stellar-classification a schema:Action ;
+    rdfs:label "Stellar Classification" ;
+    rdfs:comment "Explore stars by spectral class, identify variable stars, and find multi-star systems." ;
+    schema:name "Stellar Classification" ;
+    schema:description "Explore stars by spectral class, identify variable stars, and find multi-star systems." .
+
+# ── Distributions ──────────────────────────────────────────────────
+
+ds:distribution-missions-turtle a dcat:Distribution ;
+    rdfs:label "Turtle serialisation (missions)" ;
+    rdfs:comment "The solar system mission dataset serialised as Turtle." ;
+    dcterms:title "Turtle serialisation (missions)" ;
+    dcat:downloadURL <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/space/solar-system/solar-system-data.ttl> ;
+    dcat:mediaType "text/turtle" .
+
+ds:distribution-stars-csv a dcat:Distribution ;
+    rdfs:label "CSV (star catalogue)" ;
+    rdfs:comment "The HYG v4.2 star catalogue as CSV." ;
+    dcterms:title "CSV (star catalogue)" ;
+    dcat:downloadURL <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/space/stars/hyg_v42.csv> ;
+    dcat:mediaType "text/csv" .
+
+# ── Access Services ───────────────────────────────────────────────
+
+ds:service-table-explorer a dcat:DataService ;
+    rdfs:label "Table Explorer" ;
+    rdfs:comment "Tabular view of the dataset triples." ;
+    dcterms:title "Table Explorer" ;
+    dcterms:identifier "urn:component:table-explorer" ;
+    dcat:servesDataset data:space-missions .
+
+ds:service-document-rag a dcat:DataService ;
+    rdfs:label "Document RAG" ;
+    rdfs:comment "Retrieval-augmented generation query interface over the dataset." ;
+    dcterms:title "Document RAG" ;
+    dcterms:identifier "urn:component:document-rag" ;
+    dcat:servesDataset data:space-missions .
+
+ds:service-context-graph-navigator a dcat:DataService ;
+    rdfs:label "Context Graph Navigator" ;
+    rdfs:comment "Contextual graph exploration starting from a selected entity." ;
+    dcterms:title "Context Graph Navigator" ;
+    dcterms:identifier "urn:component:context-graph-navigator" ;
+    dcat:servesDataset data:space-missions .
+
+ds:service-graph-navigator a dcat:DataService ;
+    rdfs:label "Graph Navigator" ;
+    rdfs:comment "Full graph visualisation of the dataset." ;
+    dcterms:title "Graph Navigator" ;
+    dcterms:identifier "urn:component:graph-navigator" ;
+    dcat:servesDataset data:space-missions .
+
+ds:service-search a dcat:DataService ;
+    rdfs:label "Search" ;
+    rdfs:comment "Semantic search over the knowledge graph using embeddings." ;
+    dcterms:title "Search" ;
+    dcterms:identifier "urn:component:search" ;
+    dcat:servesDataset data:space-missions .
+
+ds:service-solar-system-explorer a dcat:DataService ;
+    rdfs:label "Solar System Explorer" ;
+    rdfs:comment "Interactive solar system visualisation with mission trajectories and event timelines." ;
+    dcterms:title "Solar System Explorer" ;
+    dcterms:identifier "urn:component:solar-missions" ;
+    dcat:servesDataset data:space-missions .
+
+ds:service-graphql-query a dcat:DataService ;
+    rdfs:label "GraphQL Query" ;
+    rdfs:comment "GraphQL query interface over the structured star catalogue." ;
+    dcterms:title "GraphQL Query" ;
+    dcterms:identifier "urn:component:graphql-query" ;
+    dcat:servesDataset data:space-stars .
