@@ -142,6 +142,10 @@ in TrustGraph's row store, queryable via GraphQL and natural language.""" ;
     schema:potentialAction ds:usecase-star-search ,
                            ds:usecase-stellar-classification ;
 
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/space/star-catalog.jpg> ;
+
     # ── Distribution ──
 
     dcat:distribution ds:distribution-stars-csv ;
