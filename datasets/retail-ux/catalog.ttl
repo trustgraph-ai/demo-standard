@@ -74,6 +74,10 @@ compatibility is a graph traversal problem, not string matching.""" ;
                            ds:usecase-compatibility-checking ,
                            ds:usecase-gift-recommendation ;
 
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/retail-ux/retail-products.jpg> ;
+
     # ── Distribution ──
 
     dcat:distribution ds:distribution-products-turtle ;
@@ -128,6 +132,10 @@ on revealed preferences and objection patterns.""" ;
     schema:audience ds:audience ;
     schema:potentialAction ds:usecase-journey-analysis ,
                            ds:usecase-objection-tracking ;
+
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/retail-ux/retail-interactions.jpg> ;
 
     # ── Distribution ──
 
