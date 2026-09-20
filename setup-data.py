@@ -136,7 +136,7 @@ def upload_ontology(api, base_dir, ontology_list):
     print(f"  {len(ontology_list)} ontology config(s) uploaded.")
 
 
-def load_triples_from_file(path, fmt):
+def load_triples_from_file(path, fmt, graph=None):
     g = rdflib.Graph()
     g.parse(path, format=fmt)
     for s, p, o in g:
@@ -146,6 +146,8 @@ def load_triples_from_file(path, fmt):
                 kwargs["o_language"] = str(o.language)
             elif o.datatype:
                 kwargs["o_datatype"] = str(o.datatype)
+        if graph:
+            kwargs["g"] = graph
         yield Triple(**kwargs)
 
 
@@ -158,7 +160,7 @@ def load_entity_contexts_from_file(path, fmt):
         yield {"entity": {"t": "i", "i": str(s)}, "context": str(o)}
 
 
-def load_knowledge(api, base_dir, knowledge_list):
+def load_knowledge(api, base_dir, knowledge_list, graph=None):
     print("Loading knowledge graph triples and entity contexts...")
     bulk = api.bulk()
 
@@ -180,9 +182,9 @@ def load_knowledge(api, base_dir, knowledge_list):
             print(f"  Loading triples from {filename}...")
             count = 0
 
-            def counting_triples(p=path, f=fmt):
+            def counting_triples(p=path, f=fmt, g=graph):
                 nonlocal count
-                for triple in load_triples_from_file(p, f):
+                for triple in load_triples_from_file(p, f, graph=g):
                     count += 1
                     yield triple
 
@@ -394,7 +396,8 @@ def main():
         upload_ontology(api, base_dir, manifest["ontology"])
 
     if not args.skip_knowledge and manifest.get("catalog"):
-        load_knowledge(api, base_dir, manifest["catalog"])
+        load_knowledge(api, base_dir, manifest["catalog"],
+                       graph="urn:graph:catalog")
 
     if not args.skip_knowledge and manifest.get("knowledge"):
         load_knowledge(api, base_dir, manifest["knowledge"])
