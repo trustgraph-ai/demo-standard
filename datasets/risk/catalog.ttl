@@ -77,6 +77,10 @@ exposure mapping, and incident response bottleneck detection.""" ;
                            ds:usecase-incident-response-tracking ,
                            ds:usecase-actor-asset-exposure ;
 
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/risk/thumbnail.jpg> ;
+
     # ── Distribution ──
 
     dcat:distribution ds:distribution-turtle ;

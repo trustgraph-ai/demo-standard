@@ -76,6 +76,10 @@ CAPEC, D3FEND, CVE, and CWE frameworks.""" ;
                            ds:usecase-threat-modelling ,
                            ds:usecase-countermeasure-gap-analysis ;
 
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/hwsec/thumbnail.jpg> ;
+
     # ── Distribution ──
 
     dcat:distribution ds:distribution-turtle ;

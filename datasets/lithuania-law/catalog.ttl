@@ -78,6 +78,10 @@ response, and the balance between security powers and civic rights.""" ;
                            ds:usecase-governance-analysis ,
                            ds:usecase-eu-harmonisation ;
 
+    # ── Preview / Screenshot ──
+
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/lithuania-law/thumbnail.jpg> ;
+
     # ── Distribution ──
 
     dcat:distribution ds:distribution-turtle ;
