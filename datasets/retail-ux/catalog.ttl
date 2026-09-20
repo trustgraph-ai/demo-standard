@@ -19,7 +19,9 @@ cat:retail-ux a dcat:Catalog ;
     dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
     dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> ;
     dcat:dataset data:retail-products ,
-                 data:retail-interactions .
+                 data:retail-interactions ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/retail-ux/thumbnail.jpg> ;
+    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/description.md> .
 
 # ── Publisher ───────────────────────────────────────────────────────
 
@@ -71,14 +73,6 @@ compatibility is a graph traversal problem, not string matching.""" ;
     schema:potentialAction ds:usecase-guided-pc-build ,
                            ds:usecase-compatibility-checking ,
                            ds:usecase-gift-recommendation ;
-
-    # ── Preview / Screenshot ──
-
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/retail-ux/thumbnail.jpg> ;
-
-    # ── Documentation ──
-
-    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/retail-ux/description.md> ;
 
     # ── Distribution ──
 

@@ -19,7 +19,9 @@ cat:lithuania-law a dcat:Catalog ;
     dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ,
                      <http://id.loc.gov/vocabulary/iso639-1/lt> ;
     dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> ;
-    dcat:dataset data:lithuania-law .
+    dcat:dataset data:lithuania-law ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/lithuania-law/thumbnail.jpg> ;
+    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/lithuania-law/description.md> .
 
 # ── Publisher ───────────────────────────────────────────────────────
 
@@ -75,14 +77,6 @@ response, and the balance between security powers and civic rights.""" ;
     schema:potentialAction ds:usecase-compliance-auditing ,
                            ds:usecase-governance-analysis ,
                            ds:usecase-eu-harmonisation ;
-
-    # ── Preview / Screenshot ──
-
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/lithuania-law/thumbnail.jpg> ;
-
-    # ── Documentation ──
-
-    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/lithuania-law/description.md> ;
 
     # ── Distribution ──
 

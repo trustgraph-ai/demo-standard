@@ -19,7 +19,9 @@ cat:space a dcat:Catalog ;
     dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
     dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> ;
     dcat:dataset data:space-missions ,
-                 data:space-stars .
+                 data:space-stars ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/space/thumbnail.jpg> ;
+    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/space/description.md> .
 
 # ── Publisher ───────────────────────────────────────────────────────
 
@@ -75,14 +77,6 @@ current status.""" ;
     schema:audience ds:audience ;
     schema:potentialAction ds:usecase-mission-comparison ,
                            ds:usecase-mission-timeline ;
-
-    # ── Preview / Screenshot ──
-
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/space/thumbnail.jpg> ;
-
-    # ── Documentation ──
-
-    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/space/description.md> ;
 
     # ── Distribution ──
 

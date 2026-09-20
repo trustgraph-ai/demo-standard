@@ -19,7 +19,9 @@ cat:clacton-gambit-2026 a dcat:Catalog ;
     dcterms:publisher <http://trustgraph.ai/organization> ;
     dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
     dcat:themeTaxonomy <http://publications.europa.eu/resource/authority/data-theme> ;
-    dcat:dataset data:clacton-gambit-2026 .
+    dcat:dataset data:clacton-gambit-2026 ;
+    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/game-theory/thumbnail.jpg> ;
+    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/game-theory/description.md> .
 
 # ── Publisher ───────────────────────────────────────────────────────
 
@@ -79,13 +81,8 @@ choose between pre-emptive resignation or awaiting the verdict.""" ;
                            ds:usecase-media-impact-modelling ,
                            ds:usecase-coalition-strategy-assessment ;
 
-    # ── Preview / Screenshot ──
-
-    schema:image <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/master/datasets/game-theory/thumbnail.jpg> ;
-
     # ── Documentation ──
 
-    dcat:landingPage <https://raw.githubusercontent.com/trustgraph-ai/demo-standard/refs/heads/master/datasets/game-theory/description.md> ;
     dcterms:bibliographicCitation "TrustGraph AI. The Clacton Gambit: A Game-Theoretic Model of the 2026 By-election. 2026." ;
 
     # ── Distribution ──
