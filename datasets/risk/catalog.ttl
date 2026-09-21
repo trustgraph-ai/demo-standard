@@ -81,8 +81,8 @@ exposure mapping, and incident response bottleneck detection.""" ;
 
     dcat:distribution ds:distribution-turtle ;
 
-    dcat:accessService ds:service-table-explorer ,
-                       ds:service-document-rag ,
+    dcat:accessService ds:service-graph-rag ,
+                       ds:service-sparql-query ,
                        ds:service-context-graph-navigator ,
                        ds:service-graph-navigator ,
                        ds:service-search ,
@@ -156,6 +156,20 @@ ds:service-document-rag a dcat:DataService ;
     rdfs:comment "Retrieval-augmented generation query interface over the dataset." ;
     dcterms:title "Document RAG" ;
     dcterms:identifier "urn:component:document-rag" ;
+    dcat:servesDataset data:risk .
+
+ds:service-graph-rag a dcat:DataService ;
+    rdfs:label "Graph RAG" ;
+    rdfs:comment "Retrieval-augmented generation over the knowledge graph." ;
+    dcterms:title "Graph RAG" ;
+    dcterms:identifier "urn:component:graph-rag" ;
+    dcat:servesDataset data:risk .
+
+ds:service-sparql-query a dcat:DataService ;
+    rdfs:label "SPARQL Query" ;
+    rdfs:comment "Execute SPARQL queries against the knowledge graph." ;
+    dcterms:title "SPARQL Query" ;
+    dcterms:identifier "urn:component:sparql-query" ;
     dcat:servesDataset data:risk .
 
 ds:service-context-graph-navigator a dcat:DataService ;
