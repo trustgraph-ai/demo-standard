@@ -193,7 +193,7 @@ ds:service-sparql-query a dcat:DataService ;
     rdfs:label "SPARQL Query" ;
     rdfs:comment "Execute SPARQL queries against the knowledge graph." ;
     dcterms:title "SPARQL Query" ;
-    dcterms:identifier "urn:component:sparql-query" ;
+    dcterms:identifier "urn:component:sparql" ;
     dcat:servesDataset data:clacton-gambit-2026 .
 
 ds:service-context-graph-navigator a dcat:DataService ;
